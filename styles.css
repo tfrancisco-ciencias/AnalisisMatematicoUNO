@@ -163,15 +163,6 @@ h2.number-title:before{
 
 
 .teorema-box{
-    /*background: rgb(181,255,114);
-    background: radial-gradient(circle,
-    rgba(181,255,114,1) 0%, rgba(181,255,233,1) 100%);
-
-    background: rgb(114,233,255);
-    background: radial-gradient(circle, rgba(114,233,255,1) 0%, rgba(181,255,249,1) 100*/
-
-    /*background: rgb(251,161,255);
-    background: radial-gradient(circle, rgba(251,161,255,1) 0%, rgba(252,255,181,1) 100%);*/
     background: rgb(244, 245, 206);
     border-radius: 25px;
     padding: 20px;
