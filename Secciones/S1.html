@@ -66,7 +66,7 @@
     <div class="flexbox">
       <h1 class="number-title"> Conjuntos </h1>
 
-        <div class="definicion-box">
+        <div class="definicion-box ">
           <h2 class="number-title"> Definición </h2>
           <p>
             Decimos que dos conjuntos, \(A\) y \(B\), son equivalentes
@@ -86,7 +86,16 @@
             la forma \(\{1,\dots, n\}\), con \(n\in \mathbb{N}=\{1,2,\dots\}\).
           </p>
           <p>
-            Un conjunto se llama <i>infinito</i> si no es finito.
+            Un conjunto se llama <i>infinito</i> si no es finito.</p>
+            <p>Por ejemplo,
+            \(\mathbb{N}\) es infinito, razón: </p>
+            <p>
+            para cualquier
+             \(n\in \mathbb{N}\) y cualquier función inyectiva
+            \(f:\{1,2,\dots, n\} \to \mathbb{N}\), tenemos que
+            \(\max\{ f(1), f(2),\dots, f(n)  \}+1 \in \mathbb{N}\)
+            no es imagen de ningún elemento de \(\{1,\dots, n\}\),
+            por lo tanto \(f\) no es suprayectiva.
           </p>
 
           <p>
@@ -96,14 +105,46 @@
             Un conjunto se llama <i>contable</i> si es finito o numerable.
           </p>
 
+          <p>
+            La idea de que dos conjuntos sean equivalentes es que
+            ambos vana  tener la misma cantidad de elementos.
+          </p>
+
+          <div class="flexbox">
+            <a href="https://youtu.be/igvjW6JXIDM" target="_blank"> Video con ejemplos de conjuntos equivalentes. </a>
+          </div>
+
+          <p>
+            Hay que tener un poco de cuidado y desarrollar una intuición sobre
+            lo que significa que dos conjuntos sean equivalentes, pues nuestra
+            mente no viene programada para tratar con conjuntos infinitos. Ver
+            el video del hotel infinito de Hilbert para darse una idea.
+          </p>
+
+          <div class="flexbox">
+            <a href="https://youtu.be/Uj3_KqkI9Zo" target="_blank"> Video del Hotel infinito de Hilbert. </a>
+          </div>
+
         </div>
 
 
 
-        <div class="nota-box">
-          <h2 class="number-title"> Ejemplos </h2>
 
+        <div class="lema-box">
+          <h2 class="number-title"> Lema </h2>
+          <p>
+            La noción de conjuntos equivalentes define una relación de
+            equivalencia.
+          </p>
+            <button class="respButton hvr-grow"> Demostración </button>
+            <div class="resp-box">
+            <div class="video flexbox">
+              <a href="https://youtu.be/4X7uGxmjI5M" target="_blank"> Video  </a>
+            </div>
+          </div>
         </div>
+
+
 
         <div class="lema-box">
           <h2 class="number-title"> Lema </h2>
@@ -111,6 +152,12 @@
             Si \(A\subseteq \mathbb{N}\) es infinito entonces
             \(A\) es equivalente a \(\mathbb{N}\).
           </p>
+          <button class="respButton hvr-grow"> Demostración </button>
+          <div class="resp-box">
+          <div class="video flexbox">
+            <a href="https://youtu.be/AH19SmhLS-g" target="_blank"> Video  </a>
+          </div>
+        </div>
         </div>
 
         <div class="ejercicio-box">
@@ -134,6 +181,10 @@
             Prueba que si \(A\) es infinito y \(B\) es contable
             entonces \(A\) y \(A\cup B\) son equivalentes.
           </p>
+          <p>
+            Sugerencia: usar el ejercicio anterior para "acomodar"
+            a \(B\) en una parte de \(A\).
+          </p>
         </div>
 
 
@@ -144,6 +195,9 @@
             \(A_1\) y \(A_2\) son equivalentes y
             \(B_1\) y \(B_2\) son equivalentes. Prueba que
             \(A_1\times B_1\) es equivalente a \(A_2\times B_2\).
+          </p>
+          <p>
+            Sugerencia: tomar producto cartesiano de funciones.
           </p>
         </div>
 
@@ -188,6 +242,9 @@
             <p>
               Prueba que \(\mathbb{Q}\) es numerable.
             <p>
+              <p>
+                Sugerencia: usa el teorema anterior.
+              </p>
           </div>
 
           <div class="ejercicio-box">
@@ -237,6 +294,9 @@
               conjuntos infinitos, ajenos dos a dos.
             </p>
 
+            <p>
+              Sugerencia: usa que \(\mathbb{N}\sim \mathbb{N}\times \mathbb{N}\).
+            </p>
           </div>
 
           <div class="teorema-box">
@@ -246,14 +306,31 @@
               inyectivas \(f:A\to B\) y \(g:B\to A\). Entonces
               \(A\) y \(B\) son equivalentes.
             </p>
+
+            <button class="respButton hvr-grow"> Demostración </button>
+            <div class="resp-box">
+            <div class="video flexbox">
+              <a href="https://youtu.be/jx_PLtNKRps" target="_blank"> Video  </a>
+            </div>
+          </div>
           </div>
 
           <div class="ejercicio-box">
             <h2 class="number-title"> Ejercicio </h2>
             <p>
+              Dado un natural \(r \in\mathbb{N} \)
+              por \(\mathbb{N}^r \) denotamos el producto cartesiano
+              de \(\mathbb{N}\) con sigo mismo \(r\)-veces.
+            </p>
+            <pp>
               Usando el Teorema de Bernstein da una prueba de que
-              \(\mathbb{N}\) y \(\mathbb{N}\times \mathbb{N}\) son equivalentes.
-
+              \(\mathbb{N}\) y \(\mathbb{N}^r\) son equivalentes.
+            </p>
+            <p>
+              Sugerencia: nota que si \(p_1,\dots p_r\) son
+              \(r\) primos distintos entonces
+              \(p_1^{n_1}\dots p_{r}^{n_r}=p_1^{m_1}\dots p_{r}^{m_r}\)
+              si y sólo si \(n_i=m_i\) para toda \(i\).
             </p>
 
           </div>
