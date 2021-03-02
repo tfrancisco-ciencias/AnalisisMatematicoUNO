@@ -14,17 +14,22 @@ html, body{
 }
 
 
-.fondo{
-  background:  /*rgb( 245, 229, 181 )*/ rgb(244, 245, 206);
+.fondo-body{
+  background:  rgb(255, 232, 224);
+  color: black;
 }
 
-/*.fondo-info{
-  background: rgb(63,94,251);
-  background: rgb(120,158,252);
-  background: linear-gradient(90deg,
-    rgba(120,158,252,1) 0%, rgba(116,206,254,1) 50%, rgba(111,176,236,1) 100%);
+.fondo-body-dark{
+  background: #121212;
+  color: rgb( 165, 105, 189 );
 }
-*/
+
+.fondo{
+  background: rgb( 255, 249, 205 );
+  color: black;
+}
+
+
 
 .flexbox{
   display: flex;
@@ -248,7 +253,7 @@ h2.number-title:before{
     background: rgb(244, 245, 206);
     border-radius: 25px;
     padding: 20px;
-    border: 10px solid rgba(217,255,203,0.5);
+    border: 10px solid rgb( 82, 190, 128 ,0.5);
     margin: 20px;
     font-size: 20px;
 }
@@ -260,7 +265,7 @@ h2.number-title:before{
     color:  rgb( 165, 105, 189 );
     border-radius: 25px;
     padding: 20px;
-    border: 10px solid rgba(217,255,203,0.5);
+    border: 10px solid rgb( 82, 190, 128 ,0.5);
     margin: 20px;
     font-size: 20px;
 }
@@ -365,4 +370,11 @@ h2.number-title:before{
 .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+.darklightButton{
+    display: block;
+    border-radius: 15px;
+    border: 10px black;
+    font-size: 20px;
 }
