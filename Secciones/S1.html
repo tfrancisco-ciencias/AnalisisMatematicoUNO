@@ -279,8 +279,46 @@
           <h2 class="number-title"> Ejercicio </h2>
           <p>
             Prueba que \((0,1)\) y \((0,1]\) son equivalentes.
-           </p>
-
+          </p>
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+              <p>
+                  Considere la siguiente función. \[f(x) =
+                  \begin{cases}
+                  x \text{ si x es irracional}, \\
+                  x \text{ si } x=\frac{p}{q} \text{ con }p>1,\\
+                  \frac{1}{n-1} \text{ si } x=\frac{1}{n} \text{ y } n\geq 2,
+                  \end{cases}\]
+                  donde \(x = \frac{p}{q}\) es la representación de un racional
+                  en primos relativos. Comencemos por notar que si \(x \in (0,1)\)
+                  entonces \(x\) es racional o irracional, y si es racional de la
+                  forma \(\frac{p}{q}\) entonces \(p,q \geq 1\). Adicionalmente
+                  \(1 \notin (0,1)\), por lo que \(f\) está bien definida.
+              </p>
+              <p>
+                  Supongamos que \(f(x) = f(y)\). Podemos considerar el caso en
+                  que \(f(x)\) es irracional y el caso en que es racional. Por
+                  definición, \(x\) es racional si y sólo si \(f(x)\) lo es, por
+                  lo que \(x\) es racional si y sólo si \(y\) también lo es. La
+                  restricción de \(f\) a \(\mathbb{I}\) es la identidad, por lo
+                  que es inyectiva en dicho subconjunto. Note que \(\frac{1}{n}\) y
+                  \(\frac{1}{n-1}\) son representaciones de números racionales en
+                  primos relativos, por lo que la restricción \(f\) a \(\mathbb{Q} \cap (0,1)\)
+                  también es inyectiva, y por la primera observación se tiene que
+                  necesariamente \(x = y\), es decir, \(f\) es inyectiva.
+              </p>
+              <p>
+                  Para demostrar que la función es sobreyectiva también separamos
+                  el problema en casos. Si \(y \in (0,1]\) es irracional, entonces
+                  \(y \in (0,1)\) y \(f(y) = y\). Si \(y\) es racional, entonces es
+                  de la forma \(y = \frac{p}{q}\) con \(p,q\) primos relativos. Si
+                  \(p > 1\) entonces nuevamente se observa que \(y = \frac{p}{q} = f(y)\).
+                  Finalmente, si \(y = \frac{1}{n}\) entonces notamos que \(n+1 \geq 2\) y
+                  que \(y = \frac{1}{n} = \frac{1}{(n+1) - 1} = f(\frac{1}{n+1})\).
+                  Se concluye que \(f\) es sobreyectiva y que los conjuntos propuestos
+                  son equivalentes.
+              </p>
+          </div>
         </div>
 
         <div class="teorema-box">
