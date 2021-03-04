@@ -65,51 +65,415 @@
 
 
     <div class="flexbox">
-      <h1 class="number-title"> El conjunto de Cantor </h1>
+      <h1 class="number-title"> El conjunto de Cantor, espacios métricos. </h1>
 
 
+      <div class="info-box">
+        <h2 class="number-title"> Introducción </h2>
+        
+
+      </div>
 
       <div class="definicion-box">
-        <h2 class="number-title"> El conjunto de Cantor </h2>
+        <h2 class="number-title"> Definición. El conjunto de Cantor. </h2>
         <p> Se inicia con el intervalo unitario
           \[
-          I_0=[0,1]
+          F_0=[0,1]
           \]
         </p>
 
         <p>
-          \(I_0\) se parte en tres partes iguales y se remueve el intervalo
+          \(F_0\) se parte en tres partes iguales y se remueve el intervalo
           abierto que corresponde a la parte de en medio
           \[
-          I_1=\left[0, \frac{1}{3} \right] \cup \left[\frac{2}{3},1 \right].
+          F_1=\left[0, \frac{1}{3} \right] \cup \left[\frac{2}{3},1 \right].
           \]
-          Si \(J_1=(1/3,2/3)\) (parte de en medio), \(I_1=J_1^c\).
+          Entonces \(F_1\) es la unión de \(2^1=2\) intervalos
+          cerrados de la forma \([k/3,(k+1)/3]\), para
+          \(k=0,2\)
         </p>
         <p>
           Se sigue el mismo procedimiento, partiendo cada subintervalo
-          de \(I_1\) en tres partes iguales y removiendo los intervalos
+          de \(F_1\) en tres partes iguales y removiendo los intervalos
           abiertos correspondientes a la parte de en medio.
           \[
-          I_2=\left[0, \frac{1}{9} \right] \cup \left[\frac{2}{9},\frac{1}{3} \right]
+          F_2=\left[0, \frac{1}{9} \right] \cup \left[\frac{2}{9},\frac{1}{3} \right]
           \cup \left[\frac{2}{3},\frac{7}{9} \right] \cup
-          \left[\frac{8}{9}  ,1 \right].  
+          \left[\frac{8}{9}  ,1 \right].
           \]
+          Entonces \(F_2\) es la unión de \(2^2=4\) intervalos
+          cerrados de la forma \([k/3^2,(k+1)/3^2]\), para
+          \(k=0,2,6,8\).
+        </p>
+
+        <p>
+          Siguiendo con ésta construcción, \(F_n\) es la unión de
+          \(2^n\) intervalos cerrados, de la forma \([k/3^n, (k+1)/3^n]\),
+          para ciertos valores de \(k\). Para construir
+          \(F_{n+1}\), cada subintervalo de \(F_n\) se parte en tres partes
+          iguales removiendo el intervalo abierto que corresponde a la mitad
+          de en medio.
+
+        </p>
+
+        <p>
+          El conjunto de Cantor es lo que "queda" al aplicar este proceso
+          hasta el infinito, es decir se define como el conjunto
+          \[
+          \Delta:= \cap_{n=1}^\infty F_n
+          \]
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+
+        <p>
+          Sean \(a,b\in \mathbb{R}\) con \(a< b\) y fija
+          \(x\in [a,b)\).
+        </p>
+        <p>
+          Divide el intervalo \([a,b]\) en tres partes iguales, digamos
+          que los puntos de esta partición son \(a=t_0< t_1 < t_2 < t_3=b \).
+           Entonces existe un
+          único \(i=0,1,2\) tal que \(x\in [t_{i}, t_{i+1})\). Define
+          \[
+          \alpha=i \quad \textrm{si \(x\in [t_i, t_{i+1})\)}
+          \]
+          Es decir, \(\alpha=0\) si \(x\) está en el primer tercio de
+          \([a,b)\), \( \alpha=1\) si está en el segundo y
+          \(\alpha=2\) si está en el tercero.
+         </p>
+         <p>
+           Toma \(s:=\frac{\alpha}{3}(b-a)\). Prueba que:
+           \[
+           |a+s-x| \leq \frac{b-a}{3}.
+           \]
+         </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Todo elemento \(x\in [0,1]\) admite una representación ternaria, es decir
+          se puede escribir
+          \[
+          x = \sum_{n=1}^\infty \frac{\alpha_n}{3^n}
+          \]
+          donde \(\alpha_n\in \{0,1,2\}\).
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          <ol>
+            <li>Encuentra dos representaciones ternarias distintas de
+          los siguientes números: \(1/3, 2/3, 1/9\).
+          </li>
+          <li> Encuentra la representación ternaria de \(1/2\) y
+            prueba que es única.
+          </li>
+        </p>
+      </div>
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+          \(x\in \Delta\) si y sólo si \(x\) admite una representación ternaria
+          \[
+          x=\sum_{n=1}^\infty \frac{\alpha_n}{3^n}
+          \]
+          donde \(\alpha_n\in \{0,2\}\).
         </p>
 
       </div>
 
+      <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba que \(\Delta\) es no numerable.
+          </p>
+          <p>
+            Entonces, desde el punto de vista de conjuntos equivalentes
+            (cardinalidades), \(\Delta\) es "grande".
+          </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Prueba que todo intervalo abierto de la forma, \((a,b)\), que
+          contiene un punto de \(\Delta\) también contiene un subintervalo
+          "de en medio", de los que se removieron para formar \(\Delta\).
+        </p>
+        <p>
+          Como consecuencia, \(\Delta\) no contiene intervalos abiertos
+          no vacíos.  Entonces, desde el punto de vista de los intervalos, \(\Delta\)
+          es "chico".
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Por \([0,1]\setminus \Delta\) denotamos el complemento de
+          \(\Delta\) en \([0,1]\). Demuestra que \([0,1]\setminus \Delta \)
+          tiene longitud 1. Entonces, desde el punto de vista de longitudes
+          \(\Delta\) es "chico".
+        </p>
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \(X\) un conjunto no vacío. Una métrica
+          en \(X\) es una función \(d:X\times X \to \mathbb{R}\)
+          que satisface, para todos \(x,y,z\in X\):
+          <ol>
+            <li>  \(d(x,y) \geq 0\), </li>
+            <li> \(d(x,y)=0\) si y sólo si \(x=y\), </li>
+            <li>  \(d(x,y)=d(y,x)\),</li>
+            <li> desigualdad del triángulo: \(d(x,y)\leq d(x,z)+d(z,y)\).</li>
+          </ol>
+        </p>
+        <p>
+          Un espacio métrico es una pareja \((X,d)\), donde
+          \(X\) es un conjunto no vacío y \(d\) es una métrica en \(X\).
+        </p>
+        <div> Video con ejemplos </div>
+      </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Prueba que \(d(x,y)=\left| \frac{1}{x}-\frac{1}{y} \right| \)
+        es una métrica en \((0,\infty)\).
+      </p>
+    </div>
 
 
 
 
 
+    <div class="ejercicio-box">
+      <h2 class="number-title" id="Ejer:LaOtraDesigTri"> Ejercicio </h2>
+      <p>
+        La otra desigualdad del triángulo.
+      </p>
+      <p>
+        Sea \((X,d)\) un espacio métrico. Prueba que para todos \(x,y,z\in X\)
+        \[
+        |d(x,z)-d(y,z)|\leq d(x,y).
+        \]
+      </p>
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico. Define una nueva
+        función \(\rho:X\times X \to \mathbb{R}\) dada por
+        \[
+        \rho(x,y)=\frac{d(x,y)}{1+d(x,y)}
+        \]
+        Prueba que \(\rho\) es una métrica.
+      </p>
+      <p>
+        Sugerencia: considera la función \(\varphi:[0,\infty)\to [0,1)\)
+        dada por \(\varphi(t)=\frac{t}{1+t}\). Primera prueba que
+        \(\varphi\) es monótona creciente y que \(\varphi(s+t)\leq \varphi(s)+\varphi(t)\).
+      </p>
+    </div>
 
 
 
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Por \(\{0,1\}^{\mathbb{N}}\) denotamos al conjunto de todas
+        las suceciones de 0's y 1's. Es decir \(a\in \{0,1\}^{\mathbb{N}}\)
+        si y sólo si \(a=(a_n)_{n=1}^{\infty}\), con \(a_n\in \{0,1\}\), para
+        toda \(n\).
+      </p>
+      <p>
+        En \(\{0,1\}^{\mathbb{N}}\) define
+        \[
+        d(a,b)=\sum_{n=1}^\infty \frac{1}{2^n}|a_n-b_n|
+        \]
+        Prueba que \(d\) es una métrica en \(\{0,1\}^{\mathbb{N}}\).
+      </p>
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Por \(\mathbb{R}^{\mathbb{N}}\) denotamos el conunto de todas
+        las sucesiones de números reales. Es decir, \(x\in \mathbb{R}^{\mathbb{N}} \)
+        si y sólo si \(x=(x_n)_{n=1}^\infty\), con \(x_n\in \mathbb{R}\).
+      </p>
+      <p>
+        En \(\mathbb{R}^{\mathbb{N}}\) define
+        \[
+        d(x,y)=\sum_{n=1}^\infty \frac{1}{n!}\frac{|x_n-y_n|}{1+|x_n-y_n|}.
+        \]
+        Pruena que \(d\) es una métrica en \(\mathbb{R}^{\mathbb{N}}\).
+      </p>
+
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Por \(C[a,b]\) denotamos al conjunto de funciones continuas en
+        el intervalo \([a,b]\). En \(C[a,b]\) define
+        \[
+        d_\infty(f,g)=\max_{t\in [a,b]}\{ |f(t)-g(t)| \},
+        \quad d_1(f,g)=\int_a^b |f(t)-g(t)|dt.
+        \]
+        Prueba que \(d_\infty\) y \(d_1\) son métricas en \(C[a,b]\).
+      </p>
+
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sean \(d_1,d_2:X\times X \to \mathbb{R}\) dos métricas en \(X\).
+        <ol>
+          <li> Sea \(c>0\). Prueba que \(cd_1+d_2\) es una métrica en \(X\).</li>
+          <li> ¿Cuál de las siguientes funciones define una métrica en \(X\) ?
+            \[
+            d(x,y)=\max\{ d_1(x,y), d_2(x,y)\}, d(x,y)= \min\{d_1(x,y),d_2(x,y)\}
+            \]
+            Prueba o da un contraejemplo, según corresponda.
+          </li>
+      </p>
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Supongamos que \((X,d_X\), \((Y,d_Y)\) son dos espacios métrios.
+        Define
+        \begin{eqnarray*}
+        d((x_1,y_1),(x_2,y_2))&=& d_X(x_1,x_2)+d_Y(y_1,y_2),\\
+        \rho((x_1,y_1),(x_2,y_2)) &=& \max\{d_X(x_1,x_2), d_Y(y_1,y_2)  \}
+        \end{eqnarray*}
+        Prueba que \(d\) y \(\rho\) son métricas  en \(X\times Y\).
+      </p>
+
+    </div>
 
 
 
+    <div class="ejercicio-box">
+      <h2 class="number-title" id="Ejer:MetricasGeneradasPorFunciones"> Ejercicio </h2>
 
+      <p>
+        Sea \(f:[0,\infty)\to [0,\infty)\) una función que satisface
+        <ul>
+          <li> \(f(0)=0\), </li>
+          <li> \(f(x)>0\) para \(x>0\),</li>
+          <li> \(f(x+y)\leq f(x)+f(y)\), para todos \(x,y\). </li>
+        </ul>
+
+      </p>
+
+      <p>
+        Sea \((X,d)\) un espacio métrico. Prueba que \(\rho(x,y):= f(d(x,y)) \)
+        es una métrica en \(X\).
+      </p>
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico. Define, \(\rho,\sigma:X\times X\to \mathbb{R}\)
+        por
+        \[
+        \rho(x,y)=\min\{d(x,y),1\}, \quad \sigma(x,y)=\sqrt{d(x,y)}
+        \]
+        Prueba que \(\rho\) y \(\sigma\) son métricas.
+      </p>
+      <p>
+        Sugerencia: utiliza el <a  href="#Ejer:MetricasGeneradasPorFunciones">Ejercicio</a> .</p>
+      </p>
+    </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \(\rho:X\times X\to \mathbb{R}\) una función que satisface,
+            para todos \(x,y,z\in X\):
+            <ol>
+              <li> \(\rho(x,y) = 0\) si y sólo si \(x=y\), </li>
+              <li> \(\rho(x,y) \leq \rho(x,z)+\rho(z,y)\).</li>
+            </ol>
+            Prueba que \(\rho\) es una métrica en \(X\).
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title" id="Ejer:ConjuntoAcotado"> Ejercicio </h2>
+          <p>
+            Un subconjunto \(A\) de un espacio métrico \((X,d)\) se llama
+            acotado si existe un r>0 y un punto \(x_0\) en \(X\) tal que
+            \(d(a,x_0) \leq r\), para toda \(a\in A\).
+          </p>
+          <p>
+            Prueba que la unión finita de subconjuntos acotados sigue siendo
+            acotada.
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title" id="Ejer:Diametro"> Ejercicio </h2>
+          <p>
+            Dado un subconjunto \(A\ne \emptyset\) de un espacio métrico \((X,d)\),
+            se define si diámetro como
+            \[
+            \operatorname{diam}(A)=\sup_{a,b\in A}\{d(a,b)\}.
+            \]
+            Nota: el diametro puede ser infinito si \(\{d(a,b):a,b\in A\}\)
+            no está acotado superiormente.
+          </p>
+          <p>
+            Prueba que \(A\) está acotado si y sólo si \(\operatorname{diam}(A)<\infty\).
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+
+          <p>
+            Dados dos subconjuntos no vacíos, \(A, B\), de un espacio
+            métrico \((X,d)\), se define la distancia entre ellos como
+            \[
+            d(A,B)=\inf_{a\in A, b\in B}\{ d(a,b)\}
+            \]
+          </p>
+
+          Prueba que
+          \[
+          \operatorname{diam}(A\cup B) \leq \operatorname{diam}(A)+d(A,B)+
+          \operatorname{diam}(B).
+          \]
+        </div>
 
     </div>
   </body>
