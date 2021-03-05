@@ -70,7 +70,7 @@
 
       <div class="info-box">
         <h2 class="number-title"> Introducción </h2>
-        
+
 
       </div>
 
@@ -179,6 +179,22 @@
         </p>
       </div>
 
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Los puntos inicial y final de cada \(F_n\) en \(\Delta\) son de
+          la forma \(k/3^n\), con \(0 \leq k \leq 3^n \). Sea \(x \in (0,1)\)
+          un punto inicial o final de algún \(F_n\). Prueba que \(x\) puede
+          expresarse como
+          \[
+          x=\sum_{i=1}^{n+1} \frac{\alpha_i}{3^i}
+          \]
+          donde \(\alpha_i\in\{ 0,2\}\), para \(i=1,\dots, n\) y
+          \(\alpha_{n+1}\in \{1,2\}\).
+        </p>
+      </div>
+
       <div class="teorema-box">
         <h2 class="number-title"> Teorema </h2>
         <p>
@@ -227,6 +243,33 @@
           \(\Delta\) es "chico".
         </p>
       </div>
+
+
+      <div class="ejercicio-box" id="Ejer:EscaleraCantor">
+        <h2 class="number-title">  Ejercicio </h2>
+        <p>
+          Para \(x\in [0,1]\), toma una representación ternaria
+          \[
+          x=\sum_{i=1}^\infty \frac{\alpha_i }{3^i}
+          \]
+          Sea \(N=N(x)\in \mathbb{N}\) el primer índice para el cual
+          \(\alpha_N=1\), tal tal \(N\) no existe se toma \(N(x)=\infty\).
+        </p>
+        <p>
+          Define \(\Psi:[0,1]\to [0,1]\) por
+          \[
+          \Psi(x)=\sum_{i=1}^{N-1}\frac{\beta_i}{2^i}+\frac{1}{2^N}, \quad
+          \beta_i=\frac{\alpha_i}{2}
+          \]
+          La función \(\Psi\) se le llama la escalera de Cantor.
+        </p>
+        <p>
+          Prueba que \(\Psi\) está bien definida, es decir, no
+          depende de la representación ternaria de \(x\) y que
+          \(\Psi\) es no decreciente.
+        </p>
+      </div>
+
 
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
