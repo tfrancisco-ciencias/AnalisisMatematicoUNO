@@ -461,11 +461,11 @@
           <h2 class="number-title"> Ejercicio </h2>
 
           <p>
-            Dados dos subconjuntos no vacíos, \(A, B\), de un espacio
-            métrico \((X,d)\), se define la distancia entre ellos como
-            \[
-            d(A,B)=\inf_{a\in A, b\in B}\{ d(a,b)\}
-            \]
+              Dados dos subconjuntos no vacíos, \(A, B\), de un espacio
+              métrico \((X,d)\), se define la distancia entre ellos como
+              \[
+              d(A,B)=\inf_{a\in A, b\in B}\{ d(a,b)\}
+              \]
           </p>
 
           Prueba que
@@ -473,6 +473,54 @@
           \operatorname{diam}(A\cup B) \leq \operatorname{diam}(A)+d(A,B)+
           \operatorname{diam}(B).
           \]
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+              <p>
+                  De la definición de \(\operatorname{diam}\) y \(d(A,B)\) tenemos
+                  las siguientes afirmaciones:
+              </p>
+              <p>
+                  Si \(a,b \in A\) entonces \(d(a,b) \leq \operatorname{diam}(A)\)
+                  y en consecuencia \( d(a,b) \leq \operatorname{diam}(A)
+                  +d(A,B)+ \operatorname{diam}(B).\)
+              </p>
+              <p>
+                  Análogamente, si \(a,b \in B\) entonces \(d(a,b) \leq \operatorname{diam}(B)\)
+                  y \( d(a,b) \leq \operatorname{diam}(A) +d(A,B)+ \operatorname{diam}(B).\).
+              </p>
+              <p>
+                  Si \(x \in A\) y \(y \in B\) entonces \(d(A,B) \leq d(x,y)\).
+              </p>
+              <p>
+                  Si \(a,x \in A\)  y \(b,y \in B\) deducimos por medio de la desigualdad
+                  del triángulo y las afirmaciones anteriores que
+                  \[
+                  d(a,b) \leq d(a,x) + d(x,y) + d(y,b) \leq \operatorname{diam}(A) + d(x,y) +
+                  \operatorname{diam}(B).
+                  \]
+              </p>
+
+              <p>
+                  Al tomar el ínfimo del lado derecho de la desigualdad anterior observamos
+                  \[
+                  d(a,b) \leq \operatorname{diam}(A) + \inf_{x \in A,y \in B}d(x,y) +
+                  \operatorname{diam}(B) = \operatorname{diam}(A) + d(A,B) +
+                  \operatorname{diam}(B).
+                  \]
+              </p>
+              <p>
+                  Para concluir basta notar que ya hemos probado que la desigualdad anterior es
+                  verdadera si \(a,b \in A\), si \(a,b \in B\) y si \(a \in A, b\in B\), por lo
+                  que es válida para \(a, b \in A \cup B\). Al tomar supremo del lado izquierdo
+                  obtenemos el resultado deseado:
+                  \[
+                  \operatorname{diam}(A \cup B) = \sup_{a,b \in A \cup B} d(a,b) \leq
+                  \operatorname{diam}(A) + d(A,B) + \operatorname{diam}(B).
+                  \]
+              </p>
+
+          </div>
         </div>
 
     </div>
