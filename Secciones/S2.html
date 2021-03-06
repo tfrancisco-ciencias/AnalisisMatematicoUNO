@@ -306,6 +306,29 @@
         Prueba que \(d(x,y)=\left| \frac{1}{x}-\frac{1}{y} \right| \)
         es una métrica en \((0,\infty)\).
       </p>
+
+      <button class="respButton hvr-grow"> Respuesta </button>
+      <div class="resp-box">
+          <p>
+              Empecemos por notar que si \(x,y \in (0,\infty)\) entonces \(\frac{1}{x}\)
+              y \(\frac{1}{y}\) están bien definidos. Asímismo, \(\left|z \right| \geq 0\)
+              para toda \(z \in \mathbb{R}\) y es \(0\) únicamente cuando \(z = 0\), es
+              decir, cuando \(\frac{1}{x} = \frac{1}{y}\). Como \(x,y \neq 0\) podemos
+              multiplicar de ambos lados por éstos para obtener que \(x = y\). La simetría
+              se debe a que \(\left| z \right| = \left| -z \right|\) y \(d(y,x) =
+              \left| -(\frac{1}{x} - \frac{1}{y})\right| \).
+          </p>
+          <p>
+              Para terminar bastará probar la desigualdad del triángulo, pero ello es
+              consecuencia directa de la desigualdad del triángulo para el valor absoluto.
+              Si \(z \in (0,\infty)\) entonces
+              \[
+              d(x,y) = \left| \frac{1}{x} - \frac{1}{y} \right| = \left| \frac{1}{x} - \frac{1}{z}
+              + \frac{1}{z} - \frac{1}{y} \right| \leq \left| \frac{1}{x} - \frac{1}{z}\right|
+              + \left| \frac{1}{z} - \frac{1}{y} \right| = d(x,z) + d(z,y).
+              \]
+          </p>
+      </div>
     </div>
 
 
