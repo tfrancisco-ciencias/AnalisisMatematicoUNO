@@ -146,11 +146,44 @@
           \(\alpha=2\) si está en el tercero.
          </p>
          <p>
-           Toma \(s:=\frac{\alpha}{3}(b-a)\). Prueba que:
+           Toma \(s=\frac{\alpha(b-a)}{3}\). Prueba que:
            \[
-           |a+s-x| \leq \frac{b-a}{3}.
+           |a+s-x| \leq \frac{b-a}{3}
            \]
+           y \(x\in [a+s,a+s+ (b-a)/3 )\).
          </p>
+
+         <button class="respButton hvr-grow"> Demostración </button>
+         <div class="resp-box">
+         <p>
+           Primero notamos que \(t_0=a, t_1=a+\frac{b-a}{3}, t_2=a+\frac{2(b-a)}{3}, t_3=b\).
+           Tenemos varios casos.
+         </p>
+         <p>
+           Caso \(x\in [t_0,t_1)\). En este caso, \(\alpha=0\)
+           y \(s=0\). Por lo tanto
+           \[
+           |a+s-x|=|a-x|=|t_0-x| \leq t_1-t_0 = \frac{b-a}{3}
+           \]
+           y ya que \(t_0=a+s, t_1=a+s+\frac{b-a}{3}\) resulta que \(x\in [a+s,a+s+(b-a)/3)\).
+         </p>
+         <p>
+           Caso \(x\in [t_1,t_2)\). En este caso, \(\alpha=1\)
+           y \(s=\frac{b-a}{3}\). Por lo tanto \(a+s=t_1\),
+           \[
+           |a+s-x|=|t_1-x| \leq t_2-t_1 = \frac{b-a}{3}
+           \]
+           y \(x\in [t_1,t_2)=[a+s,a+s+(b-a)/3).\)
+         </p>
+         <p>
+           Caso \(x\in [t_2,t_3)\). En este caso, \(\alpha=2\)
+           y \(s=\frac{2(b-a)}{3}\). Por lo tanto \(a+s=t_2\),
+           \[
+           |a+s-x|=|t_2-x| \leq t_3-t_2 = \frac{b-a}{3}
+           \]
+           y \(x\in [t_2,t_3)=[a+s.a+s+(b-a)/3)\).
+         </p>
+       </div>
       </div>
 
 
@@ -164,6 +197,50 @@
           \]
           donde \(\alpha_n\in \{0,1,2\}\).
         </p>
+
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          Primero notamos que, para el caso \(x=1\) tenemos, por series
+          geométricas
+          \[
+          \sum_{i=1}^\infty\frac{2}{3^i}=2\frac{\frac{1}{3}}{1-\frac{1}{3}}=1.
+          \]
+          Así, podemos suponer \(x\in [0,1)\). Ahora aplicamos el ejercicio anterior.
+        </p>
+        <p>
+          Tomando \(a=0, b=1\), \(\alpha_1\) y \(s_1\) como la \(\alpha\) y \(s\)
+          del ejercicio anterior, tenemos que
+          \[
+          |a+s-x|=\left|\frac{\alpha_1}{3}-x\right|  \leq \frac{b-a}{3}=\frac{1}{3}.
+          \]
+          Notamos que \(x\in  [s_1 , s_1+(b-a)/3)=[s_1,s_1+1/3)\).
+        </p>
+        <p>
+          Tomando \(a=s_1, b=s_1+1/3\), \(\alpha_2\) y \(s_2\) como la \(\alpha\)
+          y la \(s\) del ejercicio anterior, tenemos que
+          \[
+          |a+s-x|=\left|\frac{\alpha_1}{3}+\frac{\alpha_2}{3^2}-x\right|\leq
+          \frac{b-a}{3}=\frac{1}{3^2}.
+          \]
+          Notamos que \(x\in [s_1+s_2,s_1+s_2+ (b-a)/3)=[s_1+s_2,s_1+s_2+1/3^2)\).
+        </p>
+        <p>
+          Continuando con este proceso, si
+          \(x\in[s_1+\cdots +s_n, s_1+\cdots+s_n+\frac{1}{3^n})\),
+          tomando \(a=s_1+\cdots +s_n, b=s_1+\cdots+s_n+\frac{1}{3^n}\),
+          \(\alpha_{n+1}\), \(s_{n+1}\) como en el ejercicio anterior, tenemos
+          \[
+          |a+s-x|=\left| \sum_{i=1}^{n+1}\frac{\alpha_i}{3^i}-x \right|\leq \frac{b-a}{3}=\frac{1}{3^n}
+          \]
+        </p>
+        <p>
+          Tomando límites, cuando \(n\to \infty\), en la desigualdad anterior concluimos
+          \[
+          \sum_{i=1}^\infty \frac{\alpha_i}{3^i}=x.
+          \]
+        </p>
+      </div>
       </div>
 
       <div class="ejercicio-box">
@@ -176,28 +253,40 @@
           <li> Encuentra la representación ternaria de \(1/2\) y
             prueba que es única.
           </li>
+          <li>
+            Sea \(x\in [0,1]\) con descomposición ternaria
+            \[
+            x=\sum_{i=1}^\infty\frac{\alpha_i}{3^i}.
+            \]
+            Prueba: \(x=0 \Leftrightarrow \alpha_i=0\) para toda \(i\);
+            \(x=1 \Leftrightarrow \alpha_i=2\) para toda \(i\).
+          </li>
         </p>
       </div>
 
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
-        <!--<p>
-          Los puntos inicial y final de cada \(F_n\) en \(\Delta\) son de
-          la forma \(k/3^n\), con \(0 \leq k \leq 3^n \). Sea \(x \in (0,1)\)
-          un punto inicial o final de algún \(F_n\). Prueba que \(x\) puede
-          expresarse como
-          \[
-          x=\sum_{i=1}^{n+1} \frac{\alpha_i}{3^i}
-          \]
-          donde \(\alpha_i\in\{ 0,2\}\), para \(i=1,\dots, n\) y
-          \(\alpha_{n+1}\in \{1,2\}\).
-        </p>-->
         <p>
-          Se \(x\in [0,1]\). Prueba que si \(x\) admite dos representaciones
-          ternarias distintas entonces \(x\) es algún punto inciail o final
-          del algún subconjunto \(F_n\), es decir, es de la forma \(\frac{k}{3^n}\).
-        </p>  
+          Se \(x\in [0,1]\), con \(x\ne 1,0\).
+        </p>
+        <ol>
+          <li>
+          Prueba que si \(x\) admite dos representaciones
+          ternarias distintas entonces \(x\)  es de la forma \(\frac{k}{3^n}\),
+          para  \(n,k\in \mathbb{N}\), \(k \leq 3^n\).
+          </li>
+          <li>
+            Supon además que \(x\in \Delta\) y es de la forma \(\frac{k}{3^n}\).
+            Es decir, es un punto inicial o final de alguno de los intervalos
+            de algún \(F_n\). Prueba que \(x\) admite una descomposición
+            ternaria de la forma
+            \[
+            \sum_{i=1}^\infty \frac{\alpha_i}{3^i}
+            \]
+            donde, para toda \(i\), \(\alpha_i\in \{0,2\}\).
+          </li>
+        </p>
 
       </div>
 
