@@ -20,7 +20,8 @@
           macros: {
             sen: "\\operatorname{sen}",
             seg: ["\\overrightarrow{#1}", 1]
-          }
+          },
+          tags: "ams" /* this part is for numbered equations */
         }
       };
     </script>
@@ -319,7 +320,7 @@
       </div>
 
       <div class="teorema-box">
-        <h2 class="number-title"> Teorema </h2>
+        <h2 class="number-title" id="Teo:CaractPuntosCantor"> Teorema </h2>
         <p>
           \(x\in \Delta\) si y sólo si \(x\) admite una representación ternaria
           \[
@@ -345,6 +346,67 @@
             Entonces, desde el punto de vista de conjuntos equivalentes
             (cardinalidades), \(\Delta\) es "grande".
           </p>
+
+            <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+          <p>
+            Es suficiente probar que \(\Delta\) es  equivalente al intervalo \([0,1]\).
+          </p>
+          <p>
+            Para probar lo anterior, dado \(x\in \Delta\) vamos a definir
+            \(\Psi(x)\) como
+
+            \begin{equation}\label{Eqn:AuxDeltaNoContable}
+            \Psi(x)=\sum_{i=1}^\infty \frac{\beta_i}{2^i}
+            \end{equation}
+
+            donde \(\beta_i=\alpha_i/2\) y para encontrar las \(\alpha_i\)
+            escribimos la representación ternaria de \(x\):
+            \[
+            x=\sum_{i=1} \frac{\alpha_i}{3^i}, \quad \alpha_i \in \{0,2\}
+            \]
+          </p>
+
+          <p>
+            Es importante notar que, dado que \(\alpha_i\) toma sólo los
+            valores de \(0\) ó \(2\), \(\beta_i\) toma sólo los valores
+            de \(0\) ó \(1\) y por  lo tanto \(\Psi(x)\in [0,1]\), es más,
+            la representación de \(\Psi(x)\) dada en \eqref{Eqn:AuxDeltaNoContable}
+            es su representación binaria. Por lo tanto hemos
+            definido una función   \(\Psi:\Delta \to [0,1]\), la cual
+            afirmamos que es suprayectiva.
+          </p>
+          <p>
+            Para probar que \(\Psi\) es supryectiva tomamos
+            \(y\in [0,1]\) arbitrario. Después escribimos a \(y\)
+            en representación binaria
+            \[
+            y=\sum_{i=1}^\infty \frac{\gamma_i}{2^i}, \quad \gamma_i\in \{0,1\}
+            \]
+
+            Ahora definimos a \(x\) como:
+            \[
+            x:=\sum_{i=1}^\infty \frac{2\gamma_i}{3^i}
+            \]
+            Ya que \(2\gamma_i \in \{0,2\}\), el
+            <a href="#Teo:CaractPuntosCantor">Teorema 2.7</a> asegura
+            que \(x\in \Delta\). Además, de la definición de
+            \(\Psi\) resulta que \(\Psi(x)=y\).
+          </p>
+          <p>
+            Usando que \(\Psi: \Delta \to [0,1]\) es suprayectiva se
+            puede obtener una función \(\Phi: [0,1] \to \Delta\)
+            inyectiva.
+          </p>
+          <p>
+            Ahora sí, podemos probar \(\Delta \sim [0,1]\). Notar que tenemos
+            dos funciones inyectivas: \(\Phi:[0,1]\to \Delta\) y
+            \(i:\Delta \to [0,1]\), la función unclusión. Por el
+            <a href="./S1.html#Teo:CantorB"> Teorema de
+            Cantor Bernstein</a> podemos concluir que \(\Delta\) y \([0,1]\)
+            son equivalentes.
+          </p>
+        </div>
       </div>
 
 
