@@ -1,0 +1,234 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+      body.number-title{
+        counter-reset: sectionCounter 0 cardCounter ;
+      }
+      h1.number-title{
+        counter-reset: sectionCounter 0 cardCounter ;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio  </a> </li>
+        <li> <a href="../Secciones.html"> Secciones  </a> </li>
+      </ul>
+      <p align="right" >  <button onclick="myFunction()" class="darklightButton">Claro/Obscuro </button> </p>
+    </nav>
+
+    <h1 class="calculo-title"> Análisis Matemático UNO</h1>
+
+  </header>
+
+  <!--    Contenido empiaza abajo
+ ///////////////////////////////// -->
+
+
+  <body class="flexbox card fondo-body">
+
+
+    <div class="flexbox">
+      <h1 class="number-title"> Espacios vectoriales normados </h1>
+
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \(V\) un espacio vectorial. Una norma
+          en \(V\) es una función \(\| \cdot \|: V \to \mathbb{R}\) que
+          satisface
+          <ol>
+            <li> para todo \(x\in V\), \(\|x\| \geq 0\). </li>
+            <li> \(\|x\|=0\) si y sólo si \(x=0\). </li>
+            <li> para todo \(x\in V\) y todo escalar \(\alpha\),
+              \(\|\alpha x \| = |\alpha| \|x\|\) .</li>
+            <li> desigualdad del triángulo: para todos, \(x,y\in V\),
+              \(\|x+y\| \leq \|x\|+\|y\|\) </li>
+          </ol>
+        </p>
+        <p>
+          Un espacio vectorial normado es una pareja \((V,\|\cdot\|)\),
+          donde \(V\) es un espacio vectorial  y
+          \(\|\cdot \|\) es una norma.
+          Ejemplos: Rn normas usual, infinito, 1; espacios de funciones con
+          l1, infinito.
+        </p>
+
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Por \(\ell_\infty\) denotamos al conjunto de sucesiones de reales
+          que están acotadas. Es decir
+          \[
+          \ell_\infty=\left\{
+            (x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}} \left|
+            \sup_{i\in \mathbb{N}} \{ |x_i| \} < \infty
+            \right.
+            \right\}
+          \]
+        </p>
+        <p>
+          Dado \(x\in \ell_\infty\) definimos
+          \[
+          \|x\|_\infty:= \sup_{i\in \mathbb{N}}\{ |x_i|\}
+          \]
+        </p>
+        <p>
+          Prueba que \((\ell_\infty, \| \cdot\|_\infty)\) es un espacio vectorial
+          normado.
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Por \(\ell_1\) denotamos al conjunto de sucesiones de reales que
+          son absolutamente sumables. Es decir
+          \[
+          \ell_1=\left\{
+            (x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}} \left|
+            \sum_{i=1}^\infty |x_i| < \infty
+            \right.
+            \right\}
+          \]
+        </p>
+        <p>
+          Dado \(x\in \ell_1\) definimos
+          \[
+          \|x\|_1:=\sum_{i=1}^\infty |x_i|
+          \]
+        </p>
+        <p>
+          Prueba que \((\ell_1, \| \cdot\|_1)\) es un espacio vectorial
+          normado.
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Por \(\ell_2\) denotamos al conjunto de sucesiones de reales
+          cuadrado sumables. Es decir
+          \[
+          \ell_2=\left\{(x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}}
+          \left|  \sum_{i=1}^\infty x_i^2< \infty \right. \right\}
+          \]
+        </p>
+        <p>
+          Dado \(x=(x_i)_{i=1}^\infty \in \ell_2 \) definimos
+          \[
+          \|x \|_2:=\left( \sum_{i=1}^\infty x_i^2\right)^{1/2}
+          \]
+        </p>
+        <p>
+          <ol>
+            <li>
+              Para \(x,y\in \ell_2\) prueba
+              \[
+              \sum_{i=1}^\infty |x_i||y_i| \leq \|x\|_2\|y\|_2
+              \]
+            </li>
+            <li>
+              Prueba si \(x,y\in \ell_2\) entonces \(x+y\in \ell_2\) y además
+              \[
+              \| x+y\|_2 \leq \|x\|_2+ \|y\|_2
+              \]
+            </li>
+            <li>
+              Concluye que \((\ell_2,\|\cdot\|_2)\) es un espacio
+              vectorial normado.
+            </li>
+          </ol>
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((V, \|\cdot \|)\) un espacio vectorial normado. Define
+          \(d:V\times V \to \mathbb{R}\)  por
+          \[
+          d(x,y)=\|x-y\|
+          \]
+          Prueba que \(d\) es una métrica en \(V\).
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(V\) un espacio vectorial y \(d\) una métrica en \(V\) que satisface
+          <ol>
+            <li>  \(d(x,y)=d(x-y,0)\). </li>
+            <li> \(d(\alpha x,\alpha y  )= |\alpha| d(x,y)\). </li>
+          </ol>
+        </p>
+        <p>
+          Prueba que \(\|\cdot \| :V\to \mathbb{R}\) dada por
+          \(\|x\|=d(x,0)\) define una norma en \(V\) y que la
+          métrica asociada a esta norma es \(d\).
+        </p>
+        <p>
+          Además da un ejemplo de una métrica en \(\mathbb{R}\) que
+          no pueda ser asociada a una norma de ésta manera.
+        </p>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </body>
