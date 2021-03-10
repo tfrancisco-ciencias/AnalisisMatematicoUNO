@@ -96,6 +96,27 @@
       </div>
 
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Para \(x=(x_1,\dots, x_n)\in \mathbb{R}^n\) se definen:
+          \[
+          \begin{eqnarray*}
+          \|x\|_1&=&\sum_{i=1}^n|x_i|, \\
+          \|x\|_2&=&\left(\sum_{i=1}^2x_i^2\right)^{1/2}, \\
+          \|x\|_\infty &=&\max_{1\leq i \leq n} \{|x_i|\}.
+          \end{eqnarray*}
+          \]
+          Prueba
+          \[
+          \|x\|_\infty \leq \|x\|_2 \leq \|x\|_1
+          \]
+          y además
+          \[
+          \|x\|_1 \leq n \|x\|_\infty, \quad \|x\|_1\leq \sqrt{n}\|x\|_2 .
+          \]
+        </p>
+      </div>
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
@@ -190,6 +211,49 @@
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
+            <p>
+              Recuerda que si \(\sum_{i=1}^\infty x_i^2 \) es  una serie
+              convergente entonces \(\lim_{i\to \infty}x_i^2=0\), por lo que
+              la sucesión \((x_i)_{i=1}^\infty\) está acotada, es decir,
+              \((x_i)_{i=1}^\infty \in  \ell_\infty\). Esto prueba que
+              \(\ell_2 \subseteq \ell_\infty\).
+            </p>
+            <ol>
+              <li>Prueba que para todo \(x\in \ell_2\)
+              \[
+              \|x\|_\infty \leq \|x\|_2
+              \]
+              </li>
+              <li>
+              Da un ejemplo que muestre que la contención
+              \(\ell_2 \subseteq \ell_\infty\) es propia.
+              </li>
+          </ol>
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <ol>
+          <li>
+          Prueba que si \(x\in \ell_1\) entonces
+          \[
+          \|x\|_2 \leq \|x\|_1
+          \]
+          Esto prueba que \(\ell_2 \subseteq \ell_1 \).
+          </li>
+          <li>
+            Muestra con un ejemplo que la contención
+            \(\ell_2 \subseteq \ell_1\) es propia. Sugerencia:
+            series \(p\).
+          </li>
+        </ol>
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
         <p>
           Sea \((V, \|\cdot \|)\) un espacio vectorial normado. Define
           \(d:V\times V \to \mathbb{R}\)  por
@@ -221,13 +285,66 @@
       </div>
 
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+
+        <p>
+          La otra desigualdad del triángulo.
+        </p>
+        <p>
+          Sea \((V, \|\cdot \|)\) un espacio vectorial normado. Prueba
+          \[
+          |\|x\|-\|y\| | \leq \|x-y\|
+          \]
+        </p>
+      </div>
 
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(X\ne \emptyset\) un conjunto cualquiera. Por
+          \(\mathcal{B}(X)\) denotamos al conjunto de funciones
+          con valores reales, acotadas sobre \(X\). Es decir
+          \[
+          \mathcal{B}(X)=\{ f:X \to \mathbb{R} | \sup_{x\in X}\{|f(x)| \} <
+            \infty   \}
+          \]
+          Para \(f\in \mathcal{B}\) define
+          \[
+          \|f\|_\infty=\sup_{x\in X}\{ |f(x)|\}
+          \]
+          Prueba que \((\mathcal{B}(X), \|\cdot \|_\infty)\) es un espacio
+          vectorial normado.
+        </p>
+      </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sean \(f,g\in \mathcal{B}(X)\). Prueba que la función producto
+            \(fg\) pertenece a \(\mathcal{B}(X)\) y que
+            \[
+            \|fg\|_\infty \leq \|f\|_\infty \|g\|_\infty
+            \]
+          </p>
+        </div>
 
 
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \(f\in \mathcal{B}(X)\). Prueba
+            \(\| f - \| f\| \|_\infty \leq \|f\|_\infty \) si y sólo si \(f(x)\geq 0\)
+            para toda \(x\in X\).
+          </p>
+            <p>
+            Nota: se está usando
+            \(\|f\|\) para denotar tanto al escalar como a la
+            función constante \(\|f\|\).
+          </p>
 
-
-
+        </div>
 
 
     </div>
