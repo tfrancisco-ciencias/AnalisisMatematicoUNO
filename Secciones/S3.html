@@ -300,6 +300,169 @@
       </div>
 
 
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Normas-\(p\)
+        </p>
+        <p>
+            Las normas-\(p\) son una generalización de las norma euclidiana.
+        </p>
+        <p>
+          Para \(p\in [1,\infty)\) se define el espacio \(\ell_p\) como
+          \[
+          \{ (x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}}:
+          \sum_{i=1}^\infty |x_i|^p < \infty\}
+          \]
+          Dada \(x\in \ell_p\) se define
+          \[
+          \|x\|_p =\left( \sum_{i=1}^\infty |x_i|^p \right)^{1/p}
+          \]
+          Resulta que esta asignación define una norma y hace a
+          \(\ell_p\) un espacio vectorial normado, pero la
+          prueba de que se satisfacen todas las condiciones de una
+          norma no es sencilla. Las partes sencillas, y que se siguen
+          de las propiedades de las series convergentes son:
+          \begin{eqnarray*}
+          \|x\|_p & \geq & 0, \\
+          \|x\|_p & = & 0 \Leftrightarrow x= 0, \\
+          \|\alpha x\|_p & = & |\alpha|\|x\|_p.
+          \end{eqnarray*}
+          No es sorprendente que la parte más complicada es probar que
+          satisface la desigualdad del triángula, la cual en el contexto
+          de los espacios \(\ell_p\) se llama la desigualdad de Minkowski.
+          Los ejercicios que siguen sirven para probar dicha desigualdad.
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(1< p <\infty\).
+          <ol>
+            <li> Sean \(a,b\geq 0\). Prueba \((a+b)^p \leq 2^p(a^p+b^p)\).</li>
+            <li> Usa el inciso anterior para probar que
+              \(\ell_p\) es cerrado bajo la suma, es decir
+              \(x,y\in \ell_p \Rightarrow x+y \in \ell_p\)
+            </li>
+          </ol>
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"  id="Ejer:YoungIneq"> Ejercicio </h2>
+        <p>
+          Desigualdad de Young.
+        </p>
+        <p>
+          Dos exponenetes \(p,q\in (1,\infty)\) se llaman conjugados si
+          satisfacen \(\frac{1}{p}+\frac{1}{q}=1\). Por ejemplo, 2,2
+          son exponentes conjugados.
+        </p>
+        <p>
+          Sean \(p,q\in (1,\infty)\) exponentes conjugados. Sean
+          \(a,b \geq 0\). La desigualdad de Young dice
+          \[
+          ab \leq \frac{a^p}{p}+\frac{b^q}{q}
+          \]
+          con igualdad si y sólo si \(a^p=b^q\).
+        </p>
+        <p>
+          Ya que es muy importante, vamos a ver tres demostraciones.
+        </p>
+
+        <ol>
+          <li>
+            <p>Usando la desigualdad de Bernoulli.</p>
+            <p> La desigualdad de Bernoulli  dice
+            \[
+            (1+t)^p \geq 1+pt, \quad t\geq -1,
+            \]
+            con igualdad si y sólo si \(t=0\).
+            </p>
+            <p>
+              Para probar la desigualdad de Young es suficiente considerar
+              el caso \(a,b>0\). En esta situación toma \(t=\frac{a}{b^{q/p}}\)
+              en la desigualdad de Bernoulli para obtener la de Young.
+            </p>
+          </li>
+          <li>
+            <p> Una demostración geométrica. </p>
+
+
+            <p>
+            Para esta demostración considera la función
+            \(f(t)=t^{p-1}\), con \(t\geq 0\). Primero nota que
+            \(f\) es continua y estrictamente creciente. Ahora
+            checa que su inversa bajo composición es \(f^{-1}(s)=s^{q-1}\)
+            (aquí es donde se usa que \(p\) y \(q\) son expoentes conjugados).
+            </p>
+            <p>
+              Usando la interpretación de la integral como área deduce que
+              \[
+              ab \leq \int_{0}^a f(t)dt+\int_0^bf^{-1}(s)ds
+              \]
+              Finalemente, de la desigualdad anterior se obtiene la
+              de Young.
+            </p>
+          </li>
+          <li>
+            <p> Usando convexidad. </p>
+            <p>
+              Una función \(f:\mathbb{R}\to \mathbb{R}\) se llama
+              estrictamente convexa si, siempre que \(x_0,x_1\in \mathbb{R}\),
+              con \(x_0 < x_1\), se cumple
+              \[
+              f((1-\lambda) x_0 + \lambda x_1) \leq (1-\lambda)f(x_0)+
+              \lambda f(x_1)
+              \]
+              para todo \(0< \lambda < 1\), con igualdad si y sólo si
+              \(x_0=x_1\).
+            </p>
+            <p>
+              Por ejemplo, la función exponencial es estrictamente convexa.
+            </p>
+            <p>
+              Para probar la desigualdad de Young, considera
+              \(f(x)=e^x\), \(x_0=\ln(a^p), x_1=\ln(b^q)\) y
+              \(\lambda=\frac{1}{q}\).
+            </p>
+          </li>
+        </ol>
+
+      </div>
+
+
+
+
+        <div class="lema-box">
+            <h2 class="number-title"> Lema. Desigualdad de Hølder. </h2>
+            <p>
+              Ya que tenemos la desigualdad de Young podemos probar la
+              desigualdad de Hølder, que es una generalización de la de Cauchy-Schwartz.
+            </p>
+            <p>
+              Sean \(p,q\in (1,\infty)\) exponentes conjugados y
+              \(x\in \ell_p, y\in \ell_q\). Entonces
+              \[
+              \sum_{i=1}^\infty |x_i||y_i| \leq \|x\|_p \|y\|_q.
+              \]
+            </p>
+        </div>
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema. La desigualdad de Minkowski </h2>
+          <p>
+            Sea \(1< p <\infty \) un exponente fijo y \(x,y\in \ell_p\).
+            Se cumple que
+            \[
+            \|x+ y\|_p \leq \|x\|_p + \|y\|_p.
+            \]
+          </p>
+        </div>
+
+
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
@@ -317,6 +480,13 @@
           Prueba que \((\mathcal{B}(X), \|\cdot \|_\infty)\) es un espacio
           vectorial normado.
         </p>
+      </div>
+
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <h3>
+          El espacio de las funciones acotadas y la norma uniforme.
+        </h3>
       </div>
 
         <div class="ejercicio-box">
@@ -341,10 +511,11 @@
             <p>
             Nota: se está usando
             \(\|f\|\) para denotar tanto al escalar como a la
-            función constante \(\|f\|\).
+            función constante igual a  \(\|f\|\).
           </p>
 
         </div>
+
 
 
     </div>
