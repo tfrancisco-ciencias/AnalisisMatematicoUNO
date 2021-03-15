@@ -262,6 +262,26 @@
           \]
           Prueba que \(d\) es una métrica en \(V\).
         </p>
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+                <ol>
+                    <li>
+                        En primer lugar notemos que \(\forall x,y \in V \| x-y\| \geq 0\)
+                        y que \(\|x-y\| = 0\) si y sólo si \(x-y = 0\), es decir, si \(x=y\).
+                        Por lo tanto \(d(x,y) \geq 0\) y \(d(x,y) = 0\) si y sólo si \(x=y\).
+                    </li>
+                    <li>
+                        \(d(x,y) = \| x - y\| = \|-(y-x)\| = |-1| \|y-x\| = d(y,x)\).
+                    </li>
+                    <li>
+                        Si \(x,y,y \in V\) entonces \(d(x,y) = \|x-y\| = \|x-z + z -y\| \leq
+                        \|x-z\| + \|z-y\| = d(x,z) + d(z,y)\).
+                    </li>
+                </ol>
+                <p>
+                    Con ello hemos demostrado que \(d(x,y) = \|x-y\|\) es una métrica en \(V\).
+                </p>
+        </div>
       </div>
 
       <div class="ejercicio-box">
@@ -347,7 +367,33 @@
             </li>
           </ol>
         </p>
-      </div>
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+            <ol>
+                <li>
+                    Sea \(c = \max \{a,b\}\), entonces \(a \leq c\) y \(b \leq c\).
+                    Como la función \(x^p\) es creciente en \(\mathbb{R}^+ \cup
+                    \{0\}\), entonces \((a+b)^p \leq (c+c)^p = (2c)^p = 2^p c^p\).
+                    Finalmente, como \(c=a\) o \(c=b\) y ambos son no negativos,
+                    entonces \(c^p \leq a^p + b^p\) y \(2^p c^p \leq 2^p (a^p + b^p)\).
+                    Por lo tanto \((a+b)^p \leq 2^p(a^p + b^p)\).
+                </li>
+                <li>
+                    Sean \(x,y \in \ell_p\), entonces tanto \(x\) como \(y\) son
+                    sucesiones de números reales que satisfacen
+                    \[\sum_{i = 1}^\infty |x_i|^p < \infty \text{ y }
+                    \sum_{i = 1}^\infty |y_i|^p < \infty.\]
+                    Para cada \(i \in \mathbb{N}\) se tiene que \(|x_i|,|y_i| \geq 0\),
+                    de modo que la prueba del primer inciso nos garantiza que
+                    \(|x_i + y_i|^p \leq 2^p(|x_i|^p + |y_i|^p)\). Por lo tanto
+                    \[\sum_{i=1}^\infty |x_i + y_i|^p \leq
+                    \sum_{i=1}^\infty 2^p(|x_i|^p+|y_i|^p) =
+                    2^p(\sum_{i=1}^\infty |x_i|^p + \sum_{i=1}^\infty |y_i|^p) < \infty,\]
+                    y \(x + y \in \ell_p\)
+                </li>
+            </ol>
+        </div>
+        </div>
 
       <div class="ejercicio-box">
         <h2 class="number-title"  id="Ejer:YoungIneq"> Ejercicio </h2>
