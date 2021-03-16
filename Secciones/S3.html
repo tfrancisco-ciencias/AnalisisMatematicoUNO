@@ -229,7 +229,32 @@
               \(\ell_2 \subseteq \ell_\infty\) es propia.
               </li>
           </ol>
-        </p>
+      </p>
+      <button class="respButton hvr-grow"> Respuesta </button>
+      <div class="resp-box">
+          <ol>
+              <li>
+                  Sea \(x \in \ell_2\). Para cada \(j \in \mathbb{N}\) se tiene
+                  que \(x_j^2 \leq \sum_{i=1}^\infty x_i^2\), al tomar la raíz
+                  cuadrada de ambos lados de la desigualdad se obtiene
+                  \[|x_j| \leq (\sum_{i=1}^\infty x_i^2)^{1/2} = \|x\|_2,\]
+                  y al tomar supremo sobre \(j\)
+                  \[\|x\|_\infty = \sup_{j \in \mathbb{N}} \{|x_j|\} \leq \|x\|_2\]
+              </li>
+              <li>
+                  Podemos dar una infinidad de ejemplos para mostrar que la contención
+                  es propia. El más sencillo es una sucesión constante \(x_i = k\),
+                  donde \(k \neq 0\). Evidentemente la sucesión es acotada, sin embargo
+                  la primera observación del ejercicio hace notar que es necesario que
+                  \(\lim_{i \to \infty} x_i^2 = 0\) para que la serie converja, lo cual
+                  no ocurre si \(k \neq 0\). Para tener un ejemplo menos trivial recordemos
+                  que la serie armónica \(\sum_{n \in \mathbb{N}} \frac{1}{n}\) diverge, sin
+                  embargo ésta es acotada por 1, por lo que si \(x = (x_i)_{i=1}^\infty =
+                  (\frac{1}{\sqrt{n}})_{n=1}^\infty\), entonces \(x \in \ell_\infty\) pero
+                  \(x \notin \ell_2\).
+              </li>
+          </ol>
+      </div>
       </div>
 
       <div class="ejercicio-box">
