@@ -1,0 +1,245 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+      body.number-title{
+        counter-reset: sectionCounter 3 cardCounter ;
+      }
+      h1.number-title{
+        counter-reset: sectionCounter 3 cardCounter ;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio  </a> </li>
+        <li> <a href="../Secciones.html"> Secciones  </a> </li>
+      </ul>
+      <p align="right" >  <button onclick="myFunction()" class="darklightButton">Claro/Obscuro </button> </p>
+    </nav>
+
+    <h1 class="calculo-title"> Análisis Matemático UNO</h1>
+
+  </header>
+
+  <!--    Contenido empiaza abajo
+ ///////////////////////////////// -->
+
+
+  <body class="flexbox card fondo-body">
+
+
+    <div class="flexbox">
+      <h1 class="number-title"> Sucesiones </h1>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+
+        <p>
+          Sea \(X\ne \emptyset\) un conjunto. Una sucesión en
+          \(X\) es simplemente una función que va de \(\mathbb{N}\) a \(X\).
+          Por constumbre una sucesión suele denotarse como
+          \((x_n)_{n\in \mathbb{N}}\), donde para
+          toda \(n\), \(x_n\) es un elemento en \(X\).
+          Con esta notación la función de dónde
+          proviene \((x_n)_{n\in \mathbb{N}}\) es simplemente \(n \mapsto x_n\).
+        </p>
+        <p>
+          Intuitivamente, lo más importantde de las sucesiones es que sus
+          elementos están ordenados, es decir, sebemos quién va primero y
+          quién va después: \(x_1\) es el primer elemento, \(x_2\) el segundo
+          y así sucesivamente.
+        </p>
+
+        <p>
+          Dada una sucesión \((x_n)_{n\in \mathbb{N}}\) de elementos de
+          elementos de \(X\), una subsucesión de \((x_n)_{n\in \mathbb{N}}\)
+          es simplemente componer la suesión con una función
+          estrictamente creciente de \(\mathbb{N}\) en \(\mathbb{N}\). Es decir,
+          toda subsucesión de \((x_n)_{n\in \mathbb{N}}\) es de la
+          forma \((x_{\varphi(n)})_{n\in \mathbb{N}}\), donde
+          \(\varphi:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente. Por ejemplo
+          \((x_{2n})_{n\in \mathbb{N}}\) y \((x_{2n+1})_{n\in \mathbb{N}}\)
+          son subcesiones de \((x_n)_{n\in \mathbb{N}}\). Por costumbre
+          una subcesión de \((x_n)_{n\in \mathbb{N}}\) suele denotarse
+          \((x_{n_k})_{k\in \mathbb{N}}\), donde en ésta notación
+          se entiende \(n_k=\varphi(k)\), para alguna función
+          estrictamente creciente \(\varphi\).
+        </p>
+
+
+      </div>
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          De manera intuitiva, una sucesión converge
+          si, eventualmente, sus elementos se aproximan a un punto del espacio.
+        </p>
+
+        <p>
+
+          Sea \((X, d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
+          una sucesión en \(X\). Decimos que la sucesión es convergente en X si
+          existe un \(x\in X\) que satisface:
+        </p>
+        <p>
+          para toda \(\varepsilon >0\) existe \(N\in \mathbb{N}\)
+          tal que para toda \(n \geq N\),
+          \(
+            d(x_n, x) < \varepsilon .
+          \)
+        </p>
+        <p>
+          Notas:
+          <ol>
+          <li>
+          Usualmente la \(N\) en la definición anterior
+          depende de \(\varepsilon\) y ésta dependencia puede denotarse
+          como \(N(\varepsilon)\).
+          </li>
+          <li>
+            A pesar que en la definición se pide \(d(x_n,x)< \varepsilon \),
+            se puede cambiar a \(d(x_n,x) \leq \varepsilon \), esto debido
+            al cuantificador "para toda \(\varepsilon>0\)". Pues si
+            tenemos que se vale la condición con \(\leq\) simplemente tomamos
+            \(\varepsilon/2\) para obtener: \(d(x_n,x)\leq \varepsilon/2 < \varepsilon\).
+          </li>
+          <li>
+            La definición pueden pensarse como: a partir de cierto instance
+            de la sucesión
+            (el instance es \(N\)) la distancia entre los elementos de la
+            sucesión y el punto de convergencia se hace tan chiquita como
+            queramos (que tan chiquito lo mide la \(\varepsilon\)).
+          </li>
+        </p>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico, \((x_n)_{n\in \mathbb{N}}\)
+          una sucesión en \(X\) y supongamos que existen dos puntos
+          \(x,y\ in X\) tales que \((x_n)_{n\in \mathbb{N}}\)
+          converge tanto a \(x\) como a \(y\). Prueba que \(x=y\).
+        </p>
+      </div>
+
+
+      <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
+          <p>
+            Sea \((X,d)\) un espacio métrico y
+            \((x_n)_{n\in \mathbb{N}}\) una sucesión en \(X\) y \(x\in X\)
+            tal que \((x_n)_{n\in \mathbb{N}}\) converge a \(x\). Prueba que toda
+            subsucesión de \((x_n)_{n\in \mathbb{N}}\) también converge a \(x\).
+          </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Define la sucesión en \(\mathbb{R}\) por \(x_n=\sqrt{n+1}-\sqrt{n}\).
+          ¿ Las series \((x_n)_{n\in \mathbb{N}}\),
+          \((\sqrt{n}x_n)_{n\in \mathbb{N}}\) son convergentes?
+         </p>
+         <p>
+           Justifica tu respuesta.
+         </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(c>0\) un número real positivo, fijo. Examina la convergencia
+          de las siguientes series.
+        </p>
+        <ol>
+          <li> \(x_n=\frac{n}{c^n}\), \(n\in \mathbb{N}\).</li>
+          <li> \(x_n= \frac{c^n}{n!}\), \(n \in \mathbb{N}\). </li>
+        </ol>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Define la sucesión en \(\mathbb{R}\) por \(x_n=n^{1/n}\),
+          \(n\in \mathbb{N}\).
+        </p>
+        <ol>
+          <li>
+          Para \(n\leq  2\) denota \(y_n=x_n-1\). Usa el
+          teorema del Binomio para probar
+          \[
+          (1+y_n)^n > \frac{1}{2}n(n-1)y_n^2
+          \]
+         </li>
+         <li>
+            Usa el inciso anterior para probar \(\lim_{n\to \infty} x_n=1\).
+         </li>
+        </ol>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y sea \((x_n)_{n\in \mathbb{N}}\)
+          una sucesión en \(X\). Supongamos que existe \(y\in X\) y \(r>0\)
+          que satisface \(d(x_n,y) < r\), para toda \(n\in \mathbb{N}\).
+          ¿ Si \(x=\lim_{n\to \infty}x_n \) se sigue que \(d(x,y)< r\) ?
+          Justifica tu respuesta.
+        </p>
+
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+  </body>
