@@ -68,6 +68,33 @@
     <div class="flexbox">
       <h1 class="number-title"> Sucesiones </h1>
 
+      <div class="info-box">
+        <h2 class="number-title"> Introducción </h2>
+        <p>
+          Esta sección es sobre sucesiones en espacios métricos y tal
+          vez más importante, sobre límites de sucesiones.
+        </p>
+        <p>
+          De cálculo sabemos que una sucesión de números reales
+          \((x_n)_{n\in \mathbb{N}}\) converge a un real \(x\)
+          si, para toda \(\varepsilon >0 \), existe un natural \(N\), que
+          satisface: \(|x-x_n| < \varepsilon \), para toda \(n \geq N\).
+        </p>
+          Geométricamente el número \(\varepsilon >0 \) representa
+          el radio de un intervalo centrado en \(x\) y el número \(N\)
+          nos indica el instante en la sucesión a partir del cual
+          los valores de la sucesión caen dentro de éste intervalo.
+        <p>
+          Ya que el valor absoluto induce la distancia usual en los
+          reales, podemos generalizar la definción anterior reemplazando
+          \(|x_n-x|\)  por \(d(x_n,x)\), donde \(d\) es una métrica
+          y los \(x_n\) y \(x\) son  puntos de un espacio métrico \((X,d)\).
+          El objetivo del material que sigue es presentar estas generalizaciones
+          en espacios métricos, ver ejemplos, similitudes al caso real y
+          diferencias.
+        </p>
+      </div>
+
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
 
@@ -107,6 +134,75 @@
       </div>
 
 
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          ¿Cuáles de las siguientes expresiones representan subsucesiones
+          de \((x_n)_{n\in \mathbb{N}}\)?
+        </p>
+        <ol>
+          <li> \((x_{n^2})_{n\in \mathbb{N}}\) . </li>
+          <li> \((x_{n^2-4n})_{n \in \mathbb{N}}\).</li>
+          <li> \((x_{\frac{n^2+1}{n+1}})_{n \geq 2 }\). </li>
+          <li>  \((x_{\frac{n}{n+1}})_{n\in \mathbb{N}}\). </li>
+          <li>   \((x_{n^2-4n})_{n\geq 5} \). </li>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Considera una sucesión \((x_n)_{n\in \mathbb{N}}\). De esta
+          sucesión se van a ir sacando subsuceciones recursivamente.
+        </p>
+        <p>
+          Por \((x_n^{(1)})_{n\in \mathbb{N}}\) vamos a denotar una
+          subsucesión de \((x_n)_{n\in \mathbb{N}}\). Es decir,
+          \(x_n^{(1)}=x_{\varphi_1(n)}\), donde
+          \(\varphi_1:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
+        </p>
+        <p>
+          Por \((x_n^{(2)})_{n\in \mathbb{N}}\) vamos a denotar una
+          subsucesión de \((x_n^{(1)})_{n\in \mathbb{N}}\). Es decir,
+          \(x_n^{(2)}=x_{\varphi_2(n)}^{(1)}\), donde
+          \(\varphi_2:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
+        </p>
+        <p>
+          Si \((x_n^{(m)})_{n\in\mathbb{N} } \) se ha construido,
+          por \((x_n^{(m+1)})_{n\in \mathbb{N}}\) vamos a denotar una
+          subsucesión de \((x_n^{(m)})_{n\in \mathbb{N}}\). Es decir,
+          \(x_n^{(m+1)}=x_{\varphi_{m+1}(n)}^{(m)}\), donde
+          \(\varphi_{m+1}:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
+        </p>
+        <p>
+          Para una visualización podemos escribir las suceciones
+          en una lista
+        </p>
+        <p>
+          \begin{eqnarray*}
+          & x_1^{(1)}, x_2^{(1)}, x_3^{(1)}, \dots \\
+          & x_1^{(2)}, x_2^{(2)}, x_3^{(2)}, \dots \\
+          & x_1^{(3)}, x_2^{(3)}, x_3^{(3)}, \dots \\
+          & \vdots \\
+          & x_1^{(m)}, x_2^{(m)}, x_3^{(m)}, \dots \\
+          & \vdots
+          \end{eqnarray*}
+        </p>
+        <p>
+          Define la sucesión \((y_n)_{n \in \mathbb{N}}\) por
+          \(y_n:=x_n^{(n)}\). Se puede pensar como la sucesión diagonal.
+        </p>
+        <p>
+          Prueba que, para cada \(m\in \mathbb{N}\), \((y_n)_{n\in \mathbb{N}}\)
+          es una subsucesión de \((x_n^{(m)})_{n\in \mathbb{N}}\).
+        </p>
+        <p>
+          Este método se conoce como el método de la diagonal de Cantor.
+        </p>
+      </div>
+
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
         <p>
@@ -140,7 +236,8 @@
             se puede cambiar a \(d(x_n,x) \leq \varepsilon \), esto debido
             al cuantificador "para toda \(\varepsilon>0\)". Pues si
             tenemos que se vale la condición con \(\leq\) simplemente tomamos
-            \(\varepsilon/2\) para obtener: \(d(x_n,x)\leq \varepsilon/2 < \varepsilon\).
+            \(\varepsilon/2\) para obtener: \(d(x_n,x)\leq
+            \varepsilon/2 < \varepsilon\).
           </li>
           <li>
             La definición pueden pensarse como: a partir de cierto instance
@@ -159,10 +256,42 @@
         <p>
           Sea \((X,d)\) un espacio métrico, \((x_n)_{n\in \mathbb{N}}\)
           una sucesión en \(X\) y supongamos que existen dos puntos
-          \(x,y\ in X\) tales que \((x_n)_{n\in \mathbb{N}}\)
+          \(x,y\in X\) tales que \((x_n)_{n\in \mathbb{N}}\)
           converge tanto a \(x\) como a \(y\). Prueba que \(x=y\).
         </p>
+        <p>
+          Sugerencia: aplica la desigualdad del triángulo iniciando con
+          \(d(x,y)\).
+        </p>
       </div>
+
+
+
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+              <p>
+                Define la sucesión en \(\mathbb{R}\) por \(x_n=\sqrt{n+1}-\sqrt{n}\).
+                ¿ Las series \((x_n)_{n\in \mathbb{N}}\),
+                \((\sqrt{n}x_n)_{n\in \mathbb{N}}\) son convergentes?
+               </p>
+               <p>
+                 Justifica tu respuesta.
+               </p>
+            </div>
+
+
+
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+              <p>
+                Sea \(c>0\) un número real positivo, fijo. Examina la convergencia
+                de las siguientes series.
+              </p>
+              <ol>
+                <li> \(x_n=\frac{n}{c^n}\), \(n\in \mathbb{N}\).</li>
+                <li> \(x_n= \frac{c^n}{n!}\), \(n \in \mathbb{N}\). </li>
+              </ol>
+            </div>
 
 
       <div class="lema-box">
@@ -176,50 +305,6 @@
       </div>
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Define la sucesión en \(\mathbb{R}\) por \(x_n=\sqrt{n+1}-\sqrt{n}\).
-          ¿ Las series \((x_n)_{n\in \mathbb{N}}\),
-          \((\sqrt{n}x_n)_{n\in \mathbb{N}}\) son convergentes?
-         </p>
-         <p>
-           Justifica tu respuesta.
-         </p>
-      </div>
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Sea \(c>0\) un número real positivo, fijo. Examina la convergencia
-          de las siguientes series.
-        </p>
-        <ol>
-          <li> \(x_n=\frac{n}{c^n}\), \(n\in \mathbb{N}\).</li>
-          <li> \(x_n= \frac{c^n}{n!}\), \(n \in \mathbb{N}\). </li>
-        </ol>
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Define la sucesión en \(\mathbb{R}\) por \(x_n=n^{1/n}\),
-          \(n\in \mathbb{N}\).
-        </p>
-        <ol>
-          <li>
-          Para \(n\leq  2\) denota \(y_n=x_n-1\). Usa el
-          teorema del Binomio para probar
-          \[
-          (1+y_n)^n > \frac{1}{2}n(n-1)y_n^2
-          \]
-         </li>
-         <li>
-            Usa el inciso anterior para probar \(\lim_{n\to \infty} x_n=1\).
-         </li>
-        </ol>
-      </div>
 
 
       <div class="ejercicio-box">
@@ -228,6 +313,8 @@
           Sea \((X,d)\) un espacio métrico y sea \((x_n)_{n\in \mathbb{N}}\)
           una sucesión en \(X\). Supongamos que existe \(y\in X\) y \(r>0\)
           que satisface \(d(x_n,y) < r\), para toda \(n\in \mathbb{N}\).
+        </p>
+        <p>
           ¿ Si \(x=\lim_{n\to \infty}x_n \) se sigue que \(d(x,y)< r\) ?
           Justifica tu respuesta.
         </p>
@@ -235,10 +322,65 @@
       </div>
 
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
+          una sucesión en \(X\) tal que \(\lim_{n\to \infty} x_n\) existe
+          y es igual a \(x\).
+        </p>
+        <ol>
+          <li> Sea \(y\in X\). Prueba que
+            \(\lim_{n\to \infty} d(x_n,y) = d(x,y)\).
+          </li>
+          <li>
+            <p>
+            Supongamos que \((y_n)_{n\in \mathbb{N}}\) es un
+            sucesión en \(X\) con \(\lim_{n\to \infty} y_n=y\).
+            Prueba \(\lim_{n\to \infty} d(x_n,y_n)=d(x,y)\).
+            </p>
+            <p>
+            Sugerencia: usa el inciso anterior y la deigualdad del
+            triángulo.
+            </p>
+          </li>
+        </ol>
+      </div>
 
 
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico, \((x_n)_{n\in \mathbb{N}}\)
+          una sucesión en \(X\) y \(x\in X\). Prueba que si para toda subsucesión
+          de \((x_n)_{n\in \mathbb{N}}\) le podemos extraer otra subsucesión
+          convergente a \(x\), entonces la sucesión
+          original \((x_n)_{n\in \mathbb{N}}\) converge a \(x\).
+      </div>
 
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Dada una sucesión
+          \(x=(x_i)_{i\in \mathbb{N}} \in \mathbb{R}^{\mathbb{N}}\)
+          denota \(x^{(k)}\) al truncamiento de \(x\)
+          a altura \(k\), es decir, \(x^{(k)}=(x_1,\dots, x_k, 0,0,\dots)\).
+        </p>
+        <ol>
+          <li> Si \(x\in \ell_2\) prueba que \((x^{(k)})_{k\in \mathbb{N}}\)
+            converge a \(x\) en \(\ell_2\).
+          </li>
+          <li> Si \(x\in \ell_1\) prueba que \((x^{(k)})_{k\in \mathbb{N}}\)
+            converge a \(x\) en \(\ell_1\).
+          </li>
+          <li> Da un ejemplo donde se muestre que los incisos anteriores
+            no se valen cuando \(x\in \ell_\infty\).
+          </li>
+        </ol>
+      </div>
 
 
     </div>
