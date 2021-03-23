@@ -254,6 +254,10 @@
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
+          Este ejercicio muestra que, de existir, los límites de
+          sucesiones son únicos.
+        </p>
+        <p>
           Sea \((X,d)\) un espacio métrico, \((x_n)_{n\in \mathbb{N}}\)
           una sucesión en \(X\) y supongamos que existen dos puntos
           \(x,y\in X\) tales que \((x_n)_{n\in \mathbb{N}}\)
@@ -265,13 +269,77 @@
         </p>
       </div>
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Como en el caso real, toda sucesión convergente en un espacio
+          métrico es es acotada.
+        </p>
+        <p>
+          Recuerda
+          que un subconjunto \(A\) de un espacio métrico es acotado si
+          existe \(x_0\) en el espacio y \(r>0\) que satisface:
+          \(d(x_0,a) \leq r\), para toda \(a\in A\).
+        </p>
+        <p>
+          <ol>
+          <li>
+          Sea \((X,d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
+          una sucesión en \(X\). Prueba que si \((x_n)_{n\in \mathbb{N}}\)
+          es convergente entonces el conjunto \(\{x_n\}_{n\in \mathbb{N}}\)
+          está acotado.
+          </li>
+          <li>
+            Para \(k\in \mathbb{N}\) denota por
+            \(e^{(k)}\) a la sucesión de reales tal que
+            es cero en todos lados excepto en la entrada \(k\), donde vale 1. Nota
+            que el conjunto \(\{e^{(k)}\}_{k\in \mathbb{N}}\) es
+            acotado en \((\ell_\infty, \| \cdot \|_\infty)\) pero prueba que
+            la sucesión \((e^{(k)})_{k\in \mathbb{N}}\) no converge en
+            \((\ell_\infty, \| \cdot \|_\infty)\).
+          </li>
+          <li>
+            Generaliza el inciso anterior probando que no existe subsucesión
+            de \((e^{(k)})_{k\in \mathbb{N}}\) que sea convergente
+            en \((\ell_\infty, \| \cdot \|_\infty)\). Esto muestra que
+            un teorema tipo Bolzano-Weirestrass no es válido en
+            el espacio \((\ell_\infty, \| \cdot \|_\infty)\).
+          </li>
+        </ol>
+        </p>
+      </div>
 
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
+          una sucesión en \(X\) tal que \(\lim_{n\to \infty} x_n\) existe
+          y es igual a \(x\).
+        </p>
+        <ol>
+          <li> Sea \(y\in X\). Prueba que
+            \(\lim_{n\to \infty} d(x_n,y) = d(x,y)\).
+          </li>
+          <li>
+            <p>
+            Supongamos que \((y_n)_{n\in \mathbb{N}}\) es un
+            sucesión en \(X\) con \(\lim_{n\to \infty} y_n=y\).
+            Prueba \(\lim_{n\to \infty} d(x_n,y_n)=d(x,y)\).
+            </p>
+            <p>
+            Sugerencia: usa el inciso anterior y la deigualdad del
+            triángulo.
+            </p>
+          </li>
+        </ol>
+      </div>
 
             <div class="ejercicio-box">
               <h2 class="number-title"> Ejercicio </h2>
               <p>
                 Define la sucesión en \(\mathbb{R}\) por \(x_n=\sqrt{n+1}-\sqrt{n}\).
-                ¿ Las series \((x_n)_{n\in \mathbb{N}}\),
+                ¿ Las sucesiones \((x_n)_{n\in \mathbb{N}}\),
                 \((\sqrt{n}x_n)_{n\in \mathbb{N}}\) son convergentes?
                </p>
                <p>
@@ -293,6 +361,108 @@
               </ol>
             </div>
 
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Considera el espacio métrico \((C[0,1], d)\), donde
+        \(d\) es la métrico uniforme, es decir,
+        la métrica inducida por la norma uniforme, \(\| \cdot\|_\infty\).
+      </p>
+      <p>
+        Para cada una de las siguientes sucesiones de funciones,
+        \((f_n)_{n\in \mathbb{N}}\), prueba que
+        son convergentes en \((C[0,1],d)\).
+      </p>
+      <ol>
+        <li>
+          \(f_n(x)=\frac{1}{n}x\).
+        </li>
+        <li>
+          \(f_n(x)=\frac{x^n}{1+x^n}\).
+        </li>
+        <li>
+          \(f_n(x)\)
+        </li>
+      </ol>
+    </div>
+
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title" > Ejercicio </h2>
+      <p>
+        Dos métricas, \(d_1\) y \(d_2\), sobre un
+        conjunto \(X\), se llaman equivalentes si generan las mismas
+        sucesiones convergentes, es decir:
+        \(\lim_{n\to \infty} d_1(x_n,x)=0\) si y sólo si
+        \(\lim_{n\to \infty} d_2(x_n,x)=0\).
+      </p>
+      <ol>
+        <li>
+        Prueba que esto define una relación de equivalencia sobre
+        el conjunto de métricas definidas en \(X\).
+        </li>
+        <li>
+          Se \(V\) un espacio vectorial y
+          \(\|\cdot\|_1, \| \cdot \|_2\) dos normas sobre \(V\). Supón
+          que existen constantes \(c,d>0\) tales que:
+          \[
+          \|  v\|_1 \leq c \|v\|_2, \quad \|v\|_2 \leq d \|v\|_1,
+          \quad \textrm{para todo \(v\in V\).}
+          \]
+          Sean \(d_1\) y \(d_2\) las métricas asociadas a \(\|\cdot\|_1\)
+          y \(\| \cdot\|_2\) respectivamente. Prueba que
+          \(d_1\) y \(d_2\) son equivalentes.
+        </li>
+
+      </ol>
+      <p>
+        Por ejemplo, el
+        <a href="./S3.html#Ejer:Normas12inftyEquiv">Ejercicio 3.2</a>
+        muestra que las normas \(\|\cdot\|_1, \|\cdot\|_2\)
+        y \(\|\cdot\|_\infty\) en \(\mathbb{R}^n\)
+        son todas equivalentes entre sí.
+      </p>
+    </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title" id="Ejer:MetEquivProdCarte"> Ejercicio </h2>
+          <p>
+            Supongamos que \((X,d_X)\), \((Y,d_Y)\) son dos espacios métrios.
+            En el <a href="./S2.html#Ejer:MetProdCarte"> Ejercicio 2.20</a>
+            se definieron las métricas:
+            \begin{eqnarray*}
+            d((x_1,y_1),(x_2,y_2))&=& d_X(x_1,x_2)+d_Y(y_1,y_2),\\
+            \rho((x_1,y_1),(x_2,y_2)) &=& \max\{d_X(x_1,x_2), d_Y(y_1,y_2)  \}\\
+            \sigma((x_1,y_1),(x_2,y_2)) &=& \sqrt{d_X(x_1,x_2)^2+d_Y(y_1,y_2)^2}.
+            \end{eqnarray*}
+            Prueba que \(d\), \(\rho\) y \(\sigma\) son métricas equivalentes.
+          </p>
+
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Considera a \(\mathbb{R}^n\) con las normas-p.
+          </p>
+          <p>
+            Prueba que para todo \(x\in \mathbb{R}^n\):
+            \begin{eqnarray*}
+              \|x\|_\infty & \leq & \|x\|_p, \\
+              \|x\|_p & \leq  & n^{1/p}\| x\|_\infty.
+              \end{eqnarray*}
+            Esto prueba que todas las métricas generadas por las normas-p en
+            \(\mathbb{R}^n\) son equivalentes.
+          </p>
+
+
+
+        </div>
 
       <div class="lema-box">
         <h2 class="number-title"> Lema </h2>
@@ -322,30 +492,7 @@
       </div>
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Sea \((X,d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
-          una sucesión en \(X\) tal que \(\lim_{n\to \infty} x_n\) existe
-          y es igual a \(x\).
-        </p>
-        <ol>
-          <li> Sea \(y\in X\). Prueba que
-            \(\lim_{n\to \infty} d(x_n,y) = d(x,y)\).
-          </li>
-          <li>
-            <p>
-            Supongamos que \((y_n)_{n\in \mathbb{N}}\) es un
-            sucesión en \(X\) con \(\lim_{n\to \infty} y_n=y\).
-            Prueba \(\lim_{n\to \infty} d(x_n,y_n)=d(x,y)\).
-            </p>
-            <p>
-            Sugerencia: usa el inciso anterior y la deigualdad del
-            triángulo.
-            </p>
-          </li>
-        </ol>
-      </div>
+
 
 
 
@@ -381,6 +528,64 @@
           </li>
         </ol>
       </div>
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico. Una sucesión en
+          \(X\), \((x_n)_{n\in \mathbb{N}}\), se llama de Cauchy
+          o Cauchy respecto a \(d\) si  las distancias
+          entre sus elementos tiene a cero, es decir
+          \[
+          \lim_{n,m\to \infty}d(x_n,x_m)=0
+          \]
+        </p>
+        <p>
+          En términos de \(\varepsilon\)'s lo anterior quiere
+          decir que, para toda \(\varepsilon >0\) existe
+          \(N\in \mathbb{N}\) tal que, para \(n,m \geq N\) se cumple
+          \[
+          d(x_n,x_m) < \varepsilon.
+          \]
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y
+          \((x_n)_{n\in \mathbb{N}}\) una sucesión convergente en \(X\).
+          Prueba que \((x_n)_{n\in \mathbb{N}}\) es Cauchy respecto a \(d\).
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y
+          \((x_n)_{n\in \mathbb{N}}\) una sucesión de Cauchy.
+          Prueba que \((x_n)_{n\in \mathbb{N}}\) está acotada.
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(X\ne \emptyset\) un conjunto y \(d_1, d_2\) dos
+          métricas equivalentes en \(X\).
+        </p>
+        <p>
+          Sea \((x_n)_{n\in \mathbb{N}}\) una sucesión en \(X\). Prueba
+          que \((x_n)_{n\in \mathbb{N}}\) es Cauchy con respecto a
+          \(d_1\) si y sólo si es Cauchy con respecto a \(d_2\).
+        </p>
+        <p>
+          Sugerencia: prueba por contradicción.
+        </p>
+      </div>
+
+
 
 
     </div>
