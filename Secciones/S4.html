@@ -102,10 +102,34 @@
           Sea \(X\ne \emptyset\) un conjunto. Una sucesión en
           \(X\) es simplemente una función que va de \(\mathbb{N}\) a \(X\).
           Por constumbre una sucesión suele denotarse como
-          \((x_n)_{n\in \mathbb{N}}\), donde para
+          \((x_n)_{n\in \mathbb{N}}\) ó \((x_n)_{n \geq 1}\), donde para
           toda \(n\), \(x_n\) es un elemento en \(X\).
           Con esta notación la función de dónde
           proviene \((x_n)_{n\in \mathbb{N}}\) es simplemente \(n \mapsto x_n\).
+        </p>
+        <p>
+          Por ejemplo
+          <ol>
+            <li> En \(\mathbb{R}^3\),
+            \[
+            x_n= \left( \cos(n\pi), \frac{1}{n^2}, \sqrt[n]{2} \right), n=1,2 \dots
+            \]
+            </li>
+            <li>
+              En \(\ell_2\),
+              \[
+              x_n= \left( 0, 0, \dots, 0, \underbrace{1}_{\textrm{lugar \(n\)}},
+               0, \dots   \right),
+              n=1,2 \dots
+              \]
+            </li>
+            <li>
+              En \(C([0,1])\),
+              \[
+              f_n(x)=\frac{x^n}{1+x^n}, n=1,2 \dots
+              \]
+            </li>
+          </ol>
         </p>
         <p>
           Intuitivamente, lo más importantde de las sucesiones es que sus
@@ -115,93 +139,27 @@
         </p>
 
         <p>
-          Dada una sucesión \((x_n)_{n\in \mathbb{N}}\) de elementos de
-          elementos de \(X\), una subsucesión de \((x_n)_{n\in \mathbb{N}}\)
-          es simplemente componer la suesión con una función
-          estrictamente creciente de \(\mathbb{N}\) en \(\mathbb{N}\). Es decir,
-          toda subsucesión de \((x_n)_{n\in \mathbb{N}}\) es de la
-          forma \((x_{\varphi(n)})_{n\in \mathbb{N}}\), donde
-          \(\varphi:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente. Por ejemplo
-          \((x_{2n})_{n\in \mathbb{N}}\) y \((x_{2n+1})_{n\in \mathbb{N}}\)
-          son subcesiones de \((x_n)_{n\in \mathbb{N}}\). Por costumbre
-          una subcesión de \((x_n)_{n\in \mathbb{N}}\) suele denotarse
-          \((x_{n_k})_{k\in \mathbb{N}}\), donde en ésta notación
-          se entiende \(n_k=\varphi(k)\), para alguna función
-          estrictamente creciente \(\varphi\).
+          Ya que lo más importante de la sucesión es que los elementos
+          están ordenados por eso se usa la notación \((x_n)_{n\in \mathbb{N}}\),
+          para recordar una \(n\)-ada de números ordenados,
+          \((x_1,\dots, x_n)\). Para denotar al conjunto formado
+          por los elementos de la sucesión usamos
+          \[
+          \{x_n\}_{n\in \mathbb{N}}=\{ x_1,x_2, \dots, x_n, \dots \}
+          \]
         </p>
-
+        <p>
+          Lo más importante de  \(\mathbb{N}\) en la definición de
+          sucesión son sus características de  conjunto totalmente ordenado, así que en principio
+          podemos substituirlo por cualquier otro conjunto con las mismas carácterísticas.
+          Asi podemos considerar que, para cualquier \(a\in \mathbb{Z}\),
+           \((x_n)_{n \geq a}\) como una sucesión.
+        </p>
 
       </div>
 
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          ¿Cuáles de las siguientes expresiones representan subsucesiones
-          de \((x_n)_{n\in \mathbb{N}}\)?
-        </p>
-        <ol>
-          <li> \((x_{n^2})_{n\in \mathbb{N}}\) . </li>
-          <li> \((x_{n^2-4n})_{n \in \mathbb{N}}\).</li>
-          <li> \((x_{\frac{n^2+1}{n+1}})_{n \geq 2 }\). </li>
-          <li>  \((x_{\frac{n}{n+1}})_{n\in \mathbb{N}}\). </li>
-          <li>   \((x_{n^2-4n})_{n\geq 5} \). </li>
-      </div>
-
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Considera una sucesión \((x_n)_{n\in \mathbb{N}}\). De esta
-          sucesión se van a ir sacando subsuceciones recursivamente.
-        </p>
-        <p>
-          Por \((x_n^{(1)})_{n\in \mathbb{N}}\) vamos a denotar una
-          subsucesión de \((x_n)_{n\in \mathbb{N}}\). Es decir,
-          \(x_n^{(1)}=x_{\varphi_1(n)}\), donde
-          \(\varphi_1:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
-        </p>
-        <p>
-          Por \((x_n^{(2)})_{n\in \mathbb{N}}\) vamos a denotar una
-          subsucesión de \((x_n^{(1)})_{n\in \mathbb{N}}\). Es decir,
-          \(x_n^{(2)}=x_{\varphi_2(n)}^{(1)}\), donde
-          \(\varphi_2:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
-        </p>
-        <p>
-          Si \((x_n^{(m)})_{n\in\mathbb{N} } \) se ha construido,
-          por \((x_n^{(m+1)})_{n\in \mathbb{N}}\) vamos a denotar una
-          subsucesión de \((x_n^{(m)})_{n\in \mathbb{N}}\). Es decir,
-          \(x_n^{(m+1)}=x_{\varphi_{m+1}(n)}^{(m)}\), donde
-          \(\varphi_{m+1}:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
-        </p>
-        <p>
-          Para una visualización podemos escribir las suceciones
-          en una lista
-        </p>
-        <p>
-          \begin{eqnarray*}
-          & x_1^{(1)}, x_2^{(1)}, x_3^{(1)}, \dots \\
-          & x_1^{(2)}, x_2^{(2)}, x_3^{(2)}, \dots \\
-          & x_1^{(3)}, x_2^{(3)}, x_3^{(3)}, \dots \\
-          & \vdots \\
-          & x_1^{(m)}, x_2^{(m)}, x_3^{(m)}, \dots \\
-          & \vdots
-          \end{eqnarray*}
-        </p>
-        <p>
-          Define la sucesión \((y_n)_{n \in \mathbb{N}}\) por
-          \(y_n:=x_n^{(n)}\). Se puede pensar como la sucesión diagonal.
-        </p>
-        <p>
-          Prueba que, para cada \(m\in \mathbb{N}\), \((y_n)_{n\in \mathbb{N}}\)
-          es una subsucesión de \((x_n^{(m)})_{n\in \mathbb{N}}\).
-        </p>
-        <p>
-          Este método se conoce como el método de la diagonal de Cantor.
-        </p>
-      </div>
 
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
@@ -213,7 +171,7 @@
         <p>
 
           Sea \((X, d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
-          una sucesión en \(X\). Decimos que la sucesión es convergente en X si
+          una sucesión en \(X\). Decimos que la sucesión es convergente en \(X\) si
           existe un \(x\in X\) que satisface:
         </p>
         <p>
@@ -222,6 +180,10 @@
           \(
             d(x_n, x) < \varepsilon .
           \)
+        </p>
+        <p>
+          Por simplicidad, si \((x_n)_{n\in \mathbb{N}}\) converge a
+          \(x\), escribimos \(\lim_{n\to \infty} x_n=x\).
         </p>
         <p>
           Notas:
@@ -273,14 +235,11 @@
         <h2 class="number-title"> Ejercicio </h2>
         <p>
           Como en el caso real, toda sucesión convergente en un espacio
-          métrico es es acotada.
+          métrico es es acotada. Sin embargo, varios resultados que se
+          valen en \(\mathbb{R}\) ya no son válidos para cualquier
+          espacio métrico.
         </p>
-        <p>
-          Recuerda
-          que un subconjunto \(A\) de un espacio métrico es acotado si
-          existe \(x_0\) en el espacio y \(r>0\) que satisface:
-          \(d(x_0,a) \leq r\), para toda \(a\in A\).
-        </p>
+
         <p>
           <ol>
           <li>
@@ -290,13 +249,18 @@
           está acotado.
           </li>
           <li>
-            Para \(k\in \mathbb{N}\) denota por
+            <p>Para \(k\in \mathbb{N}\) denota por
             \(e^{(k)}\) a la sucesión de reales tal que
             es cero en todos lados excepto en la entrada \(k\), donde vale 1. Nota
             que el conjunto \(\{e^{(k)}\}_{k\in \mathbb{N}}\) es
             acotado en \((\ell_\infty, \| \cdot \|_\infty)\) pero prueba que
             la sucesión \((e^{(k)})_{k\in \mathbb{N}}\) no converge en
             \((\ell_\infty, \| \cdot \|_\infty)\).
+          </p>
+          <p>
+            Sugerencia: inicia probando que, para \(x=(x_i)_{i\geq 1} \in \ell_\infty\)
+            \(|x_i | \leq \| x-e^{(k)}\|_\infty \), para toda \(i\ne k\).
+          </p>
           </li>
           <li>
             Generaliza el inciso anterior probando que no existe subsucesión
@@ -306,6 +270,12 @@
             el espacio \((\ell_\infty, \| \cdot \|_\infty)\).
           </li>
         </ol>
+        </p>
+
+        <p>
+          Nota: recuerda que un subconjunto \(A\) de un espacio métrico es acotado si
+          existe \(x_0\) en el espacio y \(r>0\) que satisface:
+          \(d(x_0,a) \leq r\), para toda \(a\in A\).
         </p>
       </div>
 
@@ -335,11 +305,77 @@
         </ol>
       </div>
 
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y sea \((x_n)_{n\in \mathbb{N}}\)
+          una sucesión en \(X\). Supongamos que existe \(y\in X\) y \(r>0\)
+          que satisface \(d(x_n,y) < r\), para toda \(n\in \mathbb{N}\).
+        </p>
+        <p>
+          ¿ Si \(x=\lim_{n\to \infty}x_n \) se sigue que \(d(x,y)< r\) ?
+          Demuestra o da un contraejemplo.
+        </p>
+
+      </div>
+
+
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <h3> Límites en espacios vectoriales normados </h3>
+        <p>
+          Recordamos que dado un espacio vectorial normado, \((V,\|\cdot\|)\),
+          la norma induce una métrica mediante, \(d(v,w)=\|v-w\|\). En este
+          contexto la definición de que \(\lim_{n\to \infty}v_n=v\) se
+          traduce como:
+         </p>
+         <p>
+           para toda \(\varepsilon > 0\), existe \(N\in\mathbb{N}\)
+           tal que, para toda \(n \geq N\) se cumple,
+           \( \| v_n-v\| < \varepsilon\).
+         </p>
+         <p>
+           Nota que lo anterior se puede escribir como
+           \[
+           \lim_{n\to \infty}\|v_n-v\|=0
+           \]
+           y la ventaja de éste último límite es que es un límite de números
+           reales, de los que se ven en cálculo.
+         </p>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((V,\|\cdot\|)\) un espacio vectorial normado,
+          \((v_n)_{n\in \mathbb{N}}\), \((w_n)_{n\in \mathbb{N}}\)
+          dos sucesiones en \(V\) y \((\alpha)_{n\in \mathbb{N}} \) una
+          sucesión de escalares.
+        </p>
+        <p>
+          Supón que \(\lim_{n\to \infty}v_n=v\), \(\lim_{n\to \infty} w_n=w\)
+          y \(\lim_{n\to \infty}\alpha_n = \alpha\).
+          Prueba que:
+          \[
+          \lim_{n\to \infty} (\alpha_n v_n+ w_n )= \alpha v +w
+          \]
+        </p>
+      </div>
+
+
             <div class="ejercicio-box">
               <h2 class="number-title"> Ejercicio </h2>
               <p>
+                Para iniciar con ejemplos vemos sucesiones de números reales.
+              </p>
+              <p>
                 Define la sucesión en \(\mathbb{R}\) por \(x_n=\sqrt{n+1}-\sqrt{n}\).
-                ¿ Las sucesiones \((x_n)_{n\in \mathbb{N}}\),
+              </p>
+                <p>¿ Las sucesiones \((x_n)_{n\in \mathbb{N}}\),
                 \((\sqrt{n}x_n)_{n\in \mathbb{N}}\) son convergentes?
                </p>
                <p>
@@ -353,19 +389,69 @@
               <h2 class="number-title"> Ejercicio </h2>
               <p>
                 Sea \(c>0\) un número real positivo, fijo. Examina la convergencia
-                de las siguientes series.
+                de las siguientes sucesiones \((x_n)_{n\in \mathbb{N}}\)
+                de números reales.
               </p>
               <ol>
-                <li> \(x_n=\frac{n}{c^n}\), \(n\in \mathbb{N}\).</li>
-                <li> \(x_n= \frac{c^n}{n!}\), \(n \in \mathbb{N}\). </li>
+                <li> \(x_n=c^n\).</li>
+                <li> \(x_n=\sqrt[n]{c}\). </li>
+                <li> \(x_n=\frac{n}{c^n}\).</li>
+                <li> \(x_n= \frac{c^n}{n!}\). </li>
               </ol>
             </div>
+
+
+
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+              <p>
+                Este ejercicio muestra que, para los
+                espacios \(\mathbb{R}^n\), con las normas-\(p\),
+                la convergencia de sucesiones se reduce a convergencia
+                de sucesiones de números reales.
+              </p>
+            </div>
+
+
+
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+
+              <p>
+                Ahora pasamos a ejemplos en espacios similares a
+                \(\mathbb{R}^n\), pero de dimensión más grande.
+              </p>
+              <p>
+                Dada una sucesión
+                \(x=(x_i)_{i\in \mathbb{N}} \in \mathbb{R}^{\mathbb{N}}\)
+                denota \(x^{(k)}\) al truncamiento de \(x\)
+                a altura \(k\), es decir, \(x^{(k)}=(x_1,\dots, x_k, 0,0,\dots)\).
+              </p>
+              <ol>
+                <li> Si \(x\in \ell_2\) prueba que \((x^{(k)})_{k\in \mathbb{N}}\)
+                  converge a \(x\) en \(\ell_2\).
+                </li>
+                <li> Si \(x\in \ell_1\) prueba que \((x^{(k)})_{k\in \mathbb{N}}\)
+                  converge a \(x\) en \(\ell_1\).
+                </li>
+                <li> Da un ejemplo donde se muestre que los incisos anteriores
+                  no se valen cuando \(x\in \ell_\infty\).
+                </li>
+              </ol>
+            </div>
+
+
+
+                  <div class="nota-box">
+                    <h2 class="number-title"> Nota </h2>
+                    <h3> Límites en la norma uniforme </h3>
+                  </div>
 
 
     <div class="ejercicio-box">
       <h2 class="number-title"> Ejercicio </h2>
       <p>
-        Considera el espacio métrico \((C[0,1], d)\), donde
+        Considera el espacio métrico \((C([0,1]), d)\), donde
         \(d\) es la métrico uniforme, es decir,
         la métrica inducida por la norma uniforme, \(\| \cdot\|_\infty\).
       </p>
@@ -382,7 +468,7 @@
           \(f_n(x)=\frac{x^n}{1+x^n}\).
         </li>
         <li>
-          \(f_n(x)\)
+          \(f_n(x)=x(1-x)^n\).
         </li>
       </ol>
     </div>
@@ -428,6 +514,22 @@
 
 
 
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+              <p>
+                Considera a \(\mathbb{R}^n\) con las normas-p.
+              </p>
+              <p>
+                Prueba que para todo \(x\in \mathbb{R}^n\):
+                \begin{eqnarray*}
+                  \|x\|_\infty & \leq & \|x\|_p, \\
+                  \|x\|_p & \leq  & n^{1/p}\| x\|_\infty.
+                  \end{eqnarray*}
+                Esto prueba que todas las métricas generadas por las normas-p en
+                \(\mathbb{R}^n\) son equivalentes.
+              </p>
+            </div>
+
         <div class="ejercicio-box">
           <h2 class="number-title" id="Ejer:MetEquivProdCarte"> Ejercicio </h2>
           <p>
@@ -445,24 +547,101 @@
         </div>
 
 
+
+
+
+
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+
+            <p>
+              Dada una sucesión \((x_n)_{n\in \mathbb{N}}\) de elementos de
+              elementos de \(X\), una subsucesión de \((x_n)_{n\in \mathbb{N}}\)
+              es simplemente componer la suesión con una función
+              estrictamente creciente de \(\mathbb{N}\) en \(\mathbb{N}\). Es decir,
+              toda subsucesión de \((x_n)_{n\in \mathbb{N}}\) es de la
+              forma \((x_{\varphi(n)})_{n\in \mathbb{N}}\), donde
+              \(\varphi:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente. Por ejemplo
+              \((x_{2n})_{n\in \mathbb{N}}\) y \((x_{2n+1})_{n\in \mathbb{N}}\)
+              son subcesiones de \((x_n)_{n\in \mathbb{N}}\). Por costumbre
+              una subcesión de \((x_n)_{n\in \mathbb{N}}\) suele denotarse
+              \((x_{n_k})_{k\in \mathbb{N}}\), donde en ésta notación
+              se entiende \(n_k=\varphi(k)\), para alguna función
+              estrictamente creciente \(\varphi\).
+            </p>
+        </div>
+
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
           <p>
-            Considera a \(\mathbb{R}^n\) con las normas-p.
+            ¿Cuáles de las siguientes expresiones representan subsucesiones
+            de \((x_n)_{n\in \mathbb{N}}\)?
+          </p>
+          <ol>
+            <li> \((x_{n^2})_{n\in \mathbb{N}}\) . </li>
+            <li> \((x_{n^2-4n})_{n \in \mathbb{N}}\).</li>
+            <li> \((x_{\frac{n^2+1}{n+1}})_{n \geq 2 }\). </li>
+            <li>  \((x_{\frac{n}{n+1}})_{n\in \mathbb{N}}\). </li>
+            <li>   \((x_{n^2-4n})_{n\geq 5} \). </li>
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Considera una sucesión \((x_n)_{n\in \mathbb{N}}\). De esta
+            sucesión se van a ir sacando subsuceciones recursivamente.
           </p>
           <p>
-            Prueba que para todo \(x\in \mathbb{R}^n\):
-            \begin{eqnarray*}
-              \|x\|_\infty & \leq & \|x\|_p, \\
-              \|x\|_p & \leq  & n^{1/p}\| x\|_\infty.
-              \end{eqnarray*}
-            Esto prueba que todas las métricas generadas por las normas-p en
-            \(\mathbb{R}^n\) son equivalentes.
+            Por \((x_n^{(1)})_{n\in \mathbb{N}}\) vamos a denotar una
+            subsucesión de \((x_n)_{n\in \mathbb{N}}\). Es decir,
+            \(x_n^{(1)}=x_{\varphi_1(n)}\), donde
+            \(\varphi_1:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
           </p>
-
-
-
+          <p>
+            Por \((x_n^{(2)})_{n\in \mathbb{N}}\) vamos a denotar una
+            subsucesión de \((x_n^{(1)})_{n\in \mathbb{N}}\). Es decir,
+            \(x_n^{(2)}=x_{\varphi_2(n)}^{(1)}\), donde
+            \(\varphi_2:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
+          </p>
+          <p>
+            Si \((x_n^{(m)})_{n\in\mathbb{N} } \) se ha construido,
+            por \((x_n^{(m+1)})_{n\in \mathbb{N}}\) vamos a denotar una
+            subsucesión de \((x_n^{(m)})_{n\in \mathbb{N}}\). Es decir,
+            \(x_n^{(m+1)}=x_{\varphi_{m+1}(n)}^{(m)}\), donde
+            \(\varphi_{m+1}:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
+          </p>
+          <p>
+            Para una visualización podemos escribir las suceciones
+            en una lista
+          </p>
+          <p>
+            \begin{eqnarray*}
+            & x_1^{(1)}, x_2^{(1)}, x_3^{(1)}, \dots \\
+            & x_1^{(2)}, x_2^{(2)}, x_3^{(2)}, \dots \\
+            & x_1^{(3)}, x_2^{(3)}, x_3^{(3)}, \dots \\
+            & \vdots \\
+            & x_1^{(m)}, x_2^{(m)}, x_3^{(m)}, \dots \\
+            & \vdots
+            \end{eqnarray*}
+          </p>
+          <p>
+            Define la sucesión \((y_n)_{n \in \mathbb{N}}\) por
+            \(y_n:=x_n^{(n)}\). Se puede pensar como la sucesión diagonal.
+          </p>
+          <p>
+            Prueba que, para cada \(m\in \mathbb{N}\), \((y_n)_{n\in \mathbb{N}}\)
+            es una subsucesión de \((x_n^{(m)})_{n\in \mathbb{N}}\).
+          </p>
+          <p>
+            Este método se conoce como el método de la diagonal de Cantor.
+          </p>
         </div>
+
+
+
+
 
       <div class="lema-box">
         <h2 class="number-title"> Lema </h2>
@@ -477,19 +656,6 @@
 
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Sea \((X,d)\) un espacio métrico y sea \((x_n)_{n\in \mathbb{N}}\)
-          una sucesión en \(X\). Supongamos que existe \(y\in X\) y \(r>0\)
-          que satisface \(d(x_n,y) < r\), para toda \(n\in \mathbb{N}\).
-        </p>
-        <p>
-          ¿ Si \(x=\lim_{n\to \infty}x_n \) se sigue que \(d(x,y)< r\) ?
-          Justifica tu respuesta.
-        </p>
-
-      </div>
 
 
 
@@ -508,30 +674,10 @@
 
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Dada una sucesión
-          \(x=(x_i)_{i\in \mathbb{N}} \in \mathbb{R}^{\mathbb{N}}\)
-          denota \(x^{(k)}\) al truncamiento de \(x\)
-          a altura \(k\), es decir, \(x^{(k)}=(x_1,\dots, x_k, 0,0,\dots)\).
-        </p>
-        <ol>
-          <li> Si \(x\in \ell_2\) prueba que \((x^{(k)})_{k\in \mathbb{N}}\)
-            converge a \(x\) en \(\ell_2\).
-          </li>
-          <li> Si \(x\in \ell_1\) prueba que \((x^{(k)})_{k\in \mathbb{N}}\)
-            converge a \(x\) en \(\ell_1\).
-          </li>
-          <li> Da un ejemplo donde se muestre que los incisos anteriores
-            no se valen cuando \(x\in \ell_\infty\).
-          </li>
-        </ol>
-      </div>
 
 
       <div class="definicion-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <h2 class="number-title"> Definición </h2>
         <p>
           Sea \((X,d)\) un espacio métrico. Una sucesión en
           \(X\), \((x_n)_{n\in \mathbb{N}}\), se llama de Cauchy
@@ -582,6 +728,20 @@
         </p>
         <p>
           Sugerencia: prueba por contradicción.
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
+          una sucesión de Cauchy en \(X\).
+        </p>
+        <p>
+          Supón que \((x_n)_{n\in \mathbb{N}}\) admite una subsucesión
+          convergente en \(X\). Prueba que la sucesión original,
+          \((x_n)_{n\in \mathbb{N}}\), también es convergente.
         </p>
       </div>
 
