@@ -303,6 +303,49 @@
             </p>
           </li>
         </ol>
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+            <ol>
+                <li>
+                    Tenemos que empezar por notar que \(d(x_n,y)\) es una sucesión de
+                    números reales y la métrica en \(\mathbb{R}\) es la inducida por el
+                    valor absoluto. Como \(d\) es métrica se tiene que
+                    \[
+                    |d(x_n,y) - d(x,y)| \leq d(x_n,x), \ \forall n \in \mathbb{N},
+                    \]
+                    Como el límite de \((x_n)_{n \in \mathbb{N}}\) es \(x\), entonces para cada
+                    \(\epsilon > 0\) existe \(N \in \mathbb{N}\) tal que si \(n \geq N\),
+                    \(d(x_n,x) < \epsilon\). En consecuencia, si \(n \geq N\)
+                    entonces
+                    \[
+                    0 \leq |d(x_n,y) - d(x,y)| \leq d(x_n,x) < \epsilon
+                    \]
+                    y con ello hemos mostrado que \(\lim_{n \to \infty} d(x_n,y) = d(x,y)\).
+                </li>
+                <li>
+                    Por la desigualdad del triángulo tenemos lo siguiente:
+                    \[
+                    \begin{align*}
+                    |d(x_n,y_n) - d(x,y)| =& |d(x_n, y_n) - d(x_n,y) + d(x_n,y) - d(x,y)|, \\
+                    \leq& |d(x_n,y_n) - d(x_n,y)| + |d(x_n,y) - d(x,y)|,
+                    \end{align*}
+                    \]
+                    La desigualdad del triángulo inversa nos permite acotar el primer sumando
+                    por medio de \(d(y_n,y)\), de modo que
+                    \[
+                    |d(x_n,y_n) - d(x,y)| \leq d(y_n,y) + |d(x_n,y) - d(x,y)|.
+                    \]
+                    Como \(\lim_{n \to \infty} y_n = y\) y tenemos el resultado el primer inciso, entonces para
+                    cada \(\epsilon > 0\) existe \(N \in \mathbb{N}\) tal que si \(n \geq N\)
+                    entonces \(d(y_n,y) < \epsilon/2\) y \(|d(x_n,y) - d(x,y)| <\epsilon/2\), por
+                    lo que
+                    \[
+                    |d(x_n,y_n) - d(x,y)| < \epsilon,
+                    \]
+                    y con ello hemos demostrado que \(\lim_{n \to \infty} d(x_n,y_n) = d(x,y)\).
+                </li>
+            </ol>
+        </div>
       </div>
 
 
