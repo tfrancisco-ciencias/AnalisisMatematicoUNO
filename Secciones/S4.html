@@ -472,6 +472,25 @@
                           Con esto  notamos que \(|c^n - 0| < \epsilon\) si \(n \geq N'\) y
                           concluimos que \(\lim_{n \to \infty} c^n = 0\).
                       </li>
+                      <li>
+                          Nuevamente trabajaremos el problema por casos. Si \(c=1\) entonces
+                          \(\frac{n}{c^n} = n\) y sabemos que la sucesión \((n)_{n \in \mathbb{N}}\)
+                          no tiene límite. El caso \(c<1\) es similar. Como \(c^n < 1\) entonces
+                          \(n < \frac{n}{c^n}\) para cada \(n \in \mathbb{N}\) y dicha sucesión no
+                          tiene límite. <br><br>
+                          Trabajemos ahora con el caso en que \(c>1\). Como \(c>1\) entonces
+                          \(c = 1+k\) para algún \(k>0\). Recurrimos una vez más al teorema del
+                          binomio de Newton, si \(n \geq 2\) entonces uno de los términos en la
+                          expansión de \(c^n = (1+k)^n\) es de la forma \(\frac{n(n-1)}{2}k^2\),
+                          de modo que \(c^n > \frac{n(n-1)}{2}k^2\) y \(\frac{n}{c^n} < \frac{2}{(n-1)k^2}\).
+                          Para terminar hacemos lo siguiente. Sea \(\epsilon > 0\), sabemos que existe
+                          \(N \in \mathbb{N}\) tal que si \(n \geq N\) entonces \(\frac{1}{n-1} <
+                          \frac{k^2 \epsilon}{2}\). De esta forma, si \(n \geq N\) entonces
+                          \[
+                          |\frac{n}{c^n} - 0| < |\frac{2}{(n-1)k^2}-0| < \epsilon,
+                          \]
+                          y concluimos que \(\lim_{n \to \infty} \frac{n}{c^n} = 0\).
+                      </li>
                   </ol>
               </div>
             </div>
