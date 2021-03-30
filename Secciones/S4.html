@@ -441,6 +441,39 @@
                 <li> \(x_n=\frac{n}{c^n}\).</li>
                 <li> \(x_n= \frac{c^n}{n!}\). </li>
               </ol>
+
+              <button class="respButton hvr-grow"> Respuesta </button>
+              <div class="resp-box">
+                  Vamos a resolver 1 y 3.
+                  <ol>
+                      <li>
+                          Dividiremos el problema en 3 casos, \(c=1\), \(c<1\) y \(c>1\).
+                          El caso \(c=1\) no requiere mayor discusión, pues \(1^n = 1\)
+                          y al ser una sucesión constante \(\lim_{n \to \infty}1^n = 1\).<br><br>
+
+                          Veamos ahora el caso en que \(c>1\). Podemos escribir \(c = 1+k\)
+                          para algún \(k>0\). Por el teorema del binomio de Newton tenemos
+                          que \(c^n = (1+k)^n = \sum_{l=0}^n 1^{n-l}k^l = 1 + nk +
+                          \sum_{l=2}^n 1^{n-l}k^l \geq 1+nk\). Con ésto estamos en
+                          condiciones demostrar no sólo que la sucesión no tiene límite,
+                          sino que toma valores arbitrariamente grandes.
+                          Dada \(M \geq 0\) existe \(N \in \mathbb{N}\) tal que \(Nk > M\),
+                          y en general se tiene que si \(n \geq N\) entonces también
+                          \(nk > M\) y \(c^n > M\). Como \(M\) es arbitraria entonces podemos
+                          reemplazarla por \(l + \epsilon\) para ver que ningún \(l \in \mathbb{R}\)
+                          puede ser el límite de la sucesión. <br><br>
+
+                          El caso en que \(c<1\) lo podemos estudiar a partir del caso anterior.
+                          Si \(c<1\) entonces \(d=1/c > 1\) y \(d^n = 1/c^n\). Dado \(\epsilon >0\)
+                          existe \(N \in \mathbb{N}\) tal que \(1/N <\epsilon\), por el análisis
+                          hecho anteriormente tenemos que existe \(N' \in \mathbb{N}\) tal que
+                          si \(n \geq N'\) entonces \(d^n > N\) y en consecuencia
+                          \(0 \leq c^n = 1/d^n < 1/N < \epsilon\).
+                          Con esto  notamos que \(|c^n - 0| < \epsilon\) si \(n \geq N'\) y
+                          concluimos que \(\lim_{n \to \infty} c^n = 0\).
+                      </li>
+                  </ol>
+              </div>
             </div>
 
 
