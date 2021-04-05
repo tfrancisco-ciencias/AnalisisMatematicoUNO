@@ -84,6 +84,15 @@
           el radio de un intervalo centrado en \(x\) y el número \(N\)
           nos indica el instante en la sucesión a partir del cual
           los valores de la sucesión caen dentro de éste intervalo.
+
+
+          <div class="imagen-box flexbox">
+              <img src="./Images/ConvSucReales.png" alt="ConvergenciaSuc" width="550" height="300">
+          </div>
+
+
+
+
         <p>
           Ya que el valor absoluto induce la distancia usual en los
           reales, podemos generalizar la definción anterior reemplazando
@@ -94,6 +103,97 @@
           diferencias.
         </p>
       </div>
+
+
+
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+              <p>
+              Para iniciar con ejemplos vemos sucesiones de números reales.
+              </p>
+              <p>
+              Define la sucesión en \(\mathbb{R}\) por \(x_n=\sqrt{n+1}-\sqrt{n}\).
+              </p>
+              <p>¿ Las sucesiones \((x_n)_{n\in \mathbb{N}}\),
+                \((\sqrt{n}x_n)_{n\in \mathbb{N}}\) son convergentes?
+              </p>
+               <p>
+               Justifica tu respuesta.
+              </p>
+            </div>
+
+
+
+          <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+              <p>
+                Sea \(c>0\) un número real positivo, fijo. Examina la convergencia
+                de las siguientes sucesiones \((x_n)_{n\in \mathbb{N}}\)
+                de números reales.
+              </p>
+              <ol>
+                <li> \(x_n=c^n\).</li>
+                <li> \(x_n=\sqrt[n]{c}\). </li>
+                <li> \(x_n=\frac{n}{c^n}\).</li>
+                <li> \(x_n= \frac{c^n}{n!}\). </li>
+              </ol>
+
+              <button class="respButton hvr-grow"> Respuesta </button>
+              <div class="resp-box">
+                  Vamos a resolver 1 y 3.
+                  <ol>
+                    <li>
+                      Dividiremos el problema en 3 casos, \(c=1\), \(c<1\) y \(c>1\).
+                      El caso \(c=1\) no requiere mayor discusión, pues \(1^n = 1\)
+                      y al ser una sucesión constante \(\lim_{n \to \infty}1^n = 1\).<br><br>
+
+                      Veamos ahora el caso en que \(c>1\). Podemos escribir \(c = 1+k\)
+                      para algún \(k>0\). Por el teorema del binomio de Newton tenemos
+                      que \(c^n = (1+k)^n = \sum_{l=0}^n 1^{n-l}k^l = 1 + nk +
+                      \sum_{l=2}^n 1^{n-l}k^l \geq 1+nk\). Con ésto estamos en
+                      condiciones demostrar no sólo que la sucesión no tiene límite,
+                      sino que toma valores arbitrariamente grandes.
+                      Dada \(M \geq 0\) existe \(N \in \mathbb{N}\) tal que \(Nk > M\),
+                      y en general se tiene que si \(n \geq N\) entonces también
+                      \(nk > M\) y \(c^n > M\). Como \(M\) es arbitraria entonces podemos
+                      reemplazarla por \(l + \epsilon\) para ver que ningún \(l \in \mathbb{R}\)
+                      puede ser el límite de la sucesión. <br><br>
+
+                      El caso en que \(c < 1\) lo podemos estudiar a partir del caso anterior.
+                      Si \( c < 1\) entonces \(d=1/c > 1\) y \(d^n = 1/c^n\). Dado \(\epsilon >0\)
+                      existe \(N \in \mathbb{N}\) tal que \(1/N <\epsilon\), por el análisis
+                      hecho anteriormente tenemos que existe \(N' \in \mathbb{N}\) tal que
+                      si \(n \geq N'\) entonces \(d^n > N\) y en consecuencia
+                      \(0 \leq c^n = 1/d^n < 1/N < \epsilon\).
+                      Con esto  notamos que \(|c^n - 0| < \epsilon\) si \(n \geq N'\) y
+                      concluimos que \(\lim_{n \to \infty} c^n = 0\).
+                    </li>
+                  <li>
+                    Nuevamente trabajaremos el problema por casos. Si \(c=1\) entonces
+                  \(\frac{n}{c^n} = n\) y sabemos que la sucesión \((n)_{n \in \mathbb{N}}\)
+                    no tiene límite. El caso \(c<1\) es similar. Como \(c^n < 1\) entonces
+                    \(n < \frac{n}{c^n}\) para cada \(n \in \mathbb{N}\) y dicha sucesión no
+                    tiene límite. <br><br>
+                  Trabajemos ahora con el caso en que \(c>1\). Como \(c>1\) entonces
+                    \(c = 1+k\) para algún \(k>0\). Recurrimos una vez más al teorema del
+                    binomio de Newton, si \(n \geq 2\) entonces uno de los términos en la
+                    expansión de \(c^n = (1+k)^n\) es de la forma \(\frac{n(n-1)}{2}k^2\),
+                    de modo que \(c^n > \frac{n(n-1)}{2}k^2\) y \(\frac{n}{c^n} < \frac{2}{(n-1)k^2}\).
+                    Para terminar hacemos lo siguiente. Sea \(\epsilon > 0\), sabemos que existe
+                   \(N \in \mathbb{N}\) tal que si \(n \geq N\) entonces \(\frac{1}{n-1} <
+                  \frac{k^2 \epsilon}{2}\). De esta forma, si \(n \geq N\) entonces
+                  \[
+                    |\frac{n}{c^n} - 0| < |\frac{2}{(n-1)k^2}-0| < \epsilon,
+                  \]
+                  y concluimos que \(\lim_{n \to \infty} \frac{n}{c^n} = 0\).
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+
+
+
 
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
@@ -186,6 +286,18 @@
           \(x\), escribimos \(\lim_{n\to \infty} x_n=x\).
         </p>
         <p>
+          Geométricamente la idea es muy parecida al caso real sólo que
+          ahora  \(\varepsilon \) representa el radio de una
+          bola y la métrica \(d\) determina la forma de la bola o
+          vecindad centrada en \(x\).
+
+          <div class="imagen-box flexbox">
+              <img src="./Images/ConvSucEspMet.png" alt="ConvergenciaSucEspMet" width="550" height="300">
+          </div>
+
+
+        </p>
+        <p>
           Notas:
           <ol>
           <li>
@@ -202,7 +314,7 @@
             \varepsilon/2 < \varepsilon\).
           </li>
           <li>
-            La definición pueden pensarse como: a partir de cierto instance
+            La definición pueden pensarse de la siguiente forma: a partir de cierto instance
             de la sucesión
             (el instance es \(N\)) la distancia entre los elementos de la
             sucesión y el punto de convergencia se hace tan chiquita como
@@ -230,55 +342,6 @@
           \(d(x,y)\).
         </p>
       </div>
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Como en el caso real, toda sucesión convergente en un espacio
-          métrico es es acotada. Sin embargo, varios resultados que se
-          valen en \(\mathbb{R}\) ya no son válidos para cualquier
-          espacio métrico.
-        </p>
-
-        <p>
-          <ol>
-          <li>
-          Sea \((X,d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
-          una sucesión en \(X\). Prueba que si \((x_n)_{n\in \mathbb{N}}\)
-          es convergente entonces el conjunto \(\{x_n\}_{n\in \mathbb{N}}\)
-          está acotado.
-          </li>
-          <li>
-            <p>Para \(k\in \mathbb{N}\) denota por
-            \(e^{(k)}\) a la sucesión de reales tal que
-            es cero en todos lados excepto en la entrada \(k\), donde vale 1. Nota
-            que el conjunto \(\{e^{(k)}\}_{k\in \mathbb{N}}\) es
-            acotado en \((\ell_\infty, \| \cdot \|_\infty)\) pero prueba que
-            la sucesión \((e^{(k)})_{k\in \mathbb{N}}\) no converge en
-            \((\ell_\infty, \| \cdot \|_\infty)\).
-          </p>
-          <p>
-            Sugerencia: inicia probando que, para \(x=(x_i)_{i\geq 1} \in \ell_\infty\)
-            \(|x_i | \leq \| x-e^{(k)}\|_\infty \), para toda \(i\ne k\).
-          </p>
-          </li>
-          <li>
-            Generaliza el inciso anterior probando que no existe subsucesión
-            de \((e^{(k)})_{k\in \mathbb{N}}\) que sea convergente
-            en \((\ell_\infty, \| \cdot \|_\infty)\). Esto muestra que
-            un teorema tipo Bolzano-Weirestrass no es válido en
-            el espacio \((\ell_\infty, \| \cdot \|_\infty)\).
-          </li>
-        </ol>
-        </p>
-
-        <p>
-          Nota: recuerda que un subconjunto \(A\) de un espacio métrico es acotado si
-          existe \(x_0\) en el espacio y \(r>0\) que satisface:
-          \(d(x_0,a) \leq r\), para toda \(a\in A\).
-        </p>
-      </div>
-
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
@@ -417,92 +480,6 @@
       </div>
 
 
-            <div class="ejercicio-box">
-              <h2 class="number-title"> Ejercicio </h2>
-              <p>
-                Para iniciar con ejemplos vemos sucesiones de números reales.
-              </p>
-              <p>
-                Define la sucesión en \(\mathbb{R}\) por \(x_n=\sqrt{n+1}-\sqrt{n}\).
-              </p>
-                <p>¿ Las sucesiones \((x_n)_{n\in \mathbb{N}}\),
-                \((\sqrt{n}x_n)_{n\in \mathbb{N}}\) son convergentes?
-               </p>
-               <p>
-                 Justifica tu respuesta.
-               </p>
-            </div>
-
-
-
-            <div class="ejercicio-box">
-              <h2 class="number-title"> Ejercicio </h2>
-              <p>
-                Sea \(c>0\) un número real positivo, fijo. Examina la convergencia
-                de las siguientes sucesiones \((x_n)_{n\in \mathbb{N}}\)
-                de números reales.
-              </p>
-              <ol>
-                <li> \(x_n=c^n\).</li>
-                <li> \(x_n=\sqrt[n]{c}\). </li>
-                <li> \(x_n=\frac{n}{c^n}\).</li>
-                <li> \(x_n= \frac{c^n}{n!}\). </li>
-              </ol>
-
-              <button class="respButton hvr-grow"> Respuesta </button>
-              <div class="resp-box">
-                  Vamos a resolver 1 y 3.
-                  <ol>
-                      <li>
-                          Dividiremos el problema en 3 casos, \(c=1\), \(c<1\) y \(c>1\).
-                          El caso \(c=1\) no requiere mayor discusión, pues \(1^n = 1\)
-                          y al ser una sucesión constante \(\lim_{n \to \infty}1^n = 1\).<br><br>
-
-                          Veamos ahora el caso en que \(c>1\). Podemos escribir \(c = 1+k\)
-                          para algún \(k>0\). Por el teorema del binomio de Newton tenemos
-                          que \(c^n = (1+k)^n = \sum_{l=0}^n 1^{n-l}k^l = 1 + nk +
-                          \sum_{l=2}^n 1^{n-l}k^l \geq 1+nk\). Con ésto estamos en
-                          condiciones demostrar no sólo que la sucesión no tiene límite,
-                          sino que toma valores arbitrariamente grandes.
-                          Dada \(M \geq 0\) existe \(N \in \mathbb{N}\) tal que \(Nk > M\),
-                          y en general se tiene que si \(n \geq N\) entonces también
-                          \(nk > M\) y \(c^n > M\). Como \(M\) es arbitraria entonces podemos
-                          reemplazarla por \(l + \epsilon\) para ver que ningún \(l \in \mathbb{R}\)
-                          puede ser el límite de la sucesión. <br><br>
-
-                          El caso en que \(c<1\) lo podemos estudiar a partir del caso anterior.
-                          Si \(c<1\) entonces \(d=1/c > 1\) y \(d^n = 1/c^n\). Dado \(\epsilon >0\)
-                          existe \(N \in \mathbb{N}\) tal que \(1/N <\epsilon\), por el análisis
-                          hecho anteriormente tenemos que existe \(N' \in \mathbb{N}\) tal que
-                          si \(n \geq N'\) entonces \(d^n > N\) y en consecuencia
-                          \(0 \leq c^n = 1/d^n < 1/N < \epsilon\).
-                          Con esto  notamos que \(|c^n - 0| < \epsilon\) si \(n \geq N'\) y
-                          concluimos que \(\lim_{n \to \infty} c^n = 0\).
-                      </li>
-                      <li>
-                          Nuevamente trabajaremos el problema por casos. Si \(c=1\) entonces
-                          \(\frac{n}{c^n} = n\) y sabemos que la sucesión \((n)_{n \in \mathbb{N}}\)
-                          no tiene límite. El caso \(c<1\) es similar. Como \(c^n < 1\) entonces
-                          \(n < \frac{n}{c^n}\) para cada \(n \in \mathbb{N}\) y dicha sucesión no
-                          tiene límite. <br><br>
-                          Trabajemos ahora con el caso en que \(c>1\). Como \(c>1\) entonces
-                          \(c = 1+k\) para algún \(k>0\). Recurrimos una vez más al teorema del
-                          binomio de Newton, si \(n \geq 2\) entonces uno de los términos en la
-                          expansión de \(c^n = (1+k)^n\) es de la forma \(\frac{n(n-1)}{2}k^2\),
-                          de modo que \(c^n > \frac{n(n-1)}{2}k^2\) y \(\frac{n}{c^n} < \frac{2}{(n-1)k^2}\).
-                          Para terminar hacemos lo siguiente. Sea \(\epsilon > 0\), sabemos que existe
-                          \(N \in \mathbb{N}\) tal que si \(n \geq N\) entonces \(\frac{1}{n-1} <
-                          \frac{k^2 \epsilon}{2}\). De esta forma, si \(n \geq N\) entonces
-                          \[
-                          |\frac{n}{c^n} - 0| < |\frac{2}{(n-1)k^2}-0| < \epsilon,
-                          \]
-                          y concluimos que \(\lim_{n \to \infty} \frac{n}{c^n} = 0\).
-                      </li>
-                  </ol>
-              </div>
-            </div>
-
-
 
             <div class="ejercicio-box">
               <h2 class="number-title"> Ejercicio </h2>
@@ -512,6 +489,55 @@
                 la convergencia de sucesiones se reduce a convergencia
                 de sucesiones de números reales.
               </p>
+              <p>
+                Fija \(p\in [1,\infty)\) y considera  el espacio vectorial
+                normado \((\mathbb{R}^n, \| \cdot \|_p)\).
+              </p>
+              <p>
+                Ya se este ejercicio maneja sucesiones de vectores introducimos
+                la siguiente notación: dado \(x\in \mathbb{R^n}\) por
+                \(x(1), x(2), \dots, x(n)\)  denotamos a sus coordenadas, es decir
+                \[
+                x= (x(1), x(2), \dots, x(n)).
+                \]
+                Con ésta notación, dada una sucesión de vectores
+                \((x_k)_{k\in \mathbb{N}}\) sus coordenadas están denotadas por
+                \[
+                x_k=(x_k(1), x_k(2), \dots, x_k(n)).
+                \]
+              </p>
+              <p>
+                Sean \(x,y\in \mathbb{R}^n\).
+              </p>
+                <ol>
+                <li>
+                Prueba que, para toda
+                \(i=1,\dots, n\):
+                \[
+                |x(i)-y(i)| \leq \| x-y\|_p.
+                \]
+                </li>
+                <li>
+                Además prueba que
+                \[
+                \quad \|x-y\|_p \leq n^{1/p}\max_{i=1,\dots, n} \{|x(i)-y(i)| \}
+                \]
+                </li>
+
+                <li>
+                  <p>
+                    Sea \((x_n)_{n\in \mathbb{N}}\) una sucesión en \(\mathbb{R}^n\)
+                    y  \(x\in \mathbb{R}^n\). Prueba que \(\lim_{n\to \infty} x_n=x\)
+                    si y sólo si, para toda \(i=1,\dots, n\), se cumple
+                    \(\lim_{n\to \infty}x_n(i)=x(i)\).
+                  </p>
+                  <p>
+                    Es decir, una sucesión de vectores converge en
+                    \(\mathbb{R}^n\), con respecto a la norma-\(p\), si y sólo si
+                    todas sus condenadas convergen, vistas como sucesiones en \(\mathbb{R}\).
+                  </p>
+                </li>
+                <ol>
             </div>
 
 
@@ -520,20 +546,24 @@
               <h2 class="number-title"> Ejercicio </h2>
 
               <p>
-                Ahora pasamos a ejemplos en espacios similares a
-                \(\mathbb{R}^n\), pero de dimensión más grande.
+                Recuerda que por \(\mathbb{R}^{\mathbb{N}}\) denotamos al
+                conjunto de sucesiones de números reales. Dado
+                \(x\in \mathbb{R}^{\mathbb{N}}\) denotamos sus entradas como
+                \[
+                x=(x(1), x(2), \dots, x(n), \dots)
+                \]
               </p>
               <p>
                 Dada una sucesión
-                \(x=(x_i)_{i\in \mathbb{N}} \in \mathbb{R}^{\mathbb{N}}\)
-                denota \(x^{(k)}\) al truncamiento de \(x\)
-                a altura \(k\), es decir, \(x^{(k)}=(x_1,\dots, x_k, 0,0,\dots)\).
+                \(x \in \mathbb{R}^{\mathbb{N}}\)
+                denota \(x_{k}\) al truncamiento de \(x\)
+                a altura \(k\), es decir, \(x_{k}=(x(1),\dots, x(k), 0,0,\dots)\).
               </p>
               <ol>
-                <li> Si \(x\in \ell_2\) prueba que \((x^{(k)})_{k\in \mathbb{N}}\)
+                <li> Si \(x\in \ell_2\) prueba que \((x_{k})_{k\in \mathbb{N}}\)
                   converge a \(x\) en \(\ell_2\).
                 </li>
-                <li> Si \(x\in \ell_1\) prueba que \((x^{(k)})_{k\in \mathbb{N}}\)
+                <li> Si \(x\in \ell_1\) prueba que \((x_{k})_{k\in \mathbb{N}}\)
                   converge a \(x\) en \(\ell_1\).
                 </li>
                 <li> Da un ejemplo donde se muestre que los incisos anteriores
@@ -547,6 +577,62 @@
                   <div class="nota-box">
                     <h2 class="number-title"> Nota </h2>
                     <h3> Límites en la norma uniforme </h3>
+                    <p>
+                      En esta nota veremos la convergencia
+                      en el espacio de funciones acotadas con la
+                      norma uniforme, \(\mathcal{B}(X), \| \cdot\|_\infty\).
+                      Rcordamos que una sucesión
+                      de funcions \((f_n)_{n\in \mathbb{N}}\)
+                      en \(\mathcal{B}(X)\) converge a una
+                      función \(f \in \mathbb{B}(X)\) si y sólo si
+                      \[
+                      \lim_{n\to \infty} \| f_n - f \|_\infty =0.
+                      \]
+
+                    </p>
+                    <p>
+                      En términos de \(\varepsilon\)'s lo anterior quiere
+                      decir que, para toda \(\varepsilon >0\) existe
+                      \(N\in \mathbb{N}\), tal que para toda \(n \geq N\)
+                      \(\| f_n - f \|_\infty < \varepsilon\). Si analizamos
+                      la expresión \(\|f_n-f\|_\infty <\varepsilon \) aún más
+                      tenemos que se debe de cumplir
+                      \[
+                      |f_n(x)-f(x)| < \varepsilon
+                      \]
+                      para toda \(x\in X\). En términos de las gráficas de
+                      \(f\) y \(f_n\) lo anterior nos dice que las
+                      gráficas de \(f_n\), para \(n \geq N\), están todas
+                      contenidas en una franja centrada en la gráfica de
+                      \(f\) de radio \(\varepsilon\):
+                    </p>
+
+                    <p>
+                      Así la convergencia en el espacio
+                      \((\mathcal{B}(X), \| \cdot\|_\infty)\)
+                      se puede pensar como que las gráficas se van concentrando
+                      dentro de franjas donde éstas franjas se pueden tomar tan
+                      angostas como se quieran.
+                    </p>
+
+                    <p>
+                      Otra característica importante de la convergencia
+                      en el espacio \((\mathcal{B}(X),\|\cdot\|_\infty)\) es que
+                      si \(\lim_{n\to \infty} \|f_n - f\|=0\) entonces, para
+                      toda \(x\in X\) se cumple
+                      \begin{equation}\label{Eqn:LimitePuntual}
+                      \lim_{n\to \infty} f_n(x)=f(x).
+                      \end{equation}
+                      Es importante notar que el último límite es un límite
+                      de números reales. Para probar \eqref{Eqn:LimitePuntual}
+                      simplemente notamos que, de la definición de la norma
+                      \(\|\cdot \|_\infty\), se sigue
+                      \[
+                      |f_n(x)-f(x)| \leq \|f_n-f\|_\infty
+                      \]
+                      tomando límite cuando \(n\to \infty\) y usando la ley
+                      del sandwich concluimos que \(\lim_{n\to \infty}f_n(x)=f(x)\).
+                    </p>
                   </div>
 
 
@@ -565,16 +651,16 @@
       </p>
       <ol>
         <li>
-          \(f_n(x)=\frac{\sen(nx+1/n)}{n}\).
+          \(f_n(t)=\frac{\sen(nt+1/n)}{n}\).
         </li>
         <li>
-          \(f_n(x)=x(1-x)^n\).
+          \(f_n(t)=t(1-t)^n\).
         </li>
         <li>
-          \(f_n(x)=\frac{n^2x}{1+nx^2}\).
+          \(f_n(t)=\frac{n^2t}{1+nt^2}\).
         </li>
         <li>
-          \( f_n(x)=\frac{nx}{1+n^2x^2}\).
+          \( f_n(t)=\frac{nt}{1+n^2t^2}\).
         </li>
 
       </ol>
@@ -787,6 +873,55 @@
             </div>
       </div>
 
+
+
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+              <p>
+                Como en el caso real, toda sucesión convergente en un espacio
+                métrico es es acotada. Sin embargo, varios resultados que se
+                valen en \(\mathbb{R}\) ya no son válidos para cualquier
+                espacio métrico.
+              </p>
+
+              <p>
+                <ol>
+                <li>
+                Sea \((X,d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
+                una sucesión en \(X\). Prueba que si \((x_n)_{n\in \mathbb{N}}\)
+                es convergente entonces el conjunto \(\{x_n\}_{n\in \mathbb{N}}\)
+                está acotado.
+                </li>
+                <li>
+                  <p>Para \(k\in \mathbb{N}\) denota por
+                  \(e^{(k)}\) a la sucesión de reales tal que
+                  es cero en todos lados excepto en la entrada \(k\), donde vale 1. Nota
+                  que el conjunto \(\{e^{(k)}\}_{k\in \mathbb{N}}\) es
+                  acotado en \((\ell_\infty, \| \cdot \|_\infty)\) pero prueba que
+                  la sucesión \((e^{(k)})_{k\in \mathbb{N}}\) no converge en
+                  \((\ell_\infty, \| \cdot \|_\infty)\).
+                </p>
+                <p>
+                  Sugerencia: inicia probando que, para \(x=(x(i))_{i\geq 1} \in \ell_\infty\)
+                  \(|x(i)| \leq \| x-e^{(k)}\|_\infty \), para toda \(i\ne k\).
+                </p>
+                </li>
+                <li>
+                  Generaliza el inciso anterior probando que no existe subsucesión
+                  de \((e^{(k)})_{k\in \mathbb{N}}\) que sea convergente
+                  en \((\ell_\infty, \| \cdot \|_\infty)\). Esto muestra que
+                  un teorema tipo Bolzano-Weirestrass no es válido en
+                  el espacio \((\ell_\infty, \| \cdot \|_\infty)\).
+                </li>
+              </ol>
+              </p>
+
+              <p>
+                Nota: recuerda que un subconjunto \(A\) de un espacio métrico es acotado si
+                existe \(x_0\) en el espacio y \(r>0\) que satisface:
+                \(d(x_0,a) \leq r\), para toda \(a\in A\).
+              </p>
+            </div>
 
 
 
