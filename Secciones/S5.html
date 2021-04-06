@@ -1,0 +1,312 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+      body.number-title{
+        counter-reset: sectionCounter 4 cardCounter ;
+      }
+      h1.number-title{
+        counter-reset: sectionCounter 4 cardCounter ;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio  </a> </li>
+        <li> <a href="../Secciones.html"> Secciones  </a> </li>
+      </ul>
+      <p align="right" >  <button onclick="myFunction()" class="darklightButton">Claro/Obscuro </button> </p>
+    </nav>
+
+    <h1 class="calculo-title"> Análisis Matemático UNO</h1>
+
+  </header>
+
+  <!--    Contenido empiaza abajo
+ ///////////////////////////////// -->
+
+
+  <body class="flexbox card fondo-body">
+
+
+    <div class="flexbox">
+      <h1 class="number-title"> Topología en espacios métricos </h1>
+
+      <div class="info-box">
+
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+
+        <p>
+          Sea \((X,d)\) un espacio métrico. Una bola abierta de radio
+          \(r>0\) y centrada en \(x_0\in X\) se define como el conjunto
+          \[
+          B_r(x_0)=\{ x\in X: d(x,x_0)< r\}.
+          \]
+          Si el espacio métrico proviene de un espacio vectorial normado
+          \((V,\|\cdot \|)\) las bolas son
+          \[
+          B_r(x_0)=\{ x\in V: \| x-x_0\| < r\}.
+          \]
+        </p>
+        <p>
+          La forma de la bola depende del espacio métrico, como se ven
+          en los siguientes ejemplos.
+        </p>
+
+        <ol>
+          <li>
+            <p> La métrica discreta.</p>
+            <p>
+            Recordamos que, para un conjunto cualquiera
+            \(X\ne \emptyset\), la métrica discreta en \(X\)
+            de se define por
+            \[
+            d(x,y)=\left\{\begin{array}{cc}
+            0 & \textrm{si \(x=y\)} \\
+            1 & \textrm{si \(x\ne y\)}
+            \end{array}
+            \right.
+            \]
+           </p>
+           <p>
+             Con la métrica discreta se tiene que para todo radio \(r\in (0,1]\):
+             \[
+             B_r(x_0)=\{x_0\},
+             \]
+             y para todo \(r\in (1,\infty)\):
+             \[
+             B_r(x_0)=X.
+             \]
+           </p>
+         </li>
+           <li>
+             <p> Las normas-\(p\).</p>
+             <p>
+               En el espacio vectorial normado \((\mathbb{R}^n, \|\cdot\|_p)\),
+               con \(p\in [1,\infty]\), tenemos las diferentes
+               comparaciones de las bolas
+
+             </p>
+           </li>
+           <li>
+             <p> La norma uniforme o infinito. </p>
+             <p>
+               Sea \(X\ne\emptyset\) un conjunto cualquiera y considera
+               el espacio vectorial normado \((\mathcal{B}(X),\|\cdot\|_\infty)\).
+             </p>
+             <p>
+               Dibujar bolas abiertas en \((\mathcal{B}(X), \| \cdot\|_\infty)\)
+               no es tan directo pero tenemos cierta ayuda visual. En este
+               caso una bola abierta es
+               \[
+               B_r(f_0)=\{ f\in \mathcal{B}(X): \|f-f_0\|_\infty < r\}
+               \]
+               donde \(f,f_0\) son funciones acotadas sobre \(X\) con valores
+               reales. En el análisis de los límites en la norma uniforme
+               notamos que la expresión \(\|f-f_0\|< r\)  implica
+               \[
+               |f(x)-f_0(x)|< r, \quad \textrm{para toda \(x\in X\)}
+               \]
+               En términos de las gráficas de \(f\) y \(f_0\) quiere
+               decir que la gráfica de \(f\) está encerrada en una
+               franja de radio \(r>0\) centrada en \(f_0\). Por lo tanto
+               podemos "dibujar" las bolas \(B_r(f_0)\) como
+             </p>
+           </li>
+        </ol>
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title" id="Def:ConjuntoAbierto"> Definición </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico. Decimos que un subconjunto
+          \(U\subseteq X\) es abierto en \((X,d)\) si todo punto de
+          \(U\) admite una bola centrada en el punto contenida en
+          \(U\), es decir:
+        </p>
+        <p class="card">
+          para todo \(x\in U\) existe \(r>0\) tal que \(B_r(x)\subseteq U\).
+        </p>
+        <p>
+          Notas.
+        </p>
+        <ol>
+          <li> Dado \(x\in U\) el radio \(r\) que cumple \(B_r(x) \subseteq U\)
+            usualmente  depende de \(x\).
+          </li>
+          <li>
+            El cuantificador "para todo" es muy importante. Si existe un sólo
+            punto  \(x\in U\) para el cual no se puede encontrar \(r>0\)
+            que satisfaga \(B_r(x)\subseteq U\), entonces el conjunto no es
+            abierto.
+          </li>
+        </ol>
+        <p>
+          Por ejemplo, en \((\mathbb{R}, |\cdot|)\) los intervalos de la forma
+          \((a,b)\)
+          son subconjuntos abiertos pues para cualquier \(x\in (a,b)\),
+          si tomamos \(r=\frac{1}{2}\min\{|a-x|, |b-x|\}\), entonces
+          \(B_r(x)\subset (a,b)\).
+        </p>
+
+        <p>
+          Sin embargo el intervalo \((a,b]\) no es abierto pues, para
+          el elemento \(b\in (a,b]\), siempre se tiene que, sin importar que
+          radio \(r>0\) se tome, \(B_r(b)\cap (a,b]^c \ne \emptyset\), por
+          lo que \(B_r(b)\) no puede estar contenido en \((a,b]\). Nota:
+          \((a,b]^c\) denota el complemento de \((a,b]\)
+
+        </p>
+        <p>
+          Hay dos conjuntos especiales, en cualquier espacio métrico
+          \((X,d)\), que siempre son abiertos. Estos son \(\emptyset\) y
+          \(X\) (el vacío y el total). Sin embargo, para cualquier otro
+          conjunto la métrica \(d\) "decide" si es abierto o no.
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          A pesar de que llamamos "bolas abiertas" a los conjuntos
+          \[
+          B_r(x_0)=\{x\in X: d(x,x_0)< r\}
+          \]
+          formalmente debemos de usar la
+          <a href="#Def:ConjuntoAbierto">Definicion </a> para
+          probar que  son subconjuntos abiertos.
+        </p>
+        <p>
+          Sea \((X,d)\) un espacio métrico. Toda bola abierta
+          es un subconjunto abierto de \(X\).
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico.
+          <ol>
+            <li>
+              Sea \(\{U_i\}_{i\in I}\) una colección arbitraria de conjuntos
+              abiertos. Prueba que la unión \(\cup_{i\in I}U_i\), es abierta.
+            </li>
+            <li>
+              Sea \(U_1,\dots, U_n\) una colección finita de conjuntos
+              abiertos. Prueba que la intersección \(\cap_{i=1}^n U_i\)
+              es abierta.
+            </li>
+            <li>
+              Da un ejemplo de un espacio métrico y una colección numerable
+              de conjuntos abiertos, \(\{U_i\}_{i\in \mathbb{N}}\), tal que
+              su intersección \(\cap_{i\in \mathbb{N}} U_i\) no es abierta.
+            </li>
+        </p>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(U\subseteq X\). Las
+          siguientes condiciones son equivalentes.
+        </p>
+        <ol>
+          
+        </ol>
+
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definicion </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico. Un subconjunto \(F\subset X\)
+          se llama cerrado si su complemento \(F^c=X\setminus F\) es
+          abierto.
+        </p>
+        <p>
+          Por ejemplo, en \((\mathbb{R},|\cdot|)\), el intervalo
+          \([a,b]\) es un subconjunto cerrado pues su complemente
+          \[
+          [a,b]^c=(-\infty,a)\cup (b,\infty)
+          \]
+          es abierto, al ser la unión de los abiertos
+          \[
+          (-\infty,a )\cup (b,\infty)=\cup_{i=1}^\infty (a-i,a)\cup
+          \cup_{j=1}^\infty (b,b+j)
+          \]
+        </p>
+        <p>
+          También notamos que en cualquier espacio métrico \((X,d)\)
+          tanto \(\emptyset\) como \(X\) son subconjuntos cerrados.
+        </p>
+      </div>
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(F\subseteq X\). Las
+          siguientes condiciones son equivalentes:
+        </p>
+        <ol>
+          <li>
+            \(F\) es cerrado.
+          </li>
+          <li>
+            Si para todo \(r>0\) se cumple \(B_r(x)\cap F \ne \emptyset\)
+            entonces \(x\in F\).
+          </li>
+          <li>
+            Si una sucesión de puntos en \(F\), \((x_n)_{n\in \mathbb{N}} \subset F\),
+            satisface que converge a un punto \(x\in X\), entonces \(x\in F\).
+          </li>
+        </ol>
+      </div>
+
+
+
+
+    </div>
+  </body>
