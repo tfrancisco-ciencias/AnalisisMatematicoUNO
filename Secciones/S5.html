@@ -19,7 +19,9 @@
         tex: {
           macros: {
             sen: "\\operatorname{sen}",
-            seg: ["\\overrightarrow{#1}", 1]
+            seg: ["\\overrightarrow{#1}", 1],
+            inte: "\\operatorname{int}",
+            cer: "\\operatorname{cer}",
           },
           tags: "ams" /* this part is for numbered equations */
         }
@@ -69,6 +71,10 @@
       <h1 class="number-title"> Topología en espacios métricos </h1>
 
       <div class="info-box">
+        <h2 class="number-title"> Introducción </h2>
+        <p>
+
+       </p>
 
       </div>
 
@@ -224,7 +230,7 @@
 
 
       <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <h2 class="number-title" id="Ejer:PropiedadesAbiertos"> Ejercicio </h2>
         <p>
           Sea \((X,d)\) un espacio métrico.
           <ol>
@@ -242,6 +248,7 @@
               de conjuntos abiertos, \(\{U_i\}_{i\in \mathbb{N}}\), tal que
               su intersección \(\cap_{i\in \mathbb{N}} U_i\) no es abierta.
             </li>
+          </ol>
         </p>
       </div>
 
@@ -254,7 +261,15 @@
           siguientes condiciones son equivalentes.
         </p>
         <ol>
-          
+          <li>
+            \(U\) es abierto.
+          </li>
+          <li>
+            Si \((x_n)_{n\in \mathbb{N}} \subset X\) es una
+            sucesión convergente a un punto \(x\in U \),
+            entonces, \(x_n \in U\) para todos los \(x_n\)'s
+            excepto un número finito.
+          </li>
         </ol>
 
       </div>
@@ -279,13 +294,57 @@
           \]
         </p>
         <p>
+          Otro ejemplo es \(\mathbb{N}\) el cual es cerrado en \(\mathbb{R}\).
+        </p>
+        <p>
           También notamos que en cualquier espacio métrico \((X,d)\)
           tanto \(\emptyset\) como \(X\) son subconjuntos cerrados.
         </p>
+
       </div>
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h3>
+          <p>
+            Sea \((X,d)\) un espacio métrico. Prueba que todo
+            subconjunto finito de \(X\) es cerrado.
+          </p>
+
+        </div>
+
+
+
+                <div class="ejercicio-box">
+                  <h2 class="number-title"> Ejercicio </h2>
+                  <p>
+                    Sea \((X,d)\) un espacio métrico, \(F\subseteq X\) un
+                    conjunto cerrado y \(U \subseteq  X\) un conjunto abierto.
+                  </p>
+                  <p>
+                    Prueba que \(F\setminus U\) es cerrado y que
+                    \(U \setminus F \) es abierto.
+                  </p>
+
+                </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            En el <a href="./S4.html#Ejer:MetEquivalentes"> Ejercicio 4.15</a>
+            se definió que dos
+            métricas son equivalentes si tienen las mismas
+            sucesiones convergentes.
+          </p>
+          <p>
+            Prueba que dos métricas son equivalentes si y sólo si generan los
+            mismos conjuntos abiertos.
+          </p>
+      </div>
+
+
+
       <div class="teorema-box">
-        <h2 class="number-title"> Teorema </h2>
+        <h2 class="number-title" id="Teo:CaracCerrados"> Teorema </h2>
         <p>
           Sea \((X,d)\) un espacio métrico y \(F\subseteq X\). Las
           siguientes condiciones son equivalentes:
@@ -300,13 +359,410 @@
           </li>
           <li>
             Si una sucesión de puntos en \(F\), \((x_n)_{n\in \mathbb{N}} \subset F\),
-            satisface que converge a un punto \(x\in X\), entonces \(x\in F\).
+            satisface que converge a un punto \(x\in X\) entonces \(x\in F\).
           </li>
         </ol>
       </div>
 
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:PropiedadesCerrados"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico.
+          <ol>
+            <li>
+              Sea \(\{F_i\}_{i\in I}\) una colección arbitraria de conjuntos
+              cerrados. Prueba que la intersección \(\cap_{i\in I}F_i\), es
+              cerrada.
+            </li>
+            <li>
+              Sea \(F_1,\dots, F_n\) una colección finita de conjuntos
+              cerrados. Prueba que la union \(\cup_{i=1}^n F_i\)
+              es cerrada.
+            </li>
+            <li>
+              Da un ejemplo de un espacio métrico y una colección numerable
+              de conjuntos cerrados, \(\{F_i\}_{i\in \mathbb{N}}\), tal que
+              su union \(\cup_{i\in \mathbb{N}} F_i\) no es cerrada.
+            </li>
+          </ol>
+        </p>
+      </div>
 
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Considera el espacio métrico \((\mathbb{R},|\cdot|)\).
+          <ol>
+            <li>
+              Prueba que  \(\mathbb{Q}\) no es ni abierto ni cerrado en
+              \(\mathbb{R}\).
+            </li>
+            <li>
+              ¿Existe un conjunto abierto en \(\mathbb{R}\), no vacío, contenido
+              en \(\mathbb{Q}\)?
+            </li>
+            <li>
+              Da un ejemplo de un subconjunto de \(\mathbb{R}\), cerrado
+              y que consiste sólo de números irracionales.
+            </li>
+          </ol>
+        </p>
+
+      </div>
+
+
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(f:\mathbb{R}\to \mathbb{R}\) una función continua.
+        </p>
+        <p>
+        Fija \(a\in \mathbb{R}\). Prueba que el conjunto
+        \(\{t\in \mathbb{R}: f(t)>a\}\) es abierto y que
+        \(\{ t\in \mathbb{R}: f(t)=a\}\) es cerrado.
+        </p>
+      </div>
+
+
+    <div class="ejercicio-box">
+      <h2  class="number-title"> Ejercicio </h2>
+        <p>
+          <ol>
+            <li> Prueba que todo intervalo abierto de \(\mathbb{R}\)
+             es la unión numerable de intervalos cerrados.
+            </li>
+            <li> Prueba que todo intervalo cerrado de \(\mathbb{R}\)
+              es la intersección numerable de intervalos abiertos.
+            </li>
+          </ol>
+        </p>
+    </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d_X)\), \((Y,d_Y)\) dos espacios métricos y \(A \subseteq X\),
+          \(B\subseteq Y\). Cosdiera el espacio métrico \(X\times Y, d\)
+          con la métrica
+          \[
+          \sigma((x_1,y_1),(x_2,y_2))= \sqrt{d_X(x_1,x_2)^2+d_Y(y_1,y_2)^2}
+          \]
+          Ver <a href="./S2.html#Ejer:MetProdCarte">Ejercicio 2.20</a>.
+        </p>
+          <ol>
+            <li> Si \(A\) es abierto en \(X\) y \(B\) es abierto
+              en \(Y\) prueba que \(A\times B\) es abierto en \(X\times Y\).
+            </li>
+            <li> Si \(A\) es cerrado en \(X\) y \(B\) es cerrado
+              en \(Y\) prueba que \(A\times B\) es cerrado en \(X\times Y\).
+            </li>
+          </ol>
+          <p>
+            Nota: el ejercicio sigue siendo válidos si se reemplaza
+            \(\sigma\) por cualquier otra de las métricas del
+            <a href="./S2.html#Ejer:MetProdCarte">Ejercicio 2.20</a>.
+           </p>
+        </div>
+
+
+
+      <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+            <p>
+            Para  \(k\in \mathbb{N}\) denota \(e^{(k)}\) la sucesión de
+            números reales que es todo cero excepto en el lugar \(k\), donde
+            tiene un 1. Prueba que el conjunto
+            \(\{e^{(k)}\}_{k\in \mathbb{N}}\) es cerrado en
+            \((\ell_p, \|\cdot\|_p)\), para todo \(p\in [1,\infty]\).
+            </p>
+            <p>
+              Sugerencia: usa el <a href="#Teo:CaracCerrados">Teorema </a>
+              inciso 3.
+            </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Considera el espacio vectorial normado
+            \((\ell_\infty, \|\cdot\|_\infty)\). Por
+            \(c_0\) denotamos al conjunto de sucesiones de números
+            reales que convergen a cero. Ya que toda sucesión convergente
+            es acotada tenemos que \(c_0 \subseteq \ell_\infty\).
+          </p>
+          <p>
+            Prueba que \(c_0\) es cerrado en \(\ell_\infty\).
+          </p>
+        </div>
+
+
+    <div class="definicion-box">
+      <h2 class="number-title"> Definición </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico y \(A \subseteq X\).
+      </p>
+      <p>
+        Se define el interior de \(A\), denotado \(\inte_X(A)\)
+        ó \(\inte(A)\) (si el espacio ambiente \(X\) es claro)  como
+        \[
+        \inte(A)=\cup\{ U \subseteq X : \textrm{\(U\) es abierto en \(X\)
+        y \(U \subseteq A\)}\}
+        \]
+      </p>
+      <p>
+        Ya que siempre tenemos \(\emptyset \subset A\) y
+        \(\emptyset\) es un conjunto abierto, el interior
+        de un conjunto está bien definido. Además, usando que
+        unión arbitraria de conjuntos abiertos es abierta
+        (<a href="#Ejer:PropiedadesAbiertos">Ejercicio </a>) resulta
+        que el interior de un conjunto siempre es un conjunto abierto.
+        Finalmente, como el interior es la unión de todos los abiertos contenidos
+        en el conjunto también es el abierto más grande contenido en el
+        conjunto.
+      </p>
+      <p>
+        Se define la cerradura de \(A\), denotada \(\overline{A}\),
+        \(\cer_X(A)\) ó \(\cer(A)\)  como el cerrado más chico que contiene a \(A\), es decir
+        \[
+        \cer(A)=\cap \{ F\subseteq X: \textrm{\(F\) es cerrado en
+        \(X\) y \(A\subseteq F\)} \}
+        \]
+        Ya que \(X\) es un conjunto cerrado y \(A\subset X\) la cerradura
+        está bien definida. Además por el
+        <a href="#Ejer:PropiedadesCerrados">Ejercicio </a>
+        tenemos que \(\cer(A)\) es siempre un conjunto cerrado.
+      </p>
+      <p>
+        Nota que si \(A\) es cerrado entonces \(A=\overline{A}\) y
+        si \(A\) es abierto \(\inte(A)=A\).
+      </p>
+    </div>
+
+
+
+    <div class="lema-box">
+      <h2 class="number-title"> Lema </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico y \(A\subseteq X\).
+      </p>
+      <p>
+        Un punto \(x\in X\) satisface \(x\in \overline{A}\)
+        si y sólo si para toda \(r>0\), \(B_r(x)\cap A \ne \emptyset\).
+      </p>
+      <p>
+        Un punto \(x\in X\) satisface \(x\in \inte(A)\)
+        si y sólo si exite \(r>0\) tal que \(B_r(x)\subseteq  A \).
+      </p>
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title" id="Ejer:CaractCerraduraSuc"> Ejercicio </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico y \(A\subseteq X\).
+      </p>
+      <p>
+        Prueba que \(x\in \overline{A}\) si y sólo si
+        existe una sucesión de elementos de \(A\),
+        \((a_n)_{n\in \mathbb{N}} \subset A\), tal que
+        \(\lim_na_n=x\).
+      </p>
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Prueba las siguientes indentidades.
+      </p>
+      <ol>
+        <li> \(\inte([a,b) )= (a,b)\), \(\cer([a,b))=[a,b]\). </li>
+        <li> \(\inte(\mathbb{Q})=\emptyset\), \(\cer(\mathbb{Q})=\mathbb{R}\) .</li>
+        <li> \(\inte(\Delta)=\emptyset\), \(\cer(\Delta)=\Delta\),
+          donde \(\Delta\) es el conjunto de cantor.</li>
+      </ol>
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title">Ejercicio </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico y \(A,B \subseteq X\).
+      </p>
+      <ol>
+        <li>
+          Prueba \(\cer(A\cup B)=\cer(A)\cup \cer(B)\).
+        </li>
+        <li>
+          Prueba \(\cer(A \cap B)\subseteq \cer(A)\cap \cer(B) \)
+          y da un ejemplo que muestre que la contención puede ser propia.
+        </li>
+        <li>
+          Prueba \(\inte(A\cap B)= \inte(A)\cap \inte(B)\).
+        </li>
+        <li>
+          Prueba \(\inte(A)\cup \inte(B) \subseteq \inte(A\cup B) \) y
+          da un ejemplo que muestre que la contención puede ser propia.
+        </li>
+      </ol>
+    </div>
+
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h3>
+      <p>
+        Sea \((X,d)\) un espacio métrico y \(A\subseteq X\).
+      </p>
+      <p>
+        Un punto \(x\in X\) se llama punto de acumulación de \(A\)
+        (o punto límite de \(A\)) si para todo \(r>0\) exite
+        \(a\in A\), \(a\ne x\) tal que \(d(x,a)< r\).
+      </p>
+      <p>
+        Si \(x\in X\) es un punto límite de \(A\) prueba que
+        todo abierto que contiene a \(x\) contiene una cantidad
+        infinita de elementos de \(A\).
+      </p>
+    </div>
+
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Sea \((X,d)\) un espacio métrico, \(A\subseteq X\) y \(x\in X\).
+    </p>
+    <p>
+      Prueba que \(x\) es un punto límite de \(A\) si y  sólo si
+      existe una sucesión \((a_n)_{n\in \mathbb{N}} \subset A\)
+      tal que \(\lim_{n\to \infty}a_n=x\) y \(a_n\neq x\), para toda \(n\).
+    </p>
+
+  </div>
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Sea \((X,d)\) un espacio métrico y \(A\subseteq X\). Por
+      \(A'\) denotamos al conjunto de todolos puntos de acumulación de
+      \(A\).
+    </p>
+    <ol>
+      <li>
+        Prueba que \(A'\) es un conjunto cerrado.
+      </li>
+      <li>
+        Prueba que \(\cer(A)=A\cup A'\).
+      </li>
+      <li>
+        Prueba que \(A\) es cerrado si y sólo si \(A'\subseteq A\).
+      </li>
+
+    </ol>
+  </div>
+
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Sea \((X,d)\) un espacio métrico y \(A \subseteq X\). Un punto
+      \(x\in X\) se llama punto frontera de \(A\) si, para todo
+      \(r>0\) se cumple
+      \[
+      B_r(x)\cap A \ne \emptyset \quad  \textrm{y} \quad B_r(x)\cap A^c \ne \emptyset.
+      \]
+      Al conjunto de puntos frontera lo denotamos por \(\partial(A)\).
+    </p>
+    <p>
+      Prueba las siguientes identidades.
+      <ol>
+        <li> \(\partial(A)=\partial(A^c)\).</li>
+        <li> \(\cer(A)=\inte(A)\cup \partial(A)\).</li>
+        <li> \(X= \inte(A)\cup \partial(A)\cup \inte(A^c)\).</li>
+      </ol>
+    </p>
+  </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico,  \(x_0\in X\) y
+        \(r>0\). El conjunto
+        \[
+        \{x\in X: d(x,x_0) \leq r\}
+        \]
+        se llama la bola cerrada, centrada en \(x\), de radio \(r\).
+      </p>
+      <p>
+        Prueba que la bola cerrada es un subconjunto cerrado pero da
+         un ejemplo que muestra que la cerradura de la bola abierta no
+         es la bola cerrada, es decir:
+         \[
+         \overline{B_r(x_0)} \ne \{x\in X: d(x,x_0) \leq r\}
+         \]
+      </p>
+      <p>
+        Sugerencia: metrica discreta.
+      </p>
+
+    </div>
+
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \((V,\|\cdot\|)\) un espacio vectorial normado,
+        \(v_0\in V\), \(r>0\).
+      </p>
+      <p>
+        Prueba
+        \[
+        \overline{B_r(v_0)}=\{ v\in V: \| v-v_0\| \leq r\}.
+        \]
+      </p>
+      <p>
+        Es decir, para espacios vectoriales normados
+        la cerradura de la bola abierta sí es la bola cerrada.
+      </p>
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico y \(A\subseteq X\).
+        Prueba que \(\operatorname{diam}(A)=\operatorname{diam}(\overline{A})\).
+      </p>
+      <p>
+        Ver <a href="./S2.html#Ejer:Diametro">Ejercicio</a> para definción
+        de diámetro.
+      </p>
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico y \(A\subseteq X\) un subconjunto
+        no vacío. Dado un punto \(x\in X\) se define la distancia de
+        \(x\) al subconjunto \(A\) como
+        \[
+        d(x,A)=\inf\{d(x,a): a\in A \}.
+        \]
+      </p>
+      <p>
+        Prueba que \(x\in \overline{A}\) si y sólo si \(d(x,A)=0\).
+      </p>
+      <p>
+        Sugerencia: <a href="#Ejer:CaractCerraduraSuc">Ejercicio</a>
+      </p>
+    </div>
 
     </div>
   </body>
