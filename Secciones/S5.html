@@ -128,9 +128,13 @@
              <p> Las normas-\(p\).</p>
              <p>
                En el espacio vectorial normado \((\mathbb{R}^n, \|\cdot\|_p)\),
-               con \(p\in [1,\infty]\), tenemos las diferentes
-               comparaciones de las bolas
-
+               con \(p\in [1,\infty]\), al forma de la bola depende
+               del parámetro \(p\). La figura de abajo muestra algunas
+               bolas en \(\mathbb{R}^2\), centradas en el origen.
+               <div class="imagen-box flexbox">
+                   <img src="./Images/FigNormaspBall.png"
+                   alt="BolasNormasp" width="550" height="350">
+               </div>
              </p>
            </li>
            <li>
@@ -156,6 +160,10 @@
                decir que la gráfica de \(f\) está encerrada en una
                franja de radio \(r>0\) centrada en \(f_0\). Por lo tanto
                podemos "dibujar" las bolas \(B_r(f_0)\) como
+               <div class="imagen-box flexbox">
+                   <img src="./Images/FigNormaUnifBall.png"
+                   alt="BolaNormaUnif" width="550" height="350">
+               </div>
              </p>
            </li>
         </ol>
@@ -190,8 +198,13 @@
           Por ejemplo, en \((\mathbb{R}, |\cdot|)\) los intervalos de la forma
           \((a,b)\)
           son subconjuntos abiertos pues para cualquier \(x\in (a,b)\),
-          si tomamos \(r=\frac{1}{2}\min\{|a-x|, |b-x|\}\), entonces
+          si tomamos \(r=\min\{x-a, b-x\}\), entonces
           \(B_r(x)\subset (a,b)\).
+
+          <div class="imagen-box flexbox">
+              <img src="./Images/FigIntervalOpen.png"
+              alt="IntervaloAbierto" width="350" height="250">
+          </div>
         </p>
 
         <p>
@@ -200,6 +213,11 @@
           radio \(r>0\) se tome, \(B_r(b)\cap (a,b]^c \ne \emptyset\), por
           lo que \(B_r(b)\) no puede estar contenido en \((a,b]\). Nota:
           \((a,b]^c\) denota el complemento de \((a,b]\)
+
+          <div class="imagen-box flexbox">
+              <img src="./Images/FigHalfIntervalNotOpen.png"
+              alt="IntervaloSemiAbierto" width="350" height="250">
+          </div>
 
         </p>
         <p>
@@ -219,7 +237,7 @@
           B_r(x_0)=\{x\in X: d(x,x_0)< r\}
           \]
           formalmente debemos de usar la
-          <a href="#Def:ConjuntoAbierto">Definicion </a> para
+          <a href="#Def:ConjuntoAbierto">Definicion 5.3</a> para
           probar que  son subconjuntos abiertos.
         </p>
         <p>
@@ -481,7 +499,7 @@
             \((\ell_p, \|\cdot\|_p)\), para todo \(p\in [1,\infty]\).
             </p>
             <p>
-              Sugerencia: usa el <a href="#Teo:CaracCerrados">Teorema </a>
+              Sugerencia: usa el <a href="#Teo:CaracCerrados">Teorema 5.11 </a>
               inciso 3.
             </p>
         </div>
@@ -520,7 +538,7 @@
         \(\emptyset\) es un conjunto abierto, el interior
         de un conjunto está bien definido. Además, usando que
         unión arbitraria de conjuntos abiertos es abierta
-        (<a href="#Ejer:PropiedadesAbiertos">Ejercicio </a>) resulta
+        (<a href="#Ejer:PropiedadesAbiertos">Ejercicio 5.5</a>) resulta
         que el interior de un conjunto siempre es un conjunto abierto.
         Finalmente, como el interior es la unión de todos los abiertos contenidos
         en el conjunto también es el abierto más grande contenido en el
@@ -535,7 +553,7 @@
         \]
         Ya que \(X\) es un conjunto cerrado y \(A\subset X\) la cerradura
         está bien definida. Además por el
-        <a href="#Ejer:PropiedadesCerrados">Ejercicio </a>
+        <a href="#Ejer:PropiedadesCerrados">Ejercicio 5.12</a>
         tenemos que \(\cer(A)\) es siempre un conjunto cerrado.
       </p>
       <p>
@@ -740,7 +758,7 @@
         Prueba que \(\operatorname{diam}(A)=\operatorname{diam}(\overline{A})\).
       </p>
       <p>
-        Ver <a href="./S2.html#Ejer:Diametro">Ejercicio</a> para definción
+        Ver <a href="./S2.html#Ejer:Diametro">Ejercicio 2.26</a> para definción
         de diámetro.
       </p>
     </div>
@@ -755,12 +773,16 @@
         \[
         d(x,A)=\inf\{d(x,a): a\in A \}.
         \]
+        <div class="imagen-box flexbox">
+            <img src="./Images/DefDistConj.png"
+            alt="DistanciaConjunto" width="350" height="250">
+        </div>
       </p>
       <p>
         Prueba que \(x\in \overline{A}\) si y sólo si \(d(x,A)=0\).
       </p>
       <p>
-        Sugerencia: <a href="#Ejer:CaractCerraduraSuc">Ejercicio</a>
+        Sugerencia: <a href="#Ejer:CaractCerraduraSuc">Ejercicio 5.21</a>
       </p>
     </div>
 
