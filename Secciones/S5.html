@@ -790,6 +790,23 @@
         Ver <a href="./S2.html#Ejer:Diametro">Ejercicio 2.26</a> para definción
         de diámetro.
       </p>
+      <button class="respButton hvr-grow"> Respuesta </button>
+      <div class="resp-box">
+          Recordemos que en la sección anterior demostramos que si
+          \(\lim_{n \to \infty} x_n = x\) y \(\lim_{n \to \infty} y_n = y\) entonces
+          \(d(x,y)= \lim_{n \to \infty} d(x_n,y_n)\), asimismo \(z \in \overline{A}\)
+          si y sólo si existe una sucesión \((z_n)_{n \in \mathbb{N}} \subseteq A\)
+          que converge a \(z\). Sean \(a,b \in \overline{A}\) y \((a_n), (b_n)\)
+          sucesiones en \(A\) tales que \(\lim a_n = a\) y \(\lim b_n = b\). Para
+          cada \(n \in \mathbb{N}\) se tiene que \(d(a_n,b_n) \leq \operatorname{diam}(A)\),
+          por lo que \(d(a,b) = \lim_{n \to \infty} d(a_n,b_n) \leq \operatorname{diam}(A)\).
+
+          En consecuencia \(\operatorname{diam}(\overline{A}) = \sup_{a,b \in \overline A} d(a,b) \leq \operatorname{diam}(A)\)
+          <br>
+          La otra contención es consecuencia de las propiedades del supremo, como
+          \(A \subseteq \overline A\) entonces \(\sup_{a,b \in A}\{d(a,b)\} \leq \sup_{a,b \in \overline A}d(a,b)\)
+          y \(\operatorname{diam}(A) \leq \operatorname{diam}(\overline A)\).
+      </div>
     </div>
 
 
