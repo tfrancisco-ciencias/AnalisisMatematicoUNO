@@ -268,6 +268,35 @@
             </li>
           </ol>
         </p>
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+            <ol>
+                <li>
+                    Sea \(x \in \cup_{i \in I} U_i\), entonces existe \(j \in I\) tal
+                    que \(x \in U_j\). Como \(U_j\) es abierto y \(x \in U_j\) entonces
+                    existe \(r>0\) tal que \(B_r(x) \subseteq U_j \subseteq \cup_{i \in I}U_i\).
+                </li>
+                <li>
+                    Sea \(x \in \cap_{i=1}^n U_i\), entonces \(x \in U_j\) para \(j=1,...,n\) y
+                    existen \(r_1, ...,r_n > 0\) tales que \(B_{r_j}(x) \subseteq U_j\) para
+                    cada \(j=1,...,n\). Sea \(r=\max\{r_1,...,r_n\}\), entonces
+                    \(B_r(x) \subseteq U_j\) para cada \(j\) y \(B_r(x) \subseteq \cap_{i=1}^n U_i\).
+                </li>
+                <li>
+                    Trabajaremos en \(\mathbb{R}\) con la métrica usual, \(d(x,y)=|y-x|\) y
+                    consideremos la colección de abiertos \(U_i = (\frac{-1}{i},\frac{1}{i})\).
+                    Afirmamos que \(\cap_{i \in \mathbb{N}} U_i = \{0\}\) y que dicho conjunto no es
+                    abierto en \(\mathbb{R}\). Como \(0 \in \frac{-1}{i},\frac{1}{i})\) para cada
+                    \(i\), entonces \(0 \in \cap U_i\). Si \(x>0\) entonces existe \(n \in \mathbb{N}\)
+                    tal que \(1/n < x\), por lo que \(x \notin (\frac{-1}{n},\frac{1}{n})\) y tampoco
+                    pertenece a la intersección. El resultado es análogo si suponemos que \(x < 0\).
+
+                    Para terminar basta notar que \(\{0\}\) es un conjunto finito y que toda bola
+                    abierta en \(\mathbb{R}\) es infinita, por lo que \(\cap_{i \in \mathbb{N}}U_i\)
+                    no es un conjunto abierto.
+                </li>
+            </ol>
+        </div>
       </div>
 
 
