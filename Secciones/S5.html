@@ -472,6 +472,30 @@
         \(\{t\in \mathbb{R}: f(t)>a\}\) es abierto y que
         \(\{ t\in \mathbb{R}: f(t)=a\}\) es cerrado.
         </p>
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+            Veamos que si \(t\) pertenece al conjunto descrito entonces podemos
+            encontrar una bola abierta alrededor de \(t\) contenida en el
+            conjunto.
+            <br>
+            Como \(f(t) > a\) entonces podemos tomar \(\epsilon =
+            \frac{1}{2}|f(t)-a|\). Por continuidad de \(f\) existe \(\delta > 0\)
+            tal que si \(|t-s| < \delta\) entonces \(|f(t)-f(s)| < \epsilon\).
+            Ésto último se puede reescribir como, si \(s \in B_{\delta}(t)\),
+            entonces \(|f(t)-f(s)|< \epsilon\). En particular, por definición
+            de \(\epsilon\) se tiene que \(f(s) > a\) y que
+            \(B_{\delta}(t) \subseteq \{t \in \mathbb{R}: f(t) > a\}\).
+            <br>
+            Como consecuencia de lo anterior tenemos que \(\{t \in \mathbb{R}: f(t) \leq a\}\)
+            es un conjunto cerrado. Se puede demostrar que \(\{t \in \mathbb{R}: f(t)<
+            a\}\) también es un conjunto abierto (una opción es definir \(g(t) = -f(t)\) y
+            aplicar el resultado), por lo que \({t \in \mathbb{R}: f(t) \geq a}\) también es cerrado
+            y como
+            \[
+            \{t \in \mathbb{R} : f(t) = a\} = \{t \in \mathbb{R}: f(t) \geq a\} \cap \{t \in \mathbb{R} : f(t) \leq a\}
+            \]
+            concluimos que el conjunto es cerrado.
+        </div>
       </div>
 
 
