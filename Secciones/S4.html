@@ -538,7 +538,88 @@
                     todas sus condenadas convergen, vistas como sucesiones en \(\mathbb{R}\).
                   </p>
                 </li>
-                <ol>
+              </ol>
+
+                <button class="respButton hvr-grow"> Respuesta </button>
+                <div class="resp-box">
+                  <p>
+                    Prueba de 1.
+                  </p>
+                  <p>
+                    Primero notamos que, para todo vector \(z\in \mathbb{R}^n\)
+                    y para cualquiera de sus corrdenadas, \(z(i)\):
+                    \[
+                    |z(i)| = \sqrt[p]{|z(i)|^p} \leq \sqrt[p]{|z(1)|^p
+                      +\cdots+|z(i)|^p+ \cdots +|z(n)|^p }=\|z\|_p
+                    \]
+                    lo cual implica la desigualdad \(|x(i)-y(i)|\leq \|x-y\|_p\),
+                     si tomamos \(z=x-y\).
+                  </p>
+                  <p>
+                    Prueba de 2.
+                  </p>
+                  <p>
+                    Supongamos que
+                    \[
+                    \max_{1\leq i \leq n}\{|z(i)|\}=|z(i_0)|.
+                    \]
+                    Entonces
+                    \[
+                    |z(1)|^p+ \cdots + |z(n)|^p \leq
+                    |z(i_0)|^p+\cdots + |z(i_0)|^p =n|z(i_0)|^p
+                    \]
+                    Sacando raíz \(p\)-ésima en ambos lados llegamos a
+                    \[
+                    \|z\|_p \leq n^{1/p}\max_{1\leq i \leq n}\{|z(i)|\}
+                    \]
+                    Tomando \(z=x-y\) llegamos a la desigualdad deseada.
+                  </p>
+                  <p>
+                    Prueba de 3.
+                  </p>
+                  <p>
+                    \(\Rightarrow ]\) Suppongamos que
+                    \(\lim_{n\to \infty}x_n=x\). Fijamos \(i\in\{1,\dots,n\}\).
+                    Debemos de probar que \(\lim_{n\to \infty}x_n(i)=x(i)\), lo
+                    cual es equivalente a probar:
+                    \[
+                    \lim_{n\to \infty}|x_n(i)-x(i)|=0.
+                    \]
+                    Pero, usando el inciso 1 tenemos
+                    \[
+                    |x_n(i)-x(i)| \leq \|x_n-x\|_p.
+                    \]
+                    Tomando límite cuando \(n\to \infty\) y aplicando la ley
+                    del Sandwich tenemos
+                    \[
+                    0 \leq \lim_{n\to \infty} |x_n(i)-x(i)|\leq \lim_{n\to \infty}
+                    \|x_n-x\|_p=0
+                    \]
+                  </p>
+                  <p>
+                    \(\Leftarrow ]\) Supongamos que todas las entradas
+                    de la sucesión convergen. Es decir, para toda
+                    \(i\in \{1,\dots,n\}\):
+                    \[
+                      \lim_{n\to \infty}|x_n(i)-x(i)|=0.
+                    \]
+                    Vamos a probar \(\lim_{n\to \infty}\|x_n-x\|_p=0\).
+                  </p>
+                  <p>
+                    Por el inciso 2:
+                    \[
+                    \|x_n-x\|_p \leq n^{1/p}\max_{1\leq i \leq n}\{|x_n(i)-x(i)|\}
+                    \]
+                    Usando que el máximo es una función continua y
+                    la ley del Sandwich si tomamos límite en ambos lados
+                    de la desigualdad anterior llegamos a
+                    \begin{eqnarray*}
+                    0 \leq \lim_{n\to \infty}\|x_n-x\|_p & \leq &
+                    \lim_{n\to \infty}n^{1/p}\max_{1\leq i \leq n}\{|x_n(i)-x(i)|\} \\
+                     & = & n^{1/p}\max_{1\leq i \leq n}\{\lim_{n\to \infty}|x_n(i)-x(i)|\}=0
+                    \end{eqnarray*}
+                  </p>
+                </div>
             </div>
 
 
@@ -959,6 +1040,28 @@
           Sea \((X,d)\) un espacio métrico y
           \((x_n)_{n\in \mathbb{N}}\) una sucesión convergente en \(X\).
           Prueba que \((x_n)_{n\in \mathbb{N}}\) es Cauchy respecto a \(d\).
+        </p>
+
+        <p>
+          Debemos de probar que los elementos
+          de la suesión se hacercan entre sí. Es decir, para \(\varepsilon >0\)
+          debemos de probar que existe un \(N\in \mathbb{N}\) tal que, para todos \(n,m \geq N\)
+          se cumple
+          \[
+          d(x_n,x_m) < \varepsilon
+          \]
+          Pero, al ser \((x_n)_{n\in \mathbb{N}}\) convergente existe
+          \(x\in X\) con \(\lim_{n\to \infty} x_n=x\). Por lo tanto, existe
+          \(N\in \mathbb{N}\) que cumple
+          \[
+          d(x_n,x) < \frac{\varepsilon}{2},
+          \]
+          para todo \(n\geq N\). De lo anterior y la desigualdad del triángulo
+          concluimos que, para todos \(n,m \geq N\):
+          \[
+          d(x_n,x_m)\leq d(x_n,x)+d(x,x_m) < \frac{\varepsilon}{2}+\frac{\varepsilon}{2}
+          =\varepsilon.
+          \]
         </p>
       </div>
 
