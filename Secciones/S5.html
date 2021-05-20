@@ -73,7 +73,21 @@
       <div class="info-box">
         <h2 class="number-title"> Introducción </h2>
         <p>
+          La topología se refiere a la parte de las matemáticas que estudia
+          la expansión del concepto de continuidad más allá de los espacios
+          \(\mathbb{R}^n\) o los espacios métricos. La idea principal detrás
+          de dicha generalización es que existen ciertos subconjuntos
+          con características especiales que permiten definir  los
+          conceptos de continuidad. A estos subconjuntos especiales
+          se les llama subconjuntos abiertos e intuitivamente son los
+          que "miden" la cercanía entre puntos de un  espacio dado.
 
+       </p>
+       <p>
+         En esta sección se introducen los conceptos de conjuntos abiertos
+         y cerrados en espacios métricos, se ven sus propidades básicas
+         así como algunos ejemplos concretos en los
+         espacios \(\mathbb{R}^n\) y \(\mathcal{B}(X)\), el espacio de funciones acotadas.
        </p>
 
       </div>
@@ -849,7 +863,7 @@
 
 
     <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
+      <h2 class="number-title" id="Ejer:DistanciaConjuntoCerradura"> Ejercicio </h2>
       <p>
         Sea \((X,d)\) un espacio métrico y \(A\subseteq X\) un subconjunto
         no vacío. Dado un punto \(x\in X\) se define la distancia de
@@ -868,6 +882,41 @@
       <p>
         Sugerencia: <a href="#Ejer:CaractCerraduraSuc">Ejercicio 5.21</a>
       </p>
+    </div>
+
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title" id="Ejer:EquivDensos"> Ejercicio </h2>
+      <p>
+        Sea \((X,d_X)\) un espacio métrico. Decimos que un subconjunto
+        \( D \subseteq X\) se llama denso  en \(X\) si \(\overline{D}=X\). Por
+        ejemplo \(\mathbb{Q}\) es denso en \(\mathbb{R}\).
+      </p>
+      <p>
+        Prueba que las siguientes condiciones son equivalentes.
+      </p>
+      <ol>
+        <li>
+          \(D\) es denso en \(X\).
+        </li>
+        <li>
+          Para todo \(x\in X\) existe una sucesión de elementos
+          de \(D\), \((d_n)_{n=1}^\infty \subseteq D\), tal que
+          \(\lim_{n\to \infty} d_n=x\).
+        </li>
+        <li>
+          Para todo \(x\in X\) y para toda \(r>0\),
+          \(B_r(x)\cap D \ne \emptyset \).
+        </li>
+        <li>
+          Para todo subconjunto abierto no vacío \(U \subseteq X\),
+          \(U\cap D \ne \emptyset\).
+        </li>
+        <li>
+          \(D^c\) tiene interior vacío.
+        </li>
+      </ol>
     </div>
 
     </div>

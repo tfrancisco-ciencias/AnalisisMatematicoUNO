@@ -1,0 +1,671 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            inte: "\\operatorname{int}",
+            cer: "\\operatorname{cer}",
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+      body.number-title{
+        counter-reset: sectionCounter 5 cardCounter ;
+      }
+      h1.number-title{
+        counter-reset: sectionCounter 5 cardCounter ;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio  </a> </li>
+        <li> <a href="../Secciones.html"> Secciones  </a> </li>
+      </ul>
+      <p align="right" >  <button onclick="myFunction()" class="darklightButton">Claro/Obscuro </button> </p>
+    </nav>
+
+    <h1 class="calculo-title"> Análisis Matemático UNO</h1>
+
+  </header>
+
+  <!--    Contenido empiaza abajo
+ ///////////////////////////////// -->
+
+
+  <body class="flexbox card fondo-body">
+
+
+    <div class="flexbox">
+      <h1 class="number-title"> Funciones continuas </h1>
+
+
+
+<div class="definicion-box">
+  <h2 class="number-title"> Definición </h2>
+  <p>
+    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos. Decimos que
+    una función \(f;X\to Y\) es continua en un punto \(x_0\in X\) si:
+  </p>
+  <p>
+    para toda \(\varepsilon > 0\) existe \(\delta >0\), que depende
+    de \(x_0\) y \(\varepsilon\), tal que si un punto \(x\in X\)
+    está a distancia menor a \(\delta\) de \(x_0\), es decir
+    \(d_X(x,x_0) <\delta\) entonces \(d_Y(f(x),f(x_0)) < \varepsilon\).
+  </p>
+  <p>
+    Imagen
+  </p>
+  <p>
+    Usando la notación de bolas abiertas la definición se puede
+    reescribir de la siguiente forma:
+  </p>
+  <p>
+    \(f\) es continua en \(x_0\) sii para toda
+    \(\varepsilon >0 \) existe \(\delta >0\) que satisface
+    \[
+    B^X_\delta(x_0) \subset f^{-1}(B^Y_\varepsilon(f(x_0)))
+    \]
+  </p>
+  <p>
+    donde \(B^X_r(x_0)\) denota la bola abierta en el espacio \(X\).
+  </p>
+  <p>
+    Nota: recuerda que en general, para una función
+    \(f:X\to Y\), la imagen inversa de un subconjunto \(B\subseteq Y\), bajo \(f\)
+    se define como: \(f^{-1}(B):=\{x\in X: f(x)\in B \}\).
+  </p>
+  <p>
+    Decimos que una función es continua en un subconjunto \(A \subseteq X\)
+    si es continua en todo punto de \(A\).
+  </p>
+   Ejemplos: funciones N to X, X to N. Ismetrias. Funciones continuas en
+   [0,1]\cup \{2\}.
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sean \(S,T\) dos conjuntos, \(f:S\to T\) una función y
+    subconjuntos \(A,A' \subseteq S, B,B'\subseteq T\). Prueba
+    las siguientes identidades de conjuntos
+  </p>
+  <ol>
+    <li>
+      \(A \subseteq f^{-1}(f(A))\) y la igualdad se da,
+      para todo subconjunto \(A\) si y sólo si
+      \(f\) es inyectiva.
+    </li>
+    <li>
+      \(f(f^{-1}(B)) \subseteq B\) y la igualdad se da,
+      para todo subconjunto \(B\) si y sólo si \(f\)
+      es suprayectiva.
+    </li>
+    <li>
+      \(f^{-1}(B\cap B')=f^{-1}(B)\cap f^{-1}(B')\).
+    </li>
+    <li>
+      \(f^{-1}(B\cup B')=f^{-1}(B)\cup f^{-1}(B')\).
+    </li>
+    <li>
+      \(f^{-1}(B\setminus B')=f^{-1}(B)\setminus f^{-1}(B')\).
+    </li>
+    <li>
+      \(f(A\cup A')=f(A)\cup f(A')\).
+    </li>
+    <li>
+      \(f(A\cap A') \subseteq f(A)\cap f(A')\). Además da
+      un ejemplo dond la contención sea propia.
+    </li>
+  </ol>
+
+
+</div>
+
+
+<div class="lema-box">
+  <h2 class="number-title" id="Lema:ContinuidadSucesiones"> Lema </h2>
+  <p>
+    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y
+    \(f:X \to Y\) una función.
+  </p>
+  <p>
+    Las siguientes condiciones son equivalentes.
+  </p>
+  <ol>
+    <li>
+      \(f\) es continua en \(x_0\).
+    </li>
+    <li>
+      Para toda sucesión \((x_n)_{n=1}^\infty\) convergente a
+      \(x_0\) se satisface que  \((f(x_n))_{n=1}^\infty\)
+      es convergente a \(f(x_0)\). Lo anterior se puede resumir como:
+      \[
+      \lim_{n\to \infty} f(x_n)=f(\lim_{n\to \infty}x_n)
+      \]
+    </li>
+  </ol>
+    <p>
+      Es decir, se puede meter el límite para funciones continuar,
+      siempre y cuando el límite exista.
+    </p>
+
+</div>
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio vectorial y \(f,g:X\to \mathbb{R}\) funciones
+    continuas. Prueba que las siguientes (dadas por operaciones algebráticas)
+    son continuas: combinaciones lineales \(\alpha f +g\), donde \(\alpha \in \mathbb{R}\);
+    la función producto \(fg\); si \(g\)  nunca se anula, la función cociente \(f/g\).
+  </p>
+  <p>
+    Sugerencia: usa el <a href="#Lema:ContinuidadSucesiones">Lema 6.3</a>
+  </p>
+  <p>
+    Nota: se puede generalizar este ejercicio cambiando \(\mathbb{R}\)
+    por un espacio vectorial normado.
+  </p>
+</div>
+
+
+
+<div class="lema-box">
+  <h2 class="number-title" id="Lema:ContinuidadAbiertosCerrados"> Lema </h2>
+  <p>
+    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y
+    \(f:X \to Y\) una función.
+  </p>
+  <p>
+    Las siguientes condiciones son equivalentes.
+  </p>
+  <ol>
+    <li>
+      \(f\) es continua en todo \(M\).
+    </li>
+    <li>
+      Imagen inversa de abiertos es abierta.
+    </li>
+    <li>
+      Imagen inversa de cerrados es cerrada.
+    </li>
+  </ol>
+
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <ol>
+    <li>
+      Prueba que una función continua \(f:\mathbb{R}\to \mathbb{R}\)
+      está completamente determinada por sus valores en \(\mathbb{Q}\). Es decir,
+      si \(g:\mathbb{R}\to \mathbb{R}\) es una función continua que satisface
+      \(f(r)=g(r)\) para toda \(r\in \mathbb{Q}\) entonces
+      \(f(x)=g(x)\) para toda \(x\in \mathbb{R}\).
+    </li>
+    <li>
+      <p>
+      Generaliza el ejercicio anterior. Sean \((X,d_X), (Y,d_Y)\) dos
+      espacios métricos y sea \(D\subset X\) un
+      <a href="./S5.html#Ejer:EquivDensos">subconjunto denso</a>. Prueba
+      que una función continua \(f:X \to Y\) está completamente
+      determinada por sus valores en \(D\).
+      </p>
+      <p>
+        Sugerencia: usa el <a href="./S5.html#Ejer:EquivDensos"> Ejercicio 5.32
+        inciso 2</a>.
+      </p>
+
+    </li>
+  </ol>
+</div>
+
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \(f:\mathbb{R}\to \mathbb{R}\) que satisface:
+    \(f(x+y)=f(x)+f(y)\), para todos \(x,y\in \mathbb{R}\).
+  </p>
+  <p>
+    Prueba que si \(f\) es continua en un punto entonces existe una
+    constante \(a\in \mathbb{R}\) tal que \(f(x)=ax\) para todo \(x\in \mathbb{R}\).
+   </p>
+   <p>
+     Es decir, toda función aditiva y continua en almenos un punto es lineal.
+   </p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico y \(f:X\to \mathbb{R}\) una función.
+  </p>
+  <ol>
+  <li>
+    Si \(f\) es continua en \(X\) entonces, para todo \(a\in \mathbb{R}\)
+    entonces \(\{x: f(x)>a\}\) y \(\{x: f(x)< a \}\) son abiertos.
+  </li>
+  <li>
+    Inversamente, si para toda \(a\in \mathbb{R}\) se satisface  que
+    \(\{x: f(x)>a\}\) y \(\{x: f(x)< a \}\) son conjuntos abiertos prueba
+    que \(f\) es continua en \(\mathbb{R}\).
+  </li>
+  <li>
+    Mejora el inciso anterior. Prueba que si para toda
+    \(a\in \mathbb{Q}\) se satisface  que
+    \(\{x: f(x)>a\}\) y \(\{x: f(x)< a \}\) son conjuntos abiertos prueba
+    que \(f\) es continua en \(\mathbb{R}\).
+  </li>
+  </ol>
+  <p>
+    Sugerencia: usa el <a href="#Lema:ContinuidadAbiertosCerrados"> Lema </a>.
+  </p>
+
+</div>
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:GraficaCerrada"> Ejercicio </h2>
+  <p>
+    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y
+    \(f:X\to Y\) una función. La gráfica de \(f\) se define como
+    el subconjunto de \(X\times Y\) dado por
+    \[
+    G(f):=\{(x,f(x)): x\in X\}
+    \]
+  </p>
+  <p>
+    Prueba que \(f\) es continua en \(X\) si y sólo si
+    \(G(f)\) es un subconjunto cerrado de \(X\times Y\).
+  </p>
+  <p>
+    Nota: considera el espacio \(X\times Y\) dotado con la métrica
+    \(d((x_1,y_1),(x_2,y_2))=d_X(x_1,x_2)+d_Y(y_1,y_2)\).
+  </p>
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Sea \(f:\mathbb{R}\to \mathbb{R}\) una función y
+      define \(F:\mathbb{R}\to \mathbb{R}^2\) por \(F(x)=(x,f(x))\). Prueba que las siguientes
+      condiciones son equivalentes.
+    </p>
+    <ol>
+      <li>
+        \(f\) es continua en \(\mathbb{R}\).
+      </li>
+      <li>
+        \(F\) es continua en \(\mathbb{R}\).
+      </li>
+      <li>
+        Los subconjuntos
+        \[
+        \{(x,y)\in \mathbb{R}^2: y \leq f(x) \}, \quad \{(x,y)\in \mathbb{R}^2: f(x)\leq y\}
+        \]
+        son cerrados en \(\mathbb{R}^2\).
+      </li>
+    </ol>
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Una función entre dos espacio métricos \(f: X \to Y\)
+      se dice que satisface la condición de Lipschitz si
+      existe un constante \(K>0\) para la cual:
+      \[
+      d_Y(f(a),f(b)) \leq K d_X(a,b), \quad \textrm{para todos \(a,b\in X\)}.
+      \]
+      Por sencillez también se dice que \(f\) es Lipschitz con
+      constante \(K\).
+    </p>
+    <ol>
+      <li>
+        Prueba que toda función Lipschitz es continua en todo punto.
+      </li>
+      <li>
+        Mejora el inciso anterior. Prueba que toda función Lipschitz
+        es uniformemente continua en su dominio.
+      </li>
+    </ol>
+    <p>
+      Nota: una función \(g:X\to Y\) se llama uniformemente continua en
+      \(X\) si para toda \(\varepsilon >0\) existe una \(\delta>0\),
+      que sólo depende de \(\varepsilon\), tal que
+      \[
+      d_X(a,b) < \delta \Rightarrow d_Y(g(a),g(b))<\varepsilon
+      \]
+    </p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <ol>
+    <li>
+    Prueba que las funciones \(\sen, \cos:\mathbb{R}\to \mathbb{R}\) son Lipschitz con
+    constante \(K=1\).
+    </li>
+    <li>
+      Generaliza el inciso anterior. Si \(f:[a,b]\to \mathbb{R}\)
+      es continua en \([a,b]\), diferenciable en \((a,b)\) y con derivada
+      acotada en \((a,b)\) entonces \(f\) es Lipschitz.
+    </li>
+
+  </p>
+
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Considera la función \(L: C([a,b]) \to \mathbb{R}\)
+    dada por
+    \[
+    L(f)=\int_a^b f(t)dt
+    \]
+    donde consideramos \(C([a,b])\) dotado con la norma
+    uniforme.
+  </p>
+  <p>
+    Prueba que \(L\) es Lipschitz con constante \(K=b-a\).
+  </p>
+</div>
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <ol>
+  <li>
+    <p>
+    Fija \(y=(y_n)_{n=1}^\infty \in \ell_2\) y define \(g:\ell_2 \to \mathbb{R}\) por
+    \[
+    g(x)=\sum_{n=1}^\infty x_ny_n
+    \]
+    Por la desigualdad de Cauchy-Schwartz \(g\) está bien definida,
+    es decir, la serie \(\sum_{n=1}^\infty x_ny_n\) es convergente.
+  </p>
+  <p>
+    Prueba que \(g\) es Lipschitz.
+  </p>
+  </li>
+  <li>
+    Generaliza el inciso anterior. Sean \(p,q\in (1,\infty)\) exponentes
+    conjugados y fija \(y\in \ell_q \). Define
+    \(g:\ell_p \to \mathbb{R} \) por
+    \[
+      g(x)=\sum_{n=1}^\infty x_ny_n
+    \]
+    Prueba que \(g\) es Lipschitz. Sugerencia: usa
+    la <a href="./S3.html#Lema:Holder"> desigualdad de Hølder</a>.
+  </li>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos. Una
+    función \(f:X \to Y\) se llama isometría si para todos \(a,b\in X\)
+    \[
+     d_X(a,b)=d_Y(f(a),f(b)).
+    \]
+  <p>
+    <ol>
+      <li>
+        Prueba que la función \(F: \mathbb{N} \to \ell_1\) dada por
+        \[
+        F(n)=(\underbrace{1,\dots,1}_{n \quad \textrm{lugares}}, 0, 0, \dots)
+        \]
+        es una isometría. Nota: \(\mathbb{N}\) está dotado con la métrica usual
+        heredada de \(\mathbb{R}\).
+      </li>
+      <li>
+        Sea \(p\in [1,\infty) \). Define \(G: \ell_p \to \ell_p\) dada por
+        \[
+        G((x_1,x_2,\dots, ))=(0,x_1,x_2,\dots)
+        \]
+        Prueba que \(G\) es una isometría.
+      </li>
+    </ol>
+</div>
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:ContinuidadFunDistanciaConjunto"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico y \(A\subseteq X\). La distancia
+    de un punto \(x\in X\) al conjunto \(A\) se define como
+    \[
+    d(x,A):=\inf_{a\in A}\{ d(x,a) \}
+    \]
+    Prueba que \(|d(x,A)-d(y,A)|\leq d(x,y)\), para todos \(x,y\in X\).
+  </p>
+    <p>
+    Por
+    lo tanto la función distancia a un conjunto es Lipschitz continua con
+    \(K=1\).
+    </p>
+</div>
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico y \(E,F \subseteq X\) dos
+    conjuntos cerrados, no vacíos y ajenos. Define
+    \(f:X\to \mathbb{R}\) por
+    \[
+    f(x)=\frac{d(x,E)}{d(x,E)+d(x,F)}
+    \]
+  </p>
+  <ol>
+    <li>
+      Prueba que \(f\) es continua.
+    </li>
+    <li>
+      Para toda \(x\in X\), \(0\leq f(x)\leq 1\).
+    </li>
+    <li>
+      \(f^{-1}(0)=E\), \(f^{-1}(1)=F\).
+    </li>
+  </ol>
+  <p>
+    Sugerencia: usa  <a href="#Ejer:ContinuidadFunDistanciaConjunto">Ejercicio 6.18</a>
+    y <a href="./S5.html#Ejer:DistanciaConjuntoCerradura">Ejercicio 5.31</a>
+  </p>
+  <p>
+    Usa lo anterior prueba que existen dos conjuntos abiertos,
+    \(U,V\), ajenos con \(E\subset U\), \(F \subset V\). Se dice
+    que los conjuntos \(U\) y \(V\) separan a \(E\) y \(F\).
+  </p>
+
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Una función definida sobre un espacio métrico, con valores
+    en \(\mathbb{R}\), \(f:X\to \mathbb{R}\) se llama semi-continua
+    inferiormente si para toda \(a\in \mathbb{R}\) el conjunto
+    \[
+      \{x\in X: f(x)\geq a \}
+    \]
+    es cerrado.
+  </p>
+  <p>
+    Prueba que \(f\) es semi-continua inferiormente si y sólo si
+    \[
+    f(x)\leq \liminf_{n\to \infty} f(x_n)
+    \]
+    siempre que \(\lim_{n\to \infty} x_n=x\).
+  </p>
+  <p>
+    Nota: para una sucesión de números reales \((r_n)_{n=1}^\infty\)
+    se define
+    \[
+    \liminf_{n\to \infty} r_n = \sup_{n\geq 1} \left\{ \inf_{k\geq n} \{r_k\} \right\}
+    \]
+  </p>
+</div>
+
+
+<div class="definicion-box">
+  <h2 class="number-title"> Definicion </h2>
+  <p>
+    Un homomorfismo entre dos espacios métricos, \((X,d_X), (Y,d_Y)\),
+    es una función \(f: X\to Y\) que satisface:
+    <ul>
+      <li>
+        \(f\) es inyectiva.
+      </li>
+      <li>
+        \(f\) es suprayectiva.
+      </li>
+      <li>
+        Tanto \(f\) como su inversa, \(f^{-1}\), son funciones continuas.
+      </li>
+    </ul>
+
+  </p>
+  <p>
+    Si existe un homeomorfismo entre los espacios \(X\) y \(Y\) se dicen
+    que son homeomorfos.
+  </p>
+  <p>
+    Ejemplos
+  </p>
+  <ul>
+    <li>
+    Cualquier función \(f:\mathbb{R}\to \mathbb{R}\)
+    de la forma \(f(x)=mx+b\), con \(m\ne 0\), es un homemorfimo de \(\mathbb{R}\)
+    pues \(f^{-1}(y)=\frac{y-b}{m}\) y tanto \(f\) como \(f^{-1}\) son
+    continuas.
+    </li>
+    <li>
+    Sea \((X,d)\) un espacio métrico, fija \(z\in X\) y define \(f:X\to [0,\infty)\) por
+    \(f(x)=d(x,z)\). Por el <a href="./S2.html#Ejer:LaOtraDesigTri">Ejercicio 2.14</a>
+    la función \(f\) satisface \(|f(x)-f(y)|\leq d(x,y)\) por lo  que
+    \(f\) es Lipschitz con constante \(K=1\).
+    </li>
+  </ul>
+</div>
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sean \((X,d_X), (Y,d_Y)\) espacios métricos y \(f:X\to Y\)
+    una biyección. Las siguientes condiciones son equivalentes.
+  </p>
+  <ol>
+    <li>
+      \(f\) es un homemorfismo.
+    </li>
+    <li>
+      \(U\) abierto en \(X\) si y sólo si \(f(U)\)  abierto en \(Y\).
+    </li>
+    <li>
+      \(F\) cerrado en \(X\) si y sólo si \(f(U)\)  cerrado en \(Y\).
+    </li>
+    <li>
+      \((x_n)_{n=1}^\infty\) convergente en \(X\) si y sólo si
+      \((f(x_n))_{n=1}^\infty\) convergente en \(Y\).
+    </li>
+  </ol>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \(X \ne \emptyset\) un conjunto y \(d,\rho\) dos métricas
+    sobre \(X\).
+  </p>
+  <p>
+    Prueba que las métricas \(d\) y \(\rho\) son
+    equivalentes si y sólo si la función identidad
+    \(\operatorname{id}: (X,d) \to (X,\rho)\) es un
+    homemorfismo.
+  </p>
+
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Por \((X,d)\) denotamos al espacio métrico \(X=\{0\} \cup \{\frac{1}{n}: n=1,2,\dots \}\)
+    donde \(d \) es la métrica usual, heredada de \(\mathbb{R}\).
+  </p>
+  <p>
+    En \(X\) define una nueva métrica dada por
+    \[
+    \rho(x,y)=\left\{
+      \begin{array}{cc}
+      \left| \frac{1}{n}-\frac{1}{m} \right| & \textrm{si \(x=1/n, y=1/m\) con \(n,m\geq 2\)}\\
+      \frac{1}{n} & \textrm{si \(y=1\), \(x=1/n\) con \(n\geq 2\)} \\
+      1-\frac{1}{n} & \text{si \(y=0\), \(x=1/n\) con \(n\geq 2\))} \\
+      1 & \textrm{si  \(y=0\), \(x=1\)}
+      \end{array}
+      \right.
+    \]
+  </p>
+  <p>
+    Prueba que \((X,d)\) y \((X,\rho)\) son homemomorfos y que
+    la función identidad \(\operatorname{id}:X \to X\) no es continua.
+  </p>
+</div>
+
+
+
+
+    </div>
+  </body>
