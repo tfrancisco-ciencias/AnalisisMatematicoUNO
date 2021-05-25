@@ -1,0 +1,189 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            inte: "\\operatorname{int}",
+            cer: "\\operatorname{cer}",
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+      body.number-title{
+        counter-reset: sectionCounter 6 cardCounter ;
+      }
+      h1.number-title{
+        counter-reset: sectionCounter 6 cardCounter ;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio  </a> </li>
+        <li> <a href="../Secciones.html"> Secciones  </a> </li>
+      </ul>
+      <p align="right" >  <button onclick="myFunction()" class="darklightButton">Claro/Obscuro </button> </p>
+    </nav>
+
+    <h1 class="calculo-title"> Análisis Matemático UNO</h1>
+
+  </header>
+
+  <!--    Contenido empiaza abajo
+ ///////////////////////////////// -->
+
+
+  <body class="flexbox card fondo-body">
+
+
+    <div class="flexbox">
+      <h1 class="number-title"> Conexidad </h1>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+
+      <p>
+        Sea \((X,d)\) un espacio métrico.
+      </p>
+      <p>
+        Decimos que
+        \((X,d)\) es disconexo si existen dos subsoncjuntos
+        \(U,V\subseteq X\), abiertos, ajenos, no vacíos,
+        que satisfacen \(X=U\cup V\). A un par de conjuntos
+        que satisfacen estan condiciones se les llama una disconexión de \(X\).
+      </p>
+      <p>
+        El espacio \((X,d)\) se llama conexo si no es disconexo.
+      </p>
+      <p>
+        Por ejemplo, el conjunto vacío \(\emptyset\) es conexo por vacuidad.
+      </p>
+      <p>
+        El espacio discreto con un sólo punto
+        \(\{x\}\), es conexo. Para ver esto sólo hay que notar que  el único subconjunto
+        abierto, no vacío es \(\{x\}\), por lo que no es posible
+        dar una disconexión \(U,V\) como se menciona arriba.
+      </p>
+      <p>
+        Por otro lado
+        si tenemos un espacio con la métrica discreta, \((X,d)\), y
+        \(X\) tiene más de un punto dicho espacio es disconexo, pues si
+        \(x\in X\) podemos tomar la disconexión \(U=\{x\}, V=X\setminus \{x\}\).
+        Como en \(X\) todos los subconjuntos son abiertos entonces \(U\) y \(V\)
+        son abiertos, además claramente son ajenos no vacíos (pues \(X\) contiene
+        más de un elemento) y \(X=U\cup V\).
+      </p>
+      </div>
+
+      <div class="ejercicio-box">
+      <h2 class="numbert-title"> Ejercicio </h2>
+      <p>
+        \(\mathbb{R}\), con la métrica usual, es conexo.
+      </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Un espacio métrico \((X,d)\) es conexco si y sólo si los
+          únicos subconjuntos simultaneamente abiertos y cerrados son
+          \(\emptyset\) y \(X\).
+        </p>
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico. Un subconjunto
+          \(E \subseteq X\) se llama conexo si, como espacio métrico
+          con la métrica heredada de \(X\), resulta que es conexo.
+        </p>
+
+
+      </div>
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+          Un espacio métrico  \((X,d_X)\) es disconexo si y sólo si
+          existe una función \(f:X \to \{0,1\}\), continua y suprayectiva.
+        </p>
+        <p>
+          Nota: se considera a \(\{0,1\}\) con la métrica discreta.
+        </p>
+      </div>
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+          Sea \(f:(X,d_X)\to (Y,d_Y)\) una función continua
+          entre dos espacios métricos. Si \(C\subset X \) es
+          conexo entonces su imagen directa bajo \(f\), \(f(C)\)
+          también es conexo.
+        </p>
+      </div>
+
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(I \subseteq \mathbb{R}\) un intervalo y
+          \(f:I\to \mathbb{R}\) una función continua. Prueba que
+          \(f(I)\) también es un intervalo.
+        </p>
+        <p>
+          Nota: el intervalo \(I\) puede se abierto, cerrado, semi-abierto,
+          acotado, no acotado etc.
+        </p>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          \([a,b]\) es un subconjunto conexo de \(\mathbb{R}\).
+        </p>
+
+      </div>
+
+
+
+
+
+
+    </div>
+  </body>
