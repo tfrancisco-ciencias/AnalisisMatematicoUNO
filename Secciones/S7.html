@@ -69,8 +69,17 @@
     <div class="flexbox">
       <h1 class="number-title"> Conexidad </h1>
 
+
+      <div class="info-box">
+        <h2 class="number-title"> Introducción </h2>
+        <p>
+
+        </p>
+      </div>
+
+
       <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
+        <h2 class="number-title" id="Def:ConexidadEspMet"> Definición </h2>
 
       <p>
         Sea \((X,d)\) un espacio métrico.
@@ -78,8 +87,20 @@
       <p>
         Decimos que
         \((X,d)\) es disconexo si existen dos subsoncjuntos
-        \(U,V\subseteq X\), abiertos, ajenos, no vacíos,
-        que satisfacen \(X=U\cup V\). A un par de conjuntos
+        \(U,V\subseteq X\), abiertos en \(X\) que satisfacen:
+        <ul>
+          <li>
+            \(U \cap V = \emptyset\).
+          </li>
+          <li>
+            \(U \ne \emptyset\), \(V \ne \emptyset\).
+          </li>
+          <li>
+            \(X = U \cup V\).
+          </li>
+
+        </ul>
+         A un par de conjuntos
         que satisfacen estan condiciones se les llama una disconexión de \(X\).
       </p>
       <p>
@@ -106,7 +127,7 @@
       </div>
 
       <div class="ejercicio-box">
-      <h2 class="numbert-title"> Ejercicio </h2>
+      <h2 class="number-title"> Ejercicio </h2>
       <p>
         \(\mathbb{R}\), con la métrica usual, es conexo.
       </p>
@@ -116,9 +137,35 @@
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
-          Un espacio métrico \((X,d)\) es conexco si y sólo si los
+          Un espacio métrico \((X,d)\) es conexo si y sólo si los
           únicos subconjuntos simultaneamente abiertos y cerrados son
           \(\emptyset\) y \(X\).
+        </p>
+      </div>
+
+      <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
+        <p>
+          Un espacio métrico  \((X,d)\) es disconexo si y sólo si
+          existe una función \(f:X \to \{0,1\}\), continua y suprayectiva.
+        </p>
+        <p>
+          Nota: se considera a \(\{0,1\}\) con la métrica discreta.
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:EquivConexidadFuncCont01"> Ejercicio </h2>
+        <p>
+          Prueba que un espacio métrico \((X,d)\) es conexo si y sólo
+          si toda función continua \(f:X\to \{0,1\}\) es constante.
+        </p>
+        <p>
+          Nota:se considera a \(\{0,1\}\) con la métrica discreta.
+        </p>
+        <p>
+          Sugerencia: usa el lema anterior.
         </p>
       </div>
 
@@ -126,23 +173,95 @@
         <h2 class="number-title"> Definición </h2>
         <p>
           Sea \((X,d)\) un espacio métrico. Un subconjunto
-          \(E \subseteq X\) se llama conexo si, como espacio métrico
-          con la métrica heredada de \(X\), resulta que es conexo.
+          \(E \subseteq X\) se llama disconexo si existen
+          \(A,B\subset X\) subconjuntos abiertos de \(X\) que
+          satisfacen:
+          <ul>
+            <li>
+              \(A \cap B = \emptyset\).
+            </li>
+            <li>
+              \(A\cap E \ne \emptyset\), \(B\cap E \ne \emptyset\).
+            </li>
+            <li>
+              \(E \subseteq A \cup E\)
+            </li>
+
+          </ul>
+          A un par de dichos conjuntos \(A,B\) se le llama una disconexión.
         </p>
 
+        <p>
+          El subconjunto  se llama conexo si no es disconexo.
+        </p>
 
       </div>
 
-      <div class="teorema-box">
-        <h2 class="number-title"> Teorema </h2>
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
         <p>
-          Un espacio métrico  \((X,d_X)\) es disconexo si y sólo si
-          existe una función \(f:X \to \{0,1\}\), continua y suprayectiva.
+          Sea \((X,d)\) un espacio métrico y \(E \subset X\) un
+          subconjunto conexo. Supón que \(U,V \subseteq X\) son
+          dos subconjuntos abiertos, ajenos que cumplen
+          \(E \subset U\cup V\). Prueba que \(E\subseteq U\)
+          ó \(E\subseteq V\).
+          </p>
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+            <p>
+              Cualquier intervalo cerrado \([a.b]\)
+              o abierto \((a,b)\) es un subconjunto conexo de \(\mathbb{R}\).
+            </p>
+          </div>
+
+
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+         <ol>
+          <li>
+            Sea \((X,d)\) un espacio métrico y \(E,F\subseteq X\)
+            dos subconjuntos conexos de \(X\) tal que
+            \(E\cap F \ne \emptyset\). Prueba que \(E\cup F\)
+            es conexo.
+          </li>
+          <li>
+            Generaliza el ejercicio anterior. Supon que
+            \(\{E\}_{i\in I}\) es una familia de subconjuntos
+            conexos de \(X\) con la propiedad de que todos
+            tiene un punto en común. Prueba que
+            \(\cup_{i\in I} E_i\) es conexo.
+          </li>
+        </ol>
+        </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(E\subseteq \mathbb{R}\) un subconjunto que contiene más
+          de dos elementos.
         </p>
         <p>
-          Nota: se considera a \(\{0,1\}\) con la métrica discreta.
+          Prueba que \(E\) es conexo si y sólo si, siempre que
+          \(x,y\in E\) entonces también se cumple \([x,y]\subseteq E\).
         </p>
+        <p>
+          Concluye que los subconjuntos conexos de \(\mathbb{R}\)
+          son precisamente los intervalos.
+        </p>
+
       </div>
+
+
+
+
 
       <div class="teorema-box">
         <h2 class="number-title"> Teorema </h2>
@@ -153,9 +272,6 @@
           también es conexo.
         </p>
       </div>
-
-
-
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
@@ -171,14 +287,180 @@
       </div>
 
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(E \subseteq X\)
+          un subconjunto abierto. Prueba que si un subconjunto
+          \(F\) satiface \(E \subseteq F \subseteq \overline{E}\)
+          entonces \(F\) es conexo.
+        </p>
+        <p>
+          En particular si \(E\) es conexo entonces su cerradura, \(\overline{E}\),
+          también.
+        </p>
+        <p>
+          ¿ Es cierto que si \(\overline{E}\) es conexo entonces \(E\)
+          también?
+        </p>
+      </div>
+
+
+
+
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
-          \([a,b]\) es un subconjunto conexo de \(\mathbb{R}\).
+          Sea \((X,d)\) un espacio métrico conexo con almenos dos puntos.
+          Prueba que \(X\) es no numerable.
         </p>
-
+        <p>
+          Sugerencia: encuentra una función continua, no constante,
+          de \(X\) en \(\mathbb{R}\).
+        </p>
       </div>
+
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos conexos.
+        </p>
+        <p>
+          Considera el espacio métrico producto \((X\times Y,d)\),
+          donde \(d\) puede ser cualquiera de las métricas dadas en
+          <a  href="./S2.html#Ejer:MetProdCarte">Ejercicio 2.20</a>. Prueba que \(X\times Y\) es conexo.
+        </p>
+        <p>
+          Sugerencia: usa el <a href="#Ejer:EquivConexidadFuncCont01">Ejercicio </a>
+        </p>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Si \(f:[a,b]\to [a,b]\) es continua prubea que
+          \(f\) tiene  un punto fijo.
+          </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Si \(f:\mathbb{R}\to \mathbb{R}\) es continua e inyectiva
+            prueba que \(f\) es estrictamente creciente.
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba que no existe una función continua
+            \(f:\mathbb{R}\to \mathbb{R}\) que satisface
+            \(f(\mathbb{Q}) \subset \mathbb{R} \setminus \mathbb{Q}\)
+            y \(f(\mathbb{R}\setminus \mathbb{Q}) \subseteq \mathbb{Q}\).
+          </p>
+        </div>
+
+
+        <div class="nota-box">
+          <h2 class="number-title"> Sobre la definición de subconjunto conexo </h2>
+          <p>
+            La <a href="#">Definición 7.2</a> da la impresión de que
+            la conexidad de un conjunto depende del espacio ambiente donde vivve,
+            pues está dada en términos de los subconjuntos abiertos de \((X,d\).
+            En realidad la conexidad es una propiedad inherente del subconjunto
+            y los ejercicios siguientes exploran este punto de vista.
+          </p>
+        </div>
+
+
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Sea \((X,d)\) un espacio métrico y \(\emptyset \ne E \subseteq X\).
+            La métrica inducida por \(d\) en \(E\) es simplemente la métrica
+            \(d\) restrigida a \(E\times E\), \(d_E=\left. d\right|_{E\times E}\).
+            Se dice que \((E,d_E)\)
+            es un subespacio de \((X,d)\).
+          </p>
+          <p>
+            La métrica \(d_E\) induce una
+            topología en \(E\), llama la topología inducida por \((X,d)\),
+            de la siguiente forma. Las bolas abiertas en \((X,d_E)\),
+            denotadas \(B_r^E(x)\) son
+            simplemente
+            \[
+            B_{r}^E(x)=\{e \in E: d_E(x,e)< r\}
+            \]
+            lo cual se puede ver que es igual a
+            \[
+            B_r^E(x)=E\cap B_r(x)
+            \]
+          </p>
+          <p>
+            Un subconjunto \(U \subseteq E\) se llama abierto si, para todo
+            \(x\in U\), existe \(r>0\) tal que \(B_r^E(x)\subset U\).
+          </p>
+
+          <p>
+            Para
+            hacer referencia que los abiertos de \((E,d_E)\) están dados
+            por la métrica inducida por \(d\) en \(E\) se dice que
+            son abiertos relativos a \(E\). Por ejemplo si
+            \(E=[0,1]\) entonces \(U=[0,1/2)\) NO es abierto en
+            \(\mathbb{R}\) pero es abierto relativo
+            en \([0,1]\) pues
+            \[
+            [0,1/2)=[0,1] \cap B_{1/2}(0)
+            \]
+          </p>
+        </div>
+
+
+        <div class="lema-box">
+          <h2 class="number-title" id="Lema:DefConexidadSubEspacios"> Lema </h2>
+          <p>
+            Sea \((X,d)\) un espacio métrico y considera a \(E \subseteq X\)
+            como un subespacio de \(X\).
+          </p>
+          <p>
+            Si \(U,V\subseteq E\) son abiertos ajenos en \(E\) prueba
+            que existen \(\tilde{U},\tilde{V}\subseteq X\), abiertos en
+            \(X\) y ajenos tales que \(U=E\cap \tilde{U}\),
+            \(V=\tilde{V}\cap E\).
+
+          </p>
+        </div>
+
+        <div class="definicion-box">
+          <h2 class="number-title" id="Def:AlternativaConexidadEspMet"> Definición </h2>
+          <p>
+            Sea \((X,d)\) un espacio métrico y \(E\subseteq X\). Decimos
+            que \(E\) es disconexo si el subespacio métrico \((E,d_E)\),
+            es disconexo, es decir es disconexo
+            según la <a href="#Def:ConexidadEspMet">Definición 7.2</a>.
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba que las definiciones <a href="Def:ConexidadEspMet">7.2</a>
+            y <a href="#Def:AlternativaConexidadEspMet">7.23</a> son
+            equivalentes.
+          </p>
+          <p>
+            Sugerencia: usa el <a href="#Lema:DefConexidadSubEspacios">Lema 7.22</a>
+          </p>
+        </div>
 
 
 
