@@ -153,12 +153,25 @@
       </div>
 
 
+      <div class="nota-box">
+        <h2 class="number-title"> Nota sobre la definición de compacidad </h2>
+      </div>
+
+
+
+
+
+
+
+
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
           Todo intervalo cerrado y acotado de \(\mathbb{R}\) es compacto.
         </p>
       </div>
+
+
 
 
             <div class="ejercicio-box">
@@ -171,18 +184,23 @@
             </div>
 
 
-            <div class="ejercicio-box">
+            <div class="ejercicio-box" >
               <h2 class="number-title"> Ejercicio </h2>
               <p>
-                Sea \(f:(X,d_X)\to (Y,d_Y)\) una función continua y
-                \(K \subseteq X\) un subconjunto compacto. Prueba
-                que \(f(K)\subseteq Y \) es compacto.
+                Todo subconjunto cerrado y acotado de \(\mathbb{R}\)
+                es compacto.
               </p>
+
             </div>
 
 
+
+
+
+
+
       <div class="lema-box">
-        <h2 class="number-title"> Lema </h2>
+        <h2 class="number-title" id="Lema:CompactoImplicaCpS"> Lema </h2>
         <p>
           Sea \((X,d)\) un espacio métrico y \(K\subseteq X\). Si
           \(K\) es compacto entonces toda subsucesión de elementos
@@ -198,7 +216,7 @@
       </div>
 
       <div class="lema-box">
-        <h2 class="number-title"> Lema </h2>
+        <h2 class="number-title" id="Lema:CompactoImplicaAcotado"> Lema </h2>
         <p>
           Sea \((X,d)\) un espacio métrico y \(K\subseteq X\). Si
           \(K\) es compacto entonces \(K\) es acotado.
@@ -210,10 +228,177 @@
       </div>
 
 
+<div class="teorema-box">
+  <h2 class="number-title" id="Teo:HeineBorel"> Teorema </h2>
+  <h3> Heine-Borel </h3>
+  <p>
+    Un subconjunto de \(\mathbb{R}\) es compacto si y sólo si
+    es cerrado y acotado.
+  </p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sean \(A,B\) dos subconjuntos compactos de \((X,d)\). Prueba que
+    \(A\cup B\) es compacto.
+  </p>
+
+</div>
 
 
 
 
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \(K \subseteq \mathbb{R}\) un subconjunto compacto. Por el
+    <a href="#Teo:HeineBorel">Teorema de Heine-Borel</a>
+    \(K\) es acotado, por lo que existen
+    \(\inf(K)\) y \(\sup(K)\). Prueba que tanto el ínfimo como
+    el supremo de \(K\) pertenecen a \(K\).
+  </p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+
+  <p>
+    Considera el espacio vectorial normado \((\ell_p, \|\cdot\|_p)\)
+    con \(p\in [1,\infty]\) y la bola unitaria cerrada
+    \[
+    \overline{B}_1(0)=\{x\in \ell_p: \|x\|_p \leq 1 \}
+    \]
+    Prueba que \(\overline{B}_1(0)\) no es compacta.
+  </p>
+  <p>
+    Sugerencia: considera la sucesión \((e^{(n)})_{n=1}^\infty\), donde
+    \(e^{(n)}\) es la sucesión de números reales que es cero en todas sus
+    entradas excepto en el lugar \(n\), donde tiene un 1. Prueba
+    que \(\|e^{(n)}-e^{(m)}\|_p \geq 1\); de lo anterior  deduce que
+    no es posible extraer de \((e^{(n)})_{n=1}^\infty\) una
+    subsucesión convergente y concluye por
+    <a href="#Lema:CompactoImplicaCpS">Lema</a>
+    que la bola cerrada no es compacta.
+  </p>
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Recuerda que un espacio métrico se llama separable si
+    contiene un subconjunto denso y numerable.
+  </p>
+  <p>
+    Sea \((K,d)\) un espacio métrico compacto. Prueba que
+    \(K\) es separable.
+  </p>
+</div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \(f:(X,d_X)\to (Y,d_Y)\) una función continua y
+            \(K \subseteq X\) un subconjunto compacto. Prueba
+            que \(f(K)\subseteq Y \) es compacto.
+          </p>
+        </div>
+
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+
+  <p>
+    Sea \((K,d)\) un espacio métrico compacto y
+    \(f:K \to \mathbb{R}\) una función continua. Entonces
+    \(f\) está acotada, es más, \(f\) alcanza su máximo y
+    su mínimo en \(K\), es decir, existen puntos \(x_*,x^*\in K\)
+    tales que, para todo \(x\in K\)
+    \[
+    f(x_*) \leq f(x) \leq f(x^*).
+    \]
+
+  </p>
+</div>
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \(f:[a,b]\to \mathbb{R}\) función continua. Entonces
+    la imagen de \(f\) es un intervalo de la forma \([c,d]\),
+    para algunos \(c,d\in \mathbb{R}\).
+  </p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  Sea \(f:(K,d) \to (C,\rho)\) un homeomorfismo. Prueba que si
+  \(K\) es compacto entonces también \(C\) lo es.
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d_X)\) un espacio métrico compacto.
+  </p>
+  <p>
+    Supón que \(f: (X,d_X) \to (Y,d_Y)\) es una función continua, inyectiva y
+    suprayectiva. Prueba que \(f\) es un homeomorfismo.
+  </p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico y \(K \subset X\) un
+    subconjunto compacto. Prueba que \(\operatorname{diam}(K)\) es finito.
+    Es más, si \(K\ne \emptyset\), prueba que existen
+    \(x,y\in K\) tal que \(\operatorname{diam}(K)=d(x,y)\).
+  </p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio  </h2>
+  <p>
+    Cualesquiera dos normas en \(\mathbb{R}^n\) son equivalentes.
+  </p>
+</div>
+
+
+<div class="definicion-box">
+  <h2 class="number-title"> Definición </h2>
+  <p>
+    Una función \(f:(X,d_X)\to (Y,d_Y)\) se llama uniformemente continua
+    en \(X\) si, para toda \(\varepsilon >0 \) existe \(\delta >0\),
+    que sólo depende de \(\varepsilon > 0\), tal que para cualesquiera
+     \(x_1,x_2\in X\) que satisfacen \(d_X(x_1,x_2)< \delta\)
+     entonces \(d_Y(f(x_1),f(x_2))<\varepsilon\).
+  </p>
+
+</div>
+
+
+
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <p>
+    Sea \((K,d)\) un espacio métrico compacto. Entonces toda función
+    continua \(f:(K,d)\to (Y,\rho)\) es uniformemente continua.
+  </p>
+</div>
 
 
     </div>
