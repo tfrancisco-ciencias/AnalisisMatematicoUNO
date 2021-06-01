@@ -1,0 +1,220 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            inte: "\\operatorname{int}",
+            cer: "\\operatorname{cer}",
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+      body.number-title{
+        counter-reset: sectionCounter 7 cardCounter ;
+      }
+      h1.number-title{
+        counter-reset: sectionCounter 7 cardCounter ;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio  </a> </li>
+        <li> <a href="../Secciones.html"> Secciones  </a> </li>
+      </ul>
+      <p align="right" >  <button onclick="myFunction()" class="darklightButton">Claro/Obscuro </button> </p>
+    </nav>
+
+    <h1 class="calculo-title"> Análisis Matemático UNO</h1>
+
+  </header>
+
+  <!--    Contenido empiaza abajo
+ ///////////////////////////////// -->
+
+
+  <body class="flexbox card fondo-body">
+
+
+    <div class="flexbox">
+      <h1 class="number-title"> Compacidad </h1>
+
+
+      <div class="info-box">
+        <h2 class="number-title"> Introducción </h2>
+
+      </div>
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(A \subseteq X\).
+        </p>
+        <p>
+          Una cubierta abierta de \(A\) es una familia de
+          subconjuntos abiertos, \(\mathcal{U}=\{U_i\}_{i\in I}\),
+          que satisface
+          \[
+          A \subseteq \cup_{i\in I}U_i.
+          \]
+          Un subconjunto \(\mathcal{U}' \subseteq \mathcal{U}\)
+          se llama subcubierta de \(\mathcal{U}\) si a su vez
+          \(\mathcal{U}'\) es una cubierta de \(A\).
+        </p>
+
+
+        <p>
+          Un subconjunto \(K\subseteq X\) se llama compacto si
+          <i>toda</i> cubierta abierta de \(K\) admite una subcubierta
+          finita. Es decir, si \(\mathcal{U}=\{U_i\}_{i\in I}\)
+          es cualquier cubierta abierta de \(K\)  entonces existe
+          \(\mathcal{U}'=\{U_{i_1}, \dots, U_{i_n}\} \subseteq \mathcal{U}\)
+          tal que
+          \[
+          K \subseteq U_{i_1}\cup U_{i_2}\cup \cdots  \cup U_{i_n}
+          \]
+         </p>
+         <p>
+           Nota: la palabra clave de la definición es "cualquiera", es
+           decir, no importa que cubierta abierta del conjunto compacto
+           se considera, siempre es posible encontrar una subcubierta finita.
+           Si se puede dar una cubierta abierta para la cual no sea posible
+           dar una subcubierta finita entonces el conjunto en consideración
+           no es compacto.
+         </p>
+         <p>
+           Es más fácil dar ejemplos de conjuntos no compactos que de compactos.
+         </p>
+         <ul>
+          <li>
+            \(\mathbb{R}^n\), con la métrica usual, no es compacto. Para ver
+            lo anterior consideramos la cubierta abierta
+            \[
+            \mathcal{U}=\{B_j(0): j\in \mathbb{N}\}
+            \]
+            Es claro que \(\mathbb{R}^n=\cup_{j\in \mathbb{N}}B_j(0) \),
+            sin embargo, dado cualquier subconjunto finito de \(\mathcal{U}\),
+            \(\mathcal{U}'=\{B_{j_1}(0),\dots, B_{j_m}(0) \}\), podemos
+            notar que
+            \[
+             B_{j_1}(0)\cup B_{j_2}(0)\cup \cdots \cup B_{j_m}(0)=B_{r}(0)
+            \]
+            donde \(r=\max\{j_1,j_2,\dots, j_m\}\), de lo que se sigue
+            que
+            \[
+            \mathbb{R}^n \nsubseteq  B_{j_1}(0)\cup B_{j_2}(0)\cup \cdots \cup B_{j_m}(0)
+            \]
+          </li>
+          <li>
+            Modificando un poco el ejemplo anterior vemos que las bolas abiertas
+            \(B_r(0)\) no son compactas, pues si consideramos la familia de
+            subconjuntos abiertos
+            \[
+            \mathcal{U}=\{ B_{r_j}(0): j \in \mathbb{N} \}
+            \]
+            donde \((r_j)_{j=1}^\infty\) es una sucesión de reales positivos
+            que satisface \(r_1< r_2 < \dots < r_j< \cdots < r \) y
+            \(\lim_{j \to \infty} r_j=r\), obtenemos que
+            \(\mathcal{U}\) es una cubierta abierta de \(B_r(0)\), pero
+            no es posible extraer un subcubierta finita.
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Todo intervalo cerrado y acotado de \(\mathbb{R}\) es compacto.
+        </p>
+      </div>
+
+
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+              <p>
+                Sea \((X,d)\) un espacio métrico y \(K\subseteq X\)
+                compacto. Si \(C \subseteq K\) es un subconjunto cerrado
+                entonces \(C\) también es compacto.
+              </p>
+            </div>
+
+
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+              <p>
+                Sea \(f:(X,d_X)\to (Y,d_Y)\) una función continua y
+                \(K \subseteq X\) un subconjunto compacto. Prueba
+                que \(f(K)\subseteq Y \) es compacto.
+              </p>
+            </div>
+
+
+      <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(K\subseteq X\). Si
+          \(K\) es compacto entonces toda subsucesión de elementos
+          de \(K\) admite una subsucesión que converge a un punto de
+          \(K\).
+        </p>
+        <p>
+          Es decir, si \((x_n)_{n=1}^\infty \subseteq K\)
+          entonces existe una subsucesión \((x_{n_k})_{k=1}^\infty\)
+          y \(x\in K\) tal que \(\lim_{k\to \infty} x_{n_k}=x\).
+        </p>
+
+      </div>
+
+      <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(K\subseteq X\). Si
+          \(K\) es compacto entonces \(K\) es acotado.
+        </p>
+        <p>
+          Es decir, existe \(x\in X\) y \(r>0\), tal que
+          \(K\subseteq B_r(x)\).
+        </p>
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+  </body>
