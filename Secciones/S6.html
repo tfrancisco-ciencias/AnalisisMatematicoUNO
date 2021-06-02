@@ -270,6 +270,7 @@
               \(x\) un número irracional y \((x_n)_n\) una sucesión de racionales
               tal que \(\lim x_n= x\). Por hipótesis \(f(x_n) = g(x_n)\) para cada
               \(n \in \mathbb{N}\) y por continuidad de las funciones \(f,g\) en el
+
               punto \(x\) tenemos que \(f(x) = \lim f(x_n) = \lim g(x_n) = g(x)\).
               En consecuencia \(f(x) = g(x)\) para todo \(x \in \mathbb{R}\).
           </li>
@@ -411,13 +412,39 @@
     constante \(K=1\).
     </li>
     <li>
-      Generaliza el inciso anterior. Si \(f:[a,b]\to \mathbb{R}\)
-      es continua en \([a,b]\), diferenciable en \((a,b)\) y con derivada
-      acotada en \((a,b)\) entonces \(f\) es Lipschitz.
+        Generaliza el inciso anterior. Si \(f:[a,b]\to \mathbb{R}\)
+        es continua en \([a,b]\), diferenciable en \((a,b)\) y con derivada
+        acotada en \((a,b)\) entonces \(f\) es Lipschitz.
     </li>
 
-  </p>
-
+      </p>
+      <button class="respButton hvr-grow"> Respuesta </button>
+  <div class="resp-box">
+      <ol>
+          <li>
+              Comencemos por recordar el Teorema del Valor Medio. Si \(f:[a,b] \to \mathbb{R}\)
+              es continua en \([a,b]\) y diferenciable en \((a,b)\) entonces existe un punto
+              \(c \in (a,b)\) tal que \(f'(c) = \frac{f(b)-f(a)}{b-a}\). Dado que \(\sen\) y \(\cos\)
+              son continuas y diferenciables en todo \(\mathbb{R}\). Trabajaremos con \(\sen\) y
+              el caso para \(\cos\) será análogo. Recordemos que ambas funciones toman valores en
+              el intervalo \([0,1]\) y \(\sen '(x) = \cos(x)\), de esta forma si \(a,b \in \mathbb{R}\)
+              entonces existe \(c \in (a,b)\) tal que \(\cos(c) = \frac{\sen(b)-\sen(a)}{b-a}\).
+              Basta tomar valor absoluto en ambos lados de la ecuación y despejar el término
+              \(|b-a|\) para obtener \(|\sen(b) - \sen(a)| = |\cos(c)||b-a|\). Como \(|\cos(c)| \leq 1\)
+              concluimos que \(|\sen(b) - sen(a)| \leq 1 \cdot |b-a|\) y la función en cuestión es
+              Lipschitz con constante \(K=1\). El caso de \(\cos\) es análogo. Dados \(a,b \in \mathbb{R}\)
+              existe \(c \in (a,b)\) tal que \(|\cos(b) - \cos(a)| = |-\sen(c)||b-a| \leq 1 \cdot |b-a|\).
+          </li>
+          <li>
+              Notemos que la generalización la obtenemos de manera natural de la demostración anterior.
+              Supongamos que \(|f'(z)| \leq K \). Sean \(x,y \in [a,b]\) y supongamos SPG que \(x < y\).
+              Por el Teo. del Valor Medio sabemos que existe \(z \in (x,y) \subseteq (a,b)\) tal que
+              \(f'(z) = \frac{f(y) - f(x)}{y - x}\). Tomando valor absoluto de ambos lados de la ecuación
+              y despejando el término \(|y-x|\) tenemos \(|f(y) - f(x)| = |f'(z)||y - x| \leq K |y-x|\),
+              por lo que la función es Lipschitz.
+          </li>
+      </ol>
+  </div>
 </div>
 
 
