@@ -155,6 +155,89 @@
 
       <div class="nota-box">
         <h2 class="number-title"> Nota sobre la definición de compacidad </h2>
+        <p>
+          En la definición anterior se presenta la noción de compacidad dentro del
+          contexto de un espacio métrico dado, \((X,d)\), pero en realidad
+          la compacidad de un conjunto \(K\)  no depende del espacio ambiente \(X\)
+          donde esté si no más bien de la métrica del espacio \(K\). Esta
+          distinción es similar a la de conexidad y que se discute en
+          la <a href="./S7.html#Nota:DefConexidad"> Nota 20 </a> y ejercicios posteriores.
+        </p>
+        <p>
+          Modifiquemos un poco la definición de compacidad de la sigueinte manera.
+        </p>
+        <h3 > Definición  B </h3>
+        <p>
+          Sea \((X,d)\) un espacio métrico. Decimos que \((X,d)\) es compacto
+          si, toda familia de subconjuntos abiertos \(\mathcal{U}=\{U_i\}_{i\in I}\)
+          que satisfce
+          \[
+          X=\cup_{i\in I} U_i
+          \]
+          admite una subfamilia finita
+          \(\mathcal{U}'=\{U_{i_n}\}_{n=1}^N\subset \mathcal{U}\)
+          tal que
+          \[
+          X=\cup_{n=1}^N U_{i_n}
+          \]
+          Dado \(E\subseteq X\) decimos que \(E\) es compacto si el espacio
+          métrico \((E,d_E)\), donde \(d_E\) la métrica
+          heredada de \((X,d)\)
+          (ver <a href="./S7.html#Def:MetricaRelativa"> Definición 7.21 </a>
+           para la métrica heredada).
+        </p>
+        <h3> Equivalencia entre definiciones </h3>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(E \subseteq X\).
+          Veamos que  la Definición 8.2 y la Definición B son equivalentes.
+        </p>
+        <p>
+          Supongamos que \(E\) es compacto usando la Definición 8.2. Queremos
+          ver que \(E\) satisface la Definición B. Sea pues
+          \(\mathcal{V}=\{V_i\}_{i\in I}\) una familia de abiertos en
+          \((E,d_E)\) tal que \(E=\cup_{i\in I}V_i\). El objetivo es
+          asegurar la existencia de una subfamilia finita de \(\mathcal{V}\)
+          que cubra a \(E\).
+          Por el <a href="./S7.html#Lema:AbiertosSubEspacios">Lema 7.22</a>
+          para cada \(i\) existe \(\tilde{V}_i\subseteq X\), abierto en
+          \((X,d)\), tal que \(V_i=E\cap \tilde{V}_i\). Se sigue que
+          \(E\subseteq \cup_{i\in I}\tilde{V}_i\). Ya que \(E\) es
+          compacto (según la Definición 8.2) podemos asegurar que existe
+          una subfamilia finita \(\{\tilde{V}_{i_n}\}_{n=1}^N\) tal que
+          \(E\subseteq \cup_{n=1}^N \tilde{V}_{i_n}\). Intersectanto ambos lados
+          de ésta última inclusión con \(E\) llegamos a
+          \[
+          E=\cup_{n=1}^N \tilde{V}_{i_n}\cap E= \cup_{n=1}^N V_{i_n}
+          \]
+          y por lo tanto \(\{V_{i_n}\}_{n=1}^N\) es una subfamilia
+          finita de \(\mathcal{V}\) que cubre a \(E\), concluyendo
+          que \((E,d_E)\) satisface la Definición B.
+        </p>
+        <p>
+          Ahora supongamos que \((E, d_E)\) es compacto usando la Definición B.
+          Queremos probar que \(E\) es compacto, según la Definición 8.2.
+          Para lo cual consideramos \(\{U_i\}_{i\in I}\) una familia
+          de abiertos en \(X\) tal que \(E \subseteq \cup_{i\in I}U_i\).
+          Intersectando ambos lados de la contención anterior obtenemos
+          \[
+          E=\cup_{i\in I} E\cap U_i
+          \]
+          peor el conjunto \(V_i:=E\cap U_i\) es un abierto en \((E,d_E)\).
+          Ya que \((E,d_E)\) es compacto, según la Definición B,
+          existe una subfamilia finita
+          \(\{V_{i_n}\}_{n=1}^N\) tal que
+          \[
+          E=\cup_{n=1}^N V_{i_n} = \cup_{n=1}^N E\cap U_{i_n}
+          \]
+          de lo cual se sigue que
+          \[
+          E\subseteq \cup_{n=1}^N U_{i_n}
+          \]
+          por lo que \(\{U_{i_n}\}_{n=1}^N\) es una subcubierta
+          finta de \(\mathcal{U}\) y por lo tanto
+          \(E\) es compacto según la Definción 8.2.
+        </p>
+
       </div>
 
 
