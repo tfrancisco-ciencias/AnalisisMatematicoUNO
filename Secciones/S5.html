@@ -389,7 +389,7 @@
                 </div>
 
       <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <h2 class="number-title" id="Ejer:TopologiaEspacioProducto"> Ejercicio </h2>
           <p>
             En el <a href="./S4.html#Ejer:MetEquivalentes"> Ejercicio 4.15</a>
             se definió que dos
@@ -555,12 +555,39 @@
             </li>
           </ol>
           <p>
-            Nota: el ejercicio sigue siendo válidos si se reemplaza
+            Nota: gracias al <a href="./S4.html#Ejer:MetEquivProdCarte">Ejercicio 4.17</a>
+            y <a href="#Ejer:TopologiaEspacioProducto">Ejercicio 5.10</a>,
+            éste ejercicio sigue siendo válidos si se reemplaza
             \(\sigma\) por cualquier otra de las métricas del
             <a href="./S2.html#Ejer:MetProdCarte">Ejercicio 2.20</a>.
            </p>
         </div>
 
+
+
+          <div class="definicion-box">
+            <h2 class="number-title" id="Def:ProductoEspaciosMetricos"> Definición </h2>
+
+              <p>
+                Sean \((X,d_Y)\) y \((Y,d_Y)\) dos espacios métricos.
+              </p>
+              <p>
+                Ya que todas las métricas
+                \begin{eqnarray*}
+                d((x_1,y_1),(x_2,y_2))&=& d_X(x_1,x_2)+d_Y(y_1,y_2),\\
+                \rho((x_1,y_1),(x_2,y_2)) &=& \max\{d_X(x_1,x_2), d_Y(y_1,y_2)  \}\\
+                \sigma((x_1,y_1),(x_2,y_2)) &=& \sqrt{d_X(x_1,x_2)^2+d_Y(y_1,y_2)^2}.
+                \end{eqnarray*}
+                son equivalentes
+                ( gracias al <a href="./S4.html#Ejer:MetEquivProdCarte">Ejercicio 4.17</a>)
+                van a generar los mismos subconjuntos abiertos en
+                \(X\times Y\), (ver <a href="./S5.html#Ejer:TopologiaEspacioProducto">Ejercicio 5.10</a>). Por lo tanto
+                definimos el producto de los espacios métricos
+                \((X,d_X)\) y \((Y,d_Y)\) como el espacio métrico \(X\times Y\) dotado
+                con cualquiera de las métricas anteriores.
+              </p>
+
+            </div>
 
 
       <div class="ejercicio-box">
