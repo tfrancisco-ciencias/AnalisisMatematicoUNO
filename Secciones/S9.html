@@ -73,6 +73,143 @@
   <h2 class="number-title"> Introducción </h2>
 </div>
 
+
+
+<div class="definicion-box">
+  <h2 class="number-title"> Definición </h2>
+  <p>
+    Un espacio métrico \((X,d)\) se llama completo si
+    toda sucesión de Cauchy en \(X\) converge a
+    un punto en \(X\).
+  </p>
+  <p>
+    Por ejemplo, todo espacio métrico discreto es completo,
+    pues las únicas sucesiones de Cauchy son las sucesiones
+    constantes.
+  </p>
+  <p>
+    Muchos de los ejemplos de espacios métricos completos
+    basan su completitud en la completitud de \(\mathbb{R}\)
+    la cual a su vez es consecuencia del axioma del supremo.
+  </p>
+</div>
+
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <p>
+    \(\mathbb{R}\) con la métrica usual es completo.
+  </p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Prueba que \(\mathbb{R}\) con la métrica
+    \(\rho(x,y)=|\arctan(x)-\arctan(y)|\) no es completo.
+  </p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+
+  <p>
+    Sean \(X,Y\) dos espacios métricos completos.
+  </p>
+   <p>
+    Prueba que el espacio métrico producto \(X\times Y\) es completo
+    si y sólo si ambos \(X\) e \(Y\) son completos.
+  </p>
+
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <ol>
+  <li>
+    Prueba que \(\mathbb{R}^n\), con la métrica inducida por
+    \(\|\cdot\|_2\), \(\|\cdot\|_1\) ó \(\|\cdot\|_\infty\) es completo.
+
+  </li>
+  <li>
+    Más en general, prueba que si dos normas en
+    \(\mathbb{R}^n\), \(\| \cdot \|\) y
+    \(||| \cdot  |||\), son equivalentes y una de ellas genera
+    una métrica completa en \(\mathbb{R}^n\) entonces la otra
+    también.
+  </li>
+</ol>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \(p\in [1,\infty]\). Prueba que  \((\ell_p, \|\cdot \|_p)\)
+    es completo.
+  </p>
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico completo y \(A \subset X\).
+    Considera el subespacio con la métrica inducida \((A,d_A)\).
+
+  </p>
+  <p>
+    Prueba que \((A,d_A)\) es completo si y sólo si
+    \(A\) es un subconjunto cerrado de \(X\).
+  </p>
+
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+
+  <p>
+    Prueba que \((c_0, \|\cdot\|_\infty)\) es completo.
+  </p>
+  <p>
+    Sugerencia: usa el ejercicio anterior.
+  </p>
+</div>
+
+
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico. Las siguientes
+    condiciones son equivalentes.
+  </p>
+  <ol>
+    <li>
+      \((X,d)\) es completo.
+    </li>
+    <li>
+      <p>
+      Propiedad de los Cerrados Anidados.
+      </p>
+      <p>
+      Toda sucesión decreciente de cerrados
+      en \(X\), \(F_1 \supseteq F_2 \supset \cdots \), con
+      la característica de que \(\lim_{n\to \infty} \operatorname{diam}(F_n)=0\),
+      satisface que
+      \[
+      \cap_{n=1}^\infty F_n \ne \emptyset
+      \]
+      </p>
+    </li>
+  </ol>
+</div>
+
+
+
+
 <div class="definicion-box">
   <h2 class="number-title"> Definición  </h2>
   <p>
@@ -110,8 +247,28 @@
     \(A\).
   </li>
 </ul>
+<p>
+  La idea de los subconjuntos totalmente acotados es que
+  tratan de relajar las condiciones de un subconjunto acotado pero
+  tratando de mantener algunos de las propiedades fundamentales. En otras
+  palabras, si un conjunto no es acotado lo siguiente mejor es que sea
+  totalmente acotado.
+</p>
+</div>
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico y \( A\subseteq X\) un
+    subconjunto totalmente acotado. Prueba que
+    simpre es posible encontrar una \(\varepsilon\)-red
+    cuyos elementos están todos en \(A\).
+  </p>
 
 </div>
+
 
 <div class="ejercicio-box">
   <h2 class="number-title"> Ejercicio </h2>
@@ -119,7 +276,9 @@
    Prueba que todo subconjunto compacto es totalmente acotado.
  </p>
 
- <li>
+ <button class="respButton hvr-grow"> Respuesta </button>
+ <div class="resp-box">
+ <p>
    Para probar lo anterior sea \( K \subset X\) un
    conjunto compacto de \((X,d)\) y sea \(\varepsilon >0\). Ya que
    \(x\in B_\varepsilon(x)\) para toda \(x\in K\) tenemos que
@@ -133,7 +292,83 @@
    \]
    por lo que \(\{x_1,\dots, x_n\}\) es una \(\varepsilon\)-red
    para \(K\).
- </li>
+ </p>
+</div>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Considera a \(\mathbb{R}\) con la métrica usual.
+    </p>
+    <p>
+      Prueba que un subconjunto de \(\mathbb{R}\) es
+      totalmente acotado si y sólo si es acotado.
+    </p>
+
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+
+  <ol>
+    <li>
+      Prueba que todo subconjunto totalmente acotado es acotado.
+    </li>
+    <li>
+      En \((\ell_1, \|\cdot\|_1)\) considera el conjunto
+      \[
+      A=\{ (e^{(n)})_{n=1}^\infty \}
+      \]
+      donde \(e^{(n)}\) es la sucesión que tiene todas las entradas
+      igual a cero, excepto la entrada \(n\) donde tiene un 1. Prueba
+      que \(A\) es acotado pero no totalmenete acotado.
+      <p>
+        Sugerencia: \(\|e^{(n)}-e^{(m)}\|=1\) si \(n\ne m\).
+      </p>
+    </li>
+  </ol>
+  <p>
+      Por lo tanto los conjuntos totalmente acotados contienen
+      propiamente a los conjuntos acotados.
+  </p>
+</div>
+
+
+
+<div class="lema-box">
+  <h2 class="number-title"> Lema </h2>
+  <p>
+    \(A\) es totalmente acotado si y sólo si
+    para toda \(\varepsilon >0\) existe un número
+    finito de subconjuntos \(A_1,\dots, A_n \subseteq A\),
+    con \(\operatorname{diam}(A_i)< \varepsilon\), \(i=1,\dots, n\), tal que
+    \[
+    A\subseteq \cup_{i=1}^n A_i
+    \]
+  </p>
+</div>
+
+
+<div class="lema-box">
+  <h2 class="number-title"> Lema </h2>
+
+  <p>
+    Sea \((X,d)\) un espacio métrico y \((x_n)_{n=1}^\infty\) una sucesión
+    de elementos de \(X\). Toma \(A=\{x_n: n\in \mathbb{N}\}\).
+  </p>
+  <ol>
+    <li>
+      Si \((x_n)_{n=1}^\infty\) es de Cauchy entonces \(A\) es totalmente
+      acotado.
+    </li>
+    <li>
+      Si \(A\) es totalmente acotado entonces \((x_n)_{n=1}^\infty\)
+      admite una subsucesión que es  Cauchy.
+    </li>
+  </ol>
 
 
 </div>
@@ -141,7 +376,27 @@
 
 
 
-
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico. Las siguientes
+    condiciones son equivalentes.
+  </p>
+  <ol>
+    <li>
+      \((X,d)\) es completo.
+    </li>
+    <li>
+      <p>
+        Propiedad de Bolzano-Weierstrass.
+      </p>
+      <p>
+        Todo subconjunto de \(X\), infinito y totalmente acotado
+        tiene un punto límite en \(X\).
+      </p>
+    </li>
+  </ol>
+</div>
 
 
 
