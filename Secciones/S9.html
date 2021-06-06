@@ -180,6 +180,39 @@
 
 
 
+<div class="definicion-box">
+  <h2 class="number-title"> Definición </h2>
+  <p>
+    Sea \(X\) un conjunto cualquiera. Por
+    \(\ell_\infty(X)\) denotamos al conjunta de
+    todas las funciones de \(X\) en \(\mathbb{R}\) que están
+    acotadas en \(X\). Es decir \(f\in \ell_\infty(X)\) si y sólo si
+    \(f:X\to \mathbb{R}\) satisface
+    \[
+     \sup_{x\in X}\{|f(x)|\} <\infty
+    \]
+  </p>
+  <p>
+    Para \(f\in \ell_\infty(X)\) definimos
+    \[
+    \|f\|_\infty:=\sup_{x\in X}\{|f(x)|\}
+    \]
+    La misma prueba de que \(\|\cdot\|_\infty\) es una
+    norma en \(\ell_\infty\) (<a href="./S3.html#Ejer:ellInftyClasico">Ejercicio 3.5</a>)
+    se puede extendar para llegar a que
+    \((\ell_\infty(X), \|\cdot\|_\infty)\) es un
+    espacio vectorial normado. Es más, el caso usual de
+    \(\ell_\infty\) se obtiene cuando \(X=\mathbb{N}\).
+  </p>
+</div>
+
+<div class="ejercicio-box">
+  <p>
+    Sea \((X,d)\) un espacio métrico. Prueba que
+    \((\ell_\infty(X), \|\cdot \|_\infty)\) es un completo.
+  </p>
+</div>
+
 <div class="teorema-box">
   <h2 class="number-title"> Teorema </h2>
   <p>
@@ -338,6 +371,36 @@
 
 
 
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <ol>
+    <li>
+      Prueba que todo subconjunto de un subconjunto totalmente acotado
+      también es totalmente acotado.
+    </li>
+    <li>
+    Prueba que un subconjunto \(A\) es totalmente acotado si y
+    sólo si su cerradura, \(\overline{A}\), es totalmente acotado.
+   </li>
+  </ol>
+</div>
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico totalmente acotado. Prueba que
+    \(X\) es separable.
+  </p>
+  <p>
+    Sugerencia: para \(n\in \mathbb{N}\) sea \(D_n\)
+    una \(\frac{1}{n}\)-red para \(X\). Prueba que \(D=\cup_{n=1}^\infty D_n\)
+    es denso en \(X\).
+  </p>
+
+</div>
+
 <div class="lema-box">
   <h2 class="number-title"> Lema </h2>
   <p>
@@ -374,6 +437,15 @@
 </div>
 
 
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <p>
+    Un subconjunto \(A\), de un espacio métrico \((X,d)\),
+    es totalmente acotado si y sólo si toda sucesión en \(A\) admite
+    una subcusesión que es Cauchy.
+  </p>
+</div>
+
 
 
 <div class="teorema-box">
@@ -398,11 +470,97 @@
   </ol>
 </div>
 
+<div class="nota-box">
+  <h2 class="number-title"> Nota </h2>
+  <p>
+    Parte de la importancia de los espacios métricos completos es que
+    en ellos se pueden encontrar soluciones a numerosas ecuaciones. El
+    ejemplo más sencillo es \(\mathbb{R}\), donde la ecuación \(x^2=2\)
+    tiene dos soluciones.
+  </p>
+  <p>
+    Para otros espacios métricos más generales el ser completo asegura
+    la existencia de soluciones a ecuaciones diferenciales, por ejemplo.
+    Uno de los teoremas más importantes sobre soluciones a ecuaciones
+    es el Teorema del punto fijo de Banach, que se ve más adelante.
+  </p>
+</div>
+
+<div class="definicion-box">
+  <h2 class="number-title"> Definición </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico y  \(f:X\to X\) una función.
+  </p>
+  <p>
+    La función \(f\) se llama una contracción estricta si
+    existe un número positivo \( \alpha \), con \(\alpha < 1\), tal que
+    \[
+    d(f(x),f(y))\leq  \alpha d(x,y)
+    \]
+    para todos \(x,y\in X\).
+  </p>
+
+</div>
+
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <h3>
+    Teorema del punto fijo de Banach
+  </h3>
+  <p>
+    Sea \((X,d)\) un espacio métrico completo y
+    \(f:X\to X\) una contracción estricta. Entonces
+    \(f\) tiene un único punto fijo.
+  </p>
+  <p>
+    Es más, para cualquier \(x_0\in X\) dado, la sucesión de iteradas
+    \((f^n(x_0))_{n=1}^\infty\) converge al punto fijo de \(f\).
+  </p>
+</div>
 
 
 
+<div class="definicion-box">
+  <h2 class="number-title"> Definición </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico.
+  </p>
+  <p>
+    Una completación de \((X,d)\) es un espacio métrico,
+    \((\tilde{X}, \tilde{d})\), que satisface
+  </p>
+  <ol>
+    <li>
+      \((\tilde{X}, \tilde{d})\) es un espacio métrico completo.
+    </li>
+    <li>
+      \((X,d)\) es isométrico a un subespacio denso de
+      \((\tilde{X},\tilde{d})\).
+    </li>
+  </ol>
+</div>
+
+<div class="lema-box">
+  <h2 class="number-title"> Lema </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico.
+  </p>
+  <p>
+    Entonces \((M,d)\) es isométrico a un subconjunto de
+    \((\ell_\infty(X), \|\cdot\|_\infty)\).
+  </p>
+</div>
 
 
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <p>
+    Si \((\tilde{X}, \tilde{d})\) y \((\hat{X}, \hat{d})\) son dos
+    completaciones de \((X,d)\) entonces ambas son isométricas.
+  </p>
+
+</div>
 
 
 
