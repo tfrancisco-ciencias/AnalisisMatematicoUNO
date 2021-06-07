@@ -1,0 +1,214 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            inte: "\\operatorname{int}",
+            cer: "\\operatorname{cer}",
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+      body.number-title{
+        counter-reset: sectionCounter 9 cardCounter ;
+      }
+      h1.number-title{
+        counter-reset: sectionCounter 9 cardCounter ;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio  </a> </li>
+        <li> <a href="../Secciones.html"> Secciones  </a> </li>
+      </ul>
+      <p align="right" >  <button onclick="myFunction()" class="darklightButton">Claro/Obscuro </button> </p>
+    </nav>
+
+    <h1 class="calculo-title"> Análisis Matemático UNO</h1>
+
+  </header>
+
+  <!--    Contenido empiaza abajo
+ ///////////////////////////////// -->
+
+
+  <body class="flexbox card fondo-body">
+
+
+    <div class="flexbox">
+      <h1 class="number-title"> Continuidad Uniforme </h1>
+
+
+
+      <div class="info-box">
+        <h2 class="number-title"> Introducción </h2>
+
+      </div>
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Una función \(f:(X,d_X)\to (Y,d_Y)\) se llama uniformemente continua
+          en \(X\) si, para toda \(\varepsilon >0 \) existe \(\delta >0\),
+          que sólo depende de \(\varepsilon > 0\), tal que para cualesquiera
+           \(x_1,x_2\in X\) que satisfacen \(d_X(x_1,x_2)< \delta\)
+           se cumple que \(d_Y(f(x_1),f(x_2))<\varepsilon\).
+        </p>
+        <p>
+          La diferencia fundamental entre una función uniformemente continua
+          y una función continua es que la \(\varepsilon\) de la continuidad
+          uniforme sirve para TODOS los puntos de \(X\), es decir,
+          la \(\varepsilon\) NO depende del punto donde se está analizando la
+          continuidad.
+        </p>
+
+        <p>
+          Ejemplos y contra-ejemplos.
+        </p>
+        <ul>
+
+          <li>
+            Toda función <a href="./S6.html#Ejer:FunLipschitz">Lipschitz</a> es uniformemente continua.
+            Si \(f:X\to Y\) es Lipschitz entonces existe una constante \(K>0\) que
+            satisface \(d_Y(f(x_1),f(x_2))\leq K d_X(x_1,x_2) \), para todos
+            \(x_1,x_2\in X\). Tomando en cuenta la desigualdad anterior,
+            dada \(\varepsilon >0\) la "delta" de la continuidad uniforme
+            puede tomarse como \(\delta=\frac{\varepsilon}{K}\).
+           </li>
+           <li>
+             El ejemplo más común de una función continua pero no uniformemente continua es
+             \(f(x)=\frac{1}{x}\) con dominio \((0,1)\). Si consideramos
+             los puntos de la forma \(x_1=\frac{1}{n}, x_2=\frac{1}{n+1}\),
+             con \(n\in \mathbb{N}\), vemos que la distancia entre ellos
+             tiende a cero pero la distancia entre sus imágenes es constante:
+             \[
+             |f(x_1)-f(x_2)| = \left| n-(n+1) \right|=1.
+             \]
+             Lo cual muestra que la función  \(f(x)=\frac{1}{x}\) no es uniformemene
+             continua en \((0,1)\). Lo que está pasando es que \(f(x)=\frac{1}{x}\) es continua
+             en \((0,1)\) pero, para cada \(x\in (0,1)\), la delta de la continuidad
+             depende del punto \(x\).
+           </li>
+        </ul>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sean \((X,d_X), (Y,d_Y)\) espacios métricos y
+          \(f:X\to Y\) uniformemente continua.
+        </p>
+        <p>
+          Utilizando la noción de <a href="./S2.html#Ejer:Diametro">diámetro</a> prueba que
+          \[
+          \operatorname{diam}(A) < \delta \Rightarrow
+          \operatorname{diam}(f(A)) \leq \varepsilon
+          \]
+          donde \(A\) es cualquier subconjunto de \(X\).
+        </p>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Prueba que la función \(f(x)=\sqrt{x}\), en \([0,\infty)\),
+          es uniformemente continua.
+        </p>
+        <p>
+          Sugerencia: prueba la desigualdad, \(|\sqrt{a}-\sqrt{b}|\leq \sqrt{|a-b|}\),
+          válida para todos \(a,b\in \mathbb{R}\).
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Prueba que una función \(f:X\to Y\) manda sucesiones de Cauchy
+          en sucesiones de Cauchy.
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio  </h2>
+        <p>
+          Una función entre dos espacios métricos \(f:(X,d_X)\to (Y,d_Y)\)
+          se llama Lipschitz de orden \(\alpha \), donde  \(\alpha \in (0,\infty) \) es una
+          constante, si existe una constate \(K>0\) que satisface:
+          \[
+          d_Y(f(x_1), f(x_2)) \leq K (d(x_1,x_2))^\alpha
+          \]
+          para todos \(x_1,x_2\in X\).
+        </p>
+        <ol>
+          <li>
+          Prueba que toda función Lipschitz de orden \(\alpha\) es
+          uniformemente continua.
+          </li>
+          <li>
+            <p>
+            Prueba que si \(f:\mathbb{R}\to \mathbb{R}\) es  Lipschitz de orden \(\alpha\) y
+            \(\alpha >1\) entonces \(f\) es una función constante.
+            </p>
+            <p>
+              Sugerencia: investiga si la función es diferenciable.
+            </p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+          Sea \((K,d)\) un espacio métrico compacto. Entonces toda función
+          continua \(f:(K,d)\to (Y,\rho)\) es uniformemente continua.
+        </p>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </body>
