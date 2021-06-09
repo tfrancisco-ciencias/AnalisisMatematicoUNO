@@ -132,6 +132,7 @@
         </p>
         <p>
           Utilizando la noción de <a href="./S2.html#Ejer:Diametro">diámetro</a> prueba que
+          para toda \(\varepsilon > 0\) existe \(\delta >0\), tal que
           \[
           \operatorname{diam}(A) < \delta \Rightarrow
           \operatorname{diam}(f(A)) \leq \varepsilon
@@ -145,8 +146,8 @@
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
-          Prueba que la función \(f(x)=\sqrt{x}\), en \([0,\infty)\),
-          es uniformemente continua.
+          Prueba que la función \(f:[0,\infty)\to \mathbb{R}\), \(f(x)=\sqrt{x}\),
+          es uniformemente continua en \([0,\infty)\).
         </p>
         <p>
           Sugerencia: prueba la desigualdad, \(|\sqrt{a}-\sqrt{b}|\leq \sqrt{|a-b|}\),
@@ -154,13 +155,35 @@
         </p>
       </div>
 
+
+
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
-          Prueba que una función \(f:X\to Y\) manda sucesiones de Cauchy
-          en sucesiones de Cauchy.
+          Supon que \(f:\mathbb{R}\to \mathbb{R}\) es una función continua en
+          todo \(\mathbb{R}\) y que \(\lim_{x\to \pm \infty} f(x)=0\). Prueba
+          que \(f\) es uniformemente continua en \(\mathbb{R}\).
         </p>
       </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <ol>
+        <li>
+          Da una ejemplo de una función continua y acotada \(f:\mathbb{R}\to \mathbb{R}\)
+          que no sea uniformemente continua.
+        </li>
+        <li>
+          Da un ejemplo de una función continua y uniformemente continua
+          \(f:\mathbb{R}\to \mathbb{R}\) que no sea acotada.
+        </li>
+        </ol>
+      </div>
+
+
+
+
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio  </h2>
@@ -181,14 +204,58 @@
           <li>
             <p>
             Prueba que si \(f:\mathbb{R}\to \mathbb{R}\) es  Lipschitz de orden \(\alpha\) y
-            \(\alpha >1\) entonces \(f\) es una función constante.
+            \(\alpha >1\) entonces \(f\) es una función constante. Sugerencia:
+            investiga si la función es diferenciable.
             </p>
-            <p>
-              Sugerencia: investiga si la función es diferenciable.
-            </p>
+
           </li>
         </ol>
       </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sean \((X,d_X), (Y,d_Y)\) espacios métricos y
+            \(f:X\to Y\).
+          </p>
+          <p>
+            Prueba que \(f\) es uniformemente continua en \(X\) si y sólo si
+            para cualesquiera par de sucesiones \((a_n)_{n=1}^\infty, (b_n)_{n=1}^\infty\)
+            en \(X\) con la propiedad de que
+            \[
+            \lim_{n\to \infty} d_X(a_n,b_n)=0
+            \]
+            se cumple que
+            \[
+            \lim_{n\to \infty} d_Y(f(a_n),f(b_n))=0.
+            \]
+          </p>
+          <p>
+            Sugerencia: para el regreso supon que \(f\) no es uniformemente continua
+            y llega a una contradicción.
+          </p>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Prueba que una función \(f:X\to Y\) manda sucesiones de Cauchy
+          en sucesiones de Cauchy.
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Si \(f:(X,d_X)\to (Y,d_Y)\) es una función uniformemente continua
+          en \(X\) prueba que \(f\) manda subconjuntos totalmente acotados
+          en subconjunots talmente acotados.
+        </p>
+      </div>
+
 
       <div class="teorema-box">
         <h2 class="number-title"> Teorema </h2>
@@ -199,11 +266,199 @@
       </div>
 
 
+      <div class="teorema-box">
+        <h2 class="number-title" id="Teo:ExtensionFunUnifCont"> Teorema </h2>
+        <p>
+          Sean \((X,d_X), (Y,d_Y)\) espacios métricos y \(D\subseteq X\).
+        </p>
+        <p>
+          Sea \(f: D \to Y\) una función uniformemente continua en \(D\)
+          y supongamos que \(D\) es denso en \(X\) y que \(Y\) es completo.
+        </p>
+        <p>
+          Entonces \(f\) se extiende de manera única a una función
+          uniformemente continua en todo \(X\). Es decir,
+          existe \(F:X \to Y\) uniformemente continua en \(X\)
+          tal que \(F(d)=f(d)\), para todo \(d\in D\).
+        </p>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(f:(a,b)\to \mathbb{R}\) una función uniformemente continua
+          en \((a,b)\). Prueba que \(f\) es acotada en \((a,b)\).
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(D \subseteq X\)
+          un subconjunto denso de \(X\). Prueba que
+          \(M\) es isométrico a un subconjunto de \(\ell_\infty(D)\).
+        </p>
+        <p>
+          En particular si \((X,d)\) es separable entonces
+          es isométrico a un subconjunto de \(\ell_\infty\).
+        </p>
+        <p>
+          Sugerencia: primero prueba que \(D\) es isométrico a
+          un subconjunto de \(\ell_\infty(D)\)
+          (ver <a href="./S9.html#Lema:XisometricoSubLinfty">Lema 2.29</a>),
+          después usa el  <a href="#Teo:ExtensionFunUnifCont"> Teorema 10.12</a>.
+        </p>
+      </div>
+
+
+
+
+            <div class="nota-box">
+              <h2 class="number-title"> Nota </h2>
+              <p>
+                En los ejercicios que restan se enfoca la atención al caso
+                de espacios vectoriales normados y y funciones lineales.
+              </p>
+            </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Fija \(y\in \ell_\infty\) y define \(f:\ell_1 \to \ell_1\)
+          por \(f(x)=(x_ny_n)_{n=1}^\infty\). Prueba que
+          \(f\) es uniformemente continua en \(\ell_1\).
+        </p>
+      </div>
 
 
 
 
 
+
+
+      <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
+        <p>
+          Sean \((V,\|\cdot \|_V)\), \((W,\|\cdot \|_W)\) dos
+          espacios vectoriales normados y \(T:V \to W\) una
+          función lineal. Las siguientes condiciones son equivalentes.
+        </p>
+        <ol>
+          <li> \(T\) es continua en \(0\). </li>
+
+          <li> Existe una constante \(C \geq 0\) que satisface
+            \[
+            \|T(v)\|_W \leq C \|v\|_V
+            \]
+            para toda \(v\in V\).
+        </ol>
+      </div>
+
+
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+
+        <p>
+          Sean \((V,\|\cdot \|_V)\), \((W,\|\cdot \|_W)\) dos
+          espacios vectoriales normados y \(T:V \to W\) una
+          función lineal. Las siguientes condiciones son equivalentes.
+        </p>
+        <ol>
+          <li>
+            \(T\) es continua en todo \(V\).
+          </li>
+          <li>
+            \(T\) es Lipschitz y por lo tanto uniformemente continua en \(V\).
+          </li>
+          <li>
+            \(T\) manda subconjuntos acotados en subconjuntos acotados.
+          </li>
+        </ol>
+      </div>
+
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <p>
+          Operadores acotados.
+        </p>
+      </div>
+
+
+      <div class="definicion-box">
+        <h2 class="number-title" id="Def:NormaOperador"> Definición </h2>
+        <p>
+          Sean \((V,\|\cdot\|_V, (W,\|\cdot\|_W))\) dos espacios
+          vectoriales normados. Por \(B(V,W)\) denotamos
+          al conjunto de funciones lineales y acotadas de \(V\) en \(W\).
+        </p>
+        <p>
+          Dado \(T\in B(V,W)\) definimos
+          \[
+          \|T\|=\inf\{ C\geq 0: \|T(v)\|_W \leq C\|v\|_V, \quad
+            \textrm{para toda \(v\in V\)}\}
+          \]
+          El número \(\|T\|\) se llama la norma del operador \(T\)
+          y realmente define una norma en el espacio vectorial \(B(V,W)\)
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(T\in B(V,W)\). Prueba que
+          \[
+          \|T\|=\sup_{x\in V, x\ne 0} \left\{ \frac{\|Tx\|_W}{\|x\|_V} \right\}
+          \]
+          y que \(\|T(x)\|_W \leq \|T\| \|x\|_V \), para toda \(x\in V\).
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Prueba que la norma del operador
+          (<a href="#Def:NormaOperador">Definición 10.19</a>) es una norma
+          en \(B(V,W)\).
+        </p>
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Fija \(y\in \mathbb{R}^n\) y define la función lineal
+          \(L:\mathbb{R}^n \to \mathbb{R}\) dada por
+          \(L(x)=\langle x, y \rangle\). Prueba que \(L\) es continua
+          y calcula
+          \[
+          \|L\|=\sup_{x\in \mathbb{R}^n, x\ne 0}\left\{ \frac{\|L(x)\|_2}{\|x\|_2} \right\}
+          \]
+          Sugerencia: Cauchy-Schwartz.
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Considera el espacio vectorial de las funciones continuas
+          \(C([a,b])\) con la norma uniforme
+          \[
+          \|f\|=\sup_{t\in [a,b]}\{|f(t)|\}
+          \]
+          Define la función lineal \(I:C([a,b])\to \mathbb{R}\) por
+          \[
+          I(f)=\int_a^b f(t)dt
+          \]
+          Prueba que \(I\) es continua y encuentra \(\|I\|\).
+        </p>
+      </div>
 
 
 
