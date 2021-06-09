@@ -382,8 +382,30 @@
 
       <div class="nota-box">
         <h2 class="number-title"> Nota </h2>
-        <p>
+        <h3>
           Operadores acotados.
+        </h3>
+        <p>
+          En ciertas areas del análisis se les llama operadores lineales
+          a las funciones lineales entre espacios vectoriales. Por el
+          teorema anterior la continuidad de un operador lineal es equivalente
+          a la propiedad de que preserve conjuntos acotados, por ésta característica
+          a los operadores lineales continuos también se les llama operadores
+          acotados. El conjunto de  operadores acotados entre dos espacios
+          vectoriales es a su vez un espacio vectorial, con las operaciones
+          usuales de suma y producto escalar de funciones, y se le puede dotar
+          de una norma para hacerlo un espacio vectorial normado.
+        </p>
+        <p>
+          La idea de cómo asociar una norma a una operador lineal
+          \(T:V\to W\) viene, otra vez, del hecho de que preserva conjuntos
+          acotados. Preservar conjuntos acotados es, en escencia, el hecho
+          de que  \(T(B_r(v))\) es acotado, para cualquier bola. Analizando
+          el conjunto \(T(B_r(v))\) observamos que, usando
+          la linealidad de \(T\), \(T(B_r(v))=rT(B_1(0))+T(v)\),
+          por lo tanto el comportamiento de \(T\) en \(B_1(0)\)
+          es fundamental y la norma de \(T\) va a cuantificar éste comportamiento
+          (ver <a href="#Ejer:EquivalNormasOp">Ejercicio 10.21 </a>).
         </p>
       </div>
 
@@ -407,11 +429,14 @@
       </div>
 
       <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <h2 class="number-title" id="Ejer:EquivalNormasOp"> Ejercicio </h2>
         <p>
           Sea \(T\in B(V,W)\). Prueba que
           \[
-          \|T\|=\sup_{x\in V, x\ne 0} \left\{ \frac{\|Tx\|_W}{\|x\|_V} \right\}
+          \|T\|=\sup_{x\in V, x\ne 0} \left\{ \frac{\|Tx\|_W}{\|x\|_V} \right\},
+          \]
+          \[
+          \|T\|=\sup_{x\in B_1(0)} \{ \| T(x)\|_W\}
           \]
           y que \(\|T(x)\|_W \leq \|T\| \|x\|_V \), para toda \(x\in V\).
         </p>

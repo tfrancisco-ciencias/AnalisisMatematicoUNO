@@ -1,0 +1,237 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            inte: "\\operatorname{int}",
+            cer: "\\operatorname{cer}",
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+      body.number-title{
+        counter-reset: sectionCounter 10 cardCounter ;
+      }
+      h1.number-title{
+        counter-reset: sectionCounter 10 cardCounter ;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio  </a> </li>
+        <li> <a href="../Secciones.html"> Secciones  </a> </li>
+      </ul>
+      <p align="right" >  <button onclick="myFunction()" class="darklightButton">Claro/Obscuro </button> </p>
+    </nav>
+
+    <h1 class="calculo-title"> Análisis Matemático UNO</h1>
+
+  </header>
+
+  <!--    Contenido empiaza abajo
+ ///////////////////////////////// -->
+
+
+  <body class="flexbox card fondo-body">
+
+
+    <div class="flexbox">
+      <h1 class="number-title"> Convergencia puntual y uniforme </h1>
+
+
+      <div class="info-box">
+        <h2 class="number-title"> Introducción </h2>
+
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="numbere-title"> Definición </h2>
+        <p>
+          Sea \(X\) cualquier conjunto y consideremos
+          una sucesión de funciones reales \((f:X \to \mathbb{R})_{n=1}^\infty\).
+          Decimos que la sucesión converge puntualmente en \(X\) si,
+          para todo punto \(x\in X\) el siguiente límite existe
+          \[
+          \lim_{n\to \infty} f_n(x).
+          \]
+
+        </p>
+        <p>
+          Definimos la función \(f:X \to \mathbb{R}\) por
+          \(f(x):=\lim_{n\to \infty}f_n(x)\). Con esta notación
+          decimos que la sucesión de funciones \((f_n)_{n=1}^\infty\)
+          converge puntualmente a \(f\).
+        </p>
+        <p>
+          Nota: a veces el límite \(\lim_{n\to \infty}f_n(x)\) es conocido
+          pero a veces no y parte del problema es calcular estos límites
+          (nota que el límite depende del punto \(x\) que se toma).
+        </p>
+        <p>
+          Ejemplos.
+        </p>
+        <ol>
+          <li>
+            De cálculo sabemos que, para toda \(x\in \mathbb{R}\)
+            \[
+            \lim_{n\to \infty} \left(1+ \frac{x}{n} \right)^n=e^x
+            \]
+            Por lo tanto, la sucesión de funciones
+            \(f_n:\mathbb{R}\to \mathbb{R}\) dada por
+            \(f_n(x)=\left(1+\frac{x}{n}\right)^n\) converge puntualmente
+            a la función exponencial.
+          </li>
+          <li>
+            Definamos la sucesión de funciones \(f_n:[-1,1]\to \mathbb{R}\)
+            por \(f_n(x)=x^n\). Usando que \(\lim_{n\to \infty} r^n=0\)
+            para \(r\in \mathbb{R}\) con \(|r|< 1\) tenemos que
+            \[
+            \lim_{n\to \infty} f_n(x)=
+            \left\{
+              \begin{array}{cc}
+              1, &  x=1 ,\\
+              0, &  |x|< 1 ,\\
+              \textrm{no existe}, &  x=-1.
+              \end{array}
+              \right.
+            \]
+            Por lo tanto, la sucesión no converge puntualmente en \([-1,1]\)
+            (por la obstrucción que hay en \(x=-1\)), pero sí converge
+            puntualmente en \((-1,1]\) y converge puntualmente a la función
+            \[
+            f(x)=
+            \left\{
+              \begin{array}{cc}
+              1, &  x=1 ,\\
+              0, &  |x|< 1 .\\
+              \end{array}
+              \right.
+            \]
+
+          </li>
+        </ol>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Encuentra el límite puntual (si existe) de las siguientes
+          sucesiones de funciones.
+        </p>
+        <ol>
+          <li>
+            \(f_n :\mathbb{R}\to \mathbb{R}\) dada por
+            \[
+            f_n(x)=\frac{x^n}{1+x^n}.
+            \]
+          </li>
+          <li>
+            \(f_n:[0,1]\to \mathbb{R}\) dada por
+            \[
+            f_n(x)=\left\{
+              \begin{array}{cc}
+               4n^2 x , & 0 \leq x \leq \frac{1}{2n}, \\
+              -4n^2x+4n , &  \frac{1}{2n} \leq x \leq \frac{1}{n}, \\
+              0 , & \frac{1}{n}\leq x \leq 1 .
+              \end{array}
+              \right.
+            \]
+          </li>
+          <li>
+            \(f_n:\mathbb{R}\to \mathbb{R}\) dada por
+            \[
+            f_n(x)=\frac{\sen(\sqrt{n} x)}{n}.
+            \]
+          </li>
+        </ol>
+      </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba que, para toda \(x>0\),
+            \[
+            \lim_{n\to \infty} n(\sqrt[n]{x}-1)=\ln(x)
+            \]
+          </p>
+          <p>
+            Por lo tanto, la sucesión de funciones \(f_n(x)=n(\sqrt[n]{x}-1)\),
+            converge puntualmente a la función logaritmo en \((0,\infty)\).
+          </p>
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \(\{q_n\}_{n=1}^\infty\) una enumaración de \(\mathbb{Q}\).
+            Define \(f_n:\mathbb{R}\to \mathbb{R}\) por
+            \[
+            f_n(x)=\left\{
+              \begin{array}{cc}
+              1, & \textrm{si \(x\in \{q_1,\dots, q_n\}\)}, \\
+              0, & \textrm{en otro caso} .
+              \end{array}
+              \right.
+            \]
+            Encuantra el límite puntual de \((f_n)_{n=1}^\infty\).
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            El límite puntual no se lleva muy bien con las derivadas.
+          </p>
+          <ol>
+            <li>
+              Consiera la sucesión de funciones \((f_n:\mathbb{R}\to \mathbb{R})\)
+              dada por \(f_n(x)=\frac{\sen(nx)}{n}\). Encuentra el límite
+              puntual de \((f_n)_{n=1}^\infty\) pero muestra que
+              el límite puntual de \((f_n')_{n=1^\infty}\) no existe.
+            </li>
+          </ol>
+        </div>
+
+
+
+
+
+
+    </div>
+  </body>
