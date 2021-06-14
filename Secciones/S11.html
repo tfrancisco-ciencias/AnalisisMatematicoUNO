@@ -76,7 +76,7 @@
       </div>
 
       <div class="definicion-box">
-        <h2 class="numbere-title"> Definición </h2>
+        <h2 class="number-title"> Definición </h2>
         <p>
           Sea \(X\) cualquier conjunto y consideremos
           una sucesión de funciones reales \((f:X \to \mathbb{R})_{n=1}^\infty\).
@@ -223,15 +223,432 @@
               Consiera la sucesión de funciones \((f_n:\mathbb{R}\to \mathbb{R})\)
               dada por \(f_n(x)=\frac{\sen(nx)}{n}\). Encuentra el límite
               puntual de \((f_n)_{n=1}^\infty\) pero muestra que
-              el límite puntual de \((f_n')_{n=1^\infty}\) no existe.
+              el límite puntual de \((f_n')_{n=1}^\infty\) no existe.
+            </li>
+            <li>
+              Considera la sucesión de funciones \(f:[0,1]\to \mathbb{R}\)
+              dada por \(f_n(x)=\frac{x^{n}}{n}\). Prueba que,
+              para todo \(x\in [0,1]\), los límites puntuales
+              \(\lim_{n\to \infty} f_n(x)\) y \(\lim_{n\to \infty} f_n'(x)\)
+              existen. Define \(f(x):=\lim_{n\to \infty} f_n(x)\) y para \(x\ne 1\)
+              prueba
+              \[
+              \lim_{n\to \infty} f_n'(x)= f'(x)
+              \]
+              pero
+              \[
+              \lim_{n\to \infty} f_n'(1) \ne f'(1)
+              \]
+              Por lo tanto, no siempre pasa que el límite puntual de las
+              derivadas es la derivada del límite puntual.
+
+            </li>
+
+          </ol>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            El límite puntual no se lleva bien con las integrales.
+          </p>
+          <p>
+            Considera la sucesión de funciones
+            \[
+            f_n(x)=\left\{
+              \begin{array}{cc}
+               4n^2 x , & 0 \leq x \leq \frac{1}{2n}, \\
+              -4n^2x+4n , &  \frac{1}{2n} \leq x \leq \frac{1}{n}, \\
+              0 , & \frac{1}{n}\leq x \leq 1 .
+              \end{array}
+              \right.
+            \]
+            y sea \(f(x)=\lim_{n\to \infty} f_n(x)\) su límite puntual.
+          </p>
+          <p>
+            Prueba
+            \[
+            \lim_{n\to \infty} \int_0^1 f_n(t)dt \ne \int_0^1 f(t)dt
+            \]
+          </p>
+        </div>
+
+
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Sea \(X\) un conjunto cualquiera y \((f_n:X\to \mathbb{R})_{n=1}^\infty\)
+            una sucesión de funciones. Decimos que la sucesión
+            \((f_n)_{n=1}^\infty\) converge uniformemente en \(X\) a una función
+            \(f:X\to \mathbb{R}\) si:
+          </p>
+          <p>
+            Para toda \(\varepsilon >0\), existe una \(N\in \mathbb{N}\)
+            con la propiedad de que, para toda \(x\in X\)
+            \[
+            |f_n(x)-f(x)| < \varepsilon \quad \textrm{para toda \(n \geq N\)}.
+            \]
+          </p>
+          <p>
+            Una de las partes más importantes de la definición es que la
+            \(N\) que aparece sirve para todos los puntos de \(X\), de ahí
+            viene el nombre, pues la \(N\) es uniforme (la misma) para todo
+            punto en \(X\).
+           </p>
+           <p>
+             Notas.
+           </p>
+           <ol>
+             <li>
+               Para la convergencia uniforme no es necesario pedir
+               al domino de las funciones (denotado por
+               \(X\) arriba) que sea espacio métrico.
+             </li>
+             <li>
+               El codominio de las funciones no tiene que ser necesariamente
+               \(\mathbb{R}\) y se puede cambiar por cualquier espacio métrico.
+               Si \((Y,d_Y)\) es un espacio métrico, decimos que una
+               sucesión de funciones \((f_n:X\to Y)_{n=1}^\infty\) converge
+               uniformemente a \(f\) en \(X\) si:
+               <p>
+                 Para toda \(\varepsilon >0\), existe una \(N\in \mathbb{N}\)
+                 con la propiedad de que, para toda \(x\in X\)
+                 \[
+                 d_Y(f_n(x),f(x)) < \varepsilon \quad \textrm{para toda \(n \geq N\)}.
+                 \]
+                 donde la única diferencia es que se usa la distancia en el espacio \(Y\)
+                 en vez del valor absoluto.
+               </p>
+             </li>
+             <li>
+               La convergencia uniforme depende mucho del dominio de las funciones.
+               Puede pasar que una sucesión no sea uniformemente convergente en
+               \(X\) pero sí sea uniformemente convergente en un subconjunto propio de
+               \(X\).
+             </li>
+           </ol>
+         </div>
+
+
+           <div class="nota-box">
+             <h2 class="number-title"> Nota </h2>
+             <h3 > Convergencia uniforme y la norma \(\|\cdot\|_\infty\)</h3>
+           <p>
+             Otra forma de reescribir la convergencia uniforme es
+             con la norma infinito. Recordamos que para una
+             función \(g:X\to \mathbb{R}\) acotada
+             \[
+             \|g\|_\infty=\sup_{x\in X}\{|g(x)| \}
+             \]
+             Con esta notación se puede escribir la convergencia
+             uniforme de la siguiente forma.
+           </p>
+           <p>
+             La sucesión \((f_n:X\to \mathbb{R})_{n=1}^\infty\) converge
+             uniformemente en \(X\) a la función \(f:X\to \mathbb{R}\) si,
+             para toda \(\varepsilon > 0\) existe una \(N \in \mathbb{N}\)
+             tal que
+             \[
+             \|f_n-f\|_\infty <  \varepsilon \quad \textrm{para toda \(n\geq N\)}
+             \]
+             Esta forma de escribir tiene la ventaja de que \(\|f_n-f\|_\infty\)
+             es un número real. Así
+             la convergencia uniforme está codificada en la sucesión de números
+             reales \((\|f_n-f\|_\infty)_{n=1}^\infty\) y notamos que, en términos de
+             esta sucesión, la convergencia uniforme se puede escribir
+             simplemente como
+             \[
+             \lim_{n\to \infty}\| f_n-f\|_\infty = 0,
+             \]
+             claro que el problema importante es calcular los números
+             \(\|f_n-f\|_\infty\).
+           </p>
+           <p>
+             Ejemplos.
+           </p>
+           <ol>
+             <li>
+               La sucesión de funciones \((f_n:\mathbb{R}\to \mathbb{R})_{n=1}^\infty\)
+               dada por \(f_n(x)=\frac{1}{n}\sen(nx)\) converge uniformemente
+               en \(\mathbb{R}\) a la función constante cero. Para probarlo,
+               usamos que \(|\sen(\theta)| \leq 1\) para toda \(\theta\)
+               para obtener
+               \begin{eqnarray*}
+               \| f_n-0\|_\infty&=&  \|f_n\| \\
+               &=& \sup_{x\in \mathbb{R}}\left\{\frac{1}{n}|\sen(nx)| \right\}  \\
+               &\leq & \frac{1}{n}
+               \end{eqnarray*}
+               Por lo tanto \(\lim_{n\to \infty} \|f_n\|=0\).
+             </li>
+             <li>
+               Consideremos \(f:[a,b]\to \mathbb{R}\) cualquier función y
+               definamos las sucesión de funciones \(f_n:[a,b]\to \mathbb{R}\)
+               dada por \(f_n(x)=f(x)+\frac{1}{n}\). La sucesión
+               \((f_n)_{n=1}^\infty\) converge uniformente en \([a,b]\) a \(f\).
+               Para probarlo sólo notamos que, para toda \(x\in [a,b]\)
+               \[
+               |f_n(x)-f(x)|=\frac{1}{n}
+               \]
+               por lo que \(\|f_n-f\|_\infty \leq \frac{1}{n}\)
+               y por lo tanto \(\lim_{n\to \infty}\|f_n-f\|_\infty = 0\).
+             </li>
+           </ol>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Investiga si las siguientes sucesiones de funciones convergen
+            uniformemente  ó no a la función constante cero.
+          </p>
+          <ol>
+            <li>
+              \((f_n:\mathbb{R}\to \mathbb{R})_{n=1}^\infty\) dada por
+              \(f_n(x)=\frac{x}{1+nx^2}\).
+            </li>
+            <li>
+              \((f_n:[0,\infty)\to \mathbb{R})_{n=1}^\infty \) dada por
+              \(f_n(x)=xe^{-2nx}\).
             </li>
           </ol>
+          Sugerencia: usa cálculo para encontar \(\|f_n\|_\infty\).
         </div>
 
 
 
 
 
+        <div class="nota-box">
+          <h2 class="number-title"> Nota </h2>
+          <h3>
+              Convergencia puntual implica convergencia uniforme
+          </h3>
+          <p>
+            Si una sucesión de funciones \((f_n:X\to \mathbb{R})_{n=1}^\infty\)
+            converge uniformemente en \(X\) a una función
+            \(f:X\to \mathbb{R}\) entonces también converge puntualmente, pero
+            no al revés. Para ver la implicación sabemos que, por la convergencia
+            uniforme tenemos
+            \[
+            \lim_{n\to \infty}\|f_n-f\|_\infty = 0,
+            \]
+            pero, por la definición de la norma \(\|\cdot\|_\infty\)
+            tenemos que, para toda \(x\in X\), \(|f_n(x)-f(x)|\leq \|f_n-f\|_\infty \),
+            por lo tanto
+            \[
+            0\leq \lim_{n\to \infty} |f_n(x)-f(x)|\leq \lim_{n\to \infty} \|f_n-f\|_\infty=0
+            \]
+            es decir, \(\lim_{n\to \infty} f_n(x)=f(x)\).
+          </p>
+          <p>
+            La implicación
+            \[
+            \textrm{convergencia uniforme} \Rightarrow \textrm{convergencia puntual}
+            \]
+            nos da un punto de partida para investigar la convergecia
+            de una sucesión de funciones dadas. Por ejemplo, si queremos
+            investigar la convergencia uniforme
+            de la sucesión \((f_n:X\to \mathbb{R})_{n=1}^\infty\), lo
+            primero que hacemos es calcular, para toda \(x\in X\),
+            el límite \(\lim_{n\to \infty} f_n(x)\), después definimos
+            la función \(f(x)=\lim_{n\to \infty}f_n(x)\) y para la
+            convergencia uniforme se estiman las normas
+            \(\|f_n-f\|_\infty\).
+          </p>
+          <p>
+            La implicación de regreso:
+            \(\textrm{convergencia puntual} \Rightarrow \textrm{convergencia uniforme}\),
+            no es cierta como se verá en los ejercicios que siguen.
+          </p>
+
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio  </h2>
+          <p>
+            Considera la sucesión de funciones
+            \((f_n:[-1,1]\to \mathbb{R})_{n=1}^\infty\) dada por
+            \(f_n(x)=x^n\). Tenemos que ésta sucesión de funciones
+            converge puntualmente en \((-1,1]\) a la función
+            \[
+            f(x)=\left\{
+              \begin{array}{cc}
+              1 & \textrm{si |x| = 1} \\
+              0 & \textrm{si |x| < 1 }
+              \end{array}
+              \right.
+            \]
+
+          </p>
+          <ol>
+            <li>
+            Prueba que la sucesión \((f_n)_{n=1}^\infty\)
+            no converge uniformemente
+            en \((-1,1]\) a la función  \(f\).
+            </li>
+            <li>
+            Prueba que, para todo
+            subintervalo cerrado \([a,b]\subset (-1,1)\),
+            \((f_n)_{n=1}^\infty\) sí converge uniformemente en \([a,b]\) a
+            la función cero.
+          </ol>
+          <p>
+            Este ejercicio muestra que convergencia puntual no implica convergencia
+            uniforme y que la convergencia uniforme también depende del dominio
+            que se está considerando.
+          </p>
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+          <p>
+            Primer inciso.
+          </p>
+          <p>
+            Para probar que \((f_n)_{n=1}^\infty\) no converge uniformemente
+            a \(f\) veremos dos métodos.
+          </p>
+          <p>
+            El primer método es geométrico, y consiste en observar las
+            bolas, en la norma \(\|\cdot\|_\infty\), centradas en \(f\).
+            Geométricamente sabemos que cualquier función
+            que esté en \(B_r(f)\) tiene la propiedad de que su gráfica
+            queda dentro de la franja centrada en la gráfica de \(f\)
+            de radio \(r\).
+
+            Ahora, ya que cualquiera de las funciones \(f_n\) es continua
+            y \(f\) tiene una discontinuidad de salto en \(x=1\), ninguna
+            de las gráficas de las funciones \(f_n\) queda totalmente
+            contenida en dicha franja, por lo tanto la sucesión no
+            converge uniformemente a \(f\).
+          </p>
+            El segundo método es estimar las normas \(\|f_n-f\|_\infty\). Ya que
+            el punto \(x=1\) parace especial notamos que
+            \(|f_n(1)-f(1)|=|1-1|=0\), por lo que el supremo
+            de los valores \(|f_n(x)-f(x)|\), corriendo \(x\in [0,1]\),
+            está determinado cuando \(0< x < 1\), y para estos
+            valores tenemos
+            \[
+            |f_n(x)-f(x)|=|x^n|=x^n
+            \]
+            Finalmente, usando que \(x\mapsto x^n\) es estrictamente
+            creciente en \([0,1]\), tenemos
+            \[
+            \sup_{x\in [0,1]}\{ |f_n(x)-f(x)|\}=\sup_{x\in [0,1)}\{x^n\}=1
+            \]
+            Por lo tanto, \(\|f_n-f\|_\infty=1\), para toda \(n\), y
+            la sucesión no converge uniformemente.
+          </p>
+          <p>
+            Segundo inciso.
+          </p>
+          <p>
+            Para este inciso es muy importante notar que estamos
+            cambiando el dominio, de \((-1,1]\) a \([a,b]\). Por lo
+            tanto el cálculo de las normas infinito cambia teniendo
+            \[
+            \|f_n\|_\infty=\sup_{x\in [a,b]}\{|f_n(x)|\}
+            \]
+            Para calcular \(\|f_n\|_\infty\) notamos que:
+            <ul>
+              <li>
+                Para \(n\) impar \(f_n\) es estrictamente creciente en \((-1,1]\)
+                y por lo tanto
+                \[
+                \sup_{x\in [a,b]}\{|f_n(x)|\}=|b|^n
+                \]
+              </li>
+              <li>
+                Para \(n\) par \(f_n\) es decreciente en \((-1,0]\)
+                y creciente en \([0,1)\), por lo tanto
+                \[
+                \sup_{x\in [a,b]}\{|f_n(x)|\}=
+                \left\{
+                  \begin{array}{cc}
+                  |a|^n & \textrm{si \([a,b] \subset (-1,0]\),} \\
+                  |b|^n & \textrm{si \([a,b]\subset [0,1)\),} \\
+                  \max\{|a|^n,|b|^n\}   &    \textrm{si \( a< 0 < b \).}
+                  \end{array}
+                  \right.
+                \]
+              </li>
+              En cuqlquier caso, ya que \([a,b]\subset (-1,1)\), tenemos
+              que \(-1< a < b < 1\) y por lo tanto
+              \(\lim_{n\to \infty}|a|^n=\lim_{n\to \infty}|b|^n=0\). Por lo
+              tanto,
+              \[
+              \lim_{n\to \infty} \|f_n\|_\infty=0.
+              \]
+            </ul>
+
+          </p>
+        </div>
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Para las siguientes sucesiones de funciones ecuentra su límite
+            puntual (si existe) y los subintervalos donde la convergencia
+            es uniforme.
+          </p>
+          <ol>
+            <li>
+              \(f_n:[0,1]\to \mathbb{R}\) dada por
+              \(f_n(x)=n^2x(1-x^2)^n\).
+            </li>
+            <li>
+              \(f_n:[0,\infty)\to \mathbb{R}\) dada por \(f_n(x)=\frac{nx}{1+nx}\).
+            </li>
+            <li>
+              \(f_n:[0,\infty)\to \mathbb{R}\) dada por \(f_n(x)=\frac{nx}{1+n^2x^2}\).
+            </li>
+            <li>
+              \(f_n:\mathbb{R}\to \mathbb{R}\) dada por \(f_n(x)=\frac{x^n}{1+x^n}\).
+            </li>
+          </ol>
+
+
+        </div>
+
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sean \((X,d_X), (Y,d_Y)\) espacios métricos y
+            \((f_n:X\to Y)_{n=1}^\infty\) una sucesión de funciones tal que
+            cada una de las \(f_n\) es continua en el punto  \(x_0\in X\).
+          </p>
+          <p>
+            Si \((f_n)_{n=1}^\infty\) converge uniformemene en \(X\)
+            a una función \(f\), entonces \(f\) también es continua en \(x_0\).
+          </p>
+          <p>
+            En particular, si las \(f_n\) son continuas en todo \(X\)
+            también \(f\) lo es.
+          </p>
+        </div>
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una suncesión de funciones continuas.
+            Supongamos que \((f_n)_{n=1}^\infty\) converge uniformemente
+            en \([a,b]\) a una función \(f\). Entonces
+            \[
+            \lim_{n\to \infty} \int_a^b f(t)dt= \int_{a}^b f(t)dt.
+            \]
+            Es decir, podemos "meter el límite dentro de la integral",
+            en otra notación:
+            \[
+            \lim_{n\to \infty} \int_a^b f_n(t)dt = \int_a^b \lim_{n\to \infty}f_n(t)dt.
+           \]
+          </p>
+
+        </div>
 
     </div>
   </body>
