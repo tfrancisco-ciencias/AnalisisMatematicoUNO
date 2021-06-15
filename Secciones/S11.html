@@ -284,7 +284,7 @@
             \(f:X\to \mathbb{R}\) si:
           </p>
           <p>
-            Para toda \(\varepsilon >0\), existe una \(N\in \mathbb{N}\)
+            para toda \(\varepsilon >0\), existe una \(N\in \mathbb{N}\)
             con la propiedad de que, para toda \(x\in X\)
             \[
             |f_n(x)-f(x)| < \varepsilon \quad \textrm{para toda \(n \geq N\)}.
@@ -365,6 +365,22 @@
              \(\|f_n-f\|_\infty\).
            </p>
            <p>
+             En la <a href=""> Nota 3.19</a> vimos una forma de visualizar
+             la bolas abiertas en la norma \(\|\cdot\|_\infty\),
+             \[
+             B_r(f)=\{g:X\to \mathbb{R}: \| g-f\|< r \}.
+             \]
+             Una función \(g\) está en la bola si y sólo si su gráfica esta
+             en la franja de radio \(r\) centrada en \(f\).
+
+             Por lo tanto, ya que la convergencia uniforme se puede
+             puede escribir como \(\lim_{n\to \infty}\|f_n-f\|_\infty=0\),
+             podemos pensar que una sucesión \((f_n)_{n=1}^\infty\)
+             converge uniformemente a \(f\) si las gráficas de
+             \(f_n\) se van metiendo en franjas alrededor de \(f\) de
+             radios cada vez más pequeños.
+           </p>
+           <p>
              Ejemplos.
            </p>
            <ol>
@@ -418,6 +434,69 @@
 
 
 
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \((f_n:X\to \mathbb{R})_{n=1}^\infty\) una sucesión
+            de funciones. Prueba que \((f_n)_{n=1}^\infty\) NO
+            converge uniformemente en \(X\)  a la función
+            \(f:X\to \mathbb{R}\) si y sólo si
+            existe un \(\varepsilon_0>0\), una subsucesión
+            \((f_{n_k})_{k=1}^\infty\)
+            y una sucesión de puntos en \(X\), \((x_n)_{n=1}^\infty \subset X\)
+            que satisface
+            \[
+            |f_{n_k}(x_k)-f(x_k)| \geq \varepsilon_0
+            \]
+            para toda \(k \geq 1\).
+          </p>
+          <p>
+            Usa esto para dar otra prueba de que la sucesión
+            \((f_n:(-1,1)\to \mathbb{R})_{n=1}^\infty\)
+            dada por \(f_n(x)=x^n\), no converge uniformemente en \((-1,1)\).
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Considera \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\)
+            una sucesión de funciones continuas con la propiedad de que
+            converge uniformemente en \(\mathbb{Q}\cap [a,b]\).
+          </p>
+          <p>
+            Prueba o da un contraejemplo: la sucesión \((f_n)_{n=1}^\infty\)
+            converge uniformemente en \([0,1]\).
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \((X,d)\) un espacio métrico y
+            \((f_n:X\to \mathbb{R})_{n=1}^\infty\) una sucesión de
+            funciones Lipschitz continuas, con la misma constante. Es decir,
+            exite \(M>0\) tal que, para todo \(n\in
+            mathbb{N}\)  y para todos \(x_1,x_2\in X\)
+            \[
+            |f_n(x_1)-f_n(x_2)| \leq M d(x_1,x_2)
+            \]
+            Supón que la sucesión \((f_n)_{n=1}^\infty\) converge
+            puntualmente a una función \(f:X\to \mathbb{R}\).
+          </p>
+          <ol>
+            <li>
+              Prueba que \(f\) es Lipschitz continua con la misma constante
+              \(M\).
+            </li>
+            <li>
+              Prueba que la sucesión \((f_n)_{n=1}^\infty\) converge
+              uniformemente en \(X\) a la función \(f\).
+            </li>
+          </ol>
+        </div>
 
 
         <div class="nota-box">
@@ -616,7 +695,7 @@
 
 
         <div class="teorema-box">
-          <h2 class="number-title"> Teorema </h2>
+          <h2 class="number-title" id="Teo:ConveUnifYConti"> Teorema </h2>
           <p>
             Sean \((X,d_X), (Y,d_Y)\) espacios métricos y
             \((f_n:X\to Y)_{n=1}^\infty\) una sucesión de funciones tal que
@@ -632,8 +711,29 @@
           </p>
         </div>
 
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sean \((X,d_X), (Y,d_Y)\) espacios métricos y
+            \((f_n:X\to Y)_{n=1}^\infty\) una sucesión de funciones continuas
+            tal que convergen uniformemente en \(X\).
+          </p>
+          <p>
+            Sea \((x_m)_{m=1}^\infty \subset X\) una sucesión  convergente
+            en \(X\). Prueba
+            \[
+            \lim_{n\to \infty}\left( \lim_{m\to \infty} f_n(x_m)\right)=
+            \lim_{m\to \infty}\left( \lim_{n\to \infty} f_n(x_m)\right)
+            \]
+          </p>
+          <p>
+            Sugerencia: usa el <a href="#Teo:ConveUnifYConti">teorema anterior</a>.
+          </p>
+        </div>
+
         <div class="teorema-box">
-          <h2 class="number-title"> Teorema </h2>
+          <h2 class="number-title" id="Teo:ContUnifIntegracion"> Teorema </h2>
           <p>
             Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una suncesión de funciones continuas.
             Supongamos que \((f_n)_{n=1}^\infty\) converge uniformemente
@@ -647,7 +747,288 @@
             \lim_{n\to \infty} \int_a^b f_n(t)dt = \int_a^b \lim_{n\to \infty}f_n(t)dt.
            \]
           </p>
+          <p>
+            Nota: el teorema sigue siendo válido si se pide la hipótesis de que
+            todas las funciones \(f_n\) sean sólo Riemann integrables. Con esta
+            suposición se puede probar que el límite \(f\) también es
+            Rieman integrable y que se puede meter el límite en la integral.
 
+          </p>
+
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba
+            \[
+            \lim_{n\to \infty}\int_{\pi/2}^\pi\frac{\sen(nx)}{nx}dx=0
+            \]
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Cálcula el límite
+            \[
+            \lim_{n\to \infty} \int_0^1 \frac{e^{-nt}}{\sqrt{t}} dt
+            \]
+          </p>
+        </div>
+
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión
+            de funciones continuas que converge uniformemente en \([a,b]\).
+          </p>
+          <p>
+            Define \(F_n:[a,b]\to \mathbb{R}\) por
+            \[
+              F_n(x):=\int_a^x f_n(t)dt
+            \]
+            Prueba que la sucesión \((F_n)_{n=1}^\infty\)
+            converge uniformemente en \([a,b]\).
+          </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Supongamos que tenemos una sucesión de funciones continuas
+            \((f_n:[a,b]\to \mathbb{R})\) que converge uniformemente
+            en \([a,b]\) a la función \(f:[a,b]\to \mathbb{R}\). Prueba
+            \[
+            \lim_{n\to \infty}\int_a^b \left( \int_a^xf_n(t)dt \right) dx=
+            \int_a^b \left(\int_a^x f(t)dt\right)dx
+            \]
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+
+          <p>
+            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una
+            sucesión de funciones continuas que converge
+            uniformemente en \([a,b]\) a una función
+            \(f\).
+          </p>
+          <p>
+            Supón que \(g:[a,b]\to \mathbb{R}\) es una función Riemann
+            integrable en \([a,b]\). Prueba que
+            \[
+            \lim_{n\to \infty} \int_a^b f_n(t)g(t)dt =\int_a^b f(t)g(t)dt
+            \]
+          </p>
+        </div>
+
+
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Sea \(X\) un conjunto cualquiera. Decimos que una
+            sucesión de funciones \((f_n:X\to \mathbb{R})_{n=1}^\infty\)
+            es uniformemente de Cauhcy (o Cauchy-uniforme) en \(X\) si:
+          </p>
+          <p>
+            para toda \(\varepsilon > 0 \) existe \(N\in \mathbb{N}\)
+            con la propiedad de que, para todo \(x\in X\)
+            \[
+            | f_n(x)-f_m(x)| < \varepsilon \quad  \textrm{para todos \(n,m \geq N\)}
+            \]
+          </p>
+
+        </div>
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+
+          <p>
+            Sea \((f_n:X\to \mathbb{R})_{n=1}^\infty\) una sucesión
+            de funciones que es uniformemente de Cauchy en \(X\).
+          </p>
+          <p>
+            Entonces existe \(f:X\to \mathbb{R}\) tal que
+            \((f_n)_{n=1}^\infty\) converge uniformemente en \(X\) a \(f\).
+          </p>
+
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Considera \(\mathcal{B}(X)\), el espacio de funciones acotadas sobre un
+            conjunto \(X\) con valores en \(\mathbb{R}\)  dotado
+            con la norma uniforme, \(\|\cdot\|_\infty\)
+            (ver <a href="./S3.html#Ejer:EspacioFunAcotadas">Ejercicio 3.18</a>).
+          </p>
+          <p>
+            Prueba que el espacio \((\mathcal{B}(X), \|\cdot\|_\infty)\)
+            es completo.
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+
+          <p>
+            Sea \((X,d)\) un espacio métrico compacto. Por
+            \(C(X)\) denotamos las funciones continuas en \(X\) que toman
+            valores reales. Por el
+            <a href="./S8.html#"Teo:FunContAcotEnCompactos>Teorema 8.18</a>
+            sabemos que toda función \(f\) en \(C(X)\) está acotada y por
+            lo tanto
+            \[
+            \|f\|_\infty =\sup_{x\in X}\{|f(x)|\}
+            \]
+            está bien definida y por el
+            <a href="./S3.html#Ejer:EspacioFunAcotadas">Ejercicio 3.18</a> es una norma.
+          </p>
+          <p>
+            Prueba que \((C(X), \|\cdot\|_\infty)\) es un espacio completo.
+          </p>
+
+        </div>
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema  </h2>
+            <h3> Criterio M de Weierstrass</h3>
+            <p>
+              Sea \((f_n:X\to \mathbb{R})_{n=1}^\infty\) una sucesión
+              de funciones. Supongamos que existe una sucesión
+              de números no negativos \((M_n)_{n=1}^\infty\) tal que
+              <ul>
+                <li>
+                  La serie \(\sum_{n=1}^\infty M_n\) es convergente.
+                </li>
+                <li>
+                  Para todo \(x\in X\) y para todo \(n\in \mathbb{N}\), \(|f_n(x)|\leq M_n\).
+                </li>
+              </ul>
+              Entonces la sucesión de funciones \((S_N)_{N=1}^\infty\), dada
+              por \(S_N(x)=\sum_{n=1}^N f_n(x)\) converge
+              uniformemente en \(X\).
+
+              También se dice que  la serie \(\sum_{n=1}^\infty f_n(x)\)
+              es  uniformemente convergente en \(X\).
+            </p>
+            <p>
+              Usando la norma \(\|\cdot\|_\infty\) el criterio M se puede
+              resumir como
+              \[
+              \sum_{n=1}^\infty \| f_n\|_\infty < + \infty \Rightarrow
+              \sum_{n=1}^\infty f_n(x) \quad \textrm{converge uniformemente en \(X\)}
+              \]
+            </p>
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba que la serie \(\sum_{n=1}^\infty x^n\) es uniformemente
+            convergente en cualquier subintervalo cerrado contenido en
+            \((-1,1)\).
+          </p>
+
+        </div>
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión de funciones
+            continuas en \([a,b]\) y tal que su derivada, \(f_n'\), existe y
+            es continua en todo \([a,b]\).
+          </p>
+          <p>
+            Supongamos que
+            <ol>
+              <li>
+                \((f_n')\) converge uniformemente en \([a,b]\) a una
+                función \(g:[a,b]\to \mathbb{R}\).
+              </li>
+              <li>
+                Existe un punto \(x_0\in [a,b]\) tal que
+                la sucesión \((f_n(x_0))_{n=1}^\infty\) converge.
+              </li>
+            </ol>
+          </p>
+          <p>
+            Entonces la sucesión original, \((f_n)_{n=1}^\infty\), converge
+            uniformemente en \([a,b]\). Además, si  \(f\) es el límite de
+            \((f_n)_{n=1}^\infty\) entonces \(f\) es diferenciable y
+            \(f'=g\). Es decir, podemos meter el límite en la derivada
+            \[
+            \lim_{n\to \infty} \frac{d}{dx}f_n(x) =
+            \frac{d}{dx}\left( \lim_{n\to \infty} f_n (x) \right)
+            \]
+          </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <h3 > Series de potencias </h3>
+          <p>
+            Si la serie de potencias \(\sum_{n=1}^\infty a_nx^n\)
+            converge para un punto \(x_0 \ne 0\), entonces
+            <ol>
+            <li>
+              \(\sum_{n=1}^\infty a_nx^n\) converge
+              uniformemente en todo intervalo de la forma
+              \([-R,R]\), con \(R\) cualquier número positivo con
+              \(|R|<|x_0|\).
+            </li>
+            <li>
+              En el intervalo \((-|x_0|,|x_0|)\) se puede
+              derivar la serie término a término:
+              \[
+              \left(\sum_{n=1}^\infty a_nx^n \right)'=\sum_{n=1}^\infty na_nx^{n-1}
+              \]
+            </li>
+            <li>
+              Para cualquier intervalo cerrado \([a,b]\subset (-|x_0|,|x_0|)\)
+              la serie se puede integrar término a término:
+              \[
+              \int_a^b \left( \sum_{n=1}^\infty a_nx^n \right)dx=
+              \sum_{n=1}^\infty \frac{a_n}{n+1}(b^{n+1}-a^{n+1})
+              \]
+            </li>
+           </ol>
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Por \(C^{(1)}([a,b])\) denotamos al conjunto de funciones
+            \(f:[a,b]\to \mathbb{R}\) con las propiedades de que:
+            <ul>
+            <li> \(f\) es continua en todo \([a,b]\),</li>
+            <li> \(f'\) existe y es continua en todo \([a,b]\).</li>
+          </ul>
+          </p>
+          <p>
+          Para  \(f\in C^{(1)}([a,b])\) definimos
+          \[
+          \|f\|_{C^{(1)}}=\max_{x\in [a,b]}\{|f(x)|\}+\max_{x\in [a,b]}\{ |f'(x)|\}
+          \]
+          Prueba que el espacio \((C^{(1)}([a,b]),\|\cdot\|_{C^{(1)}})\)
+          es completo.
+          </p>
         </div>
 
     </div>
