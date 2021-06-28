@@ -185,7 +185,70 @@
       Es decir, se puede meter el límite para funciones continuar,
       siempre y cuando el límite exista.
     </p>
+    <button class="respButton hvr-grow"> Respuesta </button>
+    <div class="resp-box">
+    <p>
+      \(\Rightarrow] \) Primero supongamos que \(f\) es continua en \(x_0\)
+      y supongamos que tenemos una sucesión \((x_n)_{n=1}^\infty \subset X\)
+      tal que \(\lim_{n\to \infty}x_n=x_0\).
+    </p>
+    <p>
+        Debemos probar que \(\lim_{n\to \infty }f(x_n)=f(x_0)\), es decir,
+        dada una \(\varepsilon >0\) debemos asegurar la existencia de un natural
+        \(N\in \mathbb{N}\) tal que, para toda \(n \geq N\):
+        \begin{equation}\label{Eqn:auxLemaContinuidad}
+        f(x_n)\in B_\varepsilon^Y(f(x_0)).
+        \end{equation}
+    </p>
+    <p>
+      Usando que \(f\) es continua en \(x_0\), sabemos que existe una
+      \(\delta >0 \) tal que
+      \begin{equation}\label{Eqn:aux2LemaContinuidad}
+      B_\delta^X(x_0) \subseteq f^{-1}(B_\varepsilon)(f(x_0))
+      \end{equation}
+    </p>
+    <p>
+      Pero, usando que \(\lim_{n\to \infty }x_n=x_0\) podemos asegurar que
+      existe \(N\in \mathbb{N}\) tal que, para toda
+      \(n\geq N\), \(x_n\in B_\delta^X(x_0)\). Si usamos
+      \eqref{Eqn:aux2LemaContinuidad} obtenemos que \(f(x_n) \in B_\varepsilon(f(x_0))\),
+      para toda \(n\geq N\), lo cual prueba \eqref{Eqn:auxLemaContinuidad}.
+    </p>
+    <p>
+      \(\Leftarrow]\) Vamos a proceder por contrapositiva. Supongamos que la
+      función \(f\) no es continua en \(x_0\) y con esto vamos a probar que la
+      condición 2 no es válida.
+    </p>
 
+    <p>
+      Si negamos la definición de continuidad de \(f\) en \(x_0\) llegamos
+      a que existe un número positivo \(\varepsilon_0 >0 \), tal que,
+      para toda \(\delta > 0\) no se cumple
+      \[
+      B_{\delta}(x_0) \subseteq f^{-1}(B_{\varepsilon_0}(f(x_0))).
+      \]
+      Si la contención anterior no es válida eso quiere decir que
+      existe un \(x \in B_{\delta}(x_0)\) (la \(x\) va a depender de \(\delta\)),
+       tal que \(x\notin f^{-1}(B_{\varepsilon_0}(f(x_0)))\), es
+       decir, la \(x\) satisface:
+       \[
+       d_X(x,x_0)< \delta, \quad d_Y(f(x),f(x_0)) \geq \varepsilon_0.
+       \]
+    </p>
+    <p>
+      Como lo anterior se vale para todo número \(\delta >0\), tomando
+      \(\delta = \frac{1}{n}\), con \(n \in \mathbb{N}\), obtenemos una
+      sucesión de puntos \((x_n)_{n=1}^\infty \subset X\), tal que
+
+      \[
+      d_X(x_n,x_0) < \frac{1}{n}, \quad d_Y(f(x_n), f(x_0)) \geq \varepsilon_0
+      \]
+
+      Pero lo anterior implica que \(\lim_{n\to \infty} x_n=x_0\)
+      y \(\lim_{n\to \infty} f(x_n)\ne f(x_0)\), contradiciendo la
+      condición 2 del lema.
+    </p>
+  </div>
 </div>
 
 
