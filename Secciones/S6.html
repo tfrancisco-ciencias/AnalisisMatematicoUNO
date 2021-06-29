@@ -120,7 +120,7 @@
 </div>
 
 <div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
+  <h2 class="number-title" id="Ejer:PropiedadesImagenInversa"> Ejercicio </h2>
   <p>
     Sean \(S,T\) dos conjuntos, \(f:S\to T\) una función y
     subconjuntos \(A,A' \subseteq S, B,B'\subseteq T\). Prueba
@@ -262,7 +262,7 @@
     la función producto \(fg\); si \(g\)  nunca se anula, la función cociente \(f/g\).
   </p>
   <p>
-    Sugerencia: usa el <a href="#Lema:ContinuidadSucesiones">Lema 6.3</a>
+    Sugerencia: usa el <a href="#Lema:ContinuidadSucesiones">Lema 6.4</a>
   </p>
   <p>
     Nota: se puede generalizar este ejercicio cambiando \(\mathbb{R}\)
@@ -283,7 +283,7 @@
   </p>
   <ol>
     <li>
-      \(f\) es continua en todo \(M\).
+      \(f\) es continua en todo \(X\).
     </li>
     <li>
       Imagen inversa de abiertos es abierta.
@@ -293,6 +293,109 @@
     </li>
   </ol>
 
+  <button class="respButton hvr-grow"> Demostración </button>
+  <div class="resp-box">
+  <p>
+    \(1 \Rightarrow 2 ]\) Supongamos que \(f\) es continua en todo \(M\)
+    y sea \(V \subseteq Y\) un subconjunto abierto. Natamos que, al
+    ser \(Y\) abierto, para todo \(y \in V \) existe \(r(y)\), un número positivo
+    que depende de cada punto \(y\), tal que
+    \(B_{r(y)}^Y(y)\subseteq V\). Por lo tanto se sigue que
+    \[
+    V=\cup_{y\in V} B_{r(y)}^Y(y)
+    \]
+  </p>
+  <p>
+    Usando las propiedades de la imagen inversa
+    (<a href="#Ejer:PropiedadesImagenInversa">Ejercicio 6.3</a>) obtenemos
+    \[
+    f^{-1}(V)=\cup_{y\in V} f^{-1}(B_{r(y)}^Y(y))
+    \]
+    y ya que unión arbitraria de abiertos es abierta, para probar que
+    \(f^{-1}(V)\) es abierta es suficiente probar que, para toda bola
+    \(B_r^Y(y)\), su imagen inversa \(f^{-1}(B_r^Y(y))\) es abierta en \(X\).
+  </p>
+  <p>
+    Para probar que \(f^{-1}(B_r^Y(y))\) es abierto en \(X\) tomamos
+    \(x\in f^{-1}(B_r(y))\) arbitrario y probamos que hay una
+    bola centrada en \(x\) totalemente contenida en \(f^{-1}(B_r^Y(y))\). Antes
+    de proceder notamos que \(f(x)\in B_r^Y(y)\) y ya que éste último es abierto
+    existe \(s>0\) tal que \(B_s^Y(f(x)) \subseteq B_r^Y(y)\).
+  </p>
+  <p>
+    Ahora, ya que \(f\) es continua en todo
+    \(X\), en particular \(f\) es continua en \(x\) por lo que existe una \(\delta >0\)
+    para la cual se satisface
+    \[
+    B_\delta^X(x) \subseteq f^{-1}(B_s(f(x)))
+    \]
+    Finalmente notamos que
+    \[
+    B_s^Y(f(x))\subseteq B_r^Y(y) \Rightarrow f^{-1}(B_s^Y(f(x))) \subseteq f^{-1}(B_r^Y(y))
+    \]
+    por lo tanto tenemos la cadena de contenciones
+    \[
+    B_\delta^X(x) \subseteq f^{-1}(B_s^Y(f(x))) \subseteq f^{-1}(B_r^Y(y))
+    \]
+    concluyendo que \(B_\delta^X(x)\) está totalmente contenida en
+    \(f^{-1}(B_r^Y(y))\).
+    </p>
+    <p>
+      \( 2 \Rightarrow 3 ]\) Esta implicación es sencilla.
+    </p>
+    <p>
+      Supoongamos
+      que \(F \subset Y\) es cerrado. Debemos probar que
+      \(f^{-1}(F) \subseteq X\) es cerrado también o, equivalentemente,
+      que \(X\setminus f^{-1}(F)\) es abierto en \(X\). Pero,
+      por las propiedades de la imagen inversa
+      (<a href="#Ejer:PropiedadesImagenInversa">Ejercicio 6.3</a>):
+      \[
+      X\setminus f^{-1}(F) = f^{-1}(Y \setminus F).
+      \]
+      Ahora, \(Y\setminus F\) es abierto en \(Y\), por lo tanto la condición
+      2 implica que \(f^{-1}(Y\setminus F)\) es abierto en \(X\).
+    </p>
+    <p>
+      \(3 \Rightarrow 1 ]\) Sea \(x_0 \in X\) fijo y arbitrario. Dedemos de probar
+      que \(f\) es continua en \(x_0\) y para esto usaremos el
+      <a href="#Lema:ContinuidadSucesiones">Lema 6.4</a>.
+    </p>
+    <p>
+      Sea \((x_n)_{n=1}^\infty \subset X\) una sucesión tal que
+      \(\lim_{n\to \infty} x_n=x_0\). Debemos de probar que
+      \(\lim_{n\to \infty} f(x_n)=f(x_0)\), pero, para llegar
+      a una contradicción supongamos que no es así.
+    </p>
+      <p>
+      Usando el <a href="./S4.html#Ejer:NegacionConvergencia">Ejercicio 4.7</a>
+      sabemos \(\lim_{n\to \infty}f(x_n)\ne f(x_0)\) implica la
+      existencia de un número positivo \(\varepsilon_0 >0\) y
+      una subsucesión \((x_{n_k})_{k=1}^\infty\) tal que
+      \[
+      d(f(x_0), f(x_{n_k})) \geq \varepsilon_0
+      \]
+      para toda \(k\). Reescribiendo lo anterior en términos de imagen inversa
+      de la bola abierta tenemos que
+      \[
+      x_{n_k} \in f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0)))
+      \]
+      para toda \(k\).
+    </p>
+    <p>
+      Por otro lado, sabemos que \(Y\setminus B_{\varepsilon_0}(f(x_0)) \) es cerrado,
+      por lo tanto la condición 3 implica que \(f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0))\)
+      también es cerrado. Por lo tanto la subsucesión \((x_{n_k})_{k=1}^\infty\)
+      está contenida en el cerrado \(f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0))\)
+      y en consecuencias, su límite también (por
+      <a href="./S5.html#Teo:CaracCerrados"> Teorema 5.11</a>). Es decir
+      \[
+      x_0=\lim_{k\to \infty}x_{n_k} \in f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0))
+      \]
+      por lo que \(f(x_0)\in Y\setminus B_{\varepsilon_0}(f(x_0)) \), lo cual
+      es una contradicción.
+    </p>
+  </div>
 </div>
 
 
