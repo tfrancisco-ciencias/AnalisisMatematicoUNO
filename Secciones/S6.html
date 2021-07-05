@@ -72,7 +72,19 @@
 <div class="info-box">
   <h2 class="number-title"> Introducción </h2>
   <p>
-
+    Las funciones continuas son la estrellas en un primer curso de análisis
+    matemático y uno de los objetivos principales del curso es tomar
+    varias de las propiedades de las funciones continuas que se vieron en cálculo
+    y extenderlas en el contexto de espacios métricos.
+  </p>
+  <p>
+    Hay dos puntos de vista importantes desde los cuales se pueden ver a las
+    funciones continuas. Uno es desde el puntos de vista de sucesiones. Desde
+    esta perspectiva las funciones continuas son las que mandan sucesiones
+    convergentes en sucesiones convergentes. El otro punto de vista tiene
+    que ver con las bolas abiertas y más en general con conjuntos abiertos.
+    Vamos a presentar la definición de continuidad usando este último pero
+    se verá más adelante que son equivalentes (<a href="#Lema:ContinuidadSucesiones">Lema 6.4</a>).
   </p>
 
 </div>
@@ -90,7 +102,15 @@
     \(d_X(x,x_0) <\delta\) entonces \(d_Y(f(x),f(x_0)) < \varepsilon\).
   </p>
   <p>
-    Imagen
+    <div class="flexbox">
+      <img src="./Images/Continuidad.png" alt="Continuidad" width="50%" height="auto">
+    </div>
+
+  </p>
+  <p>
+    Nota que para probar que una función  es continua en un punto, dada
+    la \(\varepsilon\) todo el trabajo se enfoca en encontrar la \(\delta\) que satisfaga
+    la condición dada arriba.
   </p>
   <p>
     Usando la notación de bolas abiertas la definición se puede
@@ -107,6 +127,12 @@
     donde \(B^X_r(x_0)\) denota la bola abierta en el espacio \(X\).
   </p>
   <p>
+    <div class="flexbox">
+      <img src="./Images/ContinuidadImagenInversa.png" alt="ContinuidadImagenInversa" width="50%" height="auto">
+    </div>
+
+  </p>
+  <p>
     Nota: recuerda que en general, para una función
     \(f:X\to Y\), la imagen inversa de un subconjunto \(B\subseteq Y\), bajo \(f\)
     se define como: \(f^{-1}(B):=\{x\in X: f(x)\in B \}\).
@@ -115,8 +141,55 @@
     Decimos que una función es continua en un subconjunto \(A \subseteq X\)
     si es continua en todo punto de \(A\).
   </p>
-   Ejemplos: funciones \(\mathbb{N} \to X, X \to \mathbb{N}\). Isometrias. Funciones continuas en
-   \([0,1] \cup \{2\}\).
+   <p>
+     Ejemplos
+   </p>
+   <ol>
+     <li>
+       Toda función \(f:\mathbb{N}\to X\) es continua en todo punto de \(\mathbb{N}\),
+       considerando a éste útimo dotado con la métrica heredada de \(\mathbb{R}\)
+       y \(X\) cualquie espacio métrico.
+     </p>
+     <p>Para ver lo anterior tomamos un punto cualquiera \(n_0\in \mathbb{N}\)
+       y fijamos un número positivo \(\varepsilon\). En el caso muy particular
+       de \(\mathbb{N}\) afirmamos que la \(\delta >0\) que nos sirve es \(\delta=1\).
+       Razón: en la métrica de \(\mathbb{N}\) las bolas unitarias son muy simples
+       \[
+       B_1(n_0)=\{n_0\}
+       \]
+       y por lo tanto para todo \(n \in B_1(n_0)\) (que sólo hay uno, \(n_0\)) se cumple
+       \(d(f(n),f(n_0)) < \varepsilon\), pues
+       \[
+       d(f(n),f(n_0)=d(f(n_0), f(n_0))=0.
+       \]
+       Nota: este ejemplo sigue siendo válido si intercambiamos \(\mathbb{N}\)
+       por cualquier otro espacio métrico discreto.
+     </li>
+      <li>
+        <p>
+        Todas las isometrías son funciones continuas.
+       </p>
+        <p>
+        Recordamos que una
+        isometría entre dos espacios métricos  es
+        una función que preserva las distancias, es decir una
+        función  \(f:(X,d_X) \to (Y,d_Y)\) que satisface
+        \[
+        d_Y(f(x_1),f(x_2)) = d_X(x_1,x_2),
+        \]
+        para todos \(x_1,x_2\in X\).
+      </p>
+      <p>
+        Dado un punto cualquiera \(x_0\in X\) y un número positivo
+        \(\varepsilon >0\) la \(\delta\) que sirve para la continuidad
+        es \(\delta= \varepsilon\). En efecto, si \(d_X(x,x_0) < \delta \)
+        entonces
+        \[
+        d_Y(f(x),f(x_0))=d_X(x,x_0) < \delta = \varepsilon.
+        \]
+      </p>
+      </li>
+
 </div>
 
 <div class="ejercicio-box">
