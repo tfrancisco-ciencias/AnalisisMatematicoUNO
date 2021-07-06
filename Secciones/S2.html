@@ -179,6 +179,96 @@
         dada por \(\varphi(t)=\frac{t}{1+t}\). Primera prueba que
         \(\varphi\) es monótona creciente y que \(\varphi(s+t)\leq \varphi(s)+\varphi(t)\).
       </p>
+
+      <button class="respButton hvr-grow"> Respuesta </button>
+      <div class="resp-box">
+      <p>
+        Tomando la función  \(\varphi:[0,\infty)\to [0,1)\) como en la sugerencia notamos que
+        \[
+        \rho(x,y)=\varphi(d(x,y)).
+        \]
+        De la ecuación anterior, y usando que \(d\) es una métrico, se puede
+        checar directamente que \(\rho\) satisface:
+        <ol>
+          <li>  \(\rho(x,y) \geq 0\). </li>
+          <li> \(\rho(x,y)=0\) si y sólo si \(x=y\). Ojo aquí se usa que
+            \(\varphi(t)=0 \) sii \(t=0\). </li>
+          <li>  \(\rho(x,y)=\rho(y,x)\).</li>
+        </ol>
+      </p>
+      <p>
+        La condición que no es tan clara es la desigualdad del triángulo.  Para
+        esto primero vamos a probar las dos condiciones dadas en la  sugerencia.
+      </p>
+
+      <ol>
+        <li>
+          Primero vamos a probar que \(\varphi\) es estrictamente creciente. Esto
+          se puede hacer de varias formas, veamos dos.
+        </li>
+          <p>
+            De mandera directa.
+          </p>
+          <p>
+            Tomamos \(0 \leq s < t\) y debemos de probar que \(\varphi(s)<\varphi(t)\)
+            o equivalentemente, \(0< \varphi(t)-\varphi(s)\). Haciendo la cuenta resulta
+            \begin{eqnarray*}
+            \varphi(t)-\varphi(s)&=&\frac{t}{1+t}-\frac{s}{1+s} \\
+            &=&\frac{t(1+s)-s(1+t)}{(1+t)(1+s)}\\
+            &=& \frac{t-s}{(1+t)(1+s)}
+            \end{eqnarray*}
+            donde vemos que éste último cociente es positivo pues \(t>s\).
+          </p>
+          <p>
+            Usando derivadas.
+          </p>
+          <p>
+            Ya que \(\varphi\) es diferenciable en \([0,\infty)\) sabemos que si su derivada
+            es positiva entonces es estrictamente creciente. Aplicando la
+            regla del cociente obtenemos
+            \[
+            \varphi'(t)=\frac{(1+t)(1)-t(1)}{(1+t)^2}=\frac{1}{(1+t)^2}
+            \]
+            el cual claramente es positivo.
+          </p>
+
+        <li>
+            Ahora veamos que se satisface \(\varphi(s+t) < \varphi(s)+\varphi(t)\),
+            para todos \(s,t >0 \). Vamos a proceder de manera directa.
+        </li>
+        <p>
+          Primero notamos que
+          \[
+          \frac{s}{1+s+t} \leq \frac{s}{1+s}, \quad \frac{t}{1+t+s} < \frac{t}{1+t}
+          \]
+          sumando ambas desigualdades obtenemos
+          \[
+          \frac{t+s}{1+t+s} < \frac{t}{1+t}+ \frac{s}{1+s}
+          \]
+          lo cual se traduce a \(\varphi(s+t)< \varphi(s)+\varphi(t)\).
+        </p>
+
+      </ol>
+      <p>
+        Ahora sí, se puede probar fácilmente que \(\rho\) satisface la
+        desigualdad del triángulo. Empezando con la desigualdad del
+        triángulo para \(d\) tenemos
+        \[
+        d(x,y) \leq d(x,z)+d(z,y)
+        \]
+        aplicando \(\varphi\) a ambos lados, usando que \(\varphi\) es monótona
+        creciente y usando la propiedad 2 de la sugerencia llegamos a
+
+        \begin{eqnarray*}
+        \varphi(d(x,y)) &\leq & \varphi(d(x,z)+d(z,y)) \\
+         &\leq & \varphi(d(x,z))+\varphi(d(z,y)),
+        \end{eqnarray*}
+        y podemos concluir
+        \[
+        \rho(x,y)=\varphi(d(x,y)) \leq \varphi(d(x,z))+\varphi(d(z,y))=\rho(x,z)+\rho(z,y).
+        \]
+      </p>
+    </div>
     </div>
 
 
