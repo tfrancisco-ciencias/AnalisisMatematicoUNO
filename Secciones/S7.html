@@ -356,7 +356,7 @@
               \(A\cap E \ne \emptyset\), \(B\cap E \ne \emptyset\).
             </li>
             <li>
-              \(E \subseteq A \cup E\)
+              \(E \subseteq A \cup B\)
             </li>
 
           </ul>
@@ -440,9 +440,55 @@
         <p>
           Sea \(f:(X,d_X)\to (Y,d_Y)\) una función continua
           entre dos espacios métricos. Si \(C\subset X \) es
-          conexo entonces su imagen directa bajo \(f\), \(f(C)\)
+          conexo entonces su imagen directa bajo \(f\)
           también es conexo.
         </p>
+
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          Vamos a demostrarlo por contradicción.
+        </p>
+        <p>
+          Supongamos que \(f(C)\subseteq Y\) es disconexo. Entonces
+          existen \(A,B\subseteq Y\) tal que forman una disconexión de \(f(C)\).
+        </p>
+        <p>
+        Definamos \(U=f^{-1}(A)\) y \(V=f^{-1}(B)\). Afirmamos que \((U,V)\)
+        es una disconexión de \(C\).
+       </p>
+        <p>
+        Primero notamos que al ser \(f\) contínua y \(A,B\subseteq Y\) abiertos
+        \(U\) y \(V\) también son abierto.
+        </p>
+        <p>
+          \(U\) y \(V\) son ajenos pues
+          \[
+          A\cap B= \emptyset \Rightarrow \emptyset = f^{-1}(A\cap B)=f^{-1}(A)\cap f^{-1}(B)
+          =U\cap V.
+          \]
+        </p>
+        <p>
+          Para probar \(U\cap C \ne \emptyset\) empezamos con
+          \(A\cap f(C)\ne \emptyset\) y tomamos \(a \in A\cap f(C) \). Entonces
+          existe \(x\in C\) tal que \(f(x)=a\) y por lo tanto \(x\in C\cap f^{-1}(A)\).
+        </p>
+        <p>
+          De manera similar se tiene \(V\cap C\ne \emptyset\).
+        </p>
+        <p>
+          Para probar que \((U,V)\) es disconexión resta probar \(C\subseteq U\cup V\). Pero
+          \[
+          f(C) \subseteq A\cup B \Rightarrow f^{-1}(f(C))\subseteq f^{-1}(A\cup B)=
+          f^{-1}(A)\cup f^{-1}(B)=U\cup V.
+          \]
+          Usando que \(C\subseteq f^{-1}(f(C))\) concluimos que \(C\subseteq U\cup V\).
+        </p>
+        <p>
+          Concluimos que \((U,V)\) es una disconexión de \(C\) lo cual es una
+          contraficción pues \(C\) es conexo.
+        </p>
+        </div>
       </div>
 
       <div class="ejercicio-box">
@@ -546,7 +592,7 @@
           <p>
             La <a href="#">Definición 7.2</a> da la impresión de que
             la conexidad de un conjunto depende del espacio ambiente donde vivve,
-            pues está dada en términos de los subconjuntos abiertos de \((X,d\).
+            pues está dada en términos de los subconjuntos abiertos de \((X,d)\).
             En realidad la conexidad es una propiedad inherente del subconjunto
             y los ejercicios siguientes exploran este punto de vista.
           </p>
@@ -566,14 +612,14 @@
             La métrica \(d_E\) induce una
             topología en \(E\), llama la topología inducida por \((X,d)\),
             de la siguiente forma. Las bolas abiertas en \((X,d_E)\),
-            denotadas \(B_r^E(x)\) son
+            denotadas \(B_r^E(x)\), son
             simplemente
             \[
             B_{r}^E(x)=\{e \in E: d_E(x,e)< r\}
             \]
             lo cual se puede ver que es igual a
             \[
-            B_r^E(x)=E\cap B_r(x)
+            B_r^E(x)=E\cap B_r(x).
             \]
           </p>
           <p>
@@ -590,7 +636,7 @@
             \(\mathbb{R}\) pero es abierto relativo
             en \([0,1]\) pues
             \[
-            [0,1/2)=[0,1] \cap B_{1/2}(0)
+            [0,1/2)=[0,1] \cap B_{1/2}(0).
             \]
           </p>
         </div>
