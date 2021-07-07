@@ -131,6 +131,124 @@
       <p>
         \(\mathbb{R}\), con la métrica usual, es conexo.
       </p>
+      <button class="respButton hvr-grow"> Demostración </button>
+      <div class="resp-box">
+      <p>
+        Vamos a proceder por contradicción, es decir vamos a suponer que
+        \(\mathbb{R}\) es disconexo. Por lo tanto existe \((U,V)\), una
+        disconexción de \(\mathbb{R}\).
+      </p>
+      <p>
+        La idea de la prueba es que vamos a poder encontrar rayos
+        infinitos tal que
+        \[
+        [x,\infty) \subseteq U, \quad [y,\infty) \subseteq V,
+        \]
+        lo cual contradice el hecho de que \(U\) y \(V\) sean ajenos.
+      </p>
+      <p>
+        Ya que \(U \ne \emptyset\) podemos fijar \(x\in U\). La idea es que
+        nos vamos a ir "moviendo" desde \(x\) a la derecha y resulta que
+        no nos vamos a "parar".
+      </p>
+      <p>
+        Para formalizar lo anterior consideramos el conjunto
+        \[
+        A=\{ a \geq x  : [x,a] \subseteq U\}.
+        \]
+      </p>
+      <p> Lo primero que notamos es que \(x\in A\), por lo que \(A\ne \emptyset\).
+      <p>
+        Lo segundo que notamos es la siguiente propidad de \(A\):
+        \begin{equation}\label{Eqn:PropiedadAux}
+          \textrm{si \(x'>x\) y \(x'\in A\) entonces \([x,x']\subseteq A\).}
+        \end{equation}
+      </p>
+      <p>
+        Para probar la contención tomemos \(z\in [x,x']\). Se sigue que \([x,z]\subseteq [x,x']\).
+        Ya que \(x'\in A\) también tenemos que \([x,x']\subseteq U\).
+        Por lo tanto
+        \([x,z]\subseteq U\) lo cual dice que \(z\in A\).
+      </p>
+      <p>
+        El tercar paso es probar  que \(A\) no está acotado superiormente.
+      </p>
+       <p> Para probar lo anterior vamos a
+        proceder por contradicción. Si \(A\) está acotado superiormente por
+        el axioma del supermo existe \(\alpha = \sup(A)\). Veamos que éste
+        \(\alpha\) genera una contradicción.
+      </p>
+      <p>
+        Ya que \(\mathbb{R}=U\cup V\) y \(U\cap V = \emptyset\) tenemos
+        dos casos excluyentes: \(\alpha \in U\) ó \(\alpha \in V\).
+      </p>
+      <p>
+        Supongamos que \(\alpha \in U\).
+      </p>
+      <p>
+        Usando que \(U\) es abierto
+        existe un número positivo \(r\) tal que \((\alpha-r,\alpha+r) \subseteq U\).
+        Se sigue que
+        \begin{equation}\label{Eqn:Aux1ConexidadR}
+        [\alpha-r/2, \alpha+r/2] \subseteq U
+        \end{equation}
+        Por otro lado, usando que \(\alpha\) es el supremo de \(A\) existe
+        \(a\in A\) con \( \alpha - r/2 < a \leq \alpha\). Ya que \(a\in A\)
+        tanemos
+        \begin{equation}\label{Eqn:Aux2ConexidadR}
+        [x,a]\subseteq U
+        \end{equation}
+        Por lo tanto, de \eqref{Eqn:Aux1ConexidadR} y \eqref{Eqn:Aux2ConexidadR}
+        concluimos que
+        \[
+        [x,\alpha+r/2] \subseteq U
+        \]
+        y por lo tanto \(\alpha + r/2 \in A\), contradiciendo que
+        \(\alpha\) sea el supremo de \(A\).
+      </p>
+      <p>
+        Ahora supongamos que \(\alpha \in V\). Vamos a proceder de manera
+        muy similar.
+      </p>
+      <p>
+        Ya que \(V\) es abierto existe un número positivo \(s\) tal que
+        \((\alpha-s, \alpha+s) \subseteq V \).
+      </p>
+      <p>
+        Ya que \(\alpha\) es el supermo de \(A\) existe \(a'\in A\)
+        con \(\alpha -s < a' \leq \alpha\). Nota que también se tiene que \(a'\in V\),
+        pues \(a'\in (\alpha-s,\alpha+s )\subseteq V\).
+     </p>
+     <p>
+       Por otro lado, ya que \(a'\in A \), \([x,a]\subseteq U\), por lo que
+       \(a'\in U\).
+     </p>
+       <p>
+       Pero entonces \(a' \in U\cap V\), una contradicción
+       pues \(U\cap V=\emptyset\).
+     </p>
+     <p>
+       Con esto se concluye la prueba de que \(A\) no está acotado
+       superiormente.
+     </p>
+     <p>
+       Ahora, usando la propiedad \eqref{Eqn:PropiedadAux} y que
+       \(A\) no está acotado superiormente podemos concluir que
+       \([x,\infty) \subseteq A\) de donde se sigue que
+       \[
+       [x,\infty)\subseteq U.
+       \]
+     </p>
+     <p>
+       Para finalizar notamos que podemos hacer el mismo razonamiento si
+       empezamos con el conjunto \(V\). Por lo tanto existe un \(y\in V\)
+       tal que
+       \[
+       [y,\infty) \subseteq V,
+       \]
+       lo cual contradice \(U\cap V =\emptyset\).
+     </p>
+   </div>
       </div>
 
 
@@ -152,6 +270,60 @@
         <p>
           Nota: se considera a \(\{0,1\}\) con la métrica discreta.
         </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          \(\Rightarrow]: \) Supongamos que \((X,d)\) es disconexo. Entonces existe una
+          disconexión \((U,V)\) y con ésta definamos
+          \(f: X\to \{0,1\}\),
+          por
+          \[
+          f(x)=\left\{
+            \begin{array}{cc}
+            0 & \textrm{si \(x\in U\),} \\
+            1 & \textrm{si \(x\in V\).}
+            \end{array}
+            \right.
+          \]
+          Como \(U\ne \emptyset\) y \(V\ne \emptyset \) resulta que  \(f\) es
+          suprayectiva.
+        </p>
+        <p>
+          Afirmamos que \(f\) es continua, para lo cual vamos a probar que la
+          imagen inversa de abiertos es abierto
+          (ver <a href="./S6.html#Lema:ContinuidadAbiertosCerrados">Ejercicio 6.6</a>).
+        </p>
+        <p>
+          Los únicos abiertos en el espacio métrico discreto \(\{0,1\}\) son
+          \[
+          \emptyset, \{0,1\}, \{0\}, \{1\}.
+          \]
+          Usando la definición de \(f\) tenemos:
+          \[
+          f^{-1}(\emptyset)=\emptyset, f^{-1}(\{0,1\})=X, f^{-1}(\{0\})=U,
+          f^{-1}(\{1\})=V,
+          \]
+          todos los cuales son abiertos. Por lo tanto \(f\) es continua.
+        </p>
+        <p>
+          \(\Leftarrow]: \) Supongamos que existe una función continua y suprayectiva
+          \(f:X\to \{0,1\}\).
+        </p>
+        <p>
+          Definamos \(U:=f^{-1}(\{0\})\) y \(V:=f^{-1}(\{1\})\). Ya que
+          \(f\) es continua resulta que tanto \(U\) y \(V\) son abiertos. Además,
+          ya que \(f\) es suprayectiva resulta que \(U\ne \emptyset\)
+          y \(V\ne \emptyset\). Además \(U\) y \(V\) son ajenos pues
+          \[
+          U\cap V= f^{-1}(\{0\})\cap f^{-1}(\{1\})=f^{-1}(\{0\}\cap \{1\})=\emptyset.
+          \]
+          Finalmente
+          \[
+          X=f^{-1}(\{0,1\})=f^{-1}(\{0\}\cup \{1\})=f^{-1}(\{0\})\cup f^{-1}(\{1\})=U\cup V.
+          \]
+          Por lo tanto \((U,V)\) es una disconexión de \(X\).
+        </p>
+      </div>
       </div>
 
 
