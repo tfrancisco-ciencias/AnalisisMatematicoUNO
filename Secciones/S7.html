@@ -259,6 +259,21 @@
           únicos subconjuntos simultaneamente abiertos y cerrados son
           \(\emptyset\) y \(X\).
         </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+            Suponga que \(U\) es un conjunto abierto y cerrado de manera simultánea,
+            entonces \(V = X \setminus U\) también es un conjunto abierto y cerrado,
+            en particular, si \(\varnothing \neq U \neq X\) entonces \(U,V\) forman
+            una disconexión de \(X\). Por lo tanto, si \(X\) es conexo entonces los
+            únicos conjuntos simultáneamente abiertos y cerrados son \(X, \varnothing\).
+
+            Por otro lado, si los conjuntos \(U,V\) forman una disconexión de \(X\)
+            notamos que \(U \cap V = \varnothing\), por lo que \(V \subseteq X \setminus U\),
+            y como \(X = U \cup V\) entonces concluimos que \(V = X \setminus U\) por lo
+            que ambos son abiertos y cerrados. De esta manera, si los únicos
+            conjuntos abiertos y cerrados son \(X, \varnothing\) entonces no puede
+            existir una disconexión de \(X\) y el espacio es conexo.
+        </div>
       </div>
 
       <div class="lema-box">
@@ -388,6 +403,40 @@
               Cualquier intervalo cerrado \([a.b]\)
               o abierto \((a,b)\) es un subconjunto conexo de \(\mathbb{R}\).
             </p>
+            <button class="respButton hvr-grow"> Demostración </button>
+            <div class="resp-box">
+                <p>
+                    La prueba en ambos casos es similar, empezaremos con el
+                    intervalo cerrado. Supongamos que \([a,b]\) es un conjunto
+                    disconexo y que \(U,V\) es una disconexión. Como
+                    \([a,b] \subseteq U \cup V\) entonces \(b \in U\) o
+                    \(b \in V\), supongamos sin pérdida de generalidad que
+                    \(b \in V\). Dado que \(V\) es abierto y \(b \in V\) entonces
+                    existe \(r > 0\) tal que \(B_r(b) \subseteq V\). Por Principio
+                    del Supremo podemos tomar \(x = \sup\{y \in [a,b]: y \notin V\}\)
+                    y necesariamente \(x \leq b-r\). Como \(x \notin V\) y
+                    \([a,b] \subseteq U \cup V\), entonces \(x \in U\), y como \(U\)
+                    es abierto entonces existe \(s > 0\) tal que \(B_s(x) \subseteq U\),
+                    pero ésto nos crea inmediatamente una contradicción. Por un lado,
+                    como \(x < b\) entonces existe \(y\) tal que \(x < y < b\) y
+                    \(y \in B_s(x)\), por lo que \(y \in U\) y contradice el hecho
+                    de que \(x = \sup \{z \in [a,b]: z \notin V\}\). En conclusión,
+                    \([a,b]\) es conexo.
+                </p>
+                <p>
+                    Consideremos ahora el intervalo \((a,b)\) con la posibilidad
+                    de que \(a,b\) sean infinitos. Supongamos que el intervalo es
+                    disconexo y que \(U,V\) es una disconexión. Como \(U \cap (a,b) \neq
+                    \varnothing\) y \(V \cap (a,b) \neq \varnothing\) entonces podemos
+                    tomar \(x \in U \cap (a,b)\) y \(y \in V \cap (a,b)\). Supongamos
+                    sin pérdida de generalidad que \(x < y\). Por definición de
+                    disconexión tenemos que \(U \cap V = \varnothing\) y
+                    \([x,y] \subseteq (a,b) \subseteq U \cup V\). Finalmente, tenemos que
+                    \(x \in [x,y] \cap U\) y \(y \in [x,y] \cap V\), por lo que \(U,V\)
+                    es una disconexión del intervalo \([x,y]\) y contradice al resultado
+                    anterior. Por lo tanto \((a,b)\) es un conjunto conexo.
+                </p>
+            </div>
           </div>
 
 
@@ -428,7 +477,26 @@
           Concluye que los subconjuntos conexos de \(\mathbb{R}\)
           son precisamente los intervalos.
         </p>
-
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+            <p>
+                Probaremos ambas implicaciones por contrapuesta.
+                Supongamos que \(x,y \in E\) son tales que
+                \([x,y] \not\subseteq E\), es decir, existe \(z \in (x,y)\)
+                tal que \(z \notin E\). Entonces los conjuntos
+                \(U = (-\infty, z), V = (z,\infty)\) forman una disconexión
+                de \(E\).
+            </p>
+            <p>
+                Supongamos ahora que \(E\) es disconexo, entonces existe una
+                disconexión \(U,V\) de E. Por definición \(U \cap E \neq \varnothing
+                \neq V \cap E\), por lo que podemos tomar \(x \in U \cap E\) y
+                \(y \in V \cap E\) y suponemos sin pérdida de generalidad que
+                \(x < y\). Para concluir note que \([x,y] \not\subseteq E\), pues de
+                lo contrario \(U,V\) sería una disconexión del intervalo que
+                sabemos conexo.
+            </p>
+        </div>
       </div>
 
 
@@ -537,6 +605,23 @@
           Sugerencia: encuentra una función continua, no constante,
           de \(X\) en \(\mathbb{R}\).
         </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+            <p>
+                Sea \(x_0 \in X\) fijo y consideremos la función
+                \(f:X \to \mathbb{R}\) dada por \(f(x) = d(x,x_0)\). Por
+                la desigualdad del triángulo inversa tenemos que para
+                cualquier par \(x,y \in X\), \(|f(x)-f(y)| = |d(x,x_0) - d(y,x_0)|
+                \leq d(x,y)\), por lo que \(f\) es continua. Asímismo, como \(X\)
+                tiene al menos dos puntos existe \(x \neq x_0\) y \(f\) toma, al
+                menos, los valores \(0\) y \(d(x,x_0)\), por lo que no es constante.
+                Como \(X\) es conexo entonces su imagen directa \(f(X)\) es un
+                conjunto conexo en \(\mathbb{R}\), y como tiene al menos dos puntos
+                tiene que ser un intervalo. Toda función es suprayectiva en su
+                imagen directa, entonces \(X\) tiene al menos tantos elementos como
+                un intervalo, que sabemos que es no numerable.
+            </p>
+        </div>
       </div>
 
 
