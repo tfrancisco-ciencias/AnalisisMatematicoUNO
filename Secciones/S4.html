@@ -263,7 +263,7 @@
 
 
       <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
+        <h2 class="number-title" id="Def:SucesionConvergente"> Definición </h2>
         <p>
           De manera intuitiva, una sucesión converge
           si, eventualmente, sus elementos se aproximan a un punto del espacio.
@@ -345,35 +345,6 @@
         </p>
       </div>
 
-      <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:NegacionConvergencia"> Ejercicio </h2>
-        <p>
-          Sea \((X,d)\) un espacio métrico y sea \((x_n)_{n=1}^\infty\subset X\)
-          una subseción.
-        </p>
-        <p>
-          Prueba que si \((x_n)_{n=1}^\infty\) NO converge al
-          punto \(x_0\) entonces existe un número positivo \(\varepsilon_0 >0\)
-          y una subsucesión \((x_{n_k})_{k=1}^\infty\) de \((x_n)_{n=1}^\infty\)
-          tal que
-          \[
-          d(x_{n_k}, x_0) \geq \varepsilon_0
-          \]
-          para toda \(k\).
-        </p>
-        <p>
-          Por lo tanto existe un número positivo \(\varepsilon_0\)
-         con la siguiente propiedad:
-         </p>
-         <p>
-         Para toda  \( N \in \mathbb{N}\) exsite \(n \geq N\) con la propiedad
-         de que \(d(f(x_n),f(x_0))) \geq \varepsilon_0\).
-         </p>
-         <p>
-         En la propiedad anterior \(N\)
-         </p>
-        </p>
-      </div>
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
@@ -781,6 +752,27 @@
           \( f_n(t)=\frac{nt}{1+n^2t^2}\).
         </li>
 
+
+
+        <button class="respButton hvr-grow"> Repuesta inciso 1 </button>
+          <div class="resp-box">
+            <div class="video flexbox">
+              <a href="https://youtu.be/sGB__ZKNhkQ" target="_blank"> Video  </a>
+              </div>
+        </div>
+
+        <p>
+        </p>
+
+
+        <button class="respButton hvr-grow"> Repuesta inciso 2 </button>
+        <div class="resp-box">
+            <div class="video flexbox">
+                <a href="https://youtu.be/hddtV0cMDBQ" target="_blank"> Video  </a>
+            </div>
+        </div>
+
+
       </ol>
     </div>
 
@@ -953,6 +945,87 @@
 
 
 
+              <div class="ejercicio-box">
+                <h2 class="number-title" id="Ejer:NegacionConvergencia"> Ejercicio </h2>
+                <p>
+                  Sea \((X,d)\) un espacio métrico y sea \((x_n)_{n=1}^\infty\subset X\)
+                  una subseción.
+                </p>
+                <p>
+                  Prueba que si \((x_n)_{n=1}^\infty\) NO converge al
+                  punto \(x_0\) entonces existe un número positivo \(\varepsilon_0 >0\)
+                  y una subsucesión \((x_{n_k})_{k=1}^\infty\) de \((x_n)_{n=1}^\infty\)
+                  tal que
+                  \[
+                  d(x_{n_k}, x_0) \geq \varepsilon_0
+                  \]
+                  para toda \(k\).
+                </p>
+                <button class="respButton hvr-grow"> Respuesta </button>
+                <div class="resp-box">
+                <p>
+                  Para iniciar recordamos la definición de convergencia y luego la
+                  negamos.
+                </p>
+                <p>
+                  La definición  <a href="#Def:SucesionConvergente">Definición 4.5 </a> dice que
+                  \(\lim_{n\to \infty}x_n=x\) sii:
+                </p>
+                <p>
+                  para toda \(\varepsilon >0\) existe \(N\in \mathbb{N}\)
+                  tal que para toda \(n \geq N\),
+                  \(
+                    d(x_n, x) < \varepsilon .
+                  \)
+                </p>
+                <p>
+                  Negando directamente tenemos que \(\lim_{n\to \infty}x_n \ne x\) sii:
+                </p>
+                <p>
+                  existe una \(\varepsilon_0 > 0\) tal que para toda \(N\in \mathbb{N}\)
+                  existe una \(n \geq N\) con la propiedad de que
+                  \[
+                  d(x_n,x) \geq \varepsilon_0
+                  \]
+                </p>
+
+                 <p>
+                   Es importante notar que la \(N\) en la condición anterior
+                   es "para toda \(N\)", es decir podemos tomar cualquier
+                   valor de \(N\) y eso nos va a arrojar la existencia de distintas \(n\)'s
+                   que satisfacen \(n\geq N\) y \(d(x_n,x) \geq \varepsilon_0\).
+                 </p>
+                <p>
+                   Al ir variando la \(N\) en la propiedad anterior vamos a
+                   construir  la subsucesión que buscamos.
+                 </p>
+                 <p>
+                   Para \(N=1\) resulta que existe \(n_1 \geq 1\) tal que
+                   \[
+                   d(x_{n_1},x) \geq \varepsilon_0.
+                   \]
+                 </p>
+                 <p>
+                   Para obtener \(x_{n_2}\) no podemos simplemente tomar \(N=2\)
+                   pues necesitamos construir una subsucesión, es decir debemos de
+                   cuidar que \(n_1< n_2\). Por lo tanto tomamos \(N= n_1 + 1 \)
+                   para obtener una \(n_2 \geq N\) tal que \(d(x_{n_2}, x) \geq \varepsilon_0\).
+                   Nota que tenemos que \(n_2 > n_1\).
+                 </p>
+                 <p>
+                   De manera recursiva, si hemos construido \(x_{n_1},\dots, x_{n_k} \)
+                   tal que \(n_1< n_2< \cdots < n_k\), tomamos \(N=n_k+1\)
+                  para
+                   obtener una \(n_{k+1} \geq N\) con la propiedad de que
+                   \(d(x_{n_{k+1}},x) \geq \varepsilon_0\). Notamos que \(n_{k}< n_{k+1}\).
+                 </p>
+                 <p>
+                   Por lo tanto hemos construido una subsucesión \((x_{n_k})_{k=1}^\infty\)
+                   con la pripiedad de que \(d(x_{n_k},x)\geq \varepsilon_0\) para toda
+                   \(k\).
+                 </p>
+               </div>
+              </div>
 
       <div class="lema-box">
         <h2 class="number-title"> Lema </h2>
@@ -962,6 +1035,15 @@
             tal que \((x_n)_{n\in \mathbb{N}}\) converge a \(x\). Prueba que toda
             subsucesión de \((x_n)_{n\in \mathbb{N}}\) también converge a \(x\).
           </p>
+
+
+
+                  <button class="respButton hvr-grow"> Demostración </button>
+                  <div class="resp-box">
+                      <div class="video flexbox">
+                          <a href="https://youtu.be/RWp7ynBONOc" target="_blank"> Video  </a>
+                      </div>
+                  </div>
       </div>
 
 
@@ -1138,25 +1220,33 @@
           convergente en \(X\). Prueba que la sucesión original,
           \((x_n)_{n\in \mathbb{N}}\), también es convergente.
         </p>
+
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+            <div class="video flexbox">
+                <a href="https://youtu.be/27jPgRSkR-Q" target="_blank"> Video  </a>
+            </div>
+        </div>
+
       </div>
 
 
       <div class="quiz-box">
-        <h2 > Quiz 4 </h2>
+        <h2 > Quiz  </h2>
         <ol>
           <li>
-            Sean \(\alpha, \beta > 0\). Prueba que
+            (3 pts) Sean \(\alpha, \beta > 0\). Prueba que
             \[
             \lim_{n\to \infty} \sqrt[n]{\alpha^n + \beta^n}=\max\{\alpha, \beta\}.
             \]
           </li>
           <li>
-            Sea \((X,d)\) un espacio métrico y \((x_n)_{n=1}^\infty, (y_n)_{n=1}^\infty\)
+            (2 pts) Sea \((X,d)\) un espacio métrico y \((x_n)_{n=1}^\infty, (y_n)_{n=1}^\infty\)
             dos sucesiones en \(X\) con la propiedad de que
             \[
             \lim_{n\to \infty} d(x_n,y_n)=0
             \]
-            Prueba que sólo pasan dos casos: amboas sucesiones son
+            Prueba que sólo pasan dos casos: ambas sucesiones son
             convergentes o ambas sucesiones son divergentes.
 
           </li>
