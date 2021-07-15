@@ -734,8 +734,9 @@
         <div class="lema-box">
           <h2 class="number-title" id="Lema:AbiertosSubEspacios"> Lema </h2>
           <p>
-            Sea \((X,d)\) un espacio métrico y considera a \(E \subseteq X\)
-            como un subespacio de \(X\).
+            Sea \((X,d)\) un espacio métrico y considera
+            el subespacio \((E,d_E)\), donde \(E \subseteq X\)
+            y \(d_E\) denota la métrica inducida en \(E\).
           </p>
           <p>
             Si \(U,V\subseteq E\) son abiertos ajenos en \(E\) prueba
@@ -744,6 +745,68 @@
             \(V=\tilde{V}\cap E\).
 
           </p>
+          <button class="respButton hvr-grow"> Demostración </button>
+          <div class="resp-box">
+          <p>
+            Ya que \(U\) es abierto en \(E\) para toda \(x\in U\) existe
+            un número positivo \(r(x)>0\) tal que
+            \[
+            E\cap B_{r(x)}(x) \subseteq U,
+            \]
+            donde \(B_{r(x)}(x)\) denota la bola abierta en \((X,d)\) por lo que
+            \(E\cap B_{r(x)}(x)\) representa la bola abierta en \((E,d_E)\).
+          </p>
+          <p>
+            De manera similar, para todo \(y\in V\) existe un número positivo
+            \(s(y)>0\) tal que
+            \[
+            E\cap B_{s(y)}(y) \subseteq V.
+            \]
+          </p>
+          <p>
+            Tomemos los abiertos
+            \[
+            \tilde{U}=\cup_{x\in U}B_{r(x)/2}(x), \quad \tilde{V}=\cup_{y\in V}B_{s(y)/2}(y)
+            \]
+          </p>
+          <p>
+            Afirmamos que \(\tilde{U}\cap \tilde{V}=\emptyset\).
+          </p>
+          <p>
+            Ya que
+            \[
+            \tilde{U}\cap \tilde{V}=\cup_{x\in U, y\in V} B_{r(x)/2}(x)\cap B_{s(y)/2}(y)
+            \]
+            es suficiente probar que \(B_{r(x)/2}(x)\cap B_{s(y)/2}(y)=\emptyset\)
+            para todos \(x\in U\), \(y\in V\). Para probar lo anterior
+            notamos que \(d(x,y) \geq r(x)\) y \(d(x,y)\geq s(y)\), pues de lo contrario
+            tendríamos
+            \[
+            d(x,y)< r(x) \Rightarrow y \in E \cap B_{r(x)}(x) \cap V \subseteq U\cap V=\emptyset,
+            \]
+            ó
+            \[
+            d(x,y)< s(y) \Rightarrow x \in E \cap B_{s(y)}(y) \cap U \subseteq V \cap U=\emptyset.
+            \]
+            Finalmente si existiese un punto \(z\) en el espacio \(X\) con
+            \(z\in B_{r(x)/2}(x)\cap B_{s(y)/2}(y)\) entonces
+            \[
+            d(x,y)\leq d(x,z)+d(z,y) < \frac{r(x)}{2}+\frac{s(y)}{2} \leq \max\{r(x),s(y)\}
+            \]
+            contradiciendo \(d(x,y) \geq r(x)\) y \(d(x,y)\geq s(y)\).
+          </p>
+          <p>
+            Para terminar notamos que de las contenciones
+            \(E\cap B_{r(x)}(x)\subseteq U\), \(E\cap B_{s(y)}(y)\subseteq V\)
+            concluimos
+            \[
+            E\cap \tilde{U}=\cup_{x\in U}E\cap B_{r(x)/2}(x)=U,
+            \]
+            \[
+            E\cap \tilde{V}=\cup_{y\in V}E\cap B_{s(y)/2}(y)=V.
+            \]
+          </p>
+        </div>
         </div>
 
         <div class="definicion-box">
