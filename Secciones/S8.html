@@ -522,9 +522,30 @@
     Sea \((X,d_X)\) un espacio métrico compacto.
   </p>
   <p>
-    Supón que \(f: (X,d_X) \to (Y,d_Y)\) es una función continua, inyectiva y
-    suprayectiva. Prueba que \(f\) es un homeomorfismo.
+      Supón que \(f: (X,d_X) \to (Y,d_Y)\) es una función continua, inyectiva y
+      suprayectiva. Prueba que \(f\) es un homeomorfismo.
   </p>
+  <button class="respButton hvr-grow"> Demostración </button>
+  <div class="resp-box">
+      <p>
+      Nuestras hipótesis incluyen continuidad y biyectividad de la función \(f\),
+      únicamente es necesario demostrar que \(f^{-1}\) también es continua. Por el
+      <a href="./S6.html#Lema:ContinuidadAbiertosCerrados">Lema</a> bastará demostrar
+      que si \(C\subseteq X\) es cerrado, entonces \(((f^{-1})^{-1}(C))=f(C)\) es
+      cerrado. Sea \(C \subseteq X\) un conjunto cerrado, como \(X\) es compacto
+      entonces \(C\) también es compacto. Dado que \(f\) es continua y \(C\) es
+      compacto \(f(C)\subseteq Y\) también es compacto. Para concluir demostraremos
+      que en un espacio métrico los subconjuntos compactos son cerrados.
+      </p>
+      <p>
+      Sea \(K \subseteq X\) compacto y \((x_n)_{n=1}^\infty\) una sucesión en \(K\) que
+      converja a un punto \(x \in X\). Por <a href="#Lema:CompactoImplicaCpS">Lema</a>
+      \((x_n)_{n=1}^\infty\) admite una subsucesión \((x_{n_k})_{k=1}^\infty\) que
+      converge a un punto \(y \in K\). Recordemos que si una sucesión es convergente
+      entonces toda subsucesión converge al mismo punto, por lo que \(x=y\in K\) y
+      \(K\) es cerrado.
+      </p>
+  </div>
 </div>
 
 
