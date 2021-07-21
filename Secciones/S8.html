@@ -318,6 +318,29 @@
                 compacto. Si \(C \subseteq K\) es un subconjunto cerrado
                 entonces \(C\) también es compacto.
               </p>
+              <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+                  <p>
+                      Sea \(\mathcal{U} = \{U_i\}_{i \in I}\) una cubierta abierta de \(C\).
+                      Como \(C\) es cerrado entonces \(X \setminus C\) es un conjunto abierto,
+                      por lo que \(\mathcal{V} = \mathcal{U} \cup \{X \setminus C\}\) es una
+                      cubierta abierta de \(K\). Por compacidad de \(K\) existe una subcubierta
+                      finita \(\mathcal{\tilde V} = \{U_1, ..., U_n\}\) de \(\mathcal{V}\).
+                  </p>
+                  <p>
+                      Podemos considerar el caso en que \(X \setminus C\) pertenece a \(\mathcal{
+                      \tilde V}\) y el caso en que ésto no ocurre. Si \(X \setminus C\) no
+                      pertenece a la subcubierta, entonces \(C \subseteq K \subseteq \bigcup_
+                      {i = 1}^n U_i\) y es evidente que ésta es una subcubierta finita de \(\mathcal{U}\).
+                      Por otro lado, si \(X \setminus C \in \mathcal{\tilde V}\) entonces
+                      \(\mathcal{\tilde V} \setminus \{X \setminus C\} \subseteq \mathcal{U}\).
+
+                      Recordemos que \(C \cap (X\setminus C) = \varnothing\), de modo que
+                      \(\mathcal{\tilde U} = \mathcal{\tilde V} \setminus \{X \setminus C\} \subseteq
+                      \mathcal{U}\) es una subcubierta finita de \(\mathcal{U}\) y concluimos que \(C\)
+                      es compacto.
+                  </p>
+              </div>
             </div>
 
 
