@@ -73,6 +73,30 @@
       <div class="info-box">
         <h2 class="number-title"> Introducción </h2>
         <p>
+          La idea de la conexidad es sencilla: "un conjunto es conexo si es
+          un sola pieza". A pesar de que la idea es sencilla su formalización
+          en términos matemáticos no es tan sencilla. La primera curiosidad es que
+          no se define cuando un conjunto es conexo si no que se define cuando
+          un conjunto no lo es y a partir de esto se da la definición de conexidad.
+          Lo anterior se debe a que es más sencillo definir cuando un conjunto consiste
+          en dos o más piezas pues se usan abiertos para poder "separar" dichas piezas.
+          Así un conjunto va a ser conexo si "no se puede separar" usando abiertos.
+        </p>
+        <p>
+          Otra de las peculiaridades con la conexidad es que enunciados aparentemente
+          sencillos, por ejemplo \(\mathbb{R}\) es conexo, pueden ser laboriosos de demostrar
+          pues hay que cuidar varios detalles que uno piensa que son claro, pero
+          que formalmente necesitan una demostración a partir de la definición.
+        </p>
+        <p>
+          Mencionamos lo anterior no para dar la impresión de que la conexidad
+          sea "dificil" si no para advertir que se requiere aprender a pensar
+          sobre estos conjuntos, aprender a programar nuevas rutinas en el cerebro
+          por decirlo así. Pero las recompensas son muchas pues la relación de la
+          conexidad con las funciones continuas es sorprendente y muy útil
+          (para una muestra ver ejercicios <a href="#Ejer:PuntoFijoFunIntervalos">7.17</a>,
+          <a href="#Ejer:FunContinuaInyectivaEsCreciente">7.18</a> y
+          <a href="#Ejer:FunContinuasRacioIrra">7.19</a>)
 
         </p>
       </div>
@@ -649,15 +673,15 @@
 
 
       <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <h2 class="number-title" id="Ejer:PuntoFijoFunIntervalos"> Ejercicio </h2>
         <p>
-          Si \(f:[a,b]\to [a,b]\) es continua prubea que
+          Si \(f:[a,b]\to [a,b]\) es continua prueba que
           \(f\) tiene  un punto fijo.
           </p>
         </div>
 
         <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
+          <h2 class="number-title" id="Ejer:FunContinuaInyectivaEsCreciente"> Ejercicio </h2>
           <p>
             Si \(f:\mathbb{R}\to \mathbb{R}\) es continua e inyectiva
             prueba que \(f\) es estrictamente creciente.
@@ -666,7 +690,7 @@
 
 
         <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
+          <h2 class="number-title" id="Ejer:FunContinuasRacioIrra"> Ejercicio </h2>
           <p>
             Prueba que no existe una función continua
             \(f:\mathbb{R}\to \mathbb{R}\) que satisface
