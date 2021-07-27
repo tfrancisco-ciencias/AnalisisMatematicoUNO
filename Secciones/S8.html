@@ -372,6 +372,118 @@
           entonces existe una subsucesión \((x_{n_k})_{k=1}^\infty\)
           y \(x\in K\) tal que \(\lim_{k\to \infty} x_{n_k}=x\).
         </p>
+        <p>
+          Ya que la compacidad es una propiedad sobre las cubiertas
+          abiertas de \(K\) vamos a iniciar relacionando las bolas
+          abiertas con subconjuntos de la sucesión \((x_n)_{n=1}^\infty\).
+        </p>
+        <p>
+          Dado un punto cualquiera \(y \in K\) y \(r>0\) denotamos
+          \[
+          I_r(y)=\{n\in \mathbb{N}: d(y,x_n)< r\}.
+          \]
+
+
+        </p>
+        <p>
+          La idea de la prueba es que si el resultado del lema es falso
+          los conjuntos \(I_r(y)\) van a partir a \(\mathbb{N}\) en una
+          cantidad finita de conjuntos finitos, una clara contradicción.
+        </p>
+        <p>
+          Para iniciar vamos a probar el siguiente lema que relaciona
+          los conjuntos \(I_r(y)\) y las subsucesiones de \((x_n)_{n=1}^\infty\).
+        </p>
+          <h3>
+            Observación.
+          </h3>
+          <p>
+            Fija \(y\in K\) arbitrario. No existe una subsucesión de
+            \((x_n)_{n=1}^\infty\) que converja a \(y\) si y sólo si
+            existe \(r>0\) tal que \(I_r(y)\) sea finito.
+          </p>
+        <p>
+          Prueba de la observación.
+        </p>
+        <p>
+          Si tomamos contrapositivas la observación se puede escribir como:
+        </p>
+        <p>
+          para todo número positivo \(r>0\), \(I_r(y)\) es infinito
+          si y sólo si existe una subsucesión de \((x_n)_{n=1}^\infty\)
+          que converje a \(y\).
+        </p>
+        <p>
+          Lo que vamos a probar es precisamente lo anterior.
+        </p>
+        <p>
+          \(\Rightarrow ]\) Para \(r=1\) y usando que  \(I_1(y)\)
+          es infinito, podemos asegurar que existe \(n_1\in I_1(y)\).
+        </p>
+        <p>
+          Para el siguiente paso tomamos \(r=1/2\) y usando que
+          \(I_{\frac{1}{2}}(y)\) es infinito podemos asegurar que existe \(n_2 > n_2\)
+          tal que \(n_2\in I_{\frac{1}{2}}(y)\).
+        </p>
+        <p>
+          Continuiando de esta manera, dados naturales \(n_1< n_2< \cdots < n_k\)
+          con la propiedad de que \(n_j\in I_{\frac{1}{j}}(y)\), para todo \(j=1,\dots, k\),
+          tomando  \(r=1/(k+1)\) y usando que \(I_{\frac{1}{k+1}}(y)\) es
+          infinito podemos asegurar que existe \(n_{k+1}> n_k\) con
+          \(n_{k+1}\in I_{\frac{1}{k+1}}(y)\).
+        </p>
+        <p>
+          De la construcción anterior se sigue que \((x_{n_k})_{k=1}^\infty\)
+          es una subcusesión de \((x_{n})_{n=1}^\infty\) y que \(d(y,x_{n_k})< \frac{1}{k}\),
+          por lo que \(\lim_{k\to \infty} x_{n_k}=y\).
+        </p>
+        <p>
+          \(\Leftarrow ] \) Supongamos que existe \((x_{n_k})_{k=1}^\infty\),
+          una subsucesión de \((x_n)_{n=1}^\infty\) tal que
+          \[
+          \lim_{k\to \infty} x_{n_k}=y.
+          \]
+        </p>
+        <p>
+          Fijemos un número positivo \(r\). Usando que \(\lim_{k\to \infty}x_{n_k}=y\)
+          sabemos que existe \(K_0\in \mathbb{N}\) tal que para todo \(k\geq K_0\),
+          \(d(y,x_{n_k})< r\). En términos de \(I_r(y)\) lo anterior puede
+          escribirse como
+          \[
+          \{n_k: k\geq K_0\}\subseteq I_r(y)
+          \]
+          por lo que \(I_r(y)\) es infinito.
+        </p>
+        <p>
+          Aqui termina la prueba de la observación.
+        </p>
+        <p>
+          Para la prueba del lema supongamos que el resultado es falso. Entonces
+          se sigue de la observación que para todo \(y \in K\) existe \(r(y)>0\)
+          tal que \(I_{r(y)}(y)\) es finito.
+        </p>
+        <p>
+          Ahora consideramos la cubierta abierta de \(K\), \(\{ B_{r(y)}(y)\}_{y \in K}\).
+          Por la compacidad de \(K\) existe una cantidad finita de puntos
+          \(y_1,\dots y_m\in K\) tal que:
+          \[
+          K \subseteq \cup_{j=1}^m B_{r(y_j)}(y_j).
+          \]
+          Afirmamos que la contención anterior implica que \(\mathbb{N}\) es finito.
+          Para verlo, dado \(n\) usamos
+          \[
+          x_{n}\in K \subseteq \cup_{j=1}^m B_{r(y_j)}(y_j)
+          \]
+          para obtener que existe \(i\) tal que \(x_{n}\in B_{r(y_i)}(y_i)\). En términos
+          de los conjuntos \(I_r(y)\) lo anterior se escribe como \(n \in I_{r(y_i)}(y_i)\). Por
+          lo tanto
+          \[
+          \mathbb{N} \subseteq \cup_{j=1}^m I_{r(y_j)}(y_j).
+          \]
+        </p>
+        <p>
+          Como cada \(I_{r(y_j)}(y_j)\) es finito, \(\mathbb{N}\) es finito.
+        </p>
 
       </div>
 
