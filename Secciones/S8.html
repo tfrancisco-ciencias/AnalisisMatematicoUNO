@@ -565,7 +565,66 @@
   <p>
     Cualesquiera dos normas en \(\mathbb{R}^n\) son equivalentes.
   </p>
-</div>
+  <button class="respButton hvr-grow"> Demostración </button>
+  <div class="resp-box">
+      <p>
+          Empecemos por notar que la relación de 'ser norma equivalente' es una relación
+          de equivalencia. Si \(\| \|\) es una norma, claramente \(\|x\| \leq 1 \cdot \|x\|\)
+          para todo \(x \in X\), por lo que la relación es reflexiva. De la definición de
+          norma equivalente también tenemos de forma inmediata que la relación es simétrica.
+          Si \(\|\|_1, \|\|_2, \|\|_3\) son normas equivalentes entonces existen \(c_1,d_1,c_2,d_2 >0\)
+          tales que para todo \(x \in X\)
+          \[\|x\|_1 \leq c_1\|x\|_2, \quad \|x\|_2 \leq d_1 \|x\|_1\] y
+          \[\|x\|_2 \leq c_2\|x\|_3, \quad \|x\|_3 \leq d_2 \|x\|_2,\] de donde
+          \[\|x\|_1 \leq (c_1c_2)\|x\|_3, \quad \|x\|_3 \leq (d_1d_2) \|x\|_1,\]
+          y tenemos que la relación es transitiva.
+      <p>
+          Una vez que lo anterior ha sido establecido será suficiente demostrar que toda norma en \(\mathbb{R}^n\)
+          es equivalente a la norma \(\|\|_\infty\) en \(\mathbb{R}^n\).
+      </p>
+      <p>
+          Consideremos la base canónica en \(\mathbb{R}^n\), \(\{e_1,...,e_n\}\), y sea \(x \in \mathbb{R}^n\).
+          Entonces \(x = (x_1,...,x_n) = x_1 e_1 + ... + x_n e_n\). Definimos \(0 < C = \max \{||e_i||:1 \leq i \leq n\}\)
+          y tenemos lo siguiente:
+          \[
+          ||x|| = ||x_1 e_1 + ... + x_n e_n|| \leq \sum_{i=1}^n |x_i| ||e_i|| \leq C \sum_{i=1}^n |x_i| \leq C ||x||_\infty 
+          \]
+      </p>
+      <p>
+          Para mostrar la segunda desigualdad tendremos que observar varias cosas:
+          <ul>
+              <li>El conjunto \(S = \{x : ||x||_\infty = 1\}\) es compacto en \((\mathbb{R}^n,||||_\infty)\). Como
+                  \(||x||_\infty \leq ||x||_2 \leq \sqrt{n}||x||_2\) entonces \(||x||_2 \leq \sqrt{n}\) para
+                  todo \(x \in S\) y \(S\) es acotado.
+                  \(S\) es cerrado bajo la norma \(||||_\infty\), y como \(||||_2\) y \(||||_\infty\) son equivalentes,
+                  también es cerrado bajo \(||||_2\). Por el
+                  Teorema de Heine-Borel tenemos que es compacto en la topología inducida por la norma \(||||_2\),
+                  pero al ser equivalente a la norma \(||||_\infty\) también es compacto respecto a \(||||_\infty\).
+              </li>
+              <li>
+                  La norma \(||||\) es una función continua \(||||:\mathbb{R}^n \to \mathbb{R}\) respecto a la norma
+                  \(||||_\infty\). Como \(||||\) es norma entonces satifsface la desigualdad del triángulo inversa.
+                  Si además utilizamos la desigualdad mostrada en la primera parte de la prueba tenemos lo siguiente:
+                  \[
+                  |||x||-||y||| \leq ||x-y|| \leq C ||x-y||_\infty.
+                  \]
+                  Si \(\epsilon >0\) entonces podemos tomar \(\delta = \epsilon / C\) como testigo de la continuidad de
+                  \(||||\).
+              </li>
+              <li>Como \(S\) es compacto y \(||||\) es continua, entonces \(||||\) alcanza un mínimo en \(S\), llamemos
+                  \(x_0\) a un punto donde se alcanza dicho mínimo.
+              </li>
+
+              Sea \(x \in \mathbb{R}^n\). Si \(x=0\) entonces \(0=||x||_\infty \leq D ||x|| = 0\) para toda \(D\in \mathbb{R}\).
+              Supongamos ahora que \(x \neq 0\), entonces \(||x||_\infty > 0\) y \(x/{||x||_\infty} \in S\). Por definición de \(x_0\)
+              se tiene que \(||x_0|| \leq ||x/||x||_\infty|| = \frac{||x||}{||x||_\infty}\) y en consecuencia \(||x||_\infty \leq
+              \frac{1}{||x_0||}||x||\), por lo que si \(D=1/||x_0||\) entonces \(||x||_\infty \leq D ||x||\) y hemos probado lo
+              que las normas son equivalentes.
+          </ul>
+      </p>
+      </p>
+  </div>
+  </div>
 
 
 
