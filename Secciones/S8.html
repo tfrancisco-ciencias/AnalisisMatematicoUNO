@@ -248,10 +248,58 @@
 
 
       <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <h2 class="number-title" id="Ejer:IntervalosCompactos"> Ejercicio </h2>
         <p>
           Todo intervalo cerrado y acotado de \(\mathbb{R}\) es compacto.
         </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          Denotemos al intervalo por \([a,b]\), con \(a< b\) y sea
+          \(\{U_i\}_{i\in I}\) una cubierta abierta para \([a,b]\).
+        </p>
+        <p>
+          Ya que \(a\in \cup_{i\in I}U_i\), existe \(i_0\) tal que
+          \(a\in U_{i_0}\). Por otro lado ya que  \(U_{i_0}\) es abierto
+          existe un número positivo \(r\) tal que \((a-r,a+r)\subseteq U_{i_0}\).
+          Se sigue que podemos asegurar la existencia de un \(x_0\) tal que
+          \(a< x_0 < b \) y tal que
+          \[
+          [a,x_0]\subseteq U_{i_0}.
+          \]
+        </p>
+        <p>
+          Ahora consideremos el conjunto \(S\) formado por los puntos \(x\in [a,b]\)
+          con la propiedad de que \([a,x]\) está contenido en una unión finita
+          de elementos de \(\{U_i\}_{i\in I}\). Entonces \(S\) está acotado
+          superiormente (por \(b\)) y \(S\ne \emptyset\) (pues \(x_0\in S\)). Sea
+          \(x^*=\sup(S)\).
+        </p>
+        <p>
+          La prueba se termina si demostramos que \(x^*=b\). Nota que hasta el momento
+          se tiene que \(x^*\leq b\).
+        </p>
+        <p>
+          Ya que \(x^*\in [a,b]\) y \(\{U_i\}_{i\in I}\) es una cubierta
+          de \([a,b]\) existe \(i_1\in I\) tal que \(x^*\in U_{i_1}\). Usando
+          que \(U_{i_1}\) es abierto existe \(s>0\) tal que \((x^*-s,x^*+s)\subseteq U_{i_0}\).
+        </p>
+        <p>
+          Observamos que el intervalo \([a,x^*-s]\) está contenido en una unión
+          finita de elements de \(\{U_i\}_{i\in I}\). Razón: usando que \(x^*=\sup(S)\)
+          existe \(x \in S\) tal que \(x^*-s< x \leq x^*\). Ya que \([a,x]\)
+          puede cubrirse con una cantidad finita de elementos de \(\{U_i\}_{i\in I}\)
+          y \((x^*-s,x^*+s)\subseteq U_{i_1}\) resulta que también \([a,x^*-s]\)
+          puede cubrirse con una contidad finita de elementos de \(\{U_i\}_{i\in I}\).
+        </p>
+        <p>
+          Finalmente, si suponemos que \(x^*< b\) podemos encontrar un número \(s'\)  con \(0< s'< s\) tal que
+          \(x^*+s'< b \) por lo que \([x^*-s',x^*+s']\subseteq U_{i_1}\). Se sigue
+          que \([a,x^*+s']\) puede cubrirse con una cantidad finita de elementos
+          de \(\{U_i\}_{i\in I}\), por lo que \(x^*+s\in S\) contradiciento
+          que \(x^*=\sup(S)\). Por lo tanto debemos de tener que \(x^*=b\).
+        </p>
+      </div>
       </div>
 
 
@@ -276,13 +324,51 @@
         <p>
           Prueba que \(V\) es abierto en \(X\).
         </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          Fijemos \(x_0\in V\). Vamos a encontrar un número positivo \(r>0\)
+          tal que \(B_r^X(x_0)\subseteq V\).
+        </p>
+        <p>
+          Por definición de \(V\) tenemos que \(\{x_0\}\times B \subseteq \mathcal{O}\).
+          Ya que \(\mathcal{O}\) es abierto en \(X\times Y\), para todo
+          \(b\in B\) existe \(r_b>0\) tal que
+          \[
+          B_{r_b}((x_0,b))\subseteq \mathcal{O}.
+          \]
+        </p>
+        <p>
+            Ahora consideramos la cubierta abierta de \(B\) dada por
+            \(\{ B_{r_b/2}(b)\}_{b\in B}\). Por la compacidad de \(B\)
+            existen puntos \(b_1,\dots, b_n \in B\) tal que:
+            \[
+            B\subseteq \cup_{i=1}^n B_{r_{b_i}/2}(b_i).
+            \]
+        </p>
+        <p>
+          Definamos \(r=\min\{r_{b_1}/2,\dots, r_{b_n}/2\}\).
+        </p>
+        <p>
+          Tomemos
+          \(x\in B_r^X(x_0)\). Queremos probar que \(x\in V\), es decir
+          debemos de probar que \(\{x\}\times B \subseteq \mathcal{O}\). Dado
+          \(b\in B\) existe \(b_j\) tal que \(b\in B^Y_{r_{b_j}/2}(b_j)\). Por
+          lo tanto
+          \[
+          d((x,b),(x_0,b_{j})) = d_X(x,x_0)+ d_Y(b,b_j) < r + r_{b_j}/2\leq r_{b_j}
+          \]
+          es decir, \((x,b)\in B_{r_{b_j}}((x_0,b_j)) \subseteq \mathcal{O}\).
+          Concluimos que \(\{x\}\times B \subseteq \mathcal{O}\).
+        </p>
+      </div>
 
       </div>
 
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+      <div class="teorema-box">
+        <h2 class="number-title" id="Teo:ProductoCompactos"> Teorema </h2>
         <p>
           Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos
           y \( A \subseteq X \), \(B \subseteq Y\)
@@ -291,19 +377,104 @@
         <p>
           Prueba que \(A\times B\) es un subconjunto compacto.
         </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          La idea es probar que cada "rebanada" de \(A\times B\) se puede
+          cubrir con una cantidad finita de abiertos y después asegurarnos
+          que podemos usar una cantidad finita de rebanadas para cubrir a
+          todo \(A\times B\). Las rebanadas van a ser
+          conjuntos de la forma \(\{a\}\times B\).
 
+        </p>
+        <p>
+          Sea \(\{\mathcal{O}_i\}_{i\in I}\) una cubierta abierta de \(A\times B\).
+        </p>
+        <p>
+          Primero vamos a probar que, para todo \(a\in A\), fijo y arbitrario, existe un
+          conjunto finito de índices, \(I_a \subseteq I\), tal que
+          \begin{equation}\label{Eqn:Aux1ProductoCompactos}
+          \{a\}\times B \subseteq \cup_{i\in I_a}\mathcal{O}_i
+          \end{equation}
+        </p>
+        <p>
+           En efecto, para todo \(b\in B\) tenemos
+           \((a,b)\in A\times B\subseteq \cup_{i\in I}\mathcal{O}_i\),
+           por lo que existe un índice \(i_b\in I\), que va a depender de \(b\),
+          tal que \((a,b)\in \mathcal{O}_{i_b}\). Variando la \(b\in B\)
+          obtenemos la siguiente contención:
+           \[
+           \{a\}\times B \subseteq \cup_{b\in B}\mathcal{O}_{i_b}.
+           \]
+           Nota que varios puntos en \(B\) pueden compatir el mismo
+           abierto \(\mathcal{O}_{i_b}\), pero gracias a la compacidad
+           de \(B\) vamos a quedarnos sólo con un número finito de los \(\mathcal{O}_{i_b}\).
+         </p>
+           Considerando a la función proyección de \(A\times B\) a \(B\) y usando que
+           \(B\) es compacto obtenemos que existe \(F_a\), un subconjunto finito
+           de \(B\), tal que
+           \[
+           \{a\}\times B \subseteq \cup_{b\in F_a}\mathcal{O}_{i_b}.
+           \]
+           Tomamos \(I_a=\{i_b: b\in F_a\}\). Con esto terminamos la
+           prueba de \eqref{Eqn:Aux1ProductoCompactos}.
+
+        </p>
+        <p>
+          Continuando con la prueba del teorema, para todo \(a\in A\)
+          definimos
+          \[
+          \mathcal{O}_a=\cup_{i\in I_a}\mathcal{O}_i
+          \]
+          y
+          \[
+          V_a=\{x\in X: \{x \} \times B \subseteq \mathcal{O}_a\}.
+          \]
+        </p>
+        <p>
+          Por el lema anterior \(V_a\) es abierto en \(X\) y por
+          construcción de \(\mathcal{O}_a\), \(a\in V_a\). Entonces
+          se tiene que \(\{V_a\}_{a\in A}\) es una cubierta abierta
+          de \(A\). Por la compacidad de \(A\) existen puntos
+          \(a_1,\dots, a_n\in A\) tal que
+          \begin{equation}\label{Eqn:Aux2ProductoCompactos}
+          A \subseteq \cup_{s=1}^nV_{a_s}.
+          \end{equation}
+        </p>
+        <p>
+          Para terminar vamos a probar la contención
+          \[
+          A\times B \subseteq \cup_{s=1}^n \cup_{i\in I_{a_s}}\mathcal{O}_i.
+          \]
+        </p>
+        <p>
+          Tomamos \((a,b)\in A\times B\). Por \eqref{Eqn:Aux2ProductoCompactos}
+          existe \(s_0\) tal que \(a\in V_{a_{s_0}}\) de lo cual obtenemos
+          \[
+          \{a\}\times B \subseteq \mathcal{O}_{a_{s_0}}
+          \]
+          y entonces
+          \[
+          (a,b)\in \{a\}\times B \subseteq \mathcal{O}_{a_{s_0}}=\cup_{i\in I_{a_{s_0}}}\mathcal{O}_i
+          \]
+          es decir, existe \(i\in I_{a_{s_0}}\) con \((a,b)\in \mathcal{O}_{i}\).
+        </p>
+      </div>
       </div>
 
 
 
       <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <h2 class="number-title" id="Ejer:HiperCubosCompactos"> Ejercicio </h2>
         <p>
           Prueba que el subconjunto
           \[
           [a_1,b_1]\times [a_2,b_2]\times \cdots \times [a_n,b_n] \subseteq \mathbb{R}^n
           \]
           es un subconjunto compacto.
+        </p>
+        <p>
+          Sugerencia: usa inducción junto con el teorema anterior y el <a href="#Ejer:IntervalosCompactos"> Ejercicio 8.4</a>
         </p>
 
       </div>
@@ -312,7 +483,7 @@
 
 
             <div class="ejercicio-box">
-              <h2 class="number-title"> Ejercicio </h2>
+              <h2 class="number-title" id="Ejer:CerradosEnCompactos"> Ejercicio </h2>
               <p>
                 Sea \((X,d)\) un espacio métrico y \(K\subseteq X\)
                 compacto. Si \(C \subseteq K\) es un subconjunto cerrado
@@ -350,7 +521,10 @@
                 Prueba que todo subconjunto cerrado y acotado de \(\mathbb{R}^n\)
                 es compacto.
               </p>
-
+              <p>
+                Sugerencia: usa <a href="#Ejer:HiperCubosCompactos">Ejercicio 8.7</a>
+                y <a href="#Ejer:CerradosEnCompactos">Ejercicio 8.8</a>
+              </p>
             </div>
 
 
@@ -490,6 +664,72 @@
       </div>
       </div>
 
+
+      <div class="lema-box">
+        <h2 class="number-title"> Lema</h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(K\subseteq X\). Si
+          \(K\) es compacto entonces \(K\) es cerrado.
+        </p>
+        <button class="respButton hvr-grow"> Demostración 1</button>
+        <div class="resp-box">
+        <p>
+            Vamos a probar que todo punto en la cerradura de \(K\)
+            está también en \(K\). Sea pues \(x \in \overline{K}\).
+            Entonces, por <a href="#Teo:CaracCerrados"> Teorema 5.11</a> existe
+            una sucesión de puntos en \(K\), \((x_n)_{n=1}^\infty\),
+            tal que
+            \begin{equation}\label{Eqn:Aux1CompactosSonCerrados}
+            \lim_{n\to \infty} x_n=x.
+            \end{equation}
+        </p>
+        <p>
+          Ahora, por el lema anterior existe \((x_{n_k})_{k=1}^\infty\),
+          una subsucesión de \((x_n)_{n=1}^\infty\) y un punto \(y\in K\),
+          tal que
+          \begin{equation}\label{Eqn:Aux2CompactosSonCerrados}
+          \lim_{k \to \infty} x_{n_k}=y
+          \end{equation}
+        </p>
+        <p>
+          De \eqref{Eqn:Aux1CompactosSonCerrados} y \eqref{Eqn:Aux2CompactosSonCerrados}
+          se sigue que \(x=y\) por lo que \(x\in K\).
+        </p>
+      </div>
+      <p>
+        
+      <button class="respButton hvr-grow"> Demostración 2</button>
+      <div class="resp-box">
+      <p>
+        Vamos a probar que el complemento de \(K\) es abierto. Sea \(z \in X\setminus K\).
+      </p>
+      <p>
+        Para todo \(x\in K\) existe \(r_x>0\) tal que
+        \begin{equation}\label{Eqn:Aux3CompactosCerrados}
+        B_{r_x}(x)\cap B_{r_x}(z) = \emptyset
+        \end{equation}
+      <p>
+        <p>
+          Ahora consideramos la cubierta abierta de \(K\) dada por
+          \(\{B_{r_x}(x)\}_{x\in K}\). Por compacidad existen una
+          cantidad finita de puntos \(x_1,\dots, x_n\in K\) tal que
+          \[
+          K\subseteq \cup_{i=1}^n B_{r_{x_i}}(x_i)
+          \]
+        </p>
+        <p>
+          Consideramos el número positivo \(r=\min\{r_{x_1},\dots, r_{x_n}\}\).
+          Afirmamos que \(B_r(x) \subseteq X\setminus K\). Razón:
+
+          \[
+          B_r(x)\cap K \subseteq B_r(x)\cap \left( \cup_{i=1}^nB_{r_{x_i}}(x_i) \right)
+          =\cup_{i=1}^n B_r(x)\cap B_{r_{x_i}}(x_i)=\emptyset
+          \]
+          donde la última igualdad se da por \eqref{Eqn:Aux3CompactosCerrados}.
+        </p>
+      </div>
+      </div>
+
       <div class="lema-box">
         <h2 class="number-title" id="Lema:CompactoImplicaAcotado"> Lema </h2>
         <p>
@@ -500,6 +740,33 @@
           Es decir, existe \(x\in X\) y \(r>0\), tal que
           \(K\subseteq B_r(x)\).
         </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          Tomamos un punto \(x\in X\) fijo y arbitrario. Vamos a
+          probar que existe un \(r>0\) tal que \(K\subseteq B_r(x)\).
+        </p>
+        <p>
+          Consideramos la cubierta abierta de \(K\) dada por
+          \[
+          \{B_r(y)\}_{r>0, y \in K }
+          \]
+          Por compacidad de \(K\) existe una cantidad finita de números
+          positivos \(r_1,\dots, r_n\) y puntos \(y_1,\dots, y_n\) tal que
+          \[
+            K\subseteq \cup_{i=1}^n B_{r_i}(y_i).
+          \]
+        </p>
+        <p>
+          Tomamos \(r=\max\{r_1,\dots, r_n\}+\max\{ d(y_1,x), \dots d(y_n,x)\}\).
+          Afirmamos que \(K \subseteq B_r(x)\). Razón: dado
+          \(y\in K\) existe \(y_j\in K\) y \(r_j >0\) tal que
+          \(y\in B_{r_j}(y_j)\). Por la desigualdad del triángulo:
+          \[
+          d(y,x)\leq d(y,y_j)+d(y_j,x) < r_j + d(y_j,x) \leq   r.
+          \]
+        </p>
+      </div>
       </div>
 
 
