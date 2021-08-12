@@ -533,7 +533,7 @@
 
 
             <div class="ejercicio-box" >
-              <h2 class="number-title"> Ejercicio </h2>
+              <h2 class="number-title" id="Ejer:RegreoHeineBorel"> Ejercicio </h2>
               <p>
                 Prueba que todo subconjunto cerrado y acotado de \(\mathbb{R}^n\)
                 es compacto.
@@ -683,7 +683,7 @@
 
 
       <div class="lema-box">
-        <h2 class="number-title"> Lema</h2>
+        <h2 class="number-title" id="Ejer:CompactoImplicaCerrado"> Lema</h2>
         <p>
           Sea \((X,d)\) un espacio métrico y \(K\subseteq X\). Si
           \(K\) es compacto entonces \(K\) es cerrado.
@@ -795,6 +795,12 @@
     Un subconjunto de \(\mathbb{R}^n\) es compacto si y sólo si
     es cerrado y acotado.
   </p>
+  <p>
+    Sugerencia: la ida se sigue inmediatamente de <a href="#Ejer:CompactoImplicaCerrado">Lema 8.11</a> y
+    <a href="#Lema:CompactoImplicaAcotado">Lema 8.12</a> (nota que para esta
+    implicación no se usa que estamos en \(\mathbb{R}^n\)). El regreso es el
+     <a href="#Ejer:RegreoHeineBorel"> Ejercicio 8.9</a>.
+  </p>
 </div>
 
 
@@ -814,7 +820,7 @@
 
 
 <div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
+  <h2 class="number-title" id="Ejer:InfimoSupremoPertenecenCompacto"> Ejercicio </h2>
   <p>
     Sea \(K \subseteq \mathbb{R}\) un subconjunto compacto. Por el
     <a href="#Teo:HeineBorel">Teorema de Heine-Borel</a>
@@ -872,12 +878,47 @@
 
 
       <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <h2 class="number-title" id="Ejer:ImagenDeCompactoEsCompcto"> Ejercicio </h2>
           <p>
             Sea \(f:(X,d_X)\to (Y,d_Y)\) una función continua y
             \(K \subseteq X\) un subconjunto compacto. Prueba
             que \(f(K)\subseteq Y \) es compacto.
           </p>
+          <button class="respButton hvr-grow"> Solución </button>
+          <div class="resp-box">
+          <p>
+            Sea \(\{U_\alpha\}_{\alpha \in \Lambda }\) una cubierta
+            abierta de \(f(K)\).
+          </p>
+          <p>
+            Afirmamos que \(\{f^{-1}(U_\alpha)\}_{\alpha \in \Lambda}\)
+            es una cubierta abierta de \(K\). Razón: ya que \(f\)  es continua
+            y \(U_\alpha \subseteq Y\) es abierto  se sigue que
+            \(f^{-1}(U_\alpha)\subseteq X\) es abierto. Ahora probamos la
+            contención \(K\subseteq \cup_{\alpha \in \Lambda} f^{-1}(U_\alpha)\):
+            dado \(x\in K\) se sigue
+            \[
+            f(x)\in f(K) \subseteq \cup_{\alpha \in \Lambda} U_\alpha
+            \]
+            por lo que existe un índice \(\alpha_0\) para el cual
+            \(f(x)\in U_{\alpha_0}\) lo cual implica \(x\in f^{-1}(U_{\alpha_0})\).
+          </p>
+          <p>
+          Como \(K\) es compacto y \(\{f^{-1}(U_\alpha)\}_{\alpha \in \Lambda}\)
+          es una cubierta abierta, existen índices \(\alpha_1,\dots, \alpha_n\)
+          para los cuales
+          \begin{equation}\label{Eqn:AuxImagenDeCompactoEsCompacto}
+          K\subseteq \cup_{i=1}^n f^{-1}(U_{\alpha_i})
+          \end{equation}
+          </p>
+          <p>
+            Resta probar que \(f(K)\subseteq \cup_{i=1}^n U_{\alpha_i}\). Dado
+            \(y\in f(K)\), existe \(x\in K\) tal que \(y=f(x)\). Por
+            la contención \eqref{Eqn:AuxImagenDeCompactoEsCompacto}
+            existe \(\alpha_{i_0}\) tal que \(x\in f^{-1}(U_{\alpha_{i_0}})\)
+            lo cual implica \(y=f(x)\in U_{\alpha_{i_0}}\).
+          </p>
+        </div>
         </div>
 
 
@@ -895,6 +936,27 @@
     \]
 
   </p>
+
+  <button class="respButton hvr-grow"> Solución </button>
+  <div class="resp-box">
+  <p>
+
+    Por el <a href="#Ejer:ImagenDeCompactoEsCompcto">Ejercicio 8.18</a>,
+    \(f(K)\) es un subconjunto compacto de \(\mathbb{R}\), por lo tanto
+    \(f(K)\) es acotado y
+    existen \(\sup(f(K))\) e \(\inf(f(K))\). Por el
+    <a href="#Ejer:InfimoSupremoPertenecenCompacto">Ejercicio 8.15</a>
+    tenemos que
+    \[
+    \inf(f(K)), \sup(f(K)) \in f(K)
+    \]
+    de lo que se sigue la  existencia de  \(x_*,x^*\in K\) tales que
+    \[
+    \inf(f(K))=f(x_*), \quad \sup(f(k))=f(x^*).
+    \]
+    Estos puntos satisfacen la conclusión del teorema.
+  </p>
+</div>
 </div>
 
 
