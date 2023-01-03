@@ -4,7 +4,6 @@
 
   <head>
     <!-- Following part is mathjax, for latex-->
-
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <!-- This part is for jQuery -->
@@ -19,9 +18,7 @@
         tex: {
           macros: {
             sen: "\\operatorname{sen}",
-            seg: ["\\overrightarrow{#1}", 1],
-            inte: "\\operatorname{int}",
-            cer: "\\operatorname{cer}",
+            seg: ["\\overrightarrow{#1}", 1]
           },
           tags: "ams" /* this part is for numbered equations */
         }
@@ -42,23 +39,30 @@
       }
     </style>
 
-  </head>
 
 
   <!-- Top Menu -->
 
   <header class="main-header">
+    <h1 class="calculo-title"> Análisis Matemático UNO</h1>
     <nav class="top-nav">
       <ul>
         <li> <a href="../Home.html"> Inicio  </a> </li>
         <li> <a href="../Secciones.html"> Secciones  </a> </li>
       </ul>
-      <p align="right" >  <button onclick="myFunction()" class="darklightButton">Claro/Obscuro </button> </p>
+     
     </nav>
+    <label class="switch">
+      <input type="checkbox" onclick="myFunction()">
+      <span class="slider"></span>
+    </label>
 
-    <h1 class="calculo-title"> Análisis Matemático UNO</h1>
+    
 
   </header>
+
+  <!-- This part is for title in tab-->
+  <title id="Sec"> § 5 </title>
 
   <!--    Contenido empiaza abajo
  ///////////////////////////////// -->
@@ -68,7 +72,9 @@
 
 
     <div class="flexbox">
-      <h1 class="number-title"> Topología en espacios métricos </h1>
+      <h1 class="number-title flexbox"> Topología en espacios métricos </h1>
+      <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
+      <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
       <div class="info-box">
         <h2 class="number-title"> Introducción </h2>
