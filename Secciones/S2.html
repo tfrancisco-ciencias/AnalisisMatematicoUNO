@@ -113,9 +113,11 @@
 
 
         <button class="respButton hvr-grow"> Ejemplos </button>
-        <div class="resp-box">
-            <div class="video flexbox">
-                <a href="https://youtu.be/B3Rv-miv_MI" target="_blank"> Video  </a>
+        <div class="resp-box flexbox">
+            <div class="flexbox">
+              <iframe width="700" height="400" class="video"
+                src="https://www.youtube.com/embed/B3Rv-miv_MI" allowfullscreen="true"> 
+              </iframe>
             </div>
         </div>
 
@@ -146,11 +148,14 @@
               Para terminar bastará probar la desigualdad del triángulo, pero ello es
               consecuencia directa de la desigualdad del triángulo para el valor absoluto.
               Si \(z \in (0,\infty)\) entonces
-              \[
-              d(x,y) = \left| \frac{1}{x} - \frac{1}{y} \right| = \left| \frac{1}{x} - \frac{1}{z}
-              + \frac{1}{z} - \frac{1}{y} \right| \leq \left| \frac{1}{x} - \frac{1}{z}\right|
-              + \left| \frac{1}{z} - \frac{1}{y} \right| = d(x,z) + d(z,y).
-              \]
+              \begin{eqnarray*} 
+              d(x,y) &=&  \left| \frac{1}{x} - \frac{1}{y} \right| \\
+              &=&  \left| \frac{1}{x} - \frac{1}{z}
+              + \frac{1}{z} - \frac{1}{y} \right| \\
+              & \leq & \left| \frac{1}{x} - \frac{1}{z}\right|
+              + \left| \frac{1}{z} - \frac{1}{y} \right|  \\
+              &=& d(x,z) + d(z,y).
+              \end{eqnarray*}
           </p>
       </div>
     </div>
@@ -314,13 +319,13 @@
           <p>
               Sean \(a,b,c \in \{0,1\}^\mathbb{N}\), entonces
               \[
-              \begin{align}
+              \begin{align*}
               d(a,b)=& \sum_{n=1}^\infty \frac{|a_n - b_n|}{2^n}
               = \sum_{n=1}^\infty \frac{|a_n - c_n + c_n - b_n|}{2^n}\\
               \leq& \sum_{n=1}^\infty \frac{|a_n - c_n|+|c_n - b_n|}{2^n}\\
               =& \sum_{n=1}^\infty \frac{|a_n - c_n|}{2^n} + \sum_{n=1}^\infty \frac{|c_n - b_n|}{2^n}\\
               =& d(a,c) + d(c,b).
-              \end{align}
+              \end{align*}
               \]
               Con ésto se demuestra que se satisface la desigualdad del triángulo y que \(d(\ ,\ )\)
               es una métrica en \(\{0,1\}^\mathbb{N}\).
@@ -584,11 +589,12 @@
 
               <p>
                   Al tomar el ínfimo del lado derecho de la desigualdad anterior observamos
-                  \[
-                  d(a,b) \leq \operatorname{diam}(A) + \inf_{x \in A,y \in B}d(x,y) +
-                  \operatorname{diam}(B) = \operatorname{diam}(A) + d(A,B) +
+                  \begin{eqnarray*}
+                  d(a,b) & \leq &  \operatorname{diam}(A) + \inf_{x \in A,y \in B}d(x,y) +
+                  \operatorname{diam}(B)\\
+                  & = & \operatorname{diam}(A) + d(A,B) +
                   \operatorname{diam}(B).
-                  \]
+                  \end{eqnarray*}
               </p>
               <p>
                   Para concluir basta notar que ya hemos probado que la desigualdad anterior es

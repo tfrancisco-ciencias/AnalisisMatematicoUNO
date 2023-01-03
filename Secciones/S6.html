@@ -18,7 +18,9 @@
         tex: {
           macros: {
             sen: "\\operatorname{sen}",
-            seg: ["\\overrightarrow{#1}", 1]
+            seg: ["\\overrightarrow{#1}", 1],
+            cer: "\\operatorname{cer}",
+            inte: "\\operatorname{int}"
           },
           tags: "ams" /* this part is for numbered equations */
         }
@@ -581,10 +583,13 @@
   </p>
 
   <button class="respButton hvr-grow"> Respuesta </button>
-  <div class="resp-box">
+  <div class="resp-box flexbox">
       Se dará prueba de los primeros dos incisos.
-      <div class="video flexbox">
-          <a href="https://youtu.be/pGlJotPRvGU" target="_blank"> Video  </a>
+      <div class=" flexbox">
+        <iframe width="700" height="400" class="video"
+          src="https://www.youtube.com/embed/pGlJotPRvGU" allowfullscreen="true"> 
+        </iframe>
+          
       </div>
   </div>
 </div>
@@ -691,18 +696,23 @@
   <div class="resp-box">
       <ol>
           <li>
-              Comencemos por recordar el Teorema del Valor Medio. Si \(f:[a,b] \to \mathbb{R}\)
-              es continua en \([a,b]\) y diferenciable en \((a,b)\) entonces existe un punto
-              \(c \in (a,b)\) tal que \(f'(c) = \frac{f(b)-f(a)}{b-a}\). Dado que \(\sen\) y \(\cos\)
-              son continuas y diferenciables en todo \(\mathbb{R}\). Trabajaremos con \(\sen\) y
-              el caso para \(\cos\) será análogo. Recordemos que ambas funciones toman valores en
-              el intervalo \([0,1]\) y \(\sen '(x) = \cos(x)\), de esta forma si \(a,b \in \mathbb{R}\)
-              entonces existe \(c \in (a,b)\) tal que \(\cos(c) = \frac{\sen(b)-\sen(a)}{b-a}\).
-              Basta tomar valor absoluto en ambos lados de la ecuación y despejar el término
-              \(|b-a|\) para obtener \(|\sen(b) - \sen(a)| = |\cos(c)||b-a|\). Como \(|\cos(c)| \leq 1\)
-              concluimos que \(|\sen(b) - sen(a)| \leq 1 \cdot |b-a|\) y la función en cuestión es
-              Lipschitz con constante \(K=1\). El caso de \(\cos\) es análogo. Dados \(a,b \in \mathbb{R}\)
-              existe \(c \in (a,b)\) tal que \(|\cos(b) - \cos(a)| = |-\sen(c)||b-a| \leq 1 \cdot |b-a|\).
+              <p>
+                Comencemos por recordar el Teorema del Valor Medio. Si \(f:[a,b] \to \mathbb{R}\)
+                es continua en \([a,b]\) y diferenciable en \((a,b)\) entonces existe un punto
+                \(c \in (a,b)\) tal que \(f'(c) = \frac{f(b)-f(a)}{b-a}\).
+              </p> 
+              <p>
+                Dado que \(\sen\) y \(\cos\)
+                son continuas y diferenciables en todo \(\mathbb{R}\). Trabajaremos con \(\sen\) y
+                el caso para \(\cos\) será análogo. Recordemos que ambas funciones toman valores en
+                el intervalo \([0,1]\) y \(\sen '(x) = \cos(x)\), de esta forma si \(a,b \in \mathbb{R}\)
+                entonces existe \(c \in (a,b)\) tal que \(\cos(c) = \frac{\sen(b)-\sen(a)}{b-a}\).
+                Basta tomar valor absoluto en ambos lados de la ecuación y despejar el término
+                \(|b-a|\) para obtener \(|\sen(b) - \sen(a)| = |\cos(c)||b-a|\). Como \(|\cos(c)| \leq 1\)
+                concluimos que \(|\sen(b) - sen(a)| \leq 1 \cdot |b-a|\) y la función en cuestión es
+                Lipschitz con constante \(K=1\). El caso de \(\cos\) es análogo. Dados \(a,b \in \mathbb{R}\)
+                existe \(c \in (a,b)\) tal que \(|\cos(b) - \cos(a)| = |-\sen(c)||b-a| \leq 1 \cdot |b-a|\).
+              </p>
           </li>
           <li>
               Notemos que la generalización la obtenemos de manera natural de la demostración anterior.
@@ -875,9 +885,12 @@
   </p>
 
   <button class="respButton hvr-grow"> Respuesta </button>
-  <div class="resp-box">
-      <div class="video flexbox">
-          <a href="https://youtu.be/wxV64UovdQ8" target="_blank"> Video  </a>
+  <div class="resp-box flexbox">
+      <div class=" flexbox">
+        <iframe width="700" height="400" class="video"
+          src="https://www.youtube.com/embed/wxV64UovdQ8" allowfullscreen="true"> 
+        </iframe>
+          
       </div>
   </div>
 </div>
