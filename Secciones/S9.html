@@ -112,6 +112,114 @@
   <p>
     \(\mathbb{R}\) con la métrica usual es completo.
   </p>
+  <button class="respButton hvr-grow"> Demostración </button>
+  <div class="resp-box">
+  <p>
+    Sea \((x_n)_{n=1}^\infty \subseteq \mathbb{R}\) una sucesión de Cauchy. 
+  </p>
+  <p>
+    Por el <a href="./S4.html#Ejer:SubsucesionConvDeUnaCauchy">Ejercicio 4.29</a> 
+    es suficiente probar que \((x_n)_{n=1}^\infty\) admite una subsucesión 
+    convergente.
+  </p>
+  <p>
+    Usando que \((x_n)_{n=1}^\infty\) es de Cauhcy podemos encontrar una subsucesión 
+    \((x_{n_k})_{k=1}^\infty\) que satisface 
+    \[
+    |x_{n_{k+1}}-x_{n_k}|< \frac{1}{2^k}
+    \]
+    para todo \(k=1,2,\dots\). En consecuencia para todo natural  \(p\geq 1\) 
+    \[
+    |x_{n_{k+p}-x_{n_k}}| \leq \sum_{i=0}^{p-1} \frac{1}{2^{k+i}}
+    \]
+  </p>
+  <p>
+    Ahora definimos 
+    \begin{eqnarray*} 
+      \alpha &=& \sup_{j \geq 1}\{ \inf_{k\geq j } \{ x_{n_k}\}  \} \\
+      \beta &=& \inf_{j \geq 1}\{ \sup_{k\geq j } \{x_{n_k} \}\} 
+    \end{eqnarray*}
+    las cuales están bien definidas pues toda subsucesión de Cauchy es acotada 
+    (ver <a href="./S4.html#Ejer:CauchyAcotada">Ejercicio 4.27</a>). La idea es que 
+    \(\alpha\) es el punto de acumulación más chico de \((x_{n_k})_{k=1}^\infty\) 
+    y \(\beta\) el punto de acumulación más grande. Se probará que \(\alpha = \beta\) y 
+    que éste punto es el límite de la subsucesión \((x_{n_k})_{k=1}^\infty\).
+  </p>
+  <p>
+    Ahora vamos a probar que \(\alpha = \beta\). En primer por las 
+    propiedades de supremos e ínfimos, para toda \(j\)
+    \begin{eqnarray} 
+    \alpha_j:= \inf_{k\geq j } \{x_{n_k} \} & \leq &  \sup_{k\geq j } \{x_{n_k} \}=:\beta_j \label{Eqn:Aux1Rcomp}\\
+    \alpha_j= \inf_{k\geq j } \{x_{n_k} \} & \leq &  \inf_{k\geq j+1 } \{x_{n_k} \} =\alpha_{j+1} \label{Eqn:Aux2Rcomp} \\
+    \beta_{j}=\sup_{k\geq j} \{x_{n_k} \} & \geq & \inf_{k\geq j+1 } \{x_{n_k} \}=\beta_{j+1} \label{Eqn:Aux3Rcomp}
+    \end{eqnarray}
+  </p>
+
+
+
+
+  <p>
+    Por \eqref{Eqn:Aux1Rcomp} podemos concluir que \(\alpha \leq \beta\) y por \eqref{Eqn:Aux2Rcomp} y 
+    \eqref{Eqn:Aux3Rcomp} tenemos que 
+    \begin{eqnarray*} 
+    \alpha_1 \leq \alpha_2 \leq \cdots \leq  \alpha  \\
+    \beta  \leq \cdots \leq \beta_2 \leq \beta_1
+    \end{eqnarray*}
+  </p>
+  <p>
+    Ahora, para \(j\geq 1\) arbitrario, usando las propiedades fundamentales de ínfimos y supremos para 
+    \(\varepsilon >0\) existen \(k_1,k_2 \geq j\) tales que 
+    \begin{eqnarray*} 
+      \alpha_j + \varepsilon & > & x_{n_{k_1}} \\ 
+      \beta_j -\varepsilon & < & x_{n_{k_2}}
+    \end{eqnarray*}
+    se sigue que 
+    \begin{eqnarray*} 
+      \beta_j-\varepsilon - (\alpha_j +\varepsilon) < x_{n_{k_2}} - x_{n_{k_1}} \leq |x_{n_{k_2}} - x_{n_{k_1}} |
+    \end{eqnarray*}
+  </p>
+  <p>
+    Sin pérdida de generalidad podemos suponer \(k_2=k_1+p\), para algún \(p\geq 1\). Por lo tanto se sigue que 
+    \begin{eqnarray*} 
+    \beta_j - \alpha_j \leq |x_{n_{k_1+p}}-x_{n_{k_1}}|\leq \sum_{i=0}^{p-1} \frac{1}{2^{k_1+i}}
+    \end{eqnarray*}
+    y ya que \(k_1 \geq j\) lo anterior también implica que 
+    \begin{eqnarray*} 
+    \beta_j - \alpha_j & \leq &  \sum_{i=0}^{p-1} \frac{1}{2^{j+i}} \\
+    &=& \frac{1}{2^j}\sum_{i=0}^{p-1}\frac{1}{2^i} \\
+    & < & \frac{1}{2^j}\sum_{i=0}^\infty \frac{1}{2^j} \\
+    &=& \frac{1}{2^j}2 =\frac{1}{2^{j-1}}
+    \end{eqnarray*}
+  </p>
+  <p>
+    Para concluir que \(\alpha = \beta\) usando que \(\alpha_j \leq \alpha \leq \beta \leq \beta_j\) llegamos a 
+    \[
+    \beta - \alpha \leq \beta_j -\alpha_j \leq \frac{1}{2^{j-1}}
+    \]
+    por lo cual, haciendo \(j\to \infty\) concluimos que \(\alpha = \beta\).
+  </p>
+  <p>
+    Ahora denotamos \(x=\alpha=\beta\) y para terminar probamos que \(\lim_{k\to \infty}x_{n_k}=x\).
+  </p>
+
+  <p>
+    Ahora por las propiedades fundamentales de ínfimos y supremos para \(\varepsilon >0\) existen \(j_1,j_2\)
+    tales que 
+    \begin{eqnarray*} 
+    x- \varepsilon < \alpha_{j_1}, \\
+    \beta_{j_2} < x+\varepsilon.
+    \end{eqnarray*}
+    Sea \(j_3=\max\{j_1,j_2\}\). Por \eqref{Eqn:Aux2Rcomp} y \eqref{Eqn:Aux3Rcomp} tenemos que 
+    \(\alpha_{j_1}\leq \alpha_{j_3}\) y \(\beta_{j_3}\leq \beta_{j_2}\) y por \eqref{Eqn:Aux1Rcomp}
+    tenemos \(\alpha_{j_3} \leq \beta_{j_3}\). Con toda la información anterior tenemos la siguiente cadena 
+    de desigualdades
+    \begin{eqnarray*} 
+    x -\varepsilon <  \alpha_{j_3}\leq x_{n_k} \leq  \beta_{j_3} <  x +\varepsilon
+    \end{eqnarray*}
+    para todo \(k\geq j_3\), lo cual se puede reescribir como \(|x-x_{n_k}|< \varepsilon\) para todo 
+    \(k \geq j_3\), es decir \(\lim_{k\to \infty}x_{n_k}=x\).
+  </p>
+</div>
 </div>
 
 
@@ -250,6 +358,43 @@
       </p>
     </li>
   </ol>
+
+  <p>
+    \(\Rightarrow ] \) Supongamos que \((X,d)\) es completo y  sea \((F_n)_{n=1}^\infty\) una sucesión de cerrados que satisfacen 
+    las suposiciones del inciso 2.
+  </p>
+  <p>
+    Para cada natural \(n\) fijamos un elemento \(x_n \in F_n \). Afirmamos que \((x_n)_{n=1}^\infty\) es una sucesión de 
+    Cauchy. En efecto, dada \(\varepsilon >0\) el límite \(\lim_{n\to \infty} \operatorname{diam}(F_n)=0\)
+    implica que existe un natural \(N \) tal que \(\operatorname{diam}(F_n) < \varepsilon \) para todo 
+    \(n \geq N\). Ahora, si \(n,m \geq N\) y \(m\geq n\) usando que la sucesión es anidada tenemos que 
+    \(x_n,x_m \in F_m\) y por lo tanto 
+    \[
+    d(x_n, x_m)\leq \operatorname{diam}(F_m) < \varepsilon.
+    \]
+  </p>
+  <p>
+    Por completez existe un \(x\in X\) tal que \(\lim_{n\to \infty} x_n = x\). Para terminar vamos a probar 
+    que \(\cap_{n=1}^\infty F_n=\{x\}\).
+  </p>
+  <p>
+    Fijamos un natural \(n\). Al ser la sucesión anidada tenemos que \(F_k \subseteq F_n\) para todo 
+    \(k\geq n \), por lo tanto \(x_k \in F_n\) para todo \(k\geq n\) y como \(\lim_{k \to \infty}x_k=x\)
+    se sique que \(x\) está en la cerradura de \(F_n\) pero al ser éste cerrado concluimos que 
+    \(x\in F_n\). Por lo tanto concluimos que  \(x\in \cap_{n=1}^\infty F_n\).
+  </p>
+  <p>
+    Por otro lado, si \(y\in \cap_{n=1}^\infty F_n\) se sigue que para todo natural \(n\), \(x,y\in F_n\)
+    y por lo tanto:
+    \[
+    d(x,y)\leq \operatorname{diam}(F_n)
+    \]
+    y como \(\lim_{n\to \infty} \operatorname{diam}(F_n)=0\) de la desigualdad anterior concluimos que 
+    \(d(x,y)=0\) es decir \(x=y\). Por lo tanto conclumos que \(\cap_{n=1}^\infty F_n \subseteq \{x\}\).
+  </p>
+  <p>
+    De lo anterior obtenemos \(\cap_{n=1}^\infty F_n=\{x\}\).
+  </p>
 </div>
 
 
