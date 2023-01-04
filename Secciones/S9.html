@@ -358,7 +358,8 @@
       </p>
     </li>
   </ol>
-
+  <button class="respButton hvr-grow"> Demostración </button>
+  <div class="resp-box">
   <p>
     \(\Rightarrow ] \) Supongamos que \((X,d)\) es completo y  sea \((F_n)_{n=1}^\infty\) una sucesión de cerrados que satisfacen 
     las suposiciones del inciso 2.
@@ -395,6 +396,43 @@
   <p>
     De lo anterior obtenemos \(\cap_{n=1}^\infty F_n=\{x\}\).
   </p>
+  <p>
+    \(\Leftrightarrow ] \) Supongamos que el espacio \((X,d)\) satisface la propiedad de 
+    los cerrados anidados y sea \((x_k)_{k=1}^\infty\) una sucesión de Cauchy. Debemos de 
+    probar que existe un \(x\in X\) tal que \(\lim_{k\to \infty} x_k=x\).
+  </p>
+  <p>
+    Para cada natural \(n\) definimos \(F_n=\overline{\{ x_k\}_{k\geq n}}\). Por definición cada 
+    \(F_n\) es cerrado y además \(F_{n+1} \subseteq F_n\). El siguiente paso es probar que 
+    \(\lim_{n\to \infty} \operatorname{diam}(F_n)=0\). 
+  </p>
+  <p>
+    Dada \(\varepsilon >0\), al ser 
+    \((x_k)_{k=1}^\infty\) de Cauchy existe un \(N \in \mathbb{N}\) tal que para todos 
+    \(k,l \geq N\), \(d(x_k,x_l) < \varepsilon \). En particular, si \(n \geq N\) 
+    \[
+    \operatorname{diam}(\{x_k \}_{k\geq n})=\sup_{k,l\geq n}\{ d(x_k,x_l)\} \leq \varepsilon.
+    \]
+    Del <a href="./S5.html#Ejer:DiamCerradur">Ejercicio 5.31</a> conclumios que para todo \(n \geq N\),
+    \(\operatorname{diam}(F_n)\leq \varepsilon\). 
+  </p>
+  <p>
+    Por lo tanto la sucesión de conjuntos \((F_n)_{n=1}^\infty\) satisface las condiciones de la propiedad 
+    de cerrados anidados y por lo tanto existe \(x\in X\) tal que:
+    \[
+    \cap_{n=1}^\infty F_n=\{x\}.
+    \]
+  </p>
+  <p>
+    Afirmamos que \(\lim_{k\to \infty}x_k=x\) para lo cual notamos que si \(\varepsilon >0\) y 
+    \(N \in \mathbb{N}\) son como arriba, \(\operatorname{diam}(F_n) \leq \varepsilon\) para todo 
+    \(n\geq N\). Si fijamos \(k \geq N\) y notamos que \(x,x_k \in F_k \) llegamos a que 
+    \[
+    d(x,x_k) \leq \operatorname{diam}(F_k) \leq \varepsilon
+    \]
+    por lo que concluimos \(\lim_{k\to \infty} x_k=x\).
+  </p>
+</div>
 </div>
 
 
@@ -569,6 +607,33 @@
     A\subseteq \cup_{i=1}^n A_i
     \]
   </p>
+  <button class="respButton hvr-grow"> Demostración </button>
+  <div class="resp-box">
+  <p>
+    \(\Rightarrow ]\) Si \(A\) es totalmente acotado dada \(\varepsilon >0\) existen 
+    \(a_1\dots, a_n \in A\) tal que \(A\subseteq \cup_{i=1}^n B_{\varepsilon / 3}(a_i)\). Tomando 
+    \(A_i=B_{\varepsilon /3}(a_i)\cap A\) obtenemos que \(A_i \subseteq A\) y 
+
+    \[
+    \operatorname{diam}(A_i)\leq \operatorname{diam}(B_{\varepsilon/3}(a_i)) \leq 
+    \frac{2\varepsilon}{3}< \varepsilon.
+    \]
+  </p>
+  <p>
+    \(\Leftarrow ]\) Ahora supongamos que \(A\) satisface las suposiciones del lema y probemos que 
+    \(A\) es totalmente acotado. Dada \(\varepsilon >0\) existen subconjuntos 
+    \(A_1,\dots, A_n \subseteq A\) tal que \(A \subseteq \cup_{i=1}^n A_i\) y \(\operatorname{diam}(A_i)< \varepsilon\).
+    Fijamos un \(a_i\in A_i\). Afirmamos que 
+    \[
+    A\subseteq \cup_{i=1}^n B_{\varepsilon}(a_i).
+    \]
+    Para probar la contención tomamos \(a\in A\) arbitrario. Ya que \(A\subseteq \cup_{i=1}^n A_i\), existe 
+    un índice \(i\) tal que \(a\in A_i\). En particular \(d(a,a_i)\leq \operatorname{diam}(A_i) < \varepsilon\)
+    lo cual se puede reescribir como \(a\in B_{\varepsilon}(a_i)\). Por lo tanto 
+    \(A\subseteq \cup_{i=1}^n B_{\varepsilon}(a_i)\).
+
+  </p>
+  </div>
 </div>
 
 
