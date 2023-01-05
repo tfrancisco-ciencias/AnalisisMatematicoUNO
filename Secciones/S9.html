@@ -869,6 +869,88 @@
     Es más, para cualquier \(x_0\in X\) dado, la sucesión de iteradas
     \((f^n(x_0))_{n=1}^\infty\) converge al punto fijo de \(f\).
   </p>
+  <p>
+    Nota: por \(f^n(x_0)\) denotamos la \(n\)-ésima iterada de \(f\) en el punto \(x_0\), por ejemplo
+    \(f^2(x_0)=f(f(x_0)), f^3(x_0)=f(f(f(x_0)))\), etc.
+  </p>
+  <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+  <p>
+    Primeramente vamos a probar que la sucesión de iteradas, \((f^n(x_0)_{n=1}^\infty)\)
+     es de Cauchy.  Para iniciar notamos que aplicando   la 
+     propiedad de contracción estricta \(n\)-veces nos lleva a 
+    \begin{equation}\label{Eqn:Aux1PtoFijo}
+    d(f^{n+p}(x_0),f^{n}(x_0))\leq \alpha^{n}d(f^p(x_0),x_0), 
+    \end{equation}
+    donde \(n,p\in \mathbb{N}\).
+  </p>
+  <p>
+    El siguiente paso es probar, por inducción, la siguiente desigualdad 
+
+    \begin{equation}\label{Eqn:Aux2PuntoFijo}  
+      d(f^p(x_0),x_0) \leq \left(\sum_{j=0}^{p-1}\alpha^j\right)d(f(x_0),x_0).
+    \end{equation}
+
+    El caso \(p=1\) es inmediato. 
+
+    Supongamos que  \eqref{Eqn:Aux2PuntoFijo} es válido para \(p\) y probemos  para 
+    \(p+1\).  Aplicando la desigualdad del triángulo para la primera desigualdad y la 
+    propiedad de contraccíon estrcita para la segunda desigualdad lleamos a: 
+    \begin{eqnarray*} 
+      d(f^{p+1}(x_0),x_0)  & \leq &  d(f^{p+1}(x_0),f(x_0))+ d(f(x_0),x_0)  \\
+      &\leq & \alpha d(f^p(x_0),x_0)+d(f(x_0),x_0)
+    \end{eqnarray*}
+    y añidiendo la hipótesis de inducción obtenemos 
+    \begin{eqnarray*} 
+    d(f^{p+1}(x_0),x_0) &\leq & \alpha \left[ \left( \sum_{j=0}^{p-1}\alpha^j\right) d(f(x_0),x_0) \right] + d(f(x_0),x_0) \\
+    &=& \left( \sum_{j=1}^p \alpha^j \right) d(f(x_0),x_0)+ d(f(x_0),x_0) \\
+    &= & \left( \sum_{j=0}^p\alpha^j \right)d(f(x_0),x_0).
+    \end{eqnarray*} 
+  </p>
+  <p>
+    Juntando \eqref{Eqn:Aux1PtoFijo}, \eqref{Eqn:Aux2PuntoFijo} obtenemos 
+    \begin{eqnarray*}  
+    d(f^{n+p}(x_0),f^n(x_0)) &\leq &  \alpha^n \left( \sum_{j=0}^{p-1}\alpha^j \right)d(f(x_0),x_0)    \\ 
+    &= & \left( \sum_{j=n}^{n+p-1} \alpha^j \right)d(f(x_0),x_0).
+    \end{eqnarray*}
+  </p>
+  <p>
+    Finalmente, para probar que \((f^n(x_0))_{n=1}^\infty\) es de Cauchy notamos que \(\sum_{j=n}^{n+p-1} \alpha^j \)
+    es parte del residuo de la serie geométrica \(\sum_{j=0}^\infty \alpha^j \), la cual es convergente al ser \(\alpha < 1\). Por lo tanto, 
+    dado \(\varepsilon > 0 \) existe una \(N\in \mathbb{N}\) tal que si \(n\geq N\) y \(p\geq 1\),
+    se tiene 
+    \[
+    \sum_{j=n}^{n+p-1} \alpha^j < \frac{\varepsilon}{d(f(x_0),x_0)+1}
+    \]
+    por lo que se tiene \(d(f^{n+p}(x_0), f^n(x_0)) < \varepsilon\).
+  </p>
+    <p>
+      Continuando con la prueba del Teorema del Punto Fijo, al ser \((X,d)\) completo existe un 
+      \(y\in X\) tal que \(\lim_{n\to \infty} f^n(x_0)=y\). Vamos a probar que \(f(y)=y\). 
+    </p>
+    <p>
+      Usando que \(f\) es continua obtenemos que 
+      \[
+      f(\lim_{n\to \infty} f^n(x_0))=\lim_{n\to \infty} f(f^n(x_0)).
+      \]
+      Pero \(f(f^{n}(x_0))=f^{n+1}(x_0)\) y la sucesión \((f^{n+1}(x_0))_{n=1}^\infty\) es una 
+      subsucesión de \((f^{n}(x_0))_{n=1}^\infty\) por lo que \(\lim_{n\to \infty}f^{n+1}(x_0)=y\). 
+      Por lo tanto se concluye que 
+      \[
+      f(y)=f\left(\lim_{n\to \infty}f^n(x_0) \right)=\lim_{n\to \infty} f^{n+1}(x_0)=y.
+      \]
+    </p>
+    <p>
+      Resta probar la unicidad. Supongamos que tenemos otro punto \(z\) con \(f(z)=z\). Aplicando 
+      la propiedad de contracción estricta tenemos 
+      \[
+      d(y,z)=d(f(y),f(z))\leq \alpha d(y,z).
+      \]
+      Si \(y\ne z\) entonces \(d(y,z)> 0\) y podemos cancelar la en la desigualdad anterior 
+      para llegar a \(1 \leq \alpha\), contradiciendo que \(\alpha < 1\).
+    </p>
+  </div>
+
 </div>
 
 
