@@ -597,7 +597,7 @@
 </div>
 
 <div class="lema-box">
-  <h2 class="number-title"> Lema </h2>
+  <h2 class="number-title" id="Lema:GeneTotAcot"> Lema </h2>
   <p>
     \(A\) es totalmente acotado si y sólo si
     para toda \(\varepsilon >0\) existe un número
@@ -638,7 +638,7 @@
 
 
 <div class="lema-box">
-  <h2 class="number-title"> Lema </h2>
+  <h2 class="number-title" id="Lema:CaractSucTotAcot"> Lema </h2>
 
   <p>
     Sea \((X,d)\) un espacio métrico y \((x_n)_{n=1}^\infty\) una sucesión
@@ -655,17 +655,110 @@
     </li>
   </ol>
 
+  <button class="respButton hvr-grow"> Demostración inciso 1 </button>
+  <div class="resp-box">
+  <p>
+    Sea \(\varepsilon >0\). Al ser \((x_n)_{n=1}^\infty\) de Cauchy, existe una \(N\in \mathbb{N}\)
+    tal que si \(n,m \geq N\) entonces \(d(x_n,x_m) < \varepsilon\). De lo anterior se sigue que 
+    \(\{ x_n: n\geq N\} \subseteq B_\varepsilon(x_N)\) y por lo tanto 
+    \[
+    A \subseteq \cup_{i=1}^N B_{\varepsilon}(x_i).
+    \]
+  </p>
+  </div>
+  <button class="respButton hvr-grow"> Demostración inciso 2 </button>
+  <div class="resp-box">
+  <p>
+    Caso 1: \(A\) es finito. 
+  </p>
+  <p>
+    En este caso existe un punto \(x\in A\) para el cual hay una infinidad de naturales \(n's\)
+    para los cuales \(x_n=x\). A partir de lo anterior se puede construir una subsucesión 
+    \((x_{n_k})_{k=1}^\infty\) tal que \(x_{n_k}=x\) para todo \(x\). Por lo tanto 
+    \((x_{n_k})_{k=1}^\infty\) es de Cauchy.
+  </p>
+  <p>
+    Caso 2: \(A\) es infinito.
+  </p>
+  <p>
+    Se construirá la subsucesión de Cauchy aplicando el <a href="Lema:GeneTotAcot">Lema 9.19</a>.
+  </p>
+  <p>
+    Aplicando el <a href="Lema:GeneTotAcot">Lema 9.19</a> al conjunto \(A\) con \(\varepsilon=1/2\) 
+    podemos asegurar que existen subconjuntos \(A_1^{(1)},\dots, A_{m_1}^{(1)} \subseteq A \) 
+    con \(\operatorname{diam}(A_i^{(1)}) < 1/2\) y \(A \subseteq \cup_{i=1}^{m_1}A_i^{(1)}\). Ya que 
+    \(A\) es infinito al menos uno de los conjuntos \(A_i^{(1)}\) es infinito. Sea \(A_1\) uno de 
+    esos conjuntos infinitos.
+  </p>
+  <p>
+    Ahora aplicamos el <a href="Lema:GeneTotAcot">Lema 9.19</a> al conjunto \(A_1\) con \(\varepsilon=1/2^2\).
+    Por lo tanto existen subconjuntos \(A_1^{(2)}, \dots, A_{m_2}^{(2)}\subseteq A_1\) con 
+    \(\operatorname{diam}(A_i^{(2)})< 1/2^2\) y \(A_1 \subseteq \cup_{i=1}^{m_2}A_i^{(2)}\). Ya que 
+    \(A_1\) es infinito al menos uno de los conjuntos \(A_i^{(2)}\) es infinito. Sea \(A_2\) uno de 
+    esos conjuntos infinitos.
+  </p>
+  <p>
+    Continuiando con este proceso podemos construir una sucesión de conjuntos \((A_k)_{k=1}^\infty\)
+    tal que: \(A_k\subseteq A\), \(A_{k+1}\subseteq A_k\), \(\operatorname{diam}(A_k)< 1/2^k\) y \(A_k\) es infinito. 
+  </p>
+  <p>
+    Finalmente para construir la subsucesión iniciamos tomamos \(x_{n_1}\in A_1\). Como \(A_2\) es infinito 
+    existe un \(x_{n_2}\), con \(n_2 > n_1\) con \(x_{n_2}\in A_2\). De esta forma podemos encontrar
+    \(x_{n_1}, \dots, x_{n_k}\), con \(n_k > \cdots > n_2 > n_1\) y tal que \(x_{n_k}\in A_k\). Afirmamos que la 
+    subsucesión \((x_{n_k})_{k=1}^\infty\) es de Cauchy. En efecto, dada \(\varepsilon >0\) tomamos un 
+    \(k_0\) tal que \(1/2^{k_0}< \varepsilon\). Entonces para todo \(k,l \geq k_0\), 
+    se cunple que \(x_{n_k},x_{n_l} \in A_{\min\{k,l\}}\) y 
+    \[ 
+    d(x_{n_k},x_{n_l}) \leq \operatorname{diam}(A_{\min\{k,l\}})\leq 1/2^{\min\{k,l\}} \leq 1/2^{k_0} < \varepsilon
+    \]
+  </p>
+</div>
 
 </div>
 
 
-<div class="teorema-box">
-  <h2 class="number-title"> Teorema </h2>
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
   <p>
     Un subconjunto \(A\), de un espacio métrico \((X,d)\),
     es totalmente acotado si y sólo si toda sucesión en \(A\) admite
     una subcusesión que es Cauchy.
   </p>
+  <button class="respButton hvr-grow"> Demostración </button>
+    <div class="resp-box">
+  <p>
+    \(\Rightarrow ]\) Supongamos que \(A\) es totalmente acotado. 
+    Sea \((x_n)_{n=1}^\infty \) una sucesión de elementos de \(A\). Ya que el conjunto 
+    \(\{x_n: n\in \mathbb{N}\}\) también es totalmente acotado 
+    (al ser subconjunto de \(A\)) el <a href="Lema:CaractSucTotAcot">Lema 9.20-2 </a> 
+    asegura que existe una subsucesión de \((x_n)_{n=1}^\infty\) que es de Cauchy.
+  </p>
+  <p>
+    \(\Leftarrow ]\) Por contrapositiva, es decir, suponemos que \(A\) no es 
+    totalmente acotado y vamos a construir una sucesión de elementos de \(A\) tal que no 
+    admite una subsucesión de Cauchy.
+  </p>
+  <p>
+    Como suponemos que \(A\) no es totalmente acotado existe una \(\varepsilon >0\) tal que \(A\) no puede ser cubierto por una cantidad 
+    finita de bolas con radio \(\varepsilon\). 
+  </p>
+  <p>
+    Afirmamos que existe una sucesión de elementos de 
+    \(A\), \((x_n)_{n=1}^\infty\) tal que \(d(x_n,x_m) \geq \varepsilon\) para todos \(n,m\).
+    Para construir dicha subsucesión inciamos con un \(x_1\in A\). Ya que \(A\) no está contenido en 
+    \(B_\varepsilon(x_1)\) existe un \(x_2\in A\) con \(d(x_1,x_2) \geq \varepsilon\). 
+    Ya que \(A\) no está contenido en \(B_\varepsilon(x_1)\cup B_\varepsilon(x_2)\) existe un 
+    \(x_3 \in A\) con \(d(x_3,x_1)\geq \varepsilon, d(x_3,x_1)\geq \varepsilon\).
+    Por inducción, si tenemos \(x_1,\dots, x_k \in A\) con \(d(x_i,x_j)\geq \varepsilon\), para \(i\ne j\)
+    con \(1\leq i,j \leq k\), usamos el hecho de que \(A\) no está contenido en 
+    \(\cup_{i=1}^k B_\varepsilon(x_i)\) para asegurar la existencia de un \(x_{k+1}\in A\) con la propiedad de que 
+    \(d(x_{k+1}, x_i) \geq \varepsilon\), para todo \(i=1,\dots, k\).
+  </p>
+  <p>
+    Para terminar simplemente se nota que la sucesión \((x_n)_{n=1}^\infty\) no admite una subsucesión de 
+    Cauchy.
+  </p>
+  </div>
 </div>
 
 
@@ -690,6 +783,44 @@
       </p>
     </li>
   </ol>
+  <button class="respButton hvr-grow"> Demostración </button>
+  <div class="resp-box">
+  <p>
+    \(\Rightarrow ]\) Supongamos que \((X,d)\) es completo y sea \(A\subseteq X\) infinito y 
+    totalmente acotado. Ya que \(A\) es infinito podemos encontrar 
+    \((x_n)_{n=1}^\infty\), una sucesión de elementos de \(A\), tal que 
+    \(x_n \ne x_m\) para todos \(n\ne m\). Aplicando el lema 
+    <a href="Lema:CaractSucTotAcot">Lema 9.20-2</a> podemos asegurar que existe \((x_{n_k})_{k=1}^\infty\), 
+    una subsucesión de Cauchy. Al ser \((X,d)\) completo existe un \(x\in X\) tal que 
+    \(\lim_{k\to \infty}x_{n_k}=x\). Finalmente, ya que \(x_k \in A\) y \(x_{n_k}\ne x_{n_j}\), 
+    para todos \(j,k\), concluimos que \(x\) es un punto de acumulación de \(A\).
+  </p>
+  <p>
+    \(\Leftarrow ] \) Supongamos que \((X,d)\) satisface la propiedad de Bolzano-Weierstrass. Debemos de probar que 
+    \((X,d)\) es completo. Sea \((x_n)_{n=1}^\infty\) una sucesión de Cauchy, debemos de probar que 
+    ésta sucesión converge a un punto de \(X\). Denotemos \(A=\{x_n:n\in \mathbb{N}\}\).
+  </p>
+  <p>
+    Caso 1: \(A\) es finito.
+  </p>
+  <p>
+    En este caso existe un punto \(x\in A\) para el cual hay una infinidad de \(n's\) con 
+    \(x_n=x\). Por lo tanto podemos encontrar una subsucesión \((x_{n_k})_{k=1}^\infty\) con 
+    \(x_{n_k}=x\) para toda \(k\). Pero entonces \((x_{n})_{n=1}^\infty\) es de Cauchy y 
+    la subsucesión \((x_{n_k})_{k=1}^\infty\) es convergente, por lo tanto la sucesión inicial 
+    \((x_n)_{n=1}^\infty\) es convergente en \(X\) (ver <a href="./S4.html#Ejer:SubsucesionConvDeUnaCauchy">Ejercicio 4.29</a>). 
+  </p>
+  <p>
+    Caso 2: \(A\) es infinito.
+  </p>
+  <p>
+    Por la propiedad de Bolzano-Weierstrass el conjunto \(A\) tiene un punto límite en \(A\). De lo anterior 
+    se sigue que existe una subsucesión \((x_{n_k})_{k=1}^\infty\) convergente a un punto de \(X\). Pero entonces 
+    tenemos la misma situación que en el caso 1: \((x_{n})_{n=1}^\infty\) es de Cauchy y 
+    la subsucesión \((x_{n_k})_{k=1}^\infty\) es convergente. Por el <a href="./S4.html#Ejer:SubsucesionConvDeUnaCauchy">Ejercicio 4.29</a>
+    la sucesión original es convergente.
+  </p>
+  </div>
 </div>
 
 <div class="nota-box">
