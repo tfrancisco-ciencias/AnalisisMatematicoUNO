@@ -1090,8 +1090,50 @@
     Entonces \((X,d)\) es isométrico a un subconjunto de
     \((\ell_\infty(X), \|\cdot\|_\infty)\).
   </p>
+  <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+  <p>
+    Fijamos un \(a\in X\) y para \(x\in X\) arbitrario definimos la función 
+    \(f_x:X\to \mathbb{R}\) por 
+    \[
+    f_x(y)=d(x,y)-d(y,a)
+    \]
+    Por la otra desigualdad del triángulo \(|d(x,y)-d(y,a)|\leq d(x,a)\) para todo 
+    \(y\in X\) por lo que \(f_x\in \ell_\infty(X)\) y \(\|f_x\|_\infty \leq d(x,a)\).
+  </p>
+  <p>
+    Resta probar que la función \(x\mapsto f_x\) es una isometría, es decir 
+    \(d(x_1,x_2)=\|f_{x_1}-f_{x_2}\|_\infty\). Pero 
+    \begin{eqnarray*} 
+    \|f_{x_1}-f_{x_2}\|_\infty&=& \sup_{y\in X}\{|f_{x_1}(y)-f_{x_2}(y)| \}\\
+    &=& \sup_{y\in Y} \{| d(x_1,y)-d(y,a)- (d(x_2,y)-d(y,a))  | \} \\
+    &=& \sup_{y\in Y}\{| d(x_1,y)-d(x_2,y)| \}
+    \end{eqnarray*}
+    y por la otra desigualdad del triángulo \(| d(x_1,y)-d(x_2,y)|  \leq d(x_2,x_2)\) para toda \(y\). 
+    Por lo tanto \(\|f_{x_1}-f_{x_2}\|_\infty \leq d(x_1,x_2)\). Finalmente la igualdad en la 
+    desigualdad anterior se da cuando 
+    \(y=x_2\).
+  </p>
+  </div>
 </div>
 
+<div class="coro-box">
+  <h2 class="number-title"> Corolario </h2>
+  <p>
+    Todo espacio métrico admite una completación. 
+  </p>
+  <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+  <p>
+    Sea \((X,d)\) un espacio métrico. Por el <a href="#Lema:XisometricoSubLinfty">Lema 9.29</a>
+    existe una isometría  \(\Phi:(X,d)\to (\ell_\infty(X), \|\cdot\|_\infty)\). Tomamos 
+    \(\tilde{X}=\overline{\Phi(X)}\). Ya que \(\ell_\infty(X)\) es completo tenemos que 
+    \(\tilde{X}\) también es completo. Finalmente \(X\) es isométrico a \(\Phi(X)\) y éste 
+    último es denso en \(\tilde{X}\).  
+  </p>
+  </div>
+
+</div>
 
 <div class="teorema-box">
   <h2 class="number-title"> Teorema </h2>
