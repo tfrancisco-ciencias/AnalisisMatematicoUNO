@@ -1141,7 +1141,106 @@
     Si \((\tilde{X}, \tilde{d})\) y \((\hat{X}, \hat{d})\) son dos
     completaciones de \((X,d)\) entonces ambas son isométricas.
   </p>
-
+  <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+  <p>
+    Debemos de probar que existe una biyección \(f:\tilde{X}\to \hat{X}\) que cumple 
+    \(\hat{d}(f(x),f(y))=\tilde{d}(x,y)\), para todos \(x,y\in \hat{X}\).
+  </p>
+  <p>
+    Sean \(\alpha: X \to \tilde{X}, \beta:X \to \hat{X}\) isometrías tal que 
+    \(\alpha(X)\) es denso en \(\tilde{X}\) y \(\beta(X)\) es denso en \(\hat{X}\). 
+  </p>
+  <p>
+    La idea para encontrar \(f\) es completar el siguiente diagrama "levantando" la función 
+    identidad en \(X\)
+    \[
+    \begin{array}{ccc} 
+     \tilde{X} & \xrightarrow{f}  & \hat{X} \\
+     \uparrow_\alpha   &   &   \uparrow_\beta  \\
+     X  & \xrightarrow{\textrm{id}} &  X 
+    \end{array}
+    \]
+  </p>
+  <p>
+    Dado un punto \(\tilde{x} \in \tilde{X}\), al ser \(\alpha(X)\) denso en \(\tilde{X}\) existe una 
+    sucesión \((x_n)_{n=1}^\infty \subseteq X\) tal que \(\lim_{n\to \infty}\tilde{d}(\alpha(x_n),\tilde{x})=0\). 
+    Al ser \((\alpha(x_n))_{n=1}^\infty\) convergente es \(\tilde{d}\)-Cauchy  y como \(\alpha\) es isometría 
+    \[
+    \tilde{d}(\alpha(x_n),\alpha(x_n))= d(x_n,x_m)
+    \] 
+    por lo que \((x_n)_{n=1}^\infty\) es \(d\)-Cauhcy. Pero al ser \(\beta\) una isometría 
+    \[
+    d(x_n,x_m)=\hat{d}(\beta(x_n), \beta(x_m))
+    \]
+    por lo que \((\beta(x_n))_{n=1}^\infty\) es \(\hat{d}\)-Cauchy y al ser \(\hat{X}\) completo 
+    existe un punto \(\hat{x}\in \hat{X}\) tal que \(\lim_{n\to \infty}\hat{d}(\beta(x_n),\hat{x})=0\).
+  </p>
+  <p>
+    Definimos \(f(\tilde{x})=\hat{x}\). Antes de prosegir debemos de probar que \(f(\tilde{x})\) es independiente de 
+    la sucesión \((x_n)_{n=1}^\infty\). Supongamos que \((x_n')_{n=1}^\infty\) es otra sucesión 
+    tal que \(\lim_{n\to \infty}\tilde{d}(\alpha(x_n'),\tilde{x})=0\). Por la desigualdad del triángulo,
+    \(d(\alpha(x_n),\alpha(x_n'))\leq d(\alpha(x_n),\tilde{x})+d(\tilde{x},\alpha(x_n'))\), se sigue que 
+    \[
+    \lim_{\to \infty} \tilde{d}(\alpha(x_n), \alpha(x_n'))=0.
+    \]
+    Al ser \(\alpha\) y \(\beta\) isometrías  
+    \[
+    \tilde{d}(\alpha(x_n), \alpha(x_n'))= d(x_n,x_n') = \hat{d}(\beta(x_n),\beta(x_n'))
+    \]
+    de donde se sigue que 
+    \begin{equation}\label{Eqn:Aux1Completaciones}
+    \lim_{n\to \infty} \tilde{d}(\beta(x_n), \beta(x_n'))=0.
+    \end{equation}
+    Ahora, si tenemos dos posibles límites 
+    \begin{equation}\label{Eqn:Aux2Completaciones}
+    \lim_{n\to \infty}\hat{d}(\beta(x_n),\hat{x})=0, \quad \lim_{n\to \infty}\hat{d}(\beta(x_n'),\hat{x}')=0
+    \end{equation}
+    la desigualdad 
+    \[
+    d(\hat{x},\hat{x}')\leq d(\hat{x},\beta(x_n))+d(\beta(x_n),\beta(x_n'))+d(\beta(x_n'),\hat{x}')
+    \]
+    y los límites \eqref{Eqn:Aux1Completaciones}, \eqref{Eqn:Aux2Completaciones} conclumios que 
+    \(\hat{x}=\hat{x}'\). Por lo tanto \(f(\tilde{x})\) no depende de la sucesión que aproxima a \(\tilde{x}\).
+  </p>
+  <p>
+    Nota que podemos describir 
+    \[
+    f(\tilde{x})=f(\lim_{n\to \infty} \alpha(x_n))=\lim_{n\to \infty}\beta(x_n).
+    \]
+  </p>
+  <p>
+    El siguiente paso es probar que \(f\) es isometría. Dados \(\tilde{x},\tilde{y}\in \tilde{X}\)
+    si utilizamos que la función distancia y \(\alpha\) son continuas tenemos que 
+    \[
+    \tilde{d}(x,y)=\lim_{n\to \infty} \tilde{d}(\alpha(x_n),\alpha(y_n))
+    \]
+    y al ser \(\alpha, \beta\) isometrías 
+    \[
+    \tilde{d}(\alpha(x_n),\alpha(y_n))=d(x_n,y_n)=\hat{d}(\beta(x_n),\beta(y_n))
+    \]
+    al tomar límites llegamos a 
+    \begin{eqnarray*} 
+    \tilde{d}(\tilde{x},\tilde{y})&=& \lim_{n\to \infty} \tilde{d}(\alpha(x_n),\alpha(y_n)) \\
+    &=& \lim_{n\to \infty}\hat{d}(\beta(x_n),\beta(y_n)) \\
+    &=&  \hat{d}(f(\hat{x}),f(\hat{y})).
+    \end{eqnarray*}
+    lo cual prueba que \(f\) es una isometría.
+  </p>
+  <p>
+    Al ser isometría \(f\) es inyectiva, resta probar que \(f\) es suprayectiva. Pero 
+    por construcción de \(f\), \(f(\alpha(x))=\beta(x)\) para toda \(x\in X\) (pues 
+    la sucesión cosntante \(\alpha(x)\) se aproxima a \(\alpha(x)\)). Por lo tanto 
+    \(f(\alpha(X))=\beta(X)\). Tomando cerradura en ambos lados y usando que \(\hat{X}\) es 
+    una completación 
+    llegamos a 
+    \[
+    \overline{f(X)}=\overline{\beta(X)}=\hat{X}
+    \]
+    pero al ser \(f\) isometría, \(\overline{f(\alpha(X))}=f(\overline{\alpha(X)})=f(\tilde{X})\). 
+    Por lo tanto \(f(\tilde{X})=\hat{X}\) y \(f\) es suprayectiva.
+  </p>
+  </div>
 </div>
 
 
