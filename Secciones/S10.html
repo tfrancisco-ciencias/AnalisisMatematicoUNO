@@ -222,7 +222,7 @@
       </div>
 
       <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <h2 class="number-title" id="Ejer:UnifContinuaYSucCercanas"> Ejercicio </h2>
           <p>
             Sean \((X,d_X), (Y,d_Y)\) espacios métricos y
             \(f:X\to Y\).
@@ -272,6 +272,36 @@
           Sea \((K,d)\) un espacio métrico compacto. Entonces toda función
           continua \(f:(K,d)\to (Y,\rho)\) es uniformemente continua.
         </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          Sea \(\varepsilon >0\) fija y arbitraria. Para cada \(x\in X\) existe una 
+          \(\delta_x > 0\) (la de la continuidad de \(f\) en \(x\)) tal que 
+          \[
+          d(x,y)< \delta_x\Rightarrow d(f(x),f(y))< \varepsilon/2
+          \]
+        </p>
+        <p>
+          Ahora consideramos la cubierta abierta de \(K\):
+          \[
+          \{ B_{\delta_x/2}(x): x\in K \}
+          \]
+          Al ser \(K\) compacto existe una cantidad finita \(x_1,\dots, x_n \in K\) tal que 
+          \begin{equation}\label{Eqn:Aux1CompactoImplicaContiUnif}
+          K\subseteq \cup_{i=1}^n B_{\delta_{x_i}/2}(x_i).
+          \end{equation}
+          Definimos \(\delta = \min\{ \delta_{x_1}/2,\dots, \delta_{x_n}/2\} > 0\). Afirmamos que si 
+          \(y,z\in X\) son arbitrarios y cumplen \(d(y,z)< \delta\) entontces \(d(f(y),f(z)) < \varepsilon\).
+          Para probar lo anterior primero usamos \eqref{Eqn:Aux1CompactoImplicaContiUnif} 
+          para poder encontrar \(x_{i}\) con \(d(y,x_{i}) < \delta_{x_{i}}/2\). Se sigue que 
+          \[
+            d(z,x_i)\leq d(z,y)+d(y,x_i)< \delta + \delta_{x_i}/2 \leq  \delta_{x_i}/2+\delta_{x_i}/2=\delta_{x_i}
+          \]
+          Por lo tanto \(d(f(y),f(x_i))< \varepsilon/2\) y \(d(f(z),f(x_i))<\varepsilon/2\) de donde concluimos 
+          que \(d(f(x),f(y))< \varepsilon\).
+          
+        </p>
+      </div>
       </div>
 
 
@@ -284,14 +314,179 @@
           Sea \(f: D \to Y\) una función uniformemente continua en \(D\)
           y supongamos que \(D\) es denso en \(X\) y que \(Y\) es completo.
         </p>
+
         <p>
           Entonces \(f\) se extiende de manera única a una función
           uniformemente continua en todo \(X\). Es decir,
           existe \(F:X \to Y\) uniformemente continua en \(X\)
-          tal que \(F(d)=f(d)\), para todo \(d\in D\).
+          tal que \(F(a)=f(a)\), para todo \(a\in D\).
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+        <p>
+          Dado \(x\in X\) vamos a definir \(F(x)\) como un límite. Primero, ya que 
+          \(D\) es denso en \(X\), existe \((a_n)_{n=1}^\infty \subseteq D\) tal que 
+          \[
+          \lim_{n\to \infty}d_X(a_n,x)=0
+          \]
+          Afirmamos que \((f(a_n))_{n=1}^\infty\) es Cauchy. Razón: para \(\varepsilon >0\)
+          sea \(\delta > 0\) la \(\delta\) de la continuidad uniforme de \(f\) en \(D\). Ya que 
+          \(\lim_{n\to \infty}d_X(a_n,x)=0\) la sucesión \((a_n)_{n=1}^\infty\) es convergente 
+          y por lo tanto Cauchy así que para el número positivo \(\delta \) existe un 
+          natural \(N\) tal que si \(n,m\geq N\) entonces \(d_X(a_n,a_m) < \delta\) y por lo 
+          tanto \(d_Y(f(a_n),f(a_m))< \varepsilon\). Por lo tanto \((f(a_n))_{n=1}^\infty\)
+          es de Cauchy. 
+        </p>
+        <p>
+          Al ser \(Y\) completo existe un punto \(y\in Y\) con 
+          \(\lim_{n\to \infty}d(_Yf(a_n),y)=0\). Definimos \(F(x)=y\), es decir lo anterior lo 
+          podemos escribir como 
+          \[
+          F(x)=f(\lim_{n\to \infty} a_n)= \lim_{n\to \infty}f(a_n).
+          \]
+        </p>
+        <p>
+          Para proseguir vamos a probar que \(F\) está bien definida, es decir no depende de la 
+          sucesión \((a_n)_{n=1}^\infty\). Sea \((\tilde{a}_n)_{n=1}^\infty \subseteq D\) otra subsucesión 
+          tal que \(\lim_{n\to \infty} d_X(\tilde{a}_n,x)=0\). Debemos de probar que 
+          \[
+          \lim_{n\to \infty} f(a_n)=\lim_{n\to \infty} f(\tilde{a}_n).
+          \]
+          Nota: por un argumento similar al anterior \(\lim_{n\to \infty} f(\tilde{a}_n)\) existe, denotemoslo \(\tilde{y}\). Es decir 
+          \(\lim_{n\to \infty} d_Y(f(\tilde{a}_n),\tilde{y})=0\).
+          
+        </p>
+        <p>
+          Utilizando que 
+          \[
+          \lim_{n\to \infty} d_X(a_n,x)=0=\lim_{n\to \infty} d_X(\tilde{a}_n,x)
+          \]
+
+          y la desigualdad del triángulo deducimos que 
+          \(\lim_{n\to \infty} d_X(a_n,\tilde{a}_n) =0\). Entonces se sigue del <a href="#Ejer:UnifContinuaYSucCercanas">Ejercicio 10.8</a> que 
+          \[
+          \lim_{n\to \infty} d_Y(f(a_n),f(\tilde{a}_n)) =0.
+          \]
+          Si ahora consideramos la desigualdad
+          \[
+          d_Y(y,\tilde{y})\leq  d_Y(y,f(a_n))+d_Y(f(a_n),f(\tilde{a}_n))+d_Y(f(\tilde{a}_n),y')
+          \]
+          y tomamos límite cuando \(n\to \infty\) concluimos que \(d_Y(y,\tilde{y})=0\). Es decir 
+          \(\lim_{n\to \infty}f(a_n)=y=\tilde{y}=\lim_{n\to \infty}f(\tilde{a}_n)\). Esto termina la prueba de que 
+          \(F\) está bien definida.
+        </p>
+        <p>
+          Como una consecuencia de que \(F\) está bien definida se tiene que \(F(a)=f(a)\) para toda \(a\in D\). En efecto, dado \(a\in D\), simplemente 
+          usamos la sucesión constante \(a_n=a\) para llegar que 
+          \[
+          F(a)=\lim_{n\to \infty} f(a)=f(a).
+          \]
+        </p>
+        <p>
+          Resta probar que \(F\) es uniformemente continua. Sea \(\varepsilon>0\) fija y arbitraria y 
+          sea \(\delta >0\) la de la continuidad uniforme de \(f\) en \(D\) para \(\varepsilon/2\). Afirmamos
+          que si \(x,x'\in X\) y \(d(x,x')< \delta\) entonces \(d_Y(F(x),F(x'))< \varepsilon\). Razón: 
+          sean sucesiones \((a_n)_{n=1}^\infty, (a_n')_{n=1}^\infty \subseteq D\) tales que 
+          \[
+          \lim_{n\to \infty} d_X(x,a_n)=0, \quad \lim_{n\to \infty} d_X(x',a_n')=0.
+          \]
+        </p>
+        <p>
+          Usando que la función distancia es continua y ya que tenemos la desigualdad \(d_X(x,x')< \delta\),
+          los límites anteriores aseguran que existe un \(N\in \mathbb{N}\) tal que para todo 
+          \(n\geq N\), \(d_X(a_n,a_n')< \delta \). Por la continuidad uniforme de \(f\) en \(D\) se sigue que 
+          \[d_Y(f(a_n),f(a_n')) < \varepsilon/2\]
+          
+          Pero por la definición de la función \(F\),  
+          \[
+          F(x)=\lim_{n\to \infty} f(a_n), F(\tilde{x})=\lim_{n\to \infty} f(a_n')
+          \]
+          asi que al tomar límite cuando \(n\to \infty\) en la desigualdad anterior y utilizando 
+          que la función distancia es continua llegamos a que 
+          \[
+          d_Y(F(x),F(\tilde{x})) \leq \varepsilon/2 < \varepsilon
+          \]
+          probando lo que queremos.
         </p>
       </div>
+      </div>
 
+
+      <div class="coro-box">
+        <h2 class="number-title"> Corolario </h2>
+        <p>
+          Si \((\tilde{X}, \tilde{d})\) y \((\hat{X}, \hat{d})\) son dos
+          completaciones de \((X,d)\) entonces ambas son isométricas.
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          Debemos de probar que existe una biyección \(F:\tilde{X}\to \hat{X}\) que cumple 
+          \(\hat{d}(F(x),F(y))=\tilde{d}(x,y)\), para todos \(x,y\in \hat{X}\).
+        </p>
+        <p>
+          Sean \(\alpha: X \to \tilde{X}, \beta:X \to \hat{X}\) isometrías tal que 
+          \(\alpha(X)\) es denso en \(\tilde{X}\) y \(\beta(X)\) es denso en \(\hat{X}\). 
+        </p>
+        
+        <p>
+          Vamos a definir \(f: \alpha(X) \to \hat{X} \) mediante 
+          \[
+          f(\alpha(x))=\beta(x)
+          \]
+          Esta función está bien definida pues \(\alpha\) es inyectiva. Además \(f\) es isometría pues 
+          al ser \(\alpha\) y \(\beta\) isometrías 
+          \[
+          d_{\tilde{X}}(\alpha(x),\alpha(x'))=d(x,x')=d_{\hat{X}}(\beta(x),\beta(x'))
+          \]
+          lo cual se puede reescribir como 
+          \[
+          d_{\tilde{X}}(\alpha(x),\alpha(x'))=d(x,x')=d_{\hat{X}}(f(\alpha(x)),f(\alpha(x'))).
+          \]
+        </p>
+        
+        <p>
+          La idea para encontrar \(F\) es completar el siguiente diagrama extendiendo la función 
+          \(f\)
+          \[
+          \begin{array}{ccc} 
+           \tilde{X} & \xrightarrow{F}  & \hat{X} \\
+           \uparrow   &   &   \uparrow  \\
+           \alpha(X)  & \xrightarrow{f} &  \beta(X) 
+          \end{array}
+          \]
+        </p>
+        
+         <p>
+          Al ser \(f\) isometría también es uniformemente continua en \(\alpha(X)\). Por el 
+          <a href="#Teo:ExtensionFunUnifCont">Teorema 10.12</a> se puede extender \(f\) a una función uniformemente continua 
+          \(F:\tilde{X}\to \hat{X}\) tal que \(F(\alpha(x))=f(\alpha(x))=\beta(x)\). Se sigue que 
+          para todo \(x,x'\in X\),
+          \[
+          d_{\hat{X}}(F(\alpha(x)), F(\alpha(x')))=d_{\tilde{X}}(\alpha(x), \alpha(x')),
+          \]
+          pero \(\alpha(X)\) es denso en \(\tilde{X}\) así que la identidad anterior implica que 
+          \[
+          d_{\hat{X}}(F(\tilde{x}), F(\tilde{x}')))=d_{\tilde{X}}(\tilde{x}, \tilde{x}')
+          \]
+          para todos \(\tilde{x},\tilde{x}'\in \tilde{X}\), probando que \(F\) es una isometría.
+        </p>
+      
+          <p>
+            Al ser isometría \(F\) es inyectiva, resta probar que \(F\) es suprayectiva. Pero 
+            por construcción de \(F\), \(F(\alpha(x))=\beta(x)\) para toda \(x\in X\). Por lo tanto 
+            \(F(\alpha(X))=\beta(X)\). Tomando cerradura en ambos lados y usando que \(\hat{X}\) es 
+            una completación 
+            llegamos a 
+            \[
+            \overline{F(X)}=\overline{\beta(X)}=\hat{X}
+            \]
+            pero al ser \(F\) isometría, \(\overline{F(\alpha(X))}=F(\overline{\alpha(X)})=F(\tilde{X})\). 
+            Por lo tanto \(F(\tilde{X})=\hat{X}\) y \(F\) es suprayectiva.
+          </p>
+          </div>
+        
+      </div>
 
 
       <div class="ejercicio-box">
