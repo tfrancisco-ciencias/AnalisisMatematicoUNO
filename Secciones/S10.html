@@ -195,7 +195,7 @@
 
 
       <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio  </h2>
+        <h2 class="number-title" id="Ejer:FuncionesLipschitz"> Ejercicio  </h2>
         <p>
           Una función entre dos espacios métricos \(f:(X,d_X)\to (Y,d_Y)\)
           se llama Lipschitz de orden \(\alpha \), donde  \(\alpha \in (0,\infty) \) es una
@@ -573,7 +573,7 @@
 
 
       <div class="lema-box">
-        <h2 class="number-title"> Lema </h2>
+        <h2 class="number-title" id="Lema:LinealesAcotadas"> Lema </h2>
         <p>
           Sean \((V,\|\cdot \|_V)\), \((W,\|\cdot \|_W)\) dos
           espacios vectoriales normados y \(T:V \to W\) una
@@ -582,15 +582,24 @@
         <ol>
           <li> \(T\) es continua en \(0\). </li>
 
-          <li> Existe una constante \(C \geq 0\) que satisface
+          <li> Existe una constante \(C > 0\) que satisface
             \[
-            \|T(v)\|_W \leq C \|v\|_V
+            \|Tv\|_W \leq C \|v\|_V
             \]
             para toda \(v\in V\).
         </ol>
-
         <p>
-          \(1 \Rightarrow 2 ]\) Ya que \(T\) es continua en \(0\), dado \(\varepsilon=1\)
+          Nota: para facilitar la notación se suele omitir el subíndice de la norma, por ejemplo 
+          la desigualdad anterior qudería como \(\|Tv \| \leq C\|v\|\), entendiento que la normas 
+          dependen del espacio en que se evaluan. 
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+        <p>
+          \(1 \Rightarrow 2 ]\)
+        </p>
+        <p>
+           Ya que \(T\) es continua en \(0\), dado \(\varepsilon=1\)
           existe una \(\delta > 0\) tal que si \(\|u\| < \delta \) entonces 
           \(\|Tu - T0\| = \|Tu\| < 1 \). Ahora, si \(v\in V\) es arbitrario, con \(v\ne 0\), 
           entonces \(u=\frac{\delta}{2\|v\|} v \) satisface \(\|u\| < \delta \) por lo que 
@@ -599,6 +608,22 @@
           \]
           lo cual implica \(\|Tv\| \leq C\|v\|\) donde tomamos \(C=2/\delta\). 
         </p>
+        <p>
+          \(1 \Leftarrow 2 ]\)
+        </p>
+        <p>
+          Supongamos que 
+          \[
+          \|Tv\| \leq C\|v\|
+          \]
+          para todo \(v\in V\). Para probar que \(T\) es continua en \(0\), dada \(\varepsilon >0\)
+          proponemos \(\delta= \frac{\varepsilon}{C}\). Entonces si \(0< \|u\| < \delta \) se sigue que 
+          \[
+          \| Tu - T0\| =\|Tu\| \leq C \| u\| < C \delta =C\frac{\varepsilon}{C}= \varepsilon
+          \]
+          probando que \(T\) es continua en \(0\).
+        </p>
+      </div>
       </div>
 
 
@@ -616,12 +641,81 @@
             \(T\) es continua en todo \(V\).
           </li>
           <li>
-            \(T\) es Lipschitz y por lo tanto uniformemente continua en \(V\).
+            \(T\) es Lipschitz (orden 1) y por lo tanto uniformemente continua en \(V\).
           </li>
           <li>
             \(T\) manda subconjuntos acotados en subconjuntos acotados.
           </li>
         </ol>
+        <p>
+          Notas.
+        </p>
+        <ul>
+          <li>
+            Por este terema a las funciones lineales continuas también se les llamda 
+             funciones lineales acotadas.
+           </li>
+           <li>
+            Para funciones NO lineales este teorema no es cierto. 
+           </li>
+        </ul>
+        <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+        <p>
+          \( 1 \Rightarrow 2] \)
+        </p>
+        <p>
+          Si \(T\) es continua en \(0\), por el <a href="#Lema:LinealesAcotadas">Lema anterior </a> existe un \(C>0\) tal que 
+          \[
+          \|Tv\| \leq C\|v\|
+          \]
+          para toda \(v\in V\). Al usar la linealidad de \(T\) la desiualdad anterior implica 
+          \[
+          \|Tu-Tv\| = \|T(u-v)\| \leq C\|u-v\|
+          \]
+          por lo que \(T\) es Lipschtiz continua de orden 1 y por lo tanto uniformemente continua
+          (ver <a href="#Ejer:FuncionesLipschitz">Ejercicio 10.7</a>). 
+        </p>
+        <p>
+          \(2 \Rightarrow 3 ]\)
+        </p>
+        <p>
+          Supongamos que \(T\) es Lipschitz continua de orden 1 y sea \(B \subset V\) un subconjunto acotado.
+          Debemos de probar que \(T(B)\) es acotado, es decir, está contenido en una bola.
+        </p>
+        <p>
+          Al ser \(T\) Lipschitz orden 1, existe \(K>0\) tal que 
+          \[
+          \|Tv-Tu\| \leq k\|u-v\|
+          \]
+          para todos \(u,v\in V\). Ahora, al ser \(B\) acotado existe un \(R > 0\) tal que 
+          \(\|b\| \leq R\) para todo \(b\in B\). Se sigue que 
+          \[
+          \|Tb\| = \|Tb-T0\| \leq K \|b-0\|=K\|b\| \leq KR  
+          \]
+          por lo que \(T(B)\) está contenido en la bola de radio \(KR\) con centro en el origen.
+        </p>
+        <p>
+          \(3 \Rightarrow 1 ]\)
+        </p>
+        <p>
+          Supongamos que \(T\) manda subconjuntos acotados en subconjuntos acotados. Debemos de 
+          probar que \(T\) es continua en \(0 \) y por el <a href="#Lema:LinealesAcotadas">Lema anterior </a>
+          es suficiente probar que existe un \(C>0\) tal que 
+          \[
+          \|Tv\| \leq C\|v\|
+          \]
+          para toda \(v\in V\).
+        </p>
+        <p>
+          Si \(B=\{ x\in V: \|x\| \leq 1\}\) la hipótesis implica que \(T(B)\) es un conjunto acotado. Por lo tanto 
+          exite una \(C>0\) tal que \(\|Tx\| \leq C\) para todo \(x\in B\). Ahora, dado 
+          \(v\in V\) distinto de cero tenemos que \(x=\frac{1}{\|v\|}v \in B \) y por lo tanto 
+          \[
+          C \geq \|Tx\|=\frac{1}{\|v\|}\|Tv\| \Rightarrow C\|v\| \geq \|Tv\|
+          \]
+        </p>
+        </div>
       </div>
 
       <div class="nota-box">
@@ -677,12 +771,12 @@
         <p>
           Sea \(T\in B(V,W)\). Prueba que
           \[
-          \|T\|=\sup_{x\in V, x\ne 0} \left\{ \frac{\|Tx\|_W}{\|x\|_V} \right\},
+          \|T\|=\sup_{x\in V, x\ne 0} \left\{ \frac{\|Tx\|}{\|x\|} \right\},
           \]
           \[
-          \|T\|=\sup_{x\in B_1(0)} \{ \| T(x)\|_W\}
+          \|T\|=\sup_{x\in B_1(0)} \{ \| T(x)\|\}
           \]
-          y que \(\|T(x)\|_W \leq \|T\| \|x\|_V \), para toda \(x\in V\).
+          y que \(\|T(x)\| \leq \|T\| \|x\| \), para toda \(x\in V\).
         </p>
       </div>
 
