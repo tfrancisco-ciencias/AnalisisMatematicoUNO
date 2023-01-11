@@ -243,6 +243,35 @@
             Sugerencia: para el regreso supon que \(f\) no es uniformemente continua
             y llega a una contradicción.
           </p>
+          <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+          <p>
+          \(\Rightarrow ] \) Supongamos que \(f\) es uniformemente continua en \(X\) y que 
+          las sucesiones \((a_n)_{n=1}^\infty, (b_n)_{n=1}^\infty\) satisfacen 
+          \begin{equation}\label{Eqn:AuxEjerCharcContUnfir} 
+          \lim_{n\to \infty} d_X(a_n,b_n)=0.
+          \end{equation}
+          </p>
+          <p>
+            Debemos de probar que \(\lim_{n\to infty} d_Y(f(a_n),f(b_n))=0\). Sea \(\varepsilon >0\). 
+            Por continuidad uniforme existe una \(\delta > 0\) tal que si \(a,b \in X\) con 
+            \(d_X(a,b)< \delta\) entonces \(d_Y(f(a),f(b))< \varepsilon\). Ahora, por \eqref{Eqn:AuxEjerCharcContUnfir}
+            existe una \(N\in \mathbb{N}\) tal que si \(n \geq N\), \(d_X(a_n,b_n)< \delta \) y en consecuencia 
+            \(d_Y(f(a_n),f(b_n))< \varepsilon\), para toda \(n \geq N\).
+          </p>
+          <p>
+            \(\Leftarrow ]\) Esta parte la hacemos por contrapositiva. Supongamos que 
+            \(f\) NO es uniformemente continua en \(X\). Como consecuencia existe un 
+            \(\varepsilon_0 >0\) tal que para todo \(\delta > 0\) existen puntos \(a,b\in X\)
+            tal que \(d_X(a,b)< \delta\) pero \(d_Y(f(a_n),f(b_n) \geq \varepsilon_0\). Tomando 
+            valores de \(\delta\) de la forma \(\delta=1/n\) se construyen sucesiones \((a_n)_{n=1}^\infty\),
+            \((b_n)_{n=1}^\infty\) con \(\lim_{n\to \infty} d_X(a_n,b_n) \leq 1/n\) pero 
+            \(d_Y(f(a_n),f(b_n)) \geq \varepsilon_0\) para toda \(n\), por lo que 
+            \[
+            \lim_{n\to \infty}d_X(a_n,b_n)=0, \quad \lim_{n\to infty} d_Y(f(a_n),f(b_n)) \ne 0.
+            \]
+          </p>
+        </div>
       </div>
 
 
@@ -559,6 +588,17 @@
             \]
             para toda \(v\in V\).
         </ol>
+
+        <p>
+          \(1 \Rightarrow 2 ]\) Ya que \(T\) es continua en \(0\), dado \(\varepsilon=1\)
+          existe una \(\delta > 0\) tal que si \(\|u\| < \delta \) entonces 
+          \(\|Tu - T0\| = \|Tu\| < 1 \). Ahora, si \(v\in V\) es arbitrario, con \(v\ne 0\), 
+          entonces \(u=\frac{\delta}{2\|v\|} v \) satisface \(\|u\| < \delta \) por lo que 
+          \[
+          1 > \| Tu \|= \frac{\delta }{2\|v\|}\|Tv\|
+          \]
+          lo cual implica \(\|Tv\| \leq C\|v\|\) donde tomamos \(C=2/\delta\). 
+        </p>
       </div>
 
 
