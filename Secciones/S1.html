@@ -212,7 +212,7 @@
           </li>
           </p>
 
-          <button class="respButton hvr-grow"> Respuesta </button>
+          <!--<button class="respButton hvr-grow"> Respuesta </button>
           <div class="resp-box">
               <p>1.
 
@@ -267,7 +267,7 @@
                   no son biyectables si \(n \neq m\), entonces \(A\) y \(B\) tampoco lo son y \(A\)
                   no tiene ningún subconjunto propio equivalente a él mismo.
               </p>
-          </div>
+          </div>-->
         </div>
 
 
@@ -298,7 +298,7 @@
         </div>
 
         <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
+          <h2 class="number-title" id="Ejer:InAndOutNumerables"> Ejercicio </h2>
           <p>
             Sea \(A\) un conjunto contable y sean
             \(C,B\) dos conjuntos.
@@ -367,6 +367,23 @@
             si \(A_i\) es contable, para todo \(i=1,2,\dots\) entonces
             \(\cup_{i=1}^n A_i\) es contable.
           </p>
+          <button class="respButton hvr-grow"> Demostración </button>
+          <div class="resp-box">
+          <p>
+            Al ser \(A_i\) contable existe una biyección \(f_i:\mathbb{N} \to A_i\). Definimos 
+            \(f:\mathbb{N}\times \mathbb{N} \to \cup_{i=1}^\infty A_i\) por 
+            \[
+            f(n,m)=f_n(m)
+            \]
+            Esta función es supreyectiva pues dada \(x\in \cup_{i=1}^\infty A_i\) existe un 
+            \(n\) tal que \(x\in A_n\) y al ser \(f_n\) una biyección existe un \(m\) con 
+            \(f_n(m)=x\). 
+          </p>
+          <p>
+            Ya que \(\mathbb{N}\times \mathbb{N}\) es numerable se sigue del 
+            <a href="#Ejer:InAndOutNumerables">Ejercicio 1.7</a> que \(\cup_{i=1}^\infty A_i\) es numerable.
+          </p>
+          </div>
           </div>
 
 
