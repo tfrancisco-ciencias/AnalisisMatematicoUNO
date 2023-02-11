@@ -365,24 +365,102 @@
         Prueba que \(d_\infty\) y \(d_1\) son métricas en \(C[a,b]\).
       </p>
 
-    </div>
-
-
-    <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
+      <button class="respButton hvr-grow"> Para \(d_\infty\)</button>
+      <div class="resp-box">
       <p>
-        Sean \(d_1,d_2:X\times X \to \mathbb{R}\) dos métricas en \(X\).
-        <ol>
-          <li> Sea \(c>0\). Prueba que \(cd_1+d_2\) es una métrica en \(X\).</li>
-          <li> ¿Cuál de las siguientes funciones define una métrica en \(X\) ?
-            \[
-            d(x,y)=\max\{ d_1(x,y), d_2(x,y)\}, d(x,y)= \min\{d_1(x,y),d_2(x,y)\}
-            \]
-            Prueba o da un contraejemplo, según corresponda.
-          </li>
+        Es claro que \(d_\infty(f,g)\geq 0\) para todas las funciones \(f,g\).
       </p>
+      <p>
+        Si suponemos que \(d_\infty(f,g)=0\) entonces 
+        \[
+        \max_{t\in [a,b]}\{|f(t)-g(t)|\}=0
+        \]
+        lo cual quiere decir que para toda \(t\in [a,b]\), \(|f(t)-g(t)|=0\), por lo que 
+        concluimos \(f=g\).
+      </p>
+      <p>
+        Ya que \(|f(t)-g(t)|=|g(t)-f(t)|\), para toda \(t\in [a,b]\), al tomar máximo sobre \(t\) se sigue que 
+        \(d_\infty(f,g)=d_\infty(g,f)\).
+      </p>
+      <p>
+        Para probar la desigualdad del triángulo notamos que usando la desigualdad del 
+        triánlgulo en \(\mathbb{R}\) resulta que para \(f,g,h\in C[a,b]\) y para todo \(t\in [a,b]\):
+        \begin{eqnarray*} 
+        |f(t)-g(t)| &\leq & |f(t)-h(t)|+|h(t)-g(t)|  \\
+        \Rightarrow |f(t)-g(t)| &\leq & \max_{t\in [a,b]}\{|f(t)-h(t)| \} + \max_{t\in [a,b]}\{|h(t)-g(t)| \} \\ 
+        \Rightarrow |f(t)-g(t)| &\leq & d_\infty(f,h)+d_\infty(h,g) \\
+        \Rightarrow \max_{t\in t\in [a,b]}\{|f(t)-g(t)| \} & \leq &  d_\infty(f,h)+d_\infty(h,g)  \\
+        \Rightarrow d_\infty(f,g) &\leq  & d_\infty(f,h)+d_\infty(h,g) 
+        \end{eqnarray*}
+      </p>
+      </div>
+      <button class="respButton hvr-grow"> Para \(d_1\)</button>
+      <div class="resp-box">
+      <p>
+        Ya que la integral de funciones no negativas es mayor a igual a cero se sigue que 
+        \(d_1(f,g) \geq 0\) para todas \(f,g\in C[a,b]\).
+      </p>
+      <p>
+        Si \(d_1(f,g)=0\) entonces 
+        \[
+        \int_a^b |f(t)-g(t)|dt =0.
+        \]
+        Ahora, si \(f(s)\ne g(s)\) para algún \(s\in [a,b]\), por continuidad de \(f\) y \(g\)
+        existe un intervalo alrededor de  \(s\), \((s-r,s+r)\), y un número positivo \(\alpha\)
+        tal que \(|f(t)-g(t)|\geq \alpha \) para toda \(t\in (s-r,s+r)\). Usando la monotonía de la
+        integral se sigue que 
+        \[
+        2\alpha r=\int_{s-r}^{s+r}\alpha dt \leq \int_{s-r}^{s+r} |f(t)-g(t)|dt\leq \int_a^b |f(t)-g(t)|dt =0
+        \]
+        por lo que \(2\alpha r =0\), una contradicción pues \(\alpha >0, r>0\). Por lo tanto 
+        debemos de tener que \(f=g\).
+      </p>
+      <p>
+        Ya que \(|f(t)-g(t)|=|g(t)-f(t)|\) para toda \(t\in [a,b]\) se sigue que 
+        \(d_1(f,g)=d(g,f)\).
+      </p>
+      <p>
+        Fijamos funciones \(f,g,h\). Para la desigualdad del triángulo, primero iniciamos con la desigualdad del triángulo para 
+        los reales y obtenemos que, todo \(t \in [a,b]\):
+        \begin{eqnarray*}
+        |f(t)-g(t)| & \leq  & |f(t)-h(t)|+|h(t)-g(t)|  \\
+        \Rightarrow \int_{a}^b |f(t)-g(t)|dt & \leq  & \int_{a}^b(|f(t)-h(t)|+|h(t)-g(t)|)dt \\
+        \Rightarrow d_1(f,g) & \leq &  d_1(f,h)+d_1(h,g).
+        \end{eqnarray*}
+      </p>
+
+      </div>
+      
     </div>
 
+
+    <div class="nota-box">
+      <h2 class="number-title"> Nota </h2>
+      <p>
+        El ejercicio anterior sigue siendo válido para diferentes espacios de funciones. 
+        Por ejemplo si cambiamos \(C[a,b]\) por el espacio vectorial de funciones acotadas en 
+        \([a,b]\) y definimos 
+        \[
+        d_\infty(f,g)=\sup_{t\in [a,b]}\{ |f(t)-g(t)|\}
+        \]
+        \(d_\infty\) sigue siendo 
+        una métrica. Además ésta métrica es que la aparecerá más adelante en los teoremas de 
+        aproximación de Stone-Weirestrass y el de compacidad de Arzela-Ascoli.
+      </p>
+      <p>
+        Con respecto a \(d_1\) hay algunos problemas técnicos pero no fatales. En el espacio de funciones Riemann integrables 
+        en \([a,b]\) la función 
+        \[
+        d_1(f,g)=\int_a^b |f(t)-g(t)|dt
+        \]
+        cumple todas las propiedades de métrica excepto \(d_1(f,g)=0 \Rightarrow f=g\)
+        pues si \(\int_a^b |f(t)-g(t)|dt=0\) lo se tiene es que \(f=g\) excepto un conjunto de contenido cero. 
+        Lo anterior puede resolverse identificando funciones que son iguales excepto un conjunto de contenido cero.
+      </p>
+
+    </div>
+
+    
 
     <div class="ejercicio-box">
       <h2 class="number-title" id="Ejer:MetProdCarte"> Ejercicio </h2>
@@ -487,33 +565,6 @@
         </div>
 
         <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Una cuasimétrica en un conjunto \(X\) es una
-            función \(\rho: X\times X \to \mathbb{R}\) que
-            satisface, para todos \(x,y,z\in X\):
-            <ol>
-              <li>
-                \(d(x,y)\geq 0\),
-              </li>
-              <li>
-                \(d(x,y)=0\) si y  sólo si \(x=y\),
-              </li>
-              <li>
-                \(d(x,y) \leq d(x,z)+d(z,y)\).
-              </li>
-            </ol>
-
-          </p>
-            <p>
-              Prueba que si \(\rho\) es una cuasimétrica
-              entonces \(d(x,y):=\frac{1}{2}(\rho(x,y)+\rho(y,x))\)
-              define una métrica.
-            </p>
-        </div>
-
-
-        <div class="ejercicio-box">
           <h2 class="number-title" id="Ejer:ConjuntoAcotado"> Ejercicio </h2>
           <p>
             Un subconjunto \(A\) de un espacio métrico \((X,d)\) se llama
@@ -616,26 +667,17 @@
 
             <div class="quiz-box">
               <h2 id="Quiz:Sec2"> Quiz </h2>
+              <p>
+                Sean \(d_1,d_2:X\times X \to \mathbb{R}\) dos métricas en \(X\).
                 <ol>
-                  <li>
-                    <p>
-                    (2 pts) Sea \(X\ne \emptyset\) un conjunto y
-                    \(d_1,d_2:X\to \mathbb{R}\) dos métricas sobre \(X\). Sea
-                    \(c\in \mathbb{R}^+\). Prueba que \(d:=d_1+cd_2\)
-                    es una métrica en \(X\).
-                  </p>
-                  </li>
-                  <li>
-                    <p>
-                    (3 pts) Sea \((X,d)\) un espacio métrico. Prueba que para todos
-                    \(x,y,z\in X\) se cumple
+                  <li> (2pts) Sea \(c>0\). Prueba que \(cd_1+d_2\) es una métrica en \(X\).</li>
+                  <li> (3pts) ¿Cuál de las siguientes funciones define una métrica en \(X\) ?
                     \[
-                    |d(x,z)-d(z,y)|\leq d(x,y).
+                    d(x,y)=\max\{ d_1(x,y), d_2(x,y)\}, d(x,y)= \min\{d_1(x,y),d_2(x,y)\}
                     \]
-                  </p>
+                    Prueba o da un contraejemplo, según corresponda.
                   </li>
-
-                </ol>
+              </p>
           </div>
     </div>
   </body>
