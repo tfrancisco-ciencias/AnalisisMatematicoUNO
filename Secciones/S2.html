@@ -666,6 +666,82 @@
         </div>
 
 
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Una pseudo métrica en el conjunto \(X\) es una función 
+            \(\rho:X\times X \to \mathbb{R}\) que satisface 
+            <ol>
+            <li>  \(d(x,y) \geq 0\), </li>
+            <li>  \(d(x,y)=d(y,x)\),</li>
+            <li> desigualdad del triángulo: \(d(x,y)\leq d(x,z)+d(z,y)\).</li>
+          </ol>
+            para todos \(x,y,z\in X\).
+          </p>
+          <p>
+            Una familia de pseudo métricas \(\{\rho_i\}_{i\in I}\) se dice que 
+            separa los puntos de \(X\) sii para \(x,y\in X\) con \(x\ne y\)
+            existe \(\rho_j\) tal que 
+            \(\rho_j(x)\ne \rho_j(y)\).
+          </p>
+
+          <p>
+            Por ejemplo, para \(X=C(\mathbb{R})\), el espacio de las funciones continuas en 
+            \(\mathbb{R}\), dado cualquier compacto \(K\subseteq \mathbb{R}\) la función 
+            \[
+            \rho_K(f,g)=\max_{x\in K}\{|f(x)-g(x)| \}
+            \]
+            es una pseudo métrica pero no una métrica.
+          </p>
+
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Supongamos que \(\{\rho_{n}\}_{n=1}^\infty\) es una familia numerable de 
+            pseudo métricas en \(X\) que separan los puntos. Prueba que la función 
+            \(d:X\times X \to \mathbb{R}\) definida por 
+            \[
+            d(x,y)=\sum_{n=1}^\infty \frac{1}{2^n} \frac{\rho_n(x,y)}{1+\rho_n(x,y)}
+            \]
+            es una métrica en \(X\).
+          </p>
+
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Dado \(U \subseteq \mathbb{R}^n\) un conjunto abierto por \(C^\infty(U)\)
+            denotamos al conjunto de funciones infinitamente diferenciales en \(U\).
+          </p>
+          <p>
+            Un multi-indice es un vector 
+            \[
+            \alpha=(\alpha_1,\dots, \alpha_n)
+            \]
+            donde para toda \(i\), \(\alpha_i \geq 0\) es un natural. Dado un multi-indice  (\alpha) denotamos  
+            \(D^\alpha: C^\infty(U)\to C^\infty(U)\) dada por 
+            \[
+            D^\alpha f = \partial_{x_1}^{\alpha_1} \cdots \partial_{x_n}^{\alpha_n} f
+            \]
+            y definimos su orden como \(|\alpha|:=\alpha_1+\cdots +\alpha_n\).
+
+          </p>
+          <p>
+            Nota: \(|\alpha|=0\), \(D^\alpha f =f\), para toda función.
+          </p>
+          <p>
+            Si escribimos \(U=\cup_{n=1}^\infty K_n\), donde cada \(K_n \subset U\) es compacto 
+            la familia 
+            \[
+            \rho_n(f):=\max_{x\in K_n, |\alpha|\leq n}\{|D^\alpha f(x)| \}
+            \]
+            define una familia de seminormas que separan los puntos de \(C^\infty(U)\).
+          </p>
+
+        </div>
 
 
             <div class="quiz-box">
