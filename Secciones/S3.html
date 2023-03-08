@@ -665,7 +665,7 @@
           </p>
 
 
-          <button class="respButton hvr-grow"> Demostración </button>
+          <button class="respButton hvr-grow"> Demostración 1</button>
             <div class="resp-box">
                 <div class="flexbox">
                   <iframe width="700" height="400" class="video"
@@ -673,6 +673,53 @@
                   </iframe>
                   
                 </div>
+            </div>
+
+            <button class="respButton hvr-grow"> Demostración 2</button>
+            <div class="resp-box">
+            <p>
+              Esta demostración sólo usa la convexidad de la función \(t \mapsto t^p \), \( t\in [0,\infty ) \), 
+              es decir: \((\lambda s + (1-\lambda) t )^p \leq \lambda s^p+(1-\lambda)t^p\), 
+              para todos \(s,t\in [0,\infty), \lambda \in (0,1)\).
+            </p>
+            <p>
+            <div class="flexbox">
+              <img src="./Images/Sec3-img1.png" alt="covex" width="50%" height="auto" >
+              </div>
+            </p>
+            <p>
+              Sín pérdida de generalidad podemos suponer que \(x\ne 0, y\ne 0\). Denotamos 
+              \[
+              \tilde{x}=\frac{1}{\|x\|_p}x,\, \tilde{y}=\frac{1}{\|y\|_p}y
+              \]
+              los cuales son vectores unitarios. Si tomamos 
+              \[
+              \lambda= \frac{\|y\|_p}{\|x\|_p+\|y\|_p} 
+              \]
+              entonces \(\lambda \in (0,1)\) y 
+              \[
+              1-\lambda = \frac{\|x\|_p}{\|x\|_p+\|y\|_p}. 
+              \]
+            </p>
+            <p>
+              Por otro lado, para toda \(i\in \mathbb{N}\):
+              \begin{eqnarray*} 
+              |x_i+y_i|^p&=& | \|x\|_p \tilde{x}_i + \|y\|_p \tilde{y}_i  |^p \\
+              &=& (\|x\|_p+\|y\|_p)^p \left| \frac{\|x\|_p}{\|x\|_p+\|y\|_p} \tilde{x}_i + \frac{\|y\|_p}{\|x\|_p+\|y\|_p} \tilde{y}_i  \right|^p \\
+              &=& (\|x\|_p+\|y\|_p)^p| (1-\lambda) \tilde{x}_i+ \lambda\tilde{y}_i|^p \\
+              &\leq & (\|x\|_p+\|y\|_p)^p ((1-\lambda) |\tilde{x}_i|^p+ \lambda| \tilde{y}_i|^p) \\
+              \end{eqnarray*}
+              donde en la última desigualdad usamos la convexidad de \(t\mapsto t^p\).
+            </p>
+            <p>
+              Si en la desigualdad anterior sumamos sobre todas las \(i\) llegamos a 
+              \begin{eqnarray*} 
+              \|x+y\|_p^p &\leq  & (\|x\|_p+\|y\|_p)^p((1-\lambda)\|\tilde{x}\|_p^p  + \lambda \|\tilde{y}\|_p^p) \\
+              &=& (\|x\|_p+\|y\|_p)^p( (1-\lambda)+\lambda)\\
+              &=& (\|x\|_p+\|y\|_p)^p \\
+              \Rightarrow \|x+y\|_p &\leq & \|x\|_p+\|y\|_p.
+              \end{eqnarray*}
+            </p>
             </div>
         </div>
 
