@@ -290,8 +290,9 @@
           Ya que \(a\in \cup_{i\in I}U_i\), existe \(i_0\) tal que
           \(a\in U_{i_0}\). Por otro lado ya que  \(U_{i_0}\) es abierto
           existe un número positivo \(r\) tal que \((a-r,a+r)\subseteq U_{i_0}\).
-          Se sigue que podemos asegurar la existencia de un \(x_0\) tal que
-          \(a< x_0 < b \) y tal que
+          Tomando \(r\) suficiente mente pequeña podemos suponer 
+          \(a+r< b\). Tomando  \(x_0=a+r/2\) se sigue que 
+          \(a< x_0 < b \) y 
           \[
           [a,x_0]\subseteq U_{i_0}.
           \]
@@ -304,29 +305,46 @@
           \(x^*=\sup(S)\).
         </p>
         <p>
-          La prueba se termina si demostramos que \(x^*=b\). Nota que hasta el momento
-          se tiene que \(x^*\leq b\).
+          Afirmamos que \(x^*=b\). Nota que hasta el momento
+          se tiene que \(x^*\leq b\) asi que si no se da la igualdad se debe 
+          de tener \(x^*< b\). 
         </p>
         <p>
           Ya que \(x^*\in [a,b]\) y \(\{U_i\}_{i\in I}\) es una cubierta
           de \([a,b]\) existe \(i_1\in I\) tal que \(x^*\in U_{i_1}\). Usando
-          que \(U_{i_1}\) es abierto existe \(s>0\) tal que \((x^*-s,x^*+s)\subseteq U_{i_0}\).
+          que \(U_{i_1}\) es abierto existe \(s>0\) tal que \((x^*-s,x^*+s)\subseteq U_{i_0}\)
+          y como \(x^* < b \) podemos tomar \(s\) suficientemente chica 
+          para que \(a< x^*-s\) y \( x^*+s < b\). Por la propiedad fundamental del supermo 
+          existe \(y\in A\) tal que \(x^*-s < y < b\). Ya que \(y\in A\) 
+          existen \(U_{j_1},\dots, U_{j_n}\) tal que 
+          \[
+          [a,y] \subset \cup_{k=1}^n U_{j_k}. 
+          \]
+          Pero además tenemos que \((x^*-s,x^*+s) \subset U_{i_1}\) 
+          por lo que \([y,x^*+s/2] \subset (x^*-s,x^*+s) \subset U_{i_1} \).
+          Se sigue que 
+          \[ 
+          [a,x^*+s/2] \subset \cup_{k=1}^n U_{j_k} \cup U_{i_1}
+          \]
+          por lo que \(x^*+s/2 \in A\) lo cual es una contradicción pues 
+          \(x^* < x^*+s/2\) y \(x^*=\sup(A)\).
+          
         </p>
         <p>
-          Observamos que el intervalo \([a,x^*-s]\) está contenido en una unión
-          finita de elements de \(\{U_i\}_{i\in I}\). Razón: usando que \(x^*=\sup(S)\)
-          existe \(x \in S\) tal que \(x^*-s< x \leq x^*\). Ya que \([a,x]\)
-          puede cubrirse con una cantidad finita de elementos de \(\{U_i\}_{i\in I}\)
-          y \((x^*-s,x^*+s)\subseteq U_{i_1}\) resulta que también \([a,x^*-s]\)
-          puede cubrirse con una contidad finita de elementos de \(\{U_i\}_{i\in I}\).
+          Para terminar vamos a probar que  \([a,b]\) se puede cubrir con una 
+          cantidad finita de las \(U_i's\). Primero tomamos 
+          \(i_2\) tal que \(b\in U_{i_2}\). Ya que \(U_{i_2}\)
+          es abierto existe un \( t > 0\) 
+          tal que \((b-t,b+t) \subseteq U_{i_2}\). Haciendo 
+          \(t\) mas pequeña de ser necesario podemos suponer que 
+          \(a< b-t < b\). Ya que \(b=\sup(A)\) por la propiedad 
+          fundamental del supremo existe un \(z\in A\) tal que 
+          \(b-t < z \leq b\). Como \(z\in A\), podemos cubrir 
+          \([a,z]\) con una cantidad finita de \(U_i's\)
+           y podemos cubrir \([z,b]\) con \(U_{i_2}\), por lo que 
+           podemos cubrir \([a,b]\) con una cantidad finita de \(U_i's\).
         </p>
-        <p>
-          Finalmente, si suponemos que \(x^*< b\) podemos encontrar un número \(s'\)  con \(0< s'< s\) tal que
-          \(x^*+s'< b \) por lo que \([x^*-s',x^*+s']\subseteq U_{i_1}\). Se sigue
-          que \([a,x^*+s']\) puede cubrirse con una cantidad finita de elementos
-          de \(\{U_i\}_{i\in I}\), por lo que \(x^*+s\in S\) contradiciento
-          que \(x^*=\sup(S)\). Por lo tanto debemos de tener que \(x^*=b\).
-        </p>
+        
       </div>
       </div>
 
