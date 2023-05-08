@@ -1147,8 +1147,58 @@
               </p>
             </div>
 
+            <div class="definicion-box">
+              <h2 class="number-title"> Definición </h2>
+              <h3> Límites inferior y superior </h3>
+              <p>
+                Dada una sucesión acotada de números reales, \((x_n)_{n\in \mathbb{N}}\), 
+                definimos, respectivamente, su límite inferior y superior como 
+                \begin{eqnarray*} 
+                \liminf_{n\to \infty} x_n = \sup_{n\geq 1} \{\inf_{k\geq n}\{ x_k\} \}\\
+                \limsup_{n\to \infty} x_n = \inf_{n\geq 1} \{\sup_{k\geq n}\{ x_k\} \}
+                \end{eqnarray*}
+              </p>
+              <p>
+                Observación:
+                de la definición se sigue directamente que \(\liminf_{n}x_n \leq \limsup_{n}x_n\).
+              </p>
 
+            </div>
 
+            <div class="lema-box">
+              <h2 class="number-title" id="Lema:LimSupLimInf"> Lema </h2>
+              <p>
+                Sea \((x_n)_{n=1}^\infty\) una sucesión acotada de números reales. Prueba que \((x_n)_{n=1}^\infty\)
+                es convergente si y sólo si 
+                \[\liminf_{n\to \infty} x_n = \limsup_{n\to \infty} x_n.\]
+                
+              </p>
+              <p>
+                En cuyo caso se tiene que \(\liminf_{n\to \infty}x_n=\limsup_{n\to \infty}x_n=\lim_{n\to \infty}x_n\).
+              </p>
+
+              <p>
+                Ahora denotamos \(x=\alpha=\beta\) y para terminar probamos que \(\lim_{k\to \infty}x_{n_k}=x\).
+              </p>
+            
+              <!-- <p>
+                Ahora por las propiedades fundamentales de ínfimos y supremos para \(\varepsilon >0\) existen \(j_1,j_2\)
+                tales que 
+                \begin{eqnarray*} 
+                x- \varepsilon < \alpha_{j_1}, \\
+                \beta_{j_2} < x+\varepsilon.
+                \end{eqnarray*}
+                Sea \(j_3=\max\{j_1,j_2\}\). Por \eqref{Eqn:Aux2Rcomp} y \eqref{Eqn:Aux3Rcomp} tenemos que 
+                \(\alpha_{j_1}\leq \alpha_{j_3}\) y \(\beta_{j_3}\leq \beta_{j_2}\) y por \eqref{Eqn:Aux1Rcomp}
+                tenemos \(\alpha_{j_3} \leq \beta_{j_3}\). Con toda la información anterior tenemos la siguiente cadena 
+                de desigualdades
+                \begin{eqnarray*} 
+                x -\varepsilon <  \alpha_{j_3}\leq x_{n_k} \leq  \beta_{j_3} <  x +\varepsilon
+                \end{eqnarray*}
+                para todo \(k\geq j_3\), lo cual se puede reescribir como \(|x-x_{n_k}|< \varepsilon\) para todo 
+                \(k \geq j_3\), es decir \(\lim_{k\to \infty}x_{n_k}=x\).
+              </p>-->
+            </div>
 
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>

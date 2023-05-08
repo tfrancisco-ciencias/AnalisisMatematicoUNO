@@ -145,17 +145,15 @@
   <p>
     Ahora definimos 
     \begin{eqnarray*} 
-      \alpha &=& \sup_{j \geq 1}\{ \inf_{k\geq j } \{ x_{n_k}\}  \} \\
-      \beta &=& \inf_{j \geq 1}\{ \sup_{k\geq j } \{x_{n_k} \}\} 
+      \alpha &=& \liminf_{n\to \infty}x_n=  \sup_{j \geq 1}\{ \inf_{k\geq j } \{ x_{n_k}\}  \} \\
+      \beta &=&  \limsup_{n\to \infty}x_n = \inf_{j \geq 1}\{ \sup_{k\geq j } \{x_{n_k} \}\} 
     \end{eqnarray*}
     las cuales están bien definidas pues toda subsucesión de Cauchy es acotada 
-    (ver <a href="./S4.html#Ejer:CauchyAcotada">Ejercicio 4.27</a>). La idea es que 
-    \(\alpha\) es el punto de acumulación más chico de \((x_{n_k})_{k=1}^\infty\) 
-    y \(\beta\) el punto de acumulación más grande. Se probará que \(\alpha = \beta\) y 
-    que éste punto es el límite de la subsucesión \((x_{n_k})_{k=1}^\infty\).
+    (ver <a href="./S4.html#Ejer:CauchyAcotada">Ejercicio 4.27</a>). Por el <a href="./S4.html#Lema:LimSupLimInf">Lema 4.26</a>
+    es suficiente probar que \(\alpha=\beta\).
   </p>
   <p>
-    Ahora vamos a probar que \(\alpha = \beta\). En primer por las 
+    En primer lugar por las 
     propiedades de supremos e ínfimos, para toda \(j\)
     \begin{eqnarray} 
     \alpha_j:= \inf_{k\geq j } \{x_{n_k} \} & \leq &  \sup_{k\geq j } \{x_{n_k} \}=:\beta_j \label{Eqn:Aux1Rcomp}\\
@@ -176,8 +174,14 @@
     \end{eqnarray*}
   </p>
   <p>
-    Ahora, para \(j\geq 1\) arbitrario, usando las propiedades fundamentales de ínfimos y supremos para 
-    \(\varepsilon >0\) existen \(k_1,k_2 \geq j\) tales que 
+    Afirmamos que  para toda \(j\geq 1\):
+    \[
+    \beta_j-\alpha_j \leq \frac{1}{2^{j-1}}.
+    \]
+  </p>
+  <p>
+    Fijamos \(\varepsilon\in (0,1)\) arbitrario. Ahora, para \(j\geq 1\) arbitrario, usando las propiedades fundamentales de ínfimos y supremos 
+    existen \(k_1,k_2 \geq j\) tales que 
     \begin{eqnarray*} 
       \alpha_j + \varepsilon & > & x_{n_{k_1}} \\ 
       \beta_j -\varepsilon & < & x_{n_{k_2}}
@@ -190,15 +194,19 @@
   <p>
     Sin pérdida de generalidad podemos suponer \(k_2=k_1+p\), para algún \(p\geq 1\). Por lo tanto se sigue que 
     \begin{eqnarray*} 
-    \beta_j - \alpha_j \leq |x_{n_{k_1+p}}-x_{n_{k_1}}|\leq \sum_{i=0}^{p-1} \frac{1}{2^{k_1+i}}
+    \beta_j - \alpha_j - 2\varepsilon \leq |x_{n_{k_1+p}}-x_{n_{k_1}}|\leq \sum_{i=0}^{p-1} \frac{1}{2^{k_1+i}}
     \end{eqnarray*}
     y ya que \(k_1 \geq j\) lo anterior también implica que 
     \begin{eqnarray*} 
-    \beta_j - \alpha_j & \leq &  \sum_{i=0}^{p-1} \frac{1}{2^{j+i}} \\
+    \beta_j - \alpha_j - 2\varepsilon & \leq &  \sum_{i=0}^{p-1} \frac{1}{2^{j+i}} \\
     &=& \frac{1}{2^j}\sum_{i=0}^{p-1}\frac{1}{2^i} \\
     & < & \frac{1}{2^j}\sum_{i=0}^\infty \frac{1}{2^j} \\
     &=& \frac{1}{2^j}2 =\frac{1}{2^{j-1}}
     \end{eqnarray*}
+  </p>
+  <p>
+    Tomando límite cuando \(\varepsilon \to 0\) en la desigualdad anterior llegamos a 
+    \(\beta_j - \alpha_j \leq 1/2^{j-1}\).
   </p>
   <p>
     Para concluir que \(\alpha = \beta\) usando que \(\alpha_j \leq \alpha \leq \beta \leq \beta_j\) llegamos a 
@@ -207,27 +215,7 @@
     \]
     por lo cual, haciendo \(j\to \infty\) concluimos que \(\alpha = \beta\).
   </p>
-  <p>
-    Ahora denotamos \(x=\alpha=\beta\) y para terminar probamos que \(\lim_{k\to \infty}x_{n_k}=x\).
-  </p>
-
-  <p>
-    Ahora por las propiedades fundamentales de ínfimos y supremos para \(\varepsilon >0\) existen \(j_1,j_2\)
-    tales que 
-    \begin{eqnarray*} 
-    x- \varepsilon < \alpha_{j_1}, \\
-    \beta_{j_2} < x+\varepsilon.
-    \end{eqnarray*}
-    Sea \(j_3=\max\{j_1,j_2\}\). Por \eqref{Eqn:Aux2Rcomp} y \eqref{Eqn:Aux3Rcomp} tenemos que 
-    \(\alpha_{j_1}\leq \alpha_{j_3}\) y \(\beta_{j_3}\leq \beta_{j_2}\) y por \eqref{Eqn:Aux1Rcomp}
-    tenemos \(\alpha_{j_3} \leq \beta_{j_3}\). Con toda la información anterior tenemos la siguiente cadena 
-    de desigualdades
-    \begin{eqnarray*} 
-    x -\varepsilon <  \alpha_{j_3}\leq x_{n_k} \leq  \beta_{j_3} <  x +\varepsilon
-    \end{eqnarray*}
-    para todo \(k\geq j_3\), lo cual se puede reescribir como \(|x-x_{n_k}|< \varepsilon\) para todo 
-    \(k \geq j_3\), es decir \(\lim_{k\to \infty}x_{n_k}=x\).
-  </p>
+ 
 </div>
 </div>
 
