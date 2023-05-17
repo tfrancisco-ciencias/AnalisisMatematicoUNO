@@ -77,29 +77,36 @@
 
     <div class="flexbox">
       <h1 class="number-title flexbox"> Convergencia puntual y uniforme </h1>
-      <!-- <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
-      <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>-->
+       
+      <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+      <!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> -->
 
 
       <div class="info-box">
         <h2 class="number-title"> Introducción </h2>
-
+        <p>
+          Desde este punto en adelante en el curso nos enfocaremos en espacios de funciones. 
+          Es decir vamos a trabajar en espacios métricos donde cada punto 
+          es una función.  Muy en particular vamos a estudiar sucesiones
+          de funciones y los distitos tipos de convergencia que surgen para estas sucesiones.
+          Las dos más importantes para el resto del curso son convergencia puntual y uniforme.
+        </p>
       </div>
 
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
         <p>
-          Sea \(X\) cualquier conjunto y consideremos
-          una sucesión de funciones reales \((f:X \to \mathbb{R})_{n=1}^\infty\).
+          Sea \(X\) cualquier conjunto, \((Y,d)\) un espacio métrico y consideremos
+          una sucesión de funciones  \((f:X \to Y)_{n=1}^\infty\).
           Decimos que la sucesión converge puntualmente en \(X\) si,
-          para todo punto \(x\in X\) el siguiente límite existe
+          para todo punto \(x\in X\) el siguiente límite existe en \((Y,d)\):
           \[
           \lim_{n\to \infty} f_n(x).
           \]
 
         </p>
         <p>
-          Definimos la función \(f:X \to \mathbb{R}\) por
+          Definimos la función \(f:X \to Y\) por
           \(f(x):=\lim_{n\to \infty}f_n(x)\). Con esta notación
           decimos que la sucesión de funciones \((f_n)_{n=1}^\infty\)
           converge puntualmente a \(f\).
@@ -163,7 +170,7 @@
         </p>
         <ol>
           <li>
-            \(f_n :\mathbb{R}\to \mathbb{R}\) dada por
+            \(f_n :\mathbb{R}\setminus \{-1\} \to \mathbb{R}\) dada por
             \[
             f_n(x)=\frac{x^n}{1+x^n}.
             \]
@@ -187,6 +194,44 @@
             \]
           </li>
         </ol>
+        <button class="respButton hvr-grow"> Solución inciso 1 </button>
+              <div class="resp-box">
+        <p>
+          Para \(|x|< 1 \), \(\lim_{n\to \infty}x^n=0\), por lo que: 
+          \[
+          \lim_{n\to \infty} \frac{x^n}{1+x^n} =0.
+          \]
+        </p>
+        <p>
+          Para \(x=1\), 
+          \[
+          \lim_{n\to \infty} \frac{1^n}{1+1^n} =\frac{1}{2}.
+          \]
+        </p>
+        <p>
+          Para \(|x|> 1\),  \(\lim_{n\to \infty} \frac{1}{x^n}=0\), usando que 
+          \[
+           \frac{x^n}{1+x^n}= \frac{1}{\frac{1}{x^n}+1}
+          \]
+          obtenemos que: 
+          \[
+          \lim_{n\to \infty} \frac{x^n}{1+x^n} =1.
+          \]
+        </p>
+        <p>
+          En conclusión 
+          \[
+          \lim_{n\to \infty}f_n(x)=
+          \left\{ 
+            \begin{array}{cc} 
+            0 & |x| < 1 \\
+            \frac{1}{2} & x = 1 \\
+            1 & |x|>1 
+            \end{array}
+            \right.
+          \]
+        </p>
+        </div>
       </div>
 
 
@@ -256,6 +301,43 @@
             </li>
 
           </ol>
+          <button class="respButton hvr-grow"> Solución inciso 1 </button>
+              <div class="resp-box">
+          <p>
+            Ya que \(|\frac{\sen(nx)}{n}|\leq \frac{1}{n}\) para todo \(x\in \mathbb{R}\), se sigue que 
+            \(\lim_{n\to \infty} f_n(x)=0\) para toda \(x\).
+          </p>
+          <p>
+            Sin embargo \(f_n'(x)=\cos(nx)\) el cual, para \(x\ne 0\), cumple que 
+            \(\lim_{n\to \infty}\cos(nx)\) no existe. Por ejemplo, para \(x=\pi\),
+            \(\cos(nx)=-1\) ó \(\cos(nx)=1\), dependiendo si \(n\) es impar o par, respectivamente. 
+          </p>
+          </div>
+
+          <button class="respButton hvr-grow"> Solución inciso 2 </button>
+              <div class="resp-box">
+
+          <p>
+            Ya que \(\left| \frac{x^n}{n} \right| \leq \frac{1}{n}\) para todo \(x\in [0,1]\), se sigue que 
+            \[
+            \lim_{n\to \infty}f_n(x)=0
+            \]
+            para todo \(x\in [0,1]\) y por lo tanto \(f=0\).
+          </p>
+          <p>
+            Por otro lado, \(f_n'(x)=x^{n-1}\), el cual sabemos que satisface
+            \[
+            \lim_{n\to \infty} f_n'(x)=
+            \left\{
+              \begin{array}{cc} 
+                0 & 0\leq x < 1, \\
+                1 & x=1 .
+              \end{array}
+              \right.
+            \]
+            Por lo tanto \(\lim_{n\to \infty}f_n'(1)\ne f'(1)\).
+          </p>
+          </div>
         </div>
 
 
@@ -490,7 +572,7 @@
             \((f_n:X\to \mathbb{R})_{n=1}^\infty\) una sucesión de
             funciones Lipschitz continuas, con la misma constante. Es decir,
             exite \(M>0\) tal que, para todo \(n\in
-            mathbb{N}\)  y para todos \(x_1,x_2\in X\)
+            \mathbb{N}\)  y para todos \(x_1,x_2\in X\)
             \[
             |f_n(x_1)-f_n(x_2)| \leq M d(x_1,x_2)
             \]
@@ -720,6 +802,39 @@
             En particular, si las \(f_n\) son continuas en todo \(X\)
             también \(f\) lo es.
           </p>
+          <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+          <p>
+            La demostración es un argumento del tipo \(3\varepsilon\).
+          </p>
+          <p>
+            Primero, usamos la convergencia uniforme de \((f_n)_{n=1}^\infty\)
+            para asegurar que existe una \(N\in \mathbb{N}\) tal que 
+            \begin{equation}\label{Eqn:Aux1ConvergenciaUnifCont}
+            d_Y(f(x),f_n(x)) < \varepsilon
+            \end{equation}
+            para todo \(x\in X\) y todo \(n\geq N\).
+          </p>
+          <p>
+            Segundo, usando que \(f_N\) es continua en \(x_0\) 
+            aseguramos que existe una \(\delta > 0\) tal que 
+            \begin{equation}\label{Eqn:Aux2ConvergenciaUnifCont}
+            d_Y(f_N(x),f_N(x_0))< \varepsilon
+            \end{equation}
+            siempre que \(x\in X\) con \(d_X(x,x_0)< \delta\).
+          </p>
+          <p>
+            Finalmente, juntanto \eqref{Eqn:Aux1ConvergenciaUnifCont} 
+            y \eqref{Eqn:Aux2ConvergenciaUnifCont}, para \(x\in X\) con \(d_X(x,x_0)< \delta \) se tiene:
+          </p>
+          <p>
+            \begin{eqnarray*} 
+            d_Y(f(x),f(x_0)) &\leq & d_Y(f(x),f_N(x)) + d_Y(f_N(x),f_N(x_0))+ d_Y(f_N(x_0),f(x_0)) \\
+            & < &  \varepsilon + d_Y(f_N(x),f_N(x_0)) +\varepsilon  \\
+            & < & 3\varepsilon
+            \end{eqnarray*}
+          </p>
+        </div>
         </div>
 
 
@@ -765,7 +880,37 @@
             Rieman integrable y que se puede meter el límite en la integral.
 
           </p>
-
+          <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+          <p>
+            Debemos de probar que, dado \(\varepsilon >0\), existe una \(N\in \mathbb{N}\)
+            tal que para todo \(n\geq N\),
+            \[
+            \left| \int_a^b f_n(t)dt - \int_a^n f(t)dt \right| < \varepsilon
+            \] 
+            Pero, por las propiedades de la integral 
+            \begin{equation}\label{Eqn:Aux1ContinuidadUnifintegral}
+            \left| \int_a^b f_n(t)dt - \int_a^n f(t)dt \right|\leq \int_a^b |f_n(t)-f(t)|dt
+            \end{equation}
+          </p>
+          <p>
+            Por otro lado, dabido a la convergencia uniforme existe una \(N\in \mathbb{N}\) tal que 
+            \[
+            |f_n(x)-f(x)|< \frac{\varepsilon}{2(b-a)}
+            \]
+            para todo \(x\in [a,b]\) y \(n\geq N\). Si integramos la desigualdad anterior obtenemos 
+            \[
+            \int_a^b |f_n(t)-f(t)|dt \leq \int_a^b \frac{\varepsilon}{2(b-a)}dt=\frac{\varepsilon}{2}
+            \]
+          </p>
+          <p>
+            Por lo tanto si en \eqref{Eqn:Aux1ContinuidadUnifintegral} tomamos 
+            \(n\geq N\) concluimos que para todo \(n\geq N\) 
+            \[
+            \left| \int_a^b f_n(t)dt - \int_a^n f(t)dt \right| < \varepsilon.
+            \]
+          </p>
+        </div>
         </div>
 
 

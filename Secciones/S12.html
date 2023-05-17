@@ -1,0 +1,154 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            cer: "\\operatorname{cer}",
+            inte: "\\operatorname{int}"
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+      body.number-title{
+        counter-reset: sectionCounter 11 cardCounter ;
+      }
+      h1.number-title{
+        counter-reset: sectionCounter 11 cardCounter ;
+      }
+    </style>
+
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <h1 class="calculo-title"> Análisis Matemático UNO</h1>
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio  </a> </li>
+        <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+        <li> <a href="../Secciones.html"> Secciones  </a> </li>
+      </ul>
+     
+    </nav>
+    <label class="switch">
+      <input type="checkbox" onclick="myFunction()">
+      <span class="slider"></span>
+    </label>
+
+    
+
+  </header>
+
+  <!-- This part is for title in tab-->
+  <title id="Sec"> § 12 </title>
+
+  <!--    Contenido empiaza abajo
+ ///////////////////////////////// -->
+
+
+  <body class="flexbox card fondo-body">
+
+
+   
+      <h1 class="number-title flexbox"> El Teorema de Weierstrass </h1>
+
+      <!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> -->
+      <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+
+
+      <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
+        <p>
+            Existe una isometría lineal entre \(C[a,b]\) y \(C[0,1]\) que manda polinomios en 
+            plinomios.
+        </p>
+
+
+      </div>
+
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <h3> Weierstrass</h3>
+        <p>
+            Dada \(f\in C[a,b]\) y \(\varepsilon >0\) existe un polinomio 
+            \(p\) tal que \(\|f-p\|_\infty <  \varepsilon\).
+        </p>
+        <p>
+            Como consecuencia existe una sucesión de polinomios 
+            \((p_n)_{n=1}^\infty\) tal que \(\lim_{n\to \infty}\|f-p_n\|_\infty =0\).
+        </p>
+
+      </div>
+      
+
+
+
+    <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <h3> Polinomios de Bernstein </h3>
+        <p>
+            Dada una función \(f:[0,1]\to \mathbb{R}\) definimos su \(n\)-ésimo polinomio de 
+            Bernstein como 
+
+            \[
+            B_n(f)(x)=\sum_{k=0}^n f\left(\frac{k}{n} \right)\binom{n}{k}x^k(1-x)^{n-k}
+            \]
+        </p>
+    </div>
+
+    
+    <div class="lema-box">
+        <h2 class="number-title"> Lema</h2>
+
+        <p>
+            Por simplicidad vamos a denotar 
+            \[
+            f_0(x)=1, \quad f_1(x)=x, \quad f_2(x)=x^2
+            \]
+
+        </p>
+        <ol>
+            <li> Para toda \(n\):
+                \[B_n(f_0)=f_0,\quad  B_n(f_1)=f_1\]
+            </li>
+            <li>
+                Para toda \(n\):
+                \[
+                B_n(f_2)=\left( 1- \frac{1}{n}\right)f_2+\frac{1}{n}f_1 
+                \]
+                Por lo tanto \((B_n(f_2))_{n=1}^\infty\) converge uniformemente a 
+                \(f_2\) en \([0,1]\).
+            </li>
+        </ol>
+
+    </div>
+
+
+
+    </body>
