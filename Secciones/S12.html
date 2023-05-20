@@ -147,6 +147,35 @@
             </li>
         </ol>
 
+
+        <p>
+          Directamente de la definición y utilizando el Teorema del Binomio obtenemos 
+          \begin{eqnarray*} 
+          B_n(f_0)(x)&=& \sum_{k=0}^n f\left(\frac{k}{n} \right)\binom{n}{k}x^k(1-x)^{n-k} \\
+          &=& \sum_{k=0}^n \binom{n}{k}x^k(1-x)^{n-k} \\
+          &=& (x+1-x)^n \\
+          &=& 1
+          \end{eqnarray*}
+        </p>
+        <p>
+          Para \(f_1\) primero notamos que, para \( k \geq 1\): 
+          \[
+          \frac{k}{n}\binom{n}{k}=\frac{(n-1)!}{(k-1)!((n-1)-(k-1))!}=\binom{n-1}{k-1}
+          \]
+        </p>
+        <p>
+          Por lo tanto 
+          \begin{eqnarray*} 
+          B_n(f_1)(x)&=& \sum_{k=0}^n f\left(\frac{k}{n} \right)\binom{n}{k}x^k(1-x)^{n-k} \\
+          &=& \sum_{k=0}^n \frac{k}{n}\binom{n}{k}x^k(1-x)^{n-k} \\
+          &=& \sum_{k=1}^n \frac{k}{n}\binom{n}{k}x^k(1-x)^{n-k}  \\
+          &=& x \sum_{k=1}^n \binom{n-1}{k-1}x^{k-1}(1-x)^{n-k} \\
+          &=& x \sum_{k=1}^n \binom{n-1}{k-1}x^{k-1}(1-x)^{(n-1)-(k-1)}  \\
+          &=& x \sum_{j=0}^{n-1} \binom{n-1}{j}x^{j}(1-x)^{(n-1)-j} \\
+          &=& x(x+1-x)^{n-1} \\
+          &=& x 
+          \end{eqnarray*}
+        </p>
     </div>
 
 
