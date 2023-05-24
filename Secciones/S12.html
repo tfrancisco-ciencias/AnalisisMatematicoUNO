@@ -124,7 +124,7 @@
 
     
     <div class="lema-box">
-        <h2 class="number-title"> Lema</h2>
+        <h2 class="number-title" id="Lema:ConvergenciaBernstein012"> Lema</h2>
 
         <p>
             Por simplicidad vamos a denotar 
@@ -147,7 +147,8 @@
             </li>
         </ol>
 
-
+        <button class="respButton hvr-grow"> Demostración inciso 1  </button>
+              <div class="resp-box">
         <p>
           Directamente de la definición y utilizando el Teorema del Binomio obtenemos 
           \begin{eqnarray*} 
@@ -176,7 +177,9 @@
           &=& x 
           \end{eqnarray*}
         </p>
-
+        </div>
+        <button class="respButton hvr-grow"> Demostración  inciso 2</button>
+              <div class="resp-box">
         <p>
           Para \(B_n(f_2)\) primero notamos que, para \(k\geq 2\): 
           \begin{eqnarray*} 
@@ -202,8 +205,133 @@
           &=& \frac{1}{n}f_1(x)+ \left( 1- \frac{1}{n}\right)f_2(x).
           \end{eqnarray*}
         </p>
+        </div>
+
+    </div>
+
+    <div class="lema-box">
+      <h2 class="number-title" id="Lema:CotaAuxBernstein"> Lema  </h2>
+      <p>
+        Fija \(\delta > 0\) y \(x\in [0,1]\). Considera el conjunto 
+        \[
+        F=\{k\in \{0,\dots, n\}: |k/n - x| \geq \delta \}
+        \]
+       </p>
+       <p>
+        Entonces 
+        \[
+        \sum_{k\in F} \binom{n}{k}x^k(1-x)^{n-k} \leq \frac{1}{4n\delta^2}
+        \]
+       </p>
+       <button class="respButton hvr-grow"> Demostración  </button>
+              <div class="resp-box">
+       <p>
+        Notamos que si \(k\in F\) entonces \(\delta^2 \leq (k/n -x)^2 \) por lo que 
+        \(1\leq (k/n-x)^2/\delta^2\) por lo tanto 
+        \begin{eqnarray*} 
+        \sum_{k\in F} \binom{n}{k}x^k(1-x)^{n-k} & \leq & 
+        \frac{1}{\delta^2}\sum_{k\in F} \left(\frac{k}{n} -x \right)^2\binom{n}{k}x^k(1-x)^{n-k} \\
+        &\leq &\frac{1}{\delta^2}\sum_{k=0}^n \left(\frac{k}{n} -x \right)^2\binom{n}{k}x^k(1-x)^{n-k} 
+        \end{eqnarray*}
+       </p>
+       <p>
+        La prueba se termina si logramos probar que 
+        \[
+        \sum_{k=0}^n \left(\frac{k}{n} -x \right)^2\binom{n}{k}x^k(1-x)^{n-k}  \leq \frac{1}{4n}.
+        \]
+       </p>
+       <p>
+        Para lo anterior desarrollando el cuadrado tenemos 
+        \begin{eqnarray*} 
+        \sum_{k=0}^n \left(\frac{k}{n} -x \right)^2\binom{n}{k}x^k(1-x)^{n-k} &=&
+        \sum_{k=0}^n \left(\frac{k}{n}\right)^2\binom{n}{k}x^k(1-x)^{n-k}  \\
+        &-&2x \sum_{k=0}^n \left( \frac{k}{n}\right) \binom{n}{k}x^k(1-x)^{n-k}  \\
+        &+& x^2 \sum_{k=0}^n \binom{n}{k}x^k(1-x)^{n-k} \\
+        \end{eqnarray*}
+        y usando los polinomios de Bernstein para \(f_0,f_1,f_2\) y el <a href="#Lema:ConvergenciaBernstein012">Lema 12.4 </a>
+        podemos escribir 
+        \begin{eqnarray*} 
+        & & \sum_{k=0}^n \left(\frac{k}{n}\right)^2\binom{n}{k}x^k(1-x)^{n-k}  \\
+        &-&2x \sum_{k=0}^n \left( \frac{k}{n}\right) \binom{n}{k}x^k(1-x)^{n-k}  \\
+        &+& x^2 \sum_{k=0}^n \binom{n}{k}x^k(1-x)^{n-k} \\
+        &=& B_n(f_2)(x)-2xB_n(f_1)(x)+x^2 B_n(f_0)(x)\\
+        &=& \left(1-\frac{1}{n} \right)x^2+\frac{1}{n}x- 2x^2+x^2 \\
+        &=& \left(1-\frac{1}{n} \right)x^2+\frac{1}{n}x- x^2 \\
+        &=& \frac{1}{n}x(1-x) \\
+        &\leq & \frac{1}{4n}
+        \end{eqnarray*}
+        donde en la última desigualdad usamos \(\max_{x\in [0,1]}\{x(1-x)\}=\frac{1}{4}\).
+       </p>
+       </div>
+
     </div>
 
 
+    <div class="teorema-box">
+      <h2 class="number-title"> Teorema  </h2>
+      <h3> Bernstein</h3>
+      <p>
+        Sea \(f:[0,1]\to \mathbb{R}\) una función continua en \([0,1]\). Entonces 
+        la sucesión de polinomios de Bernstein, \((B_n(f))_{n=1}^\infty\), converge 
+        uniformemente a \(f\) en \([0,1]\).
+      </p>
+      <button class="respButton hvr-grow"> Demostración  </button>
+              <div class="resp-box">
+      <p>
+        Sea \(\varepsilon >0\).
+      </p>
+      <p>
+        El primer paso es usar la continuidad uniforme de \(f\) en \([0,1]\)
+        para asegurar la existencia de un \(\delta >0\) tal que para \(x,y\in [0,1]\)
+        con \(|x-y|<\delta \) entonces \(|f(x)-f(y)|< \varepsilon\).
+      </p>
+      <p>
+        Es segundo paso es estimar 
+        \[
+        \left| f(x) - B_n(f)(x) \right|.
+        \]
+        Por el Teorema del binomio, \(1=\sum_{k=0}^n \binom{n}{k}x^k(1-x)^{n-k}\), por lo que 
+        \(f(x)=\sum_{k=0}^n f(x)\binom{n}{k}x^k(1-x)^{n-k}\) por lo que 
+        \begin{eqnarray*} 
+        \left| f(x) - B_n(f)(x) \right| &=& \left| \sum_{k=0}^n f(x)\binom{n}{k}x^k(1-x)^{n-k}
+        - \sum_{k=0}^n f\left(\frac{k}{n} \right)\binom{n}{k}x^k(1-x)^{n-k} \right| \\
+        &\leq & \sum_{k=0}^n \left| f(x) -f\left( \frac{k}{n}\right)\right| \binom{n}{k}x^k(1-x)^{n-k}
+        \end{eqnarray*}
+        Ahora, en la suma anterior dividimos los sumandos que están \(\delta\)-cercanos a 
+        \(x\) y los que no. Es decir consideramos el conjunto 
+        \[
+        F=\{ k\in\{1,\dots, n\}: |k/n-x| \geq  \delta \}
+        \]
+        Entonces 
+        \begin{eqnarray*} 
+        \sum_{k=0}^n \left| f(x) -f\left( \frac{k}{n}\right)\right| \binom{n}{k}x^k(1-x)^{n-k} &=& 
+        \sum_{k\notin F} \left| f(x)-  f\left( \frac{k}{n}\right) \right|x^k(1-x)^{n-k}\\
+        &+&  \sum_{k\in F}\left| f(x)-  f\left( \frac{k}{n}\right) \right|x^k(1-x)^{n-k} \\
+        & \leq &  \varepsilon \left( \sum_{k\notin F}  x^k(1-x)^{n-k} \right) \\
+        &+&  2\|f\|_\infty \left( \sum_{k\in F}  x^k(1-x)^{n-k} \right) \\
+        & \leq &  \varepsilon  
+        +  2\|f\|_\infty \left( \sum_{k\in F}  x^k(1-x)^{n-k} \right)
+        \end{eqnarray*}
+      </p>
+      <p>
+        Ahora, por el <a href="#Lema:CotaAuxBernstein">Lema 12.5</a>
+        podemos concluir 
+        \[
+        |f(x)-B_n(f)(x)|\leq \varepsilon +2\|f\|_\infty \frac{1}{4n\delta^2}
+        \]
+        Finalmente si pedimos que \(n >  \frac{\|f\|_\infty}{2\delta^2 \varepsilon}\)
+        concluimos que, para todo \(x\in [0,1]\):
+        \[
+        |f(x)-B_n(f)(x)|< 2\varepsilon
+        \]
+        Nota que \(\frac{\|f\|_\infty}{2\delta^2 \varepsilon}\) NO depende de \(x\),
+        sólo de \(\varepsilon\).
+      </p>
+      <p>
+        Al ser \(\varepsilon\) arbitraria concluimos que \((B_n(f))_{n=1}^\infty\) converge 
+        uniformemente a \(f\) en \([0,1]\).
+      </p>
+    </div>
+    </div>
 
     </body>
