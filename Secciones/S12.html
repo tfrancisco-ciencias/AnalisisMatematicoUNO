@@ -122,6 +122,36 @@
         </p>
     </div>
 
+    <div class="nota-box">
+      <h2 class="number-title"> Nota </h2>
+      <h3> Interpretación probabilistica de los polinomios de Bernstein </h3>
+      <p>
+        Dada \(x\in [0,1]\) vamos a considerarla como la probabilidad de éxito en un experimento (juego). Es decir
+        dada una variable aleatoria (v.a.) Bernoulli \(X:\Omega \to \{0,1\}\), 
+        \(\mathbb{P}(X=1)=x, \mathbb{P}(X=0)=1-x\).
+      </p>
+      <p>
+        Sean \(X_1,\dots, X_n\) v.a. Bernoulli, independientes idénticamente distribuidas.
+        Si \(Pr(k)\) es la probabilidad de observar exáctamente \(k\) victorias en \(n\) juegos 
+        entonces 
+        \begin{eqnarray*}
+        Pr(K)&=&\sum_{i_1,\dots, i_k \in \{1,\dots, n\}}\mathbb{P}(X_{i_1}=\cdots=X_{i_k}=1,\mathbb{P}(X_i)=0, j\notin \{i_1,\dots, i_k\}) \\
+        &=& \binom{n}{k}\mathbb{P}(X_1=\cdots = X_k=1, X_{k+1}=\cdots = X_n=0) \\
+        &=& \binom{n}{k}x^k(1-x)^{n-k}
+        \end{eqnarray*}
+      </p>
+      <p>
+        Dada una función \(f:[0,1]\to \mathbb{R}\) interpretamos \(f(x)\) como 
+        la ganancia, con la probabilidad de ganar siendo \(x\). Por lo tanto \(f(k/n)Pr(k)\) es la ganancia 
+        en exáctamente \(k\)-victorias. Por lo tanto el valor esperado
+        de la gancia es 
+        \[
+        \mathbb{E}(f)=\sum_{k=0}^n f\left( \frac{k}{n}\right)\binom{n}{k}x^k(1-x)^{n-k}.
+        \]
+      </p>
+
+    </div>
+
     
     <div class="lema-box">
         <h2 class="number-title" id="Lema:ConvergenciaBernstein012"> Lema</h2>
@@ -332,6 +362,98 @@
         uniformemente a \(f\) en \([0,1]\).
       </p>
     </div>
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Si \(f\in C[a,b]\) satisface \(\int_a^b x^nf(x)dx=0\) para toda \(n=0,1,2,\dots\)
+        entonces \(f=0\).
+      </p>
+
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Usando la isometría lineal de \(C[a,b]\) a \(C[0,1]\) inducida 
+        por la función \(\beta:[a,b]\to [0,1]\) dada por \(\beta(x)=\frac{x-a}{b-a}\)
+        prueba que la definición de los polinomios de Bernstein en \([a,b]\) está dada por 
+        \[
+        B_n(f)(x)=\frac{1}{(b-a)^n}\sum_{k=0}^n f\left( \frac{k(b-a)}{b-a}+a\right)(x-a)^k(b-x)^{n-k}
+        \]
+      </p>
+
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sean \(f,g\in C[a,b]\) y \(c \in \mathbb{R}\). Prueba que:
+        <ol>
+          <li>
+            \(B_n(cf+g)=cB_n(f)+B_(g)\).
+          </li>
+          <li>
+            Si \(f\geq 0\) prueba que \(B_n(f) \geq 0\).
+          </li>
+          <li>
+            \(|B_n(f)|\leq B_n(|f|)\).
+          </li>
+          <li>
+            \(\|B_n(f)\|_\infty \leq \|f\|_\infty\).
+          </li>
+        </ol> 
+      </p>
+
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio</h2>
+      <p>
+        Dada \(f\in C[a,b]\) y \(\varepsilon >0\) prueba que existe un 
+        polinomio con coeficientes racionales, \(q(x)\), tal que \(\|f-q\|_\infty < \varepsilon \). Concluye que 
+        \(C[a,b]\), con la norma \(\|\cdot \|_\infty\), es separable.
+      </p>
+
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio</h2>
+      <p>
+        Sea \(f\in C[a,b]\) que no sea un polinomio. Supón que \((p_n)_{n=1}^\infty\)
+        es una sucesión de polinomios tal que \(p_n \to f\) uniformemente en \([a,b]\).
+        Si \(m_n\) es el grado de \(p_n\) prueba que \(\lim_{n\to \infty} m_n=\infty\).
+      </p>
+
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio</h2>
+      <p>
+        Sea \(f\in C[a,b]\) clase \(C^1\). Prueba que para todo \(\varepsilon >0\)
+        existe un polinomio \(p\) tal que \(\|f-p\|_\infty < \varepsilon\)
+         y \(\|f'-p'\|< \varepsilon\).
+      </p>
+
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio</h2>
+      <p>
+        Prueba que existe una sucesión de polinomios \((p_n)_{n=1}^\infty\) tal que:
+        <ol>
+          <li>
+            \(\lim_{n\to \infty} \int_0^1 p_n(x)dx = 5\).
+          </li>
+          <li>
+            \(\lim_{n\to \infty} p_n(x)= 0\), para todo \(x\in [0,1]\)
+          </li>
+        </ol>
+      </p>
+
     </div>
 
     </body>
