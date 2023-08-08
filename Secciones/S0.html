@@ -72,375 +72,72 @@
 
   <body class="flexbox card fondo-body">
 
+    <h1 class="number-title flexbox"> \(\mathbb{R}^p\) </h1>
+    <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
+    
 
-    <div class="flexbox">
-      <h1 class="number-title flexbox"> El conjunto de Cantor </h1>
-      <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
-
-      <div class="info-box">
-        <h2 class="number-title"> Introducción </h2>
-
-        <p>
-          El conjunto de Cantor es un subconjunto de \([0,1]\) que tienes
-          propiedades sorprendentes y que es útil en muchos ejemplos y
-          contraejemplos más adelante en la teoría y sirve como un preambulo
-          a varios conceptos, como distancia y convergencia.
-        </p>
-
-      </div>
-
-      <div class="definicion-box">
-        <h2 class="number-title"> Definición. El conjunto de Cantor. </h2>
-        <p> Se inicia con el intervalo unitario
-          \[
-          F_0=[0,1]
-          \]
-        </p>
-
-        <p>
-          \(F_0\) se parte en tres partes iguales y se remueve el intervalo
-          abierto que corresponde a la parte de en medio
-          \[
-          F_1=\left[0, \frac{1}{3} \right] \cup \left[\frac{2}{3},1 \right].
-          \]
-          Entonces \(F_1\) es la unión de \(2^1=2\) intervalos
-          cerrados de la forma \([k/3,(k+1)/3]\), para
-          \(k=0,2\)
-        </p>
-        <p>
-          Se sigue el mismo procedimiento, partiendo cada subintervalo
-          de \(F_1\) en tres partes iguales y removiendo los intervalos
-          abiertos correspondientes a la parte de en medio.
-          \[
-          F_2=\left[0, \frac{1}{9} \right] \cup \left[\frac{2}{9},\frac{1}{3} \right]
-          \cup \left[\frac{2}{3},\frac{7}{9} \right] \cup
-          \left[\frac{8}{9}  ,1 \right].
-          \]
-          Entonces \(F_2\) es la unión de \(2^2=4\) intervalos
-          cerrados de la forma \([k/3^2,(k+1)/3^2]\), para
-          \(k=0,2,6,8\).
-        </p>
-
-        <p>
-          Siguiendo con ésta construcción, \(F_n\) es la unión de
-          \(2^n\) intervalos cerrados, de la forma \([k/3^n, (k+1)/3^n]\),
-          para ciertos valores de \(k\). Para construir
-          \(F_{n+1}\), cada subintervalo de \(F_n\) se parte en tres partes
-          iguales removiendo el intervalo abierto que corresponde a la mitad
-          de en medio.
-
-        </p>
-
-        <p>
-          El conjunto de Cantor es lo que "queda" al aplicar este proceso
-          hasta el infinito, es decir se define como el conjunto
-          \[
-          \Delta:= \cap_{n=1}^\infty F_n
-          \]
-        </p>
-
-        <p>
-          Por ejemplo, los puntos \(0\) y \(1\) están en \(\Delta\), pues
-          en cada subdivisión de intervalos que genera a los \(F_n\),
-          siempre existe un intervalo de \(F_n\) que tiene a \(0\)
-          como punto inicial y siempre hay un subintervalo de
-          \(F_n\) que tiene a \(1\) como punto final. De manera similar,
-          los puntos inicial y final de cada subintervalo que forman a
-          \(F_n\) pertenece a \(\Delta\), por ejemplo
-          \[
-          \frac{1}{3}, \frac{2}{3}, \frac{1}{9}, \frac{2}{9}, \frac{7}{9}, \frac{8}{9}
-          \in \Delta.
-          \]
-        </p>
-        <p>
-          Lo impresionantes es que si a \(\Delta\) le quitamos todos estos puntos  "sencillos"
-          lo que resulta  es suficientemente numeroso como  para ser equivalente
-          a \([0,1]\). Es decir, los puntos de \(\Delta\)
-          que se pueden ver "fácilmente" son realmente una minoria. En los ejercicios
-          que siguen se explora ésta y otras características de \(\Delta\).
-        </p>
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-
-        <p>
-          Sean \(a,b\in \mathbb{R}\) con \(a< b\) y fija
-          \(x\in [a,b)\).
-        </p>
-        <p>
-          Divide el intervalo \([a,b]\) en tres partes iguales, digamos
-          que los puntos de esta partición son \(a=t_0< t_1 < t_2 < t_3=b \).
-           Entonces existe un
-          único \(i=0,1,2\) tal que \(x\in [t_{i}, t_{i+1})\). Define
-          \[
-          \alpha=i \quad \textrm{si \(x\in [t_i, t_{i+1})\)}
-          \]
-          Es decir, \(\alpha=0\) si \(x\) está en el primer tercio de
-          \([a,b)\), \( \alpha=1\) si está en el segundo y
-          \(\alpha=2\) si está en el tercero.
-         </p>
-         <p>
-           Toma \(s=\frac{\alpha(b-a)}{3}\). Prueba que:
-           \[
-           |a+s-x| \leq \frac{b-a}{3}
-           \]
-           y \(x\in [a+s,a+s+ (b-a)/3 )\).
-         </p>
-
-         <button class="respButton hvr-grow"> Respuesta </button>
-         <div class="resp-box">
-         <p>
-           Primero notamos que \(t_0=a, t_1=a+\frac{b-a}{3}, t_2=a+\frac{2(b-a)}{3}, t_3=b\).
-         </p>
-           <p>
-             Tenemos varios casos.
-         </p>
-         <p>
-           Caso \(x\in [t_0,t_1)\). En este caso, \(\alpha=0\)
-           y \(s=0\). Por lo tanto
-           \[
-           |a+s-x|=|a-x|=|t_0-x| \leq t_1-t_0 = \frac{b-a}{3}
-           \]
-           y ya que \(t_0=a+s, t_1=a+s+\frac{b-a}{3}\) resulta que \(x\in [a+s,a+s+(b-a)/3)\).
-         </p>
-         <p>
-           Caso \(x\in [t_1,t_2)\). En este caso, \(\alpha=1\)
-           y \(s=\frac{b-a}{3}\). Por lo tanto \(a+s=t_1\),
-           \[
-           |a+s-x|=|t_1-x| \leq t_2-t_1 = \frac{b-a}{3}
-           \]
-           y \(x\in [t_1,t_2)=[a+s,a+s+(b-a)/3).\)
-         </p>
-         <p>
-           Caso \(x\in [t_2,t_3)\). En este caso, \(\alpha=2\)
-           y \(s=\frac{2(b-a)}{3}\). Por lo tanto \(a+s=t_2\),
-           \[
-           |a+s-x|=|t_2-x| \leq t_3-t_2 = \frac{b-a}{3}
-           \]
-           y \(x\in [t_2,t_3)=[a+s.a+s+(b-a)/3)\).
-         </p>
-
-
-            <div class="flexbox">
-            <img src="./Images/FigEjer2x3.png" alt="Fig2x3" width="50%" height="auto" >
-            </div>
-       </div>
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Todo elemento \(x\in [0,1]\) admite una representación ternaria, es decir
-          se puede escribir
-          \[
-          x = \sum_{n=1}^\infty \frac{\alpha_n}{3^n}
-          \]
-          donde \(\alpha_n\in \{0,1,2\}\).
-        </p>
-
-        <button class="respButton hvr-grow"> Respuesta </button>
-        <div class="resp-box">
-        <p>
-          Primero notamos que, para el caso \(x=1\) tenemos, por series
-          geométricas
-          \[
-          \sum_{i=1}^\infty\frac{2}{3^i}=2\frac{\frac{1}{3}}{1-\frac{1}{3}}=1.
-          \]
-          Así, podemos suponer \(x\in [0,1)\). Ahora aplicamos el ejercicio anterior.
-        </p>
-        <p>
-          Tomando \(a=0, b=1\), \(\alpha_1\) y \(s_1\) como la \(\alpha\) y \(s\)
-          del ejercicio anterior, tenemos que
-          \[
-          |a+s-x|=\left|\frac{\alpha_1}{3}-x\right|  \leq \frac{b-a}{3}=\frac{1}{3}.
-          \]
-          Notamos que \(x\in  [s_1 , s_1+(b-a)/3)=[s_1,s_1+1/3)\).
-        </p>
-        <p>
-          Tomando \(a=s_1, b=s_1+1/3\), \(\alpha_2\) y \(s_2\) como la \(\alpha\)
-          y la \(s\) del ejercicio anterior, tenemos que
-          \[
-          |a+s-x|=\left|\frac{\alpha_1}{3}+\frac{\alpha_2}{3^2}-x\right|\leq
-          \frac{b-a}{3}=\frac{1}{3^2}.
-          \]
-          Notamos que \(x\in [s_1+s_2,s_1+s_2+ (b-a)/3)=[s_1+s_2,s_1+s_2+1/3^2)\).
-        </p>
-        <p>
-          Continuando con este proceso, si
-          \(x\in[s_1+\cdots +s_n, s_1+\cdots+s_n+\frac{1}{3^n})\),
-          tomando \(a=s_1+\cdots +s_n, b=s_1+\cdots+s_n+\frac{1}{3^n}\),
-          \(\alpha_{n+1}\), \(s_{n+1}\) como en el ejercicio anterior, tenemos
-          \[
-          |a+s-x|=\left| \sum_{i=1}^{n+1}\frac{\alpha_i}{3^i}-x \right|\leq \frac{b-a}{3}=\frac{1}{3^n}
-          \]
-        </p>
-        <p>
-          Tomando límites, cuando \(n\to \infty\), en la desigualdad anterior concluimos
-          \[
-          \sum_{i=1}^\infty \frac{\alpha_i}{3^i}=x.
-          \]
-        </p>
-      </div>
-      </div>
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          <ol>
-            <li>Encuentra dos representaciones ternarias distintas de
-          los siguientes números: \(1/3, 2/3, 1/9\).
-          </li>
-          <li> Encuentra la representación ternaria de \(1/2\) y
-            prueba que es única.
-          </li>
-          <li>
-            Sea \(x\in [0,1]\) con descomposición ternaria
-            \[
-            x=\sum_{i=1}^\infty\frac{\alpha_i}{3^i}.
-            \]
-            Prueba: \(x=0 \Leftrightarrow \alpha_i=0\) para toda \(i\);
-            \(x=1 \Leftrightarrow \alpha_i=2\) para toda \(i\).
-          </li>
-        </p>
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Se \(x\in [0,1]\), con \(x\ne 1,0\).
-        </p>
-        <ol>
-          <li>
-          Prueba que si \(x\) admite dos representaciones
-          ternarias distintas entonces \(x\)  es de la forma \(\frac{k}{3^n}\),
-          para  \(n,k\in \mathbb{N}\), \(k \leq 3^n\).
-          </li>
-          <li>
-            Supon además que \(x\in \Delta\) y es de la forma \(\frac{k}{3^n}\).
-            Es decir, es un punto inicial o final de alguno de los intervalos
-            de algún \(F_n\). Prueba que \(x\) admite una descomposición
-            ternaria de la forma
-            \[
-            \sum_{i=1}^\infty \frac{\alpha_i}{3^i}
-            \]
-            donde, para toda \(i\), \(\alpha_i\in \{0,2\}\).
-          </p>
-          <p>Además, si
-            \(x\) es un punto final la representación tiene una cola de 2's,
-            si \(x\) es un punto inicial la representación tiene una cola de 0's.
-          </p>
-          </li>
-          <button class="respButton hvr-grow felxbox"> Demostración </button>
-    <div class="resp-box flexbox">
-      <div class="flexbox">
-        <iframe width="500" height="400" class="video"
-        src="https://www.youtube.com/embed/t7BqbCNxB1o" 
-        allowfullscreen="true"> 
-        </iframe>
-      </div>
-    </div>
-
-
-      </div>
-
-      <div class="teorema-box">
-        <h2 class="number-title" id="Teo:CaractPuntosCantor"> Teorema </h2>
-        <p>
-          \(x\in \Delta\) si y sólo si \(x\) admite una representación ternaria
-          \[
-          x=\sum_{n=1}^\infty \frac{\alpha_n}{3^n}
-          \]
-          donde \(\alpha_n\in \{0,2\}\).
-        </p>
-
-        <button class="respButton hvr-grow"> Demostración </button>
-        <div class="resp-box flexbox" >
-            <div class="flexbox">
-              <iframe width="500" height="400" class="video"
-                src="https://www.youtube.com/embed/vgwaiR8G4Sk" allowfullscreen="true"> 
-              </iframe>
-            </div>
-        </div>
-      </div>
-
+    
       
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
         <p>
-          Prueba que todo intervalo abierto de la forma, \((a,b)\), que
-          contiene un punto de \(\Delta\) también contiene un subintervalo
-          "de en medio", de los que se removieron para formar \(\Delta\).
-        </p>
-        <p>
-          Como consecuencia, \(\Delta\) no contiene intervalos abiertos
-          no vacíos.  Entonces, desde el punto de vista de los intervalos, \(\Delta\)
-          es "chico".
-        </p>
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Por \([0,1]\setminus \Delta\) denotamos el complemento de
-          \(\Delta\) en \([0,1]\). Nota que \([0,1] \setminus \Delta\)
-          está formado por la unión numerable de intervalos abiertos.
-          Demuestra que la serie formada por las longitudes de éstos
-          intervalos es 1.
-          Entonces, desde el punto de vista de longitudes
-          \(\Delta\) es "chico" (pues su complemento es "grande").
-        </p>
-        <button class="respButton hvr-grow"> Demostración </button>
-        <div class="resp-box flexbox">
-            <div class="flexbox">
-              <iframe width="500" height="400" class="video"
-                src="https://www.youtube.com/embed/h9nbOKI2oy4" allowfullscreen="true"> 
-              </iframe>
-            </div>
-        </div>
-      </div>
-
-
-      <div class="ejercicio-box" id="Ejer:EscaleraCantor">
-        <h2 class="number-title">  Ejercicio </h2>
-        <p>
-          Para \(x\in [0,1]\), toma una representación ternaria
           \[
-          x=\sum_{i=1}^\infty \frac{\alpha_i }{3^i}
+          \mathbb{R}^n=\{(x_1,\dots, x_n): x_1,\dots, x_p \in \mathbb{R}\}
           \]
-          Sea \(N=N(x)\in \mathbb{N}\) el primer índice para el cual
-          \(\alpha_N=1\), tal tal \(N\) no existe se toma \(N(x)=\infty\).
-        </p>
-        <p>
-          Define \(\Psi:[0,1]\to [0,1]\) por
+          con las operaciones usuales de espacio vectorial (entrada por entrada)
+          \[ 
+          \begin{eqnarray*} 
+          (x_1,\cdots, x_p)+(y_1,\dots, y_p)&=&(x_1+y_1,\dots, x_p+y_p), \\
+          \alpha (x_1,\dots, x_p)&=&(\alpha x_1, \cdots, \alpha x_p),
+          \end{eqnarray*}
+          \]
+          y con la norma Euclideana
           \[
-          \Psi(x)=\sum_{i=1}^{N-1}\frac{\beta_i}{2^i}+\frac{1}{2^N}, \quad
-          \beta_i=\frac{\alpha_i}{2}
+          \|x\|_2=\sqrt{x_1^2+\cdots x_p^2}
           \]
-          La función \(\Psi\) se le llama la escalera de Cantor.
         </p>
         <p>
-          Prueba que \(\Psi\) está bien definida, es decir, no
-          depende de la representación ternaria de \(x\) y que
-          \(\Psi\) es no decreciente.
+          Nota: es útil pensar a los elementos de \(\mathbb{R}^p\) como 
+          funciones del conjunto \(\{1,\dots, p\}\) a \(\mathbb{R}\). En ésta descripción 
+          hay una biyección entre funciones y \(n\)-eadas 
+          en donde dado un vector  \((x_1,\dots, x_p)\in \mathbb{R}^p\) 
+          la corresponde la función \(x:\{1,\dots, p \} \to \mathbb{R}\) 
+          dada por \(x(i)=x_i\), \(i=1,\cdots, p\).
         </p>
+      </div>
+      
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Una sucesión en \(\mathbb{R}^p\) es simplemente una función 
+          \(x:\mathbb{N} \to \mathbb{R}^p\). Por costumbre la denotamos como un
+          vector infinito 
+          \[
+          x=(x_n)_{n=1}^\infty
+          \]
+          donde cada \(x_n \in \mathbb{R}^p \). Nota que cada \(x_n\) tiene 
+          \(p\) entrradas, \(x_n=(x_n(1), \dots, x_n(p))\).
+        </p>
+        <!-- <p>
+          Al igual que con vectores las operaciones entrada por entrada dota a las 
+          sucesiones de una estructura de espacio vectorial 
+          \[ 
+          \begin{eqnarray*} 
+          (x_1,\dots, x_p, \dots )+(y_1,\dots, y_p, \dots )&=&(x_1+y_1,\dots, x_p+y_p, \dots ), \\
+          \alpha (x_1,\dots, x_p, \dots )&=&(\alpha x_1, \dots, \alpha x_p, \dots ),
+          \end{eqnarray*}
+          \]
+        </p> --> 
+
+        <p>
+          
+        </p>
+
       </div>
 
 
 
-      <div class="nota-box">
-        <h2 > Lectura</h2>
-        <p>
-          <a href="http://math.uchicago.edu/~may/REU2021/REUPapers/Jin,Alexa.pdf"> El conjunto de Cantor en 
-            topología, análisis y los mercados financieros
-          </a>
-        </p>
+    
 
-      </div>
-    </div>
   </body>
