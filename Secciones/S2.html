@@ -687,7 +687,7 @@
             Una familia de pseudo métricas \(\{\rho_i\}_{i\in I}\) se dice que 
             separa los puntos de \(X\) sii para \(x,y\in X\) con \(x\ne y\)
             existe \(\rho_j\) tal que 
-            \(\rho_j(x)\ne \rho_j(y)\).
+            \(\rho_j(x,y) > 0\).
           </p>
 
           <p>
@@ -744,6 +744,38 @@
             \rho_n(f):=\max_{x\in K_n, |\alpha|\leq n}\{|D^\alpha f(x)| \}
             \]
             define una familia de seminormas que separan los puntos de \(C^\infty(U)\).
+          </p>
+
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Una función \(f:\mathbb{R}\to \mathbb{R}\) se anula en el infinito si 
+            para toda \(\varepsilon >0\) existe una \(M>0\) tal que \(|f(x)|< \varepsilon \)
+            para todo \(x\) con \(|x|\geq M\).
+          </p>
+          <p>
+            Por \(C_0(\mathbb{R})\) denotamos al conjunto de funciones en \(\mathbb{R}\) 
+            que se anula en el infinito.
+          </p>
+          <p>
+            <ol>
+
+            
+            <li>
+              Prueba que toda \(f\in C_0(\mathbb{R})\)  es acotada. 
+            </li>
+            <li>
+              Para \(f,g\in C_O(\mathbb{R})\) define 
+              \[
+              d_\infty(f,g)=\sup_{x\in \mathbb{R}}\{ |f(x)-g(x)|\}
+              \]
+              Prueba que \(d_\infty\) es una métrica en \(C_0(\mathbb{R})\).
+            </li>
+          </ol>
           </p>
 
         </div>
