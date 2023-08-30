@@ -75,7 +75,7 @@
 
 
     <div class="flexbox">
-      <h1 class="number-title flexbox"> Continuidad Uniforme </h1>
+      <h1 class="number-title flexbox"> Espacios de funciones </h1>
       <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
       <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
     
@@ -84,7 +84,7 @@
 
       <div class="info-box">
         <h2 class="number-title"> Introducción </h2>
-        <p>
+        <!-- <p>
           En esta sección se hace notar que no todas las funciones continuas son iguales. Por ejemplo,
           hay una diferencie importante entre la continuidad de la 
           función \(f(x)=\frac{1}{x}\) y cualquier función lineal. Para la primera 
@@ -95,8 +95,92 @@
           capturar con la definición de continuidad uniforme donde, en resumen, para una \(\varepsilon >0\) 
           la misma \(\delta\) sirve para todo punto del dominio.
         </p>
+      </div>-->
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:EspacioFunAcotadas"> Ejercicio </h2>
+        <p>
+          Sea \(X\ne \emptyset\) un conjunto cualquiera. Por
+          \(\mathcal{B}(X)\) denotamos al conjunto de funciones
+          con valores reales, acotadas sobre \(X\). Es decir
+          \[
+          \mathcal{B}(X)=\{ f:X \to \mathbb{R} | \sup_{x\in X}\{|f(x)| \} <
+            \infty   \}
+          \]
+          Para \(f\in \mathcal{B}\) define
+          \[
+          \|f\|_\infty=\sup_{x\in X}\{ |f(x)|\}
+          \]
+          Prueba que \((\mathcal{B}(X), \|\cdot \|_\infty)\) es un espacio
+          vectorial normado.
+        </p>
+
+
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+            <div class="resp-box flexbox">
+                <div class="flexbox">
+                  <iframe width="700" height="400" class="video"
+                      src="https://www.youtube.com/embed/RDuJidJr02I" allowfullscreen="true"> 
+                  </iframe>
+                    
+                </div>
+            </div>
       </div>
 
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <h3>
+          El espacio de las funciones acotadas y la norma uniforme.
+        </h3>
+        <p>
+          El espacio vectorial normado, \((\mathcal{B}(X),\| \cdot \|_\infty)\),
+          jugará un papel importante en el estudio de las funciones continuas
+          pues bajo ciertas suposiciones \(\mathcal{B}(X)\) las contiene. Por
+          lo tanto se presentan algunos ejemplos de subconjuntos de dichos
+          espacios y una manera de visualizarlos.
+        </p>
+
+
+          <button class="respButton hvr-grow"> Ejemplos </button>
+            <div class="resp-box flexbox">
+             <div class="flexbox">
+                <iframe width="700" height="400" class="video"
+                      src="https://www.youtube.com/embed/A2bROP17djs" allowfullscreen="true"> 
+                </iframe>
+              
+             </div>
+           </div>
+      </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sean \(f,g\in \mathcal{B}(X)\). Prueba que la función producto
+            \(fg\) pertenece a \(\mathcal{B}(X)\) y que
+            \[
+            \|fg\|_\infty \leq \|f\|_\infty \|g\|_\infty
+            \]
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \(f\in \mathcal{B}(X)\). Prueba
+            \(\| f - \| f\| \|_\infty \leq \|f\|_\infty \) si y sólo si \(f(x)\geq 0\)
+            para toda \(x\in X\).
+          </p>
+            <p>
+            Nota: se está usando
+            \(\|f\|\) para denotar tanto al escalar como a la
+            función constante igual a  \(\|f\|\).
+          </p>
+
+        </div>
 
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
