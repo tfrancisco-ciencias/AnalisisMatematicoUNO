@@ -701,25 +701,31 @@
               1-\lambda = \frac{\|x\|_p}{\|x\|_p+\|y\|_p}. 
               \]
             </p>
+
+
             <p>
-              Por otro lado, para toda \(i\in \mathbb{N}\):
+              Aplicando la convexidad de \(f\) obtenemos 
               \begin{eqnarray*} 
-              |x_i+y_i|^p&=& | \|x\|_p \tilde{x}_i + \|y\|_p \tilde{y}_i  |^p \\
-              &=& (\|x\|_p+\|y\|_p)^p \left| \frac{\|x\|_p}{\|x\|_p+\|y\|_p} \tilde{x}_i + \frac{\|y\|_p}{\|x\|_p+\|y\|_p} \tilde{y}_i  \right|^p \\
-              &=& (\|x\|_p+\|y\|_p)^p| (1-\lambda) \tilde{x}_i+ \lambda\tilde{y}_i|^p \\
-              &\leq & (\|x\|_p+\|y\|_p)^p ((1-\lambda) |\tilde{x}_i|^p+ \lambda| \tilde{y}_i|^p) \\
+                f((1-t)|\tilde{x}_i|+ t|\tilde{y}_i|) & \leq & (1-t)|\tilde{x}_i|^p+ t |\tilde{y}_i|^p \\
+                & \Downarrow & \\
+               \frac{1}{(\|x\|_p+\|y\|_p)^p}\left( \|x\|_p\frac{|x_i|}{\|x\|_p} + \|y\|_p\frac{|y_i|}{\|y\|_p} \right)^p
+                & \leq  & (1-t)\frac{|x_i|^p}{\|x\|_p^p}+ t \frac{|y_i|^p}{\|y\|_p^p}\\
+                &\Downarrow & \\
+                \frac{1}{(\|x\|_p+\|y\|_p)^p}\left( |x_i| + |y_i| \right)^p
+                & \leq  & 
+                (1-t)\frac{|x_i|^p}{\|x\|_p^p}+ t \frac{|y_i|^p}{\|y\|_p^p}
               \end{eqnarray*}
-              donde en la última desigualdad usamos la convexidad de \(t\mapsto t^p\).
-            </p>
-            <p>
-              Si en la desigualdad anterior sumamos sobre todas las \(i\) llegamos a 
+              Sumando sobre \(i\) las desigualdades anteriores llegamos a 
               \begin{eqnarray*} 
-              \|x+y\|_p^p &\leq  & (\|x\|_p+\|y\|_p)^p((1-\lambda)\|\tilde{x}\|_p^p  + \lambda \|\tilde{y}\|_p^p) \\
-              &=& (\|x\|_p+\|y\|_p)^p( (1-\lambda)+\lambda)\\
-              &=& (\|x\|_p+\|y\|_p)^p \\
-              \Rightarrow \|x+y\|_p &\leq & \|x\|_p+\|y\|_p.
+                \frac{1}{(\|x\|_p+\|y\|_p)^p}\sum_{i=1}^\infty(|x_i|+|y_i|)^p \leq (1-t)\frac{\|x\|_p^p}{\|x\|_p^p}+t\frac{\|y\|_p^p}{\|y\|_p^p}=1
               \end{eqnarray*}
+              lo cual implica que 
+              \begin{eqnarray*} 
+              \sum_{i=1}^\infty (|x_i|+|y_i|)^p \leq (\|x\|_p+\|y\|_p)^p 
+              \end{eqnarray*}
+              y sacando raíz \(p\)-ésima obtenemos la desigualdad de Minkowski.
             </p>
+            
             </div>
         </div>
 
