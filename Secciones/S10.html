@@ -82,7 +82,7 @@
 
 
 
-      <div class="info-box">
+      <!--<div class="info-box">
         <h2 class="number-title"> Introducción </h2>
         <!-- <p>
           En esta sección se hace notar que no todas las funciones continuas son iguales. Por ejemplo,
@@ -130,6 +130,9 @@
             </div>
       </div>
 
+
+
+
       <div class="nota-box">
         <h2 class="number-title"> Nota </h2>
         <h3>
@@ -154,6 +157,131 @@
              </div>
            </div>
       </div>
+
+
+
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <h3> Límites en la norma uniforme </h3>
+        <p>
+          En esta nota veremos la convergencia
+          en el espacio de funciones acotadas con la
+          norma uniforme, \(\mathcal{B}(X), \| \cdot\|_\infty\).
+          Rcordamos que una sucesión
+          de funcions \((f_n)_{n\in \mathbb{N}}\)
+          en \(\mathcal{B}(X)\) converge a una
+          función \(f \in \mathbb{B}(X)\) si y sólo si
+          \[
+          \lim_{n\to \infty} \| f_n - f \|_\infty =0.
+          \]
+
+        </p>
+        <p>
+          En términos de \(\varepsilon\)'s lo anterior quiere
+          decir que, para toda \(\varepsilon >0\) existe
+          \(N\in \mathbb{N}\), tal que para toda \(n \geq N\)
+          \(\| f_n - f \|_\infty < \varepsilon\). Si analizamos
+          la expresión \(\|f_n-f\|_\infty <\varepsilon \) aún más
+          tenemos que se debe de cumplir
+          \[
+          |f_n(x)-f(x)| < \varepsilon
+          \]
+          para toda \(x\in X\). En términos de las gráficas de
+          \(f\) y \(f_n\) lo anterior nos dice que las
+          gráficas de \(f_n\), para \(n \geq N\), están todas
+          contenidas en una franja centrada en la gráfica de
+          \(f\) de radio \(\varepsilon\):
+        </p>
+
+        <p>
+          Así la convergencia en el espacio
+          \((\mathcal{B}(X), \| \cdot\|_\infty)\)
+          se puede pensar como que las gráficas se van concentrando
+          dentro de franjas donde éstas franjas se pueden tomar tan
+          angostas como se quieran.
+
+          <div class="flexbox">
+              <img src="./Images/FigSucEspFun.png" alt="ConvergenciaSucEspFunciones"
+              width="50%" height="auto">
+          </div>
+        </p>
+
+        <p>
+          Otra característica importante de la convergencia
+          en el espacio \((\mathcal{B}(X),\|\cdot\|_\infty)\) es que
+          si \(\lim_{n\to \infty} \|f_n - f\|=0\) entonces, para
+          toda \(x\in X\) se cumple
+          \begin{equation}\label{Eqn:LimitePuntual}
+          \lim_{n\to \infty} f_n(x)=f(x).
+          \end{equation}
+          Es importante notar que el último límite es un límite
+          de números reales. Para probar \eqref{Eqn:LimitePuntual}
+          simplemente notamos que, de la definición de la norma
+          \(\|\cdot \|_\infty\), se sigue
+          \[
+          |f_n(x)-f(x)| \leq \|f_n-f\|_\infty
+          \]
+          tomando límite cuando \(n\to \infty\) y usando la ley
+          del sandwich concluimos que \(\lim_{n\to \infty}f_n(x)=f(x)\).
+        </p>
+      </div>
+
+
+<div class="ejercicio-box">
+<h2 class="number-title"> Ejercicio </h2>
+<p>
+Considera el espacio métrico \((C([0,1]), d)\), donde
+\(d\) es la métrico uniforme, es decir,
+la métrica inducida por la norma uniforme, \(\| \cdot\|_\infty\).
+</p>
+<p>
+Para cada una de las siguientes sucesiones de funciones,
+\((f_n)_{n\in \mathbb{N}}\), investiga si el límite
+\(\lim_{n\to \infty} f_n\) existe o no en
+\((C[0,1],d)\).
+</p>
+<ol>
+<li>
+\(f_n(t)=\frac{\sen(nt+1/n)}{n}\).
+</li>
+<li>
+\(f_n(t)=t(1-t)^n\).
+</li>
+<li>
+\(f_n(t)=\frac{n^2t}{1+nt^2}\).
+</li>
+<li>
+\( f_n(t)=\frac{nt}{1+n^2t^2}\).
+</li>
+</ol> 
+
+
+<button class="respButton hvr-grow"> Repuesta inciso 1 </button>
+<div class="resp-box flexbox">
+<div class=" flexbox">
+  <iframe width="700" height="400" class="video"
+    src="https://www.youtube.com/embed/sGB__ZKNhkQ" allowfullscreen="true"> 
+  </iframe>
+  
+  </div>
+</div>
+
+<p>
+
+</p>
+
+
+<button class="respButton hvr-grow"> Repuesta inciso 2 </button>
+<div class="resp-box flexbox">
+<div class="flexbox">
+  <iframe width="700" height="400" class="video"
+    src="https://www.youtube.com/embed/hddtV0cMDBQ" allowfullscreen="true"> 
+  </iframe>      
+</div>
+</div>
+
+</div>
+
 
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
@@ -936,7 +1064,9 @@
               también es uniformemente continua.
              </li>
         </ol>
+        </div>
   
 
     </div>
+
   </body>

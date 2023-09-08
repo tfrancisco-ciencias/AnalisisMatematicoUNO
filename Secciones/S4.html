@@ -80,9 +80,36 @@
       <div class="info-box">
         <h2 class="number-title"> Introducción </h2>
         <p>
-          Esta sección es sobre sucesiones en espacios métricos y tal
-          vez más importante, sobre límites de sucesiones.
+          Una sucesión de números reales es simplemente una función 
+          \(x:\mathbb{N} \to \mathbb{R}\), pero en vez de usar una notación de 
+          función se usa la notación \((x_n)_{n=1}^\infty\), como si fuese un vector infinito
+          (de ahí la notación \(\mathbb{R}^{\mathbb{N}}\)) para el conjunto de todas las sucesiones 
+          de números reales.
         </p>
+        <h3> Ejemplos</h3>
+        <p>
+          Sucesiones aritméticas. 
+        </p>
+        <p>
+          Son sucesiones donde 
+          la diferencia de elementos consecutivos es siempre una constante (digamos \(p\)),
+          es decir  \(x_{n+1}-x_n=p\), para toda \(n \geq 1\). Por lo tanto se puede ver como 
+          \[
+          x_1, x_2=x_1+p, x_3=x_2+p=x_1+2p, \cdots, x_n=x_{n-1}+p=x_1+(p-1).
+          \]
+        </p>
+        <p>
+          Sucesiones geométricas.
+        </p>
+        <p>
+          Son sucesiones para las cuales exste una constante \(r\in \mathbb{R}\) tal que 
+          la división de sus términos consecutivos es \(r\), es decir \(x_{n+1}/x_n=r\),, para toda 
+          \(n\geq 1\). Por lo tanto la sucesión se ve:
+          \[
+          x_1, x_2=x_1r, x_3=x_2r=x_1r^2, \dots, x_n=x_1r^{n-1}.
+          \]
+        </p>
+        <h3> Convergencia </h3>
         <p>
           De cálculo sabemos que una sucesión de números reales
           \((x_n)_{n\in \mathbb{N}}\) converge a un real \(x\)
@@ -101,9 +128,6 @@
               alt="ConvergenciaSuc" width="50%" height="auto">
           </div>
 
-
-
-
         <p>
           Ya que el valor absoluto induce la distancia usual en los
           reales, podemos generalizar la definción anterior reemplazando
@@ -113,6 +137,133 @@
           en espacios métricos, ver ejemplos, similitudes al caso real y
           diferencias.
         </p>
+
+
+          <h3> Propiedadaes algebráicas de los límites </h3>
+          <p>
+            Sean \((x_n)_{n=1}^\infty, (y_n)_{n=1}^\infty\) sucesiones <u>convergentes</u> de números 
+            reales , entonces 
+            <ol>
+              <li>
+                Abre sumas y saca escalares: para \(\alpha \in \mathbb{R}\)
+                \begin{eqnarray*} 
+                  \lim_{n\to \infty} (\alpha x_n + y_n)=\alpha \lim_{n\to \infty} x_n + \lim_{n\to \infty} y_n, 
+                \end{eqnarray*}
+              </li>
+              <li>
+                Abre productos: 
+                \[
+                   \lim_{n\to \infty} (x_n y_n)= \lim_{n\to \infty} x_n \lim_{n\to \infty} y_n,
+                   \]
+              </li>
+              <li>
+                  Si \(\lim_{n\to \infty } y_n \ne 0\) entonces 
+            \[
+              \lim_{n\to \infty} \left(\frac{x_n}{y_n} \right) = \frac{\lim_{n\to \infty} x_n}{\lim_{n\to \infty} y_n}
+            \]
+              </li>
+              <li>
+                Si  existen \(m,M\in \mathbb{R}\) tal que para todo \(n\in \mathbb{N}\), \(m \leq x_n \leq M\),
+                entonces 
+                \[
+                m \leq \lim_{n\to \infty} x_n \leq M
+                \]
+              </li>
+              <li>
+                Ley del Sandwich. 
+                <p>
+                  Si \((x_n)_{n=1}^\infty, (y_n)_{n=1}^\infty, (z_n)_{n=1}^\infty\) 
+                  son sucesiones con \(\lim_{n\to \infty} x_n = L = \lim_{n\to \infty} y_n\) y 
+                  \(x_n\leq z_n \leq y_n\) para toda \(n\) entonces \((z_n)_{n=1}^\infty\) es convergente 
+                  y \(\lim_{n\to \infty} z_n=L\).
+                </p>
+              </li>
+            </ol>
+             
+          </p>
+
+
+        <h3> Ejemplos sucesiones convergentes</h3>
+
+        <h4>
+          <li>
+            Si \((x_n)_{n=1}^\infty\) es una sucesión de reales  monótona 
+            creciente (es decir \(x_1\leq x_2\leq \cdots \leq x_n \leq x_{n+1} \leq \cdots \) ) y 
+            acotada superiormente (es decir existe \(M\in \mathbb{R}\) tal que \(x_n \leq M\), para 
+            todo \(n\)) entonces 
+            \((x_n)_{n=1}^\infty\) es convergente y 
+            \[
+            \lim_{n\to \infty} x_n = \sup_{n\in \mathbb{N}}\{ x_n \}
+            \]
+          </li>
+          <button class="respButton hvr-grow">Demostración </button>
+              <div class="resp-box">
+          <p>
+            Denotamos \(\alpha = \sup_{n\in \mathbb{R}}\{ x_n\} \). Por la propiedad 
+            fundamental del supremo, para \(\varepsilon >0\) existe \(n_0\in \mathbb{N}\) tal que 
+            \(\alpha - \varepsilon < x_{n_0}\). Ya que la sucesión es monótona creciente y \(\alpha\)
+            es el supremo, se sigue que para todo \(n\geq n_0\) se tiene 
+            \[
+            \alpha -\varepsilon < x_{n_0} \leq x_n \leq \alpha
+            \]
+            por lo tanto \(|\alpha - x_n| < \varepsilon\), para todo \(n\geq n_0\). Concluimos 
+            \(\lim_{n\to \infty} x_n=\alpha\).
+          </p>
+          
+        </div>
+        <p>
+          Nota: existe un resultado similar para sucesiones monótonas decrecientes acotadas 
+          inferiormente. En ese caso tenemos \(\lim_{n\to \infty}x_n=\inf_{n\in \mathbb{N}}\{x_n\}\).
+        </p>
+        </h4>
+        <h4>
+          <li>
+            \(\lim_{n\to \infty} \sqrt[n]{n}=1\).
+          </li>
+        </h4>
+        <button class="respButton hvr-grow">Demostración </button>
+              <div class="resp-box">
+        <p>
+          Notamos que para todo natural \(\sqrt[n]{n} \geq 1\) (lo cual se puede comprobar 
+          elevendo a la \(n\) ambos lados). Por lo tanto podemos escribir \(\sqrt[n]{n}=1+x_n\),
+          donde \(0 < x_n\) es precisamente la distancia de \(1\) a \(\sqrt[n]{n}\). Si probamos que 
+          \(\lim_n x_n=0\) entonces se obtiene que \(\lim_{n} \sqrt[n]{n}=1\). 
+        </p>
+        <p>
+          Por otro lado, del Teorema del binomio, para \(n\geq 2\) tenemos:
+          \[
+          (1+x_n)^n = \sum_{k=0}^n \binom{n}{k}x_{n}^k \geq \binom{n}{2}x_n^2=\frac{n(n-1)}{2}x_n,
+          \]
+          y ya que \((1+x_n)^n = (\sqrt[n]{n})^n=n\) llegamos a que 
+          \[
+          n \geq \frac{n(n-1)}{2}x_n \Rightarrow \frac{2}{n-1} \geq x_n  >0
+          \]
+          Ya que \(\lim_{n}\frac{2}{n-1}=0\) por la Ley del Sandwich para límites concluimos 
+          \(\lim_{n}x_n=0\).
+        </p>
+        </div>
+          <!-- <h4>
+            <li>
+            Para \(|r|< 1 \), \(\lim_{n\to \infty}\left( \sum_{k=1}^n r^k\right) =\frac{r}{1-r}\).
+          </li>
+          </h4>
+          <button class="respButton hvr-grow">Demostración </button>
+              <div class="resp-box">
+          <p>
+            Si denotamos \(s_n=\sum_{k=1}^n r^k\) entonces 
+            \[
+            s_n-s_nr=\sum_{k=1}^n r^k  -\sum_{k=1}^n r^{k+1}=\sum_{k=1}^n r^k -\sum_{j=2}^{n+1}r^j=r-r^{n+1}
+            \]
+            pero \(s_n-s_nr=s_n(1-r)\) por lo que de lo anterior 
+            \[
+            s_n=\frac{r-r^{n+1}}{1-r}
+            \]
+            finalmente, usando que \(\lim_{n\to \infty } r^n =0\) concluimos 
+            \[
+            \lim_{n\to \infty}s_n=\frac{r}{1-r}.
+            \]
+          </p>
+          </div>-->
       </div>
 
 
@@ -671,129 +822,7 @@
 
 
 
-                  <div class="nota-box">
-                    <h2 class="number-title"> Nota </h2>
-                    <h3> Límites en la norma uniforme </h3>
-                    <p>
-                      En esta nota veremos la convergencia
-                      en el espacio de funciones acotadas con la
-                      norma uniforme, \(\mathcal{B}(X), \| \cdot\|_\infty\).
-                      Rcordamos que una sucesión
-                      de funcions \((f_n)_{n\in \mathbb{N}}\)
-                      en \(\mathcal{B}(X)\) converge a una
-                      función \(f \in \mathbb{B}(X)\) si y sólo si
-                      \[
-                      \lim_{n\to \infty} \| f_n - f \|_\infty =0.
-                      \]
-
-                    </p>
-                    <p>
-                      En términos de \(\varepsilon\)'s lo anterior quiere
-                      decir que, para toda \(\varepsilon >0\) existe
-                      \(N\in \mathbb{N}\), tal que para toda \(n \geq N\)
-                      \(\| f_n - f \|_\infty < \varepsilon\). Si analizamos
-                      la expresión \(\|f_n-f\|_\infty <\varepsilon \) aún más
-                      tenemos que se debe de cumplir
-                      \[
-                      |f_n(x)-f(x)| < \varepsilon
-                      \]
-                      para toda \(x\in X\). En términos de las gráficas de
-                      \(f\) y \(f_n\) lo anterior nos dice que las
-                      gráficas de \(f_n\), para \(n \geq N\), están todas
-                      contenidas en una franja centrada en la gráfica de
-                      \(f\) de radio \(\varepsilon\):
-                    </p>
-
-                    <p>
-                      Así la convergencia en el espacio
-                      \((\mathcal{B}(X), \| \cdot\|_\infty)\)
-                      se puede pensar como que las gráficas se van concentrando
-                      dentro de franjas donde éstas franjas se pueden tomar tan
-                      angostas como se quieran.
-
-                      <div class="flexbox">
-                          <img src="./Images/FigSucEspFun.png" alt="ConvergenciaSucEspFunciones"
-                          width="50%" height="auto">
-                      </div>
-                    </p>
-
-                    <p>
-                      Otra característica importante de la convergencia
-                      en el espacio \((\mathcal{B}(X),\|\cdot\|_\infty)\) es que
-                      si \(\lim_{n\to \infty} \|f_n - f\|=0\) entonces, para
-                      toda \(x\in X\) se cumple
-                      \begin{equation}\label{Eqn:LimitePuntual}
-                      \lim_{n\to \infty} f_n(x)=f(x).
-                      \end{equation}
-                      Es importante notar que el último límite es un límite
-                      de números reales. Para probar \eqref{Eqn:LimitePuntual}
-                      simplemente notamos que, de la definición de la norma
-                      \(\|\cdot \|_\infty\), se sigue
-                      \[
-                      |f_n(x)-f(x)| \leq \|f_n-f\|_\infty
-                      \]
-                      tomando límite cuando \(n\to \infty\) y usando la ley
-                      del sandwich concluimos que \(\lim_{n\to \infty}f_n(x)=f(x)\).
-                    </p>
-                  </div>
-
-
-    <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
-      <p>
-        Considera el espacio métrico \((C([0,1]), d)\), donde
-        \(d\) es la métrico uniforme, es decir,
-        la métrica inducida por la norma uniforme, \(\| \cdot\|_\infty\).
-      </p>
-      <p>
-        Para cada una de las siguientes sucesiones de funciones,
-        \((f_n)_{n\in \mathbb{N}}\), investiga si el límite
-        \(\lim_{n\to \infty} f_n\) existe o no en
-        \((C[0,1],d)\).
-      </p>
-      <ol>
-        <li>
-          \(f_n(t)=\frac{\sen(nt+1/n)}{n}\).
-        </li>
-        <li>
-          \(f_n(t)=t(1-t)^n\).
-        </li>
-        <li>
-          \(f_n(t)=\frac{n^2t}{1+nt^2}\).
-        </li>
-        <li>
-          \( f_n(t)=\frac{nt}{1+n^2t^2}\).
-        </li>
-       </ol> 
-
-
-        <button class="respButton hvr-grow"> Repuesta inciso 1 </button>
-          <div class="resp-box flexbox">
-            <div class=" flexbox">
-              <iframe width="700" height="400" class="video"
-                src="https://www.youtube.com/embed/sGB__ZKNhkQ" allowfullscreen="true"> 
-              </iframe>
-              
-              </div>
-        </div>
-
-        <p>
-          
-        </p>
-
-
-        <button class="respButton hvr-grow"> Repuesta inciso 2 </button>
-        <div class="resp-box flexbox">
-            <div class="flexbox">
-              <iframe width="700" height="400" class="video"
-                src="https://www.youtube.com/embed/hddtV0cMDBQ" allowfullscreen="true"> 
-              </iframe>      
-            </div>
-        </div>
-
-    </div>
-
-
+                  
 
     <div class="ejercicio-box">
       <h2 class="number-title" id="Ejer:MetEquivalentes"> Ejercicio </h2>
@@ -1177,11 +1206,11 @@
                 En cuyo caso se tiene que \(\liminf_{n\to \infty}x_n=\limsup_{n\to \infty}x_n=\lim_{n\to \infty}x_n\).
               </p>
 
-              <p>
+              <!--<p>
                 Ahora denotamos \(x=\alpha=\beta\) y para terminar probamos que \(\lim_{k\to \infty}x_{n_k}=x\).
               </p>
             
-              <!-- <p>
+               <p>
                 Ahora por las propiedades fundamentales de ínfimos y supremos para \(\varepsilon >0\) existen \(j_1,j_2\)
                 tales que 
                 \begin{eqnarray*} 
