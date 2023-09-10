@@ -139,7 +139,7 @@
         </p>
 
 
-          <h3> Propiedadaes algebráicas de los límites </h3>
+          <h3> Propiedadaes algebráicas de los límites en \(\mathbb{R}\) </h3>
           <p>
             Sean \((x_n)_{n=1}^\infty, (y_n)_{n=1}^\infty\) sucesiones <u>convergentes</u> de números 
             reales , entonces 
@@ -482,6 +482,9 @@
             (el instance es \(N\)) la distancia entre los elementos de la
             sucesión y el punto de convergencia se hace tan chiquita como
             queramos (que tan chiquito lo mide la \(\varepsilon\)).
+          </li>
+          <li>
+            \(\lim_{n\to \infty} x_n=x\) en \(X\) si y sólo si \(\lim_{n\to \infty} d(x_n,x)=0\), en \(\mathbb{R}\).
           </li>
         </p>
       </div>
@@ -853,31 +856,17 @@
 
       </ol>
       <p>
-        Por ejemplo, el
-        <a href="./S3.html#Ejer:Normas12inftyEquiv">Ejercicio 3.3</a>
-        muestra que las normas \(\|\cdot\|_1, \|\cdot\|_2\)
-        y \(\|\cdot\|_\infty\) en \(\mathbb{R}^n\)
-        son todas equivalentes entre sí.
+        Por ejemplo, el ejercicio 
+        <a href="./S3.html#Ejer:EquiNormas-p">Ejercicio 3.21</a>
+        
+        muestra que las normas \(\|\cdot\|_1, \|\cdot\|_2\),
+        \(\|\cdot\|_\infty\) y en general todas las normas \(\|\cdot\|_p\)  en \(\mathbb{R}^n\)
+        generan métricas equivalentes.
       </p>
     </div>
 
 
 
-            <div class="ejercicio-box">
-              <h2 class="number-title"> Ejercicio </h2>
-              <p>
-                Considera a \(\mathbb{R}^n\) con las normas-p.
-              </p>
-              <p>
-                Prueba que para todo \(x\in \mathbb{R}^n\):
-                \begin{eqnarray*}
-                  \|x\|_\infty & \leq & \|x\|_p, \\
-                  \|x\|_p & \leq  & n^{1/p}\| x\|_\infty.
-                  \end{eqnarray*}
-                Esto prueba que todas las métricas generadas por las normas-p en
-                \(\mathbb{R}^n\) son equivalentes.
-              </p>
-            </div>
 
         <div class="ejercicio-box">
           <h2 class="number-title" id="Ejer:MetEquivProdCarte"> Ejercicio </h2>
