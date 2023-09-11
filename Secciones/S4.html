@@ -892,20 +892,42 @@
         <div class="definicion-box">
           <h2 class="number-title"> Definición </h2>
 
+            
             <p>
-              Dada una sucesión \((x_n)_{n\in \mathbb{N}}\) de elementos de
-              elementos de \(X\), una subsucesión de \((x_n)_{n\in \mathbb{N}}\)
-              es simplemente componer la suesión con una función
-              estrictamente creciente de \(\mathbb{N}\) en \(\mathbb{N}\). Es decir,
-              toda subsucesión de \((x_n)_{n\in \mathbb{N}}\) es de la
-              forma \((x_{\varphi(n)})_{n\in \mathbb{N}}\), donde
-              \(\varphi:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente. Por ejemplo
+              Si pensamos a la sucesión como una función 
+              \(x: \mathbb{N} \to X\) una subsucesión de x
+              es una función de la forma \(x\circ \varphi \), donde 
+              \(\varphi: \mathbb{N} \to \mathbb{N}\) es una función 
+              estrictamente creciente. 
+              <div class="flexbox">
+                <img src="./Images/Subsusecion.png"
+                alt="ConvergenciaSuc" width="50%" height="auto">
+              </div>  
+            </p>
+            <p>
+              Usando la notación  \((x_n)_{n\in \mathbb{N}}\), una subsucesión de \((x_n)_{n\in \mathbb{N}}\)
+              se puede escribir como  \((x_{\varphi(k)})_{k=1}^\infty\).
+              Por ejemplo
               \((x_{2n})_{n\in \mathbb{N}}\) y \((x_{2n+1})_{n\in \mathbb{N}}\)
-              son subcesiones de \((x_n)_{n\in \mathbb{N}}\). Por costumbre
+              son subcesiones de \((x_n)_{n\in \mathbb{N}}\), en la 
+              primera tenemos \(\varphi(n)=2n\) y en la segunda \(\varphi(n)=2n+1\). 
+            </p>
+            <p>
+              Por costumbre
               una subcesión de \((x_n)_{n\in \mathbb{N}}\) suele denotarse
               \((x_{n_k})_{k\in \mathbb{N}}\), donde en ésta notación
               se entiende \(n_k=\varphi(k)\), para alguna función
               estrictamente creciente \(\varphi\).
+            </p>
+            <p>
+              Observación.
+            </p>
+            <p>
+              Si \((x_{\varphi(k)})_{k=1}\) es una subseción de \((x_n)_{n=1}^\infty\) y 
+              \((x_{\psi(\varphi(s))})_{s=1}^\infty\) es una subsucesión de \((x_{\varphi(k)})_{k=1}^\infty\)
+              entonces \((x_{\psi(\varphi(s))})_{s=1}^\infty\) es una subsucesión de \((x_n)_{n=1}^\infty\).
+              Razón: composición de funciones estrictamente creciente son estrictamente crecientes, 
+              en este caso \(\psi \circ \varphi\) es estrictamente creciente.
             </p>
         </div>
 
@@ -984,7 +1006,7 @@
                 <h2 class="number-title" id="Ejer:NegacionConvergencia"> Ejercicio </h2>
                 <p>
                   Sea \((X,d)\) un espacio métrico y sea \((x_n)_{n=1}^\infty\subset X\)
-                  una subseción.
+                  una subsuseción.
                 </p>
                 <p>
                   Prueba que si \((x_n)_{n=1}^\infty\) NO converge al
