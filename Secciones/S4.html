@@ -300,16 +300,20 @@
                 <li> \(x_n= \frac{c^n}{n!}\). </li>
               </ol>
 
-              <button class="respButton hvr-grow"> Respuesta incisos 1,3.</button>
+              <button class="respButton hvr-grow"> Respuesta incisos 1</button>
               <div class="resp-box">
-                  Vamos a resolver 1 y 3.
-                  <ul>
-                    <li>
-                      Dividiremos el problema en 3 casos, \(c=1\), \(c<1\) y \(c>1\).
-                      El caso \(c=1\) no requiere mayor discusión, pues \(1^n = 1\)
-                      y al ser una sucesión constante \(\lim_{n \to \infty}1^n = 1\).<br><br>
-
-                      Veamos ahora el caso en que \(c>1\). Podemos escribir \(c = 1+k\)
+                  
+                  
+                    
+                      <p>
+                        Dividiremos el problema en 3 casos, \(c=1\), \(c<1\) y \(c>1\).
+                      </p>
+                      <p>
+                        El caso \(c=1\) no requiere mayor discusión, pues \(1^n = 1\)
+                      y al ser una sucesión constante \(\lim_{n \to \infty}1^n = 1\).
+                      </p>
+                      <p>
+                        Veamos ahora el caso en que \(c>1\). Podemos escribir \(c = 1+k\)
                       para algún \(k>0\). Por el teorema del binomio de Newton tenemos
                       que \(c^n = (1+k)^n = \sum_{l=0}^n 1^{n-l}k^l = 1 + nk +
                       \sum_{l=2}^n 1^{n-l}k^l \geq 1+nk\). Con ésto estamos en
@@ -319,9 +323,10 @@
                       y en general se tiene que si \(n \geq N\) entonces también
                       \(nk > M\) y \(c^n > M\). Como \(M\) es arbitraria entonces podemos
                       reemplazarla por \(l + \epsilon\) para ver que ningún \(l \in \mathbb{R}\)
-                      puede ser el límite de la sucesión. <br><br>
-
-                      El caso en que \(c < 1\) lo podemos estudiar a partir del caso anterior.
+                      puede ser el límite de la sucesión. 
+                      </p>
+                      <p>
+                        El caso en que \(c < 1\) lo podemos estudiar a partir del caso anterior.
                       Si \( c < 1\) entonces \(d=1/c > 1\) y \(d^n = 1/c^n\). Dado \(\epsilon >0\)
                       existe \(N \in \mathbb{N}\) tal que \(1/N <\epsilon\), por el análisis
                       hecho anteriormente tenemos que existe \(N' \in \mathbb{N}\) tal que
@@ -329,29 +334,39 @@
                       \(0 \leq c^n = 1/d^n < 1/N < \epsilon\).
                       Con esto  notamos que \(|c^n - 0| < \epsilon\) si \(n \geq N'\) y
                       concluimos que \(\lim_{n \to \infty} c^n = 0\).
-                    </li>
-                  <li>
+                      </p>
+                      
+                    
+                  </div>
+                  <button class="respButton hvr-grow"> Respuesta incisos 3</button>
+              <div class="resp-box">
+                    <p>
                     Nuevamente trabajaremos el problema por casos. Si \(c=1\) entonces
                   \(\frac{n}{c^n} = n\) y sabemos que la sucesión \((n)_{n \in \mathbb{N}}\)
-                    no tiene límite. El caso \(c<1\) es similar. Como \(c^n < 1\) entonces
+                    no tiene límite.
+                    </p>
+                    <p>
+                      El caso \(c < 1\) es similar. Como \(c^n < 1\) entonces
                     \(n < \frac{n}{c^n}\) para cada \(n \in \mathbb{N}\) y dicha sucesión no
-                    tiene límite. <br><br>
-                  Trabajemos ahora con el caso en que \(c>1\). Como \(c>1\) entonces
-                    \(c = 1+k\) para algún \(k>0\). Recurrimos una vez más al teorema del
-                    binomio de Newton, si \(n \geq 2\) entonces uno de los términos en la
-                    expansión de \(c^n = (1+k)^n\) es de la forma \(\frac{n(n-1)}{2}k^2\),
-                    de modo que \(c^n > \frac{n(n-1)}{2}k^2\) y \(\frac{n}{c^n} < \frac{2}{(n-1)k^2}\).
-                    Para terminar hacemos lo siguiente. Sea \(\epsilon > 0\), sabemos que existe
-                   \(N \in \mathbb{N}\) tal que si \(n \geq N\) entonces \(\frac{1}{n-1} <
-                  \frac{k^2 \epsilon}{2}\). De esta forma, si \(n \geq N\) entonces
-                  \[
-                    |\frac{n}{c^n} - 0| < |\frac{2}{(n-1)k^2}-0| < \epsilon,
-                  \]
-                  y concluimos que \(\lim_{n \to \infty} \frac{n}{c^n} = 0\).
-                  </li>
-                </ul>
+                    tiene límite.
+                    </p> 
+                    <p>
+                      Trabajemos ahora con el caso en que \(c>1\). Como \(c>1\) entonces
+                      \(c = 1+k\) para algún \(k>0\). Recurrimos una vez más al teorema del
+                      binomio de Newton, si \(n \geq 2\) entonces uno de los términos en la
+                      expansión de \(c^n = (1+k)^n\) es de la forma \(\frac{n(n-1)}{2}k^2\),
+                      de modo que \(c^n > \frac{n(n-1)}{2}k^2\) y \(\frac{n}{c^n} < \frac{2}{(n-1)k^2}\).
+                      Para terminar hacemos lo siguiente. Sea \(\epsilon > 0\), sabemos que existe
+                     \(N \in \mathbb{N}\) tal que si \(n \geq N\) entonces \(\frac{1}{n-1} <
+                    \frac{k^2 \epsilon}{2}\). De esta forma, si \(n \geq N\) entonces
+                    \[
+                      |\frac{n}{c^n} - 0| < |\frac{2}{(n-1)k^2}-0| < \epsilon,
+                    \]
+                    y concluimos que \(\lim_{n \to \infty} \frac{n}{c^n} = 0\).
+                    </p>
+                  </div>
               </div>
-            </div>
+            
 
 
 
@@ -1385,9 +1400,5 @@
           </li>
         </ol>
       </div>
-
-
-
-
     </div>
   </body>
