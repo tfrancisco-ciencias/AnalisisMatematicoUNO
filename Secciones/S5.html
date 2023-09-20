@@ -326,7 +326,7 @@
                 <li>
                     Sea \(x \in \cap_{i=1}^n U_i\), entonces \(x \in U_j\) para \(j=1,...,n\) y
                     existen \(r_1, ...,r_n > 0\) tales que \(B_{r_j}(x) \subseteq U_j\) para
-                    cada \(j=1,...,n\). Sea \(r=\max\{r_1,...,r_n\}\), entonces
+                    cada \(j=1,...,n\). Sea \(r=\min\{r_1,...,r_n\}\), entonces
                     \(B_r(x) \subseteq U_j\) para cada \(j\) y \(B_r(x) \subseteq \cap_{i=1}^n U_i\).
                 </li>
                 <li>
@@ -463,8 +463,9 @@
             \(B_r(x)\cap F \ne \emptyset\), entonces \(x\in F\).
           </li>
           <li>
-            Si un punto \(x\) satisface que existe una sucesión de puntos en \(F\)
-            que converge  \(x\) entonces \(x\in F\).
+            Si existe \((x_n)_{n=1}^\infty\)  es una sucesión de puntos 
+            de \(F\) (es decir, \(x_n\in F\) para toda \(n\)) y \( \lim_{n\to \infty} x_n=x\) 
+            entonces \(x\in F\).
           </li>
         </ol>
 
