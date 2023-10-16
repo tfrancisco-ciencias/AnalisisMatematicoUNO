@@ -114,7 +114,7 @@
       </div>
 
 
-      <div class="definicion-box">
+     <!--  <div class="definicion-box">
         <h2 class="number-title" id="Def:ConexidadEspMet"> Definición </h2>
 
       <p>
@@ -160,132 +160,103 @@
         son abiertos, además claramente son ajenos no vacíos (pues \(X\) contiene
         más de un elemento) y \(X=U\cup V\).
       </p>
+      </div>--> 
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico. Un subconjunto
+          \(E \subseteq X\) se llama disconexo si existen
+          \(A,B\subset X\) subconjuntos abiertos de \(X\) que
+          satisfacen:
+          <ul>
+            <li>
+              \(A \cap B = \emptyset\).
+            </li>
+            <li>
+              \(A\cap E \ne \emptyset\), \(B\cap E \ne \emptyset\).
+            </li>
+            <li>
+              \(E \subseteq A \cup B\)
+            </li>
+
+          </ul>
+          A un par de dichos conjuntos \(A,B\) se le llama una disconexión.
+        </p>
+
+        <p>
+          El subconjunto  se llama conexo si no es disconexo.
+        </p>
+        <p>
+          Nota: para el caso \(E=X\), tenemos que el espacio métrico es 
+          disconexo si existen dos conjuntos, \(A\) y \(B\), ajenos no vacíos tal que \(X=A\cup B\) 
+        </p>
+        <p>
+          Por ejemplo, el conjunto vacío \(\emptyset\) es conexo por vacuidad.
+        </p>
+        <p>
+          El espacio discreto con un sólo punto
+          \(\{x\}\), es conexo. Para ver esto sólo hay que notar que  el único subconjunto
+          abierto, no vacío es \(\{x\}\), por lo que no es posible
+          dar una disconexión \(U,V\) como se menciona arriba.
+        </p>
+        <p>
+          Por otro lado
+          si tenemos un espacio con la métrica discreta, \((X,d)\), y
+          \(X\) tiene más de un punto dicho espacio es disconexo, pues si
+          \(x\in X\) podemos tomar la disconexión \(U=\{x\}, V=X\setminus \{x\}\).
+          Como en \(X\) todos los subconjuntos son abiertos entonces \(U\) y \(V\)
+          son abiertos, además claramente son ajenos no vacíos (pues \(X\) contiene
+          más de un elemento) y \(X=U\cup V\).
+        </p>
       </div>
 
+      
+
+
+
       <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
-      <p>
-        \(\mathbb{R}\), con la métrica usual, es conexo.
-      </p>
-      <button class="respButton hvr-grow"> Demostración </button>
-      <div class="resp-box">
-      <p>
-        Vamos a proceder por contradicción, es decir vamos a suponer que
-        \(\mathbb{R}\) es disconexo. Por lo tanto existe \((U,V)\), una
-        disconexción de \(\mathbb{R}\).
-      </p>
-      <p>
-        La idea de la prueba es que vamos a poder encontrar rayos
-        infinitos tal que
-        \[
-        [x,\infty) \subseteq U, \quad [y,\infty) \subseteq V,
-        \]
-        lo cual contradice el hecho de que \(U\) y \(V\) sean ajenos.
-      </p>
-      <p>
-        Ya que \(U \ne \emptyset\) podemos fijar \(x\in U\). La idea es que
-        nos vamos a ir "moviendo" desde \(x\) a la derecha y resulta que
-        no nos vamos a "parar".
-      </p>
-      <p>
-        Para formalizar lo anterior consideramos el conjunto
-        \[
-        A=\{ a \geq x  : [x,a] \subseteq U\}.
-        \]
-      </p>
-      <p> Lo primero que notamos es que \(x\in A\), por lo que \(A\ne \emptyset\).
-      <p>
-        Lo segundo que notamos es la siguiente propidad de \(A\):
-        \begin{equation}\label{Eqn:PropiedadAux}
-          \textrm{si \(x'>x\) y \(x'\in A\) entonces \([x,x']\subseteq A\).}
-        \end{equation}
-      </p>
-      <p>
-        Para probar la contención tomemos \(z\in [x,x']\). Se sigue que \([x,z]\subseteq [x,x']\).
-        Ya que \(x'\in A\) también tenemos que \([x,x']\subseteq U\).
-        Por lo tanto
-        \([x,z]\subseteq U\) lo cual dice que \(z\in A\).
-      </p>
-      <p>
-        El tercer paso es probar  que \(A\) no está acotado superiormente.
-      </p>
-       <p> Para probar lo anterior vamos a
-        proceder por contradicción. Si \(A\) está acotado superiormente por
-        el axioma del supermo existe \(\alpha = \sup(A)\). Veamos que éste
-        \(\alpha\) genera una contradicción.
-      </p>
-      <p>
-        Ya que \(\mathbb{R}=U\cup V\) y \(U\cap V = \emptyset\) tenemos
-        dos casos excluyentes: \(\alpha \in U\) ó \(\alpha \in V\).
-      </p>
-      <p>
-        Supongamos que \(\alpha \in U\).
-      </p>
-      <p>
-        Usando que \(U\) es abierto
-        existe un número positivo \(r\) tal que \((\alpha-r,\alpha+r) \subseteq U\).
-        Se sigue que
-        \begin{equation}\label{Eqn:Aux1ConexidadR}
-        [\alpha-r/2, \alpha+r/2] \subseteq U
-        \end{equation}
-        Por otro lado, usando que \(\alpha\) es el supremo de \(A\) existe
-        \(a\in A\) con \( \alpha - r/2 < a \leq \alpha\). Ya que \(a\in A\)
-        tanemos
-        \begin{equation}\label{Eqn:Aux2ConexidadR}
-        [x,a]\subseteq U
-        \end{equation}
-        Por lo tanto, de \eqref{Eqn:Aux1ConexidadR} y \eqref{Eqn:Aux2ConexidadR}
-        concluimos que
-        \[
-        [x,\alpha+r/2] \subseteq U
-        \]
-        y por lo tanto \(\alpha + r/2 \in A\), contradiciendo que
-        \(\alpha\) sea el supremo de \(A\).
-      </p>
-      <p>
-        Ahora supongamos que \(\alpha \in V\). Vamos a proceder de manera
-        muy similar.
-      </p>
-      <p>
-        Ya que \(V\) es abierto existe un número positivo \(s\) tal que
-        \((\alpha-s, \alpha+s) \subseteq V \).
-      </p>
-      <p>
-        Ya que \(\alpha\) es el supermo de \(A\) existe \(a'\in A\)
-        con \(\alpha -s < a' \leq \alpha\). Nota que también se tiene que \(a'\in V\),
-        pues \(a'\in (\alpha-s,\alpha+s )\subseteq V\).
-     </p>
-     <p>
-       Por otro lado, ya que \(a'\in A \), \([x,a]\subseteq U\), por lo que
-       \(a'\in U\).
-     </p>
-       <p>
-       Pero entonces \(a' \in U\cap V\), una contradicción
-       pues \(U\cap V=\emptyset\).
-     </p>
-     <p>
-       Con esto se concluye la prueba de que \(A\) no está acotado
-       superiormente.
-     </p>
-     <p>
-       Ahora, usando la propiedad \eqref{Eqn:PropiedadAux} y que
-       \(A\) no está acotado superiormente podemos concluir que
-       \([x,\infty) \subseteq A\) de donde se sigue que
-       \[
-       [x,\infty)\subseteq U.
-       \]
-     </p>
-     <p>
-       Para finalizar notamos que podemos hacer el mismo razonamiento si
-       empezamos con el conjunto \(V\). Por lo tanto existe un \(y\in V\)
-       tal que
-       \[
-       [y,\infty) \subseteq V,
-       \]
-       lo cual contradice \(U\cap V =\emptyset\).
-     </p>
-   </div>
-      </div>
+        <h2 class="number-title" id="Ejer:ConexidadIntervalosCerrados"> Ejercicio </h2>
+          <p>
+            Cualquier intervalo cerrado \([a.b]\)
+            es un subconjunto conexo de \(\mathbb{R}\).
+          </p>
+          <button class="respButton hvr-grow"> Demostración </button>
+          <div class="resp-box">
+              <p>
+                  La prueba en ambos casos es similar, empezaremos con el
+                  intervalo cerrado. Supongamos que \([a,b]\) es un conjunto
+                  disconexo y que \(U,V\) es una disconexión. Como
+                  \([a,b] \subseteq U \cup V\) entonces \(b \in U\) o
+                  \(b \in V\), supongamos sin pérdida de generalidad que
+                  \(b \in V\). Dado que \(V\) es abierto y \(b \in V\) entonces
+                  existe \(r > 0\) tal que \(B_r(b) \subseteq V\). Por Principio
+                  del Supremo podemos tomar \(x = \sup\{y \in [a,b]: y \notin V\}\)
+                  y necesariamente \(x \leq b-r\). Como \(x \notin V\) y
+                  \([a,b] \subseteq U \cup V\), entonces \(x \in U\), y como \(U\)
+                  es abierto entonces existe \(s > 0\) tal que \(B_s(x) \subseteq U\),
+                  pero ésto nos crea inmediatamente una contradicción. Por un lado,
+                  como \(x < b\) entonces existe \(y\) tal que \(x < y < b\) y
+                  \(y \in B_s(x)\), por lo que \(y \in U\) y contradice el hecho
+                  de que \(x = \sup \{z \in [a,b]: z \notin V\}\). En conclusión,
+                  \([a,b]\) es conexo.
+              </p>
+             <!--  <p>
+                  Consideremos ahora el intervalo \((a,b)\) con la posibilidad
+                  de que \(a,b\) sean infinitos. Supongamos que el intervalo es
+                  disconexo y que \(U,V\) es una disconexión. Como \(U \cap (a,b) \neq
+                  \varnothing\) y \(V \cap (a,b) \neq \varnothing\) entonces podemos
+                  tomar \(x \in U \cap (a,b)\) y \(y \in V \cap (a,b)\). Supongamos
+                  sin pérdida de generalidad que \(x < y\). Por definición de
+                  disconexión tenemos que \(U \cap V = \varnothing\) y
+                  \([x,y] \subseteq (a,b) \subseteq U \cup V\). Finalmente, tenemos que
+                  \(x \in [x,y] \cap U\) y \(y \in [x,y] \cap V\), por lo que \(U,V\)
+                  es una disconexión del intervalo \([x,y]\) y contradice al resultado
+                  anterior. Por lo tanto \((a,b)\) es un conjunto conexo.
+              </p>-->
+          </div>
+        </div>
+
 
 
       <div class="ejercicio-box">
@@ -392,33 +363,7 @@
         </p>
       </div>
 
-      <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
-        <p>
-          Sea \((X,d)\) un espacio métrico. Un subconjunto
-          \(E \subseteq X\) se llama disconexo si existen
-          \(A,B\subset X\) subconjuntos abiertos de \(X\) que
-          satisfacen:
-          <ul>
-            <li>
-              \(A \cap B = \emptyset\).
-            </li>
-            <li>
-              \(A\cap E \ne \emptyset\), \(B\cap E \ne \emptyset\).
-            </li>
-            <li>
-              \(E \subseteq A \cup B\)
-            </li>
-
-          </ul>
-          A un par de dichos conjuntos \(A,B\) se le llama una disconexión.
-        </p>
-
-        <p>
-          El subconjunto  se llama conexo si no es disconexo.
-        </p>
-
-      </div>
+      
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
@@ -433,54 +378,12 @@
 
 
 
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-            <p>
-              Cualquier intervalo cerrado \([a.b]\)
-              o abierto \((a,b)\) es un subconjunto conexo de \(\mathbb{R}\).
-            </p>
-            <button class="respButton hvr-grow"> Demostración </button>
-            <div class="resp-box">
-                <p>
-                    La prueba en ambos casos es similar, empezaremos con el
-                    intervalo cerrado. Supongamos que \([a,b]\) es un conjunto
-                    disconexo y que \(U,V\) es una disconexión. Como
-                    \([a,b] \subseteq U \cup V\) entonces \(b \in U\) o
-                    \(b \in V\), supongamos sin pérdida de generalidad que
-                    \(b \in V\). Dado que \(V\) es abierto y \(b \in V\) entonces
-                    existe \(r > 0\) tal que \(B_r(b) \subseteq V\). Por Principio
-                    del Supremo podemos tomar \(x = \sup\{y \in [a,b]: y \notin V\}\)
-                    y necesariamente \(x \leq b-r\). Como \(x \notin V\) y
-                    \([a,b] \subseteq U \cup V\), entonces \(x \in U\), y como \(U\)
-                    es abierto entonces existe \(s > 0\) tal que \(B_s(x) \subseteq U\),
-                    pero ésto nos crea inmediatamente una contradicción. Por un lado,
-                    como \(x < b\) entonces existe \(y\) tal que \(x < y < b\) y
-                    \(y \in B_s(x)\), por lo que \(y \in U\) y contradice el hecho
-                    de que \(x = \sup \{z \in [a,b]: z \notin V\}\). En conclusión,
-                    \([a,b]\) es conexo.
-                </p>
-                <p>
-                    Consideremos ahora el intervalo \((a,b)\) con la posibilidad
-                    de que \(a,b\) sean infinitos. Supongamos que el intervalo es
-                    disconexo y que \(U,V\) es una disconexión. Como \(U \cap (a,b) \neq
-                    \varnothing\) y \(V \cap (a,b) \neq \varnothing\) entonces podemos
-                    tomar \(x \in U \cap (a,b)\) y \(y \in V \cap (a,b)\). Supongamos
-                    sin pérdida de generalidad que \(x < y\). Por definición de
-                    disconexión tenemos que \(U \cap V = \varnothing\) y
-                    \([x,y] \subseteq (a,b) \subseteq U \cup V\). Finalmente, tenemos que
-                    \(x \in [x,y] \cap U\) y \(y \in [x,y] \cap V\), por lo que \(U,V\)
-                    es una disconexión del intervalo \([x,y]\) y contradice al resultado
-                    anterior. Por lo tanto \((a,b)\) es un conjunto conexo.
-                </p>
-            </div>
-          </div>
-
 
 
 
 
         <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
+          <h2 class="number-title" id="Ejer:InterseccionConexos"> Ejercicio </h2>
          <ol>
           <li>
             Sea \((X,d)\) un espacio métrico y \(E,F\subseteq X\)
@@ -498,6 +401,144 @@
         </ol>
         </div>
 
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Considera a \(\mathbb{R}\) con la métrica usual.
+          </p>
+          <ol>
+            <li>
+              Cualquier intervalo abierto \((a,b)\) es un subconjunto conexo de \(\mathbb{R}\).
+            </li>
+            <li>
+              \(\mathbb{R}\) es conexo.
+            </li>
+          </ol>
+          
+          <p>
+            Sugerencia: usa los ejercicios <a href="#Ejer:ConexidadIntervalosCerrados"> Ejercicio 7.3</a>
+            y <a href="#Ejer:InterseccionConexos"> Ejercicio 7.8</a>
+          </p>
+         <!--  <button class="respButton hvr-grow"> Demostración </button>
+          <div class="resp-box">
+          <p>
+            Vamos a proceder por contradicción, es decir vamos a suponer que
+            \(\mathbb{R}\) es disconexo. Por lo tanto existe \((U,V)\), una
+            disconexción de \(\mathbb{R}\).
+          </p>
+          <p>
+            La idea de la prueba es que vamos a poder encontrar rayos
+            infinitos tal que
+            \[
+            [x,\infty) \subseteq U, \quad [y,\infty) \subseteq V,
+            \]
+            lo cual contradice el hecho de que \(U\) y \(V\) sean ajenos.
+          </p>
+          <p>
+            Ya que \(U \ne \emptyset\) podemos fijar \(x\in U\). La idea es que
+            nos vamos a ir "moviendo" desde \(x\) a la derecha y resulta que
+            no nos vamos a "parar".
+          </p>
+          <p>
+            Para formalizar lo anterior consideramos el conjunto
+            \[
+            A=\{ a \geq x  : [x,a] \subseteq U\}.
+            \]
+          </p>
+          <p> Lo primero que notamos es que \(x\in A\), por lo que \(A\ne \emptyset\).
+          <p>
+            Lo segundo que notamos es la siguiente propidad de \(A\):
+            \begin{equation}\label{Eqn:PropiedadAux}
+              \textrm{si \(x'>x\) y \(x'\in A\) entonces \([x,x']\subseteq A\).}
+            \end{equation}
+          </p>
+          <p>
+            Para probar la contención tomemos \(z\in [x,x']\). Se sigue que \([x,z]\subseteq [x,x']\).
+            Ya que \(x'\in A\) también tenemos que \([x,x']\subseteq U\).
+            Por lo tanto
+            \([x,z]\subseteq U\) lo cual dice que \(z\in A\).
+          </p>
+          <p>
+            El tercer paso es probar  que \(A\) no está acotado superiormente.
+          </p>
+           <p> Para probar lo anterior vamos a
+            proceder por contradicción. Si \(A\) está acotado superiormente por
+            el axioma del supermo existe \(\alpha = \sup(A)\). Veamos que éste
+            \(\alpha\) genera una contradicción.
+          </p>
+          <p>
+            Ya que \(\mathbb{R}=U\cup V\) y \(U\cap V = \emptyset\) tenemos
+            dos casos excluyentes: \(\alpha \in U\) ó \(\alpha \in V\).
+          </p>
+          <p>
+            Supongamos que \(\alpha \in U\).
+          </p>
+          <p>
+            Usando que \(U\) es abierto
+            existe un número positivo \(r\) tal que \((\alpha-r,\alpha+r) \subseteq U\).
+            Se sigue que
+            \begin{equation}\label{Eqn:Aux1ConexidadR}
+            [\alpha-r/2, \alpha+r/2] \subseteq U
+            \end{equation}
+            Por otro lado, usando que \(\alpha\) es el supremo de \(A\) existe
+            \(a\in A\) con \( \alpha - r/2 < a \leq \alpha\). Ya que \(a\in A\)
+            tanemos
+            \begin{equation}\label{Eqn:Aux2ConexidadR}
+            [x,a]\subseteq U
+            \end{equation}
+            Por lo tanto, de \eqref{Eqn:Aux1ConexidadR} y \eqref{Eqn:Aux2ConexidadR}
+            concluimos que
+            \[
+            [x,\alpha+r/2] \subseteq U
+            \]
+            y por lo tanto \(\alpha + r/2 \in A\), contradiciendo que
+            \(\alpha\) sea el supremo de \(A\).
+          </p>
+          <p>
+            Ahora supongamos que \(\alpha \in V\). Vamos a proceder de manera
+            muy similar.
+          </p>
+          <p>
+            Ya que \(V\) es abierto existe un número positivo \(s\) tal que
+            \((\alpha-s, \alpha+s) \subseteq V \).
+          </p>
+          <p>
+            Ya que \(\alpha\) es el supermo de \(A\) existe \(a'\in A\)
+            con \(\alpha -s < a' \leq \alpha\). Nota que también se tiene que \(a'\in V\),
+            pues \(a'\in (\alpha-s,\alpha+s )\subseteq V\).
+         </p>
+         <p>
+           Por otro lado, ya que \(a'\in A \), \([x,a]\subseteq U\), por lo que
+           \(a'\in U\).
+         </p>
+           <p>
+           Pero entonces \(a' \in U\cap V\), una contradicción
+           pues \(U\cap V=\emptyset\).
+         </p>
+         <p>
+           Con esto se concluye la prueba de que \(A\) no está acotado
+           superiormente.
+         </p>
+         <p>
+           Ahora, usando la propiedad \eqref{Eqn:PropiedadAux} y que
+           \(A\) no está acotado superiormente podemos concluir que
+           \([x,\infty) \subseteq A\) de donde se sigue que
+           \[
+           [x,\infty)\subseteq U.
+           \]
+         </p>
+         <p>
+           Para finalizar notamos que podemos hacer el mismo razonamiento si
+           empezamos con el conjunto \(V\). Por lo tanto existe un \(y\in V\)
+           tal que
+           \[
+           [y,\infty) \subseteq V,
+           \]
+           lo cual contradice \(U\cap V =\emptyset\).
+         </p>
+       </div>-->
+          </div>
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
@@ -696,7 +737,7 @@
           <h2 class="number-title" id="Ejer:FunContinuaInyectivaEsCreciente"> Ejercicio </h2>
           <p>
             Si \(f:\mathbb{R}\to \mathbb{R}\) es continua e inyectiva
-            prueba que \(f\) es estrictamente creciente.
+            prueba que \(f\) es estrictamente creciente o estrictamente decreciente.
           </p>
         </div>
 
@@ -709,6 +750,17 @@
             \(f(\mathbb{Q}) \subset \mathbb{R} \setminus \mathbb{Q}\)
             y \(f(\mathbb{R}\setminus \mathbb{Q}) \subseteq \mathbb{Q}\).
           </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \(f:\mathbb{R} \to \mathbb{R}\) una función que es: (1) biyectiva, (2) continua.
+          </p>
+          <p>
+            Prueba que \(f\) es un homeomorfismo.
+          </p>
+
         </div>
 
 
@@ -845,28 +897,7 @@
         </div>
         </div>
 
-        <div class="definicion-box">
-          <h2 class="number-title" id="Def:AlternativaConexidadEspMet"> Definición </h2>
-          <p>
-            Sea \((X,d)\) un espacio métrico y \(E\subseteq X\). Decimos
-            que \(E\) es disconexo si el subespacio métrico \((E,d_E)\),
-            es disconexo, es decir es disconexo
-            según la <a href="#Def:ConexidadEspMet">Definición 7.2</a>.
-          </p>
-        </div>
 
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Prueba que las definiciones <a href="Def:ConexidadEspMet">7.2</a>
-            y <a href="#Def:AlternativaConexidadEspMet">7.23</a> son
-            equivalentes.
-          </p>
-          <p>
-            Sugerencia: usa el <a href="#Lema:AbiertosSubEspacios">Lema 7.22</a>
-          </p>
-        </div>
 
 
         <div class="ejercicio-box">
@@ -903,6 +934,30 @@
           </p>
 
         </div>
+
+        <!-- <div class="definicion-box">
+          <h2 class="number-title" id="Def:AlternativaConexidadEspMet"> Definición </h2>
+          <p>
+            Sea \((X,d)\) un espacio métrico y \(E\subseteq X\). Decimos
+            que \(E\) es disconexo si el subespacio métrico \((E,d_E)\),
+            es disconexo, es decir es disconexo
+            según la <a href="#Def:ConexidadEspMet">Definición 7.2</a>.
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba que las definiciones <a href="Def:ConexidadEspMet">7.2</a>
+            y <a href="#Def:AlternativaConexidadEspMet">7.23</a> son
+            equivalentes.
+          </p>
+          <p>
+            Sugerencia: usa el <a href="#Lema:AbiertosSubEspacios">Lema 7.22</a>
+          </p>
+        </div> -->
+
 
             <div class="quiz-box">
               <h2 id="Quiz:Sec7"> Quiz </h2>
