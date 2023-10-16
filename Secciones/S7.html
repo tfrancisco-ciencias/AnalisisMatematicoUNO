@@ -191,24 +191,27 @@
           Nota: para el caso \(E=X\), tenemos que el espacio métrico es 
           disconexo si existen dos conjuntos, \(A\) y \(B\), ajenos no vacíos tal que \(X=A\cup B\) 
         </p>
-        <p>
-          Por ejemplo, el conjunto vacío \(\emptyset\) es conexo por vacuidad.
-        </p>
-        <p>
-          El espacio discreto con un sólo punto
-          \(\{x\}\), es conexo. Para ver esto sólo hay que notar que  el único subconjunto
-          abierto, no vacío es \(\{x\}\), por lo que no es posible
-          dar una disconexión \(U,V\) como se menciona arriba.
-        </p>
-        <p>
-          Por otro lado
-          si tenemos un espacio con la métrica discreta, \((X,d)\), y
-          \(X\) tiene más de un punto dicho espacio es disconexo, pues si
-          \(x\in X\) podemos tomar la disconexión \(U=\{x\}, V=X\setminus \{x\}\).
-          Como en \(X\) todos los subconjuntos son abiertos entonces \(U\) y \(V\)
-          son abiertos, además claramente son ajenos no vacíos (pues \(X\) contiene
-          más de un elemento) y \(X=U\cup V\).
-        </p>
+        <h4> Ejemplos </h4>
+        <ol>
+          <li>
+            Por ejemplo, el conjunto vacío \(\emptyset\) es conexo por vacuidad.
+          </li>
+          <li>
+            El espacio discreto con un sólo punto
+            \(\{x\}\), es conexo. Para ver esto sólo hay que notar que  el único subconjunto
+            abierto, no vacío es \(\{x\}\), por lo que no es posible
+            dar una disconexión \(U,V\) como se menciona arriba.
+          </li>  
+          <li>
+            Sea \((X,d)\) un espacio métrico discreto con más de dos puntos. Cualquier 
+            subconjunto \(E \subseteq X\) con más de dos puntos es disconexo.
+          </li>
+          <li>
+            Sea \((X,d)\) un espacio métrico arbitrario. Entonces todo singulete \(\{x\}\)
+            es un subconjunto conexo de \(X\).
+          </li>
+        </ol>
+        
       </div>
 
       
@@ -224,24 +227,48 @@
           <button class="respButton hvr-grow"> Demostración </button>
           <div class="resp-box">
               <p>
-                  La prueba en ambos casos es similar, empezaremos con el
-                  intervalo cerrado. Supongamos que \([a,b]\) es un conjunto
-                  disconexo y que \(U,V\) es una disconexión. Como
-                  \([a,b] \subseteq U \cup V\) entonces \(b \in U\) o
-                  \(b \in V\), supongamos sin pérdida de generalidad que
-                  \(b \in V\). Dado que \(V\) es abierto y \(b \in V\) entonces
-                  existe \(r > 0\) tal que \(B_r(b) \subseteq V\). Por Principio
-                  del Supremo podemos tomar \(x = \sup\{y \in [a,b]: y \notin V\}\)
-                  y necesariamente \(x \leq b-r\). Como \(x \notin V\) y
-                  \([a,b] \subseteq U \cup V\), entonces \(x \in U\), y como \(U\)
-                  es abierto entonces existe \(s > 0\) tal que \(B_s(x) \subseteq U\),
-                  pero ésto nos crea inmediatamente una contradicción. Por un lado,
-                  como \(x < b\) entonces existe \(y\) tal que \(x < y < b\) y
-                  \(y \in B_s(x)\), por lo que \(y \in U\) y contradice el hecho
-                  de que \(x = \sup \{z \in [a,b]: z \notin V\}\). En conclusión,
-                  \([a,b]\) es conexo.
+                  Supongamos que \([a,b]\) es un conjunto
+                  disconexo y que \(U,V\) es una disconexión, es decir 
+                  <ol>
+                    <li>
+                      \(U\cap V \ne \emptyset \)
+                    </li>
+                    <li>
+                      \( U\cap [a,b]\ne \emptyset \),\( V\cap [a,b]\ne \emptyset \).
+                    </li>
+                    <li>
+                      \( [a,b] \subseteq U\cap V \).
+                    </li>
+                  </ol>
               </p>
-             <!--  <p>
+              <p>
+                Como
+                  \([a,b] \subseteq U \cup V\) entonces \(b \in U\) o
+                  \(b \in V\), supongamos sin pérdida de generalidad supongamos que
+                  \(b \in V\). Dado que \(V\) es abierto y \(b \in V\) entonces
+                  existe \(r > 0\) tal que \((b-r,b_r) \subseteq V\). 
+              </p>
+              <p>
+                Sea \(A=U\cap [a,b]\ne \emptyset \) y \(\alpha=\sup(A) \) (bien definido 
+                pues \(b\) es cota superior de \(A\)). Por la propiedad universal 
+                del supremo existe una sucesión  \((u_n)_{n=1}^\infty \subseteq A\) tal que 
+                \(\lim_{n\to \infty}u_n=\alpha\). Ya que \((u_n)_{n=1}^\infty \subseteq [a,b]\)
+                y éste es cerrado, \(\alpha \in [a,b]\).
+              </p>
+              <p>
+                Ya que \([a,b]\subseteq U\cap V\) tenemos dos casos. 
+              </p>
+              <p>
+                Caso 1: \(\alpha \in V\). Ya que este es abierto y \(\lim_{n\to \infty}u_n=\alpha\)
+                existe \(N\) tal que \(u_N\in V\), pero entonces \(u_N\in U\cap V\), una contradicción. 
+              </p>
+              <p>
+                Caso 2: \(\alpha \in U\). Al ser \(U\) abierto, existe \(s> 0\) tal que 
+                \((\alpha-s,\alpha+s) \subseteq U\). Ya que \(\alpha < b \) (pues \(b\in V\) y \(\alpha \notin V\)
+                por el caso anterior), podemos tomar \(s\) que también satisface, \(\alpha+s < b \). Pero entonces 
+                \(\alpha+s/2 \in U\cap [a,b] \), contradiciendo \(\alpha = \sup(U\cap [a,b])\).
+              </p>
+              <!--  <p>
                   Consideremos ahora el intervalo \((a,b)\) con la posibilidad
                   de que \(a,b\) sean infinitos. Supongamos que el intervalo es
                   disconexo y que \(U,V\) es una disconexión. Como \(U \cap (a,b) \neq
