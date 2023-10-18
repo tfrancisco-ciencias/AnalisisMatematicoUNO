@@ -310,40 +310,32 @@
           de tener \(x^*< b\). 
         </p>
         <p>
-          Ya que \(x^*\in [a,b]\) y \(\{U_i\}_{i\in I}\) es una cubierta
-          de \([a,b]\) existe \(i_1\in I\) tal que \(x^*\in U_{i_1}\). Usando
-          que \(U_{i_1}\) es abierto existe \(s>0\) tal que \((x^*-s,x^*+s)\subseteq U_{i_0}\)
-          y como \(x^* < b \) podemos tomar \(s\) suficientemente chica 
-          para que \(a< x^*-s\) y \( x^*+s < b\). Por la propiedad fundamental del supermo 
-          existe \(y\in A\) tal que \(x^*-s < y < b\). Ya que \(y\in A\) 
-          existen \(U_{j_1},\dots, U_{j_n}\) tal que 
+          Ya que \(x^*\in [a,b] \subseteq \cup_{i\in I }U_i\), existe \(j \in I\) 
+          tal que \(x^*\in U_{j}\). Usando
+          que \(U_{j}\) es abierto existe \(t>0\) tal que \((x^*-t,x^*+t)\subseteq U_{j}\).
+          Por la propiedad fundamental del supermo 
+          existe \(y\in S\) tal que \(x^*-t < y \leq x^*\). Ya que \(y\in S\) 
+          existen \(U_{i_1},\dots, U_{i_n}\) tal que 
           \[
-          [a,y] \subset \cup_{k=1}^n U_{j_k}. 
+          [a,y] \subset \cup_{k=1}^n U_{i_k}. 
           \]
-          Pero además tenemos que \((x^*-s,x^*+s) \subset U_{i_1}\) 
-          por lo que \([y,x^*+s/2] \subset (x^*-s,x^*+s) \subset U_{i_1} \).
-          Se sigue que 
-          \[ 
-          [a,x^*+s/2] \subset \cup_{k=1}^n U_{j_k} \cup U_{i_1}
+          lo cual implica que 
+          \[
+          [a,x^*+t/2]=[a,y]\cup [y,x^*+t/2] \subseteq \cup_{k=1}^n U_{i_k} \cup U_j.
           \]
-          por lo que \(x^*+s/2 \in A\) lo cual es una contradicción pues 
-          \(x^* < x^*+s/2\) y \(x^*=\sup(A)\).
-          
+          Por lo tanto \(x^*+t/2\in S\) pero \(\sup(S)=x^*<  x^*+t/2 \in S\), una 
+          contradicción. Por lo que concluimos \(x^*=b\).
         </p>
         <p>
           Para terminar vamos a probar que  \([a,b]\) se puede cubrir con una 
-          cantidad finita de las \(U_i's\). Primero tomamos 
-          \(i_2\) tal que \(b\in U_{i_2}\). Ya que \(U_{i_2}\)
-          es abierto existe un \( t > 0\) 
-          tal que \((b-t,b+t) \subseteq U_{i_2}\). Haciendo 
-          \(t\) mas pequeña de ser necesario podemos suponer que 
-          \(a< b-t < b\). Ya que \(b=\sup(A)\) por la propiedad 
-          fundamental del supremo existe un \(z\in A\) tal que 
-          \(b-t < z \leq b\). Como \(z\in A\), podemos cubrir 
-          \([a,z]\) con una cantidad finita de \(U_i's\)
-           y podemos cubrir \([z,b]\) con \(U_{i_2}\), por lo que 
-           podemos cubrir \([a,b]\) con una cantidad finita de \(U_i's\).
+          cantidad finita de las \(U_i's\). Pero por lo anterior \(b=x^*\in U_j\)
+          y 
+          \[
+          [a,b]\subseteq [a,x^*+t/2]\subseteq \cup_{k=1}^n U_{i_k} \cup U_j.
+          \]
+        
         </p>
+        
         
       </div>
       </div>
