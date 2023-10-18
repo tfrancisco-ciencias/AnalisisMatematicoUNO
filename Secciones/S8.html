@@ -286,6 +286,7 @@
           Denotemos al intervalo por \([a,b]\), con \(a< b\) y sea
           \(\{U_i\}_{i\in I}\) una cubierta abierta para \([a,b]\).
         </p>
+
         <p>
           Ya que \(a\in \cup_{i\in I}U_i\), existe \(i_0\) tal que
           \(a\in U_{i_0}\). Por otro lado ya que  \(U_{i_0}\) es abierto
@@ -297,6 +298,10 @@
           [a,x_0]\subseteq U_{i_0}.
           \]
         </p>
+
+        <div class="flexbox">
+          <img src="./Images/S8-img1.png" alt="PuntoInicial" width="40%" height="auto">
+        </div>
         <p>
           Ahora consideremos el conjunto \(S\) formado por los puntos \(x\in [a,b]\)
           con la propiedad de que \([a,x]\) está contenido en una unión finita
@@ -323,9 +328,17 @@
           \[
           [a,x^*+t/2]=[a,y]\cup [y,x^*+t/2] \subseteq \cup_{k=1}^n U_{i_k} \cup U_j.
           \]
-          Por lo tanto \(x^*+t/2\in S\) pero \(\sup(S)=x^*<  x^*+t/2 \in S\), una 
-          contradicción. Por lo que concluimos \(x^*=b\).
+          <div class="flexbox">
+            <img src="./Images/S8-img3.png" alt="Seguimiento" width="40%" height="auto">
+          </div>
+          
         </p>
+        <p>
+          Por lo tanto \(x^*+t/2\in S\) pero \(\sup(S)=x^*<  x^*+t/2 \in S\), una 
+          contradicción. Por lo que concluimos \(x^*=b\).    
+        </p>
+        
+      
         <p>
           Para terminar vamos a probar que  \([a,b]\) se puede cubrir con una 
           cantidad finita de las \(U_i's\). Pero por lo anterior \(b=x^*\in U_j\)
