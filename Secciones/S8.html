@@ -882,7 +882,7 @@
     Afirmación. 
   </h3>
   <p>
-    Sea \(U_{i\in I}\) una cubierta abierta de \(K\). Entonces existe un 
+    Sea \(\{ U_i\}_{i\in I}\) una cubierta abierta de \(K\). Entonces existe un 
     \(r>0\), tal que para toda \(x\in K\), existe un \(i\in I\) con \(B_r(x)\subset U_i\).
   </p>
   <p>
@@ -1028,35 +1028,55 @@
   <h2 class="number-title" id="Teo:FunContAcotEnCompactos"> Teorema </h2>
 
   <p>
-    Sea \((K,d)\) un espacio métrico compacto y
-    \(f:K \to \mathbb{R}\) una función continua. Entonces
-    \(f\) está acotada, es más, \(f\) alcanza su máximo y
+    Sea \((X,d)\) un espacio métrico, \(K\subseteq X\) compacto y
+    \(f:K \to \mathbb{R}\) una función continua en \(K\). Entonces
+    \(f\) alcanza su máximo y
     su mínimo en \(K\), es decir, existen puntos \(x_*,x^*\in K\)
     tales que, para todo \(x\in K\)
     \[
     f(x_*) \leq f(x) \leq f(x^*).
     \]
-
+    En notación: \(\min_{x\in X}\{f(x)\}=f(x_*), \max_{x\in X}\{f(x)\}=f(x^*)\)
   </p>
 
   <button class="respButton hvr-grow"> Solución </button>
   <div class="resp-box">
   <p>
 
-    Por el <a href="#Ejer:ImagenDeCompactoEsCompcto">Ejercicio 8.18</a>,
+    Por el <a href="#Ejer:ImagenDeCompactoEsCompcto">Lema  8.5</a>,
     \(f(K)\) es un subconjunto compacto de \(\mathbb{R}\), por lo tanto
-    \(f(K)\) es acotado y
-    existen \(\sup(f(K))\) e \(\inf(f(K))\). Por el
-    <a href="#Ejer:InfimoSupremoPertenecenCompacto">Ejercicio 8.15</a>
-    tenemos que
+    \(f(K)\) es cerrado y acotado. Por lo tanto existen 
     \[
-    \inf(f(K)), \sup(f(K)) \in f(K)
+    \alpha = \sup(f(K)), \beta= \inf(f(K))
     \]
-    de lo que se sigue la  existencia de  \(x_*,x^*\in K\) tales que
+    Por las propiedades fundamentales del ínfirmo y supremo existen sucesiones 
+    \((y_n)_{n=1}^\infty, (z_m)_{m=1}^\infty \subset K\) tales que 
+    \begin{equation}\label{Eqn:Aux1MaxMinFunContinuasCompactos}
+    \lim_{n\to \infty} f(y_n)=\alpha, \lim_{m\to \infty} f(z_m)=\beta.
+    \end{equation}    
+  </p>
+  <p>
+    Por el Teroema 8.14, existen subcuseciones \((y_{n_k})_{k=1}^\infty \),
+    \((z_{m_j})_{j=1}^\infty\) y puntos \(x_*, x^*\in K\) tales que 
     \[
-    \inf(f(K))=f(x_*), \quad \sup(f(k))=f(x^*).
+    \lim_{k\to \infty} y_{n_k}=x_*, \quad \lim_{j\to \infty} z_{n_j}=x^*
     \]
-    Estos puntos satisfacen la conclusión del teorema.
+    y por la continuidad de \(f\) en \(K\) concluimos 
+    \begin{equation}\label{Eqn:Aux2MaxMinFunContinuasCompactos}
+    \lim_{k\to \infty} f(y_{n_k})=f(x_*), \lim_{j \to \infty} f(z_{m_j})= f(x^*).
+    \end{equation}
+  </p>
+  <p>
+    Comparando \eqref{Eqn:Aux1MaxMinFunContinuasCompactos}, \eqref{Eqn:Aux2MaxMinFunContinuasCompactos}
+    concluimos 
+    \[
+    f(x_*)=\alpha = \inf(f(K)), f(x^*)=\beta =\sup(f(K))
+    \]
+    por lo que 
+    \[
+     f(x_*)\leq f(x) \leq f(x^*)
+    \]
+    para todo \(x\in K\).
   </p>
 </div>
 </div>
