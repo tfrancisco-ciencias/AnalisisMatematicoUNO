@@ -121,7 +121,65 @@
   <p>
     \(\mathbb{R}\) con la métrica usual es completo.
   </p>
-  <button class="respButton hvr-grow"> Demostración </button>
+
+
+
+
+  <button class="respButton hvr-grow"> Demostración 1</button>
+  <div class="resp-box">
+  <p>
+    Sea \((x_n)_{n=1}^\infty\) una sucesión de Cauchy (fija y arbitraria). Debemos de probar que 
+    existe \(x\in \mathbb{R}\) tal que \(\lim_{n\to \infty}x_n=x\).
+  </p>
+  <p>
+  Paso 1: \( (x_n)_{n=1}^\infty\)  es una sucesión acotada.
+  </p>
+  <p>
+    Ya que \( (x_n)_{n=1}^\infty\) es de Cauchy, para \(\varepsilon =1\) existe \(N_1\in \mathbb{N}\)
+    tal que, para todos \(n,m \geq N_1\), \(|x_n-x_m|< 1\). Por lo tanto, para toda \(n \geq N_1\):
+    \[
+    ||x_n|-|x_{N_1}||\leq |x_n-x_{N_1}| < 1 \Rightarrow |x_n| \leq 1+ |x_{N_1}|.
+    \]
+    Si tomamos \(M=\max\{|x_1|, \dots, |x_{N_1}|, 1+|x_{N_1}|  \}\), se sigue que, \(|x_n|\leq M\) 
+    para todo \(n\geq 1\).
+  </p>
+
+  <p>
+    Paso 2: usar compacidad para encontrar el límite.
+  </p>
+  <p>
+    Sabemos que  \([-M,M]\) es compacto (y por lo tanto, compacto por sucesiones) 
+    y \((x_n)_{n=1}^\infty \subset [-M,M]\), por lo tanto existe una subsuseción \((x_{n_k})_{k=1}^\infty\)
+    de \( (x_n)_{n=1}^\infty\) y un punto \(x\in [-M,M]\), tal que \(\lim_{k\to \infty} x_{n_k}=x\).
+  </p>
+  <p>
+    Paso 3: probar \(\lim_{n\to \infty}x_n=x\).
+  </p>
+  <p>
+    Sea \(\varepsilon >0\). Ahora, \( (x_n)_{n=1}^\infty\) Cauchy implica que existe 
+    \(N_0\in \mathbb{N}\) tal que para todo 
+    \(n,m\geq N_0\), 
+    \[
+    |x_n-x_m|< \varepsilon/2.
+    \]
+  </p>
+  <p>
+    Usando que \(\lim_{k\to \infty} x_{n_k}=x\) existe \(k_0 \in \mathbb{N}\) tal que, para todo \(k\geq k_0\),
+    \[
+    |x_{n_k}-x|< \varepsilon/2.
+    \] 
+    
+    Recordando de que \(n_1 < n_2< \cdots <  n_k < n_{k+1}< \cdots \), existe \(k > k_0\) tal que \(n_k> N_0\). Ahora, 
+    para toda \(n\geq N_0\) se sigue:
+    \[
+    |x_n-x|\leq |x_n-x_{n_k}|\leq |x_{n_k}-x| \leq \frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.
+    \]
+
+  </p>
+  </div>
+
+
+  <button class="respButton hvr-grow"> Demostración 2</button>
   <div class="resp-box">
   <p>
     Sea \((x_n)_{n=1}^\infty \subseteq \mathbb{R}\) una sucesión de Cauchy. 
