@@ -227,60 +227,67 @@
       </div>
 
 
-<div class="ejercicio-box">
-<h2 class="number-title"> Ejercicio </h2>
-<p>
-Considera el espacio métrico \((C([0,1]), d)\), donde
-\(d\) es la métrico uniforme, es decir,
-la métrica inducida por la norma uniforme, \(\| \cdot\|_\infty\).
-</p>
-<p>
-Para cada una de las siguientes sucesiones de funciones,
-\((f_n)_{n\in \mathbb{N}}\), investiga si el límite
-\(\lim_{n\to \infty} f_n\) existe o no en
-\((C[0,1],d)\).
-</p>
-<ol>
-<li>
-\(f_n(t)=\frac{\sen(nt+1/n)}{n}\).
-</li>
-<li>
-\(f_n(t)=t(1-t)^n\).
-</li>
-<li>
-\(f_n(t)=\frac{n^2t}{1+nt^2}\).
-</li>
-<li>
-\( f_n(t)=\frac{nt}{1+n^2t^2}\).
-</li>
-</ol> 
 
 
-<button class="respButton hvr-grow"> Repuesta inciso 1 </button>
-<div class="resp-box flexbox">
-<div class=" flexbox">
-  <iframe width="700" height="400" class="video"
-    src="https://www.youtube.com/embed/sGB__ZKNhkQ" allowfullscreen="true"> 
-  </iframe>
-  
-  </div>
-</div>
-
-<p>
-
-</p>
-
-
-<button class="respButton hvr-grow"> Repuesta inciso 2 </button>
-<div class="resp-box flexbox">
-<div class="flexbox">
-  <iframe width="700" height="400" class="video"
-    src="https://www.youtube.com/embed/hddtV0cMDBQ" allowfullscreen="true"> 
-  </iframe>      
-</div>
-</div>
-
-</div>
+      <div class="teorema-box">
+        <h2 class="number-title">  Teorema </h2>
+        <p>
+          Sea \(X\ne \emptyset\) un conjunto cualquiera. Entonces 
+          \((\mathcal{B}(X), \| \cdot\|_\infty)\) es un espacio vectorial normado completo.
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+            <div class="resp-box">
+        <p>
+          Por el <a>Ejercicio 10.1</a> sólo resta probar que si \((f_n)_{n=1}^\infty \subset \mathcal{B}(X)\)
+          es Cauchy con respecto a \(\|\cdot\|_\infty\) entonces existe  \(f\in \mathcal{B}(X)\) tal que 
+          \[
+          \lim_{n\to \infty}\|f_n-f \|_\infty=0
+          \]
+        </p>
+        <p>
+          Primero notamos que para todo  \(\varepsilon> 0\) existe \(N\in \mathbb{N}\)
+          tal que  si \(n,m\geq N\) entonces 
+          \[
+          \leq \|f_n-f_m\|_\infty < \varepsilon.
+          \]
+          Pero por definición de la norma uniforme, para todo \(x\in X\) se sigue 
+          \begin{equation}\label{Eqn:AuxCompletezAcotadas}
+          |f_n(x)-f_m(x)|\leq \|f_n-f_m \|_\infty < \varepsilon.
+          \end{equation}
+          Asi que  la sucesión de reales \((f_n(x))_{n=1}^\infty\) es Cauchy y por lo tanto convergente.
+          Definimos \(f(x)=\lim_{n\to \infty} f_n(x)\).
+        </p>
+        <p>
+          El primer paso es probar que \(f\) es acotada. Para esto, para \(\varepsilon =1\) 
+          la ecuación \eqref{Eqn:AuxCompletezAcotadas} implica que dada \(x\in X\) fija 
+          \[
+          ||f_n(x)|-|f_m(x)|| \leq |f_n(x)-f_m(x)| < 1 \Rightarrow |f_n(x)|\leq 1+ |f_m(x)|
+          \]
+          para todo \(n,m\geq N\). Fijando \(m=N\) y tomando \(n\) que tienda a infinito llegamos a 
+          \[
+          |f(x)|\leq 1+ |f_m(x)|\leq 1+ \|f_m\|_\infty
+          \]
+          Al ser \(x\) arbitrario concluimos que \(f\) es acotada, es decir \(f\in \mathcal{B}(X)\).
+        </p>
+        <p>
+          Para terminar debemos de probar que \(\lim_{n\to \infty}\| f-f_n\|_\infty=0\). 
+          De la ecuación \eqref{Eqn:AuxCompletezAcotadas} tenemos que para todo \(x\in X\)
+          \[
+          |f_n(x)-f_m(x)| < \varepsilon
+          \]
+          para todos \(n,m\geq N\). Si fijamos \(m\geq N\) y hacemos \(n\) tender a infinito llegamos a 
+          \[
+          |f(x)-f_m(x)|\leq \varepsilon.
+          \]
+          Pero \(x\) es arbitrario así que si tomamos supremo sobre \(x\in X\) obtenemos 
+          \[
+          \|f-f_n\|_\infty < \varepsilon
+          \]
+          Finalmente, ya que la desigualdad anterior es válida para todo \(m\geq N\) concluimos 
+          \(\lim_{m\to \infty}\| f-f_m\|=0\).
+        </p>
+      </div>
+      </div>
 
 
         <div class="ejercicio-box">
@@ -309,6 +316,65 @@ Para cada una de las siguientes sucesiones de funciones,
           </p>
 
         </div>
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+  Considera el espacio métrico \((C([0,1]), d)\), donde
+  \(d\) es la métrico uniforme, es decir,
+  la métrica inducida por la norma uniforme, \(\| \cdot\|_\infty\).
+  </p>
+  <p>
+  Para cada una de las siguientes sucesiones de funciones,
+  \((f_n)_{n\in \mathbb{N}}\), investiga si el límite
+  \(\lim_{n\to \infty} f_n\) existe o no en
+  \((C[0,1],d)\).
+  </p>
+  <ol>
+  <li>
+  \(f_n(t)=\frac{\sen(nt+1/n)}{n}\).
+  </li>
+  <li>
+  \(f_n(t)=t(1-t)^n\).
+  </li>
+  <li>
+  \(f_n(t)=\frac{n^2t}{1+nt^2}\).
+  </li>
+  <li>
+  \( f_n(t)=\frac{nt}{1+n^2t^2}\).
+  </li>
+  </ol> 
+  
+  
+  <button class="respButton hvr-grow"> Repuesta inciso 1 </button>
+  <div class="resp-box flexbox">
+  <div class=" flexbox">
+    <iframe width="700" height="400" class="video"
+      src="https://www.youtube.com/embed/sGB__ZKNhkQ" allowfullscreen="true"> 
+    </iframe>
+    
+    </div>
+  </div>
+  
+  <p>
+  
+  </p>
+  
+  
+  <button class="respButton hvr-grow"> Repuesta inciso 2 </button>
+  <div class="resp-box flexbox">
+  <div class="flexbox">
+    <iframe width="700" height="400" class="video"
+      src="https://www.youtube.com/embed/hddtV0cMDBQ" allowfullscreen="true"> 
+    </iframe>      
+  </div>
+  </div>
+  
+  </div>
+  
 
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
