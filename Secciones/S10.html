@@ -318,7 +318,60 @@
         </div>
 
 
+  <div class="nota-box">
+    <h2 class="number-title"> Nota </h2>
+    <p>
+      Si \((X,d)\) es un espacio métrico compacto el 
+      <a href="./S8.html#Teo:FunContAcotEnCompactos"> Teorema 8.19</a> asegura que 
+      \[ \sup_{x\in X}\{|f(x)| \} < + \infty\]
+      
+      y por lo tanto las funciones continuas 
+      son un subconjunto de \(\mathcal{B}(X)\). El siguiente Teorema implica que 
+      las funciones continuas son un subconjunto de cerrado de  \((\mathcal{B}(X))\) y por 
+      lo tanto un espacio vectorial normado completo.
+    </p>
+    <p>
+      Por \(C(X)\) denotamos al cojunto de funciones continuas de \(X\) a \(\mathbb{R}\).
+    </p>
 
+
+
+  </div>      
+
+  <div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <p>
+      Sea \((f_n)_{n=1}^\infty \subset C(X)\). Supongamos que \(\lim_{n\to \infty}\|f_n-f\|_\infty=0\)
+      para una función \(f\in \mathcal{B}(X)\). Entonces \(f\in C(X)\).
+    </p>
+    <p>
+      En consecuencia \((C(X),d)\) es un espacio vectorial normado completo.
+    </p>
+    <button class="respButton hvr-grow"> Demostración </button>
+            <div class="resp-box">
+    <p>
+      Fijamos \(x_0\in X\) y probamos que \(f\) es continua en \(x_0\). 
+    </p>
+    <p>
+      Primero encontramos un \(n_1\in \mathbb{N}\) tal que \(\|f_{n_1}-f\|_\infty < \varepsilon/3\).
+    </p>
+    <p>
+      A continuación, usando que \(f_{n_1}\) es continua encontramos un \(\delta> 0\) que satisfaga
+      \[
+      d(x,x_0)< \delta \Rightarrow |f_{n_1}(x)-f_{n_1}(x_0)| < \varepsilon/3
+      \]
+    </p>
+    <p>
+      Por último se sigue que si  \(d(x,x_0)< \delta \) entonces 
+      \begin{eqnarray*}
+      |f(x)-f(x_0)| &\leq  & |f(x)-f_{n_1}(x)|+|f_{n_1}(x)-f_{n_1}(x_0)|+ |f_{n_1}(x_0)-f(x_0)| \\
+      &\leq & 2\|f_{n_2}-f\|_\infty + |f_{n_1}(x)-f_{n_1}(x_0)| \\
+      &< &2 \frac{\varepsilon}{3}+ \frac{\varepsilon}{3}=\varepsilon.
+      \end{eqnarray*}
+    </p>
+    
+  </div>
+  </div>
 
 <div class="ejercicio-box">
   <h2 class="number-title"> Ejercicio </h2>
@@ -331,7 +384,7 @@
   Para cada una de las siguientes sucesiones de funciones,
   \((f_n)_{n\in \mathbb{N}}\), investiga si el límite
   \(\lim_{n\to \infty} f_n\) existe o no en
-  \((C[0,1],d)\).
+  \((C([0,1]),d)\).
   </p>
   <ol>
   <li>
