@@ -799,7 +799,7 @@
 
         </p>
 
-        <button class="respButton hvr-grow"> Demostración </button>
+        <button class="respButton hvr-grow"> Demostración \(\Rightarrow ]\) </button>
         <div class="resp-box">
         <p>
           \(\Rightarrow ]:\) Ya que \((C(X),\|\cdot\|_\infty)\) es completo, 
@@ -809,6 +809,10 @@
           \(\mathcal{F}\) es uniformemente equicontinuo. Pero <a href="#Lema:AuxArzelaAscoli">Lema 10.23</a>
           dice precisamente que totalmente acotado implica equicontinuidad, así que terminamos.
         </p>
+        </div>
+
+        <button class="respButton hvr-grow"> Demostración \(\Leftarrow]\) </button>
+        <div class="resp-box">
         <p>
           \(\Leftarrow]:\) Supongamos que \(\mathcal{F}\) es cerrado, acotado y uniformemente equicontinuo. Debemos de 
           probar que \(\mathcal{F}\) es compacto. Ya que \((C(X),d)\) es completo es suficiente probar que es 
@@ -872,6 +876,40 @@
           \(\rm diam (A_{i,j})\leq \varepsilon \).
         </p>
       </div>
+      </div>
+
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <p>
+          Si se revisaa la prueba del Teorema de Arzelá-Ascoli con cuidado no es necesario que 
+          el conjunto \(\mathcal{F}\) sea acotado en la norma uniforme, es suficiente probar que 
+          para toda \(x\in X\)
+          \[
+          \sup_{f\in \mathcal{F}}\{|f(x)| \}< +\infty.
+          \]
+          Aveces el Teroema de Arzelá-Ascoli se reescribe de la siguiente manera.
+        </p>
+        <p>
+          Sea \((X,d)\) un espacio métrico compacto.
+        </p>
+        <p>
+          Un subconjunto \(\mathcal{F} \subseteq C(X)\) es compacto, en 
+          \((C(X),\|\cdot\|_\infty)\), si y sólo si 
+          <ol>
+            <li>
+              \(\mathcal{F}\) es cerrado (con respecto a la norma \(\|\cdot\|_\infty\)),
+            </li>
+            <li>
+              para toda \(x\in X\), \(\sup_{f\in \mathcal{F}}\{|f(x)| \} < +\infty\),
+            </li>
+            <li>
+              \(\mathcal{F}\) es uniformemente equicontinua.
+            </li>
+          </ol>
+
+        </p>
+
+
       </div>
 
       <div class="teorema-box">
