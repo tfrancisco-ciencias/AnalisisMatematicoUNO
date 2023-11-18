@@ -720,14 +720,13 @@
             \(|f(x)-f(y)|< \delta_i\). Tomando \(\delta = \min\{\delta_1, \dots, \delta_n \}\) logramos el objetivo.
           </li>
           <li>
-            Recordamos que una función \(f:X\to \mathbb{R}\) se llama Lipschitz continua, con constante \(K>0\)
-            si \(|f(x)-f(y)|\leq Kd(x,y)\), para todos \(x,y\in X\). Para \(K>0\) 
-            definimos 
-            \[
-            Lip_K=\{f:X\to \mathbb{R}| \textrm{\(f\) es Lipschitz continua con constante \(K\)} \}
-            \]
-            Entonces \(Lip_K\) es uniformemente continua pues dada \(\varepsilon >0\), \(\delta=\frac{\varepsilon}{K+1}\),
-            sirve como la \(\delta\) de la continuidad uniforme para toda \(f\in Lip_K\).
+            Sean \((X,d_X)\), \((Y,d_Y)\) espacios métricos. Dada \(K>0\) y \(\alpha \in (0,1]\), decimos que una 
+            función   \(f:X\to Y\) es Lipschitz continua con constantes \(K\) y \(\alpha\) si
+            \(d_Y(f(x),f(y))\leq K(d_X(x,y))^\alpha\) para todos \(x,y\in X\). Por 
+            \(\rm{Lip}_K(\alpha)\) denotamos al conjunto de funciones Lipschitz continuas con 
+            constantes \(K\) y \( \alpha \). Entonces \(\rm{Lip}_K(\alpha)\) es uniformemente 
+            equicontinua pues dada \(\varepsilon >0\), \(\delta:=(\varepsilon/K)^{1/\alpha}\) sirve 
+            como la \(\delta\) de la continuidad uniforme para todo elemento de \(\rm{Lip}_K(\alpha)\).
            </li>
         </ol>
 
@@ -906,9 +905,30 @@
               \(\mathcal{F}\) es uniformemente equicontinua.
             </li>
           </ol>
+        </p>
+      </div>
 
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión de funciones diferenciables 
+          que satisface, \(|f_n'(x)|\leq 1\), para toda \(n\in \mathbb{N}\) y \(x\in [a,b]\). 
+          Prueba que \((f_n)_{n=1}^\infty\) admite una subsucesión convergente en \((C([a,b]),\|\cdot\|_\infty)\).
         </p>
 
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Para \(K>0\) y \(\alpha \in (0,1]\) define 
+          \[
+          \mathcal{F}=\{f\in \rm{Lip}_K(\alpha)| f(0)=0 \}
+          \]
+          Prueba que \(\mathcal{F}\) es un subconjunto compaco de \(C([0,1])\).
+        </p>
 
       </div>
 
