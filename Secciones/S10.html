@@ -677,6 +677,83 @@
       </div>
 
 
+      <div class="nota-box">
+        <h2 class="number-title"> Compacidad en \(C(X)\) </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico compacto. Nuestro próximo objtivo  es encontrar un criterio 
+          para saber si un subconjunto \(\emptyset \ne \mathcal{F} \subset C(X)\) es compacto. Ya que 
+          el espacio \( (C(X),\|\cdot\| )\) es completo sabemos que un conjunto es compacto si y sólo si 
+          es: (1) cerrado, (2) totalmente acotado (<a href="Teo:CaractCompacidadEnCompletos">Teorema 9.27</a>).
+        </p>
+        <p>
+          Ya se han estudiado conjuntos cerrados así que ahora se trata de encontrar condiciones, en el 
+          caso especial de funciones continuas, para las cuales los conjuntos sean totalmente acotados. La 
+          siguiente definición va en ésta dirección. 
+        </p>
+
+      </div>
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico. Una familia de funciones \(\mathcal{F}\subset C(X)\)
+          se llama uniformemente equicontinuo si para toda \(\varepsilon >0\) existe una \(\delta >0 \) tal que 
+          si \(d(x,y)< \delta\) entonces \(|f(x)-f(y)|< \delta \), para toda \(f\in \mathcal{F}\).
+        </p>
+        <p>
+          En otras palabras, todas la funciones en la familia \(\mathcal{F}\) son uniformemente continuas y además 
+          dada \(\varepsilon >0\) existe una \(\delta >0\) que sireve como la \(\delta\) de la continuidad uniforme
+          para TODAS las funciones en la familia \(\mathcal{F}\).
+        </p>
+        <p>
+          Nota: en algunos textos se   le llama equicontinua, quitando el adjetivo uniformemente.
+        </p>
+        <p>
+          Ejemplos.
+        </p>
+        <ol>
+          <li>
+            Sea \((X,d)\) un espacio métrico compacto. Entonces todo subconjunto finito   \(\mathcal{F} \subset C(X)\)
+            es uniformemente continuo. En efecto, si \(\mathcal{F}=\{f_1,\dots, f_n \}\), ya que cada \(f_i\) es continua 
+            y \(X\) es compacto, existe una \(\delta_i > 0\) tal que si \(d(x,y)< \delta_i\) entonces 
+            \(|f(x)-f(y)|< \delta_i\). Tomando \(\delta = \min\{\delta_1, \dots, \delta_n \}\) logramos el objetivo.
+          </li>
+          <li>
+            Recordamos que una función \(f:X\to \mathbb{R}\) se llama Lipschitz continua, con constante \(K>0\)
+            si \(|f(x)-f(y)|\leq Kd(x,y)\), para todos \(x,y\in X\). Para \(K>0\) 
+            definimos 
+            \[
+            Lip_K=\{f:X\to \mathbb{R}| \textrm{\(f\) es Lipschitz continua con constante \(K\)} \}
+            \]
+            Entonces \(Lip_K\) es uniformemente continua pues dada \(\varepsilon >0\), \(\delta=\frac{\varepsilon}{K+1}\),
+            sirve como la \(\delta\) de la continuidad uniforme para toda \(f\in Lip_K\).
+           </li>
+        </ol>
+
+        
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          En \(C(\mathbb{R})\) considera la familia de funciones \(\mathcal{F}=\{f_m\}_{m\in (0,\infty)}\), 
+          donde \(f_m(t)=mt\). Prueba que \(\mathcal{F}\) no es uniformemente equicontinua. 
+        </p>
+
+      </div>
+      
+      <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico compacto. Si \(\mathcal{F}\subset C(X)\) es 
+          totalmente acotado entonces \(\mathcal{F}\) es uniformemente equicontinua.
+        </p>
+
+      </div>
+
       <div class="teorema-box">
         <h2 class="number-title" id="Teo:ExtensionFunUnifCont"> Teorema </h2>
         <p>
