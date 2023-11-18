@@ -744,14 +744,134 @@
         </p>
 
       </div>
-      
+
       <div class="lema-box">
-        <h2 class="number-title"> Lema </h2>
+        <h2 class="number-title" id="Lema:AuxArzelaAscoli"> Lema </h2>
         <p>
           Sea \((X,d)\) un espacio métrico compacto. Si \(\mathcal{F}\subset C(X)\) es 
           totalmente acotado entonces \(\mathcal{F}\) es uniformemente equicontinua.
         </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+          <p>
+            Sea \(\varepsilon >0\) y tomemos \(f_1,\cdots, f_n \in \mathcal{F}\) una 
+            \(\frac{\varepsilon}{3}\)-red de \(\mathcal{F}\). Al ser \((X,d)\) compacto cada 
+            función \(f_i\) es uniformemente continua en \(X\) y por lo tanto 
+            existe \(\delta_i >0\) con la propiedad de que si \(d(x,y)< \delta_i\)
+            entonces \(|f_i(x)-f_i(y)|< \frac{\varepsilon}{3}\). Tomamos \(\delta=\min\{\delta_1,\cdots, \delta_n\}\).
+          </p>
+          <p>
+            Finalmente probamos que para toda \(f\in \mathcal{F}\), \(\delta\) sirve como la de la continuidad 
+            uniforme. Sea \(x,y\in X\) con \(d(x,y)<\delta\). Ya que \(\{f_1,\dots, f_n\}\) es una \(\varepsilon\)-red 
+            de \(\mathcal{F}\), existe \(f_i\) tal que \(\|f-f_i\|_\infty < \varepsilon \). Se sigue que 
+            \begin{eqnarray*} 
+            |f(x)-f(y)| &\leq  & |f(x)-f_i(x)|+ |f_i(x)-f_i(y)|+ |f_i(y)-f(y)| \\
+            &\leq & 2\| f-f_i\|_\infty+ |f_i(x)-f_i(y)| \\
+            &< & 2\frac{\varepsilon}{3}+ \frac{\varepsilon}{3}
+            \end{eqnarray*}
+           
+          </p>
+          </div>
+      </div>
 
+
+
+      <div class="teorema-box">
+        <h2 class="number-title" id="Teo;ArzelaAscoli"> Teorema </h2>
+        <h3> Arzelá-Ascoli</h3>
+        <p>
+          Sea \((X,d)\) un espacio métrico compacto.
+        </p>
+        <p>
+          Un subconjunto \(\mathcal{F} \subseteq C(X)\) es compacto, en 
+          \((C(X),\|\cdot\|_\infty)\) si y sólo si 
+          <ol>
+            <li>
+              \(\mathcal{F}\) es cerrado (con respecto a la norma \(\|\cdot\|_\infty\)),
+            </li>
+            <li>
+              \(\mathcal{F}\) es acotado (con respecto a la norma \(\|\cdot\|_\infty\)),
+            </li>
+            <li>
+              \(\mathcal{F}\) es uniformemente equicontinua.
+            </li>
+          </ol>
+
+        </p>
+
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          \(\Rightarrow ]:\) Ya que \((C(X),\|\cdot\|_\infty)\) es completo, 
+          <a  href="./S10.html#Teo:CaractCompacidadEnCompletos">Teorema 9.27</a> 
+          asegura que \(\mathcal{F}\)  cerrado y  totalmente acotado.
+          Totalmente acotado implica acotado. Así que sólo resta probar que 
+          \(\mathcal{F}\) es uniformemente equicontinuo. Pero <a href="#Lema:AuxArzelaAscoli">Lema 10.23</a>
+          dice precisamente que totalmente acotado implica equicontinuidad, así que terminamos.
+        </p>
+        <p>
+          \(\Leftarrow]:\) Supongamos que \(\mathcal{F}\) es cerrado, acotado y uniformemente equicontinuo. Debemos de 
+          probar que \(\mathcal{F}\) es compacto. Ya que \((C(X),d)\) es completo es suficiente probar que es 
+          cerrado y totalmente acotado. \(\mathcal{F}\) es cerrado por hipótesis así que sólo resta probar que es 
+          totalmente acotado.
+        </p>
+        <p>
+          Para ser precisos lo que vamos a probar es:  
+        </p>
+        <p>
+          acotado+ uniformemente equicontinuo \(\Rightarrow\) totalmente acotado.
+        </p>
+        <p>
+          Sea \(\varepsilon >0\). Vamos a descomponer \(\mathcal{F}\) como la unión finita 
+          de conjuntos con diámetro menor o igual a \(\varepsilon\) 
+          (ver <a href="./S9.html#Lema:GeneTotAcot">Lema 9.19</a>).
+        </p>
+        <p>
+          Para  \(\frac{\varepsilon}{4}\) sea \(\delta>0 \) la de la equicontinuidad uniforme para \(\mathcal{F}\).
+        </p>
+        <p>
+          Al ser \((X,d)\) compacto existe \(\{x_1,\dots, x_k\}\)  una \(\delta\)-red, es decir 
+          \[
+          X=\cup_{i=1}^k B_{\delta}(x_i).
+          \]
+        </p>
+        <p>
+          Usando que \(\mathcal{F}\) es acotado en la norma \(\|\cdot\|_\infty\), existe \(M>0\) tal que 
+          para toda \(x_i\), \(-M\leq f(x_i) \leq M\), para toda \(f\in \mathcal{F}\).
+        </p>
+        <p>
+          Al ser \([-M,M]\) compacto existen \(t_1,\dots, t_m\in [-M,M]\) tal que 
+          \[
+          [-M,M]\subseteq \cup_{j=1}^m B_{\varepsilon/4}(t_j)
+          \]
+        </p>
+        <p>
+          Para \(i=1,\dots, k, j=1,\dots, l\) definimos:
+          \[
+          A_{i,j}=\{f\in \mathcal{F}: f(x_i)\in B_{\varepsilon/4}(t_j)\}.
+          \]
+          Observación: si \(f,g\in A_{i,j}\) entonces \(|f(x_i)-g(x_i)|< \frac{\varepsilon}{2}\).
+        </p>
+        <p>
+          Ya que para toda \(f\in \mathcal{F}\) y toda \(i=1,\dots, k\), \(f(x_i)\in [-M,M]\), se cunple
+          \[
+          \mathcal{F}=\cup_{1\leq i \leq k, q\leq  j \leq m}A_{i,j}. 
+          \]
+        </p>
+        <p>
+          Afirmamos que \(\textrm{diam}(A_{i,j})\leq  \varepsilon\).
+        </p>
+        <p>
+          Sean \(f,g\in A_{i,j}\). Para \(x\in X\) arbitrario se tiene 
+          \begin{eqnarray*}
+          |f(x)-g(x)| &\leq & |f(x)-f(x_i)|+ |f(x_i)-g(x_i)|+|g(x_i)-g(x)| \\
+          & < & \frac{\varepsilon}{4}+ \frac{\varepsilon}{2}+ \frac{\varepsilon}{4}=\varepsilon
+          \end{eqnarray*}
+          Tomando supremo sobre \(x\in X\) llegamos \(\|f-g\|_\infty \leq \varepsilon\). Al ser \(f,g\in A_{i,j}\)
+          arbitrarias concluimos 
+          \(\rm diam (A_{i,j})\leq \varepsilon \).
+        </p>
+      </div>
       </div>
 
       <div class="teorema-box">
