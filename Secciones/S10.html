@@ -775,57 +775,24 @@
           </div>
       </div>
 
-
-
-      <div class="teorema-box">
-        <h2 class="number-title" id="Teo;ArzelaAscoli"> Teorema </h2>
-        <h3> Arzelá-Ascoli</h3>
+      <div class="lema-box">
+        <h2 class="number-title" id="Lema:Aux2ArzelaAscoli">  Lema</h2>
         <p>
-          Sea \((X,d)\) un espacio métrico compacto.
-        </p>
-        <p>
-          Un subconjunto \(\mathcal{F} \subseteq C(X)\) es compacto, en 
-          \((C(X),\|\cdot\|_\infty)\) si y sólo si 
+          Sea \((X,d)\) un espacio métrico compacto. Sea \(\mathcal{F}\subset C(X)\)
+          una familia de funciones que satisface:
           <ol>
             <li>
-              \(\mathcal{F}\) es cerrado (con respecto a la norma \(\|\cdot\|_\infty\)),
+              \(\mathcal{F}\) es uniformemente equicontinua,
             </li>
             <li>
-              \(\mathcal{F}\) es acotado (con respecto a la norma \(\|\cdot\|_\infty\)),
-            </li>
-            <li>
-              \(\mathcal{F}\) es uniformemente equicontinua.
+              para toda \(x\in X\), \(\sup_{f \in \mathcal{F}}\{ |f(x)|\}< + \infty\).
             </li>
           </ol>
-
+          Entonces \(\mathcal{F}\) es totalmente acotado. 
         </p>
-
-        <button class="respButton hvr-grow"> Demostración \(\Rightarrow ]\) </button>
+        <button class="respButton hvr-grow"> Demostración </button>
         <div class="resp-box">
-        <p>
-          \(\Rightarrow ]:\) Ya que \((C(X),\|\cdot\|_\infty)\) es completo, 
-          <a  href="./S10.html#Teo:CaractCompacidadEnCompletos">Teorema 9.27</a> 
-          asegura que \(\mathcal{F}\)  cerrado y  totalmente acotado.
-          Totalmente acotado implica acotado. Así que sólo resta probar que 
-          \(\mathcal{F}\) es uniformemente equicontinuo. Pero <a href="#Lema:AuxArzelaAscoli">Lema 10.23</a>
-          dice precisamente que totalmente acotado implica equicontinuidad, así que terminamos.
-        </p>
-        </div>
 
-        <button class="respButton hvr-grow"> Demostración \(\Leftarrow]\) </button>
-        <div class="resp-box">
-        <p>
-          \(\Leftarrow]:\) Supongamos que \(\mathcal{F}\) es cerrado, acotado y uniformemente equicontinuo. Debemos de 
-          probar que \(\mathcal{F}\) es compacto. Ya que \((C(X),d)\) es completo es suficiente probar que es 
-          cerrado y totalmente acotado. \(\mathcal{F}\) es cerrado por hipótesis así que sólo resta probar que es 
-          totalmente acotado.
-        </p>
-        <p>
-          Para ser precisos lo que vamos a probar es:  
-        </p>
-        <p>
-          acotado+ uniformemente equicontinuo \(\Rightarrow\) totalmente acotado.
-        </p>
         <p>
           Sea \(\varepsilon >0\). Vamos a descomponer \(\mathcal{F}\) como la unión finita 
           de conjuntos con diámetro menor o igual a \(\varepsilon\) 
@@ -833,6 +800,7 @@
         </p>
         <p>
           Para  \(\frac{\varepsilon}{4}\) sea \(\delta>0 \) la de la equicontinuidad uniforme para \(\mathcal{F}\).
+          Es decir, si \(d(x,y)< \delta\), \(|f(x)-f(y)|< \frac{\varepsilon}{4}\), para toda \(f\in \mathcal{F}\).
         </p>
         <p>
           Al ser \((X,d)\) compacto existe \(\{x_1,\dots, x_k\}\)  una \(\delta\)-red, es decir 
@@ -841,9 +809,9 @@
           \]
         </p>
         <p>
-          Usando que \(\mathcal{F}\) es acotado en la norma \(\|\cdot\|_\infty\), existe \(M>0\) tal que 
-          para toda \(x_i\), \(-M\leq f(x_i) \leq M\), para toda \(f\in \mathcal{F}\).
-        </p>
+          Por hipótesis, para toda \(i=1,\dots, k\), \(\sup_{f\in \mathcal{F}}\{ |f(x_i)|\}<+\infty\) asi que 
+          existe \(M_i>0\) tal que \(\{ f(x_i): f\in \mathcal{F}\}\subseteq [-M_i,M_i]\). Sea \(M=\max_{i=1,\dots, k}\{M_i\}\).
+         </p>
         <p>
           Al ser \([-M,M]\) compacto existen \(t_1,\dots, t_m\in [-M,M]\) tal que 
           \[
@@ -858,7 +826,7 @@
           Observación: si \(f,g\in A_{i,j}\) entonces \(|f(x_i)-g(x_i)|< \frac{\varepsilon}{2}\).
         </p>
         <p>
-          Ya que para toda \(f\in \mathcal{F}\) y toda \(i=1,\dots, k\), \(f(x_i)\in [-M,M]\), se cunple
+          Ya que para toda \(f\in \mathcal{F}\) y toda \(i=1,\dots, k\), \(f(x_i)\in [-M_i,M_i]\subseteq [-M,M]\), se cumple
           \[
           \mathcal{F}=\cup_{1\leq i \leq k, q\leq  j \leq m}A_{i,j}. 
           \]
@@ -867,7 +835,8 @@
           Afirmamos que \(\textrm{diam}(A_{i,j})\leq  \varepsilon\).
         </p>
         <p>
-          Sean \(f,g\in A_{i,j}\). Para \(x\in X\) arbitrario se tiene 
+          Sean \(f,g\in A_{i,j}\). Para \(x\in X\) arbitrario tomamos \(x_i\) en la red con \(d(x,x_i)< \delta\) y por 
+          lo tanto \(|f(x)-f(x_i)|, |g(x)-g(x_i)|< \frac{\varepsilon}{4}\). Se sigue que 
           \begin{eqnarray*}
           |f(x)-g(x)| &\leq & |f(x)-f(x_i)|+ |f(x_i)-g(x_i)|+|g(x_i)-g(x)| \\
           & < & \frac{\varepsilon}{4}+ \frac{\varepsilon}{2}+ \frac{\varepsilon}{4}=\varepsilon
@@ -879,17 +848,11 @@
       </div>
       </div>
 
-      <div class="nota-box">
-        <h2 class="number-title"> Nota </h2>
-        <p>
-          Si se revisaa la prueba del Teorema de Arzelá-Ascoli con cuidado no es necesario que 
-          el conjunto \(\mathcal{F}\) sea acotado en la norma uniforme, es suficiente probar que 
-          para toda \(x\in X\)
-          \[
-          \sup_{f\in \mathcal{F}}\{|f(x)| \}< +\infty.
-          \]
-          Aveces el Teroema de Arzelá-Ascoli se reescribe de la siguiente manera.
-        </p>
+
+
+      <div class="teorema-box">
+        <h2 class="number-title" id="Teo;ArzelaAscoli"> Teorema </h2>
+        <h3> Arzelá-Ascoli (versión 1)</h3>
         <p>
           Sea \((X,d)\) un espacio métrico compacto.
         </p>
@@ -901,15 +864,68 @@
               \(\mathcal{F}\) es cerrado (con respecto a la norma \(\|\cdot\|_\infty\)),
             </li>
             <li>
-              para toda \(x\in X\), \(\sup_{f\in \mathcal{F}}\{|f(x)| \} < +\infty\),
+              \(\mathcal{F}\) es acotado (con respecto a la norma \(\|\cdot\|_\infty\)),
             </li>
             <li>
               \(\mathcal{F}\) es uniformemente equicontinua.
             </li>
           </ol>
+          
         </p>
+        <h3> Arzelá-Ascoli (versión 2)</h3>
+        <p>
+          Sea \((X,d)\) un espacio métrico compacto.
+        </p>
+        <p>
+          Un subconjunto \(\mathcal{F} \subseteq C(X)\) es compacto, en 
+          \((C(X),\|\cdot\|_\infty)\), si y sólo si 
+          <ol>
+            <li>
+              \(\mathcal{F}\) es cerrado (con respecto a la norma \(\|\cdot\|_\infty\)),
+            </li>
+            <li>
+              para toda \(x\in X\), \(\sup_{f\in \mathcal{F}}\{|f(x)|\}<+\infty\),
+            </li>
+            <li>
+              \(\mathcal{F}\) es uniformemente equicontinua.
+            </li>
+          </ol>
+
+        </p>
+
+        <p>
+          Nota: si \(\mathcal{F}\) es acotado con respecto a la norma  \(\|\cdot\|_\infty\) 
+          entonces para toda \(x\in X\):
+          \[
+          \sup_{f\in \mathcal{F}}\{|f(x)| \} \leq \sup_{f\in \mathcal{F}}\{\|f\|_\infty \}< +\infty.
+          \] 
+          Así pues es suficiente probar la versión 2.  
+        </p>
+        
+        <button class="respButton hvr-grow"> Demostración  versión 2</button>
+        <div class="resp-box">
+        <p>
+          \(\Rightarrow ]:\) Si \(\mathcal{F}\) es compacto entonces es cerrado y totalmente acotado.
+          Totalmente acotado implica acotado y por lo tanto, para toda 
+          \(x\in X\), \(\sup_{f\in \mathcal{F}}\{|f(x)|\}<+\infty\). Así que sólo resta probar que 
+          \(\mathcal{F}\) es uniformemente equicontinuo. Pero <a href="#Lema:AuxArzelaAscoli">Lema 10.23</a>
+          dice precisamente que totalmente acotado implica equicontinuidad, así que terminamos.
+        </p>
+        <p>
+          \(\Leftarrow ]: \) Al ser \(C(X)\) completo 
+          (ver <a  href="./S9.html#Teo:CaractCompacidadEnCompletos">Teorema 9.27</a> ) 
+          es suficiente probar que \(\mathcal{F}\)
+          es cerrado y totalmente acotado. Cerrado lo tenemos por hipótesis asi que resta probar que 
+          \(\mathcal{F}\) es totalmente acotado. Pero por el <a href="#Lema:Aux2ArzelaAscoli">Lema 10.24</a>
+          los incisos 2 y 3 de las hipótesis implican que \(\mathcal{F}\) es totalmente acotado, lo que termina 
+          la prueba. 
+        </p>
+        </div>
+
+
       </div>
 
+      
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
