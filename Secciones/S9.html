@@ -552,7 +552,7 @@
 
 
 <div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
+  <h2 class="number-title" id="Ejer:CompactoImplicaTA"> Ejercicio </h2>
  <p>
    Prueba que todo subconjunto compacto es totalmente acotado.
  </p>
@@ -599,18 +599,20 @@
       Prueba que todo subconjunto totalmente acotado es acotado.
     </li>
     <li>
-      En \((\ell_1, \|\cdot\|_1)\) considera el conjunto
+      En \((\ell_1, \|\cdot\|_1)\) considera la bola cerrada 
       \[
-      A=\{ (e_n)_{n=1}^\infty \}
+      \overline{B}_1(0)=\{x\in \ell_1| \|x\|_1\leq 1 \}
       \]
-      donde \(e_n\) es la sucesión que tiene todas las entradas
-      igual a cero, excepto la entrada \(n\) donde tiene un 1. Prueba
-      que \(A\) es acotado pero no totalmenete acotado.
-      <p>
-        Sugerencia: \(\|e_n-e_m\|=1\) si \(n\ne m\).
-      </p>
+       Prueba
+      que \(\overline{B}_1(0)\) es acotado pero no totalmenete acotado.
+      
     </li>
   </ol>
+  <p>
+    Sugerencia: considera los vectores 
+    \(e_n\), \(n\in \mathbb{N}\), donde \(e_n\) es la sucesión que tiene todas las entradas
+  igual a cero, excepto la entrada \(n\) donde tiene un 1. Empieza probando que \(\|e_n-e_m\|_1=2\) si \(n\ne m\).
+  </p>
   <p>
       Por lo tanto los conjuntos totalmente acotados contienen
       propiamente a los conjuntos acotados.
@@ -865,6 +867,56 @@
   </div>
 </div>
 
+
+<div class="nota-box">
+  <h2 class="number-title"> Nota </h2>
+  <p>
+    Otro aspecto importante de los espacios métricos completos
+    es una caracterización de los subconjuntos compactos similar
+    al <a href="./S8.html#Teo:HeineBorel">Teorema de Heine-Borel</a>
+    en \(\mathbb{R}^n\). Recordemos que
+    este teorema dice que un subconjunto de \(\mathbb{R}^n\) es
+    compacto si y sólo si es cerrado y acotado. Para espacios métricos
+    completos mucho más generales que \(\mathbb{R}^n\) se necesita
+    cambiar la hipótesis de acotado por totalmente acotado.
+  </p>
+</div>
+
+
+<div class="teorema-box">
+  <h2 class="number-title" id="Teo:CaractCompacidadEnCompletos"> Teorema </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico completo y \(K \subseteq X\).
+  </p>
+  <p>
+    \(K\) es compacto si y sólo si
+    es cerrado y totalmente acotado.
+  </p>
+
+  <button class="respButton hvr-grow"> Demostración </button>
+  <div class="resp-box">
+
+  <p>
+    \(\Rightarrow ] \)  Supongamos que \(K\) es compacto. El <a href="./S8.html#Ejer:CompactoImplicaCerrado">Lema 8.11</a> nos dice que 
+    \(K\) es cerrado. Además por el <a href="#Ejer:CompactoImplicaTA">Ejercicio 9.15</a> \(K\) es totalmente acotado y terminamos.
+  </p>
+  <p>
+    \(\Leftrightarrow ] \) Supongamos que \(K\) es cerrado y totalmente acotado. Por el 
+    <a href="./S8.html#Teo:CompactoImplicaCpS">Teorema 8.14</a> es suficiente probar que \(K\) 
+    es compacto por sucesiones.  
+  </p>
+  <p>
+    Sea \((x_n)_{n=1}^\infty\) una sucesión en \(K\). Debemos de 
+    probar que existe una subsucesión convergente a un punto de \(K\). Ya que 
+    \(K\) es totalmente acotado, el conjunto \(A=\{x_n\}_{n\in \mathbb{N}} \subset K\) es totalmente acotado.
+    Por el <a href="#Lema:CaractSucTotAcot">Lema 9.20</a> existe \((x_{n_k})_{k=1}^\infty\) una subsucesión de Cauchy.
+    Al ser \((X,d)\) completo existe \(x\in X\) tal que \(\lim_{k\to \infty}x_{n_k}=x\). Finalmente como 
+    \(K\) es cerrado \(x\in K\).
+  </p>
+  </div>
+</div>
+
+
 <div class="nota-box">
   <h2 class="number-title"> Nota </h2>
   <p>
@@ -997,111 +1049,6 @@
 
 
 
-<div class="nota-box">
-  <h2 class="number-title"> Nota </h2>
-  <p>
-    Otro aspecto importante de los espacios métricos completos
-    es una caracterización de los subconjuntos compactos similar
-    al <a href="./S8.html#Teo:HeineBorel">Teorema de Heine-Borel</a>
-    en \(\mathbb{R}^n\). Recordemos que
-    este teorema dice que un subconjunto de \(\mathbb{R}^n\) es
-    compacto si y sólo si es cerrado y acotado. Para espacios métricos
-    completos mucho más generales que \(\mathbb{R}^n\) se necesita
-    cambiar la hipótesis de acotado por totalmente acotado.
-  </p>
-</div>
-
-
-<div class="teorema-box">
-  <h2 class="number-title" id="Teo:CaractCompacidadEnCompletos"> Teorema </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico completo y \(K \subseteq X\).
-  </p>
-  <p>
-    \(K\) es compacto si y sólo si
-    es cerrado y totalmente acotado.
-  </p>
-  <button class="respButton hvr-grow"> Demostración </button>
-  <div class="resp-box">
-  <p>
-    \(\Rightarrow ]\) Supongamos que \(K\) es compacto. El <a>Lema 8.11</a> nos dice que 
-    \(K\) es cerrado. Para ver que es totaolemte acotado, dado \(\varepsilon >0\) consideramos 
-    la cbierta de \(K\) dada por 
-    \[
-    \{ B_{\varepsilon}(x): x \in K\}
-    \]
-    y la compacidad de \(K\) nos asegura que existe una subcubierta finita, es decir 
-    existe una cantidad finita de puntos \(x_1,\dots, x_n\in K\) con 
-    \[
-    K\subseteq \cup_{i=1}^n B_\varepsilon(x_i)
-    \] 
-    por lo que \(\{x_1,\dots, x_n\}\) es una \(\varepsilon\)-red de \(K\), probando que 
-    \(K\) es totalmente acotado. Nota: para esta parte no se utilizó que el espacio ambiente 
-    (es decir \(X\)) es completo.
-  </p>
-
-  <p>
-    \(\Leftarrow ]\) Probaremos esta dirección por contraddición. Supongamos que \(K\) es cerrado y totalmente acotado
-    pero no compacto. 
-  </p>
-  <p>
-    Al ser no compacto existe  \(\{G_i\}_{i\in I}\) una cubierta abierta de \(K\) para la cual no se le 
-    puede extraer una subcubierta finita. 
-  </p>
-  <p>
-    Ya que \(K\) es totalmente acotado podemos cubrirlo con una cantidad finita de subconjuntos cerrados de diámetro 
-    menor a \(1\):
-    \[
-    K \subseteq \cup_{i=1}^{m_1} A_i^{(1)}, \quad A_i^{(1)} \subseteq K, \quad \operatorname{diam}(A_i^{(1)})< 1
-    \]
-  </p>
-  <p>
-    Nota: podemos suponer que cada \(A_i^{(1)}\) es cerrado. Razón: simplemente tomamos su cerradura
-    \(\overline{A}_i\). Ya que \(A_i^{(1)}\subseteq \overline{A_i^{(1)}}\) se sigue que 
-    \(K\subseteq \cup_{i=1}^{m_1}\overline{A_{i}^{(1)}}\), además \(A_i^{(1)}\subseteq K \) y \(K\) cerrado implica \(\overline{A}_i \subseteq K\),
-     finalmente ya que \(\operatorname{diam}(A_i^{(1)})=\operatorname{diam}(\overline{A_i^{(1)}})\) también tenenemos 
-    que \(\operatorname{diam}(\overline{A_i^{(1)}})< 1\).
-  </p>
-  <p>
-    Ya que suponemos que \(K\) no es compacto existe al menos un \(A_i^{(1)}\) tal que no se 
-    puede cubrir con una cantidad finita de elementos de \(\{G_i \}_{i\in I}\). Denotamos por \(\tilde{A}_1\)
-    a tal conjunto.
-  </p>
-  <p>
-    Ahora, \(\tilde{A}_1\) es totalmente acotado asi que podemos escribir 
-    \[
-    \tilde{A}_1 \subseteq \cup_{i=1}^{m_2} A_i^{(2)}, \quad A_i^{(2)} \subseteq K, \quad \operatorname{diam}(A_i^{2})< 1/2
-    \]
-    (ver <a href="#Lema:GeneTotAcot">Lema 9.19</a>)
-  </p>
-  
-  <p>
-    Ya que \(\tilde{A}_1\) no puede ser cubierto por una cantidad finta de \(\{G_i\}_{i\in I}\), existe 
-    al menos un \(A_i^{(2)}\) tal que no se puede cubrir con una cantidad finita de \(\{G_i\}_{i\in I}\). Denotmos 
-    por \(\tilde{A}_2\) a tal conjunto. 
-  </p>
-  <p>
-    Continuando con esta construcción obtenemos una sucesión de subconjuntos de \(K\), \((\tilde{A}_n)_{n=1}^\infty\),
-    tal que \(\tilde{A}_{k+1}\subseteq \tilde{A}_k\), \(\operatorname{diam}(\tilde{A}_k)< 1/2 \) y 
-    cada \(\tilde{A}_k\) no se puede cubrir con una contidad finita de \(\{G_i\}_{i\in I}\).
-  </p>
-  <p>
-    Ya que \((X,d)\) es completo y \(K\) cerrado \((K,d)\) es completo y por la <a href="Teo:CerradosAnidados">Propiedad  de Cerrados Anidados</a>
-    existe un \(x\in K\)  con \(\cap_{n=1}^\infty\tilde{A}_n=\{x\}\).
-  </p>
-  <p>
-    Por otro lado, ya que \(\{G_i\}_{i\in I}\) es una cubierta de \(K\) existe un \(i_0\) tal que 
-    \(x\in G_{i_0}\) y al ser éste  abierto existe un \(r>0\) tal que \(B_r(x) \subseteq G_{i_0}\). 
-    Finalmente, notamos que si \(\operatorname{\tilde{A}_k}< r \) entonces 
-    \[
-    \tilde{A}_k \subseteq B_r(x) \subseteq G_{i_0}
-    \]
-    (pues si \(y\in \tilde{A}_k\) entonces \(d(x,y)\leq \operatorname{diam}(\tilde{A}_k)< r \)). 
-    Pero lo anterior contradice la condición de que \(\tilde{A}_k\) no se puede cubrir con una contidad 
-    finta de \(\{G_i\}_{i\in I}\).
-  </p>
-  </div>
-</div>
 
 <div class="definicion-box">
   <h2 class="number-title"> Definición </h2>
