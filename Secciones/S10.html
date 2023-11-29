@@ -825,32 +825,41 @@
           [-M,M]\subseteq \cup_{j=1}^m B_{\varepsilon/4}(t_j)
           \]
         </p>
+        
         <p>
-          Para \(i=1,\dots, k, j=1,\dots, l\) definimos:
+          Para un vector \((t_{j_1}, \dots, t_{j_k})\) definimos 
           \[
-          A_{i,j}=\{f\in \mathcal{F}: f(x_i)\in B_{\varepsilon/4}(t_j)\}.
+          A(t_{j_1}, \cdots, t_{j_k})=\{f\in \mathcal{F}: f(x_1)\in B_{\varepsilon/4}(t_{j_1}),\dots, f(x_k)\in B_{\varepsilon/4}(t_{j_k})  \}
           \]
-          Observación: si \(f,g\in A_{i,j}\) entonces \(|f(x_i)-g(x_i)|< \frac{\varepsilon}{2}\).
+          Por \(I\) denotamos al conjunto de todos los vectores de la forma \((t_{j_1}, \dots, t_{j_k})\). Notamos 
+          que \(I\) es finito.
         </p>
         <p>
-          Ya que para toda \(f\in \mathcal{F}\) y toda \(i=1,\dots, k\), \(f(x_i)\in [-M_i,M_i]\subseteq [-M,M]\), se cumple
+          Ya que para toda \(f\in \mathcal{F}\) y toda \(i=1,\dots, k\), 
+          \[ f(x_i)\in [-M_i,M_i]\subseteq [-M,M] \subset \cup_{j=1}^m B_{\varepsilon/4}(t_j)
+          \] 
+          existen \(t_{j_1}, \dots, t_{j_k}\) tal que \(f(x_i)\in B_{\varepsilon/4}(t_{j_i})\), \(i=1,\dots,k\), por lo que 
           \[
-          \mathcal{F}=\cup_{1\leq i \leq k, q\leq  j \leq m}A_{i,j}. 
+          \mathcal{F}=\cup_{(t_{j_1},\dots, t_{j_k})\in I}A(t_{j_1},\dots, t_{j_k}). 
           \]
         </p>
         <p>
-          Afirmamos que \(\textrm{diam}(A_{i,j})\leq  \varepsilon\).
+          Afirmamos que \( \textrm{diam}(A(t_{j_1},\dots, t_{j_k}) ) \leq  \varepsilon\).
         </p>
         <p>
-          Sean \(f,g\in A_{i,j}\). Para \(x\in X\) arbitrario tomamos \(x_i\) en la red con \(d(x,x_i)< \delta\) y por 
-          lo tanto \(|f(x)-f(x_i)|, |g(x)-g(x_i)|< \frac{\varepsilon}{4}\). Se sigue que 
+          Sean \(f,g\in A(t_{j_1},\dots, t_{j_k}) \). Para \(x\in X\) arbitrario tomamos \(x_i\) en la red con \(d(x,x_i)< \delta\). 
+          Por equicontinuidad uniforme \(|f(x)-f(x_i)|< \frac{\varepsilon}{4},|g(x)-g(x_i)|< \frac{\varepsilon}{4}  \)
+          y por lo tanto 
           \begin{eqnarray*}
           |f(x)-g(x)| &\leq & |f(x)-f(x_i)|+ |f(x_i)-g(x_i)|+|g(x_i)-g(x)| \\
-          & < & \frac{\varepsilon}{4}+ \frac{\varepsilon}{2}+ \frac{\varepsilon}{4}=\varepsilon
+          & < & \frac{\varepsilon}{2}+ |f(x_i)-g(x_i)|
           \end{eqnarray*}
-          Tomando supremo sobre \(x\in X\) llegamos \(\|f-g\|_\infty \leq \varepsilon\). Al ser \(f,g\in A_{i,j}\)
-          arbitrarias concluimos 
-          \(\rm diam (A_{i,j})\leq \varepsilon \).
+          Usando que \(f,g\in A(t_{j_1}, \dots, t_{j_k})\) tenemos que 
+          \(f(x_i),g(x_i)\in B_{\varepsilon/4}(t_{j_i})\) por lo que \(|f(x_i)-g(x_i)|< \frac{\varepsilon}{2}\), 
+          concluyendo \(|f(x)-g(x)|< \varepsilon\). Al ser \(x\) arbitraria concluimos 
+          \(\|f-g\|_\infty \leq \varepsilon \) y al ser \(f,g\in A(t_{j_1},\dots, t_{j_k})\) arbitrarios 
+          tenemos \(\rm{diametro}(A(t_{j_1},\dots, t_{j_k}))\leq \varepsilon\).
+
         </p>
       </div>
       </div>
