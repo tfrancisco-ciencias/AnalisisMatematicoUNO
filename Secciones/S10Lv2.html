@@ -112,7 +112,7 @@
         <ol> 
             <li>
                 Usando la definición de diámetro de un conjunto prueba que 
-                \(f\in \mathcal{B}_Y(X)\) si y sólo si \(\rm{diam}(f(X))< +\infty\).
+                \(f\in \mathcal{B}_Y(X)\) si y sólo si \(\textrm{diam} (f(X))< +\infty\).
             </li>
             <li>
                 Para \(f,g \in \mathcal{B}\) definimos 
@@ -123,20 +123,11 @@
             </li>
         </ol>
         
-        <p>
-          
-        </p>
-
+     
           <button class="respButton hvr-grow"> Respuesta </button>
-            <div class="resp-box flexbox">
-                <div class="flexbox">
-                  <iframe width="700" height="400" class="video"
-                      src="https://www.youtube.com/embed/RDuJidJr02I" allowfullscreen="true"> 
-                  </iframe>
-                    
-                </div>
-            </div>
-      </div>
+        
+        
+         </div>
 
 
 
@@ -240,42 +231,49 @@
       <div class="teorema-box">
         <h2 class="number-title">  Teorema </h2>
         <p>
-          Sea \(X\ne \emptyset\) un conjunto cualquiera. Entonces 
-          \((\mathcal{B}(X), \| \cdot\|_\infty)\) es un espacio vectorial normado completo.
+          Sea \(X\ne \emptyset\) un conjunto cualquiera y \((Y,d_Y)\)
+          un espacio métrico completo. Entonces 
+          \((\mathcal{B}_Y(X), d_\infty)\) es un espacio métrico completo.
         </p>
         <button class="respButton hvr-grow"> Demostración </button>
             <div class="resp-box">
         <p>
-          Por el <a>Ejercicio 10.1</a> sólo resta probar que si \((f_n)_{n=1}^\infty \subset \mathcal{B}(X)\)
-          es Cauchy con respecto a \(\|\cdot\|_\infty\) entonces existe  \(f\in \mathcal{B}(X)\) tal que 
+          Por el <a>Ejercicio 10.1</a> sólo resta probar que si \((f_n)_{n=1}^\infty \subset \mathcal{B}_Y(X)\)
+          es Cauchy con respecto a \(d_\infty\) entonces existe  \(f\in \mathcal{B}_Y(X)\) tal que 
           \[
-          \lim_{n\to \infty}\|f_n-f \|_\infty=0
+          \lim_{n\to \infty}d_\infty(f_n,f)=0
           \]
         </p>
         <p>
           Primero notamos que para todo  \(\varepsilon> 0\) existe \(N\in \mathbb{N}\)
           tal que  si \(n,m\geq N\) entonces 
           \[
-          \leq \|f_n-f_m\|_\infty < \varepsilon.
+          d_\infty(f_n,f_m) < \varepsilon.
           \]
-          Pero por definición de la norma uniforme, para todo \(x\in X\) se sigue 
+          Pero por definición de la distancia uniforme, para todo \(x\in X\) y  \(n,m\geq N\) se sigue 
           \begin{equation}\label{Eqn:AuxCompletezAcotadas}
-          |f_n(x)-f_m(x)|\leq \|f_n-f_m \|_\infty < \varepsilon.
+          d_Y(f_n(x),f_m(x)) \leq d_\infty(f_n,f_m)  < \varepsilon.
           \end{equation}
-          Asi que  la sucesión de reales \((f_n(x))_{n=1}^\infty\) es Cauchy y por lo tanto convergente.
-          Definimos \(f(x)=\lim_{n\to \infty} f_n(x)\).
+          Asi que  la sucesión  \((f_n(x))_{n=1}^\infty\subset Y\) es Cauchy y por lo tanto convergente 
+          (recordemos que \((Y,d_y)\) es completo).
+          Definimos \(f(x)=\lim_{n\to \infty} f_n(x)\). Esto define una función \(f:X\to Y\).
         </p>
         <p>
           El primer paso es probar que \(f\) es acotada. Para esto, para \(\varepsilon =1\) 
-          la ecuación \eqref{Eqn:AuxCompletezAcotadas} implica que dada \(x\in X\) fija 
+          la ecuación \eqref{Eqn:AuxCompletezAcotadas} implica que dadas \(x,x'\in X\) fijas  y 
+          arbitrarias y \(n,m\geq N\)
+          \begin{eqnarray*}
+          d_Y(f_n(x),f_n(x')) & \leq  & d_Y(f_n(x),f_m(x))+ d_Y(f_m(x),f_m(x'))+ d_Y(f_m(x'),f_n(x')) \\
+          & \leq &  2d_\infty(f_m,f_m)+\rm{diam}(f_m)\\
+          & \leq  & 2 + \textrm{diam}(f_m)
+          \end{eqnarray*}
+          
+          Fijando \(m\) y tomando \(n\) que tienda a infinito llegamos a 
           \[
-          ||f_n(x)|-|f_m(x)|| \leq |f_n(x)-f_m(x)| < 1 \Rightarrow |f_n(x)|\leq 1+ |f_m(x)|
+          d_Y(f(x),f_n(x')) \leq 1+ \textrm{diam}(f_m(X))
           \]
-          para todo \(n,m\geq N\). Fijando \(m=N\) y tomando \(n\) que tienda a infinito llegamos a 
-          \[
-          |f(x)|\leq 1+ |f_m(x)|\leq 1+ \|f_m\|_\infty
-          \]
-          Al ser \(x\) arbitrario concluimos que \(f\) es acotada, es decir \(f\in \mathcal{B}(X)\).
+          Al ser \(x.x'\) arbitrarios concluimos que \(\textrm{diam}(f(X))\leq 1+ \textrm{diam}(f_m)< +\infty\),
+          es decir \(f\in \mathcal{B}_Y(X)\).
         </p>
         <p>
           Para terminar debemos de probar que \(\lim_{n\to \infty}\| f-f_n\|_\infty=0\). 
