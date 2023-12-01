@@ -1,0 +1,1497 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            cer: "\\operatorname{cer}",
+            inte: "\\operatorname{int}"
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+      body.number-title{
+        counter-reset: sectionCounter 9 cardCounter ;
+      }
+      h1.number-title{
+        counter-reset: sectionCounter 9 cardCounter ;
+      }
+    </style>
+
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <h1 class="calculo-title"> Análisis Matemático UNO</h1>
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio  </a> </li>
+        <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+        <li> <a href="../Secciones.html"> Secciones  </a> </li>
+      </ul>
+     
+    </nav>
+    <label class="switch">
+      <input type="checkbox" onclick="myFunction()">
+      <span class="slider"></span>
+    </label>
+
+    
+
+  </header>
+
+<!-- This part is for title in tab-->
+<title id="Sec"> § 10 </title>
+
+  <!--    Contenido empiaza abajo
+ ///////////////////////////////// -->
+
+
+  <body class="flexbox card fondo-body">
+
+
+    <div class="flexbox">
+      <h1 class="number-title flexbox"> Espacios de funciones </h1>
+      <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+      <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
+    
+
+
+
+      <!--<div class="info-box">
+        <h2 class="number-title"> Introducción </h2>
+        <!-- <p>
+          En esta sección se hace notar que no todas las funciones continuas son iguales. Por ejemplo,
+          hay una diferencie importante entre la continuidad de la 
+          función \(f(x)=\frac{1}{x}\) y cualquier función lineal. Para la primera 
+          la continuidad depende mucho del punto en donde uno la analiza (para puntos 
+          cerca del cero la función crece muy rápido mientras que para puntos en el 
+          infinito la función está muy plana) mientras que en la  segunda 
+          la función "se ve igual" en todas partes. Este tipo de diferencia se trata de 
+          capturar con la definición de continuidad uniforme donde, en resumen, para una \(\varepsilon >0\) 
+          la misma \(\delta\) sirve para todo punto del dominio.
+        </p>
+      </div>-->
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:EspacioFunAcotadas"> Ejercicio </h2>
+        <p>
+          Sea \(X\ne \emptyset\) un conjunto cualquiera y \((Y,d_Y)\) 
+          un espacio métrico completo. Por
+          \(\mathcal{B}_Y(X)\) denotamos al conjunto de funciones acotadas 
+          de \(X\) en \(Y\). Es decir \(f\in \mathcal{B}_Y(X)\) 
+          si y sólo si existe un \(y_0\in Y\) y \(R>0\) tal que 
+          \(d_Y(f(x),y_0) \leq R\) para toda \(x\in X\). 
+        </p>
+        <ol> 
+            <li>
+                Usando la definición de diámetro de un conjunto prueba que 
+                \(f\in \mathcal{B}_Y(X)\) si y sólo si \(\rm{diam}(f(X))< +\infty\).
+            </li>
+            <li>
+                Para \(f,g \in \mathcal{B}\) definimos 
+                \[
+                d_\infty(f,g)=\sup_{x\in X}\{d_Y(f(x),g(x))\}
+                \]
+                Prueba que \((\mathcal{B}_Y(X),d_\infty)\) es un espacio métrico.
+            </li>
+        </ol>
+        
+        <p>
+          
+        </p>
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+            <div class="resp-box flexbox">
+                <div class="flexbox">
+                  <iframe width="700" height="400" class="video"
+                      src="https://www.youtube.com/embed/RDuJidJr02I" allowfullscreen="true"> 
+                  </iframe>
+                    
+                </div>
+            </div>
+      </div>
+
+
+
+
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <h3>
+          El espacio de las funciones acotadas y la norma uniforme.
+        </h3>
+        <p>
+          El espacio vectorial normado, \((\mathcal{B}(X),\| \cdot \|_\infty)\),
+          jugará un papel importante en el estudio de las funciones continuas
+          pues bajo ciertas suposiciones \(\mathcal{B}(X)\) las contiene. Por
+          lo tanto se presentan algunos ejemplos de subconjuntos de dichos
+          espacios y una manera de visualizarlos.
+        </p>
+
+
+          <button class="respButton hvr-grow"> Ejemplos </button>
+            <div class="resp-box flexbox">
+             <div class="flexbox">
+                <iframe width="700" height="400" class="video"
+                      src="https://www.youtube.com/embed/A2bROP17djs" allowfullscreen="true"> 
+                </iframe>
+              
+             </div>
+           </div>
+      </div>
+
+
+
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <h3> Límites en la norma uniforme </h3>
+        <p>
+          En esta nota veremos la convergencia
+          en el espacio de funciones acotadas con la
+          norma uniforme, \(\mathcal{B}(X), \| \cdot\|_\infty\).
+          Rcordamos que una sucesión
+          de funcions \((f_n)_{n\in \mathbb{N}}\)
+          en \(\mathcal{B}(X)\) converge a una
+          función \(f \in \mathbb{B}(X)\) si y sólo si
+          \[
+          \lim_{n\to \infty} \| f_n - f \|_\infty =0.
+          \]
+
+        </p>
+        <p>
+          En términos de \(\varepsilon\)'s lo anterior quiere
+          decir que, para toda \(\varepsilon >0\) existe
+          \(N\in \mathbb{N}\), tal que para toda \(n \geq N\)
+          \(\| f_n - f \|_\infty < \varepsilon\). Si analizamos
+          la expresión \(\|f_n-f\|_\infty <\varepsilon \) aún más
+          tenemos que se debe de cumplir
+          \[
+          |f_n(x)-f(x)| < \varepsilon
+          \]
+          para toda \(x\in X\). En términos de las gráficas de
+          \(f\) y \(f_n\) lo anterior nos dice que las
+          gráficas de \(f_n\), para \(n \geq N\), están todas
+          contenidas en una franja centrada en la gráfica de
+          \(f\) de radio \(\varepsilon\):
+        </p>
+
+        <p>
+          Así la convergencia en el espacio
+          \((\mathcal{B}(X), \| \cdot\|_\infty)\)
+          se puede pensar como que las gráficas se van concentrando
+          dentro de franjas donde éstas franjas se pueden tomar tan
+          angostas como se quieran.
+
+          <div class="flexbox">
+              <img src="./Images/FigSucEspFun.png" alt="ConvergenciaSucEspFunciones"
+              width="50%" height="auto">
+          </div>
+        </p>
+
+        <p>
+          Otra característica importante de la convergencia
+          en el espacio \((\mathcal{B}(X),\|\cdot\|_\infty)\) es que
+          si \(\lim_{n\to \infty} \|f_n - f\|=0\) entonces, para
+          toda \(x\in X\) se cumple
+          \begin{equation}\label{Eqn:LimitePuntual}
+          \lim_{n\to \infty} f_n(x)=f(x).
+          \end{equation}
+          Es importante notar que el último límite es un límite
+          de números reales. Para probar \eqref{Eqn:LimitePuntual}
+          simplemente notamos que, de la definición de la norma
+          \(\|\cdot \|_\infty\), se sigue
+          \[
+          |f_n(x)-f(x)| \leq \|f_n-f\|_\infty
+          \]
+          tomando límite cuando \(n\to \infty\) y usando la ley
+          del sandwich concluimos que \(\lim_{n\to \infty}f_n(x)=f(x)\).
+        </p>
+      </div>
+
+
+
+
+      <div class="teorema-box">
+        <h2 class="number-title">  Teorema </h2>
+        <p>
+          Sea \(X\ne \emptyset\) un conjunto cualquiera. Entonces 
+          \((\mathcal{B}(X), \| \cdot\|_\infty)\) es un espacio vectorial normado completo.
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+            <div class="resp-box">
+        <p>
+          Por el <a>Ejercicio 10.1</a> sólo resta probar que si \((f_n)_{n=1}^\infty \subset \mathcal{B}(X)\)
+          es Cauchy con respecto a \(\|\cdot\|_\infty\) entonces existe  \(f\in \mathcal{B}(X)\) tal que 
+          \[
+          \lim_{n\to \infty}\|f_n-f \|_\infty=0
+          \]
+        </p>
+        <p>
+          Primero notamos que para todo  \(\varepsilon> 0\) existe \(N\in \mathbb{N}\)
+          tal que  si \(n,m\geq N\) entonces 
+          \[
+          \leq \|f_n-f_m\|_\infty < \varepsilon.
+          \]
+          Pero por definición de la norma uniforme, para todo \(x\in X\) se sigue 
+          \begin{equation}\label{Eqn:AuxCompletezAcotadas}
+          |f_n(x)-f_m(x)|\leq \|f_n-f_m \|_\infty < \varepsilon.
+          \end{equation}
+          Asi que  la sucesión de reales \((f_n(x))_{n=1}^\infty\) es Cauchy y por lo tanto convergente.
+          Definimos \(f(x)=\lim_{n\to \infty} f_n(x)\).
+        </p>
+        <p>
+          El primer paso es probar que \(f\) es acotada. Para esto, para \(\varepsilon =1\) 
+          la ecuación \eqref{Eqn:AuxCompletezAcotadas} implica que dada \(x\in X\) fija 
+          \[
+          ||f_n(x)|-|f_m(x)|| \leq |f_n(x)-f_m(x)| < 1 \Rightarrow |f_n(x)|\leq 1+ |f_m(x)|
+          \]
+          para todo \(n,m\geq N\). Fijando \(m=N\) y tomando \(n\) que tienda a infinito llegamos a 
+          \[
+          |f(x)|\leq 1+ |f_m(x)|\leq 1+ \|f_m\|_\infty
+          \]
+          Al ser \(x\) arbitrario concluimos que \(f\) es acotada, es decir \(f\in \mathcal{B}(X)\).
+        </p>
+        <p>
+          Para terminar debemos de probar que \(\lim_{n\to \infty}\| f-f_n\|_\infty=0\). 
+          De la ecuación \eqref{Eqn:AuxCompletezAcotadas} tenemos que para todo \(x\in X\)
+          \[
+          |f_n(x)-f_m(x)| < \varepsilon
+          \]
+          para todos \(n,m\geq N\). Si fijamos \(m\geq N\) y hacemos \(n\) tender a infinito llegamos a 
+          \[
+          |f(x)-f_m(x)|\leq \varepsilon.
+          \]
+          Pero \(x\) es arbitrario así que si tomamos supremo sobre \(x\in X\) obtenemos 
+          \[
+          \|f-f_n\|_\infty < \varepsilon
+          \]
+          Finalmente, ya que la desigualdad anterior es válida para todo \(m\geq N\) concluimos 
+          \(\lim_{m\to \infty}\| f-f_m\|=0\).
+        </p>
+      </div>
+      </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sean \(f,g\in \mathcal{B}(X)\). Prueba que la función producto
+            \(fg\) pertenece a \(\mathcal{B}(X)\) y que
+            \[
+            \|fg\|_\infty \leq \|f\|_\infty \|g\|_\infty
+            \]
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \(f\in \mathcal{B}(X)\). Prueba
+            \(\| f - \| f\| \|_\infty \leq \|f\|_\infty \) si y sólo si \(f(x)\geq 0\)
+            para toda \(x\in X\).
+          </p>
+            <p>
+            Nota: se está usando
+            \(\|f\|\) para denotar tanto al escalar como a la
+            función constante igual a  \(\|f\|\).
+          </p>
+
+        </div>
+      
+
+  <div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <p>
+      Sea \((X,d)\) un espacio métrico y sea \((f_n)_{n=1}^\infty \subset \mathcal{B}(X)\). Supongamos que 
+      todas las funciones \(f_n\) son continuas en \(x_0\) y \(\lim_{n\to \infty}\|f_n-f\|_\infty=0\)
+      para una función \(f\in \mathcal{B}(X)\). Entonces \(f\) es continua en \(x_0\).
+    </p>
+    <p>
+      En consecuencia el espacio de funciones acotadas y continuas en \(X\) forma un 
+      espacio vectorial normado completo.
+    </p>
+    <button class="respButton hvr-grow"> Demostración </button>
+            <div class="resp-box">
+    <p>
+      Fijamos \(x_0\in X\) y probamos que \(f\) es continua en \(x_0\). 
+    </p>
+    <p>
+      Primero encontramos un \(n_1\in \mathbb{N}\) tal que \(\|f_{n_1}-f\|_\infty < \varepsilon/3\).
+    </p>
+    <p>
+      A continuación, usando que \(f_{n_1}\) es continua encontramos un \(\delta> 0\) que satisfaga
+      \[
+      d(x,x_0)< \delta \Rightarrow |f_{n_1}(x)-f_{n_1}(x_0)| < \varepsilon/3
+      \]
+    </p>
+    <p>
+      Por último se sigue que si  \(d(x,x_0)< \delta \) entonces 
+      \begin{eqnarray*}
+      |f(x)-f(x_0)| &\leq  & |f(x)-f_{n_1}(x)|+|f_{n_1}(x)-f_{n_1}(x_0)|+ |f_{n_1}(x_0)-f(x_0)| \\
+      &\leq & 2\|f_{n_2}-f\|_\infty + |f_{n_1}(x)-f_{n_1}(x_0)| \\
+      &< &2 \frac{\varepsilon}{3}+ \frac{\varepsilon}{3}=\varepsilon.
+      \end{eqnarray*}
+    </p>
+    
+  </div>
+  </div>
+
+
+
+
+  <div class="nota-box">
+    <h2 class="number-title"> Nota </h2>
+    <p>
+      Si \((X,d)\) es un espacio métrico compacto el 
+      <a href="./S8.html#Teo:FunContAcotEnCompactos"> Teorema 8.18</a> asegura que 
+      \[ \sup_{x\in X}\{|f(x)| \} < + \infty\]
+      
+      y por lo tanto las funciones continuas 
+      son un subconjunto de \(\mathcal{B}(X)\). El Teorema  anterior implica que 
+      las funciones continuas son un subconjunto de cerrado de  \((\mathcal{B}(X))\) y por 
+      lo tanto un espacio vectorial normado completo.
+    </p>
+    <p>
+      Por \(C(X)\) denotamos al cojunto de funciones continuas de \(X\) a \(\mathbb{R}\).
+    </p>
+  </div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+  Considera el espacio métrico \((C([0,1]), d)\), donde
+  \(d\) es la métrico uniforme, es decir,
+  la métrica inducida por la norma uniforme, \(\| \cdot\|_\infty\).
+  </p>
+  <p>
+  Para cada una de las siguientes sucesiones de funciones,
+  \((f_n)_{n\in \mathbb{N}}\), investiga si el límite
+  \(\lim_{n\to \infty} f_n\) existe o no en
+  \((C([0,1]),d)\).
+  </p>
+  <ol>
+  <li>
+  \(f_n(t)=\frac{\sen(nt+1/n)}{n}\).
+  </li>
+  <li>
+  \(f_n(t)=t(1-t)^n\).
+  </li>
+  <li>
+  \(f_n(t)=\frac{n^2t}{1+nt^2}\).
+  </li>
+  <li>
+  \( f_n(t)=\frac{nt}{1+n^2t^2}\).
+  </li>
+  </ol> 
+  
+  
+  <button class="respButton hvr-grow"> Repuesta inciso 1 </button>
+  <div class="resp-box flexbox">
+  <div class=" flexbox">
+    <iframe width="700" height="400" class="video"
+      src="https://www.youtube.com/embed/sGB__ZKNhkQ" allowfullscreen="true"> 
+    </iframe>
+    
+    </div>
+  </div>
+  
+  <p>
+  
+  </p>
+  
+  
+  <button class="respButton hvr-grow"> Repuesta inciso 2 </button>
+  <div class="resp-box flexbox">
+  <div class="flexbox">
+    <iframe width="700" height="400" class="video"
+      src="https://www.youtube.com/embed/hddtV0cMDBQ" allowfullscreen="true"> 
+    </iframe>      
+  </div>
+  </div>
+  
+  </div>
+  
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Una función \(f:(X,d_X)\to (Y,d_Y)\) se llama uniformemente continua
+          en \(X\) si, para toda \(\varepsilon >0 \) existe \(\delta >0\),
+          que sólo depende de \(\varepsilon > 0\), tal que para cualesquiera
+           \(x_1,x_2\in X\) que satisfacen \(d_X(x_1,x_2)< \delta\)
+           se cumple que \(d_Y(f(x_1),f(x_2))<\varepsilon\).
+        </p>
+        <p>
+          La diferencia fundamental entre una función uniformemente continua
+          y una función continua es que la \(\varepsilon\) de la continuidad
+          uniforme sirve para TODOS los puntos de \(X\), es decir,
+          la \(\varepsilon\) NO depende del punto donde se está analizando la
+          continuidad.
+        </p>
+
+        <p>
+          Ejemplos y contra-ejemplos.
+        </p>
+        <ul>
+
+          <li>
+            Toda función <a href="./S6.html#Ejer:FunLipschitz">Lipschitz</a> es uniformemente continua.
+            Si \(f:X\to Y\) es Lipschitz entonces existe una constante \(K>0\) que
+            satisface \(d_Y(f(x_1),f(x_2))\leq K d_X(x_1,x_2) \), para todos
+            \(x_1,x_2\in X\). Tomando en cuenta la desigualdad anterior,
+            dada \(\varepsilon >0\) la "delta" de la continuidad uniforme
+            puede tomarse como \(\delta=\frac{\varepsilon}{K}\).
+           </li>
+           <li>
+             El ejemplo más común de una función continua pero no uniformemente continua es
+             \(f(x)=\frac{1}{x}\) con dominio \((0,1)\). Si consideramos
+             los puntos de la forma \(x_1=\frac{1}{n}, x_2=\frac{1}{n+1}\),
+             con \(n\in \mathbb{N}\), vemos que la distancia entre ellos
+             tiende a cero pero la distancia entre sus imágenes es constante:
+             \[
+             |f(x_1)-f(x_2)| = \left| n-(n+1) \right|=1.
+             \]
+             Lo cual muestra que la función  \(f(x)=\frac{1}{x}\) no es uniformemene
+             continua en \((0,1)\). Lo que está pasando es que \(f(x)=\frac{1}{x}\) es continua
+             en \((0,1)\) pero, para cada \(x\in (0,1)\), la delta de la continuidad
+             depende del punto \(x\).
+           </li>
+        </ul>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sean \((X,d_X), (Y,d_Y)\) espacios métricos y
+          \(f:X\to Y\) uniformemente continua.
+        </p>
+        <p>
+          Utilizando la noción de <a href="./S2.html#Ejer:Diametro">diámetro</a> prueba que
+          para toda \(\varepsilon > 0\) existe \(\delta >0\), tal que
+          \[
+          \operatorname{diam}(A) < \delta \Rightarrow
+          \operatorname{diam}(f(A)) \leq \varepsilon
+          \]
+          donde \(A\) es cualquier subconjunto de \(X\).
+        </p>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Prueba que la función \(f:[0,\infty)\to \mathbb{R}\), \(f(x)=\sqrt{x}\),
+          es uniformemente continua en \([0,\infty)\).
+        </p>
+        <p>
+          Sugerencia: prueba la desigualdad, \(|\sqrt{a}-\sqrt{b}|\leq \sqrt{|a-b|}\),
+          válida para todos \(a,b\in \mathbb{R}\).
+        </p>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Supon que \(f:\mathbb{R}\to \mathbb{R}\) es una función continua en
+          todo \(\mathbb{R}\) y que \(\lim_{x\to \pm \infty} f(x)=0\). Prueba
+          que \(f\) es uniformemente continua en \(\mathbb{R}\).
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <ol>
+        <li>
+          Da una ejemplo de una función continua y acotada \(f:\mathbb{R}\to \mathbb{R}\)
+          que no sea uniformemente continua.
+        </li>
+        <li>
+          Da un ejemplo de una función continua y uniformemente continua
+          \(f:\mathbb{R}\to \mathbb{R}\) que no sea acotada.
+        </li>
+        </ol>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(f:(a,b)\to \mathbb{R}\) una función uniformemente continua
+          en \((a,b)\). Prueba que \(f\) es acotada en \((a,b)\).
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:FuncionesLipschitz"> Ejercicio  </h2>
+        <p>
+          Una función entre dos espacios métricos \(f:(X,d_X)\to (Y,d_Y)\)
+          se llama Lipschitz de orden \(\alpha \), donde  \(\alpha \in (0,\infty) \) es una
+          constante, si existe una constate \(K>0\) que satisface:
+          \[
+          d_Y(f(x_1), f(x_2)) \leq K (d(x_1,x_2))^\alpha
+          \]
+          para todos \(x_1,x_2\in X\).
+        </p>
+        <ol>
+          <li>
+          Prueba que toda función Lipschitz de orden \(\alpha\) es
+          uniformemente continua.
+          </li>
+          <li>
+            <p>
+            Prueba que si \(f:\mathbb{R}\to \mathbb{R}\) es  Lipschitz de orden \(\alpha\) y
+            \(\alpha >1\) entonces \(f\) es una función constante. Sugerencia:
+            investiga si la función es diferenciable.
+            </p>
+
+          </li>
+        </ol>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:UnifContinuaYSucCercanas"> Ejercicio </h2>
+          <p>
+            Sean \((X,d_X), (Y,d_Y)\) espacios métricos y
+            \(f:X\to Y\).
+          </p>
+          <p>
+            Prueba que \(f\) es uniformemente continua en \(X\) si y sólo si
+            para cualesquiera par de sucesiones \((a_n)_{n=1}^\infty, (b_n)_{n=1}^\infty\)
+            en \(X\) con la propiedad de que
+            \[
+            \lim_{n\to \infty} d_X(a_n,b_n)=0
+            \]
+            se cumple que
+            \[
+            \lim_{n\to \infty} d_Y(f(a_n),f(b_n))=0.
+            \]
+          </p>
+          <p>
+            Sugerencia: para el regreso supon que \(f\) no es uniformemente continua
+            y llega a una contradicción.
+          </p>
+          <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+          <p>
+          \(\Rightarrow ] \) Supongamos que \(f\) es uniformemente continua en \(X\) y que 
+          las sucesiones \((a_n)_{n=1}^\infty, (b_n)_{n=1}^\infty\) satisfacen 
+          \begin{equation}\label{Eqn:AuxEjerCharcContUnfir} 
+          \lim_{n\to \infty} d_X(a_n,b_n)=0.
+          \end{equation}
+          </p>
+          <p>
+            Debemos de probar que \(\lim_{n\to infty} d_Y(f(a_n),f(b_n))=0\). Sea \(\varepsilon >0\). 
+            Por continuidad uniforme existe una \(\delta > 0\) tal que si \(a,b \in X\) con 
+            \(d_X(a,b)< \delta\) entonces \(d_Y(f(a),f(b))< \varepsilon\). Ahora, por \eqref{Eqn:AuxEjerCharcContUnfir}
+            existe una \(N\in \mathbb{N}\) tal que si \(n \geq N\), \(d_X(a_n,b_n)< \delta \) y en consecuencia 
+            \(d_Y(f(a_n),f(b_n))< \varepsilon\), para toda \(n \geq N\).
+          </p>
+          <p>
+            \(\Leftarrow ]\) Esta parte la hacemos por contrapositiva. Supongamos que 
+            \(f\) NO es uniformemente continua en \(X\). Como consecuencia existe un 
+            \(\varepsilon_0 >0\) tal que para todo \(\delta > 0\) existen puntos \(a,b\in X\)
+            tal que \(d_X(a,b)< \delta\) pero \(d_Y(f(a_n),f(b_n) \geq \varepsilon_0\). Tomando 
+            valores de \(\delta\) de la forma \(\delta=1/n\) se construyen sucesiones \((a_n)_{n=1}^\infty\),
+            \((b_n)_{n=1}^\infty\) con \(\lim_{n\to \infty} d_X(a_n,b_n) \leq 1/n\) pero 
+            \(d_Y(f(a_n),f(b_n)) \geq \varepsilon_0\) para toda \(n\), por lo que 
+            \[
+            \lim_{n\to \infty}d_X(a_n,b_n)=0, \quad \lim_{n\to infty} d_Y(f(a_n),f(b_n)) \ne 0.
+            \]
+          </p>
+        </div>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Prueba que una función uniformemente continua, \(f:X\to Y\), manda sucesiones de Cauchy
+          en sucesiones de Cauchy.
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Si \(f:(X,d_X)\to (Y,d_Y)\) es una función uniformemente continua
+          en \(X\) prueba que \(f\) manda subconjuntos totalmente acotados
+          en subconjuntos talmente acotados.
+        </p>
+      </div>
+
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+          Sea \((K,d)\) un espacio métrico compacto. Entonces toda función
+          continua \(f:(K,d)\to (Y,\rho)\) es uniformemente continua.
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          Sea \(\varepsilon >0\) fija y arbitraria. Para cada \(x\in X\) existe una 
+          \(\delta_x > 0\) (la de la continuidad de \(f\) en \(x\)) tal que 
+          \[
+          d(x,y)< \delta_x\Rightarrow d(f(x),f(y))< \varepsilon/2
+          \]
+        </p>
+        <p>
+          Ahora consideramos la cubierta abierta de \(K\):
+          \[
+          \{ B_{\delta_x/2}(x): x\in K \}
+          \]
+          Al ser \(K\) compacto existe una cantidad finita \(x_1,\dots, x_n \in K\) tal que 
+          \begin{equation}\label{Eqn:Aux1CompactoImplicaContiUnif}
+          K\subseteq \cup_{i=1}^n B_{\delta_{x_i}/2}(x_i).
+          \end{equation}
+          Definimos \(\delta = \min\{ \delta_{x_1}/2,\dots, \delta_{x_n}/2\} > 0\). Afirmamos que si 
+          \(y,z\in X\) son arbitrarios y cumplen \(d(y,z)< \delta\) entontces \(d(f(y),f(z)) < \varepsilon\).
+          Para probar lo anterior primero usamos \eqref{Eqn:Aux1CompactoImplicaContiUnif} 
+          para poder encontrar \(x_{i}\) con \(d(y,x_{i}) < \delta_{x_{i}}/2\). Se sigue que 
+          \[
+            d(z,x_i)\leq d(z,y)+d(y,x_i)< \delta + \delta_{x_i}/2 \leq  \delta_{x_i}/2+\delta_{x_i}/2=\delta_{x_i}
+          \]
+          Por lo tanto \(d(f(y),f(x_i))< \varepsilon/2\) y \(d(f(z),f(x_i))<\varepsilon/2\) de donde concluimos 
+          que \(d(f(x),f(y))< \varepsilon\).
+          
+        </p>
+      </div>
+      </div>
+
+
+      <div class="nota-box">
+        <h2 class="number-title"> Compacidad en \(C(X)\) </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico compacto. Nuestro próximo objtivo  es encontrar un criterio 
+          para saber si un subconjunto \(\emptyset \ne \mathcal{F} \subset C(X)\) es compacto. Ya que 
+          el espacio \( (C(X),\|\cdot\| )\) es completo sabemos que un conjunto es compacto si y sólo si 
+          es: (1) cerrado, (2) totalmente acotado (<a href="Teo:CaractCompacidadEnCompletos">Teorema 9.27</a>).
+        </p>
+        <p>
+          Ya se han estudiado conjuntos cerrados así que ahora se trata de encontrar condiciones, en el 
+          caso especial de funciones continuas, para las cuales los conjuntos sean totalmente acotados. La 
+          siguiente definición va en ésta dirección. 
+        </p>
+
+      </div>
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico. Una familia de funciones \(\mathcal{F}\subset C(X)\)
+          se llama uniformemente equicontinuo si para toda \(\varepsilon >0\) existe una \(\delta >0 \) tal que 
+          si \(d(x,y)< \delta\) entonces \(|f(x)-f(y)|< \delta \), para toda \(f\in \mathcal{F}\).
+        </p>
+        <p>
+          En otras palabras, todas la funciones en la familia \(\mathcal{F}\) son uniformemente continuas y además 
+          dada \(\varepsilon >0\) existe una \(\delta >0\) que sireve como la \(\delta\) de la continuidad uniforme
+          para TODAS las funciones en la familia \(\mathcal{F}\).
+        </p>
+        <p>
+          Nota: en algunos textos se   le llama equicontinua, quitando el adjetivo uniformemente.
+        </p>
+        <p>
+          Ejemplos.
+        </p>
+        <ol>
+          <li>
+            Sea \((X,d)\) un espacio métrico compacto. Entonces todo subconjunto finito   \(\mathcal{F} \subset C(X)\)
+            es uniformemente equicontinuo. En efecto, si \(\mathcal{F}=\{f_1,\dots, f_n \}\), ya que cada \(f_i\) es continua 
+            y \(X\) es compacto, existe una \(\delta_i > 0\) tal que si \(d(x,y)< \delta_i\) entonces 
+            \(|f(x)-f(y)|< \delta_i\). Tomando \(\delta = \min\{\delta_1, \dots, \delta_n \}\) logramos el objetivo.
+          </li>
+          <li>
+            Sean \((X,d_X)\), \((Y,d_Y)\) espacios métricos. Recuerda  que una 
+            función   \(f:X\to Y\) es Lipschitz continua con constantes \(K\) y orden  \(\alpha\) si
+            \(d_Y(f(x),f(y))\leq K(d_X(x,y))^\alpha\) para todos \(x,y\in X\). Por 
+            \(\rm{Lip}_K(\alpha)\) denotamos al conjunto de funciones Lipschitz continuas con 
+            constantes \(K\) y orden \( \alpha \). Entonces \(\rm{Lip}_K(\alpha)\) es uniformemente 
+            equicontinua pues dada \(\varepsilon >0\), \(\delta:=(\varepsilon/K)^{1/\alpha}\) sirve 
+            como la \(\delta\) de la continuidad uniforme para todo elemento de \(\rm{Lip}_K(\alpha)\).
+           </li>
+        </ol>
+
+        
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          En \(C(\mathbb{R})\) considera la familia de funciones \(\mathcal{F}=\{f_m\}_{m\in (0,\infty)}\), 
+          donde \(f_m(t)=mt\). Prueba que \(\mathcal{F}\) no es uniformemente equicontinua. 
+        </p>
+
+      </div>
+
+      <div class="lema-box">
+        <h2 class="number-title" id="Lema:AuxArzelaAscoli"> Lema </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico compacto. Si \(\mathcal{F}\subset C(X)\) es 
+          totalmente acotado entonces \(\mathcal{F}\) es uniformemente equicontinua.
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+          <p>
+            Sea \(\varepsilon >0\) y tomemos \(f_1,\cdots, f_n \in \mathcal{F}\) una 
+            \(\frac{\varepsilon}{3}\)-red de \(\mathcal{F}\). Al ser \((X,d)\) compacto cada 
+            función \(f_i\) es uniformemente continua en \(X\) y por lo tanto 
+            existe \(\delta_i >0\) con la propiedad de que si \(d(x,y)< \delta_i\)
+            entonces \(|f_i(x)-f_i(y)|< \frac{\varepsilon}{3}\). Tomamos \(\delta=\min\{\delta_1,\cdots, \delta_n\}\).
+          </p>
+          <p>
+            Finalmente probamos que para toda \(f\in \mathcal{F}\), \(\delta\) sirve como la de la continuidad 
+            uniforme. Sea \(x,y\in X\) con \(d(x,y)<\delta\). Ya que \(\{f_1,\dots, f_n\}\) es una \(\varepsilon\)-red 
+            de \(\mathcal{F}\), existe \(f_i\) tal que \(\|f-f_i\|_\infty < \varepsilon \). Se sigue que 
+            \begin{eqnarray*} 
+            |f(x)-f(y)| &\leq  & |f(x)-f_i(x)|+ |f_i(x)-f_i(y)|+ |f_i(y)-f(y)| \\
+            &\leq & 2\| f-f_i\|_\infty+ |f_i(x)-f_i(y)| \\
+            &< & 2\frac{\varepsilon}{3}+ \frac{\varepsilon}{3}
+            \end{eqnarray*}
+           
+          </p>
+          </div>
+      </div>
+
+      <div class="lema-box">
+        <h2 class="number-title" id="Lema:Aux2ArzelaAscoli">  Lema</h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico compacto. Sea \(\mathcal{F}\subset C(X)\)
+          una familia de funciones que satisface:
+          <ol>
+            <li>
+              \(\mathcal{F}\) es uniformemente equicontinua,
+            </li>
+            <li>
+              para toda \(x\in X\), \(\sup_{f \in \mathcal{F}}\{ |f(x)|\}< + \infty\).
+            </li>
+          </ol>
+          Entonces \(\mathcal{F}\) es totalmente acotado. 
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+
+        <p>
+          Sea \(\varepsilon >0\). Vamos a descomponer \(\mathcal{F}\) como la unión finita 
+          de conjuntos con diámetro menor o igual a \(\varepsilon\) 
+          (ver <a href="./S9.html#Lema:GeneTotAcot">Lema 9.19</a>).
+        </p>
+        <p>
+          Para  \(\frac{\varepsilon}{4}\) sea \(\delta>0 \) la de la equicontinuidad uniforme para \(\mathcal{F}\).
+          Es decir, si \(d(x,y)< \delta\), \(|f(x)-f(y)|< \frac{\varepsilon}{4}\), para toda \(f\in \mathcal{F}\).
+        </p>
+        <p>
+          Al ser \((X,d)\) compacto existe \(\{x_1,\dots, x_k\}\)  una \(\delta\)-red, es decir 
+          \[
+          X=\cup_{i=1}^k B_{\delta}(x_i).
+          \]
+        </p>
+        <p>
+          Por hipótesis, para toda \(i=1,\dots, k\), \(\sup_{f\in \mathcal{F}}\{ |f(x_i)|\}<+\infty\) asi que 
+          existe \(M_i>0\) tal que \(\{ f(x_i): f\in \mathcal{F}\}\subseteq [-M_i,M_i]\). Sea \(M=\max_{i=1,\dots, k}\{M_i\}\).
+         </p>
+        <p>
+          Al ser \([-M,M]\) compacto existen \(t_1,\dots, t_m\in [-M,M]\) tal que 
+          \[
+          [-M,M]\subseteq \cup_{j=1}^m B_{\varepsilon/4}(t_j)
+          \]
+        </p>
+        
+        <p>
+          Para un vector \((t_{j_1}, \dots, t_{j_k})\) definimos 
+          \[
+          A(t_{j_1}, \cdots, t_{j_k})=\{f\in \mathcal{F}: f(x_1)\in B_{\varepsilon/4}(t_{j_1}),\dots, f(x_k)\in B_{\varepsilon/4}(t_{j_k})  \}
+          \]
+          Por \(I\) denotamos al conjunto de todos los vectores de la forma \((t_{j_1}, \dots, t_{j_k})\). Notamos 
+          que \(I\) es finito.
+        </p>
+        <p>
+          Ya que para toda \(f\in \mathcal{F}\) y toda \(i=1,\dots, k\), 
+          \[ f(x_i)\in [-M_i,M_i]\subseteq [-M,M] \subset \cup_{j=1}^m B_{\varepsilon/4}(t_j)
+          \] 
+          existen \(t_{j_1}, \dots, t_{j_k}\) tal que \(f(x_i)\in B_{\varepsilon/4}(t_{j_i})\), \(i=1,\dots,k\), por lo que 
+          \[
+          \mathcal{F}=\cup_{(t_{j_1},\dots, t_{j_k})\in I}A(t_{j_1},\dots, t_{j_k}). 
+          \]
+        </p>
+        <p>
+          Afirmamos que \( \textrm{diam}(A(t_{j_1},\dots, t_{j_k}) ) \leq  \varepsilon\).
+        </p>
+        <p>
+          Sean \(f,g\in A(t_{j_1},\dots, t_{j_k}) \). Para \(x\in X\) arbitrario tomamos \(x_i\) en la red con \(d(x,x_i)< \delta\). 
+          Por equicontinuidad uniforme \(|f(x)-f(x_i)|< \frac{\varepsilon}{4},|g(x)-g(x_i)|< \frac{\varepsilon}{4}  \)
+          y por lo tanto 
+          \begin{eqnarray*}
+          |f(x)-g(x)| &\leq & |f(x)-f(x_i)|+ |f(x_i)-g(x_i)|+|g(x_i)-g(x)| \\
+          & < & \frac{\varepsilon}{2}+ |f(x_i)-g(x_i)|
+          \end{eqnarray*}
+          Usando que \(f,g\in A(t_{j_1}, \dots, t_{j_k})\) tenemos que 
+          \(f(x_i),g(x_i)\in B_{\varepsilon/4}(t_{j_i})\) por lo que \(|f(x_i)-g(x_i)|< \frac{\varepsilon}{2}\), 
+          concluyendo \(|f(x)-g(x)|< \varepsilon\). Al ser \(x\) arbitraria concluimos 
+          \(\|f-g\|_\infty \leq \varepsilon \) y al ser \(f,g\in A(t_{j_1},\dots, t_{j_k})\) arbitrarios 
+          tenemos \(\rm{diametro}(A(t_{j_1},\dots, t_{j_k}))\leq \varepsilon\).
+
+        </p>
+      </div>
+      </div>
+
+
+
+      <div class="teorema-box">
+        <h2 class="number-title" id="Teo;ArzelaAscoli"> Teorema </h2>
+        <h3> Arzelá-Ascoli (versión 1)</h3>
+        <p>
+          Sea \((X,d)\) un espacio métrico compacto.
+        </p>
+        <p>
+          Un subconjunto \(\mathcal{F} \subseteq C(X)\) es compacto, en 
+          \((C(X),\|\cdot\|_\infty)\), si y sólo si 
+          <ol>
+            <li>
+              \(\mathcal{F}\) es cerrado (con respecto a la norma \(\|\cdot\|_\infty\)),
+            </li>
+            <li>
+              \(\mathcal{F}\) es acotado (con respecto a la norma \(\|\cdot\|_\infty\)),
+            </li>
+            <li>
+              \(\mathcal{F}\) es uniformemente equicontinua.
+            </li>
+          </ol>
+          
+        </p>
+        <h3> Arzelá-Ascoli (versión 2)</h3>
+        <p>
+          Sea \((X,d)\) un espacio métrico compacto.
+        </p>
+        <p>
+          Un subconjunto \(\mathcal{F} \subseteq C(X)\) es compacto, en 
+          \((C(X),\|\cdot\|_\infty)\), si y sólo si 
+          <ol>
+            <li>
+              \(\mathcal{F}\) es cerrado (con respecto a la norma \(\|\cdot\|_\infty\)),
+            </li>
+            <li>
+              para toda \(x\in X\), \(\sup_{f\in \mathcal{F}}\{|f(x)|\}<+\infty\),
+            </li>
+            <li>
+              \(\mathcal{F}\) es uniformemente equicontinua.
+            </li>
+          </ol>
+
+        </p>
+
+        <p>
+          Nota: si \(\mathcal{F}\) es acotado con respecto a la norma  \(\|\cdot\|_\infty\) 
+          entonces para toda \(x\in X\):
+          \[
+          \sup_{f\in \mathcal{F}}\{|f(x)| \} \leq \sup_{f\in \mathcal{F}}\{\|f\|_\infty \}< +\infty.
+          \] 
+          Así pues es suficiente probar la versión 2.  
+        </p>
+        
+        <button class="respButton hvr-grow"> Demostración  versión 2</button>
+        <div class="resp-box">
+        <p>
+          \(\Rightarrow ]:\) Si \(\mathcal{F}\) es compacto entonces es cerrado y totalmente acotado.
+          Totalmente acotado implica acotado y por lo tanto, para toda 
+          \(x\in X\), \(\sup_{f\in \mathcal{F}}\{|f(x)|\}<+\infty\). Así que sólo resta probar que 
+          \(\mathcal{F}\) es uniformemente equicontinuo. Pero <a href="#Lema:AuxArzelaAscoli">Lema 10.23</a>
+          dice precisamente que totalmente acotado implica equicontinuidad, así que terminamos.
+        </p>
+        <p>
+          \(\Leftarrow ]: \) Al ser \(C(X)\) completo 
+          (ver <a  href="./S9.html#Teo:CaractCompacidadEnCompletos">Teorema 9.27</a> ) 
+          es suficiente probar que \(\mathcal{F}\)
+          es cerrado y totalmente acotado. Cerrado lo tenemos por hipótesis asi que resta probar que 
+          \(\mathcal{F}\) es totalmente acotado. Pero por el <a href="#Lema:Aux2ArzelaAscoli">Lema 10.24</a>
+          los incisos 2 y 3 de las hipótesis implican que \(\mathcal{F}\) es totalmente acotado, lo que termina 
+          la prueba. 
+        </p>
+        </div>
+
+
+      </div>
+
+      
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión de funciones diferenciables 
+          que satisface, \(|f_n'(x)|\leq 1\), para toda \(n\in \mathbb{N}\) y \(x\in [a,b]\). 
+          Prueba que \((f_n)_{n=1}^\infty\) admite una subsucesión convergente en \((C([a,b]),\|\cdot\|_\infty)\).
+        </p>
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Para \(K>0\) y \(\alpha \in (0,1]\) define 
+          \[
+          \mathcal{F}=\{f\in \rm{Lip}_K(\alpha)| f(0)=0 \}
+          \]
+          Prueba que \(\mathcal{F}\) es un subconjunto compaco de \(C([0,1])\).
+        </p>
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Dado un intervalo \([a,b]\subset \mathbb{R}\), por \(\rm{Iso}([a,b])\) denotamos al conjunto 
+          de todas las isometrías  de \([a,b]\) en \([a,b]\).  Es decir \(f\in \rm{Iso}([a,b])\) sii 
+          \(d(x,y)=d(f(x),f(y))\), para toda \(x,y\in [a,b]\).
+        </p>
+        <p>
+          Prueba que \(\rm{Iso}([a,b])\) es un subconjunto compacto de \(C([a,b])\). 
+        </p>
+
+
+      </div>
+
+
+      <div class="teorema-box">
+        <h2 class="number-title" id="Teo:ExtensionFunUnifCont"> Teorema </h2>
+        <p>
+          Sean \((X,d_X), (Y,d_Y)\) espacios métricos y \(D\subseteq X\).
+        </p>
+        <p>
+          Sea \(f: D \to Y\) una función uniformemente continua en \(D\)
+          y supongamos que \(D\) es denso en \(X\) y que \(Y\) es completo.
+        </p>
+
+        <p>
+          Entonces \(f\) se extiende de manera única a una función
+          uniformemente continua en todo \(X\). Es decir,
+          existe \(F:X \to Y\) uniformemente continua en \(X\)
+          tal que \(F(a)=f(a)\), para todo \(a\in D\).
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+        <p>
+          Dado \(x\in X\) vamos a definir \(F(x)\) como un límite. Primero, ya que 
+          \(D\) es denso en \(X\), existe \((a_n)_{n=1}^\infty \subseteq D\) tal que 
+          \[
+          \lim_{n\to \infty}d_X(a_n,x)=0
+          \]
+          Afirmamos que \((f(a_n))_{n=1}^\infty\) es Cauchy. Razón: para \(\varepsilon >0\)
+          sea \(\delta > 0\) la \(\delta\) de la continuidad uniforme de \(f\) en \(D\). Ya que 
+          \(\lim_{n\to \infty}d_X(a_n,x)=0\) la sucesión \((a_n)_{n=1}^\infty\) es convergente 
+          y por lo tanto Cauchy así que para el número positivo \(\delta \) existe un 
+          natural \(N\) tal que si \(n,m\geq N\) entonces \(d_X(a_n,a_m) < \delta\) y por lo 
+          tanto \(d_Y(f(a_n),f(a_m))< \varepsilon\). Por lo tanto \((f(a_n))_{n=1}^\infty\)
+          es de Cauchy. 
+        </p>
+        <p>
+          Al ser \(Y\) completo existe un punto \(y\in Y\) con 
+          \(\lim_{n\to \infty}d(_Yf(a_n),y)=0\). Definimos \(F(x)=y\), es decir lo anterior lo 
+          podemos escribir como 
+          \[
+          F(x)=f(\lim_{n\to \infty} a_n)= \lim_{n\to \infty}f(a_n).
+          \]
+        </p>
+        <p>
+          Para proseguir vamos a probar que \(F\) está bien definida, es decir no depende de la 
+          sucesión \((a_n)_{n=1}^\infty\). Sea \((\tilde{a}_n)_{n=1}^\infty \subseteq D\) otra subsucesión 
+          tal que \(\lim_{n\to \infty} d_X(\tilde{a}_n,x)=0\). Debemos de probar que 
+          \[
+          \lim_{n\to \infty} f(a_n)=\lim_{n\to \infty} f(\tilde{a}_n).
+          \]
+          Nota: por un argumento similar al anterior \(\lim_{n\to \infty} f(\tilde{a}_n)\) existe, denotemoslo \(\tilde{y}\). Es decir 
+          \(\lim_{n\to \infty} d_Y(f(\tilde{a}_n),\tilde{y})=0\).
+          
+        </p>
+        <p>
+          Utilizando que 
+          \[
+          \lim_{n\to \infty} d_X(a_n,x)=0=\lim_{n\to \infty} d_X(\tilde{a}_n,x)
+          \]
+
+          y la desigualdad del triángulo deducimos que 
+          \(\lim_{n\to \infty} d_X(a_n,\tilde{a}_n) =0\). Entonces se sigue del <a href="#Ejer:UnifContinuaYSucCercanas">Ejercicio 10.8</a> que 
+          \[
+          \lim_{n\to \infty} d_Y(f(a_n),f(\tilde{a}_n)) =0.
+          \]
+          Si ahora consideramos la desigualdad
+          \[
+          d_Y(y,\tilde{y})\leq  d_Y(y,f(a_n))+d_Y(f(a_n),f(\tilde{a}_n))+d_Y(f(\tilde{a}_n),y')
+          \]
+          y tomamos límite cuando \(n\to \infty\) concluimos que \(d_Y(y,\tilde{y})=0\). Es decir 
+          \(\lim_{n\to \infty}f(a_n)=y=\tilde{y}=\lim_{n\to \infty}f(\tilde{a}_n)\). Esto termina la prueba de que 
+          \(F\) está bien definida.
+        </p>
+        <p>
+          Como una consecuencia de que \(F\) está bien definida se tiene que \(F(a)=f(a)\) para toda \(a\in D\). En efecto, dado \(a\in D\), simplemente 
+          usamos la sucesión constante \(a_n=a\) para llegar que 
+          \[
+          F(a)=\lim_{n\to \infty} f(a)=f(a).
+          \]
+        </p>
+        <p>
+          Resta probar que \(F\) es uniformemente continua. Sea \(\varepsilon>0\) fija y arbitraria y 
+          sea \(\delta >0\) la de la continuidad uniforme de \(f\) en \(D\) para \(\varepsilon/2\). Afirmamos
+          que si \(x,x'\in X\) y \(d(x,x')< \delta\) entonces \(d_Y(F(x),F(x'))< \varepsilon\). Razón: 
+          sean sucesiones \((a_n)_{n=1}^\infty, (a_n')_{n=1}^\infty \subseteq D\) tales que 
+          \[
+          \lim_{n\to \infty} d_X(x,a_n)=0, \quad \lim_{n\to \infty} d_X(x',a_n')=0.
+          \]
+        </p>
+        <p>
+          Usando que la función distancia es continua y ya que tenemos la desigualdad \(d_X(x,x')< \delta\),
+          los límites anteriores aseguran que existe un \(N\in \mathbb{N}\) tal que para todo 
+          \(n\geq N\), \(d_X(a_n,a_n')< \delta \). Por la continuidad uniforme de \(f\) en \(D\) se sigue que 
+          \[d_Y(f(a_n),f(a_n')) < \varepsilon/2\]
+          
+          Pero por la definición de la función \(F\),  
+          \[
+          F(x)=\lim_{n\to \infty} f(a_n), F(\tilde{x})=\lim_{n\to \infty} f(a_n')
+          \]
+          asi que al tomar límite cuando \(n\to \infty\) en la desigualdad anterior y utilizando 
+          que la función distancia es continua llegamos a que 
+          \[
+          d_Y(F(x),F(\tilde{x})) \leq \varepsilon/2 < \varepsilon
+          \]
+          probando lo que queremos.
+        </p>
+      </div>
+      </div>
+
+
+      <div class="coro-box">
+        <h2 class="number-title"> Corolario </h2>
+        <p>
+          Si \((\tilde{X}, \tilde{d})\) y \((\hat{X}, \hat{d})\) son dos
+          completaciones de \((X,d)\) entonces ambas son isométricas.
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          Debemos de probar que existe una biyección \(F:\tilde{X}\to \hat{X}\) que cumple 
+          \(\hat{d}(F(x),F(y))=\tilde{d}(x,y)\), para todos \(x,y\in \hat{X}\).
+        </p>
+        <p>
+          Sean \(\alpha: X \to \tilde{X}, \beta:X \to \hat{X}\) isometrías tal que 
+          \(\alpha(X)\) es denso en \(\tilde{X}\) y \(\beta(X)\) es denso en \(\hat{X}\). 
+        </p>
+        
+        <p>
+          Vamos a definir \(f: \alpha(X) \to \hat{X} \) mediante 
+          \[
+          f(\alpha(x))=\beta(x)
+          \]
+          Esta función está bien definida pues \(\alpha\) es inyectiva. Además \(f\) es isometría pues 
+          al ser \(\alpha\) y \(\beta\) isometrías 
+          \[
+          d_{\tilde{X}}(\alpha(x),\alpha(x'))=d(x,x')=d_{\hat{X}}(\beta(x),\beta(x'))
+          \]
+          lo cual se puede reescribir como 
+          \[
+          d_{\tilde{X}}(\alpha(x),\alpha(x'))=d(x,x')=d_{\hat{X}}(f(\alpha(x)),f(\alpha(x'))).
+          \]
+        </p>
+        
+        <p>
+          La idea para encontrar \(F\) es completar el siguiente diagrama extendiendo la función 
+          \(f\)
+          \[
+          \begin{array}{ccc} 
+           \tilde{X} & \xrightarrow{F}  & \hat{X} \\
+           \uparrow   &   &   \uparrow  \\
+           \alpha(X)  & \xrightarrow{f} &  \beta(X) 
+          \end{array}
+          \]
+        </p>
+        
+         <p>
+          Al ser \(f\) isometría también es uniformemente continua en \(\alpha(X)\). Por el 
+          <a href="#Teo:ExtensionFunUnifCont">Teorema 10.12</a> se puede extender \(f\) a una función uniformemente continua 
+          \(F:\tilde{X}\to \hat{X}\) tal que \(F(\alpha(x))=f(\alpha(x))=\beta(x)\). Se sigue que 
+          para todo \(x,x'\in X\),
+          \[
+          d_{\hat{X}}(F(\alpha(x)), F(\alpha(x')))=d_{\tilde{X}}(\alpha(x), \alpha(x')),
+          \]
+          pero \(\alpha(X)\) es denso en \(\tilde{X}\) así que la identidad anterior implica que 
+          \[
+          d_{\hat{X}}(F(\tilde{x}), F(\tilde{x}')))=d_{\tilde{X}}(\tilde{x}, \tilde{x}')
+          \]
+          para todos \(\tilde{x},\tilde{x}'\in \tilde{X}\), probando que \(F\) es una isometría.
+        </p>
+      
+          <p>
+            Al ser isometría \(F\) es inyectiva, resta probar que \(F\) es suprayectiva. Pero 
+            por construcción de \(F\), \(F(\alpha(x))=\beta(x)\) para toda \(x\in X\). Por lo tanto 
+            \(F(\alpha(X))=\beta(X)\). Tomando cerradura en ambos lados y usando que \(\hat{X}\) es 
+            una completación 
+            llegamos a 
+            \[
+            \overline{F(X)}=\overline{\beta(X)}=\hat{X}
+            \]
+            pero al ser \(F\) isometría, \(\overline{F(\alpha(X))}=F(\overline{\alpha(X)})=F(\tilde{X})\). 
+            Por lo tanto \(F(\tilde{X})=\hat{X}\) y \(F\) es suprayectiva.
+          </p>
+          </div>
+        
+      </div>
+
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(D \subseteq X\)
+          un subconjunto denso de \(X\). Prueba que
+          \(M\) es isométrico a un subconjunto de \(\ell_\infty(D)\).
+        </p>
+        <p>
+          En particular si \((X,d)\) es separable entonces
+          es isométrico a un subconjunto de \(\ell_\infty\).
+        </p>
+        <p>
+          Sugerencia: primero prueba que \(D\) es isométrico a
+          un subconjunto de \(\ell_\infty(D)\)
+          (ver <a href="./S9.html#Lema:XisometricoSubLinfty">Lema 2.29</a>),
+          después usa el  <a href="#Teo:ExtensionFunUnifCont"> Teorema 10.17</a>.
+        </p>
+      </div>
+
+
+
+
+         <!--   <div class="nota-box">
+              <h2 class="number-title"> Nota </h2>
+              <p>
+                En los ejercicios que restan se enfoca la atención al caso
+                de espacios vectoriales normados y y funciones lineales.
+              </p>
+            </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Fija \(y\in \ell_\infty\) y define \(f:\ell_1 \to \ell_1\)
+          por \(f(x)=(x_ny_n)_{n=1}^\infty\). Prueba que
+          \(f\) es uniformemente continua en \(\ell_1\).
+        </p>
+      </div>
+
+
+
+
+
+
+
+      <div class="lema-box">
+        <h2 class="number-title" id="Lema:LinealesAcotadas"> Lema </h2>
+        <p>
+          Sean \((V,\|\cdot \|_V)\), \((W,\|\cdot \|_W)\) dos
+          espacios vectoriales normados y \(T:V \to W\) una
+          función lineal. Las siguientes condiciones son equivalentes.
+        </p>
+        <ol>
+          <li> \(T\) es continua en \(0\). </li>
+
+          <li> Existe una constante \(C > 0\) que satisface
+            \[
+            \|Tv\|_W \leq C \|v\|_V
+            \]
+            para toda \(v\in V\).
+        </ol>
+        <p>
+          Nota: para facilitar la notación se suele omitir el subíndice de la norma, por ejemplo 
+          la desigualdad anterior qudería como \(\|Tv \| \leq C\|v\|\), entendiento que la normas 
+          dependen del espacio en que se evaluan. 
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+        <p>
+          \(1 \Rightarrow 2 ]\)
+        </p>
+        <p>
+           Ya que \(T\) es continua en \(0\), dado \(\varepsilon=1\)
+          existe una \(\delta > 0\) tal que si \(\|u\| < \delta \) entonces 
+          \(\|Tu - T0\| = \|Tu\| < 1 \). Ahora, si \(v\in V\) es arbitrario, con \(v\ne 0\), 
+          entonces \(u=\frac{\delta}{2\|v\|} v \) satisface \(\|u\| < \delta \) por lo que 
+          \[
+          1 > \| Tu \|= \frac{\delta }{2\|v\|}\|Tv\|
+          \]
+          lo cual implica \(\|Tv\| \leq C\|v\|\) donde tomamos \(C=2/\delta\). 
+        </p>
+        <p>
+          \(1 \Leftarrow 2 ]\)
+        </p>
+        <p>
+          Supongamos que 
+          \[
+          \|Tv\| \leq C\|v\|
+          \]
+          para todo \(v\in V\). Para probar que \(T\) es continua en \(0\), dada \(\varepsilon >0\)
+          proponemos \(\delta= \frac{\varepsilon}{C}\). Entonces si \(0< \|u\| < \delta \) se sigue que 
+          \[
+          \| Tu - T0\| =\|Tu\| \leq C \| u\| < C \delta =C\frac{\varepsilon}{C}= \varepsilon
+          \]
+          probando que \(T\) es continua en \(0\).
+        </p>
+      </div>
+      </div>
+
+
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+
+        <p>
+          Sean \((V,\|\cdot \|_V)\), \((W,\|\cdot \|_W)\) dos
+          espacios vectoriales normados y \(T:V \to W\) una
+          función lineal. Las siguientes condiciones son equivalentes.
+        </p>
+        <ol>
+          <li>
+            \(T\) es continua en todo \(V\).
+          </li>
+          <li>
+            \(T\) es Lipschitz (orden 1) y por lo tanto uniformemente continua en \(V\).
+          </li>
+          <li>
+            \(T\) manda subconjuntos acotados en subconjuntos acotados.
+          </li>
+        </ol>
+        <p>
+          Notas.
+        </p>
+        <ul>
+          <li>
+            Por este terema a las funciones lineales continuas también se les llamda 
+             funciones lineales acotadas.
+           </li>
+           <li>
+            Para funciones NO lineales este teorema no es cierto. 
+           </li>
+        </ul>
+        <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+        <p>
+          \( 1 \Rightarrow 2] \)
+        </p>
+        <p>
+          Si \(T\) es continua en \(0\), por el <a href="#Lema:LinealesAcotadas">Lema anterior </a> existe un \(C>0\) tal que 
+          \[
+          \|Tv\| \leq C\|v\|
+          \]
+          para toda \(v\in V\). Al usar la linealidad de \(T\) la desiualdad anterior implica 
+          \[
+          \|Tu-Tv\| = \|T(u-v)\| \leq C\|u-v\|
+          \]
+          por lo que \(T\) es Lipschtiz continua de orden 1 y por lo tanto uniformemente continua
+          (ver <a href="#Ejer:FuncionesLipschitz">Ejercicio 10.7</a>). 
+        </p>
+        <p>
+          \(2 \Rightarrow 3 ]\)
+        </p>
+        <p>
+          Supongamos que \(T\) es Lipschitz continua de orden 1 y sea \(B \subset V\) un subconjunto acotado.
+          Debemos de probar que \(T(B)\) es acotado, es decir, está contenido en una bola.
+        </p>
+        <p>
+          Al ser \(T\) Lipschitz orden 1, existe \(K>0\) tal que 
+          \[
+          \|Tv-Tu\| \leq k\|u-v\|
+          \]
+          para todos \(u,v\in V\). Ahora, al ser \(B\) acotado existe un \(R > 0\) tal que 
+          \(\|b\| \leq R\) para todo \(b\in B\). Se sigue que 
+          \[
+          \|Tb\| = \|Tb-T0\| \leq K \|b-0\|=K\|b\| \leq KR  
+          \]
+          por lo que \(T(B)\) está contenido en la bola de radio \(KR\) con centro en el origen.
+        </p>
+        <p>
+          \(3 \Rightarrow 1 ]\)
+        </p>
+        <p>
+          Supongamos que \(T\) manda subconjuntos acotados en subconjuntos acotados. Debemos de 
+          probar que \(T\) es continua en \(0 \) y por el <a href="#Lema:LinealesAcotadas">Lema anterior </a>
+          es suficiente probar que existe un \(C>0\) tal que 
+          \[
+          \|Tv\| \leq C\|v\|
+          \]
+          para toda \(v\in V\).
+        </p>
+        <p>
+          Si \(B=\{ x\in V: \|x\| \leq 1\}\) la hipótesis implica que \(T(B)\) es un conjunto acotado. Por lo tanto 
+          exite una \(C>0\) tal que \(\|Tx\| \leq C\) para todo \(x\in B\). Ahora, dado 
+          \(v\in V\) distinto de cero tenemos que \(x=\frac{1}{\|v\|}v \in B \) y por lo tanto 
+          \[
+          C \geq \|Tx\|=\frac{1}{\|v\|}\|Tv\| \Rightarrow C\|v\| \geq \|Tv\|
+          \]
+        </p>
+        </div>
+      </div>
+
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <h3>
+          Operadores acotados.
+        </h3>
+        <p>
+          En ciertas areas del análisis se les llama operadores lineales
+          a las funciones lineales entre espacios vectoriales. Por el
+          teorema anterior la continuidad de un operador lineal es equivalente
+          a la propiedad de que preserve conjuntos acotados, por ésta característica
+          a los operadores lineales continuos también se les llama operadores
+          acotados. El conjunto de  operadores acotados entre dos espacios
+          vectoriales es a su vez un espacio vectorial, con las operaciones
+          usuales de suma y producto escalar de funciones, y se le puede dotar
+          de una norma para hacerlo un espacio vectorial normado.
+        </p>
+        <p>
+          La idea de cómo asociar una norma a una operador lineal
+          \(T:V\to W\) viene, otra vez, del hecho de que preserva conjuntos
+          acotados. Preservar conjuntos acotados es, en escencia, el hecho
+          de que  \(T(B_r(v))\) es acotado, para cualquier bola. Analizando
+          el conjunto \(T(B_r(v))\) observamos que, usando
+          la linealidad de \(T\), \(T(B_r(v))=rT(B_1(0))+T(v)\),
+          por lo tanto el comportamiento de \(T\) en \(B_1(0)\)
+          es fundamental y la norma de \(T\) va a cuantificar éste comportamiento
+          (ver <a href="#Ejer:EquivalNormasOp">Ejercicio 10.21 </a>).
+        </p>
+      </div>
+
+
+      <div class="definicion-box">
+        <h2 class="number-title" id="Def:NormaOperador"> Definición </h2>
+        <p>
+          Sean \((V,\|\cdot\|_V, (W,\|\cdot\|_W))\) dos espacios
+          vectoriales normados. Por \(B(V,W)\) denotamos
+          al conjunto de funciones lineales y acotadas de \(V\) en \(W\).
+        </p>
+        <p>
+          Dado \(T\in B(V,W)\) definimos
+          \[
+          \|T\|=\inf\{ C\geq 0: \|T(v)\|_W \leq C\|v\|_V, \quad
+            \textrm{para toda \(v\in V\)}\}
+          \]
+          El número \(\|T\|\) se llama la norma del operador \(T\)
+          y realmente define una norma en el espacio vectorial \(B(V,W)\)
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:EquivalNormasOp"> Ejercicio </h2>
+        <p>
+          Sea \(T\in B(V,W)\). Prueba que
+          \[
+          \|T\|=\sup_{x\in V, x\ne 0} \left\{ \frac{\|Tx\|}{\|x\|} \right\},
+          \]
+          \[
+          \|T\|=\sup_{x\in B_1(0)} \{ \| T(x)\|\}
+          \]
+          y que \(\|T(x)\| \leq \|T\| \|x\| \), para toda \(x\in V\).
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Prueba que la norma del operador
+          (<a href="#Def:NormaOperador">Definición 10.19</a>) es una norma
+          en \(B(V,W)\).
+        </p>
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Fija \(y\in \mathbb{R}^n\) y define la función lineal
+          \(L:\mathbb{R}^n \to \mathbb{R}\) dada por
+          \(L(x)=\langle x, y \rangle\). Prueba que \(L\) es continua
+          y calcula
+          \[
+          \|L\|=\sup_{x\in \mathbb{R}^n, x\ne 0}\left\{ \frac{\|L(x)\|_2}{\|x\|_2} \right\}
+          \]
+          Sugerencia: Cauchy-Schwartz.
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Considera el espacio vectorial de las funciones continuas
+          \(C([a,b])\) con la norma uniforme
+          \[
+          \|f\|=\sup_{t\in [a,b]}\{|f(t)|\}
+          \]
+          Define la función lineal \(I:C([a,b])\to \mathbb{R}\) por
+          \[
+          I(f)=\int_a^b f(t)dt
+          \]
+          Prueba que \(I\) es continua y encuentra \(\|I\|\).
+        </p>
+      </div>
+--> 
+
+      <div class="quiz-box">
+        <h2> Quiz  </h2>
+        <ol>
+            <li>
+              <p>
+                Prueba que toda función \(f:\mathbb{N}\to \mathbb{R}\) es uniformemente continua.
+              </p>
+              <p>
+                Nota: \(\mathbb{N}\) y \(\mathbb{R}\) tienen la métrica usual.  
+              </p>        
+            </li>
+            <li>
+              Sea \((X,d)\) un espacio métrico y sean \(f,g:X \to \mathbb{R}\) dos funciones uniformemente continuas. Prueba que la suma 
+              también es uniformemente continua.
+             </li>
+        </ol>
+        </div>
+  
+
+    </div>
+
+  </body>
