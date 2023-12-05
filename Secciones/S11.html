@@ -98,18 +98,18 @@
         <p>
           Sea \(X\) cualquier conjunto, \((Y,d)\) un espacio métrico y consideremos
           una sucesión de funciones  \((f:X \to Y)_{n=1}^\infty\).
-          Decimos que la sucesión converge puntualmente en \(X\) si,
-          para todo punto \(x\in X\) el siguiente límite existe en \((Y,d)\):
+          Decimos que la sucesión converge puntualmente en un subconjunto  \(A \subseteq X\) si,
+          para todo punto \(x\in A\) el siguiente límite existe en \((Y,d)\):
           \[
           \lim_{n\to \infty} f_n(x).
           \]
 
         </p>
         <p>
-          Definimos la función \(f:X \to Y\) por
+          Definimos la función \(f:A \to Y\) por
           \(f(x):=\lim_{n\to \infty}f_n(x)\). Con esta notación
           decimos que la sucesión de funciones \((f_n)_{n=1}^\infty\)
-          converge puntualmente a \(f\).
+          converge puntualmente a \(f\) en \(A\) (o sobre \(A\)).
         </p>
         <p>
           Nota: a veces el límite \(\lim_{n\to \infty}f_n(x)\) es conocido
@@ -128,7 +128,7 @@
             Por lo tanto, la sucesión de funciones
             \(f_n:\mathbb{R}\to \mathbb{R}\) dada por
             \(f_n(x)=\left(1+\frac{x}{n}\right)^n\) converge puntualmente
-            a la función exponencial.
+            a la función exponencial en todo \(\mathbb{R}\).
           </li>
           <li>
             Definamos la sucesión de funciones \(f_n:[-1,1]\to \mathbb{R}\)
@@ -373,14 +373,12 @@
           <p>
             Sea \(X\) un conjunto cualquiera y \((f_n:X\to \mathbb{R})_{n=1}^\infty\)
             una sucesión de funciones. Decimos que la sucesión
-            \((f_n)_{n=1}^\infty\) converge uniformemente en \(X\) a una función
-            \(f:X\to \mathbb{R}\) si:
-          </p>
-          <p>
+            \((f_n)_{n=1}^\infty\) converge uniformemente en el subconjunto \(A \subseteq X\), si  
+            existe una  función \(f:A\to \mathbb{R}\) tal que 
             para toda \(\varepsilon >0\), existe una \(N\in \mathbb{N}\)
-            con la propiedad de que, para toda \(x\in X\)
+            con la propiedad de que, para toda \(x\in X\) y \(n \geq N\):
             \[
-            |f_n(x)-f(x)| < \varepsilon \quad \textrm{para toda \(n \geq N\)}.
+            |f_n(x)-f(x)| < \varepsilon 
             \]
           </p>
           <p>
@@ -406,9 +404,9 @@
                uniformemente a \(f\) en \(X\) si:
                <p>
                  Para toda \(\varepsilon >0\), existe una \(N\in \mathbb{N}\)
-                 con la propiedad de que, para toda \(x\in X\)
+                 con la propiedad de que, para toda \(x\in X\) y toda \(n \geq N\):
                  \[
-                 d_Y(f_n(x),f(x)) < \varepsilon \quad \textrm{para toda \(n \geq N\)}.
+                 d_Y(f_n(x),f(x)) < \varepsilon 
                  \]
                  donde la única diferencia es que se usa la distancia en el espacio \(Y\)
                  en vez del valor absoluto.
@@ -416,9 +414,9 @@
              </li>
              <li>
                La convergencia uniforme depende mucho del dominio de las funciones.
-               Puede pasar que una sucesión no sea uniformemente convergente en
-               \(X\) pero sí sea uniformemente convergente en un subconjunto propio de
-               \(X\).
+               Puede pasar que una sucesión no sea uniformemente convergente en \(A\)
+               pero sí sea uniformemente convergente en un subconjunto propio de
+               \(A\).
              </li>
            </ol>
          </div>
@@ -426,38 +424,39 @@
 
            <div class="nota-box">
              <h2 class="number-title"> Nota </h2>
-             <h3 > Convergencia uniforme y la norma \(\|\cdot\|_\infty\)</h3>
+             <h3 > Convergencia uniforme y la norma uniforme </h3>
            <p>
              Otra forma de reescribir la convergencia uniforme es
-             con la norma infinito. Recordamos que para una
+             con la norma uniforme o norma infinito. Recordamos que para una
              función \(g:X\to \mathbb{R}\) acotada
              \[
-             \|g\|_\infty=\sup_{x\in X}\{|g(x)| \}
+             \|g\|_X:=\sup_{x\in X}\{|g(x)| \}
              \]
+             Si el dominio es claro también se escribe \(\|g\|_\infty\).
              Con esta notación se puede escribir la convergencia
              uniforme de la siguiente forma.
            </p>
            <p>
              La sucesión \((f_n:X\to \mathbb{R})_{n=1}^\infty\) converge
-             uniformemente en \(X\) a la función \(f:X\to \mathbb{R}\) si,
+             uniformemente en el subconjunto \(A\subseteq X\) a la función \(f:X\to \mathbb{R}\) si,
              para toda \(\varepsilon > 0\) existe una \(N \in \mathbb{N}\)
-             tal que
+             tal que para toda \(n\geq N\)
              \[
-             \|f_n-f\|_\infty <  \varepsilon \quad \textrm{para toda \(n\geq N\)}
+             \|f_n-f\|_A <  \varepsilon 
              \]
-             Esta forma de escribir tiene la ventaja de que \(\|f_n-f\|_\infty\)
+             Esta forma de escribir tiene la ventaja de que \(\|f_n-f\|_A\)
              es un número real. Así
-             la convergencia uniforme está codificada en la sucesión de números
-             reales \((\|f_n-f\|_\infty)_{n=1}^\infty\) y notamos que, en términos de
+             la convergencia uniforme sobre \(A\) está codificada en la sucesión de números
+             reales \((\|f_n-f\|_A)_{n=1}^\infty\) y notamos que, en términos de
              esta sucesión, la convergencia uniforme se puede escribir
              simplemente como
              \[
-             \lim_{n\to \infty}\| f_n-f\|_\infty = 0,
+             \lim_{n\to \infty}\| f_n-f\|_A= 0,
              \]
              claro que el problema importante es calcular los números
-             \(\|f_n-f\|_\infty\).
+             \(\|f_n-f\|_A\).
            </p>
-           <p>
+           <!-- <p>
              En la <a href=""> Nota 3.19</a> vimos una forma de visualizar
              la bolas abiertas en la norma \(\|\cdot\|_\infty\),
              \[
@@ -472,7 +471,7 @@
              converge uniformemente a \(f\) si las gráficas de
              \(f_n\) se van metiendo en franjas alrededor de \(f\) de
              radios cada vez más pequeños.
-           </p>
+           </p>-->
            <p>
              Ejemplos.
            </p>
@@ -484,11 +483,11 @@
                usamos que \(|\sen(\theta)| \leq 1\) para toda \(\theta\)
                para obtener
                \begin{eqnarray*}
-               \| f_n-0\|_\infty&=&  \|f_n\| \\
+               \| f_n-0\|_\mathbb{R}&=&  \|f_n\|_{\mathbb{R}} \\
                &=& \sup_{x\in \mathbb{R}}\left\{\frac{1}{n}|\sen(nx)| \right\}  \\
                &\leq & \frac{1}{n}
                \end{eqnarray*}
-               Por lo tanto \(\lim_{n\to \infty} \|f_n\|=0\).
+               Por lo tanto \(\lim_{n\to \infty} \|f_n\|_{\mathbb{R}}=0\).
              </li>
              <li>
                Consideremos \(f:[a,b]\to \mathbb{R}\) cualquier función y
@@ -499,8 +498,8 @@
                \[
                |f_n(x)-f(x)|=\frac{1}{n}
                \]
-               por lo que \(\|f_n-f\|_\infty \leq \frac{1}{n}\)
-               y por lo tanto \(\lim_{n\to \infty}\|f_n-f\|_\infty = 0\).
+               por lo que \(\|f_n-f\|_{[a,b]} \leq \frac{1}{n}\)
+               y por lo tanto \(\lim_{n\to \infty}\|f_n-f\|_{[a,b]} = 0\).
              </li>
            </ol>
         </div>
@@ -510,7 +509,7 @@
           <h2 class="number-title"> Ejercicio </h2>
           <p>
             Investiga si las siguientes sucesiones de funciones convergen
-            uniformemente  ó no a la función constante cero.
+            uniformemente  ó no, sobre el dominio dado, a la función constante cero.
           </p>
           <ol>
             <li>
@@ -522,7 +521,7 @@
               \(f_n(x)=xe^{-2nx}\).
             </li>
           </ol>
-          Sugerencia: usa cálculo para encontar \(\|f_n\|_\infty\).
+          Sugerencia: usa cálculo para encontar la norma uniforme de cada \(f_n\).
         </div>
 
 
