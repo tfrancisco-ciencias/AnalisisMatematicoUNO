@@ -528,25 +528,29 @@
 
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Sea \((f_n:X\to \mathbb{R})_{n=1}^\infty\) una sucesión
-            de funciones. Prueba que \((f_n)_{n=1}^\infty\) NO
-            converge uniformemente en \(X\)  a la función
-            \(f:X\to \mathbb{R}\) si y sólo si
-            existe un \(\varepsilon_0>0\), una subsucesión
-            \((f_{n_k})_{k=1}^\infty\)
-            y una sucesión de puntos en \(X\), \((x_n)_{n=1}^\infty \subset X\)
-            que satisface
-            \[
-            |f_{n_k}(x_k)-f(x_k)| \geq \varepsilon_0
-            \]
-            para toda \(k \geq 1\).
-          </p>
-          <p>
-            Usa esto para dar otra prueba de que la sucesión
-            \((f_n:(-1,1)\to \mathbb{R})_{n=1}^\infty\)
-            dada por \(f_n(x)=x^n\), no converge uniformemente en \((-1,1)\).
-          </p>
+          <ol>
+            <li>
+              Sea  \(X\) un conjunto, \(A\subseteq X\) y \((Y,d_Y)\) un espacio 
+              métrico. Prueba que la sucesión de funciones \((f_n:X\to Y)_{n=1}^\infty\) 
+               NO
+              converge uniformemente en \(A\)  a la función
+              \(f:A \to \mathbb{R}\) si y sólo si
+              existe un \(\varepsilon_0>0\), una subsucesión
+              \((f_{n_k})_{k=1}^\infty\)
+              y una sucesión  \((a_n)_{n=1}^\infty \subset A \)
+              que satisface
+              \[
+              d_Y(f_{n_k}(a_k), f(a_{k})) \geq \varepsilon_0
+              \]
+              para toda \(k \geq 1\).
+            </li>
+            <li>
+              Usa esto para dar otra prueba de que la sucesión
+              \((f_n:\mathbb{R}\to \mathbb{R})_{n=1}^\infty\)
+              dada por \(f_n(x)=x^n\), no converge uniformemente en \((-1,1)\) a la función cero.
+            </li>
+          </ol>
+          
         </div>
 
 
@@ -598,20 +602,20 @@
           </h3>
           <p>
             Si una sucesión de funciones \((f_n:X\to \mathbb{R})_{n=1}^\infty\)
-            converge uniformemente en \(X\) a una función
-            \(f:X\to \mathbb{R}\) entonces también converge puntualmente, pero
-            no al revés. Para ver la implicación sabemos que, por la convergencia
+            converge uniformemente en \(A\subseteq X\) a una función
+            \(f:A \to \mathbb{R}\) entonces también converge puntualmente.
+            Para ver la implicación sabemos que, por la convergencia
             uniforme tenemos
             \[
-            \lim_{n\to \infty}\|f_n-f\|_\infty = 0,
+            \lim_{n\to \infty}\|f_n-f\|_A = 0,
             \]
-            pero, por la definición de la norma \(\|\cdot\|_\infty\)
-            tenemos que, para toda \(x\in X\), \(|f_n(x)-f(x)|\leq \|f_n-f\|_\infty \),
+            pero, por la definición de la norma \(\|\cdot\|_A\)
+            tenemos que, para toda \(a \in A\), \(|f_n(a)-f(a)|\leq \|f_n-f\|_A \),
             por lo tanto
             \[
-            0\leq \lim_{n\to \infty} |f_n(x)-f(x)|\leq \lim_{n\to \infty} \|f_n-f\|_\infty=0
+            0\leq \lim_{n\to \infty} |f_n(a)-f(a)|\leq \lim_{n\to \infty} \|f_n-f\|_A=0
             \]
-            es decir, \(\lim_{n\to \infty} f_n(x)=f(x)\).
+            es decir, \(\lim_{n\to \infty} f_n(a)=f(a)\).
           </p>
           <p>
             La implicación
@@ -621,12 +625,12 @@
             nos da un punto de partida para investigar la convergecia
             de una sucesión de funciones dadas. Por ejemplo, si queremos
             investigar la convergencia uniforme
-            de la sucesión \((f_n:X\to \mathbb{R})_{n=1}^\infty\), lo
-            primero que hacemos es calcular, para toda \(x\in X\),
-            el límite \(\lim_{n\to \infty} f_n(x)\), después definimos
-            la función \(f(x)=\lim_{n\to \infty}f_n(x)\) y para la
+            de la sucesión \((f_n:X\to \mathbb{R})_{n=1}^\infty\) sobre \(A\), lo
+            primero que hacemos es calcular o investigar la convergencia del
+            límite \(\lim_{n\to \infty} f_n(a)\), para toda \(a\in A\). Después definimos
+            la función \(f(a)=\lim_{n\to \infty}f_n(a)\) y para la
             convergencia uniforme se estiman las normas
-            \(\|f_n-f\|_\infty\).
+            \(\|f_n-f\|_A\).
           </p>
           <p>
             La implicación de regreso:
@@ -990,15 +994,16 @@
         <div class="definicion-box">
           <h2 class="number-title"> Definición </h2>
           <p>
-            Sea \(X\) un conjunto cualquiera. Decimos que una
-            sucesión de funciones \((f_n:X\to \mathbb{R})_{n=1}^\infty\)
+            Sea \(X\) un conjunto cualquiera y 
+            \((Y,d_Y)\) un espacio métrico. Decimos que una
+            sucesión de funciones \((f_n:X\to Y)_{n=1}^\infty\)
             es uniformemente de Cauhcy (o Cauchy-uniforme) en \(X\) si:
           </p>
           <p>
             para toda \(\varepsilon > 0 \) existe \(N\in \mathbb{N}\)
-            con la propiedad de que, para todo \(x\in X\)
+            con la propiedad de que, para todo \(x\in X\) y  para todos \(n,m \geq N\)
             \[
-            | f_n(x)-f_m(x)| < \varepsilon \quad  \textrm{para todos \(n,m \geq N\)}
+            | f_n(x)-f_m(x)| < \varepsilon 
             \]
           </p>
 
@@ -1007,34 +1012,22 @@
 
         <div class="teorema-box">
           <h2 class="number-title"> Teorema </h2>
-
           <p>
-            Sea \((f_n:X\to \mathbb{R})_{n=1}^\infty\) una sucesión
+            Sea \((Y,d_Y)\) un espacio métrico completo y \(X\) un conjunto cualquiera.
+          </p>
+          <p>
+            Sea \((f_n:X\to Y)_{n=1}^\infty\) es una sucesión
             de funciones que es uniformemente de Cauchy en \(X\).
           </p>
           <p>
-            Entonces existe \(f:X\to \mathbb{R}\) tal que
-            \((f_n)_{n=1}^\infty\) converge uniformemente en \(X\) a \(f\).
+            Entonces existe \(f:X\to Y\) tal que
+            \((f_n)_{n=1}^\infty\) converge uniformemente a \(f\) en \(X\).
           </p>
 
         </div>
 
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Considera \(\mathcal{B}(X)\), el espacio de funciones acotadas sobre un
-            conjunto \(X\) con valores en \(\mathbb{R}\)  dotado
-            con la norma uniforme, \(\|\cdot\|_\infty\)
-            (ver <a href="./S3.html#Ejer:EspacioFunAcotadas">Ejercicio 3.18</a>).
-          </p>
-          <p>
-            Prueba que el espacio \((\mathcal{B}(X), \|\cdot\|_\infty)\)
-            es completo.
-          </p>
-        </div>
 
-
-        <div class="ejercicio-box">
+<!--         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
 
           <p>
@@ -1054,7 +1047,7 @@
             Prueba que \((C(X), \|\cdot\|_\infty)\) es un espacio completo.
           </p>
 
-        </div>
+        </div>-->
 
 
         <div class="teorema-box">
