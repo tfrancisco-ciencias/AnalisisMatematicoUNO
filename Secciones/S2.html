@@ -41,6 +41,7 @@
 
 
 
+
   <!-- Top Menu -->
 
   <header class="main-header">
@@ -51,7 +52,6 @@
         <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
         <li> <a href="../Secciones.html"> Secciones  </a> </li>
       </ul>
-     
     </nav>
     <label class="switch">
       <input type="checkbox" onclick="myFunction()">
@@ -65,752 +65,1240 @@
   <!-- This part is for title in tab-->
   <title id="Sec"> § 2 </title>
 
+
   <!--    Contenido empiaza abajo
  ///////////////////////////////// -->
 
+</head>
 
-  <body class="flexbox card fondo-body">
+  <body class="flexbox  fondo-body">
 
-
-    <div class="flexbox">
-      <h1 class="number-title flexbox"> Espacios métricos. </h1>
-      <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
-      <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
-
-      <div class="info-box">
-        <h2 class="number-title"> Introducción </h2>
-
-        <p>
-          Los espacios métricos son la estrella del curso y en ésta sección
-          se presentan su definición, ejemplos así como algunas propiedades
-          básicas que se usarán en el resto del curso. Intuitivamente un
-          espacio métrico es un conjunto donde podemos medir la distancia
-          entre sus elementos. Los ejemplos más conocidos son \(\mathbb{R}^n\)
-          con la métrica euclidiana pero otros ejemplos que serán importantes
-          son los espacios de funciones, con la métrica del supremo.
-        </p>
-
-      </div>
-
-
-
-      <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
-        <p>
-          Sea \(X\) un conjunto no vacío. Una métrica
-          en \(X\) es una función \(d:X\times X \to \mathbb{R}\)
-          que satisface, para todos \(x,y,z\in X\):
-          <ol>
-            <li>  \(d(x,y) \geq 0\), </li>
-            <li> \(d(x,y)=0\) si y sólo si \(x=y\), </li>
-            <li>  \(d(x,y)=d(y,x)\),</li>
-            <li> desigualdad del triángulo: \(d(x,y)\leq d(x,z)+d(z,y)\).</li>
-          </ol>
-        </p>
-        <p>
-          Un espacio métrico es una pareja \((X,d)\), donde
-          \(X\) es un conjunto no vacío y \(d\) es una métrica en \(X\).
-        </p>
-
-
-        <button class="respButton hvr-grow"> Ejemplos </button>
-        <div class="resp-box flexbox">
-            <div class="flexbox">
-              <iframe width="700" height="400" class="video"
-                src="https://www.youtube.com/embed/B3Rv-miv_MI" allowfullscreen="true"> 
-              </iframe>
-            </div>
-        </div>
-
-      </div>
-
-    <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
-      <p>
-        Prueba que \(d(x,y)=\left| \frac{1}{x}-\frac{1}{y} \right| \)
-        es una métrica en \((0,\infty)\).
-      </p>
-
-      <button class="respButton hvr-grow"> Respuesta </button>
-      <div class="resp-box">
-          <p>
-              Empecemos por notar que si \(x,y \in (0,\infty)\) entonces \(\frac{1}{x}\)
-              y \(\frac{1}{y}\) están bien definidos. Asímismo, \(\left|z \right| \geq 0\)
-              para toda \(z \in \mathbb{R}\) y es \(0\) únicamente cuando \(z = 0\), es
-              decir, \(d(x,y) \geq 0\) y se anula sólo cuando \(\frac{1}{x} = \frac{1}{y}\).
-              Como \(x,y \neq 0\) podemos multiplicar de ambos lados por éstos para obtener
-              que \(d(x,y) = 0\) si y sólo si \(x = y\).
-          </p>
-          <p>
-              La simetría se debe a que \(\left| z \right| = \left| -z \right|\) y
-              \(d(y,x) = \left| -(\frac{1}{x} - \frac{1}{y})\right| \).
-          </p>
-          <p>
-              Para terminar bastará probar la desigualdad del triángulo, pero ello es
-              consecuencia directa de la desigualdad del triángulo para el valor absoluto.
-              Si \(z \in (0,\infty)\) entonces
-              \begin{eqnarray*} 
-              d(x,y) &=&  \left| \frac{1}{x} - \frac{1}{y} \right| \\
-              &=&  \left| \frac{1}{x} - \frac{1}{z}
-              + \frac{1}{z} - \frac{1}{y} \right| \\
-              & \leq & \left| \frac{1}{x} - \frac{1}{z}\right|
-              + \left| \frac{1}{z} - \frac{1}{y} \right|  \\
-              &=& d(x,z) + d(z,y).
-              \end{eqnarray*}
-          </p>
-      </div>
-    </div>
-
-
-
-
-
-    <div class="ejercicio-box">
-      <h2 class="number-title" id="Ejer:LaOtraDesigTri"> Ejercicio </h2>
-      <p>
-        La otra desigualdad del triángulo.
-      </p>
-      <p>
-        Sea \((X,d)\) un espacio métrico. Prueba que para todos \(x,y,z\in X\)
-        \[
-        |d(x,z)-d(y,z)|\leq d(x,y).
-        \]
-      </p>
-    </div>
-
-    <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
-      <p>
-        Sea \((X,d)\) un espacio métrico. Define una nueva
-        función \(\rho:X\times X \to \mathbb{R}\) dada por
-        \[
-        \rho(x,y)=\frac{d(x,y)}{1+d(x,y)}
-        \]
-        Prueba que \(\rho\) es una métrica.
-      </p>
-      <p>
-        Sugerencia: considera la función \(\varphi:[0,\infty)\to [0,1)\)
-        dada por \(\varphi(t)=\frac{t}{1+t}\). Primera prueba que
-        \(\varphi\) es monótona creciente y que \(\varphi(s+t)\leq \varphi(s)+\varphi(t)\).
-      </p>
-
-      <button class="respButton hvr-grow"> Respuesta </button>
-      <div class="resp-box">
-      <p>
-        Tomando la función  \(\varphi:[0,\infty)\to [0,1)\) como en la sugerencia notamos que
-        \[
-        \rho(x,y)=\varphi(d(x,y)).
-        \]
-        De la ecuación anterior, y usando que \(d\) es una métrico, se puede
-        checar directamente que \(\rho\) satisface:
-        <ol>
-          <li>  \(\rho(x,y) \geq 0\). </li>
-          <li> \(\rho(x,y)=0\) si y sólo si \(x=y\). Ojo aquí se usa que
-            \(\varphi(t)=0 \) sii \(t=0\). </li>
-          <li>  \(\rho(x,y)=\rho(y,x)\).</li>
-        </ol>
-      </p>
-      <p>
-        La condición que no es tan clara es la desigualdad del triángulo.  Para
-        esto primero vamos a probar las dos condiciones dadas en la  sugerencia.
-      </p>
-
-      <ol>
-        <li>
-          Primero vamos a probar que \(\varphi\) es estrictamente creciente. Esto
-          se puede hacer de varias formas, veamos dos.
-        </li>
-          <p>
-            De mandera directa.
-          </p>
-          <p>
-            Tomamos \(0 \leq s < t\) y debemos de probar que \(\varphi(s)<\varphi(t)\)
-            o equivalentemente, \(0< \varphi(t)-\varphi(s)\). Haciendo la cuenta resulta
-            \begin{eqnarray*}
-            \varphi(t)-\varphi(s)&=&\frac{t}{1+t}-\frac{s}{1+s} \\
-            &=&\frac{t(1+s)-s(1+t)}{(1+t)(1+s)}\\
-            &=& \frac{t-s}{(1+t)(1+s)}
-            \end{eqnarray*}
-            donde vemos que éste último cociente es positivo pues \(t>s\).
-          </p>
-          <p>
-            Usando derivadas.
-          </p>
-          <p>
-            Ya que \(\varphi\) es diferenciable en \([0,\infty)\) sabemos que si su derivada
-            es positiva entonces es estrictamente creciente. Aplicando la
-            regla del cociente obtenemos
-            \[
-            \varphi'(t)=\frac{(1+t)(1)-t(1)}{(1+t)^2}=\frac{1}{(1+t)^2}
-            \]
-            el cual claramente es positivo.
-          </p>
-
-        <li>
-            Ahora veamos que se satisface \(\varphi(s+t) < \varphi(s)+\varphi(t)\),
-            para todos \(s,t >0 \). Vamos a proceder de manera directa.
-        </li>
-        <p>
-          Primero notamos que
-          \[
-          \frac{s}{1+s+t} \leq \frac{s}{1+s}, \quad \frac{t}{1+t+s} < \frac{t}{1+t}
-          \]
-          sumando ambas desigualdades obtenemos
-          \[
-          \frac{t+s}{1+t+s} < \frac{t}{1+t}+ \frac{s}{1+s}
-          \]
-          lo cual se traduce a \(\varphi(s+t)< \varphi(s)+\varphi(t)\).
-        </p>
-
-      </ol>
-      <p>
-        Ahora sí, se puede probar fácilmente que \(\rho\) satisface la
-        desigualdad del triángulo. Empezando con la desigualdad del
-        triángulo para \(d\) tenemos
-        \[
-        d(x,y) \leq d(x,z)+d(z,y)
-        \]
-        aplicando \(\varphi\) a ambos lados, usando que \(\varphi\) es monótona
-        creciente y usando la propiedad 2 de la sugerencia llegamos a
-
-        \begin{eqnarray*}
-        \varphi(d(x,y)) &\leq & \varphi(d(x,z)+d(z,y)) \\
-         &\leq & \varphi(d(x,z))+\varphi(d(z,y)),
-        \end{eqnarray*}
-        y podemos concluir
-        \[
-        \rho(x,y)=\varphi(d(x,y)) \leq \varphi(d(x,z))+\varphi(d(z,y))=\rho(x,z)+\rho(z,y).
-        \]
-      </p>
-    </div>
-    </div>
-
-
-
-    <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
-      <p>
-        Por \(\{0,1\}^{\mathbb{N}}\) denotamos al conjunto de todas
-        las suceciones de 0's y 1's. Es decir \(a\in \{0,1\}^{\mathbb{N}}\)
-        si y sólo si \(a=(a_n)_{n=1}^{\infty}\), con \(a_n\in \{0,1\}\), para
-        toda \(n\).
-      </p>
-      <p>
-        En \(\{0,1\}^{\mathbb{N}}\) define
-        \[
-        d(a,b)=\sum_{n=1}^\infty \frac{1}{2^n}|a_n-b_n|
-        \]
-        Prueba que \(d\) es una métrica en \(\{0,1\}^{\mathbb{N}}\).
-      </p>
-      <button class="respButton hvr-grow"> Respuesta </button>
-      <div class="resp-box">
-          <p>
-              Sean \(a,b \in \{0,1\}^{\mathbb{N}}\). Note que para cada \(n\) se tiene que
-              \( 0 \leq \left| a_n - b_n \right| \leq 1\), de manera que \(0 \leq d(a,b) \leq
-              \sum_{n=1}^\infty \frac{1}{2^n} = 1\) y \(d(a,b)\) está bien definido.
-              Supongamos que \(d(a,b) = 0\), es decir, \(\sum_{n=1}^\infty \frac{|a_n - b_n|}{2^n}
-              = 0\). Como \(\frac{|a_n - b_n|}{2^n} \geq 0\) para cada \(n\), entonces la serie
-              se anula si y sólo si \(|a_n - b_n| = 0\) para toda \(n\), lo cual significa que
-              \(a = b\).
-          </p>
-          <p>
-              Como \(|x - y| = | -(y-x)| = | y-x|\) para cualquier par \(x,y \in \mathbb{R}\), se
-              sigue que \(d(a,b) = d(b,a)\) si \(a,b \in \{0,1\}^\mathbb{N}\).
-          </p>
-          <p>
-              Sean \(a,b,c \in \{0,1\}^\mathbb{N}\), entonces
-              \[
-              \begin{align*}
-              d(a,b)=& \sum_{n=1}^\infty \frac{|a_n - b_n|}{2^n}
-              = \sum_{n=1}^\infty \frac{|a_n - c_n + c_n - b_n|}{2^n}\\
-              \leq& \sum_{n=1}^\infty \frac{|a_n - c_n|+|c_n - b_n|}{2^n}\\
-              =& \sum_{n=1}^\infty \frac{|a_n - c_n|}{2^n} + \sum_{n=1}^\infty \frac{|c_n - b_n|}{2^n}\\
-              =& d(a,c) + d(c,b).
-              \end{align*}
-              \]
-              Con ésto se demuestra que se satisface la desigualdad del triángulo y que \(d(\ ,\ )\)
-              es una métrica en \(\{0,1\}^\mathbb{N}\).
-          </p>
-      </div>
-    </div>
-
-
-    <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
-      <p>
-        Por \(\mathbb{R}^{\mathbb{N}}\) denotamos el conunto de todas
-        las sucesiones de números reales. Es decir, \(x\in \mathbb{R}^{\mathbb{N}} \)
-        si y sólo si \(x=(x_n)_{n=1}^\infty\), con \(x_n\in \mathbb{R}\).
-      </p>
-      <p>
-        En \(\mathbb{R}^{\mathbb{N}}\) define
-        \[
-        d(x,y)=\sum_{n=1}^\infty \frac{1}{n!}\frac{|x_n-y_n|}{1+|x_n-y_n|}.
-        \]
-        Prueba que \(d\) es una métrica en \(\mathbb{R}^{\mathbb{N}}\).
-      </p>
-
-    </div>
-
-
-    <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
-      <p>
-        Por \(C[a,b]\) denotamos al conjunto de funciones continuas en
-        el intervalo \([a,b]\). En \(C[a,b]\) define
-        \[
-        d_\infty(f,g)=\max_{t\in [a,b]}\{ |f(t)-g(t)| \},
-        \quad d_1(f,g)=\int_a^b |f(t)-g(t)|dt.
-        \]
-        Prueba que \(d_\infty\) y \(d_1\) son métricas en \(C[a,b]\).
-      </p>
-
-      <button class="respButton hvr-grow"> Para \(d_\infty\)</button>
-      <div class="resp-box">
-      <p>
-        Es claro que \(d_\infty(f,g)\geq 0\) para todas las funciones \(f,g\).
-      </p>
-      <p>
-        Si suponemos que \(d_\infty(f,g)=0\) entonces 
-        \[
-        \max_{t\in [a,b]}\{|f(t)-g(t)|\}=0
-        \]
-        lo cual quiere decir que para toda \(t\in [a,b]\), \(|f(t)-g(t)|=0\), por lo que 
-        concluimos \(f=g\).
-      </p>
-      <p>
-        Ya que \(|f(t)-g(t)|=|g(t)-f(t)|\), para toda \(t\in [a,b]\), al tomar máximo sobre \(t\) se sigue que 
-        \(d_\infty(f,g)=d_\infty(g,f)\).
-      </p>
-      <p>
-        Para probar la desigualdad del triángulo notamos que usando la desigualdad del 
-        triánlgulo en \(\mathbb{R}\) resulta que para \(f,g,h\in C[a,b]\) y para todo \(t\in [a,b]\):
-        \begin{eqnarray*} 
-        |f(t)-g(t)| &\leq & |f(t)-h(t)|+|h(t)-g(t)|  \\
-        \Rightarrow |f(t)-g(t)| &\leq & \max_{t\in [a,b]}\{|f(t)-h(t)| \} + \max_{t\in [a,b]}\{|h(t)-g(t)| \} \\ 
-        \Rightarrow |f(t)-g(t)| &\leq & d_\infty(f,h)+d_\infty(h,g) \\
-        \Rightarrow \max_{t\in t\in [a,b]}\{|f(t)-g(t)| \} & \leq &  d_\infty(f,h)+d_\infty(h,g)  \\
-        \Rightarrow d_\infty(f,g) &\leq  & d_\infty(f,h)+d_\infty(h,g) 
-        \end{eqnarray*}
-      </p>
-      </div>
-      <button class="respButton hvr-grow"> Para \(d_1\)</button>
-      <div class="resp-box">
-      <p>
-        Ya que la integral de funciones no negativas es mayor a igual a cero se sigue que 
-        \(d_1(f,g) \geq 0\) para todas \(f,g\in C[a,b]\).
-      </p>
-      <p>
-        Si \(d_1(f,g)=0\) entonces 
-        \[
-        \int_a^b |f(t)-g(t)|dt =0.
-        \]
-        Ahora, si \(f(s)\ne g(s)\) para algún \(s\in [a,b]\), por continuidad de \(f\) y \(g\)
-        existe un intervalo alrededor de  \(s\), \((s-r,s+r)\), y un número positivo \(\alpha\)
-        tal que \(|f(t)-g(t)|\geq \alpha \) para toda \(t\in (s-r,s+r)\). Usando la monotonía de la
-        integral se sigue que 
-        \[
-        2\alpha r=\int_{s-r}^{s+r}\alpha dt \leq \int_{s-r}^{s+r} |f(t)-g(t)|dt\leq \int_a^b |f(t)-g(t)|dt =0
-        \]
-        por lo que \(2\alpha r =0\), una contradicción pues \(\alpha >0, r>0\). Por lo tanto 
-        debemos de tener que \(f=g\).
-      </p>
-      <p>
-        Ya que \(|f(t)-g(t)|=|g(t)-f(t)|\) para toda \(t\in [a,b]\) se sigue que 
-        \(d_1(f,g)=d(g,f)\).
-      </p>
-      <p>
-        Fijamos funciones \(f,g,h\). Para la desigualdad del triángulo, primero iniciamos con la desigualdad del triángulo para 
-        los reales y obtenemos que, todo \(t \in [a,b]\):
-        \begin{eqnarray*}
-        |f(t)-g(t)| & \leq  & |f(t)-h(t)|+|h(t)-g(t)|  \\
-        \Rightarrow \int_{a}^b |f(t)-g(t)|dt & \leq  & \int_{a}^b(|f(t)-h(t)|+|h(t)-g(t)|)dt \\
-        \Rightarrow d_1(f,g) & \leq &  d_1(f,h)+d_1(h,g).
-        \end{eqnarray*}
-      </p>
-
-      </div>
-      
-    </div>
-
-
-    <div class="nota-box">
-      <h2 class="number-title"> Nota </h2>
-      <p>
-        El ejercicio anterior sigue siendo válido para diferentes espacios de funciones. 
-        Por ejemplo si cambiamos \(C[a,b]\) por el espacio vectorial de funciones acotadas en 
-        \([a,b]\) y definimos 
-        \[
-        d_\infty(f,g)=\sup_{t\in [a,b]}\{ |f(t)-g(t)|\}
-        \]
-        \(d_\infty\) sigue siendo 
-        una métrica. Además ésta métrica es que la aparecerá más adelante en los teoremas de 
-        aproximación de Stone-Weierstrass y el de compacidad de Arzela-Ascoli.
-      </p>
-      <p>
-        Con respecto a \(d_1\) hay algunos problemas técnicos pero no fatales. En el espacio de funciones Riemann integrables 
-        en \([a,b]\) la función 
-        \[
-        d_1(f,g)=\int_a^b |f(t)-g(t)|dt
-        \]
-        cumple todas las propiedades de métrica excepto \(d_1(f,g)=0 \Rightarrow f=g\)
-        pues si \(\int_a^b |f(t)-g(t)|dt=0\) lo se tiene es que \(f=g\) excepto un conjunto de contenido cero. 
-        Lo anterior puede resolverse identificando funciones que son iguales excepto un conjunto de contenido cero.
-      </p>
-
-    </div>
-
+    <h1 class="number-title flexbox"> Convergencia puntual y uniforme </h1>
+    <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
     
 
-    <div class="ejercicio-box">
-      <h2 class="number-title" id="Ejer:MetProdCarte"> Ejercicio </h2>
-      <p>
-        Supongamos que \((X,d_X)\), \((Y,d_Y)\) son dos espacios métrios.
-        Define
-        \begin{eqnarray*}
-        d((x_1,y_1),(x_2,y_2))&=& d_X(x_1,x_2)+d_Y(y_1,y_2),\\
-        \rho((x_1,y_1),(x_2,y_2)) &=& \max\{d_X(x_1,x_2), d_Y(y_1,y_2)  \}\\
-        \sigma((x_1,y_1),(x_2,y_2)) &=& \sqrt{d_X(x_1,x_2)^2+d_Y(y_1,y_2)^2}
-        \end{eqnarray*}
-        Prueba que \(d\), \(\rho\) y \(\sigma\) son métricas  en \(X\times Y\).
-      </p>
+    <div class="flexbox">
+      
+      <div class="info-box">
+        <h2 class="number-title"> Introducción </h2>
+        <p>
+          
 
-    </div>
+        </p>
+      </div>
 
-
-
-    <div class="ejercicio-box">
-      <h2 class="number-title" id="Ejer:MetricasGeneradasPorFunciones"> Ejercicio </h2>
-
-      <p>
-        Sea \(f:[0,\infty)\to [0,\infty)\) una función que satisface
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición  </h2>
+        <p>
+          Sea \(X\) un conjunto distinto del vacío  y 
+          \((f_n:X \to \mathbb{R})_{n=1}^\infty\) 
+          una sucesión de funciones. Dado 
+          \(A\subseteq X\), decimos que 
+          la sucesión \((f_n)_{n=1}^\infty\) converge puntualmente
+          en \(A\) a la función \(f:A\to \mathbb{R}\) si para todo \(a\in A\), 
+          \(\lim_{n\to \infty}f_n(a)=f(a)\). 
+        </p>
+        <p>
+          Para ser más específicos, para toda \(a\in A\) y 
+          toda \(\varepsilon >0\) existe \(N\in \mathbb{N}\)
+          tal que para toda \(n\geq N\),
+          \[
+          |f_n(a)-f(a)|< \varepsilon 
+          \]
+          Nota: la \(N\) va a depender tanto de \(\varepsilon \) 
+          como de \(a\).
+        </p>
+        
+        <h3>Ejemplos </h3>
         <ul>
           <li>
-            \(f\) es monótona creciente.
+            Por ejemplo, de cálculo sabemos que para toda 
+            \(x\in \mathbb{R}\), 
+            \begin{eqnarray*}
+            \lim_{n\to \infty} \left( 1+\frac{x}{n}\right)^n=e^x,\\
+            \lim_{n\to \infty} \left( 1-\frac{x}{n}\right)^{-n}=e^x  
+            \end{eqnarray*}
+            Por lo tanto las sucesiones de funciones 
+            \((f_n:\mathbb{R}\to \mathbb{R})_{n=1}^\infty\), 
+            \((g_n:\mathbb{R}\to \mathbb{R})_{n=1}^\infty\), 
+            dadas por \(f_n(x)=\left( 1+\frac{x}{n}\right)^n\),
+            \(g_n(x)=\left( 1-\frac{x}{n}\right)^{-n}\) convergen 
+            puntualmente a la función exponencial para todo punto 
+            de \(\mathbb{R}\).
           </li>
-          <li> \(f(0)=0\), </li>
-          <li> \(f(x)>0\) para \(x>0\),</li>
-          <li> \(f(x+y)\leq f(x)+f(y)\), para todos \(x,y\). </li>
-        </ul>
-
-      </p>
-
-      <p>
-        Sea \((X,d)\) un espacio métrico. Prueba que \(\rho(x,y):= f(d(x,y)) \)
-        es una métrica en \(X\).
-      </p>
-    </div>
-
-
-    <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
-      <p>
-        Sea \((X,d)\) un espacio métrico. Define, \(\rho,\sigma:X\times X\to \mathbb{R}\)
-        por
-        \[
-        \rho(x,y)=\min\{d(x,y),1\}, \quad \sigma(x,y)=\sqrt{d(x,y)}
-        \]
-        Prueba que \(\rho\) y \(\sigma\) son métricas.
-      </p>
-      <p>
-        Sugerencia: utiliza el <a  href="#Ejer:MetricasGeneradasPorFunciones">Ejercicio anterior</a> .</p>
-      </p>
-    </div>
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-            <ol>
-            <li>
-            Sea \(\rho:X\times X\to \mathbb{R}\) una función que satisface,
-            para todos \(x,y,z\in X\):
-            <ol>
-              <li> \(\rho(x,y) = 0\) si y sólo si \(x=y\), </li>
-              <li> \(\rho(x,y)=\rho(y,x)\), </li>
-              <li> \(\rho(x,y) \leq \rho(x,z)+\rho(z,y)\).</li>
-            </ol>
-            Prueba que \(\rho\) es una métrica en \(X\).
-            <p>
-
-            </p>
-          </li>
-
-            <li>
-              Da un ejemplo de un conjunto \(X\) y  función
-              \(\rho:X\times X\to \mathbb{R} \) tal que,
-              para todos \(x,y\in X\) satisface:
-              <ol>
-                <li>
-                 \(d(x,y)=0\) si y sólo
-                 si \(x=y\)
-               </li>
-               <li>
-                 \(d(x,y)\leq d(x,z)+d(z,y)\)
-               </li>
-             </ol>
-              y sin embargo \(d\) no es una métrica.
-              <p>
-                Sugerencia: piensa en un conjunto \(X\) con
-                sólo dos puntos.
-              </p>
-            </li>
-            <p>
-
-            </p>
-            <li>
-            Sea \(\sigma:X\times X\to \mathbb{R}\) una función que satisface,
-            para todos \(x,y,z\in X\):
-            <ol>
-            <li> \(\sigma(x,y) = 0\) si y sólo si \(x=y\), </li>
-            <li> \(\sigma(x,y) \leq \sigma(x,z)+\sigma(y,z)\).</li>
-            </ol>
-            Prueba que \(\sigma\) es una métrica en \(X\).
-            </li>
-
-
-        </ol>
-        </div>
-
-        <div class="ejercicio-box">
-          <h2 class="number-title" id="Ejer:ConjuntoAcotado"> Ejercicio </h2>
-          <p>
-            Un subconjunto \(A\) de un espacio métrico \((X,d)\) se llama
-            acotado si existe un \(r>0\) y un punto \(x_0\) en \(X\) tal que
-            \(d(a,x_0) \leq r\), para toda \(a\in A\).
-          </p>
-          <p>
-            Prueba que la unión finita de subconjuntos acotados sigue siendo
-            acotada.
-          </p>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title" id="Ejer:Diametro"> Ejercicio </h2>
-          <p>
-            Dado un subconjunto \(A\ne \emptyset\) de un espacio métrico \((X,d)\),
-            se define si diámetro como
+          
+          <li>
+            Definamos la sucesión de funciones \(f_n:[-1,1]\to \mathbb{R}\)
+            por \(f_n(x)=x^n\). Usando que \(\lim_{n\to \infty} r^n=0\)
+            para \(r\in \mathbb{R}\) con \(|r|< 1\) tenemos que
             \[
-            \operatorname{diam}(A)=\sup_{a,b\in A}\{d(a,b)\}.
+            \lim_{n\to \infty} f_n(x)=
+            \left\{
+              \begin{array}{cc}
+              1, &  x=1 ,\\
+              0, &  |x|< 1 ,\\
+              \textrm{no existe}, &  x=-1.
+              \end{array}
+              \right.
             \]
-            Nota: el diametro puede ser infinito si \(\{d(a,b):a,b\in A\}\)
-            no está acotado superiormente.
+            Por lo tanto, la sucesión no converge puntualmente en \([-1,1]\)
+            (por la obstrucción que hay en \(x=-1\)), pero sí converge
+            puntualmente en \((-1,1]\) y converge puntualmente a la función
+            \[
+            f(x)=
+            \left\{
+              \begin{array}{cc}
+              1, &  x=1 ,\\
+              0, &  |x|< 1 .\\
+              \end{array}
+              \right.
+            \]
+
+          </li>
+          
+        </ul>
+        <p>
+          Nota. En esta definición  
+          se puede substituir a \(\mathbb{R}\) 
+          por cualquier \(\mathbb{R}^n\) y entonces 
+          \((f_n)_{n=1}^\infty\) converge 
+          puntualmente a \(f\) en \(A\) si 
+          para toda \(a\in A\) y toda 
+          \(\varepsilon>0\) existe \(N\in \mathbb{N}\)
+          tal que \(\| f_n(a) -  f(a)\| < \varepsilon\) 
+          para toda \(n\geq N\) (nota ahora que tanto \(f_n(a)\) 
+          como \(f(a)\) son vectores).
+        </p>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Encuentra el límite puntual (si existe) de las siguientes
+          sucesiones de funciones.
+        </p>
+        <ol>
+          <li>
+            \(f_n :\mathbb{R}\setminus \{-1\} \to \mathbb{R}\) dada por
+            \[
+            f_n(x)=\frac{x^n}{1+x^n}.
+            \]
+          </li>
+          <li>
+            \(f_n:[0,1]\to \mathbb{R}\) dada por
+            \[
+            f_n(x)=\left\{
+              \begin{array}{cc}
+               4n^2 x , & 0 \leq x \leq \frac{1}{2n}, \\
+              -4n^2x+4n , &  \frac{1}{2n} \leq x \leq \frac{1}{n}, \\
+              0 , & \frac{1}{n}\leq x \leq 1 .
+              \end{array}
+              \right.
+            \]
+          </li>
+          <li>
+            \(f_n:\mathbb{R}\to \mathbb{R}\) dada por
+            \[
+            f_n(x)=\frac{\sen(\sqrt{n} x)}{n}.
+            \]
+          </li>
+        </ol>
+        <button class="respButton hvr-grow"> Solución inciso 1 </button>
+              <div class="resp-box">
+        <p>
+          Para \(|x|< 1 \), \(\lim_{n\to \infty}x^n=0\), por lo que: 
+          \[
+          \lim_{n\to \infty} \frac{x^n}{1+x^n} =0.
+          \]
+        </p>
+        <p>
+          Para \(x=1\), 
+          \[
+          \lim_{n\to \infty} \frac{1^n}{1+1^n} =\frac{1}{2}.
+          \]
+        </p>
+        <p>
+          Para \(|x|> 1\),  \(\lim_{n\to \infty} \frac{1}{x^n}=0\), usando que 
+          \[
+           \frac{x^n}{1+x^n}= \frac{1}{\frac{1}{x^n}+1}
+          \]
+          obtenemos que: 
+          \[
+          \lim_{n\to \infty} \frac{x^n}{1+x^n} =1.
+          \]
+        </p>
+        <p>
+          En conclusión 
+          \[
+          \lim_{n\to \infty}f_n(x)=
+          \left\{ 
+            \begin{array}{cc} 
+            0 & |x| < 1 \\
+            \frac{1}{2} & x = 1 \\
+            1 & |x|>1 
+            \end{array}
+            \right.
+          \]
+        </p>
+        </div>
+      </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba que, para toda \(x>0\),
+            \[
+            \lim_{n\to \infty} n(\sqrt[n]{x}-1)=\ln(x)
+            \]
           </p>
           <p>
-            Prueba que \(A\) está acotado si y sólo si \(\operatorname{diam}(A)<\infty\).
+            Por lo tanto, la sucesión de funciones \(f_n(x)=n(\sqrt[n]{x}-1)\),
+            converge puntualmente a la función logaritmo en \((0,\infty)\).
+          </p>
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \(\{q_n\}_{n=1}^\infty\) una enumaración de \(\mathbb{Q}\).
+            Define \(f_n:\mathbb{R}\to \mathbb{R}\) por
+            \[
+            f_n(x)=\left\{
+              \begin{array}{cc}
+              1, & \textrm{si \(x\in \{q_1,\dots, q_n\}\)}, \\
+              0, & \textrm{en otro caso} .
+              \end{array}
+              \right.
+            \]
+            Encuantra el límite puntual de \((f_n)_{n=1}^\infty\).
           </p>
         </div>
 
 
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            El límite puntual no se lleva muy bien con las derivadas.
+          </p>
+          <ol>
+            <li>
+              Consiera la sucesión de funciones \((f_n:\mathbb{R}\to \mathbb{R})\)
+              dada por \(f_n(x)=\frac{\sen(nx)}{n}\). Encuentra el límite
+              puntual de \((f_n)_{n=1}^\infty\) pero muestra que
+              el límite puntual de \((f_n')_{n=1}^\infty\) no existe.
+            </li>
+            <li>
+              Considera la sucesión de funciones \(f_n:[0,1]\to \mathbb{R}\)
+              dada por \(f_n(x)=\frac{x^{n}}{n}\). Prueba que,
+              para todo \(x\in [0,1]\), los límites puntuales
+              \(\lim_{n\to \infty} f_n(x)\) y \(\lim_{n\to \infty} f_n'(x)\)
+              existen. Define \(f(x):=\lim_{n\to \infty} f_n(x)\) y para \(x\ne 1\)
+              prueba
+              \[
+              \lim_{n\to \infty} f_n'(x)= f'(x)
+              \]
+              pero
+              \[
+              \lim_{n\to \infty} f_n'(1) \ne f'(1)
+              \]
+              Por lo tanto, no siempre pasa que el límite puntual de las
+              derivadas es la derivada del límite puntual.
+
+            </li>
+
+          </ol>
+          <button class="respButton hvr-grow"> Solución inciso 1 </button>
+              <div class="resp-box">
+          <p>
+            Ya que \(|\frac{\sen(nx)}{n}|\leq \frac{1}{n}\) para todo \(x\in \mathbb{R}\), se sigue que 
+            \(\lim_{n\to \infty} f_n(x)=0\) para toda \(x\).
+          </p>
+          <p>
+            Sin embargo \(f_n'(x)=\cos(nx)\) el cual, para \(x\ne 0\), cumple que 
+            \(\lim_{n\to \infty}\cos(nx)\) no existe. Por ejemplo, para \(x=\pi\),
+            \(\cos(nx)=-1\) ó \(\cos(nx)=1\), dependiendo si \(n\) es impar o par, respectivamente. 
+          </p>
+          </div>
+
+          <button class="respButton hvr-grow"> Solución inciso 2 </button>
+              <div class="resp-box">
 
           <p>
-              Dados dos subconjuntos no vacíos, \(A, B\), de un espacio
-              métrico \((X,d)\), se define la distancia entre ellos como
-              \[
-              d(A,B)=\inf_{a\in A, b\in B}\{ d(a,b)\}
-              \]
+            Ya que \(\left| \frac{x^n}{n} \right| \leq \frac{1}{n}\) para todo \(x\in [0,1]\), se sigue que 
+            \[
+            \lim_{n\to \infty}f_n(x)=0
+            \]
+            para todo \(x\in [0,1]\) y por lo tanto \(f=0\).
           </p>
-
-          Prueba que
-          \[
-          \operatorname{diam}(A\cup B) \leq \operatorname{diam}(A)+d(A,B)+
-          \operatorname{diam}(B).
-          \]
-
-          <button class="respButton hvr-grow"> Respuesta </button>
-          <div class="resp-box">
-              <p>
-                  De la definición de \(\operatorname{diam}\) y \(d(A,B)\) tenemos
-                  las siguientes afirmaciones:
-              </p>
-              <p>
-                  Si \(a,b \in A\) entonces \(d(a,b) \leq \operatorname{diam}(A)\)
-                  y en consecuencia \( d(a,b) \leq \operatorname{diam}(A)
-                  +d(A,B)+ \operatorname{diam}(B).\)
-              </p>
-              <p>
-                  Análogamente, si \(a,b \in B\) entonces \(d(a,b) \leq \operatorname{diam}(B)\)
-                  y \( d(a,b) \leq \operatorname{diam}(A) +d(A,B)+ \operatorname{diam}(B).\).
-              </p>
-              <p>
-                  Si \(x \in A\) y \(y \in B\) entonces \(d(A,B) \leq d(x,y)\).
-              </p>
-              <p>
-                  Si \(a,x \in A\)  y \(b,y \in B\) deducimos por medio de la desigualdad
-                  del triángulo y las afirmaciones anteriores que
-                  \[
-                  d(a,b) \leq d(a,x) + d(x,y) + d(y,b) \leq \operatorname{diam}(A) + d(x,y) +
-                  \operatorname{diam}(B).
-                  \]
-              </p>
-
-              <p>
-                  Al tomar el ínfimo del lado derecho de la desigualdad anterior observamos
-                  \begin{eqnarray*}
-                  d(a,b) & \leq &  \operatorname{diam}(A) + \inf_{x \in A,y \in B}d(x,y) +
-                  \operatorname{diam}(B)\\
-                  & = & \operatorname{diam}(A) + d(A,B) +
-                  \operatorname{diam}(B).
-                  \end{eqnarray*}
-              </p>
-              <p>
-                  Para concluir basta notar que ya hemos probado que la desigualdad anterior es
-                  verdadera si \(a,b \in A\), si \(a,b \in B\) y si \(a \in A, b\in B\), por lo
-                  que es válida para \(a, b \in A \cup B\). Al tomar supremo del lado izquierdo
-                  obtenemos el resultado deseado:
-                  \[
-                  \operatorname{diam}(A \cup B) = \sup_{a,b \in A \cup B} d(a,b) \leq
-                  \operatorname{diam}(A) + d(A,B) + \operatorname{diam}(B).
-                  \]
-              </p>
-
+          <p>
+            Por otro lado, \(f_n'(x)=x^{n-1}\), el cual sabemos que satisface
+            \[
+            \lim_{n\to \infty} f_n'(x)=
+            \left\{
+              \begin{array}{cc} 
+                0 & 0\leq x < 1, \\
+                1 & x=1 .
+              \end{array}
+              \right.
+            \]
+            Por lo tanto \(\lim_{n\to \infty}f_n'(1)\ne f'(1)\).
+          </p>
           </div>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            El límite puntual no se lleva bien con las integrales.
+          </p>
+          <p>
+            Considera la sucesión de funciones
+            \[
+            f_n(x)=\left\{
+              \begin{array}{cc}
+               4n^2 x , & 0 \leq x \leq \frac{1}{2n}, \\
+              -4n^2x+4n , &  \frac{1}{2n} \leq x \leq \frac{1}{n}, \\
+              0 , & \frac{1}{n}\leq x \leq 1 .
+              \end{array}
+              \right.
+            \]
+            y sea \(f(x)=\lim_{n\to \infty} f_n(x)\) su límite puntual.
+          </p>
+          <p>
+            Prueba
+            \[
+            \lim_{n\to \infty} \int_0^1 f_n(t)dt \ne \int_0^1 f(t)dt
+            \]
+          </p>
         </div>
 
 
         <div class="definicion-box">
           <h2 class="number-title"> Definición </h2>
           <p>
-            Una pseudo métrica en el conjunto \(X\) es una función 
-            \(\rho:X\times X \to \mathbb{R}\) que satisface 
+            Sea \(X\) un conjunto cualquiera y \((f_n:X\to \mathbb{R})_{n=1}^\infty\)
+            una sucesión de funciones. Decimos que la sucesión
+            \((f_n)_{n=1}^\infty\) converge uniformemente 
+            a la función \(f\) en el subconjunto \(A \subseteq X\), si  
+            para toda \(\varepsilon >0\), existe una \(N\in \mathbb{N}\)
+            con la propiedad de que, para toda \(a \in A\) y \(n \geq N\):
+            \[
+            |f_n(a)-f(a)| < \varepsilon. 
+            \]
+          </p>
+          <p>
+            Una de las partes más importantes de la definición es que la
+            \(N\) que aparece sirve para todos los puntos de \(A\), de ahí
+            viene el nombre, pues la \(N\) es uniforme (la misma) para todo
+            punto en \(A\).
+           </p>
+           <p>
+             Notas.
+           </p>
+           <ol>
+             <li>
+               Para la convergencia uniforme no es necesario pedir
+               al domino de las funciones (denotado por
+               \(X\) arriba) ningún tipo de estructura. Más adelante le daremos 
+               más estructura a \(X\) para obtener más resultados sobre las sucesiones 
+               de funciones.
+             </li>
+             <li>
+               El codominio de las funciones no tiene que ser necesariamente
+               \(\mathbb{R}\) y se puede cambiar por cualquier \(\mathbb{R}^n\) y en tal caso 
+               los valores absolutos se cambian por normas.
+             </li>
+             <li>
+               La convergencia uniforme depende mucho del dominio de las funciones.
+               Puede pasar que una sucesión no sea uniformemente convergente en unos subconjuntos del dominio
+               pero sí sea uniformemente convergente en otros.
+             </li>
+
+             <li>
+                La convergencia uniforme implica  convergencia puntual pero 
+                la implicación de regreso no es cierta.
+             </li>
+           </ol>
+           
+         </div>
+
+
+           <div class="nota-box">
+             <h2 class="number-title"> Nota </h2>
+             <h3 > Convergencia uniforme y la norma uniforme </h3>
+           <p>
+             Otra forma de reescribir la convergencia uniforme es utilizando lo que se conoce como 
+             la norma uniforme o norma infinito. Dada una función \(g:X\to \mathbb{R}\) acotada 
+             y \(A\subseteq X\) denotamos 
+             \[
+             \|g\|_A:=\sup_{a\in A}\{|g(a)| \}
+             \]
+             Si el dominio es claro también se escribe \(\|g\|_\infty\).
+             Con esta notación se puede escribir la convergencia
+             uniforme de la siguiente forma.
+           </p>
+           <p>
+             La sucesión \((f_n:X\to \mathbb{R})_{n=1}^\infty\) converge
+             uniformemente en el subconjunto \(A\subseteq X\) a la función \(f:X\to \mathbb{R}\) si,
+             para toda \(\varepsilon > 0\) existe una \(N \in \mathbb{N}\)
+             tal que para toda \(n\geq N\)
+             \[
+             \|f_n-f\|_A <  \varepsilon 
+             \]
+             Esta forma de escribir tiene la ventaja de que \(\|f_n-f\|_A\)
+             es un número real. Así
+             la convergencia uniforme sobre \(A\) está codificada en la sucesión de números
+             reales \((\|f_n-f\|_A)_{n=1}^\infty\) y notamos que, en términos de
+             esta sucesión, la convergencia uniforme se puede escribir
+             simplemente como
+             \[
+             \lim_{n\to \infty}\| f_n-f\|_A= 0,
+             \]
+             claro que el problema importante es calcular los números
+             \(\|f_n-f\|_A\).
+           </p>
+
+           <p>
+             Ejemplos.
+           </p>
+           <ol>
+             <li>
+               La sucesión de funciones \((f_n:\mathbb{R}\to \mathbb{R})_{n=1}^\infty\)
+               dada por \(f_n(x)=\frac{1}{n}\sen(nx)\) converge uniformemente
+               en \(\mathbb{R}\) a la función constante cero. Para probarlo,
+               usamos que \(|\sen(\theta)| \leq 1\) para toda \(\theta\)
+               para obtener
+               \begin{eqnarray*}
+               \| f_n-0\|_\mathbb{R}&=&  \|f_n\|_{\mathbb{R}} \\
+               &=& \sup_{x\in \mathbb{R}}\left\{\frac{1}{n}|\sen(nx)| \right\}  \\
+               &\leq & \frac{1}{n}
+               \end{eqnarray*}
+               Por lo tanto \(\lim_{n\to \infty} \|f_n\|_{\mathbb{R}}=0\).
+             </li>
+             <li>
+               Consideremos \(f:[a,b]\to \mathbb{R}\) cualquier función y
+               definamos las sucesión de funciones \(f_n:[a,b]\to \mathbb{R}\)
+               dada por \(f_n(x)=f(x)+\frac{1}{n}\). La sucesión
+               \((f_n)_{n=1}^\infty\) converge uniformente en \([a,b]\) a \(f\).
+               Para probarlo sólo notamos que, para toda \(x\in [a,b]\)
+               \[
+               |f_n(x)-f(x)|=\frac{1}{n}
+               \]
+               por lo que \(\|f_n-f\|_{[a,b]} \leq \frac{1}{n}\)
+               y por lo tanto \(\lim_{n\to \infty}\|f_n-f\|_{[a,b]} = 0\).
+             </li>
+           </ol>
+
+
+           <p>
+            El número \(\|\cdot\|_A\) se llama norma uniforme porque cumple 
+            las propiedades de una norma (cuyas pruebas se dejan de ejercicio):
             <ol>
-            <li>  \(\rho(x,y) \geq 0\), </li>
-            <li>  \(\rho(x,y)=\rho(y,x)\),</li>
-            <li> desigualdad del triángulo: \(\rho(x,y)\leq \rho(x,z)+\rho(z,y)\).</li>
-          </ol>
-            para todos \(x,y,z\in X\).
-          </p>
-          <p>
-            Una familia de pseudo métricas \(\{\rho_i\}_{i\in I}\) se dice que 
-            separa los puntos de \(X\) sii para \(x,y\in X\) con \(x\ne y\)
-            existe \(\rho_j\) tal que 
-            \(\rho_j(x,y) > 0\).
-          </p>
-
-          <p>
-            Por ejemplo, para \(X=C(\mathbb{R})\), el espacio de las funciones continuas en 
-            \(\mathbb{R}\), dado cualquier compacto \(K\subseteq \mathbb{R}\) la función 
-            \[
-            \rho_K(f,g)=\max_{x\in K}\{|f(x)-g(x)| \}
-            \]
-            es una pseudo métrica pero no una métrica.
-          </p>
-
+              <li>
+                Para toda función, \(\|f\|_A \geq 0 \).
+              </li>
+              <li>
+                Para toda función, \(\|f\|_A=0\) si y sólo si 
+                \(f\) es idénticamente cero en \(A\).
+              </li>
+              <li>
+                Para cuales quiera funciones acotadas en \(A\), \(f,g:A\to \mathbb{R}\) 
+                y escalar \(\alpha\):
+                \[
+                \|\alpha f+ g \|_A \leq |\alpha|\|f\|_A+\|g\|_A.
+                \]
+              </li>
+            </ol>
+           </p>
         </div>
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Supongamos que \(\{\rho_{n}\}_{n=1}^\infty\) es una familia numerable de 
-            pseudo métricas en \(X\) que separan los puntos. Prueba que la función 
-            \(d:X\times X \to \mathbb{R}\) definida por 
-            \[
-            d(x,y)=\sum_{n=1}^\infty \frac{1}{2^n} \frac{\rho_n(x,y)}{1+\rho_n(x,y)}
-            \]
-            es una métrica en \(X\).
-          </p>
-
-        </div>
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Dado \(U \subseteq \mathbb{R}^n\) un conjunto abierto por \(C^\infty(U)\)
-            denotamos al conjunto de funciones infinitamente diferenciales en \(U\).
-          </p>
-          <p>
-            Un multi-indice es un vector 
-            \[
-            \alpha=(\alpha_1,\dots, \alpha_n)
-            \]
-            donde para toda \(i\), \(\alpha_i \geq 0\) es un natural. Dado un multi-indice  (\alpha) denotamos  
-            \(D^\alpha: C^\infty(U)\to C^\infty(U)\) dada por 
-            \[
-            D^\alpha f = \partial_{x_1}^{\alpha_1} \cdots \partial_{x_n}^{\alpha_n} f
-            \]
-            y definimos su orden como \(|\alpha|:=\alpha_1+\cdots +\alpha_n\).
-
-          </p>
-          <p>
-            Nota: \(|\alpha|=0\), \(D^\alpha f =f\), para toda función.
-          </p>
-          <p>
-            Si escribimos \(U=\cup_{n=1}^\infty K_n\), donde cada \(K_n \subset U\) es compacto 
-            la familia 
-            \[
-            \rho_n(f):=\max_{x\in K_n, |\alpha|\leq n}\{|D^\alpha f(x)| \}
-            \]
-            define una familia de seminormas que separan los puntos de \(C^\infty(U)\).
-          </p>
-
-        </div>
-
 
 
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
           <p>
-            Una función \(f:\mathbb{R}\to \mathbb{R}\) se anula en el infinito si 
-            para toda \(\varepsilon >0\) existe una \(M>0\) tal que \(|f(x)|< \varepsilon \)
-            para todo \(x\) con \(|x|\geq M\).
+            Investiga si las siguientes sucesiones de funciones convergen
+            uniformemente  ó no, sobre el dominio dado, a la función constante cero.
           </p>
-          <p>
-            Por \(C_0(\mathbb{R})\) denotamos al conjunto de funciones en \(\mathbb{R}\) 
-            que se anula en el infinito.
-          </p>
-          <p>
-            <ol>
-
-            
+          <ol>
             <li>
-              Prueba que toda \(f\in C_0(\mathbb{R})\)  es acotada. 
+              \((f_n:\mathbb{R}\to \mathbb{R})_{n=1}^\infty\) dada por
+              \(f_n(x)=\frac{x}{1+nx^2}\).
             </li>
             <li>
-              Para \(f,g\in C_O(\mathbb{R})\) define 
+              \((f_n:[0,\infty)\to \mathbb{R})_{n=1}^\infty \) dada por
+              \(f_n(x)=xe^{-2nx}\).
+            </li>
+          </ol>
+          Sugerencia: usa cálculo para encontar la norma uniforme de cada \(f_n\).
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <ol>
+            <li>
+              Sea  \(X\) un conjunto, \(A\subseteq X\). 
+              Prueba que la sucesión de funciones \((f_n:X\to \mathbb{R}^n)_{n=1}^\infty\) 
+               NO
+              converge uniformemente en \(A\)  a la función
+              \(f\) si y sólo si
+              existe un \(\varepsilon_0>0\), una subsucesión
+              \((f_{n_k})_{k=1}^\infty\)
+              y una sucesión  \((a_n)_{n=1}^\infty \subset A \)
+              que satisface
               \[
-              d_\infty(f,g)=\sup_{x\in \mathbb{R}}\{ |f(x)-g(x)|\}
+              \| f_{n_k}(a_k)- f(a_{k})\| \geq \varepsilon_0
               \]
-              Prueba que \(d_\infty\) es una métrica en \(C_0(\mathbb{R})\).
+              para toda \(k \geq 1\).
+            </li>
+            <li>
+              Usa esto para probar que la sucesión
+              \((f_n:\mathbb{R}\to \mathbb{R})_{n=1}^\infty\)
+              dada por \(f_n(x)=x^n\), no converge uniformemente 
+              en \((-1,1)\) a la función cero. Nota: este ejemplo 
+              muestra que convergencia puntual no implica convergencia uniforme.
             </li>
           </ol>
+          
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Considera \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\)
+            una sucesión de funciones continuas con la propiedad de que
+            converge uniformemente en \(\mathbb{Q}\cap [a,b]\).
           </p>
+          <p>
+            Prueba o da un contraejemplo: la sucesión \((f_n)_{n=1}^\infty\)
+            converge uniformemente en \([0,1]\).
+          </p>
+        </div>
+
+
+        <!-- <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \((X,d)\) un espacio métrico y
+            \((f_n:X\to \mathbb{R})_{n=1}^\infty\) una sucesión de
+            funciones Lipschitz continuas, con la misma constante. Es decir,
+            exite \(M>0\) tal que, para todo \(n\in
+            \mathbb{N}\)  y para todos \(x_1,x_2\in X\)
+            \[
+            |f_n(x_1)-f_n(x_2)| \leq M d(x_1,x_2)
+            \]
+            Supón que la sucesión \((f_n)_{n=1}^\infty\) converge
+            puntualmente a una función \(f:X\to \mathbb{R}\).
+          </p>
+          <ol>
+            <li>
+              Prueba que \(f\) es Lipschitz continua con la misma constante
+              \(M\).
+            </li>
+            <li>
+              Prueba que si \(X\) es compacto entonces la sucesión \((f_n)_{n=1}^\infty\) converge
+              uniformemente en \(X\) a la función \(f\).
+            </li>
+          </ol>
+        </div>--> 
+
+
+        <!-- <div class="nota-box">
+          <h2 class="number-title"> Nota </h2>
+          <h3>
+              Convergencia uniforme implica convergencia puntual.
+          </h3>
+          <p>
+            Si una sucesión de funciones \((f_n:X\to \mathbb{R})_{n=1}^\infty\)
+            converge uniformemente en \(A\subseteq X\) a una función
+            \(f:A \to \mathbb{R}\) entonces también converge puntualmente.
+            Para ver la implicación sabemos que, por la convergencia
+            uniforme tenemos
+            \[
+            \lim_{n\to \infty}\|f_n-f\|_A = 0,
+            \]
+            pero, por la definición de la norma \(\|\cdot\|_A\)
+            tenemos que, para toda \(a \in A\), \(|f_n(a)-f(a)|\leq \|f_n-f\|_A \),
+            por lo tanto
+            \[
+            0\leq \lim_{n\to \infty} |f_n(a)-f(a)|\leq \lim_{n\to \infty} \|f_n-f\|_A=0
+            \]
+            es decir, \(\lim_{n\to \infty} f_n(a)=f(a)\).
+          </p>
+          <p>
+            La implicación
+            \[
+            \textrm{convergencia uniforme} \Rightarrow \textrm{convergencia puntual}
+            \]
+            nos da un punto de partida para investigar la convergecia
+            de una sucesión de funciones dadas. Por ejemplo, si queremos
+            investigar la convergencia uniforme
+            de la sucesión \((f_n:X\to \mathbb{R})_{n=1}^\infty\) sobre \(A\), lo
+            primero que hacemos es calcular o investigar la convergencia del
+            límite \(\lim_{n\to \infty} f_n(a)\), para toda \(a\in A\). Después definimos
+            la función \(f(a)=\lim_{n\to \infty}f_n(a)\) y para la
+            convergencia uniforme se estiman las normas
+            \(\|f_n-f\|_A\).
+          </p>
+          <p>
+            La implicación de regreso:
+            \(\textrm{convergencia puntual} \Rightarrow \textrm{convergencia uniforme}\),
+            no es cierta como se verá en los ejercicios que siguen.
+          </p>
+
+        </div>-->
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio  </h2>
+          <p>
+            Considera la sucesión de funciones
+            \((f_n:[-1,1]\to \mathbb{R})_{n=1}^\infty\) dada por
+            \(f_n(x)=x^n\). Tenemos que ésta sucesión de funciones
+            converge puntualmente en \((-1,1]\) a la función
+            \[
+            f(x)=\left\{
+              \begin{array}{cc}
+              1 & \textrm{si |x| = 1} \\
+              0 & \textrm{si |x| < 1 }
+              \end{array}
+              \right.
+            \]
+
+          </p>
+          <ol>
+            <li>
+            Prueba que la sucesión \((f_n)_{n=1}^\infty\)
+            no converge uniformemente
+            en \((-1,1]\) a la función  \(f\).
+            </li>
+            <li>
+            Prueba que, para todo
+            subintervalo cerrado \([a,b]\subset (-1,1)\),
+            \((f_n)_{n=1}^\infty\) sí converge uniformemente en \([a,b]\) a
+            la función cero.
+          </ol>
+          <p>
+            Este ejercicio muestra que convergencia puntual no implica convergencia
+            uniforme y que la convergencia uniforme también depende del dominio
+            que se está considerando.
+          </p>
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+          <p>
+            Primer inciso.
+          </p>
+          <p>
+            Para probar que \((f_n)_{n=1}^\infty\) no converge uniformemente
+            a \(f\) veremos dos métodos.
+          </p>
+          <p>
+            El primer método es geométrico, y consiste en observar las
+            bolas, en la norma \(\|\cdot\|_\infty\), centradas en \(f\).
+            Geométricamente sabemos que cualquier función
+            que esté en \(B_r(f)\) tiene la propiedad de que su gráfica
+            queda dentro de la franja centrada en la gráfica de \(f\)
+            de radio \(r\).
+
+            Ahora, ya que cualquiera de las funciones \(f_n\) es continua
+            y \(f\) tiene una discontinuidad de salto en \(x=1\), ninguna
+            de las gráficas de las funciones \(f_n\) queda totalmente
+            contenida en dicha franja, por lo tanto la sucesión no
+            converge uniformemente a \(f\).
+          </p>
+            El segundo método es estimar las normas \(\|f_n-f\|_\infty\). Ya que
+            el punto \(x=1\) parace especial notamos que
+            \(|f_n(1)-f(1)|=|1-1|=0\), por lo que el supremo
+            de los valores \(|f_n(x)-f(x)|\), corriendo \(x\in [0,1]\),
+            está determinado cuando \(0< x < 1\), y para estos
+            valores tenemos
+            \[
+            |f_n(x)-f(x)|=|x^n|=x^n
+            \]
+            Finalmente, usando que \(x\mapsto x^n\) es estrictamente
+            creciente en \([0,1]\), tenemos
+            \[
+            \sup_{x\in [0,1]}\{ |f_n(x)-f(x)|\}=\sup_{x\in [0,1)}\{x^n\}=1
+            \]
+            Por lo tanto, \(\|f_n-f\|_\infty=1\), para toda \(n\), y
+            la sucesión no converge uniformemente.
+          </p>
+          <p>
+            Segundo inciso.
+          </p>
+          <p>
+            Para este inciso es muy importante notar que estamos
+            cambiando el dominio, de \((-1,1]\) a \([a,b]\). Por lo
+            tanto el cálculo de las normas infinito cambia teniendo
+            \[
+            \|f_n\|_\infty=\sup_{x\in [a,b]}\{|f_n(x)|\}
+            \]
+            Para calcular \(\|f_n\|_\infty\) notamos que:
+            <ul>
+              <li>
+                Para \(n\) impar \(f_n\) es estrictamente creciente en \((-1,1]\)
+                y por lo tanto
+                \[
+                \sup_{x\in [a,b]}\{|f_n(x)|\}=|b|^n
+                \]
+              </li>
+              <li>
+                Para \(n\) par \(f_n\) es decreciente en \((-1,0]\)
+                y creciente en \([0,1)\), por lo tanto
+                \[
+                \sup_{x\in [a,b]}\{|f_n(x)|\}=
+                \left\{
+                  \begin{array}{cc}
+                  |a|^n & \textrm{si \([a,b] \subset (-1,0]\),} \\
+                  |b|^n & \textrm{si \([a,b]\subset [0,1)\),} \\
+                  \max\{|a|^n,|b|^n\}   &    \textrm{si \( a< 0 < b \).}
+                  \end{array}
+                  \right.
+                \]
+              </li>
+              En cuqlquier caso, ya que \([a,b]\subset (-1,1)\), tenemos
+              que \(-1< a < b < 1\) y por lo tanto
+              \(\lim_{n\to \infty}|a|^n=\lim_{n\to \infty}|b|^n=0\). Por lo
+              tanto,
+              \[
+              \lim_{n\to \infty} \|f_n\|_\infty=0.
+              \]
+            </ul>
+
+          </p>
+        </div>
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Para las siguientes sucesiones de funciones ecuentra su límite
+            puntual (si existe) y los subintervalos donde la convergencia
+            es uniforme.
+          </p>
+          <ol>
+            <li>
+              \(f_n:[0,1]\to \mathbb{R}\) dada por
+              \(f_n(x)=n^2x(1-x^2)^n\).
+            </li>
+            <li>
+              \(f_n:[0,\infty)\to \mathbb{R}\) dada por \(f_n(x)=\frac{nx}{1+nx}\).
+            </li>
+            <li>
+              \(f_n:[0,\infty)\to \mathbb{R}\) dada por \(f_n(x)=\frac{nx}{1+n^2x^2}\).
+            </li>
+            <li>
+              \(f_n:\mathbb{R}\to \mathbb{R}\) dada por \(f_n(x)=\frac{x^n}{1+x^n}\).
+            </li>
+          </ol>
+
 
         </div>
 
 
 
+        <div class="teorema-box">
+          <h2 class="number-title" id="Teo:ConveUnifYConti"> Teorema </h2>
+          <p>
+            Sean \((f_n:[a,b]\to \mathbb{R}^n)_{n=1}^\infty\) una sucesión de funciones tal que
+            cada una de las \(f_n\) es continua en el punto  \(x_0\in [a,b]\).
+          </p>
+          <p>
+            Si \((f_n)_{n=1}^\infty\) converge uniformemene en \([a,b]\)
+            a una función \(f\), entonces \(f\) también es continua en \(x_0\).
+          </p>
+          <p>
+            En particular, si las \(f_n\) son continuas en todo \([a,b]\)
+            también \(f\) lo es.
+          </p>
+          <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+          <p>
+            La demostración es un argumento del tipo \(3\varepsilon\).
+          </p>
+          <p>
+            Primero, usamos la convergencia uniforme de \((f_n)_{n=1}^\infty\)
+            para asegurar que existe una \(N\in \mathbb{N}\) tal que 
+            \begin{equation}\label{Eqn:Aux1ConvergenciaUnifCont}
+            \|f(x)-f_n(x)\| < \varepsilon
+            \end{equation}
+            para todo \(x\in [a,b]\) y todo \(n\geq N\).
+          </p>
+          <p>
+            Segundo, usando que \(f_N\) es continua en \(x_0\) 
+            aseguramos que existe una \(\delta > 0\) tal que 
+            \begin{equation}\label{Eqn:Aux2ConvergenciaUnifCont}
+            \| f_N(x)-f_N(x_0)\|< \varepsilon
+            \end{equation}
+            siempre que \(x\in [a,b]\) con \(|x-x_0|< \delta\).
+          </p>
+          <p>
+            Finalmente, juntanto \eqref{Eqn:Aux1ConvergenciaUnifCont} 
+            y \eqref{Eqn:Aux2ConvergenciaUnifCont}, para \(x\in [a,b]\) con \(|x-x_0|< \delta \) se tiene:
+          </p>
+          <p>
+            \begin{eqnarray*} 
+            \| f(x) -f(x_0)|  &\leq & \| f(x)- f_N(x)\| + \| f_N(x)-f_N(x_0)\|+ \| f_N(x_0)-f(x_0)\| \\
+            & < &  \varepsilon + \| f_N(x) -f_N(x_0)\| +\varepsilon  \\
+            & < & 3\varepsilon
+            \end{eqnarray*}
+          </p>
+        </div>
+        </div>
 
-            <div class="quiz-box">
-              <h2 id="Quiz:Sec2"> Quiz </h2>
-              <p>
-                Sean \(d_1,d_2:X\times X \to \mathbb{R}\) dos métricas en \(X\).
-                <ol>
-                  <li> (2pts) Sea \(c>0\). Prueba que \(cd_1+d_2\) es una métrica en \(X\).</li>
-                  <li> (3pts) ¿Cuál de las siguientes funciones define una métrica en \(X\) ?
-                    \[
-                    d(x,y)=\max\{ d_1(x,y), d_2(x,y)\}, d(x,y)= \min\{d_1(x,y),d_2(x,y)\}
-                    \]
-                    Prueba o da un contraejemplo, según corresponda.
-                  </li>
-              </p>
-          </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea
+            \((f_n:[a,b]\to \mathbb{R}^n)_{n=1}^\infty\) una sucesión de funciones continuas
+            tal que convergen uniformemente en \([a,b]\).
+          </p>
+          <p>
+            Sea \((x_m)_{m=1}^\infty \subset [a,b]\) una sucesión  convergente
+            en \([a,b]\). Prueba
+            \[
+            \lim_{n\to \infty}\left( \lim_{m\to \infty} f_n(x_m)\right)=
+            \lim_{m\to \infty}\left( \lim_{n\to \infty} f_n(x_m)\right)
+            \]
+          </p>
+          <p>
+            Sugerencia: usa el <a href="#Teo:ConveUnifYConti">teorema anterior</a>.
+          </p>
+        </div>
 
 
 
-      <div class="nota-box">
-        <h2 > Lectura</h2>
+
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
         <p>
-          <a href="https://sagrawalx.github.io/teaching/su15_math104/metric_examples.pdf"> Ejemplos de espacios métricos.
-          </a>
+          Sea \((f_n:[a,b]\to \mathbb{R})\) una sucesión 
+          de funciones Riemann integrables en \([a,b]\). Supongamos 
+          que la sucesión converge uniformemente en \([a,b]\)
+          a la función \(f:[a,b]\to \mathbb{R}\). Entonces 
+          \(f\) es Riemann integrable y 
+          \[
+          \lim_{n\to \infty}\int_a^b f_n(t)dt=\int_a^bf(t)dt.
+          \]
         </p>
-        
-        <p>
-          <a href="http://www.math.uni-bonn.de/people/daniel/2018/ggt/GGT-notes.pdf"> Grupos como espacios métricos.
-          </a>
-        </p>
+
       </div>
+
+        <!-- <div class="teorema-box">
+          <h2 class="number-title" id="Teo:ContUnifIntegracion"> Teorema </h2>
+          <p>
+            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una suncesión de funciones continuas.
+            Supongamos que \((f_n)_{n=1}^\infty\) converge uniformemente
+            en \([a,b]\) a una función \(f\). Entonces
+            \[
+            \lim_{n\to \infty} \int_a^b f(t)dt= \int_{a}^b f(t)dt.
+            \]
+            Es decir, podemos "meter el límite dentro de la integral",
+            en otra notación:
+            \[
+            \lim_{n\to \infty} \int_a^b f_n(t)dt = \int_a^b \lim_{n\to \infty}f_n(t)dt.
+           \]
+          </p>
+          <p>
+            Nota: el teorema sigue siendo válido si se pide la hipótesis de que
+            todas las funciones \(f_n\) sean sólo Riemann integrables. Con esta
+            suposición se puede probar que el límite \(f\) también es
+            Rieman integrable y que se puede meter el límite en la integral.
+
+          </p>
+          <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+          <p>
+            Debemos de probar que, dado \(\varepsilon >0\), existe una \(N\in \mathbb{N}\)
+            tal que para todo \(n\geq N\),
+            \[
+            \left| \int_a^b f_n(t)dt - \int_a^n f(t)dt \right| < \varepsilon
+            \] 
+            Pero, por las propiedades de la integral 
+            \begin{equation}\label{Eqn:Aux1ContinuidadUnifintegral}
+            \left| \int_a^b f_n(t)dt - \int_a^n f(t)dt \right|\leq \int_a^b |f_n(t)-f(t)|dt
+            \end{equation}
+          </p>
+          <p>
+            Por otro lado, dabido a la convergencia uniforme existe una \(N\in \mathbb{N}\) tal que 
+            \[
+            |f_n(x)-f(x)|< \frac{\varepsilon}{2(b-a)}
+            \]
+            para todo \(x\in [a,b]\) y \(n\geq N\). Si integramos la desigualdad anterior obtenemos 
+            \[
+            \int_a^b |f_n(t)-f(t)|dt \leq \int_a^b \frac{\varepsilon}{2(b-a)}dt=\frac{\varepsilon}{2}
+            \]
+          </p>
+          <p>
+            Por lo tanto si en \eqref{Eqn:Aux1ContinuidadUnifintegral} tomamos 
+            \(n\geq N\) concluimos que para todo \(n\geq N\) 
+            \[
+            \left| \int_a^b f_n(t)dt - \int_a^n f(t)dt \right| < \varepsilon.
+            \]
+          </p>
+        </div>
+        </div>-->
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba
+            \[
+            \lim_{n\to \infty}\int_{\pi/2}^\pi\frac{\sen(nx)}{nx}dx=0
+            \]
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Cálcula el límite
+            \[
+            \lim_{n\to \infty} \int_0^1 \frac{e^{-nt}}{\sqrt{t}} dt
+            \]
+          </p>
+        </div>
+
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión
+            de funciones continuas que converge uniformemente en \([a,b]\).
+          </p>
+          <p>
+            Define \(F_n:[a,b]\to \mathbb{R}\) por
+            \[
+              F_n(x):=\int_a^x f_n(t)dt
+            \]
+            Prueba que la sucesión \((F_n)_{n=1}^\infty\)
+            converge uniformemente en \([a,b]\).
+          </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Supongamos que tenemos una sucesión de funciones continuas
+            \((f_n:[a,b]\to \mathbb{R})\) que converge uniformemente
+            en \([a,b]\) a la función \(f:[a,b]\to \mathbb{R}\). Prueba
+            \[
+            \lim_{n\to \infty}\int_a^b \left( \int_a^xf_n(t)dt \right) dx=
+            \int_a^b \left(\int_a^x f(t)dt\right)dx
+            \]
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+
+          <p>
+            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una
+            sucesión de funciones continuas que converge
+            uniformemente en \([a,b]\) a una función
+            \(f\).
+          </p>
+          <p>
+            Supón que \(g:[a,b]\to \mathbb{R}\) es una función Riemann
+            integrable en \([a,b]\). Prueba que
+            \[
+            \lim_{n\to \infty} \int_a^b f_n(t)g(t)dt =\int_a^b f(t)g(t)dt
+            \]
+          </p>
+        </div>
+
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión de funciones
+            continuas en \([a,b]\) y tal que su derivada, \(f_n'\), existe y
+            es continua en todo \([a,b]\).
+          </p>
+          <p>
+            Supongamos que
+            <ol>
+              <li>
+                \((f_n')\) converge uniformemente en \([a,b]\) a una
+                función \(g:[a,b]\to \mathbb{R}\).
+              </li>
+              <li>
+                Existe un punto \(x_0\in [a,b]\) tal que
+                la sucesión \((f_n(x_0))_{n=1}^\infty\) converge.
+              </li>
+            </ol>
+          </p>
+          <p>
+            Entonces la sucesión original, \((f_n)_{n=1}^\infty\), converge
+            uniformemente en \([a,b]\). Además, si  \(f\) es el límite de
+            \((f_n)_{n=1}^\infty\) entonces \(f\) es diferenciable y
+            \(f'=g\). Es decir, podemos meter el límite en la derivada
+            \[
+            \lim_{n\to \infty} \frac{d}{dx}f_n(x) =
+            \frac{d}{dx}\left( \lim_{n\to \infty} f_n (x) \right)
+            \]
+          </p>
+        </div>
+
+
+
+        <div class="teorema-box">
+          <h2 class="number-title" id="Teo:Dini"> Teorema </h2>
+          <h3> Teorema de Dini </h3>
+          <p>
+            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión de funciones continuas en \([a,b]\).
+            Supón que: 
+            <ol>
+              <li>
+                para todo \(x\in [a,b]\) y  para todo \(n\in \mathbb{N}\) se cumple:
+                 \[ f_{n+1}(x) \leq f_n(x)\]
+              </li>
+              <li>
+                para todo \(x\in [a,b]\) el límite \(\lim_{n\to \infty}f_n(x)\) existe y la función 
+                \(f:[a,b]\to \mathbb{R}\) definida por 
+                \[
+                f(x)=\lim_{n\to \infty} f_n(x)
+                \]
+                es continua en \([a,b]\).
+              </li>
+            </ol> 
+            <p>
+              Entonces \((f_n)_{n=1}^\infty\) converge uniformemente a \(f\) en \([a,b]\).
+            </p>
+          </p>
+
+        </div>
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema  </h2>
+            <h3> Criterio M de Weierstrass</h3>
+            <p>
+              Sea \((f_n:X\to \mathbb{R})_{n=1}^\infty\) una sucesión
+              de funciones. Supongamos que existe una sucesión
+              de números no negativos \((M_n)_{n=1}^\infty\) tal que
+              <ul>
+                <li>
+                  La serie \(\sum_{n=1}^\infty M_n\) es convergente.
+                </li>
+                <li>
+                  Para todo \(x\in X\) y para todo \(n\in \mathbb{N}\), \(|f_n(x)|\leq M_n\).
+                </li>
+              </ul>
+              Entonces la sucesión de funciones \((S_N)_{N=1}^\infty\), dada
+              por \(S_N(x)=\sum_{n=1}^N f_n(x)\) converge
+              uniformemente en \(X\).
+
+              También se dice que  la serie \(\sum_{n=1}^\infty f_n(x)\)
+              es  uniformemente convergente en \(X\).
+            </p>
+            <p>
+              Usando la norma \(\|\cdot\|_\infty\) el criterio M se puede
+              resumir como sigue. Si 
+              \[
+              \sum_{n=1}^\infty \| f_n\|_\infty < + \infty 
+              \]
+              entonces 
+              \[ 
+              \sum_{n=1}^\infty f_n(x) 
+              \]
+              converge uniformemente en \(X\).
+            </p>
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba que la serie \(\sum_{n=1}^\infty x^n\) es uniformemente
+            convergente en cualquier subintervalo cerrado contenido en
+            \((-1,1)\).
+          </p>
+
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <h3 > Series de potencias </h3>
+          <p>
+            <p>
+              Si \((a_n)_{n=1^\infty \subset \mathbb{R}}\) y \(x_0\in \mathbb{R}\), una serie de la 
+              forma 
+              \[
+              \sum_{n=0}^\infty a_n(x-x_0)^n
+              \]
+              se llama una serie de potencias alrededor de \(x_0\), con coeficientes \((a_n)_{n=1}^\infty\). Por ejemplo 
+              las series de Taylor de una función clase \(C^\infty\).
+            </p>
+            <p>
+              El radio de convergencia de la serie de define como 
+              \[
+              R=\frac{1}{\limsup_{n\to \infty}\sqrt[n]{|a_n|}}
+              \]
+
+              Notas: 
+              <ul>
+                <li>
+                  dada una sucesión \((b_n)_{n=1}^\infty \subset \mathbb{R}\) su límite superior se define como 
+                  \[
+                  \limsup_{n\to \infty}b_n = \inf_{n\geq 1}\{ \sup_{k\geq n}\{b_k \} \}.
+                  \]
+                </li>
+                <li>
+                  si la sucesión no está acotada puede suceder que \(\limsup_{n\to \infty}b_n=+\infty\).
+                </li>
+                <li>
+                  Si \(\limsup_{n\to \infty}\sqrt[n]{|a_n|}=0\) entonces \(R=+\infty\).
+                </li>
+              </ul>
+              
+            </p>
+            <h3>Ejemplo</h3>
+            <p>
+              Para la serie geométrica \(\sum_{n=0}^\infty x^n\), \(a_n=1\) para toda \(n\) por lo que su radio de 
+              convergencia es \(R=1\). Nótese que la serie converge en el intervalo \((-1,1)\).
+            </p>
+            <h3>
+              Teorema 
+            </h3>
+            <p>
+              Considera la serie de potencias 
+              \[
+              \sum_{n=0}^\infty a_n(x-x_0)^n
+              \]
+              con radio de convergencia \(R\).
+            </p>
+            <ol>
+
+            <li>
+              Si \(R=+\infty\), \(\sum_{n=1}^\infty a_n(x-x_0)^n\) converge absolutamente y 
+              uniformemente en todo intervalo de la forma
+              \([a,b]\), 
+            </li>
+            <li>
+              Si \(R< +\infty\), \(\sum_{n=1}^\infty a_n(x-x_0)^n\) converge absolutamente y 
+              uniformemente en todo intervalo de la forma
+              \([a,b]\) contenido en \((x_0-R,x_0+R)\).
+            </li>
+            <li>
+              En el intervalo \((x_0-R,x_0+R)\) se puede
+              derivar la serie término a término:
+              \[
+              \left(\sum_{n=1}^\infty a_nx^n \right)'=\sum_{n=1}^\infty na_nx^{n-1}
+              \]
+            </li>
+            <li>
+              Para cualquier intervalo cerrado \([a,b]\subset (x_0-R,x_0+R)\)
+              la serie se puede integrar término a término:
+              \[
+              \int_a^b \left( \sum_{n=1}^\infty a_nx^n \right)dx=
+              \sum_{n=1}^\infty \frac{a_n}{n+1}(b^{n+1}-a^{n+1})
+              \]
+            </li>
+           </ol>
+          </p>
+          <button class="respButton hvr-grow"> Demostración incisos 1, 2</button>
+              <div class="resp-box">
+          <p>
+            Para unificar los casos \(R=+\infty, R< +\infty\), en caso de que \(R=+\infty\), entendemos 
+            \(x_0+R=+\infty, x_0-R=-\infty\). 
+          </p>
+          <p>
+            Dado \([a,b]\subset (x_0-R,x_0+R)\), fijamos \(r\in \mathbb{R}\) con \(0< r < R\) con la propiedad de que 
+            \([a,b]\subseteq (x_0-r,x_0+r)\).
+          </p>
+          <p>
+          Ahora tomamos  \(r_0\) tal que \(r< r_0 < R \). Entonces 
+          \[
+          \limsup_{n\to \infty} \sqrt[n]{|a_n|}=\frac{1}{R} < \frac{1}{r_0}.
+          \]
+          Por la propiedad fundamental del ínfimo existe un \(n\) tal que 
+          \[
+          \frac{1}{R} \leq \sup_{k\geq n} \{ \sqrt[k]{|a_k|}\} < \frac{1}{r_0}
+          \]
+          de lo que se sigue que \(|a_k|\leq \frac{1}{r_0^k}\), para todo \(k\geq n\). Ahora si nos fijamos en los términos 
+          de la serie de potencias tenemos, para \(k\geq n\) y \(x\in [a,b]\):
+          \begin{eqnarray*} 
+              |a_k(x-x_0)^k|=|a_k||x-x_0|^k \leq \frac{1}{r_0^k} |x-x_0|^k \leq \frac{r^k}{r_0^k}
+          \end{eqnarray*}
+          Nota: ya que \(x\in [a,b]\subset (x_0-r,x_0+r)\) se sigue que \(|x-x_0|\leq r\).
+          </p>
+          <p>
+            Finalmente si tomamos \(M_k=(\frac{r}{r_0})^k\), usamos que \(\frac{r}{r_0}< 1\) y la serie geométrica, podemos aplicar el criterio \(M\) de Weierestrass 
+            a las funciones \(f_k(x)=a_k(x-x_0)^k\), para obtener  que la serie \(\sum_{k=0}^\infty a_k(x-x_0)^k\) converge 
+            uniformemente en \([a,b]\).
+          </p>
+        </div>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+<div class="quiz-box">
+  <h2> Quiz  </h2>
+  <ol>
+      <li>
+        <p>
+          Sea \(X\) un conjunto no vacío y considera dos sucesiones de funciones 
+          \((f_n:X\to \mathbb{R})_{n=1}^\infty, (g_n:X\to \mathbb{R})_{n=1}^\infty\) tal que 
+          \(f_n \to f\)  y \(g_n \to g\)  uniformemente en \(X\).
+        </p>
+        <p>
+          Si existe una \(M>0\) tal que \(\sup_{x\in X}\{ |g_n(x)|\} \leq M\), para toda \(n\) y 
+          la función \(f\) es acotada, 
+          prueba que la sucesión producto \((f_ng_n:X\to \mathbb{R})_{n=1}^\infty\)
+          converge uniformemente a \(fg\) en \(X\).
+        </p>
+      
+      </li>
+      <li>
+        Da un ejemplo que muestra que el resultado del ejercicio anterior 
+        puede fallar si la hipótesis, \(\sup_{x\in X}\{ |g_n(x)|\} \leq M\), para toda \(n\) ó
+        que la función \(f\) sea acotada, se elimina.
+       </li>
+  </ol>
+  
+</div>
+
+
+      
+
+
+
+
+
+
+
+
+
+
     </div>
   </body>
+
+  </html>

@@ -41,6 +41,7 @@
 
 
 
+
   <!-- Top Menu -->
 
   <header class="main-header">
@@ -51,7 +52,6 @@
         <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
         <li> <a href="../Secciones.html"> Secciones  </a> </li>
       </ul>
-     
     </nav>
     <label class="switch">
       <input type="checkbox" onclick="myFunction()">
@@ -65,824 +65,711 @@
   <!-- This part is for title in tab-->
   <title id="Sec"> § 3 </title>
 
+
   <!--    Contenido empiaza abajo
  ///////////////////////////////// -->
 
+</head>
 
-  <body class="flexbox card fondo-body">
+  <body class="flexbox fondo-body">
 
+    <h1 class="number-title flexbox"> El Teorema de Weierstrass </h1>
+    <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
+    <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
     <div class="flexbox">
-      <h1 class="number-title flexbox"> Espacios vectoriales normados </h1>
-      <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
-      <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+      
 
 
       <div class="info-box">
         <h2 class="number-title"> Introducción </h2>
+
         <p>
-          Entre los espacios métricos existen algunos que sobresalen y
-          sobresalen porque a parte de tener una estructura de espacio métrico
-          tienen una estructura de esapcio vectorial  y estás dos estructuras
-          se complementan haciendo que los resultados en estos espacios sean
-          más ricos, por decirlo de alguna forma. Dichos espacios son los
-          espacios vectoriales normados. Los espacios vectoriales normados
-          son una generalización de \(\mathbb{R}^n\) dotado con la
-          norma o longitud usual de un vector:
-          \[
-          \|(x_1,\dots , x_n)\|=\sqrt{x_1^2+\cdots +x_n^2}.
-          \]
-          Lo interesante es que la idea de un espacio vectorial junto
-          con una función que mide la longitud de los vectores aparece
-          en muchos lados y sirve para estudiar espacios muy diferentes
-          a los \(\mathbb{R}^n\), como espacios de sucesiones, espacios
-          de funciones y muchos más.
+          En esta sección nos enfocaremos en espacios de funciones continuas sobre 
+          intervalos compactos. Si el intervalo es \([a,b]\) por \(C[a,b]\)
+          denotaremos al conjunto de funciones continuas sobre el intervaloe \([a,b]\),
         </p>
         <p>
-          En esta sección se ven espacios vectoriales normados. Para ser
-          concretos no restringimos a espacios vectoriales sobre los reales,
-          pero ésto no es absolutamente necesario pues se pueden utilizar
-          espacios vectoriales complejos.
+            El Teorema de Weierestrass asegura que toda función continua definida 
+            en un intervalos compacto puede aproximarse uniformemente con polinomios. 
+            Aproximar funciones con polinomios no es nuevo, es lo que se hace con polinomios 
+            de Taylor sólo que las hipótesis son totalmente distintas. En los polinomios de Taylor 
+            se pide que la función sea diferenciable mientras que en el de Weierestrass sólo 
+            se le pide continuidad. Otra diferencial fundamental es que en Taylor tenemos 
+            series de polinomios (es decir la aproimaxión \(n+1\)-ésima se obtiene de la \(n\)-ésima
+            al agregar un sumando) mientras 
+            que en Weierestrass no se obtienen series.
         </p>
+
       </div>
 
-      <div class="definicion-box">
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <h3> Weierstrass (1885)</h3>
+        <p>
+            Dada \(f\in C[a,b]\) y \(\varepsilon >0\) existe un polinomio 
+            \(p\) tal que \(\|f-p\|_\infty <  \varepsilon\).
+        </p>
+        <p>
+            Como consecuencia existe una sucesión de polinomios 
+            \((p_n)_{n=1}^\infty\) tal que \(\lim_{n\to \infty}\|f-p_n\|_\infty =0\).
+        </p>
+
+      </div>
+      
+
+
+
+
+
+      <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
+        <p>
+            Existe una isometría lineal entre \(C[a,b]\) y \(C[0,1]\) que manda polinomios en 
+            polinomios.
+        </p>
+        <p>
+          Nota: este lema nos dice que, para demostrar el Teorema de 
+          Weierstrass, es suficiente probarlo para el caso \(C[0,1]\).
+        </p>
+
+
+      </div>
+
+    <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
-
+        <h3> Polinomios de Bernstein </h3>
         <p>
-          Sea \(V\) un espacio vectorial. Una norma
-          en \(V\) es una función \(\| \cdot \|: V \to \mathbb{R}\) que
-          satisface
-          <ol>
-            <li> para todo \(x\in V\), \(\|x\| \geq 0\). </li>
-            <li> \(\|x\|=0\) si y sólo si \(x=0\). </li>
-            <li> para todo \(x\in V\) y todo escalar \(\alpha\),
-              \(\|\alpha x \| = |\alpha| \|x\|\) .</li>
-            <li> desigualdad del triángulo: para todos, \(x,y\in V\),
-              \(\|x+y\| \leq \|x\|+\|y\|\) </li>
-          </ol>
+            Dada una función \(f:[0,1]\to \mathbb{R}\) definimos su \(n\)-ésimo polinomio de 
+            Bernstein como 
+
+            \[
+            B_n(f)(x)=\sum_{k=0}^n f\left(\frac{k}{n} \right)\binom{n}{k}x^k(1-x)^{n-k}
+            \]
         </p>
-        <p>
-          Un espacio vectorial normado es una pareja \((V,\|\cdot\|)\),
-          donde \(V\) es un espacio vectorial  y
-          \(\|\cdot \|\) es una norma.
-          </p>
+    </div>
 
-
-          <button class="respButton hvr-grow"> Ejemplos </button>
-          <div class="resp-box flexbox">
-              <div class="flexbox">
-                <iframe width="700" height="400" class="video"
-                  src="https://www.youtube.com/embed/rYsJtyoN5wY" allowfullscreen="true"> 
-                </iframe>
-                  
-              </div>
-          </div>
-
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:Normas12inftyEquiv"> Ejercicio </h2>
-        <p>
-          Un espacio vectorial puede tener varias formas de mediar
-          longitudes, es decir, un mismo espacio vectorial puede
-          admitir distintas normas. Este ejercicio presenta la relación entre tres
-          normas
-          distintas en \(\mathbb{R}^n\).
-        </p>
-        <p>
-          Para \(x=(x_1,\dots, x_n)\in \mathbb{R}^n\) se definen:
-          \[
-          \begin{eqnarray*}
-          \|x\|_1&=&\sum_{i=1}^n|x_i|, \\
-          \|x\|_2&=&\left(\sum_{i=1}^2x_i^2\right)^{1/2}, \\
-          \|x\|_\infty &=&\max_{1\leq i \leq n} \{|x_i|\}.
-          \end{eqnarray*}
-          \]
-          Prueba
-          \[
-          \|x\|_\infty \leq \|x\|_2 \leq \|x\|_1
-          \]
-          y además
-          \[
-          \|x\|_1 \leq n \|x\|_\infty, \quad \|x\|_1\leq \sqrt{n}\|x\|_2 .
-          \]
-        </p>
-      </div>
-
-
-      <div class="nota-box">
-        <h2 class="number-title"> Nota </h2>
-        <h3>
-          Espacios de sucesiones
-        </h3>
-        <p>
-          Los elementos en \(\mathbb{R}^n\) pueden pensarse como funciones
-          \(x:\{1,\dots n\} \to \mathbb{R}\), donde a cada función
-          \(x\) le asociamos el vector \((x(1), \dots, x(n))\) y viceversa,
-          dado un vector \((x_1,\dots, x_n) \in \mathbb{R}^n\)
-          le asociamos la función \(x(i)=x_i\).
-        </p>
-        <p>
-          Con este punto de vista podemos reemplazar el conjunto
-          \(\{1,\dots,n\}\) por cualquier otro. Una elección importante
-          es cuando lo reemplazamos por \(\mathbb{N}\). Al hacer esto
-          obtenemos el espacio de sucesiones \(\mathbb{R}^{\mathbb{N}}\). Un
-          problema con el espacio anterior es que es "muy grande", para hacer
-          análisis. Para solucionar esto se toman  subconjuntos de
-          \(\mathbb{R}^{\mathbb{N}}\) con ciertas restricciones analíticas,
-          por ejemplo:
-          <ul>
-            <li> sucesiones acotadas, </li>
-            <li> sucesiones absolutamente sumables, </li>
-            <li> sucesiones cuadrado sumables.</li>
-          </ul>
-          Algunos de los ejercicios que siguen estudian estos espacios.
-        </p>
-      </div>
-
-      <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:ellInftyClasico"> Ejercicio </h2>
-
-        <p>
-          Por \(\ell_\infty\) denotamos al conjunto de sucesiones de reales
-          que están acotadas. Es decir
-          \[
-          \ell_\infty=\left\{
-            (x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}} \left|
-            \sup_{i\in \mathbb{N}} \{ |x_i| \} < \infty
-            \right.
-            \right\}
-          \]
-        </p>
-        <p>
-          Dado \(x\in \ell_\infty\) definimos
-          \[
-          \|x\|_\infty:= \sup_{i\in \mathbb{N}}\{ |x_i|\}
-          \]
-        </p>
-        <p>
-          Prueba que \((\ell_\infty, \| \cdot\|_\infty)\) es un espacio vectorial
-          normado.
-        </p>
-
-        <button class="respButton hvr-grow"> Respuesta </button>
-        <div class="resp-box flexbox">
-            <div class="flexbox">
-              <iframe width="700" height="400" class="video"
-                src="https://www.youtube.com/embed/ZENcWe9Rjck" allowfullscreen="true"> 
-              </iframe>
-            </div>
-        </div>
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Por \(\ell_1\) denotamos al conjunto de sucesiones de reales que
-          son absolutamente sumables. Es decir
-          \[
-          \ell_1=\left\{
-            (x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}} \left|
-            \sum_{i=1}^\infty |x_i| < \infty
-            \right.
-            \right\}
-          \]
-        </p>
-        <p>
-          Dado \(x\in \ell_1\) definimos
-          \[
-          \|x\|_1:=\sum_{i=1}^\infty |x_i|
-          \]
-        </p>
-        <p>
-          Prueba que \((\ell_1, \| \cdot\|_1)\) es un espacio vectorial
-          normado.
-        </p>
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Por \(\ell_2\) denotamos al conjunto de sucesiones de reales
-          cuadrado sumables. Es decir
-          \[
-          \ell_2=\left\{(x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}}
-          \left|  \sum_{i=1}^\infty x_i^2< \infty \right. \right\}
-          \]
-        </p>
-        <p>
-          Dado \(x=(x_i)_{i=1}^\infty \in \ell_2 \) definimos
-          \[
-          \|x \|_2:=\left( \sum_{i=1}^\infty x_i^2\right)^{1/2}
-          \]
-        </p>
-        <p>
-          <ol>
-            <li>
-              Para \(x,y\in \ell_2\) prueba
-              \[
-              \sum_{i=1}^\infty |x_i||y_i| \leq \|x\|_2\|y\|_2
-              \]
-            </li>
-            <li>
-              Prueba si \(x,y\in \ell_2\) entonces \(x+y\in \ell_2\) y además
-              \[
-              \| x+y\|_2 \leq \|x\|_2+ \|y\|_2
-              \]
-            </li>
-            <li>
-              Concluye que \((\ell_2,\|\cdot\|_2)\) es un espacio
-              vectorial normado.
-            </li>
-          </ol>
-        </p>
-
-        <button class="respButton hvr-grow"> Respuesta </button>
-        <div class="resp-box flexbox">
-            <div class="flexbox">
-
-              <iframe width="700" height="400" class="video"
-                src="https://www.youtube.com/embed/OREqoVwxx7M" allowfullscreen="true"> 
-              </iframe>
-                
-            </div>
-        </div>
-
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-            <p>
-              Recuerda que si \(\sum_{i=1}^\infty x_i^2 \) es  una serie
-              convergente entonces \(\lim_{i\to \infty}x_i^2=0\), por lo que
-              la sucesión \((x_i)_{i=1}^\infty\) está acotada, es decir,
-              \((x_i)_{i=1}^\infty \in  \ell_\infty\). Esto prueba que
-              \(\ell_2 \subseteq \ell_\infty\).
-            </p>
-            <ol>
-              <li>Prueba que para todo \(x\in \ell_2\)
-              \[
-              \|x\|_\infty \leq \|x\|_2
-              \]
-              </li>
-              <li>
-              Da un ejemplo que muestre que la contención
-              \(\ell_2 \subseteq \ell_\infty\) es propia.
-              </li>
-          </ol>
+    <div class="nota-box">
+      <h2 class="number-title"> Nota </h2>
+      <h3> Interpretación probabilistica de los polinomios de Bernstein </h3>
+      <p>
+        Dada \(x\in [0,1]\) vamos a considerarla como la probabilidad de éxito en un experimento (juego). Es decir
+        dada una variable aleatoria (v.a.) Bernoulli \(X:\Omega \to \{0,1\}\), 
+        \(\mathbb{P}(X=1)=x, \mathbb{P}(X=0)=1-x\).
       </p>
-      <button class="respButton hvr-grow"> Respuesta </button>
-      <div class="resp-box">
-          <ol>
-              <li>
-                  Sea \(x \in \ell_2\). Para cada \(j \in \mathbb{N}\) se tiene
-                  que \(x_j^2 \leq \sum_{i=1}^\infty x_i^2\), al tomar la raíz
-                  cuadrada de ambos lados de la desigualdad se obtiene
-                  \[|x_j| \leq (\sum_{i=1}^\infty x_i^2)^{1/2} = \|x\|_2,\]
-                  y al tomar supremo sobre \(j\)
-                  \[\|x\|_\infty = \sup_{j \in \mathbb{N}} \{|x_j|\} \leq \|x\|_2\]
-              </li>
-              <li>
-                  Podemos dar una infinidad de ejemplos para mostrar que la contención
-                  es propia. El más sencillo es una sucesión constante \(x_i = k\),
-                  donde \(k \neq 0\). Evidentemente la sucesión es acotada, sin embargo
-                  la primera observación del ejercicio hace notar que es necesario que
-                  \(\lim_{i \to \infty} x_i^2 = 0\) para que la serie converja, lo cual
-                  no ocurre si \(k \neq 0\). Para tener un ejemplo menos trivial recordemos
-                  que la serie armónica \(\sum_{n \in \mathbb{N}} \frac{1}{n}\) diverge, sin
-                  embargo ésta es acotada por 1, por lo que si \(x = (x_i)_{i=1}^\infty =
-                  (\frac{1}{\sqrt{n}})_{n=1}^\infty\), entonces \(x \in \ell_\infty\) pero
-                  \(x \notin \ell_2\).
-              </li>
-          </ol>
-      </div>
-      </div>
+      <p>
+        Sean \(X_1,\dots, X_n\) v.a. Bernoulli, independientes idénticamente distribuidas.
+        Si \(Pr(k)\) es la probabilidad de observar exáctamente \(k\) victorias en \(n\) juegos 
+        entonces 
+        \begin{eqnarray*}
+        Pr(K)&=&\sum_{i_1,\dots, i_k \in \{1,\dots, n\}}\mathbb{P}(X_{i_1}=\cdots=X_{i_k}=1,\mathbb{P}(X_i)=0, j\notin \{i_1,\dots, i_k\}) \\
+        &=& \binom{n}{k}\mathbb{P}(X_1=\cdots = X_k=1, X_{k+1}=\cdots = X_n=0) \\
+        &=& \binom{n}{k}x^k(1-x)^{n-k}
+        \end{eqnarray*}
+      </p>
+      <p>
+        Dada una función \(f:[0,1]\to \mathbb{R}\) interpretamos \(f(x)\) como 
+        la ganancia, con la probabilidad de ganar siendo \(x\). Por lo tanto \(f(k/n)Pr(k)\) es la ganancia 
+        en exáctamente \(k\)-victorias. Por lo tanto el valor esperado
+        de la gancia es 
+        \[
+        \mathbb{E}(f)=\sum_{k=0}^n f\left( \frac{k}{n}\right)\binom{n}{k}x^k(1-x)^{n-k}.
+        \]
+      </p>
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+    </div>
+
+    
+    <div class="lema-box">
+        <h2 class="number-title" id="Lema:ConvergenciaBernstein012"> Lema</h2>
+
+        <p>
+            Por simplicidad vamos a denotar 
+            \[
+            f_0(x)=1, \quad f_1(x)=x, \quad f_2(x)=x^2
+            \]
+
+        </p>
         <ol>
-          <li>
-          Prueba que si \(x\in \ell_1\) entonces
-          \[
-          \|x\|_2 \leq \|x\|_1
-          \]
-          Esto prueba que \(\ell_1 \subseteq \ell_2 \).
-          </li>
-          <li>
-            Muestra con un ejemplo que la contención
-            \(\ell_1 \subseteq \ell_2\) es propia. Sugerencia:
-            series \(p\).
-          </li>
+            <li> Para toda \(n\):
+                \[B_n(f_0)=f_0,\quad  B_n(f_1)=f_1\]
+            </li>
+            <li>
+                Para toda \(n\):
+                \[
+                B_n(f_2)=\left( 1- \frac{1}{n}\right)f_2+\frac{1}{n}f_1 
+                \]
+                Por lo tanto \((B_n(f_2))_{n=1}^\infty\) converge uniformemente a 
+                \(f_2\) en \([0,1]\).
+            </li>
         </ol>
 
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <button class="respButton hvr-grow"> Demostración inciso 1  </button>
+              <div class="resp-box">
         <p>
-          Sea \((V, \|\cdot \|)\) un espacio vectorial normado. Define
-          \(d:V\times V \to \mathbb{R}\)  por
-          \[
-          d(x,y)=\|x-y\|
-          \]
-          Prueba que \(d\) es una métrica en \(V\).
-        </p>
-        <button class="respButton hvr-grow"> Respuesta </button>
-        <div class="resp-box">
-                <ol>
-                    <li>
-                        En primer lugar notemos que \(\forall x,y \in V \| x-y\| \geq 0\)
-                        y que \(\|x-y\| = 0\) si y sólo si \(x-y = 0\), es decir, si \(x=y\).
-                        Por lo tanto \(d(x,y) \geq 0\) y \(d(x,y) = 0\) si y sólo si \(x=y\).
-                    </li>
-                    <li>
-                        \(d(x,y) = \| x - y\| = \|-(y-x)\| = |-1| \|y-x\| = d(y,x)\).
-                    </li>
-                    <li>
-                        Si \(x,y,y \in V\) entonces 
-                        \begin{eqnarray*}
-                        d(x,y) &=&  \|x-y\| \\
-                        &= & \|x-z + z -y\| \\
-                        &\leq &
-                        \|x-z\| + \|z-y\| \\
-                        &=& d(x,z) + d(z,y)
-                        \end{eqnarray*}
-                    </li>
-                </ol>
-                <p>
-                    Con ello hemos demostrado que \(d(x,y) = \|x-y\|\) es una métrica en \(V\).
-                </p>
-        </div>
-      </div>
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Sea \(V\) un espacio vectorial y \(d\) una métrica en \(V\) que satisface
-          <ol>
-            <li>  \(d(x,y)=d(x-y,0)\). </li>
-            <li> \(d(\alpha x,\alpha y  )= |\alpha| d(x,y)\). </li>
-          </ol>
-        </p>
-        <p>
-          Prueba que \(\|\cdot \| :V\to \mathbb{R}\) dada por
-          \(\|x\|=d(x,0)\) define una norma en \(V\) y que la
-          métrica asociada a esta norma es \(d\).
-        </p>
-        <p>
-          Además da un ejemplo de una métrica en \(\mathbb{R}\) que
-          no pueda ser asociada a una norma de ésta manera.
-        </p>
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-
-        <p>
-          La otra desigualdad del triángulo.
-        </p>
-        <p>
-          Sea \((V, \|\cdot \|)\) un espacio vectorial normado. Prueba
-          \[
-          |\|x\|-\|y\| | \leq \|x-y\|
-          \]
-        </p>
-      </div>
-
-
-      <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
-        <h3>
-          Normas-\(p\)
-        </h3>
-        <p>
-            Las normas-\(p\) son una generalización de las norma euclidiana.
-        </p>
-        <p>
-          Para \(p\in [1,\infty)\) se define el espacio \(\ell_p\) como
-          \[
-          \{ (x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}}:
-          \sum_{i=1}^\infty |x_i|^p < \infty\}
-          \]
-          Dada \(x\in \ell_p\) se define
-          \[
-          \|x\|_p =\left( \sum_{i=1}^\infty |x_i|^p \right)^{1/p}
-          \]
-          Resulta que esta asignación define una norma y hace a
-          \(\ell_p\) un espacio vectorial normado, pero la
-          prueba de que se satisfacen todas las condiciones de una
-          norma no es sencilla. Las partes sencillas, y que se siguen
-          de las propiedades de las series convergentes son:
-          \begin{eqnarray*}
-          \|x\|_p & \geq & 0, \\
-          \|x\|_p & = & 0 \Leftrightarrow x= 0, \\
-          \|\alpha x\|_p & = & |\alpha|\|x\|_p.
+          Directamente de la definición y utilizando el Teorema del Binomio obtenemos 
+          \begin{eqnarray*} 
+          B_n(f_0)(x)&=& \sum_{k=0}^n f_0\left(\frac{k}{n} \right)\binom{n}{k}x^k(1-x)^{n-k} \\
+          &=& \sum_{k=0}^n \binom{n}{k}x^k(1-x)^{n-k} \\
+          &=& (x+1-x)^n \\
+          &=& 1
           \end{eqnarray*}
-          No es sorprendente que la parte más complicada es probar que
-          satisface la desigualdad del triángula, la cual en el contexto
-          de los espacios \(\ell_p\) se llama la desigualdad de Minkowski.
-          Los ejercicios que siguen sirven para probar dicha desigualdad.
-        </p>
-      </div>
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Sea \(1< p <\infty\).
-          <ol>
-            <li> Sean \(a,b\geq 0\). Prueba \((a+b)^p \leq 2^p(a^p+b^p)\).</li>
-            <li> Usa el inciso anterior para probar que
-              \(\ell_p\) es cerrado bajo la suma, es decir
-              \(x,y\in \ell_p \Rightarrow x+y \in \ell_p\)
-            </li>
-          </ol>
-        </p>
-        <button class="respButton hvr-grow"> Respuesta </button>
-        <div class="resp-box">
-            <ol>
-                <li>
-                    Sea \(c = \max \{a,b\}\), entonces \(a \leq c\) y \(b \leq c\).
-                    Como la función \(x^p\) es creciente en \(\mathbb{R}^+ \cup
-                    \{0\}\), entonces \((a+b)^p \leq (c+c)^p = (2c)^p = 2^p c^p\).
-                    Finalmente, como \(c=a\) o \(c=b\) y ambos son no negativos,
-                    entonces \(c^p \leq a^p + b^p\) y \(2^p c^p \leq 2^p (a^p + b^p)\).
-                    Por lo tanto \((a+b)^p \leq 2^p(a^p + b^p)\).
-                </li>
-                <li>
-                    Sean \(x,y \in \ell_p\), entonces tanto \(x\) como \(y\) son
-                    sucesiones de números reales que satisfacen
-                    \[\sum_{i = 1}^\infty |x_i|^p < \infty \text{ y }
-                    \sum_{i = 1}^\infty |y_i|^p < \infty.\]
-                    Para cada \(i \in \mathbb{N}\) se tiene que \(|x_i|,|y_i| \geq 0\),
-                    de modo que la prueba del primer inciso nos garantiza que
-                    \(|x_i + y_i|^p \leq 2^p(|x_i|^p + |y_i|^p)\). Por lo tanto
-                    \[\sum_{i=1}^\infty |x_i + y_i|^p \leq
-                    \sum_{i=1}^\infty 2^p(|x_i|^p+|y_i|^p) =
-                    2^p(\sum_{i=1}^\infty |x_i|^p + \sum_{i=1}^\infty |y_i|^p) < \infty,\]
-                    y \(x + y \in \ell_p\)
-                </li>
-            </ol>
-        </div>
-        </div>
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"  id="Ejer:YoungIneq"> Ejercicio </h2>
-        <h3>
-          Desigualdad de Young.
-        </h3>
-        <p>
-          Dos exponenetes \(p,q\in (1,\infty)\) se llaman conjugados si
-          satisfacen \(\frac{1}{p}+\frac{1}{q}=1\). Por ejemplo, 2,2
-          son exponentes conjugados.
         </p>
         <p>
-          Sean \(p,q\in (1,\infty)\) exponentes conjugados. Sean
-          \(a,b \geq 0\). La desigualdad de Young dice
+          Para \(f_1\) primero notamos que, para \( k \geq 1\): 
           \[
-          ab \leq \frac{a^p}{p}+\frac{b^q}{q}
+          \frac{k}{n}\binom{n}{k}=\frac{(n-1)!}{(k-1)!((n-1)-(k-1))!}=\binom{n-1}{k-1}
           \]
-          con igualdad si y sólo si \(a^p=b^q\).
         </p>
         <p>
-          Ya que es muy importante, se proponen tres demostraciones.
+          Por lo tanto 
+          \begin{eqnarray*} 
+          B_n(f_1)(x)&=& \sum_{k=0}^n f_1\left(\frac{k}{n} \right)\binom{n}{k}x^k(1-x)^{n-k} \\
+          &=& \sum_{k=0}^n \frac{k}{n}\binom{n}{k}x^k(1-x)^{n-k} \\
+          &=& \sum_{k=1}^n \frac{k}{n}\binom{n}{k}x^k(1-x)^{n-k}  \\
+          &=& x \sum_{k=1}^n \binom{n-1}{k-1}x^{k-1}(1-x)^{n-k} \\
+          &=& x \sum_{k=1}^n \binom{n-1}{k-1}x^{k-1}(1-x)^{(n-1)-(k-1)}  \\
+          &=& x \sum_{j=0}^{n-1} \binom{n-1}{j}x^{j}(1-x)^{(n-1)-j} \\
+          &=& x(x+1-x)^{n-1} \\
+          &=& x 
+          \end{eqnarray*}
         </p>
-
-        <ol>
-          <li>
-            <p>Usando la desigualdad de Bernoulli.</p>
-            <p> La desigualdad de Bernoulli  dice
-            \[
-            (1+t)^p \geq 1+pt, \quad t\geq -1,
-            \]
-            con igualdad si y sólo si \(t=0\).
-            </p>
-            <p>
-              Para probar la desigualdad de Young es suficiente considerar
-              el caso \(a,b>0\). En esta situación toma \(t=\frac{a}{b^{q/p}}-1\)
-              en la desigualdad de Bernoulli para obtener la de Young.
-            </p>
-          </li>
-          <li>
-            <p> Una demostración geométrica. </p>
-
-
-            <p>
-            Para esta demostración considera la función
-            \(f(t)=t^{p-1}\), con \(t\geq 0\). Primero nota que
-            \(f\) es continua y estrictamente creciente. Ahora
-            checa que su inversa bajo composición es \(f^{-1}(s)=s^{q-1}\)
-            (aquí es donde se usa que \(p\) y \(q\) son expoentes conjugados).
-            </p>
-            <p>
-              Usando la interpretación de la integral como área deduce que
-              \[
-              ab \leq \int_{0}^a f(t)dt+\int_0^bf^{-1}(s)ds
-              \]
-              Finalemente, de la desigualdad anterior se obtiene la
-              de Young.
-            </p>
-
-
-
-            <div class="flexbox">
-              <img src="./Images/YoungIneq.png" alt="YoungIneq" width="50%" height="auto">
-            </div>
-
-          </li>
-          <li>
-            <p> Usando convexidad. </p>
-            <p>
-              Una función \(f:\mathbb{R}\to \mathbb{R}\) se llama
-              estrictamente convexa si, siempre que \(x_0,x_1\in \mathbb{R}\),
-              con \(x_0 < x_1\), se cumple
-              \[
-              f((1-\lambda) x_0 + \lambda x_1) \leq (1-\lambda)f(x_0)+
-              \lambda f(x_1)
-              \]
-              para todo \(0< \lambda < 1\), con igualdad si y sólo si
-              \(x_0=x_1\).
-            </p>
-            <p>
-              Por ejemplo, la función exponencial es estrictamente convexa.
-            </p>
-            <p>
-              Para probar la desigualdad de Young, considera
-              \(f(x)=e^x\), \(x_0=\ln(a^p), x_1=\ln(b^q)\) y
-              \(\lambda=\frac{1}{q}\).
-            </p>
-          </li>
-        </ol>
-
-      </div>
-
-
-
-
-        <div class="lema-box">
-            <h2 class="number-title" id="Lema:Holder"> Lema  </h2>
-            <h3 > Desigualdad de Hølder </h3>
-            <p>
-              Ya que tenemos la desigualdad de Young podemos probar la
-              desigualdad de Hølder, que es una generalización de la de Cauchy-Schwartz.
-            </p>
-            <p>
-              Sean \(p,q\in (1,\infty)\) exponentes conjugados y
-              \(x\in \ell_p, y\in \ell_q\). Entonces
-              \[
-              \sum_{i=1}^\infty |x_i||y_i| \leq \|x\|_p \|y\|_q.
-              \]
-            </p>
-
-
-            <button class="respButton hvr-grow"> Demostración </button>
-            <div class="resp-box flexbox">
-                <div class="flexbox">
-                  <iframe width="700" height="400" class="video"
-                      src="https://www.youtube.com/embed/yfLDQf_sUAk" allowfullscreen="true"> 
-                  </iframe>
-                </div>
-            </div>
-
         </div>
-
-
-        <div class="teorema-box">
-          <h2 class="number-title" id="Teo:Minkowski"> Teorema.  </h2>
-          <h3 > La desigualdad de Minkowski </h3>
-          <p>
-            Sea \(1< p <\infty \) un exponente fijo y \(x,y\in \ell_p\).
-            Se cumple que
-            \[
-            \|x+ y\|_p \leq \|x\|_p + \|y\|_p.
-            \]
-          </p>
-
-
-          <button class="respButton hvr-grow"> Demostración 1</button>
-            <div class="resp-box">
-                <div class="flexbox">
-                  <iframe width="700" height="400" class="video"
-                      src="https://www.youtube.com/embed/q3mZy0XvX0s" allowfullscreen="true"> 
-                  </iframe>
-                  
-                </div>
-            </div>
-
-            <button class="respButton hvr-grow"> Demostración 2</button>
-            <div class="resp-box">
-            <p>
-              Esta demostración sólo usa la convexidad de la función \(t \mapsto t^p \), \( t\in [0,\infty ) \), 
-              es decir: \((\lambda s + (1-\lambda) t )^p \leq \lambda s^p+(1-\lambda)t^p\), 
-              para todos \(s,t\in [0,\infty), \lambda \in (0,1)\).
-            </p>
-            <p>
-            <div class="flexbox">
-              <img src="./Images/Sec3-img1.png" alt="covex" width="50%" height="auto" >
-              </div>
-            </p>
-            <p>
-              Sín pérdida de generalidad podemos suponer que \(x\ne 0, y\ne 0\). Denotamos 
-              \[
-              \tilde{x}=\frac{1}{\|x\|_p}x,\, \tilde{y}=\frac{1}{\|y\|_p}y
-              \]
-              los cuales son vectores unitarios. Si tomamos 
-              \[
-              \lambda= \frac{\|y\|_p}{\|x\|_p+\|y\|_p} 
-              \]
-              entonces \(\lambda \in (0,1)\) y 
-              \[
-              1-\lambda = \frac{\|x\|_p}{\|x\|_p+\|y\|_p}. 
-              \]
-            </p>
-
-
-            <p>
-              Aplicando la convexidad de \(f\) obtenemos 
-              \begin{eqnarray*} 
-                f((1-t)|\tilde{x}_i|+ t|\tilde{y}_i|) & \leq & (1-t)|\tilde{x}_i|^p+ t |\tilde{y}_i|^p \\
-                & \Downarrow & \\
-               \frac{1}{(\|x\|_p+\|y\|_p)^p}\left( \|x\|_p\frac{|x_i|}{\|x\|_p} + \|y\|_p\frac{|y_i|}{\|y\|_p} \right)^p
-                & \leq  & (1-t)\frac{|x_i|^p}{\|x\|_p^p}+ t \frac{|y_i|^p}{\|y\|_p^p}\\
-                &\Downarrow & \\
-                \frac{1}{(\|x\|_p+\|y\|_p)^p}\left( |x_i| + |y_i| \right)^p
-                & \leq  & 
-                (1-t)\frac{|x_i|^p}{\|x\|_p^p}+ t \frac{|y_i|^p}{\|y\|_p^p}
-              \end{eqnarray*}
-              Sumando sobre \(i\) las desigualdades anteriores llegamos a 
-              \begin{eqnarray*} 
-                \frac{1}{(\|x\|_p+\|y\|_p)^p}\sum_{i=1}^\infty(|x_i|+|y_i|)^p \leq (1-t)\frac{\|x\|_p^p}{\|x\|_p^p}+t\frac{\|y\|_p^p}{\|y\|_p^p}=1
-              \end{eqnarray*}
-              lo cual implica que 
-              \begin{eqnarray*} 
-              \sum_{i=1}^\infty (|x_i|+|y_i|)^p \leq (\|x\|_p+\|y\|_p)^p 
-              \end{eqnarray*}
-              y sacando raíz \(p\)-ésima obtenemos la desigualdad de Minkowski.
-            </p>
-            
-            </div>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio</h2>
-          <p>
-            Se \(V\) un espacio vectorial y \(\| \cdot\|_a, \| \cdot\|_b:V \to \mathbb{R}\),
-            dos normas en \(V\). Sea \(\alpha > 0\). Prueba que 
-            \[
-            \|v\|:= \alpha \|v\|_a+ \|v\|_b
-            \]
-            define una norma en \(V\).
-          </p>
-
-          </div>
-
-
-
-
-
-          <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio</h2>
-            <p>
-              Sea \((V,\|\cdot\|_V), (W,\|\cdot\|_W)\) dos espacios vectoriales normados. 
-              Para las siguientes funciones, definidas en \(V\times W\) determina cuáles son 
-              normas en \(V\times W\). Si es norma da una prueba si no especifíca qué propiedad falla.
-
-            </p>
-            <ol>
-              <li>\(\|(v,w) \|= ( \|v\|_V^2+\|w\|_W^2)^{1/2} \).</li>
-              <li>\(\|(v,w) \|= \|v\|_V\|w\|_W \).</li>
-              <li>\(\|(v,w) \|= \max\{ \|v\|_V,\|w\|_W \}\).</li>
-              <li>\( \| (v,w)\|=(\|v\|^{1/2}+\|w\|^{1/2})^2\).</li>
-            </ol>
-
-          </div>
-
-          <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio</h2>
-            <p>
-              Sea \(V\) un espacio vectorial y \(\|\cdot\|_a, \|\cdot\|_b\) dos normas en \(V\). Decimos que 
-              son equivalentes, denotado \(\| \cdot \|_a \sim \|\cdot\|_b\), si existen constantes positivas 
-              \(\alpha>0, \beta >0\) tal que, para todo \(v\in V\):
-              \begin{eqnarray*} 
-              \|v\|_b \leq \alpha \|v\|_a,\quad 
-              \|v\|_a \leq \beta \|v\|_b.
-              \end{eqnarray*}
-              Prueba que lo anterior define una relación de equivalente entre las normas en \(V\), es decir, 
-              satisface:
-            
-              <ol>
-                <li> \(\|\cdot \|_a \sim \|\cdot\|_a\).</li>
-                <li>
-                  \(\|\cdot \|_a \sim \|\cdot\|_b \Rightarrow \|\cdot\|_b \sim \| \cdot\|_a\).
-                </li>
-                <li>
-                  \(\|\cdot \|_a \sim \|\cdot\|_b\) y  \(\|\cdot \|_b \sim \|\cdot\|_c\) entonces \(\|\cdot \|_a \sim \|\cdot\|_c\).
-                </li>
-              </ol>
-                
-            </p>
-
-        </div>
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title" id="Ejer:EquiNormas-p"> Ejercicio </h2>
-          <p>
-            Considera a \(\mathbb{R}^n\) con las normas-p.
-          </p>
-          <p>
-            Prueba que para todo \(x\in \mathbb{R}^n\):
-            \begin{eqnarray*}
-              \|x\|_\infty & \leq & \|x\|_p, \\
-              \|x\|_p & \leq  & n^{1/p}\| x\|_\infty.
-              \end{eqnarray*}
-            Esto prueba que todas las normas-p en
-            \(\mathbb{R}^n\) son equivalentes.
-          </p>
-        </div>
-
-
-
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Este ejercicio generaliza el <a href="./S2.html#Ejer:MetProdCarte">Ejercicio 2.10</a>
-          </p>
-          <p>
-            Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y \(\| \cdot \|: \mathbb{R}^2 \to \mathbb{R}\) una 
-            norma en \(\mathbb{R}^2\). En el producto cartesiano \(X\times Y\) define 
-            \[
-            d((x_1,y_1), (x_2,y_2))= \| (d_X(x_1,x_2), d_Y(y_1,y_2)) \|
-            \]
-
-            Prueba que \(d\) define una métrica en \(X\times Y\).
-          </p>
-
-        </div>
-
-        <!-- <div class="ejercicio-box">
-          <h2 class="number-title">Ejercicio</h2>
-          <p>
-            Sea \((V,\|\cdot\|)\) un espacio vectorial normado y \(N\subseteq V\) un subespacio 
-            vectorial. Por \(V/N\) denotamos el espacio vectorial cociente, es decir los elementos de 
-            \(V/N\) se denotan \(x+N\) donde 
-            \[
-            x+N=\{x+n: n\in N \}
-            \]
-            Las operaciones de espacio vectorial en \(V/N\) se definen como 
-            \begin{eqnarray*} 
-            (x+N)+(y+N)=x+y+N, \\
-            \alpha(x+N)= \alpha x + N
-            \end{eqnarray*}
-            y el cero en \(V/N\) es \(0+N\).
-          </p>
-          <p>
-            Para \(x+N \in V/N\) define 
-            \[
-            \|x+N\|= \inf_{n\in N}\{ \|x+n\| \}
-            \]
-            Prueba que ésto define una norma en  \(V/N\). 
-          </p>
-
-        </div>-->
-
-
-        <div class="quiz-box">
-          <h2 id="Quiz:Sec3"> Quiz </h2>
-          <ol>
-            <li>
-              <p>
-              (3pts) Sean \(x=(x_1,\dots, x_n), y=(y_1,\dots, y_n)\in \mathbb{R}^n\). Prueba que
-              la igualdad
-              \[
-              \sum_{i=1}^n x_iy_i=\|x\|_2\|y\|_2
-              \]
-              se da si y sólo si existe un \(\alpha \geq 0\) tal que
-              \(x=\alpha y\) ó \(y=\alpha x\).
-            </p>
-            </li>
-            <li>
-              <p>
-              (2pts) En el espacio de las funciones continuas, \(C([a,b])\), define
-              \[
-              \|f\|_1=\int_a^b |f(t)|dt
-              \]
-              Prueba que \(\|\cdot\|_1\) es una norma en \(C([a,b])\).
-            </p>
-            </li>
-          </ol>
+        <button class="respButton hvr-grow"> Demostración  inciso 2</button>
+              <div class="resp-box">
+        <p>
+          Para \(B_n(f_2)\) primero notamos que, para \(k\geq 2\): 
+          \begin{eqnarray*} 
+          \frac{k-1}{n}\binom{n-1}{k-1}&=&\frac{k-1}{n}\frac{(n-1)!}{(k-1)!(n-k)!}\\
+          &=&\frac{(n-1)}{n}\frac{(n-2)!}{(k-2)!(n-k)!}\\
+          &=& \frac{(n-1)}{n}\binom{n-2}{k-2}\\
+          \end{eqnarray*}
+        </p>
+        <p>
+          Por lo tanto 
+          \begin{eqnarray*} 
+          B_n(f_2)(x)&=&\sum_{k=0}^n \frac{k^2}{n^2}\binom{n}{k}x^k(1-x)^{n-k} \\
+          &=&\sum_{k=1}^n \frac{k^2}{n^2}\binom{n}{k}x^k(1-x)^{n-k} \\
+          &=&\sum_{k=1}^n \frac{k}{n}\binom{n-1}{k-1}x^k(1-x)^{n-k} \\
+          &=&\sum_{k=1}^n \frac{k-1}{n}\binom{n-1}{k-1}x^k(1-x)^{n-k} \\
+          &+&\sum_{k=1}^n \frac{1}{n}\binom{n-1}{k-1}x^k(1-x)^{n-k} \\
+          &=&\sum_{k=2}^{n} \frac{k-1}{n}\binom{n-1}{k-1}x^{k}(1-x)^{n-k} \\
+          &+&\frac{1}{n} \sum_{j=0}^{n-1} \binom{n-1}{j}x^{j+1}(1-x)^{n-1-j} \\
+          &=&\sum_{k=2}^{n} \frac{n-1}{n}\binom{n-2}{k-2}x^{k}(1-x)^{n-k} \\
+          &+&\frac{x}{n} \sum_{j=0}^{n-1} \binom{n-1}{j}x^{j}(1-x)^{n-1-j} \\
+          &=&\frac{n-1}{n} \sum_{j=0}^{n-2} \binom{n-2}{j}x^{j+2}(1-x)^{n-2-j} \\
+          &+&\frac{x}{n}  \\
+          &=&\left( \frac{n-1}{n}\right)x^2 \sum_{j=0}^{n-2} \binom{n-2}{j}x^{j}(1-x)^{n-2-j} \\
+          &+&\frac{x}{n}  \\
+          &=&\left( 1- \frac{1}{n}\right)x^2  \\
+          &+&\frac{x}{n}  \\
+          \end{eqnarray*}
+        </p>
         </div>
 
     </div>
+
+    <div class="lema-box">
+      <h2 class="number-title" id="Lema:CotaAuxBernstein"> Lema  </h2>
+      <p>
+        Fija \(\delta > 0\) y \(x\in [0,1]\). Considera el conjunto 
+        \[
+        F=\{k\in \{0,\dots, n\}: |k/n - x| \geq \delta \}
+        \]
+       </p>
+       <p>
+        Entonces 
+        \[
+        \sum_{k\in F} \binom{n}{k}x^k(1-x)^{n-k} \leq \frac{1}{4n\delta^2}
+        \]
+       </p>
+       <button class="respButton hvr-grow"> Demostración  </button>
+              <div class="resp-box">
+       <p>
+        Notamos que si \(k\in F\) entonces \(\delta^2 \leq (k/n -x)^2 \) por lo que 
+        \(1\leq (k/n-x)^2/\delta^2\) por lo tanto 
+        \begin{eqnarray*} 
+        \sum_{k\in F} \binom{n}{k}x^k(1-x)^{n-k} & \leq & 
+        \frac{1}{\delta^2}\sum_{k\in F} \left(\frac{k}{n} -x \right)^2\binom{n}{k}x^k(1-x)^{n-k} \\
+        &\leq &\frac{1}{\delta^2}\sum_{k=0}^n \left(\frac{k}{n} -x \right)^2\binom{n}{k}x^k(1-x)^{n-k} 
+        \end{eqnarray*}
+       </p>
+       <p>
+        La prueba se termina si logramos probar que 
+        \[
+        \sum_{k=0}^n \left(\frac{k}{n} -x \right)^2\binom{n}{k}x^k(1-x)^{n-k}  \leq \frac{1}{4n}.
+        \]
+       </p>
+       <p>
+        Para lo anterior desarrollando el cuadrado tenemos 
+        \begin{eqnarray*} 
+        \sum_{k=0}^n \left(\frac{k}{n} -x \right)^2\binom{n}{k}x^k(1-x)^{n-k} &=&
+        \sum_{k=0}^n \left(\frac{k}{n}\right)^2\binom{n}{k}x^k(1-x)^{n-k}  \\
+        &-&2x \sum_{k=0}^n \left( \frac{k}{n}\right) \binom{n}{k}x^k(1-x)^{n-k}  \\
+        &+& x^2 \sum_{k=0}^n \binom{n}{k}x^k(1-x)^{n-k} \\
+        \end{eqnarray*}
+        y usando los polinomios de Bernstein para \(f_0,f_1,f_2\) y el <a href="#Lema:ConvergenciaBernstein012">Lema 12.4 </a>
+        podemos escribir 
+        \begin{eqnarray*} 
+        & & \sum_{k=0}^n \left(\frac{k}{n}\right)^2\binom{n}{k}x^k(1-x)^{n-k}  \\
+        &-&2x \sum_{k=0}^n \left( \frac{k}{n}\right) \binom{n}{k}x^k(1-x)^{n-k}  \\
+        &+& x^2 \sum_{k=0}^n \binom{n}{k}x^k(1-x)^{n-k} \\
+        &=& B_n(f_2)(x)-2xB_n(f_1)(x)+x^2 B_n(f_0)(x)\\
+        &=& \left(1-\frac{1}{n} \right)x^2+\frac{1}{n}x- 2x^2+x^2 \\
+        &=& \left(1-\frac{1}{n} \right)x^2+\frac{1}{n}x- x^2 \\
+        &=& \frac{1}{n}x(1-x) \\
+        &\leq & \frac{1}{4n}
+        \end{eqnarray*}
+        donde en la última desigualdad usamos \(\max_{x\in [0,1]}\{x(1-x)\}=\frac{1}{4}\).
+       </p>
+       </div>
+
+    </div>
+
+
+    <div class="teorema-box">
+      <h2 class="number-title"> Teorema  </h2>
+      <h3> Bernstein (1912)</h3>
+      <p>
+        Sea \(f:[0,1]\to \mathbb{R}\) una función continua en \([0,1]\). Entonces 
+        la sucesión de polinomios de Bernstein, \((B_n(f))_{n=1}^\infty\), converge 
+        uniformemente a \(f\) en \([0,1]\).
+      </p>
+      <button class="respButton hvr-grow"> Demostración  </button>
+              <div class="resp-box">
+      <p>
+        Sea \(\varepsilon >0\).
+      </p>
+      <p>
+        El primer paso es usar la continuidad uniforme de \(f\) en \([0,1]\)
+        para asegurar la existencia de un \(\delta >0\) tal que para \(x,y\in [0,1]\)
+        con \(|x-y|<\delta \) entonces \(|f(x)-f(y)|< \varepsilon\).
+      </p>
+      <p>
+        Es segundo paso es estimar 
+        \[
+        \left| f(x) - B_n(f)(x) \right|.
+        \]
+        Por el Teorema del binomio, \(1=\sum_{k=0}^n \binom{n}{k}x^k(1-x)^{n-k}\), por lo que 
+        \(f(x)=\sum_{k=0}^n f(x)\binom{n}{k}x^k(1-x)^{n-k}\) por lo que 
+        \begin{eqnarray*} 
+        \left| f(x) - B_n(f)(x) \right| &=& \left| \sum_{k=0}^n f(x)\binom{n}{k}x^k(1-x)^{n-k}
+        - \sum_{k=0}^n f\left(\frac{k}{n} \right)\binom{n}{k}x^k(1-x)^{n-k} \right| \\
+        &\leq & \sum_{k=0}^n \left| f(x) -f\left( \frac{k}{n}\right)\right| \binom{n}{k}x^k(1-x)^{n-k}
+        \end{eqnarray*}
+        Ahora, en la suma anterior dividimos los sumandos que están \(\delta\)-cercanos a 
+        \(x\) y los que no. Es decir consideramos el conjunto 
+        \[
+        F=\{ k\in\{1,\dots, n\}: |k/n-x| \geq  \delta \}
+        \]
+        Entonces 
+        \begin{eqnarray*} 
+        \sum_{k=0}^n \left| f(x) -f\left( \frac{k}{n}\right)\right| \binom{n}{k}x^k(1-x)^{n-k} &=& 
+        \sum_{k\notin F} \left| f(x)-  f\left( \frac{k}{n}\right) \right|x^k(1-x)^{n-k}\\
+        &+&  \sum_{k\in F}\left| f(x)-  f\left( \frac{k}{n}\right) \right|x^k(1-x)^{n-k} \\
+        & \leq &  \varepsilon \left( \sum_{k\notin F}  x^k(1-x)^{n-k} \right) \\
+        &+&  2\|f\|_\infty \left( \sum_{k\in F}  x^k(1-x)^{n-k} \right) \\
+        & \leq &  \varepsilon  
+        +  2\|f\|_\infty \left( \sum_{k\in F}  x^k(1-x)^{n-k} \right)
+        \end{eqnarray*}
+      </p>
+      <p>
+        Ahora, por el <a href="#Lema:CotaAuxBernstein">Lema 12.5</a>
+        podemos concluir 
+        \[
+        |f(x)-B_n(f)(x)|\leq \varepsilon +2\|f\|_\infty \frac{1}{4n\delta^2}
+        \]
+        Finalmente si pedimos que \(n >  \frac{\|f\|_\infty}{2\delta^2 \varepsilon}\)
+        concluimos que, para todo \(x\in [0,1]\):
+        \[
+        |f(x)-B_n(f)(x)|< 2\varepsilon
+        \]
+        Nota que \(\frac{\|f\|_\infty}{2\delta^2 \varepsilon}\) NO depende de \(x\),
+        sólo de \(\varepsilon\).
+      </p>
+      <p>
+        Al ser \(\varepsilon\) arbitraria concluimos que \((B_n(f))_{n=1}^\infty\) converge 
+        uniformemente a \(f\) en \([0,1]\).
+      </p>
+    </div>
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Si \(f\in C[a,b]\) satisface \(\int_a^b x^nf(x)dx=0\) para toda \(n=0,1,2,\dots\)
+        entonces \(f=0\).
+      </p>
+
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Usando la isometría lineal de \(C[a,b]\) a \(C[0,1]\) inducida 
+        por la función \(\beta:[a,b]\to [0,1]\) dada por \(\beta(x)=\frac{x-a}{b-a}\)
+        prueba que la definición de los polinomios de Bernstein en \([a,b]\) está dada por 
+        \[
+        B_n(f)(x)=\frac{1}{(b-a)^n}\sum_{k=0}^n f\left( \frac{k(b-a)}{n}+a\right)(x-a)^k(b-x)^{n-k}
+        \]
+        Prueba que con esta definición de polinomios de Bernstein en \([a,b]\) se cumple que 
+        \((B_n(f))_{n=1}^\infty\) converge uniformemente a \(f\) en \([a,b]\).
+      </p>
+      <p>
+        Sugerencia: usa en caso \([0,1]\) y los cambios de variable \(\alpha(t)=t(b-a)+a, \beta(x)=\frac{x-a}{b-a}\).
+      </p>
+
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sean \(f,g\in C[a,b]\) y \(c \in \mathbb{R}\). Prueba que:
+        <ol>
+          <li>
+            \(B_n(cf+g)=cB_n(f)+B_n(g)\).
+          </li>
+          <li>
+            Si \(f\geq 0\) prueba que \(B_n(f) \geq 0\).
+          </li>
+          <li>
+            \(|B_n(f)|\leq B_n(|f|)\).
+          </li>
+          <li>
+            \(\|B_n(f)\|_\infty \leq \|f\|_\infty\).
+          </li>
+        </ol> 
+      </p>
+    </div>
+
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Si \(f:[0,1]\to \mathbb{R}\) es una función acotada, 
+        prueba que 
+        \[
+        \lim_{n\to \infty}B_n(f)(x_0)=f(x_0)
+        \]
+        para todo punto \(x_0\in [0,1]\) donde 
+        la función \(f\) sea continua.
+      </p>
+
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio</h2>
+      <p>
+        Prueba que si \(f:[0,1]\to \mathbb{R}\)
+        es clase \(C^1\) en \([a,b]\) entonces 
+        \((B_n(f)')_{n=1}^\infty\) converge uniformemente a \(f'\)
+        en \([0,1]\).
+      </p>
+
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio</h2>
+      <p>
+        Dada \(f\in C[a,b]\) y \(\varepsilon >0\) prueba que existe un 
+        polinomio con coeficientes racionales, \(q(x)\), tal que \(\|f-q\|_\infty < \varepsilon \). 
+      </p>
+     
+
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \(f\in C[a,b]\) con la característica de que 
+        \(f(a)=0\). Prueba que existe una sucesión de polinomios 
+        \((q_n)_{n=1}^\infty\) tal que \(\lim_{n\to \infty}\|q_n-f\|_{[a,b]}=0\)
+        y que además cumple que \(q_n(a)=0\) para toda \(n\).
+      </p>
+      <p>
+        ¿Se puede cambiar \(a\) por cualquier otro punto en \([a,b]\)?
+      </p>
+
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio</h2>
+      <p>
+        Sea \(f\in C[a,b]\) que no sea un polinomio. Supón que \((p_n)_{n=1}^\infty\)
+        es una sucesión de polinomios tal que \(p_n \to f\) uniformemente en \([a,b]\).
+        Si \(m_n\) es el grado de \(p_n\) prueba que \(\lim_{n\to \infty} m_n=\infty\).
+      </p>
+
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio</h2>
+      <p>
+        Sea \(f\in C[a,b]\) clase \(C^1\). Prueba que para todo \(\varepsilon >0\)
+        existe un polinomio \(p\) tal que \(\|f-p\|_\infty < \varepsilon\)
+         y \(\|f'-p'\|_\infty< \varepsilon\).
+      </p>
+
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio</h2>
+      <p>
+        Prueba que existe una sucesión de polinomios \((p_n)_{n=1}^\infty\) tal que:
+        <ol>
+          <li>
+            \(\lim_{n\to \infty} \int_0^1 p_n(x)dx = 5\).
+          </li>
+          <li>
+            \(\lim_{n\to \infty} p_n(x)= 0\), para todo \(x\in [0,1]\)
+          </li>
+        </ol>
+      </p>
+
+    </div>
+
+
+    <!-- <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Por \(C^\infty[a,b]\) denotamos al conjunto de 
+        funciones continuas en \([a,b]\) que admiten derivadas 
+        de todos los ordenes en \((a,b)\) y dichas derivadas 
+        tienen una extensión continua a \([a,b]\). 
+      </p>
+      <p>
+        Prueba que para toda  \(f\in C[a,b]\) existe 
+        \(g\in C^\infty[a,b]\) tal que \(\|f-g\|_{[a,b]} < \varepsilon\).
+       </p>
+
+    </div>-->
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \(f:[1,\infty) \to \mathbb{R} \)
+        una función continua con la propiedad de que 
+        \(\lim_{x\to \infty} f(x)\) existe. Prueba que 
+        para toda \(\varepsilon >0\) existe un polinomio 
+        \(p(x)\) tal que \(|f(x)-p(1/x)|< \varepsilon\),
+        para todo \(x\geq 1\).
+      </p>
+
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title" id="Ejer:AproxValorAbs"> Ejercicio </h2>
+      <p>
+        Este ejercicio prueba, sin usar la Teorema de aproximación 
+        de Weierstrass, la existencia de una 
+        sucesión de polinomios que aproxima a la 
+        función absoluto uniformemente en \([-1,1]\)
+      </p>
+      <ol>
+        <li>
+          Define, recursivamente, \(p_0=0\) y 
+          \(p_{n+1}(x)=p_n(x)+ (x-p_n(x)^2)/2\), 
+          para \(n \geq 0 \). Prueba que cada \(p_n\)
+          es un polinomio.
+        </li>
+        <li>
+          Prueba que \(0\leq p_n(x)\leq p_{n+1}(x)\leq \sqrt{x}\)
+          para todo \(x\in [0,1]\). Usa el 
+          <a href="./S1.html#Teo:Dini">Teorema de Dini </a>
+          para concluir que \((p_n)_{n=1}^\infty\) converge 
+          uniformemente a \(\sqrt{x}\) en \([0,1]\).
+        </li>
+        <li>
+          Finalmente prueba que la sucesión de 
+          polinomios \(p_n(x^2)\) converge uniformemente a 
+          \(|x|\) en \([-1,1]\).
+        </li>
+      </ol>
+
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title" id="Ejer:RepreFunPoligonales"> Ejercicio </h2>
+      <p>
+        Una función \(g:[a,b]\to \mathbb{R}\) se 
+        llama poligonal o lineal a trozos si es continua y 
+        existe 
+        \(\{a=t_0< \cdots < t_n=n\}\), una partición de 
+        \([a,b]\), tal que la gráfica de \(g\) restringida a cada 
+        \([t_{i-1},t_i]\) es un segmento de recta.
+      </p>
+      <p>
+        Para \(t\in \mathbb{R}\) define 
+        \[
+        L_t(x)=
+        \left\{ 
+        \begin{array}
+        0 0 & x\leq t \\
+        x-t & x > t 
+        \end{array}
+        \right.
+        \]
+      </p>
+      <ol>
+        <li>
+          Prueba que \(L_t(x)=\frac{1}{2}( x-t+ |x-t|)\)
+        </li>
+        <li>
+          Sea \(g:[a,b]\to \mathbb{R}\) una función 
+          poligonal, con partición 
+          \(\{a=t_0 < \cdots < t_n=b\}\). 
+          Prueba que existen constantes \(c_1,\dots, c_n\)
+          para las cuales 
+          \[ 
+          g(x)=g(a)+ c_0L_{t_0}(x)+c_1L_{t_1}(x)+\cdots + c_{n-1}L_{t_{n-1}}(x)
+          \]
+        </li>
+        <li>
+          Concluye que toda función poligonal se puede 
+          escribir de la forma 
+          \[
+          Cx+D+ \sum_{k=1}^n C_k|x-t_k|
+          \]
+          para ciertas constantes \(C,D,C_k\).
+        </li>
+      </ol>
+
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Este ejercicio da otra demostración del 
+        Teorema de Weierstrass.
+      </p>
+      
+      <ol>
+        
+
+        <li>
+           Dados \(C,t\in \mathbb{R}\) denota  
+           \[
+           h(x)=C|x-t|
+           \] 
+           Usa el ejercicio 
+           <a href="#Ejer:AproxValorAbs"> Ejercicio</a> 
+           para probar que dado un subintervalo 
+           \([a,b]\) y 
+           \(\varepsilon> 0\) 
+           existe un polinomio \(p(x)\)
+           tal que 
+           \[
+           \|p-h\|_{[a,b]} < \varepsilon.
+           \]
+        </li>
+        <li>
+          Prueba que el conjunto de funciones poligonales 
+          es uniformemente denso en \(C[a,b]\). Hint: usa 
+          que toda función en \(C[a,b]\) es uniformemente contina 
+          en \([a,b]\).
+        </li>
+        <li>
+          Finalmente usando el  
+          <a href="#Ejer:RepreFunPoligonales"> Ejercicio</a>
+          prueba que el conjunto de 
+         polinomios es uniformemente denso en 
+         \(C[a,b]\).
+        </li>
+      </ol>
+    </div>
+
+
+    <div class="teorema-box">
+      <h2 class="number-title"> Teorema </h2>
+      <h3> Teorema de Korovkin</h3>
+      <p>
+        Una función lineal \(A:C[0,1]\to C[0,1]\) 
+        se llama positiva si manda funciones no negativas 
+        a funciones no negativas, es decir, si 
+        \(f\geq 0\) entonces \(Af \geq 0\).
+      </p>
+      <p>
+        Sea \((A_n:C[0,1]\to C[0,1])_{n=1}^\infty\) 
+        una sucesión de funciones lineales positivas 
+        con la propiedad de que 
+        \[
+        \lim_{n\to \infty}\|A_nf_i - f_i \|_{[0,1]}=0
+        \]
+        donde \(f_i(x)=x^i\), \(i=0,1,2\). 
+     </p>
+     <p>
+      Entonces para toda \(f\in C[0,1]\) se cumple que 
+      \[
+      \lim_{n\to \infty}\|A_nf - f \|_{[0,1]}=0
+      \]
+      </p>
+
+
+    </div>
+
+
+
+
+    <div class="quiz-box">
+      <h2> Quiz  </h2>
+      <ol>
+          <li>
+            Sea \(f:[0,1]\to \mathbb{R}\) una función con \(f(0)=0\).
+            Prueba que para toda \(n\), \(B_n(f)(0)=0\).
+          </li>  
+
+          <li>
+            Si \(f:[0,1]\to \mathbb{R}\) es una función tal que existen constantes, \(m,M\), tal que  
+            \(m\leq f(x) \leq M\), para toda \(x\in [a,b]\), 
+            prueba que \(m\leq B_n(f)(x)\leq M\), para todo \(x\in [0,1]\).    
+          </li> 
+      </ol>
+    </div>
+    
+
+    <div class="quiz-box">
+      <h2> Quiz  </h2>
+      <ol>
+          
+        <li>
+          Sea \(f\in C[a,b]\) tal que \(f(x)\geq 1\) para todo \(x\in [a,b]\). Prueba que 
+          existe un polinomio \(p(x)\) que satisface  
+          <ol type="I">
+            <li >
+              \(\|f-p\|_{[a,b]} < \frac{1}{2}\),
+            </li>
+            <li>
+              \(p(x)\) no tiene raíces en \([a,b]\)
+            </li>
+          </ol>
+        </li>
+        <li>
+          Prueba que existe una sucesión de polinomios \((p_n)_{n=1}^\infty\) que satisface 
+          <ol type="I">
+            <li>
+              \(\lim_{n\to \infty} \int_{-1}^1 p_n(x)dx=\frac{1}{2}\), 
+            </li>
+            <li>
+              para todo \(x\in [-1,0]\), \(\lim_{n\to \infty}p_n(x)=0\).
+            </li>
+          </ol>
+        </li>
+     
+      Hint: inicia con la función identidad en \([0,1]\) 
+      y extiéndela adecuadamente.
+      </ol>
+    </div>
+
+
+    </div>
   </body>
+
+  </html>

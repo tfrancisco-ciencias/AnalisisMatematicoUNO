@@ -69,1349 +69,860 @@
  ///////////////////////////////// -->
 
 
-  <body class="flexbox card fondo-body">
+  <body class="flexbox  fondo-body">
 
 
     <div class="flexbox">
-      <h1 class="number-title flexbox"> Sucesiones </h1>
+      <h1 class="number-title flexbox"> Espacios vectoriales normados </h1>
       <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
       <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+
 
       <div class="info-box">
         <h2 class="number-title"> Introducción </h2>
         <p>
-          Una sucesión de números reales es simplemente una función 
-          \(x:\mathbb{N} \to \mathbb{R}\), pero en vez de usar una notación de 
-          función se usa la notación \((x_n)_{n=1}^\infty\), como si fuese un vector infinito
-          (de ahí la notación \(\mathbb{R}^{\mathbb{N}}\)) para el conjunto de todas las sucesiones 
-          de números reales.
-        </p>
-        <h3> Ejemplos</h3>
-        <p>
-          Sucesiones aritméticas. 
-        </p>
-        <p>
-          Son sucesiones donde 
-          la diferencia de elementos consecutivos es siempre una constante (digamos \(p\)),
-          es decir  \(x_{n+1}-x_n=p\), para toda \(n \geq 1\). Por lo tanto se puede ver como 
+          Entre los espacios métricos existen algunos que sobresalen y
+          sobresalen porque a parte de tener una estructura de espacio métrico
+          tienen una estructura de esapcio vectorial  y estás dos estructuras
+          se complementan haciendo que los resultados en estos espacios sean
+          más ricos, por decirlo de alguna forma. Dichos espacios son los
+          espacios vectoriales normados. Los espacios vectoriales normados
+          son una generalización de \(\mathbb{R}^n\) dotado con la
+          norma o longitud usual de un vector:
           \[
-          x_1, x_2=x_1+p, x_3=x_2+p=x_1+2p, \cdots, x_n=x_{n-1}+p=x_1+(p-1).
+          \|(x_1,\dots , x_n)\|=\sqrt{x_1^2+\cdots +x_n^2}.
           \]
+          Lo interesante es que la idea de un espacio vectorial junto
+          con una función que mide la longitud de los vectores aparece
+          en muchos lados y sirve para estudiar espacios muy diferentes
+          a los \(\mathbb{R}^n\), como espacios de sucesiones, espacios
+          de funciones y muchos más.
         </p>
         <p>
-          Sucesiones geométricas.
+          En esta sección se ven espacios vectoriales normados. Para ser
+          concretos no restringimos a espacios vectoriales sobre los reales,
+          pero ésto no es absolutamente necesario pues se pueden utilizar
+          espacios vectoriales complejos.
         </p>
-        <p>
-          Son sucesiones para las cuales exste una constante \(r\in \mathbb{R}\) tal que 
-          la división de sus términos consecutivos es \(r\), es decir \(x_{n+1}/x_n=r\),, para toda 
-          \(n\geq 1\). Por lo tanto la sucesión se ve:
-          \[
-          x_1, x_2=x_1r, x_3=x_2r=x_1r^2, \dots, x_n=x_1r^{n-1}.
-          \]
-        </p>
-        <h3> Convergencia </h3>
-        <p>
-          De cálculo sabemos que una sucesión de números reales
-          \((x_n)_{n\in \mathbb{N}}\) converge a un real \(x\)
-          si, para toda \(\varepsilon >0 \), existe un natural \(N\), que
-          satisface: \(|x-x_n| < \varepsilon \), para toda \(n \geq N\).
-        </p>
-        <p>
-          Geométricamente el número \(\varepsilon >0 \) representa
-          el radio de un intervalo centrado en \(x\) y el número \(N\)
-          nos indica el instante en la sucesión a partir del cual
-          los valores de la sucesión caen dentro de éste intervalo.
-        </p>
-
-          <div class="flexbox">
-              <img src="./Images/FigSucReal.png"
-              alt="ConvergenciaSuc" width="50%" height="auto">
-          </div>
-
-        <p>
-          Ya que el valor absoluto induce la distancia usual en los
-          reales, podemos generalizar la definción anterior reemplazando
-          \(|x_n-x|\)  por \(d(x_n,x)\), donde \(d\) es una métrica
-          y los \(x_n\) y \(x\) son  puntos de un espacio métrico \((X,d)\).
-          El objetivo del material que sigue es presentar estas generalizaciones
-          en espacios métricos, ver ejemplos, similitudes al caso real y
-          diferencias.
-        </p>
-
-
-          <h3> Propiedadaes algebráicas de los límites en \(\mathbb{R}\) </h3>
-          <p>
-            Sean \((x_n)_{n=1}^\infty, (y_n)_{n=1}^\infty\) sucesiones <u>convergentes</u> de números 
-            reales , entonces 
-            <ol>
-              <li>
-                Abre sumas y saca escalares: para \(\alpha \in \mathbb{R}\)
-                \begin{eqnarray*} 
-                  \lim_{n\to \infty} (\alpha x_n + y_n)=\alpha \lim_{n\to \infty} x_n + \lim_{n\to \infty} y_n, 
-                \end{eqnarray*}
-              </li>
-              <li>
-                Abre productos: 
-                \[
-                   \lim_{n\to \infty} (x_n y_n)= \lim_{n\to \infty} x_n \lim_{n\to \infty} y_n,
-                   \]
-              </li>
-              <li>
-                  Si \(\lim_{n\to \infty } y_n \ne 0\) entonces 
-            \[
-              \lim_{n\to \infty} \left(\frac{x_n}{y_n} \right) = \frac{\lim_{n\to \infty} x_n}{\lim_{n\to \infty} y_n}
-            \]
-              </li>
-              <li>
-                Si  existen \(m,M\in \mathbb{R}\) tal que para todo \(n\in \mathbb{N}\), \(m \leq x_n \leq M\),
-                entonces 
-                \[
-                m \leq \lim_{n\to \infty} x_n \leq M
-                \]
-              </li>
-              <li>
-                Ley del Sandwich. 
-                <p>
-                  Si \((x_n)_{n=1}^\infty, (y_n)_{n=1}^\infty, (z_n)_{n=1}^\infty\) 
-                  son sucesiones con \(\lim_{n\to \infty} x_n = L = \lim_{n\to \infty} y_n\) y 
-                  \(x_n\leq z_n \leq y_n\) para toda \(n\) entonces \((z_n)_{n=1}^\infty\) es convergente 
-                  y \(\lim_{n\to \infty} z_n=L\).
-                </p>
-              </li>
-            </ol>
-             
-          </p>
-
-
-        <h3> Ejemplos sucesiones convergentes</h3>
-
-        <h4>
-          <li>
-            Si \((x_n)_{n=1}^\infty\) es una sucesión de reales  monótona 
-            creciente (es decir \(x_1\leq x_2\leq \cdots \leq x_n \leq x_{n+1} \leq \cdots \) ) y 
-            acotada superiormente (es decir existe \(M\in \mathbb{R}\) tal que \(x_n \leq M\), para 
-            todo \(n\)) entonces 
-            \((x_n)_{n=1}^\infty\) es convergente y 
-            \[
-            \lim_{n\to \infty} x_n = \sup_{n\in \mathbb{N}}\{ x_n \}
-            \]
-          </li>
-          <button class="respButton hvr-grow">Demostración </button>
-              <div class="resp-box">
-          <p>
-            Denotamos \(\alpha = \sup_{n\in \mathbb{R}}\{ x_n\} \). Por la propiedad 
-            fundamental del supremo, para \(\varepsilon >0\) existe \(n_0\in \mathbb{N}\) tal que 
-            \(\alpha - \varepsilon < x_{n_0}\). Ya que la sucesión es monótona creciente y \(\alpha\)
-            es el supremo, se sigue que para todo \(n\geq n_0\) se tiene 
-            \[
-            \alpha -\varepsilon < x_{n_0} \leq x_n \leq \alpha
-            \]
-            por lo tanto \(|\alpha - x_n| < \varepsilon\), para todo \(n\geq n_0\). Concluimos 
-            \(\lim_{n\to \infty} x_n=\alpha\).
-          </p>
-          
-        </div>
-        <p>
-          Nota: existe un resultado similar para sucesiones monótonas decrecientes acotadas 
-          inferiormente. En ese caso tenemos \(\lim_{n\to \infty}x_n=\inf_{n\in \mathbb{N}}\{x_n\}\).
-        </p>
-        </h4>
-        <h4>
-          <li>
-            \(\lim_{n\to \infty} \sqrt[n]{n}=1\).
-          </li>
-        </h4>
-        <button class="respButton hvr-grow">Demostración </button>
-              <div class="resp-box">
-        <p>
-          Notamos que para todo natural \(\sqrt[n]{n} \geq 1\) (lo cual se puede comprobar 
-          elevendo a la \(n\) ambos lados). Por lo tanto podemos escribir \(\sqrt[n]{n}=1+x_n\),
-          donde \(0 < x_n\) es precisamente la distancia de \(1\) a \(\sqrt[n]{n}\). Si probamos que 
-          \(\lim_n x_n=0\) entonces se obtiene que \(\lim_{n} \sqrt[n]{n}=1\). 
-        </p>
-        <p>
-          Por otro lado, del Teorema del binomio, para \(n\geq 2\) tenemos:
-          \[
-          (1+x_n)^n = \sum_{k=0}^n \binom{n}{k}x_{n}^k \geq \binom{n}{2}x_n^2=\frac{n(n-1)}{2}x_n,
-          \]
-          y ya que \((1+x_n)^n = (\sqrt[n]{n})^n=n\) llegamos a que 
-          \[
-          n \geq \frac{n(n-1)}{2}x_n \Rightarrow \frac{2}{n-1} \geq x_n  >0
-          \]
-          Ya que \(\lim_{n}\frac{2}{n-1}=0\) por la Ley del Sandwich para límites concluimos 
-          \(\lim_{n}x_n=0\).
-        </p>
-        </div>
-          <!-- <h4>
-            <li>
-            Para \(|r|< 1 \), \(\lim_{n\to \infty}\left( \sum_{k=1}^n r^k\right) =\frac{r}{1-r}\).
-          </li>
-          </h4>
-          <button class="respButton hvr-grow">Demostración </button>
-              <div class="resp-box">
-          <p>
-            Si denotamos \(s_n=\sum_{k=1}^n r^k\) entonces 
-            \[
-            s_n-s_nr=\sum_{k=1}^n r^k  -\sum_{k=1}^n r^{k+1}=\sum_{k=1}^n r^k -\sum_{j=2}^{n+1}r^j=r-r^{n+1}
-            \]
-            pero \(s_n-s_nr=s_n(1-r)\) por lo que de lo anterior 
-            \[
-            s_n=\frac{r-r^{n+1}}{1-r}
-            \]
-            finalmente, usando que \(\lim_{n\to \infty } r^n =0\) concluimos 
-            \[
-            \lim_{n\to \infty}s_n=\frac{r}{1-r}.
-            \]
-          </p>
-          </div>-->
       </div>
-
-
-
-            <div class="ejercicio-box">
-              <h2 class="number-title"> Ejercicio </h2>
-              <p>
-              Para iniciar con ejemplos vemos sucesiones de números reales.
-              </p>
-              <p>
-              Define la sucesión en \(\mathbb{R}\) por \(x_n=\sqrt{n+1}-\sqrt{n}\).
-              </p>
-              <p>¿ Las sucesiones \((x_n)_{n\in \mathbb{N}}\),
-                \((\sqrt{n}x_n)_{n\in \mathbb{N}}\) son convergentes?
-              </p>
-               <p>
-               Justifica tu respuesta.
-              </p>
-            </div>
-
-
-
-          <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-              <p>
-                Sea \(c>0\) un número real positivo, fijo. Examina la convergencia
-                de las siguientes sucesiones \((x_n)_{n\in \mathbb{N}}\)
-                de números reales.
-              </p>
-              <ol>
-                <li> \(x_n=c^n\).</li>
-                <li> \(x_n=\sqrt[n]{c}\). </li>
-                <li> \(x_n=\frac{n}{c^n}\).</li>
-                <li> \(x_n= \frac{c^n}{n!}\). </li>
-              </ol>
-
-              <button class="respButton hvr-grow"> Respuesta incisos 1</button>
-              <div class="resp-box">
-                  
-                  
-                    
-                      <p>
-                        Dividiremos el problema en 3 casos, \(c=1\), \(c<1\) y \(c>1\).
-                      </p>
-                      <p>
-                        El caso \(c=1\) no requiere mayor discusión, pues \(1^n = 1\)
-                      y al ser una sucesión constante \(\lim_{n \to \infty}1^n = 1\).
-                      </p>
-                      <p>
-                        Veamos ahora el caso en que \(c>1\). Podemos escribir \(c = 1+k\)
-                      para algún \(k>0\). Por el teorema del binomio de Newton tenemos
-                      que \(c^n = (1+k)^n = \sum_{l=0}^n 1^{n-l}k^l = 1 + nk +
-                      \sum_{l=2}^n 1^{n-l}k^l \geq 1+nk\). Con ésto estamos en
-                      condiciones demostrar no sólo que la sucesión no tiene límite,
-                      sino que toma valores arbitrariamente grandes.
-                      Dada \(M \geq 0\) existe \(N \in \mathbb{N}\) tal que \(Nk > M\),
-                      y en general se tiene que si \(n \geq N\) entonces también
-                      \(nk > M\) y \(c^n > M\). Como \(M\) es arbitraria entonces podemos
-                      reemplazarla por \(l + \epsilon\) para ver que ningún \(l \in \mathbb{R}\)
-                      puede ser el límite de la sucesión. 
-                      </p>
-                      <p>
-                        El caso en que \(c < 1\) lo podemos estudiar a partir del caso anterior.
-                      Si \( c < 1\) entonces \(d=1/c > 1\) y \(d^n = 1/c^n\). Dado \(\epsilon >0\)
-                      existe \(N \in \mathbb{N}\) tal que \(1/N <\epsilon\), por el análisis
-                      hecho anteriormente tenemos que existe \(N' \in \mathbb{N}\) tal que
-                      si \(n \geq N'\) entonces \(d^n > N\) y en consecuencia
-                      \(0 \leq c^n = 1/d^n < 1/N < \epsilon\).
-                      Con esto  notamos que \(|c^n - 0| < \epsilon\) si \(n \geq N'\) y
-                      concluimos que \(\lim_{n \to \infty} c^n = 0\).
-                      </p>
-                      
-                    
-                  </div>
-                  <button class="respButton hvr-grow"> Respuesta incisos 3</button>
-              <div class="resp-box">
-                    <p>
-                    Nuevamente trabajaremos el problema por casos. Si \(c=1\) entonces
-                  \(\frac{n}{c^n} = n\) y sabemos que la sucesión \((n)_{n \in \mathbb{N}}\)
-                    no tiene límite.
-                    </p>
-                    <p>
-                      El caso \(c < 1\) es similar. Como \(c^n < 1\) entonces
-                    \(n < \frac{n}{c^n}\) para cada \(n \in \mathbb{N}\) y dicha sucesión no
-                    tiene límite.
-                    </p> 
-                    <p>
-                      Trabajemos ahora con el caso en que \(c>1\). Como \(c>1\) entonces
-                      \(c = 1+k\) para algún \(k>0\). Recurrimos una vez más al teorema del
-                      binomio de Newton, si \(n \geq 2\) entonces uno de los términos en la
-                      expansión de \(c^n = (1+k)^n\) es de la forma \(\frac{n(n-1)}{2}k^2\),
-                      de modo que \(c^n > \frac{n(n-1)}{2}k^2\) y \(\frac{n}{c^n} < \frac{2}{(n-1)k^2}\).
-                      Para terminar hacemos lo siguiente. Sea \(\epsilon > 0\), sabemos que existe
-                     \(N \in \mathbb{N}\) tal que si \(n \geq N\) entonces \(\frac{1}{n-1} <
-                    \frac{k^2 \epsilon}{2}\). De esta forma, si \(n \geq N\) entonces
-                    \[
-                      |\frac{n}{c^n} - 0| < |\frac{2}{(n-1)k^2}-0| < \epsilon,
-                    \]
-                    y concluimos que \(\lim_{n \to \infty} \frac{n}{c^n} = 0\).
-                    </p>
-                  </div>
-              </div>
-            
-
-
-
-
 
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
 
         <p>
-          Sea \(X\ne \emptyset\) un conjunto. Una sucesión en
-          \(X\) es simplemente una función que va de \(\mathbb{N}\) a \(X\).
-          Por constumbre una sucesión suele denotarse como
-          \((x_n)_{n\in \mathbb{N}}\) ó \((x_n)_{n \geq 1}\), donde para
-          toda \(n\), \(x_n\) es un elemento en \(X\).
-          Con esta notación la función de dónde
-          proviene \((x_n)_{n\in \mathbb{N}}\) es simplemente \(n \mapsto x_n\).
-        </p>
-        <p>
-          Por ejemplo
+          Sea \(V\) un espacio vectorial. Una norma
+          en \(V\) es una función \(\| \cdot \|: V \to \mathbb{R}\) que
+          satisface
           <ol>
-            <li> En \(\mathbb{R}^3\),
-            \[
-            x_n= \left( \cos(n\pi), \frac{1}{n^2}, \sqrt[n]{2} \right), n=1,2 \dots
-            \]
-            </li>
-            <li>
-              En \(\ell_2\),
-              \[
-              x_n= \left( 0, 0, \dots, 0, \underbrace{1}_{\textrm{lugar \(n\)}},
-               0, \dots   \right),
-              n=1,2 \dots
-              \]
-            </li>
-            <li>
-              En \(C([0,1])\),
-              \[
-              f_n(x)=\frac{x^n}{1+x^n}, n=1,2 \dots
-              \]
-            </li>
+            <li> para todo \(x\in V\), \(\|x\| \geq 0\). </li>
+            <li> \(\|x\|=0\) si y sólo si \(x=0\). </li>
+            <li> para todo \(x\in V\) y todo escalar \(\alpha\),
+              \(\|\alpha x \| = |\alpha| \|x\|\) .</li>
+            <li> desigualdad del triángulo: para todos, \(x,y\in V\),
+              \(\|x+y\| \leq \|x\|+\|y\|\) </li>
           </ol>
         </p>
         <p>
-          Intuitivamente, lo más importantde de las sucesiones es que sus
-          elementos están ordenados, es decir, sebemos quién va primero y
-          quién va después: \(x_1\) es el primer elemento, \(x_2\) el segundo
-          y así sucesivamente.
-        </p>
-
-        <p>
-          Ya que lo más importante de la sucesión es que los elementos
-          están ordenados por eso se usa la notación \((x_n)_{n\in \mathbb{N}}\),
-          para recordar una \(n\)-ada de números ordenados,
-          \((x_1,\dots, x_n)\). Para denotar al conjunto formado
-          por los elementos de la sucesión usamos
-          \[
-          \{x_n\}_{n\in \mathbb{N}}=\{ x_1,x_2, \dots, x_n, \dots \}
-          \]
-        </p>
-        <p>
-          Lo más importante de  \(\mathbb{N}\) en la definición de
-          sucesión son sus características de  conjunto totalmente ordenado, así que en principio
-          podemos substituirlo por cualquier otro conjunto con las mismas carácterísticas.
-          Asi podemos considerar que, para cualquier \(a\in \mathbb{Z}\),
-           \((x_n)_{n \geq a}\) como una sucesión.
-        </p>
-
-      </div>
+          Un espacio vectorial normado es una pareja \((V,\|\cdot\|)\),
+          donde \(V\) es un espacio vectorial  y
+          \(\|\cdot \|\) es una norma.
+          </p>
 
 
-
-
-      <div class="definicion-box">
-        <h2 class="number-title" id="Def:SucesionConvergente"> Definición </h2>
-        <p>
-          De manera intuitiva, una sucesión converge
-          si, eventualmente, sus elementos se aproximan a un punto del espacio.
-        </p>
-
-        <p>
-
-          Sea \((X, d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
-          una sucesión en \(X\). Decimos que la sucesión es convergente en \(X\) si
-          existe un \(x\in X\) que satisface:
-        </p>
-        <p>
-          para toda \(\varepsilon >0\) existe \(N\in \mathbb{N}\)
-          tal que para toda \(n \geq N\),
-          \(
-            d(x_n, x) < \varepsilon .
-          \)
-        </p>
-        <p>
-          Por simplicidad, si \((x_n)_{n\in \mathbb{N}}\) converge a
-          \(x\), escribimos \(\lim_{n\to \infty} x_n=x\).
-        </p>
-        <p>
-          Geométricamente la idea es muy parecida al caso real sólo que
-          ahora  \(\varepsilon \) representa el radio de una
-          bola y la métrica \(d\) determina la forma de la bola o
-          vecindad centrada en \(x\).
-
-          <div class=" flexbox">
-              <img src="./Images/FigSucEspMet.png" alt="ConvergenciaSucEspMet"
-              width="50%" height="auto">
+          <button class="respButton hvr-grow"> Ejemplos </button>
+          <div class="resp-box flexbox">
+              <div class="flexbox">
+                <iframe width="700" height="400" class="video"
+                  src="https://www.youtube.com/embed/rYsJtyoN5wY" allowfullscreen="true"> 
+                </iframe>
+                  
+              </div>
           </div>
 
-
-        </p>
-        <p>
-          Notas:
-          <ol>
-          <li>
-          Usualmente la \(N\) en la definición anterior
-          depende de \(\varepsilon\) y ésta dependencia puede denotarse
-          como \(N(\varepsilon)\).
-          </li>
-          <li>
-            A pesar que en la definición se pide \(d(x_n,x)< \varepsilon \),
-            se puede cambiar a \(d(x_n,x) \leq \varepsilon \), esto debido
-            al cuantificador "para toda \(\varepsilon>0\)". Pues si
-            tenemos que se vale la condición con \(\leq\) simplemente tomamos
-            \(\varepsilon/2\) para obtener: \(d(x_n,x)\leq
-            \varepsilon/2 < \varepsilon\).
-          </li>
-          <li>
-            La definición pueden pensarse de la siguiente forma: a partir de cierto instance
-            de la sucesión
-            (el instance es \(N\)) la distancia entre los elementos de la
-            sucesión y el punto de convergencia se hace tan chiquita como
-            queramos (que tan chiquito lo mide la \(\varepsilon\)).
-          </li>
-          <li>
-            \(\lim_{n\to \infty} x_n=x\) en \(X\) si y sólo si \(\lim_{n\to \infty} d(x_n,x)=0\), en \(\mathbb{R}\).
-          </li>
-        </p>
       </div>
 
 
 
       <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <h2 class="number-title" id="Ejer:Normas12inftyEquiv"> Ejercicio </h2>
         <p>
-          Este ejercicio muestra que, de existir, los límites de
-          sucesiones son únicos.
+          Un espacio vectorial puede tener varias formas de mediar
+          longitudes, es decir, un mismo espacio vectorial puede
+          admitir distintas normas. Este ejercicio presenta la relación entre tres
+          normas
+          distintas en \(\mathbb{R}^n\).
         </p>
         <p>
-          Sea \((X,d)\) un espacio métrico, \((x_n)_{n\in \mathbb{N}}\)
-          una sucesión en \(X\) y supongamos que existen dos puntos
-          \(x,y\in X\) tales que \((x_n)_{n\in \mathbb{N}}\)
-          converge tanto a \(x\) como a \(y\). Prueba que \(x=y\).
-        </p>
-        <p>
-          Sugerencia: aplica la desigualdad del triángulo iniciando con
-          \(d(x,y)\).
+          Para \(x=(x_1,\dots, x_n)\in \mathbb{R}^n\) se definen:
+          \[
+          \begin{eqnarray*}
+          \|x\|_1&=&\sum_{i=1}^n|x_i|, \\
+          \|x\|_2&=&\left(\sum_{i=1}^2x_i^2\right)^{1/2}, \\
+          \|x\|_\infty &=&\max_{1\leq i \leq n} \{|x_i|\}.
+          \end{eqnarray*}
+          \]
+          Prueba
+          \[
+          \|x\|_\infty \leq \|x\|_2 \leq \|x\|_1
+          \]
+          y además
+          \[
+          \|x\|_1 \leq n \|x\|_\infty, \quad \|x\|_1\leq \sqrt{n}\|x\|_2 .
+          \]
         </p>
       </div>
 
 
       <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <h2 class="number-title" id="Ejer:EspacioFunAcotadas"> Ejercicio </h2>
         <p>
-          Sea \((X,d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
-          una sucesión en \(X\) tal que \(\lim_{n\to \infty} x_n\) existe
-          y es igual a \(x\).
+          Sea \(X\ne \emptyset\) un conjunto cualquiera. Por
+          \(\mathcal{B}(X)\) denotamos al conjunto de funciones
+          con valores reales, acotadas sobre \(X\). Es decir
+          \[
+          \mathcal{B}(X)=\{ f:X \to \mathbb{R} | \sup_{x\in X}\{|f(x)| \} <
+            \infty   \}
+          \]
+          Para \(f\in \mathcal{B}\) define
+          \[
+          \|f\|_\infty=\sup_{x\in X}\{ |f(x)|\}
+          \]
+          Prueba que \((\mathcal{B}(X), \|\cdot \|_\infty)\) es un espacio
+          vectorial normado.
         </p>
-        <ol>
-          <li> Sea \(y\in X\). Prueba que
-            \(\lim_{n\to \infty} d(x_n,y) = d(x,y)\).
-          </li>
-          <li>
-            <p>
-            Supongamos que \((y_n)_{n\in \mathbb{N}}\) es un
-            sucesión en \(X\) con \(\lim_{n\to \infty} y_n=y\).
-            Prueba \(\lim_{n\to \infty} d(x_n,y_n)=d(x,y)\).
-            </p>
-            <p>
-            Sugerencia: usa el inciso anterior y la desigualdad del
-            triángulo.
-            </p>
-          </li>
-        </ol>
-        <button class="respButton hvr-grow"> Respuesta </button>
-        <div class="resp-box">
-            <ol>
-                <li>
-                    Tenemos que empezar por notar que \(d(x_n,y)\) es una sucesión de
-                    números reales y la métrica en \(\mathbb{R}\) es la inducida por el
-                    valor absoluto. Como \(d\) es métrica se tiene que
-                    \[
-                    |d(x_n,y) - d(x,y)| \leq d(x_n,x), \ \forall n \in \mathbb{N},
-                    \]
-                    Como el límite de \((x_n)_{n \in \mathbb{N}}\) es \(x\), entonces para cada
-                    \(\epsilon > 0\) existe \(N \in \mathbb{N}\) tal que si \(n \geq N\),
-                    \(d(x_n,x) < \epsilon\). En consecuencia, si \(n \geq N\)
-                    entonces
-                    \[
-                    0 \leq |d(x_n,y) - d(x,y)| \leq d(x_n,x) < \epsilon
-                    \]
-                    y con ello hemos mostrado que \(\lim_{n \to \infty} d(x_n,y) = d(x,y)\).
-                </li>
-                <li>
-                    Por la desigualdad del triángulo tenemos lo siguiente:
-                    \[
-                    \begin{align*}
-                    |d(x_n,y_n) - d(x,y)| =& |d(x_n, y_n) - d(x_n,y) + d(x_n,y) - d(x,y)|, \\
-                    \leq& |d(x_n,y_n) - d(x_n,y)| + |d(x_n,y) - d(x,y)|,
-                    \end{align*}
-                    \]
-                    La desigualdad del triángulo inversa nos permite acotar el primer sumando
-                    por medio de \(d(y_n,y)\), de modo que
-                    \[
-                    |d(x_n,y_n) - d(x,y)| \leq d(y_n,y) + |d(x_n,y) - d(x,y)|.
-                    \]
-                    Como \(\lim_{n \to \infty} y_n = y\) y tenemos el resultado el primer inciso, entonces para
-                    cada \(\epsilon > 0\) existe \(N \in \mathbb{N}\) tal que si \(n \geq N\)
-                    entonces \(d(y_n,y) < \epsilon/2\) y \(|d(x_n,y) - d(x,y)| <\epsilon/2\), por
-                    lo que
-                    \[
-                    |d(x_n,y_n) - d(x,y)| < \epsilon,
-                    \]
-                    y con ello hemos demostrado que \(\lim_{n \to \infty} d(x_n,y_n) = d(x,y)\).
-                </li>
-            </ol>
-        </div>
+        <p>
+          Nota: si \(X=[a,b]\) sabemos que toda función continua alcanza su máximos y mínimo en \([a,b]\)
+          por lo que \(C[a,b]\subset \mathcal{B}([a,b])\). Además \(C[a,b]\) es un espacio vectorial por lo que 
+          del ejercicio se sigue que \((C[a,b], \|\cdot\|_\infty)\) es un espacio vectorial normado.
+        </p>
+
+
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+            <div class="resp-box flexbox">
+                <div class="flexbox">
+                  <iframe width="700" height="400" class="video"
+                      src="https://www.youtube.com/embed/RDuJidJr02I" allowfullscreen="true"> 
+                  </iframe>
+                    
+                </div>
+            </div>
       </div>
 
 
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Sea \((X,d)\) un espacio métrico y sea \((x_n)_{n\in \mathbb{N}}\)
-          una sucesión en \(X\). Supongamos que existe \(y\in X\) y \(r>0\)
-          que satisface \(d(x_n,y) < r\), para toda \(n\in \mathbb{N}\).
-        </p>
-        <p>
-          ¿ Si \(x=\lim_{n\to \infty}x_n \) se sigue que \(d(x,y)< r\) ?
-          Demuestra o da un contraejemplo.
-        </p>
-
-      </div>
 
 
       <div class="nota-box">
         <h2 class="number-title"> Nota </h2>
-        <h3> Límites en espacios vectoriales normados </h3>
+        <h3>
+          Espacios de sucesiones
+        </h3>
         <p>
-          Recordamos que dado un espacio vectorial normado, \((V,\|\cdot\|)\),
-          la norma induce una métrica mediante, \(d(v,w)=\|v-w\|\). En este
-          contexto la definición de que \(\lim_{n\to \infty}v_n=v\) se
-          traduce como:
-         </p>
-         <p>
-           para toda \(\varepsilon > 0\), existe \(N\in\mathbb{N}\)
-           tal que, para toda \(n \geq N\) se cumple,
-           \( \| v_n-v\| < \varepsilon\).
-         </p>
-         <p>
-           Nota que lo anterior se puede escribir como
-           \[
-           \lim_{n\to \infty}\|v_n-v\|=0
-           \]
-           y la ventaja de éste último límite es que es un límite de números
-           reales, de los que se ven en cálculo.
-         </p>
-      </div>
-
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Sea \((V,\|\cdot\|)\) un espacio vectorial normado,
-          \((v_n)_{n\in \mathbb{N}}\), \((w_n)_{n\in \mathbb{N}}\)
-          dos sucesiones en \(V\) y \((\alpha)_{n\in \mathbb{N}} \) una
-          sucesión de escalares.
+          Los elementos en \(\mathbb{R}^n\) pueden pensarse como funciones
+          \(x:\{1,\dots n\} \to \mathbb{R}\), donde a cada función
+          \(x\) le asociamos el vector \((x(1), \dots, x(n))\) y viceversa,
+          dado un vector \((x_1,\dots, x_n) \in \mathbb{R}^n\)
+          le asociamos la función \(x(i)=x_i\).
         </p>
         <p>
-          Supón que \(\lim_{n\to \infty}v_n=v\), \(\lim_{n\to \infty} w_n=w\)
-          y \(\lim_{n\to \infty}\alpha_n = \alpha\).
-          Prueba que:
+          Con este punto de vista podemos reemplazar el conjunto
+          \(\{1,\dots,n\}\) por cualquier otro. Una elección importante
+          es cuando lo reemplazamos por \(\mathbb{N}\). Al hacer esto
+          obtenemos el espacio de sucesiones \(\mathbb{R}^{\mathbb{N}}\). Un
+          problema con el espacio anterior es que es "muy grande", para hacer
+          análisis. Para solucionar esto se toman  subconjuntos de
+          \(\mathbb{R}^{\mathbb{N}}\) con ciertas restricciones analíticas,
+          por ejemplo:
+          <ul>
+            <li> sucesiones acotadas, </li>
+            <li> sucesiones absolutamente sumables, </li>
+            <li> sucesiones cuadrado sumables.</li>
+          </ul>
+          Algunos de los ejercicios que siguen estudian estos espacios.
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:ellInftyClasico"> Ejercicio </h2>
+
+        <p>
+          Por \(\ell_\infty\) denotamos al conjunto de sucesiones de reales
+          que están acotadas. Es decir
           \[
-          \lim_{n\to \infty} (\alpha_n v_n+ w_n )= \alpha v +w
+          \ell_\infty=\left\{
+            (x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}} \left|
+            \sup_{i\in \mathbb{N}} \{ |x_i| \} < \infty
+            \right.
+            \right\}
           \]
+        </p>
+        <p>
+          Dado \(x\in \ell_\infty\) definimos
+          \[
+          \|x\|_\infty:= \sup_{i\in \mathbb{N}}\{ |x_i|\}
+          \]
+        </p>
+        <p>
+          Prueba que \((\ell_\infty, \| \cdot\|_\infty)\) es un espacio vectorial
+          normado.
         </p>
 
         <button class="respButton hvr-grow"> Respuesta </button>
         <div class="resp-box flexbox">
             <div class="flexbox">
               <iframe width="700" height="400" class="video"
-                src="https://www.youtube.com/embed/pzJ-qDrr6Iw" allowfullscreen="true"> 
+                src="https://www.youtube.com/embed/ZENcWe9Rjck" allowfullscreen="true"> 
+              </iframe>
+            </div>
+        </div>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Por \(\ell_1\) denotamos al conjunto de sucesiones de reales que
+          son absolutamente sumables. Es decir
+          \[
+          \ell_1=\left\{
+            (x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}} \left|
+            \sum_{i=1}^\infty |x_i| < \infty
+            \right.
+            \right\}
+          \]
+        </p>
+        <p>
+          Dado \(x\in \ell_1\) definimos
+          \[
+          \|x\|_1:=\sum_{i=1}^\infty |x_i|
+          \]
+        </p>
+        <p>
+          Prueba que \((\ell_1, \| \cdot\|_1)\) es un espacio vectorial
+          normado.
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Por \(\ell_2\) denotamos al conjunto de sucesiones de reales
+          cuadrado sumables. Es decir
+          \[
+          \ell_2=\left\{(x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}}
+          \left|  \sum_{i=1}^\infty x_i^2< \infty \right. \right\}
+          \]
+        </p>
+        <p>
+          Dado \(x=(x_i)_{i=1}^\infty \in \ell_2 \) definimos
+          \[
+          \|x \|_2:=\left( \sum_{i=1}^\infty x_i^2\right)^{1/2}
+          \]
+        </p>
+        <p>
+          <ol>
+            <li>
+              Para \(x,y\in \ell_2\) prueba
+              \[
+              \sum_{i=1}^\infty |x_i||y_i| \leq \|x\|_2\|y\|_2
+              \]
+            </li>
+            <li>
+              Prueba si \(x,y\in \ell_2\) entonces \(x+y\in \ell_2\) y además
+              \[
+              \| x+y\|_2 \leq \|x\|_2+ \|y\|_2
+              \]
+            </li>
+            <li>
+              Concluye que \((\ell_2,\|\cdot\|_2)\) es un espacio
+              vectorial normado.
+            </li>
+          </ol>
+        </p>
+
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box flexbox">
+            <div class="flexbox">
+
+              <iframe width="700" height="400" class="video"
+                src="https://www.youtube.com/embed/OREqoVwxx7M" allowfullscreen="true"> 
               </iframe>
                 
             </div>
         </div>
+
       </div>
 
 
-
-            <div class="ejercicio-box">
-              <h2 class="number-title"> Ejercicio </h2>
-              <p>
-                Este ejercicio muestra que, para los
-                espacios \(\mathbb{R}^n\), con las normas-\(p\),
-                la convergencia de sucesiones se reduce a convergencia
-                de sucesiones de números reales.
-              </p>
-              <p>
-                Fija \(p\in [1,\infty)\) y considera  el espacio vectorial
-                normado \((\mathbb{R}^n, \| \cdot \|_p)\).
-              </p>
-              <p>
-                Ya se este ejercicio maneja sucesiones de vectores introducimos
-                la siguiente notación: dado \(x\in \mathbb{R^n}\) por
-                \(x(1), x(2), \dots, x(n)\)  denotamos a sus coordenadas, es decir
-                \[
-                x= (x(1), x(2), \dots, x(n)).
-                \]
-                Con ésta notación, dada una sucesión de vectores
-                \((x_k)_{k\in \mathbb{N}}\) sus coordenadas están denotadas por
-                \[
-                x_k=(x_k(1), x_k(2), \dots, x_k(n)).
-                \]
-              </p>
-              <p>
-                Sean \(x,y\in \mathbb{R}^n\).
-              </p>
-                <ol>
-                <li>
-                Prueba que, para toda
-                \(i=1,\dots, n\):
-                \[
-                |x(i)-y(i)| \leq \| x-y\|_p.
-                \]
-                </li>
-                <li>
-                Además prueba que
-                \[
-                \quad \|x-y\|_p \leq n^{1/p}\max_{i=1,\dots, n} \{|x(i)-y(i)| \}
-                \]
-                </li>
-
-                <li>
-                  <p>
-                    Sea \((x_n)_{n\in \mathbb{N}}\) una sucesión en \(\mathbb{R}^n\)
-                    y  \(x\in \mathbb{R}^n\). Prueba que \(\lim_{n\to \infty} x_n=x\)
-                    si y sólo si, para toda \(i=1,\dots, n\), se cumple
-                    \(\lim_{n\to \infty}x_n(i)=x(i)\).
-                  </p>
-                  <p>
-                    Es decir, una sucesión de vectores converge en
-                    \(\mathbb{R}^n\), con respecto a la norma-\(p\), si y sólo si
-                    todas sus condenadas convergen, vistas como sucesiones en \(\mathbb{R}\).
-                  </p>
-                </li>
-              </ol>
-
-                <button class="respButton hvr-grow"> Respuesta </button>
-                <div class="resp-box">
-                  <p>
-                    Prueba de 1.
-                  </p>
-                  <p>
-                    Primero notamos que, para todo vector \(z\in \mathbb{R}^n\)
-                    y para cualquiera de sus corrdenadas, \(z(i)\):
-                    \[
-                    |z(i)| = \sqrt[p]{|z(i)|^p} \leq \sqrt[p]{|z(1)|^p
-                      +\cdots+|z(i)|^p+ \cdots +|z(n)|^p }=\|z\|_p
-                    \]
-                    lo cual implica la desigualdad \(|x(i)-y(i)|\leq \|x-y\|_p\),
-                     si tomamos \(z=x-y\).
-                  </p>
-                  <p>
-                    Prueba de 2.
-                  </p>
-                  <p>
-                    Supongamos que
-                    \[
-                    \max_{1\leq i \leq n}\{|z(i)|\}=|z(i_0)|.
-                    \]
-                    Entonces
-                    \[
-                    |z(1)|^p+ \cdots + |z(n)|^p \leq
-                    |z(i_0)|^p+\cdots + |z(i_0)|^p =n|z(i_0)|^p
-                    \]
-                    Sacando raíz \(p\)-ésima en ambos lados llegamos a
-                    \[
-                    \|z\|_p \leq n^{1/p}\max_{1\leq i \leq n}\{|z(i)|\}
-                    \]
-                    Tomando \(z=x-y\) llegamos a la desigualdad deseada.
-                  </p>
-                  <p>
-                    Prueba de 3.
-                  </p>
-                  <p>
-                    \(\Rightarrow ]\) Suppongamos que
-                    \(\lim_{n\to \infty}x_n=x\). Fijamos \(i\in\{1,\dots,n\}\).
-                    Debemos de probar que \(\lim_{n\to \infty}x_n(i)=x(i)\), lo
-                    cual es equivalente a probar:
-                    \[
-                    \lim_{n\to \infty}|x_n(i)-x(i)|=0.
-                    \]
-                    Pero, usando el inciso 1 tenemos
-                    \[
-                    |x_n(i)-x(i)| \leq \|x_n-x\|_p.
-                    \]
-                    Tomando límite cuando \(n\to \infty\) y aplicando la ley
-                    del Sandwich tenemos
-                    \[
-                    0 \leq \lim_{n\to \infty} |x_n(i)-x(i)|\leq \lim_{n\to \infty}
-                    \|x_n-x\|_p=0
-                    \]
-                  </p>
-                  <p>
-                    \(\Leftarrow ]\) Supongamos que todas las entradas
-                    de la sucesión convergen. Es decir, para toda
-                    \(i\in \{1,\dots,n\}\):
-                    \[
-                      \lim_{n\to \infty}|x_n(i)-x(i)|=0.
-                    \]
-                    Vamos a probar \(\lim_{n\to \infty}\|x_n-x\|_p=0\).
-                  </p>
-                  <p>
-                    Por el inciso 2:
-                    \[
-                    \|x_n-x\|_p \leq n^{1/p}\max_{1\leq i \leq n}\{|x_n(i)-x(i)|\}
-                    \]
-                    Usando que el máximo es una función continua y
-                    la ley del Sandwich si tomamos límite en ambos lados
-                    de la desigualdad anterior llegamos a
-                    \begin{eqnarray*}
-                    0 \leq \lim_{n\to \infty}\|x_n-x\|_p & \leq &
-                    \lim_{n\to \infty}n^{1/p}\max_{1\leq i \leq n}\{|x_n(i)-x(i)|\} \\
-                     & = & n^{1/p}\max_{1\leq i \leq n}\{\lim_{n\to \infty}|x_n(i)-x(i)|\}=0
-                    \end{eqnarray*}
-                  </p>
-                </div>
-            </div>
-
-
-
-            <div class="ejercicio-box">
-              <h2 class="number-title"> Ejercicio </h2>
-
-              <p>
-                Recuerda que por \(\mathbb{R}^{\mathbb{N}}\) denotamos al
-                conjunto de sucesiones de números reales. Dado
-                \(x\in \mathbb{R}^{\mathbb{N}}\) denotamos sus entradas como
-                \[
-                x=(x(1), x(2), \dots, x(n), \dots)
-                \]
-              </p>
-              <p>
-                Dada una sucesión
-                \(x \in \mathbb{R}^{\mathbb{N}}\)
-                denota \(x_{k}\) al truncamiento de \(x\)
-                a altura \(k\), es decir, \(x_{k}=(x(1),\dots, x(k), 0,0,\dots)\).
-              </p>
-              <ol>
-                <li> Si \(x\in \ell_2\) prueba que \((x_{k})_{k\in \mathbb{N}}\)
-                  converge a \(x\) en \(\ell_2\).
-                </li>
-                <li> Si \(x\in \ell_1\) prueba que \((x_{k})_{k\in \mathbb{N}}\)
-                  converge a \(x\) en \(\ell_1\).
-                </li>
-                <li> Da un ejemplo donde se muestre que los incisos anteriores
-                  no se valen cuando \(x\in \ell_\infty\).
-                </li>
-              </ol>
-            </div>
-
-
-
-                  
-
-    <div class="ejercicio-box">
-      <h2 class="number-title" id="Ejer:MetEquivalentes"> Ejercicio </h2>
-      <p>
-        Dos métricas, \(d_1\) y \(d_2\), sobre un
-        conjunto \(X\), se llaman equivalentes si generan las mismas
-        sucesiones convergentes, es decir:
-        \(\lim_{n\to \infty} d_1(x_n,x)=0\) si y sólo si
-        \(\lim_{n\to \infty} d_2(x_n,x)=0\).
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+            <p>
+              Recuerda que si \(\sum_{i=1}^\infty x_i^2 \) es  una serie
+              convergente entonces \(\lim_{i\to \infty}x_i^2=0\), por lo que
+              la sucesión \((x_i)_{i=1}^\infty\) está acotada, es decir,
+              \((x_i)_{i=1}^\infty \in  \ell_\infty\). Esto prueba que
+              \(\ell_2 \subseteq \ell_\infty\).
+            </p>
+            <ol>
+              <li>Prueba que para todo \(x\in \ell_2\)
+              \[
+              \|x\|_\infty \leq \|x\|_2
+              \]
+              </li>
+              <li>
+              Da un ejemplo que muestre que la contención
+              \(\ell_2 \subseteq \ell_\infty\) es propia.
+              </li>
+          </ol>
       </p>
-      <ol>
-        <li>
-        Prueba que esto define una relación de equivalencia sobre
-        el conjunto de métricas definidas en \(X\).
-        </li>
-        <li>
-          Se \(V\) un espacio vectorial y
-          \(\|\cdot\|_1, \| \cdot \|_2\) dos normas sobre \(V\). Supón
-          que existen constantes \(c,d>0\) tales que:
-          \[
-          \|  v\|_1 \leq c \|v\|_2, \quad \|v\|_2 \leq d \|v\|_1,
-          \quad \textrm{para todo \(v\in V\).}
-          \]
-          Sean \(d_1\) y \(d_2\) las métricas asociadas a \(\|\cdot\|_1\)
-          y \(\| \cdot\|_2\) respectivamente. Prueba que
-          \(d_1\) y \(d_2\) son equivalentes.
-        </li>
-
-      </ol>
-      <p>
-        Por ejemplo, el ejercicio 
-        <a href="./S3.html#Ejer:EquiNormas-p">Ejercicio 3.21</a>
-        
-        muestra que las normas \(\|\cdot\|_1, \|\cdot\|_2\),
-        \(\|\cdot\|_\infty\) y en general todas las normas \(\|\cdot\|_p\)  en \(\mathbb{R}^n\)
-        generan métricas equivalentes.
-      </p>
-    </div>
-
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title" id="Ejer:MetEquivProdCarte"> Ejercicio </h2>
-          <p>
-            Supongamos que \((X,d_X)\), \((Y,d_Y)\) son dos espacios métrios.
-            En el <a href="./S2.html#Ejer:MetProdCarte"> Ejercicio 2.20</a>
-            se definieron las métricas:
-            \begin{eqnarray*}
-            d((x_1,y_1),(x_2,y_2))&=& d_X(x_1,x_2)+d_Y(y_1,y_2),\\
-            \rho((x_1,y_1),(x_2,y_2)) &=& \max\{d_X(x_1,x_2), d_Y(y_1,y_2)  \}\\
-            \sigma((x_1,y_1),(x_2,y_2)) &=& \sqrt{d_X(x_1,x_2)^2+d_Y(y_1,y_2)^2}.
-            \end{eqnarray*}
-            Prueba que \(d\), \(\rho\) y \(\sigma\) son métricas equivalentes.
-          </p>
-
-
-        </div>
-
-
-
-
-
-        <div class="definicion-box">
-          <h2 class="number-title"> Definición </h2>
-
-            
-            <p>
-              Si pensamos a la sucesión como una función 
-              \(x: \mathbb{N} \to X\) una subsucesión de x
-              es una función de la forma \(x\circ \varphi \), donde 
-              \(\varphi: \mathbb{N} \to \mathbb{N}\) es una función 
-              estrictamente creciente. 
-              <div class="flexbox">
-                <img src="./Images/Subsusecion.png"
-                alt="ConvergenciaSuc" width="50%" height="auto">
-              </div>  
-            </p>
-            <p>
-              Usando la notación  \((x_n)_{n\in \mathbb{N}}\), una subsucesión de \((x_n)_{n\in \mathbb{N}}\)
-              se puede escribir como  \((x_{\varphi(k)})_{k=1}^\infty\).
-              Por ejemplo
-              \((x_{2n})_{n\in \mathbb{N}}\) y \((x_{2n+1})_{n\in \mathbb{N}}\)
-              son subcesiones de \((x_n)_{n\in \mathbb{N}}\), en la 
-              primera tenemos \(\varphi(n)=2n\) y en la segunda \(\varphi(n)=2n+1\). 
-            </p>
-            <p>
-              Por costumbre
-              una subcesión de \((x_n)_{n\in \mathbb{N}}\) suele denotarse
-              \((x_{n_k})_{k\in \mathbb{N}}\), donde en ésta notación
-              se entiende \(n_k=\varphi(k)\), para alguna función
-              estrictamente creciente \(\varphi\).
-            </p>
-            <p>
-              Observación.
-            </p>
-            <p>
-              Si \((x_{\varphi(k)})_{k=1}\) es una subseción de \((x_n)_{n=1}^\infty\) y 
-              \((x_{\psi(\varphi(s))})_{s=1}^\infty\) es una subsucesión de \((x_{\varphi(k)})_{k=1}^\infty\)
-              entonces \((x_{\psi(\varphi(s))})_{s=1}^\infty\) es una subsucesión de \((x_n)_{n=1}^\infty\).
-              Razón: composición de funciones estrictamente creciente son estrictamente crecientes, 
-              en este caso \(\psi \circ \varphi\) es estrictamente creciente.
-            </p>
-        </div>
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            ¿Cuáles de las siguientes expresiones representan subsucesiones
-            de \((x_n)_{n\in \mathbb{N}}\)?
-          </p>
+      <button class="respButton hvr-grow"> Respuesta </button>
+      <div class="resp-box">
           <ol>
-            <li> \((x_{n^2})_{n\in \mathbb{N}}\) . </li>
-            <li> \((x_{n^2-4n})_{n \in \mathbb{N}}\).</li>
-            <li> \((x_{\frac{n^2+1}{n+1}})_{n \geq 2 }\). </li>
-            <li>  \((x_{\frac{n}{n+1}})_{n\in \mathbb{N}}\). </li>
-            <li>   \((x_{n^2-4n})_{n\geq 5} \). </li>
-        </div>
+              <li>
+                  Sea \(x \in \ell_2\). Para cada \(j \in \mathbb{N}\) se tiene
+                  que \(x_j^2 \leq \sum_{i=1}^\infty x_i^2\), al tomar la raíz
+                  cuadrada de ambos lados de la desigualdad se obtiene
+                  \[|x_j| \leq (\sum_{i=1}^\infty x_i^2)^{1/2} = \|x\|_2,\]
+                  y al tomar supremo sobre \(j\)
+                  \[\|x\|_\infty = \sup_{j \in \mathbb{N}} \{|x_j|\} \leq \|x\|_2\]
+              </li>
+              <li>
+                  Podemos dar una infinidad de ejemplos para mostrar que la contención
+                  es propia. El más sencillo es una sucesión constante \(x_i = k\),
+                  donde \(k \neq 0\). Evidentemente la sucesión es acotada, sin embargo
+                  la primera observación del ejercicio hace notar que es necesario que
+                  \(\lim_{i \to \infty} x_i^2 = 0\) para que la serie converja, lo cual
+                  no ocurre si \(k \neq 0\). Para tener un ejemplo menos trivial recordemos
+                  que la serie armónica \(\sum_{n \in \mathbb{N}} \frac{1}{n}\) diverge, sin
+                  embargo ésta es acotada por 1, por lo que si \(x = (x_i)_{i=1}^\infty =
+                  (\frac{1}{\sqrt{n}})_{n=1}^\infty\), entonces \(x \in \ell_\infty\) pero
+                  \(x \notin \ell_2\).
+              </li>
+          </ol>
+      </div>
+      </div>
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <ol>
+          <li>
+          Prueba que si \(x\in \ell_1\) entonces
+          \[
+          \|x\|_2 \leq \|x\|_1
+          \]
+          Esto prueba que \(\ell_1 \subseteq \ell_2 \).
+          </li>
+          <li>
+            Muestra con un ejemplo que la contención
+            \(\ell_1 \subseteq \ell_2\) es propia. Sugerencia:
+            series \(p\).
+          </li>
+        </ol>
 
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Considera una sucesión \((x_n)_{n\in \mathbb{N}}\). De esta
-            sucesión se van a ir sacando subsuceciones recursivamente.
-          </p>
-          <p>
-            Por \((x_n^{(1)})_{n\in \mathbb{N}}\) vamos a denotar una
-            subsucesión de \((x_n)_{n\in \mathbb{N}}\). Es decir,
-            \(x_n^{(1)}=x_{\varphi_1(n)}\), donde
-            \(\varphi_1:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
-          </p>
-          <p>
-            Por \((x_n^{(2)})_{n\in \mathbb{N}}\) vamos a denotar una
-            subsucesión de \((x_n^{(1)})_{n\in \mathbb{N}}\). Es decir,
-            \(x_n^{(2)}=x_{\varphi_2(n)}^{(1)}\), donde
-            \(\varphi_2:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
-          </p>
-          <p>
-            Si \((x_n^{(m)})_{n\in\mathbb{N} } \) se ha construido,
-            por \((x_n^{(m+1)})_{n\in \mathbb{N}}\) vamos a denotar una
-            subsucesión de \((x_n^{(m)})_{n\in \mathbb{N}}\). Es decir,
-            \(x_n^{(m+1)}=x_{\varphi_{m+1}(n)}^{(m)}\), donde
-            \(\varphi_{m+1}:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
-          </p>
-          <p>
-            Para una visualización podemos escribir las suceciones
-            en una lista
-          </p>
-          <p>
-            \begin{eqnarray*}
-            & x_1^{(1)}, x_2^{(1)}, x_3^{(1)}, \dots \\
-            & x_1^{(2)}, x_2^{(2)}, x_3^{(2)}, \dots \\
-            & x_1^{(3)}, x_2^{(3)}, x_3^{(3)}, \dots \\
-            & \vdots \\
-            & x_1^{(m)}, x_2^{(m)}, x_3^{(m)}, \dots \\
-            & \vdots
-            \end{eqnarray*}
-          </p>
-          <p>
-            Define la sucesión \((y_n)_{n \in \mathbb{N}}\) por
-            \(y_n:=x_n^{(n)}\). Se puede pensar como la sucesión diagonal.
-          </p>
-          <p>
-            Prueba que, para cada \(m\in \mathbb{N}\), \((y_n)_{n \geq m}\)
-            es una subsucesión de \((x_n^{(m)})_{n\in \mathbb{N}}\).
-          </p>
-          <p>
-            Este método se conoce como el método de la diagonal de Cantor.
-          </p>
-        </div>
-
-
-
-
-              <div class="ejercicio-box">
-                <h2 class="number-title" id="Ejer:NegacionConvergencia"> Ejercicio </h2>
-                <p>
-                  Sea \((X,d)\) un espacio métrico y sea \((x_n)_{n=1}^\infty\subset X\)
-                  una subsuseción.
-                </p>
-                <p>
-                  Prueba que si \((x_n)_{n=1}^\infty\) NO converge al
-                  punto \(x_0\) entonces existe un número positivo \(\varepsilon_0 >0\)
-                  y una subsucesión \((x_{n_k})_{k=1}^\infty\) de \((x_n)_{n=1}^\infty\)
-                  tal que
-                  \[
-                  d(x_{n_k}, x_0) \geq \varepsilon_0
-                  \]
-                  para toda \(k\).
-                </p>
-                <button class="respButton hvr-grow"> Respuesta </button>
-                <div class="resp-box">
-                <p>
-                  Para iniciar recordamos la definición de convergencia y luego la
-                  negamos.
-                </p>
-                <p>
-                  La definición  <a href="#Def:SucesionConvergente">Definición 4.5 </a> dice que
-                  \(\lim_{n\to \infty}x_n=x\) sii:
-                </p>
-                <p>
-                  para toda \(\varepsilon >0\) existe \(N\in \mathbb{N}\)
-                  tal que para toda \(n \geq N\),
-                  \(
-                    d(x_n, x) < \varepsilon .
-                  \)
-                </p>
-                <p>
-                  Negando directamente tenemos que \(\lim_{n\to \infty}x_n \ne x\) sii:
-                </p>
-                <p>
-                  existe una \(\varepsilon_0 > 0\) tal que para toda \(N\in \mathbb{N}\)
-                  existe una \(n \geq N\) con la propiedad de que
-                  \[
-                  d(x_n,x) \geq \varepsilon_0
-                  \]
-                </p>
-
-                 <p>
-                   Es importante notar que la \(N\) en la condición anterior
-                   es "para toda \(N\)", es decir podemos tomar cualquier
-                   valor de \(N\) y eso nos va a arrojar la existencia de distintas \(n\)'s
-                   que satisfacen \(n\geq N\) y \(d(x_n,x) \geq \varepsilon_0\).
-                 </p>
-                <p>
-                   Al ir variando la \(N\) en la propiedad anterior vamos a
-                   construir  la subsucesión que buscamos.
-                 </p>
-                 <p>
-                   Para \(N=1\) resulta que existe \(n_1 \geq 1\) tal que
-                   \[
-                   d(x_{n_1},x) \geq \varepsilon_0.
-                   \]
-                 </p>
-                 <p>
-                   Para obtener \(x_{n_2}\) no podemos simplemente tomar \(N=2\)
-                   pues necesitamos construir una subsucesión, es decir debemos de
-                   cuidar que \(n_1< n_2\). Por lo tanto tomamos \(N= n_1 + 1 \)
-                   para obtener una \(n_2 \geq N\) tal que \(d(x_{n_2}, x) \geq \varepsilon_0\).
-                   Nota que tenemos que \(n_2 > n_1\).
-                 </p>
-                 <p>
-                   De manera recursiva, si hemos construido \(x_{n_1},\dots, x_{n_k} \)
-                   tal que \(n_1< n_2< \cdots < n_k\), tomamos \(N=n_k+1\)
-                  para
-                   obtener una \(n_{k+1} \geq N\) con la propiedad de que
-                   \(d(x_{n_{k+1}},x) \geq \varepsilon_0\). Notamos que \(n_{k}< n_{k+1}\).
-                 </p>
-                 <p>
-                   Por lo tanto hemos construido una subsucesión \((x_{n_k})_{k=1}^\infty\)
-                   con la pripiedad de que \(d(x_{n_k},x)\geq \varepsilon_0\) para toda
-                   \(k\).
-                 </p>
-               </div>
-              </div>
-
-      <div class="lema-box">
-        <h2 class="number-title"> Lema </h2>
-          <p>
-            Sea \((X,d)\) un espacio métrico y
-            \((x_n)_{n\in \mathbb{N}}\) una sucesión en \(X\) y \(x\in X\)
-            tal que \((x_n)_{n\in \mathbb{N}}\) converge a \(x\). Prueba que toda
-            subsucesión de \((x_n)_{n\in \mathbb{N}}\) también converge a \(x\).
-          </p>
-
-
-
-                  <button class="respButton hvr-grow"> Demostración </button>
-                  <div class="resp-box flexbox">
-                      <div class="flexbox">
-                        <iframe width="700" height="400" class="video"
-                          src="https://www.youtube.com/embed/RWp7ynBONOc" allowfullscreen="true"> 
-                        </iframe>
-                          
-                      </div>
-                  </div>
       </div>
 
 
-
-
-
-
-
-
-
-
-      <div class="lema-box">
-        <h2 class="number-title"> Lema </h2>
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
         <p>
-          Sea \((X,d)\) un espacio métrico, \((x_n)_{n\in \mathbb{N}}\)
-          una sucesión en \(X\) y \(x\in X\). Prueba que si para toda subsucesión
-          de \((x_n)_{n\in \mathbb{N}}\) le podemos extraer otra subsucesión
-          convergente a \(x\), entonces la sucesión
-          original \((x_n)_{n\in \mathbb{N}}\) converge a \(x\).
+          Sea \((V, \|\cdot \|)\) un espacio vectorial normado. Define
+          \(d:V\times V \to \mathbb{R}\)  por
+          \[
+          d(x,y)=\|x-y\|
+          \]
+          Prueba que \(d\) es una métrica en \(V\).
         </p>
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+                <ol>
+                    <li>
+                        En primer lugar notemos que \(\forall x,y \in V \| x-y\| \geq 0\)
+                        y que \(\|x-y\| = 0\) si y sólo si \(x-y = 0\), es decir, si \(x=y\).
+                        Por lo tanto \(d(x,y) \geq 0\) y \(d(x,y) = 0\) si y sólo si \(x=y\).
+                    </li>
+                    <li>
+                        \(d(x,y) = \| x - y\| = \|-(y-x)\| = |-1| \|y-x\| = d(y,x)\).
+                    </li>
+                    <li>
+                        Si \(x,y,y \in V\) entonces 
+                        \begin{eqnarray*}
+                        d(x,y) &=&  \|x-y\| \\
+                        &= & \|x-z + z -y\| \\
+                        &\leq &
+                        \|x-z\| + \|z-y\| \\
+                        &=& d(x,z) + d(z,y)
+                        \end{eqnarray*}
+                    </li>
+                </ol>
+                <p>
+                    Con ello hemos demostrado que \(d(x,y) = \|x-y\|\) es una métrica en \(V\).
+                </p>
+        </div>
+      </div>
 
-            <button class="respButton hvr-grow"> Respuesta </button>
-            <div class="resp-box flexbox">
-                <div class=" flexbox">
-
-                  <iframe width="700" height="400" class="video"
-                    src="https://www.youtube.com/embed/iOj6VDGCqIU" allowfullscreen="true"> 
-                  </iframe>
-                    
-                </div>
-            </div>
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(V\) un espacio vectorial y \(d\) una métrica en \(V\) que satisface
+          <ol>
+            <li>  \(d(x,y)=d(x-y,0)\). </li>
+            <li> \(d(\alpha x,\alpha y  )= |\alpha| d(x,y)\). </li>
+          </ol>
+        </p>
+        <p>
+          Prueba que \(\|\cdot \| :V\to \mathbb{R}\) dada por
+          \(\|x\|=d(x,0)\) define una norma en \(V\) y que la
+          métrica asociada a esta norma es \(d\).
+        </p>
+        <p>
+          Además da un ejemplo de una métrica en \(\mathbb{R}\) que
+          no pueda ser asociada a una norma de ésta manera.
+        </p>
       </div>
 
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
 
-            <div class="ejercicio-box">
-              <h2 class="number-title"> Ejercicio </h2>
-              <p>
-                Como en el caso real, toda sucesión convergente en un espacio
-                métrico es es acotada. Sin embargo, varios resultados que se
-                valen en \(\mathbb{R}\) ya no son válidos para cualquier
-                espacio métrico.
-              </p>
+        <p>
+          La otra desigualdad del triángulo.
+        </p>
+        <p>
+          Sea \((V, \|\cdot \|)\) un espacio vectorial normado. Prueba
+          \[
+          |\|x\|-\|y\| | \leq \|x-y\|
+          \]
+        </p>
+      </div>
 
-              <p>
-                <ol>
-                <li>
-                Sea \((X,d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
-                una sucesión en \(X\). Prueba que si \((x_n)_{n\in \mathbb{N}}\)
-                es convergente en \(X\) entonces el conjunto \(\{x_n\}_{n\in \mathbb{N}}\)
-                está acotado.
-                </li>
-                <li>
-                  <p>Para \(k\in \mathbb{N}\) denota por
-                  \(e^{(k)}\) a la sucesión de reales tal que
-                  es cero en todos lados excepto en la entrada \(k\), donde vale 1. Nota
-                  que el conjunto \(\{e^{(k)}\}_{k\in \mathbb{N}}\) es
-                  acotado en \((\ell_\infty, \| \cdot \|_\infty)\) pero prueba que
-                  la sucesión \((e^{(k)})_{k\in \mathbb{N}}\) no converge en
-                  \((\ell_\infty, \| \cdot \|_\infty)\).
-                </p>
-                <p>
-                  Sugerencia: inicia probando que, para \(x=(x(i))_{i\geq 1} \in \ell_\infty\)
-                  \(|x(i)| \leq \| x-e^{(k)}\|_\infty \), para toda \(i\ne k\).
-                </p>
-                </li>
-                <li>
-                  Generaliza el inciso anterior probando que no existe subsucesión
-                  de \((e^{(k)})_{k\in \mathbb{N}}\) que sea convergente
-                  en \((\ell_\infty, \| \cdot \|_\infty)\). Esto muestra que
-                  un teorema tipo Bolzano-Weierstrass no es válido en
-                  el espacio \((\ell_\infty, \| \cdot \|_\infty)\).
-                </li>
-              </ol>
-              </p>
-
-              <p>
-                Nota: recuerda que un subconjunto \(A\) de un espacio métrico es acotado si
-                existe \(x_0\) en el espacio y \(r>0\) que satisface:
-                \(d(x_0,a) \leq r\), para toda \(a\in A\).
-              </p>
-            </div>
-
-            <div class="definicion-box">
-              <h2 class="number-title"> Definición </h2>
-              <h3> Límites inferior y superior </h3>
-              <p>
-                Dada una sucesión acotada de números reales, \((x_n)_{n\in \mathbb{N}}\), 
-                definimos, respectivamente, su límite inferior y superior como 
-                \begin{eqnarray*} 
-                \liminf_{n\to \infty} x_n = \sup_{n\geq 1} \{\inf_{k\geq n}\{ x_k\} \}\\
-                \limsup_{n\to \infty} x_n = \inf_{n\geq 1} \{\sup_{k\geq n}\{ x_k\} \}
-                \end{eqnarray*}
-              </p>
-              <p>
-                Observación:
-                de la definición se sigue directamente que \(\liminf_{n}x_n \leq \limsup_{n}x_n\).
-              </p>
-
-            </div>
-
-            <div class="lema-box">
-              <h2 class="number-title" id="Lema:LimSupLimInf"> Lema </h2>
-              <p>
-                Sea \((x_n)_{n=1}^\infty\) una sucesión acotada de números reales. Prueba que \((x_n)_{n=1}^\infty\)
-                es convergente si y sólo si 
-                \[\liminf_{n\to \infty} x_n = \limsup_{n\to \infty} x_n.\]
-                
-              </p>
-              <p>
-                En cuyo caso se tiene que \(\liminf_{n\to \infty}x_n=\limsup_{n\to \infty}x_n=\lim_{n\to \infty}x_n\).
-              </p>
-
-              <!--<p>
-                Ahora denotamos \(x=\alpha=\beta\) y para terminar probamos que \(\lim_{k\to \infty}x_{n_k}=x\).
-              </p>
-            
-               <p>
-                Ahora por las propiedades fundamentales de ínfimos y supremos para \(\varepsilon >0\) existen \(j_1,j_2\)
-                tales que 
-                \begin{eqnarray*} 
-                x- \varepsilon < \alpha_{j_1}, \\
-                \beta_{j_2} < x+\varepsilon.
-                \end{eqnarray*}
-                Sea \(j_3=\max\{j_1,j_2\}\). Por \eqref{Eqn:Aux2Rcomp} y \eqref{Eqn:Aux3Rcomp} tenemos que 
-                \(\alpha_{j_1}\leq \alpha_{j_3}\) y \(\beta_{j_3}\leq \beta_{j_2}\) y por \eqref{Eqn:Aux1Rcomp}
-                tenemos \(\alpha_{j_3} \leq \beta_{j_3}\). Con toda la información anterior tenemos la siguiente cadena 
-                de desigualdades
-                \begin{eqnarray*} 
-                x -\varepsilon <  \alpha_{j_3}\leq x_{n_k} \leq  \beta_{j_3} <  x +\varepsilon
-                \end{eqnarray*}
-                para todo \(k\geq j_3\), lo cual se puede reescribir como \(|x-x_{n_k}|< \varepsilon\) para todo 
-                \(k \geq j_3\), es decir \(\lim_{k\to \infty}x_{n_k}=x\).
-              </p>-->
-            </div>
 
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
+        <h3>
+          Normas-\(p\)
+        </h3>
         <p>
-          Sea \((X,d)\) un espacio métrico. Una sucesión en
-          \(X\), \((x_n)_{n\in \mathbb{N}}\), se llama de Cauchy
-          o Cauchy respecto a \(d\) si  las distancias
-          entre sus elementos tiene a cero, es decir
-          \[
-          \lim_{n,m\to \infty}d(x_n,x_m)=0
-          \]
+            Las normas-\(p\) son una generalización de las norma euclidiana.
         </p>
         <p>
-          En términos de \(\varepsilon\)'s lo anterior quiere
-          decir que, para toda \(\varepsilon >0\) existe
-          \(N\in \mathbb{N}\) tal que, para \(n,m \geq N\) se cumple
+          Para \(p\in [1,\infty)\) se define el espacio \(\ell_p\) como
           \[
-          d(x_n,x_m) < \varepsilon.
+          \{ (x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}}:
+          \sum_{i=1}^\infty |x_i|^p < \infty\}
           \]
+          Dada \(x\in \ell_p\) se define
+          \[
+          \|x\|_p =\left( \sum_{i=1}^\infty |x_i|^p \right)^{1/p}
+          \]
+          Resulta que esta asignación define una norma y hace a
+          \(\ell_p\) un espacio vectorial normado, pero la
+          prueba de que se satisfacen todas las condiciones de una
+          norma no es sencilla. Las partes sencillas, y que se siguen
+          de las propiedades de las series convergentes son:
+          \begin{eqnarray*}
+          \|x\|_p & \geq & 0, \\
+          \|x\|_p & = & 0 \Leftrightarrow x= 0, \\
+          \|\alpha x\|_p & = & |\alpha|\|x\|_p.
+          \end{eqnarray*}
+          No es sorprendente que la parte más complicada es probar que
+          satisface la desigualdad del triángula, la cual en el contexto
+          de los espacios \(\ell_p\) se llama la desigualdad de Minkowski.
+          Los ejercicios que siguen sirven para probar dicha desigualdad.
         </p>
       </div>
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
-          Sea \((X,d)\) un espacio métrico y
-          \((x_n)_{n\in \mathbb{N}}\) una sucesión convergente en \(X\).
-          Prueba que \((x_n)_{n\in \mathbb{N}}\) es Cauchy respecto a \(d\).
+          Sea \(1< p <\infty\).
+          <ol>
+            <li> Sean \(a,b\geq 0\). Prueba \((a+b)^p \leq 2^p(a^p+b^p)\).</li>
+            <li> Usa el inciso anterior para probar que
+              \(\ell_p\) es cerrado bajo la suma, es decir
+              \(x,y\in \ell_p \Rightarrow x+y \in \ell_p\)
+            </li>
+          </ol>
         </p>
-
-
         <button class="respButton hvr-grow"> Respuesta </button>
-
         <div class="resp-box">
-        <p>
-          Debemos de probar que los elementos
-          de la suesión se hacercan entre sí. Es decir, para \(\varepsilon >0\)
-          debemos de probar que existe un \(N\in \mathbb{N}\) tal que, para todos \(n,m \geq N\)
-          se cumple
-          \[
-          d(x_n,x_m) < \varepsilon
-          \]
-          Pero, al ser \((x_n)_{n\in \mathbb{N}}\) convergente existe
-          \(x\in X\) con \(\lim_{n\to \infty} x_n=x\). Por lo tanto, existe
-          \(N\in \mathbb{N}\) que cumple
-          \[
-          d(x_n,x) < \frac{\varepsilon}{2},
-          \]
-          para todo \(n\geq N\). De lo anterior y la desigualdad del triángulo
-          concluimos que, para todos \(n,m \geq N\):
-          \[
-          d(x_n,x_m)\leq d(x_n,x)+d(x,x_m) < \frac{\varepsilon}{2}+\frac{\varepsilon}{2}
-          =\varepsilon.
-          \]
-        </p>
-      </div>
-      </div>
+            <ol>
+                <li>
+                    Sea \(c = \max \{a,b\}\), entonces \(a \leq c\) y \(b \leq c\).
+                    Como la función \(x^p\) es creciente en \(\mathbb{R}^+ \cup
+                    \{0\}\), entonces \((a+b)^p \leq (c+c)^p = (2c)^p = 2^p c^p\).
+                    Finalmente, como \(c=a\) o \(c=b\) y ambos son no negativos,
+                    entonces \(c^p \leq a^p + b^p\) y \(2^p c^p \leq 2^p (a^p + b^p)\).
+                    Por lo tanto \((a+b)^p \leq 2^p(a^p + b^p)\).
+                </li>
+                <li>
+                    Sean \(x,y \in \ell_p\), entonces tanto \(x\) como \(y\) son
+                    sucesiones de números reales que satisfacen
+                    \[\sum_{i = 1}^\infty |x_i|^p < \infty \text{ y }
+                    \sum_{i = 1}^\infty |y_i|^p < \infty.\]
+                    Para cada \(i \in \mathbb{N}\) se tiene que \(|x_i|,|y_i| \geq 0\),
+                    de modo que la prueba del primer inciso nos garantiza que
+                    \(|x_i + y_i|^p \leq 2^p(|x_i|^p + |y_i|^p)\). Por lo tanto
+                    \[\sum_{i=1}^\infty |x_i + y_i|^p \leq
+                    \sum_{i=1}^\infty 2^p(|x_i|^p+|y_i|^p) =
+                    2^p(\sum_{i=1}^\infty |x_i|^p + \sum_{i=1}^\infty |y_i|^p) < \infty,\]
+                    y \(x + y \in \ell_p\)
+                </li>
+            </ol>
+        </div>
+        </div>
 
       <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:CauchyAcotada"> Ejercicio </h2>
+        <h2 class="number-title"  id="Ejer:YoungIneq"> Ejercicio </h2>
+        <h3>
+          Desigualdad de Young.
+        </h3>
         <p>
-          Sea \((X,d)\) un espacio métrico y
-          \((x_n)_{n\in \mathbb{N}}\) una sucesión de Cauchy.
-          Prueba que \((x_n)_{n\in \mathbb{N}}\) está acotada.
+          Dos exponenetes \(p,q\in (1,\infty)\) se llaman conjugados si
+          satisfacen \(\frac{1}{p}+\frac{1}{q}=1\). Por ejemplo, 2,2
+          son exponentes conjugados.
         </p>
-      </div>
+        <p>
+          Sean \(p,q\in (1,\infty)\) exponentes conjugados. Sean
+          \(a,b \geq 0\). La desigualdad de Young dice
+          \[
+          ab \leq \frac{a^p}{p}+\frac{b^q}{q}
+          \]
+          con igualdad si y sólo si \(a^p=b^q\).
+        </p>
+        <p>
+          Ya que es muy importante, se proponen tres demostraciones.
+        </p>
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Este ejercicio muestra que las sucesiones de Cauchy
-          guardan información sobre el espacio métrico que no se
-          preserva bajo métricas equivalentes.
-        </p>
-        <p>
-          En \(\mathbb{N}=\{1,2,\dots\}\) considera dos métricas:
-          \(d_1\) es la métrica usual, \(d_1(n,m)=|n-m|\), mientras que
-          \(d_2\) está dada por \(d_2(n,m)=|\frac{1}{n}-\frac{1}{m}|\).
-        </p>
         <ol>
           <li>
-            Prueba que \(d_1\) y \(d_2\) son equivalentes.
+            <p>Usando la desigualdad de Bernoulli.</p>
+            <p> La desigualdad de Bernoulli  dice
+            \[
+            (1+t)^p \geq 1+pt, \quad t\geq -1,
+            \]
+            con igualdad si y sólo si \(t=0\).
+            </p>
+            <p>
+              Para probar la desigualdad de Young es suficiente considerar
+              el caso \(a,b>0\). En esta situación toma \(t=\frac{a}{b^{q/p}}-1\)
+              en la desigualdad de Bernoulli para obtener la de Young.
+            </p>
           </li>
           <li>
-            Prueba que la sucesión \((n)_{n=1}^\infty\)
-            es Cauchy con respecto a \(d_2\) pero no Cauchy con respecto a
-            \(d_1\).
+            <p> Una demostración geométrica. </p>
+
+
+            <p>
+            Para esta demostración considera la función
+            \(f(t)=t^{p-1}\), con \(t\geq 0\). Primero nota que
+            \(f\) es continua y estrictamente creciente. Ahora
+            checa que su inversa bajo composición es \(f^{-1}(s)=s^{q-1}\)
+            (aquí es donde se usa que \(p\) y \(q\) son expoentes conjugados).
+            </p>
+            <p>
+              Usando la interpretación de la integral como área deduce que
+              \[
+              ab \leq \int_{0}^a f(t)dt+\int_0^bf^{-1}(s)ds
+              \]
+              Finalemente, de la desigualdad anterior se obtiene la
+              de Young.
+            </p>
+
+
+
+            <div class="flexbox">
+              <img src="./Images/YoungIneq.png" alt="YoungIneq" width="50%" height="auto">
+            </div>
+
+          </li>
+          <li>
+            <p> Usando convexidad. </p>
+            <p>
+              Una función \(f:\mathbb{R}\to \mathbb{R}\) se llama
+              estrictamente convexa si, siempre que \(x_0,x_1\in \mathbb{R}\),
+              con \(x_0 < x_1\), se cumple
+              \[
+              f((1-\lambda) x_0 + \lambda x_1) \leq (1-\lambda)f(x_0)+
+              \lambda f(x_1)
+              \]
+              para todo \(0< \lambda < 1\), con igualdad si y sólo si
+              \(x_0=x_1\).
+            </p>
+            <p>
+              Por ejemplo, la función exponencial es estrictamente convexa.
+            </p>
+            <p>
+              Para probar la desigualdad de Young, considera
+              \(f(x)=e^x\), \(x_0=\ln(a^p), x_1=\ln(b^q)\) y
+              \(\lambda=\frac{1}{q}\).
+            </p>
           </li>
         </ol>
+
       </div>
 
 
-      <div class="lema-box">
-        <h2 class="number-title" id="Ejer:SubsucesionConvDeUnaCauchy"> Lema </h2>
-        <p>
-          Sea \((X,d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
-          una sucesión de Cauchy en \(X\).
-        </p>
-        <p>
-          Supón que \((x_n)_{n\in \mathbb{N}}\) admite una subsucesión
-          convergente en \(X\). Prueba que la sucesión original,
-          \((x_n)_{n\in \mathbb{N}}\), también es convergente.
-        </p>
 
-        <button class="respButton hvr-grow"> Demostración </button>
-        <div class="resp-box flexbox">
-            <div class="flexbox">
 
-              <iframe width="700" height="400" class="video"
-                    src="https://www.youtube.com/embed/27jPgRSkR-Q" allowfullscreen="true"> 
+        <div class="lema-box">
+            <h2 class="number-title" id="Lema:Holder"> Lema  </h2>
+            <h3 > Desigualdad de Hølder </h3>
+            <p>
+              Ya que tenemos la desigualdad de Young podemos probar la
+              desigualdad de Hølder, que es una generalización de la de Cauchy-Schwartz.
+            </p>
+            <p>
+              Sean \(p,q\in (1,\infty)\) exponentes conjugados y
+              \(x\in \ell_p, y\in \ell_q\). Entonces
+              \[
+              \sum_{i=1}^\infty |x_i||y_i| \leq \|x\|_p \|y\|_q.
+              \]
+            </p>
+
+
+            <button class="respButton hvr-grow"> Demostración </button>
+            <div class="resp-box flexbox">
+                <div class="flexbox">
+                  <iframe width="700" height="400" class="video"
+                      src="https://www.youtube.com/embed/yfLDQf_sUAk" allowfullscreen="true"> 
                   </iframe>
-                
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="teorema-box">
+          <h2 class="number-title" id="Teo:Minkowski"> Teorema.  </h2>
+          <h3 > La desigualdad de Minkowski </h3>
+          <p>
+            Sea \(1< p <\infty \) un exponente fijo y \(x,y\in \ell_p\).
+            Se cumple que
+            \[
+            \|x+ y\|_p \leq \|x\|_p + \|y\|_p.
+            \]
+          </p>
+
+
+          <button class="respButton hvr-grow"> Demostración 1</button>
+            <div class="resp-box">
+                <div class="flexbox">
+                  <iframe width="700" height="400" class="video"
+                      src="https://www.youtube.com/embed/q3mZy0XvX0s" allowfullscreen="true"> 
+                  </iframe>
+                  
+                </div>
+            </div>
+
+            <button class="respButton hvr-grow"> Demostración 2</button>
+            <div class="resp-box">
+            <p>
+              Esta demostración sólo usa la convexidad de la función \(t \mapsto t^p \), \( t\in [0,\infty ) \), 
+              es decir: \((\lambda s + (1-\lambda) t )^p \leq \lambda s^p+(1-\lambda)t^p\), 
+              para todos \(s,t\in [0,\infty), \lambda \in (0,1)\).
+            </p>
+            <p>
+            <div class="flexbox">
+              <img src="./Images/Sec3-img1.png" alt="covex" width="50%" height="auto" >
+              </div>
+            </p>
+            <p>
+              Sín pérdida de generalidad podemos suponer que \(x\ne 0, y\ne 0\). Denotamos 
+              \[
+              \tilde{x}=\frac{1}{\|x\|_p}x,\, \tilde{y}=\frac{1}{\|y\|_p}y
+              \]
+              los cuales son vectores unitarios. Si tomamos 
+              \[
+              \lambda= \frac{\|y\|_p}{\|x\|_p+\|y\|_p} 
+              \]
+              entonces \(\lambda \in (0,1)\) y 
+              \[
+              1-\lambda = \frac{\|x\|_p}{\|x\|_p+\|y\|_p}. 
+              \]
+            </p>
+
+
+            <p>
+              Aplicando la convexidad de \(f\) obtenemos 
+              \begin{eqnarray*} 
+                f((1-t)|\tilde{x}_i|+ t|\tilde{y}_i|) & \leq & (1-t)|\tilde{x}_i|^p+ t |\tilde{y}_i|^p \\
+                & \Downarrow & \\
+               \frac{1}{(\|x\|_p+\|y\|_p)^p}\left( \|x\|_p\frac{|x_i|}{\|x\|_p} + \|y\|_p\frac{|y_i|}{\|y\|_p} \right)^p
+                & \leq  & (1-t)\frac{|x_i|^p}{\|x\|_p^p}+ t \frac{|y_i|^p}{\|y\|_p^p}\\
+                &\Downarrow & \\
+                \frac{1}{(\|x\|_p+\|y\|_p)^p}\left( |x_i| + |y_i| \right)^p
+                & \leq  & 
+                (1-t)\frac{|x_i|^p}{\|x\|_p^p}+ t \frac{|y_i|^p}{\|y\|_p^p}
+              \end{eqnarray*}
+              Sumando sobre \(i\) las desigualdades anteriores llegamos a 
+              \begin{eqnarray*} 
+                \frac{1}{(\|x\|_p+\|y\|_p)^p}\sum_{i=1}^\infty(|x_i|+|y_i|)^p \leq (1-t)\frac{\|x\|_p^p}{\|x\|_p^p}+t\frac{\|y\|_p^p}{\|y\|_p^p}=1
+              \end{eqnarray*}
+              lo cual implica que 
+              \begin{eqnarray*} 
+              \sum_{i=1}^\infty (|x_i|+|y_i|)^p \leq (\|x\|_p+\|y\|_p)^p 
+              \end{eqnarray*}
+              y sacando raíz \(p\)-ésima obtenemos la desigualdad de Minkowski.
+            </p>
+            
             </div>
         </div>
 
-      </div>
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Sea \((X,d)\) un espacio métrico y \((x_n)_{n=1}^\infty\) una sucesión de Cauchy 
-          respecto a \(d\). Prueba que existe una subsucesión \((x_{n_k})_{k=1}^\infty\)
-          tal que 
-          \[
-          d(x_{n_k}, x_{n_{k+1}})\leq \frac{1}{2^k}
-          \]
-          para todo \(k \geq 1\).
-        </p>
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio</h2>
+          <p>
+            Se \(V\) un espacio vectorial y \(\| \cdot\|_a, \| \cdot\|_b:V \to \mathbb{R}\),
+            dos normas en \(V\). Sea \(\alpha > 0\). Prueba que 
+            \[
+            \|v\|:= \alpha \|v\|_a+ \|v\|_b
+            \]
+            define una norma en \(V\).
+          </p>
+
+          </div>
+
+
+
+
+
+          <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio</h2>
+            <p>
+              Sea \((V,\|\cdot\|_V), (W,\|\cdot\|_W)\) dos espacios vectoriales normados. 
+              Para las siguientes funciones, definidas en \(V\times W\) determina cuáles son 
+              normas en \(V\times W\). Si es norma da una prueba si no especifíca qué propiedad falla.
+
+            </p>
+            <ol>
+              <li>\(\|(v,w) \|= ( \|v\|_V^2+\|w\|_W^2)^{1/2} \).</li>
+              <li>\(\|(v,w) \|= \|v\|_V\|w\|_W \).</li>
+              <li>\(\|(v,w) \|= \max\{ \|v\|_V,\|w\|_W \}\).</li>
+              <li>\( \| (v,w)\|=(\|v\|^{1/2}+\|w\|^{1/2})^2\).</li>
+            </ol>
+
+          </div>
+
+          <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio</h2>
+            <p>
+              Sea \(V\) un espacio vectorial y \(\|\cdot\|_a, \|\cdot\|_b\) dos normas en \(V\). Decimos que 
+              son equivalentes, denotado \(\| \cdot \|_a \sim \|\cdot\|_b\), si existen constantes positivas 
+              \(\alpha>0, \beta >0\) tal que, para todo \(v\in V\):
+              \begin{eqnarray*} 
+              \|v\|_b \leq \alpha \|v\|_a,\quad 
+              \|v\|_a \leq \beta \|v\|_b.
+              \end{eqnarray*}
+              Prueba que lo anterior define una relación de equivalente entre las normas en \(V\), es decir, 
+              satisface:
+            
+              <ol>
+                <li> \(\|\cdot \|_a \sim \|\cdot\|_a\).</li>
+                <li>
+                  \(\|\cdot \|_a \sim \|\cdot\|_b \Rightarrow \|\cdot\|_b \sim \| \cdot\|_a\).
+                </li>
+                <li>
+                  \(\|\cdot \|_a \sim \|\cdot\|_b\) y  \(\|\cdot \|_b \sim \|\cdot\|_c\) entonces \(\|\cdot \|_a \sim \|\cdot\|_c\).
+                </li>
+              </ol>
+                
+            </p>
 
         </div>
 
-      <div class="quiz-box">
-        <h2 id="Quiz:Sec4"> Quiz </h2>
-        <ol>
-          <li>
-            <p>
-            (3 pts) Sean \(\alpha, \beta > 0\). Prueba que
-            \[
-            \lim_{n\to \infty} \sqrt[n]{\alpha^n + \beta^n}=\max\{\alpha, \beta\}.
-            \]
-            Sugerencia: empieza probando que
-            \[
-            \max\{\alpha, \beta\} \leq \sqrt[n]{\alpha^n+\beta^n} \leq \sqrt[n]{2}\max\{\alpha, \beta\}.
-            \]
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title" id="Ejer:EquiNormas-p"> Ejercicio </h2>
+          <p>
+            Considera a \(\mathbb{R}^n\) con las normas-p.
           </p>
-          </li>
-          <li>
-            <p>
-            (2 pts) Sea \((X,d)\) un espacio métrico y \((x_n)_{n=1}^\infty, (y_n)_{n=1}^\infty\)
-            dos sucesiones en \(X\) con la propiedad de que
-            \[
-            \lim_{n\to \infty} d(x_n,y_n)=0
-            \]
-            Prueba que sólo pasan dos casos: ambas sucesiones son
-            convergentes o ambas sucesiones son divergentes.
+          <p>
+            Prueba que para todo \(x\in \mathbb{R}^n\):
+            \begin{eqnarray*}
+              \|x\|_\infty & \leq & \|x\|_p, \\
+              \|x\|_p & \leq  & n^{1/p}\| x\|_\infty.
+              \end{eqnarray*}
+            Esto prueba que todas las normas-p en
+            \(\mathbb{R}^n\) son equivalentes.
           </p>
-          </li>
-        </ol>
-      </div>
+        </div>
+
+
+
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Este ejercicio generaliza el <a href="./S2.html#Ejer:MetProdCarte">Ejercicio 2.10</a>
+          </p>
+          <p>
+            Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y \(\| \cdot \|: \mathbb{R}^2 \to \mathbb{R}\) una 
+            norma en \(\mathbb{R}^2\). En el producto cartesiano \(X\times Y\) define 
+            \[
+            d((x_1,y_1), (x_2,y_2))= \| (d_X(x_1,x_2), d_Y(y_1,y_2)) \|
+            \]
+
+            Prueba que \(d\) define una métrica en \(X\times Y\).
+          </p>
+
+        </div>
+
+        <!-- <div class="ejercicio-box">
+          <h2 class="number-title">Ejercicio</h2>
+          <p>
+            Sea \((V,\|\cdot\|)\) un espacio vectorial normado y \(N\subseteq V\) un subespacio 
+            vectorial. Por \(V/N\) denotamos el espacio vectorial cociente, es decir los elementos de 
+            \(V/N\) se denotan \(x+N\) donde 
+            \[
+            x+N=\{x+n: n\in N \}
+            \]
+            Las operaciones de espacio vectorial en \(V/N\) se definen como 
+            \begin{eqnarray*} 
+            (x+N)+(y+N)=x+y+N, \\
+            \alpha(x+N)= \alpha x + N
+            \end{eqnarray*}
+            y el cero en \(V/N\) es \(0+N\).
+          </p>
+          <p>
+            Para \(x+N \in V/N\) define 
+            \[
+            \|x+N\|= \inf_{n\in N}\{ \|x+n\| \}
+            \]
+            Prueba que ésto define una norma en  \(V/N\). 
+          </p>
+
+        </div>-->
+
+
+        <div class="quiz-box">
+          <h2 id="Quiz:Sec3"> Quiz </h2>
+          <ol>
+            <li>
+              <p>
+              (3pts) Sean \(x=(x_1,\dots, x_n), y=(y_1,\dots, y_n)\in \mathbb{R}^n\). Prueba que
+              la igualdad
+              \[
+              \sum_{i=1}^n x_iy_i=\|x\|_2\|y\|_2
+              \]
+              se da si y sólo si existe un \(\alpha \geq 0\) tal que
+              \(x=\alpha y\) ó \(y=\alpha x\).
+            </p>
+            </li>
+            <li>
+              <p>
+              (2pts) En el espacio de las funciones continuas, \(C([a,b])\), define
+              \[
+              \|f\|_1=\int_a^b |f(t)|dt
+              \]
+              Prueba que \(\|\cdot\|_1\) es una norma en \(C([a,b])\).
+            </p>
+            </li>
+          </ol>
+        </div>
+
     </div>
   </body>

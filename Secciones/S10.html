@@ -71,7 +71,7 @@
  ///////////////////////////////// -->
 
 
-  <body class="flexbox card fondo-body">
+  <body class="flexbox fondo-body">
 
 
     <div class="flexbox">
@@ -1494,6 +1494,138 @@
         </ol>
         </div>
   
+
+
+
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Sea \(X\) un conjunto cualquiera y 
+            \((Y,\rho)\) un espacio métrico. Decimos que una
+            sucesión de funciones \((f_n:X\to Y)_{n=1}^\infty\)
+            es uniformemente de Cauhcy (o Cauchy-uniforme) en \(X\) si:
+          </p>
+          <p>
+            para toda \(\varepsilon > 0 \) existe \(N\in \mathbb{N}\)
+            con la propiedad de que, para todo \(x\in X\) y  para todos \(n,m \geq N\)
+            \[
+            \rho(f_n(x),f_m(x)) < \varepsilon 
+            \]
+          </p>
+
+        </div>
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \((Y,\rho)\) un espacio métrico completo y \(X\) un conjunto cualquiera.
+          </p>
+          <p>
+            Sea \((f_n:X\to Y)_{n=1}^\infty\) es una sucesión
+            de funciones que es uniformemente de Cauchy en \(X\).
+          </p>
+          <p>
+            Entonces existe \(f:X\to Y\) tal que
+            \((f_n)_{n=1}^\infty\) converge uniformemente a \(f\) en \(X\).
+          </p>
+
+        </div>
+
+
+        <div class="coro-box">
+          <h2 class="number-title"> Corolario </h2>
+          <p>
+            Sea \(X\ne \emptyset\) un conjunto y \((Y,\rho)\) un espacio métrico completo.
+          </p>
+          <p>
+            Por \(B(X,Y)\) denotamos al conjunto de funciones acotadas de \(X\) en \(Y\) dotada con la 
+            métrica uniforme
+            \[
+            d_\infty(f,g)=\sup_{x\in X}\{ \rho(f(x),g(x)) \}
+            \]
+          </p>
+          <p>
+            Entonces \((B(X,Y), d_\infty)\) es un espacio métrico completo.
+          </p>
+          <p>
+            Por \(C_b(X,Y)\) denotamos al conjunto de funciones continuas y acotadas de \(X\) en \(Y\)
+            dotada con la métrica uniforme. Entonces \((C_b(X,Y),d_\infty)\) es un espacio métrico completo.
+          </p>
+        </div>
+
+
+<!--         <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+
+          <p>
+            Sea \((X,d)\) un espacio métrico compacto. Por
+            \(C(X)\) denotamos las funciones continuas en \(X\) que toman
+            valores reales. Por el
+            <a href="./S8.html#"Teo:FunContAcotEnCompactos>Teorema 8.18</a>
+            sabemos que toda función \(f\) en \(C(X)\) está acotada y por
+            lo tanto
+            \[
+            \|f\|_\infty =\sup_{x\in X}\{|f(x)|\}
+            \]
+            está bien definida y por el
+            <a href="./S3.html#Ejer:EspacioFunAcotadas">Ejercicio 3.18</a> es una norma.
+          </p>
+          <p>
+            Prueba que \((C(X), \|\cdot\|_\infty)\) es un espacio completo.
+          </p>
+
+        </div>-->
+
+        <div class="teorema-box">
+          <h2 class="number-title" id="Teo:Dini"> Teorema </h2>
+          <h3> Teorema de Dini (versión espacios métricos compactos) </h3>
+          <p>
+            Sea \(X\) un espacio métrico compacto.
+          </p>
+          <p>
+            Sea \((f_n:X\to \mathbb{R})_{n=1}^\infty\) una sucesión de funciones continuas en \(X\).
+            Supón que: 
+            <ol>
+              <li>
+                para todo \(x\in X\) y  para todo \(n\in \mathbb{N}\) se cumple:
+                 \[ f_{n+1}(x) \leq f_n(x)\]
+              </li>
+              <li>
+                para todo \(x\in X\) el límite \(\lim_{n\to \infty}f_n(x)\) existe y la función 
+                \(f:X\to \mathbb{R}\) definida por 
+                \[
+                f(x)=\lim_{n\to \infty} f_n(x)
+                \]
+                es continua en \(X\).
+              </li>
+            </ol> 
+            <p>
+              Entonces \((f_n)_{n=1}^\infty\) converge uniformemente a \(f\) en \(X\).
+            </p>
+          </p>
+
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Por \(C^{(1)}([a,b])\) denotamos al conjunto de funciones
+            \(f:[a,b]\to \mathbb{R}\) con las propiedades de que:
+            <ul>
+            <li> \(f\) es continua en todo \([a,b]\),</li>
+            <li> \(f'\) existe y es continua en todo \([a,b]\).</li>
+          </ul>
+          </p>
+          <p>
+          Para  \(f\in C^{(1)}([a,b])\) definimos
+          \[
+          \|f\|_{C^{(1)}}=\max_{x\in [a,b]}\{|f(x)|\}+\max_{x\in [a,b]}\{ |f'(x)|\}
+          \]
+          Prueba que el espacio \((C^{(1)}([a,b]),\|\cdot\|_{C^{(1)}})\)
+          es completo.
+          </p>
+        </div>
 
     </div>
 
