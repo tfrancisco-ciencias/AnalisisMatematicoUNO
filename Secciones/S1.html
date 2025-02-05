@@ -403,19 +403,169 @@
               </p>
           </div>
 
-          <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
+          <div class="nota-box">
+            <h2 class="number-title">  Nota </h2>
+            <h3> Expansión decimal </h3>
             <p>
-              Un conjunto infinito que no es contable se llama no contable.
+              Dado 
+              \(x\in (0,1)\) podemos expandirlo en decimales como 
+              \[
+              x=0.x(1)x(2)x(3)\cdots 
+              \]
+              donde \(x(i)\in \{0,1,\dots, 9\}\). Esta expansión decimal se puede pensar como:
+              \[
+              x=\sum_{i=1}^\infty \frac{x(i)}{10^i}.
+              \]
+              Por ejemplo 
+              \[
+              0.5=\frac{5}{10}, 0.1=0.099999999\cdots 
+              \]
+              donde la última igualdad se puede probar como sigue: 
+              \begin{eqnarray*}
+              \sum_{n=2}^\infty \frac{9}{10^n}&=&\frac{9}{10^2}\sum_{i=0}^\infty \frac{1}{10^i}\\
+              &=&\frac{9}{10^2}\frac{1}{1-\frac{1}{10}}\\
+              &=&\frac{1}{10}=0.1
+              \end{eqnarray*}
             </p>
             <p>
-              Prueba que \(\mathbb{R}\) es no contable.
+              Cuando un número  se puede escribir de tal forma que \(x(i)=0\) a partir de cierta \(i\)
+              (en otras palabras, la serie termina) o \(x(i)=9\) a partir de cierta \(i\), decimos que la expansión decimal tiene una cola de 
+              0's o una cola de 9's.
+            </p>
+          
+
+          </div>
+
+          <div class="lema-box">
+            <h2 class="number-title"> Lema  </h2>
+            <p>
+              Un número \(x\in (0,1)\) admite dos expansiones decimales distintas 
+              si y sólo si tiene una expansión con cola de  0's o una con cola de 9's.
+            </p>
+          
+          <button class="respButton hvr-grow"> Demostración </button>
+          <div class="resp-box">  
+
+            <p>
+              Primero notamos la siguiente identidad (válida para todo natural \(N\))
+              \[
+              \sum_{i=N+1}^\infty \frac{9}{10^n}=\frac{1}{10^N}
+              \]
             </p>
             <p>
+              \(\Rightarrow]\) Supongamos que 
+              \[
+              x=\sum_{n=0}^\infty \frac{\alpha_n}{10^n}=\sum_{n=0}^\infty \frac{\beta_n}{10^n}
+              \]
+              donde \(\alpha_n, \beta_n \in \{0,1,\dots, 9\}\) y existe al menos 
+              un \(m\) donde \(\alpha_m\ne \beta_m\). Sea \(m_0\) el mínimo 
+              natural donde \(\alpha_m\ne \beta_m\). Cancelando podemos llegar a 
+              \[
+              \sum_{n=m_0}^\infty \frac{\alpha_n}{10^n}=\sum_{n=m_0}^\infty \frac{\beta_n}{10^n}
+              \]
+              Ya que \(\alpha_{m_0}\ne \beta_{m_0}\) sín pérdida de generalidad 
+              podemos suponer que \(\alpha_{m_0} < \beta_{m_0}\) (y por lo tanto 
+              \(\alpha_{m_0}+1 \leq \beta_{m_0}\)). 
+            </p>
+            <p>
+              Usando que \(\alpha_n \leq 9\) para toda \(n\) obtenemos 
+              las siguientes estimaciones
+              \begin{eqnarray*} 
+              \sum_{n=m_0}^\infty \frac{\alpha_n}{10^n} &=& 
+              \frac{\alpha_{m_0}}{10^{m_0}}+\sum_{n=m_0+1}^\infty \frac{\alpha_n}{10^n} \\
+              &\leq & \frac{\alpha_{m_0}}{10^{m_0}}+\sum_{n=m_0+1}^\infty \frac{9}{10^n} \\
+              &=& \frac{\alpha_{m_0}}{10^{m_0}}+\frac{1}{10^{m_0}} \\
+              &=& \frac{\alpha_{m_0}+1}{10^{m_0}} \\
+              &\leq & \frac{\beta_{m_0}}{10^{m_0}} \\
+              &\leq & \sum_{n=m_0}^\infty \frac{\beta_n}{10^n}
+              \end{eqnarray*}
+            </p>
+            <p>
+              Comparando el primer y último término de la cadena de desigualdades concluimos que
+              las desigualdades son realmente igualdades y por lo tanto 
+                \(\alpha_n=9\)  y \(\beta_n=0\)  para todo \(n\geq m_0+1\).
+            </p>
+            <p>
+              \(\Leftarrow ]\) 
+              
+              Entonces si  \(x\) tiene una cola de 0's:
+              \[
+              x=\sum_{n=1}^N \frac{x(n)}{10^n}
+              \]
+              con \(x(N)\ne 0\) (por lo tanto \(x(N) \geq 1\)) podemos reescribirlo como 
+              \[
+              x=\sum_{n=1}^N \frac{x(n)}{10^n} = \sum_{n=1}^{N-1} \frac{x(n)}{10^n}+ \frac{x(N)-1}{10^N}+\sum_{n=N+1}^\infty \frac{9}{10^n}
+              \]
+              obteniendo una cola de 9's.
+              
+            </p>
+            <p>
+              Por otro lado si \(x\) tiene una cola de 9's lo  podemos re-escribir como 
+              \[
+              \sum_{n=1}^N \frac{x(n)}{10^n}+\sum_{n=N+1}^\infty \frac{9}{10^n}=\sum_{n=1}^{N-1} \frac{x(n)}{10^n}+\frac{x(N)+1}{10^N}
+              \]
+              obteniendo una cola de 0's.
+            </p>
+          </div>
+        </div>
+
+          <div class="teorema-box">
+            <h2 class="number-title"> Teorema  </h2>
+            <p>
+              Un conjunto infinito que no es numerable se llama no numerable.
+            </p>
+            <p>
+              Prueba que \((0,1)\) es no numerable.
+            </p>
+            <p>
+              En consecuencia \(\mathbb{R}\) es no numerable.
+            </p>
+            <!-- <p>
               ¿El conjunto \(\mathbb{R}\setminus \mathbb{Q}=\{x\in \mathbb{R}: x\notin \mathbb{Q}\}\)
               es contable
               o no contable?
+            </p> -->
+            <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box flexbox">
+
+            <p>
+              Es suficiente  probar que un subconjunto de \((0,1)\) es no numerable. Definimos 
+              \(A\) como el conjunto de puntos en \((0,1)\) que tiene una única expansión decimal.
             </p>
+            <p>
+              Vamos a proceder por contradicción y supongamos que \(A\) es numerable. 
+              Entonces podemos escribir \(A=\{a_m\}_{m\in \mathbb{N}}\). Ahora escribimos cada \(a_n\)
+              en forma decimal:
+              \[
+              a_m= \sum_{n=1}^\infty \frac{a_m(n)}{10^n},
+              \]
+              donde \(a_m(n)\in \{0,1,\dots, 9\}\) y la sucesión \((a_m(n))_{n\in \mathbb{N}}\)
+              es única para cada \(m\). De esta forma podemos pasar la información a una 
+              lista de suceciones que podemos acomodar como sigue:
+              \begin{eqnarray*} 
+              a_1&=& (a_1(1), a_1(2), a_1(3), \dots  ) \\
+              a_2&=&(a_2(1), a_2(2), a_2(3), \dots  ) \\
+              a_3&=&(a_3(1), a_3(2), a_3(3), \dots  ) \\
+              &\vdots& \\
+              a_m&=&(a_m(1), a_m(2), a_m(3), \dots ) \\
+              &\vdots&
+              \end{eqnarray*}
+              y el problema se reduce a encontrar una sucesión que no este en esta lista. 
+              Para lograrlo para cada \(m\in \mathbb{N}\) definimos \(y(m)=2\) si \(a_m(m)=1\)
+              y \(y(m)=5\)  si \(a_m(m)\ne 1 \). Entonces la sucesión \((y(m))_{m\in \mathbb{N}}\)
+              difiere de todas en la lista de arriba (pues difiere en la diagonal).
+            </p>
+            <p>
+              Finalmente definimos 
+              \[
+              y=\sum_{n=1}^\infty \frac{y(m)}{10^m}
+              \] 
+              Ya que \(y\) no tiene cola de 0's ni cola de 9's, \(y\in A\). Además 
+              por construcción, \((y(n))_{n\in \mathbb{N}} \ne (a_m(n))_{n\in \mathbb{N}}\), 
+              para toda \(m\), por lo que \(y\ne a_m\) para toda \(m\), contradiciendo que 
+              \(A=\{a_m\}_{m\in \mathbb{N}}\).
+            </p>
+            </div>
           </div>
 
           <div class="ejercicio-box">
@@ -435,22 +585,6 @@
           </div>
 
 
-          <div class="ejercicio-box">
-              <h2 class="number-title"> Ejercicio </h2>
-              <p>
-                  Prueba que \((0,1)\) y \((0,1)\times (0,1)\) son equivalentes.
-              </p>
-              <button class="respButton hvr-grow"> Demostración </button>
-              <div class="resp-box flexbox">
-                  <div class="flexbox">
-                    <iframe width="700" height="400" class="video"
-                      src="https://www.youtube.com/embed/k-yduTh5_yA" allowfullscreen="true"> 
-                    </iframe>
-
-          
-                  </div>
-              </div>
-          </div>
 
 
           <div class="ejercicio-box">
@@ -484,6 +618,36 @@
             </div>
           </div>
           </div>
+
+
+
+
+          <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Prueba que \((0,1)\) y \((0,1)\times (0,1)\) son equivalentes.
+            </p>
+            <button class="respButton hvr-grow"> Demostración </button>
+            <div class="resp-box flexbox">
+                <div class="flexbox">
+                  <iframe width="700" height="400" class="video"
+                    src="https://www.youtube.com/embed/k-yduTh5_yA" allowfullscreen="true"> 
+                  </iframe>
+
+        
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba que \((0,1)\) y \(\mathbb{R}\) son equivalentes.
+          </p>
+
+        </div>
 
           <div class="ejercicio-box">
             <h2 class="number-title"> Ejercicio </h2>
