@@ -893,7 +893,120 @@
           \]
         </p>
 
-      </div>
+      
+      <button class="respButton hvr-grow "> Demostración escrita </button>
+      <div class="resp-box">
+      <p>
+        Antes de iniciar la demostración recordamos la definición de que una función 
+        es Riemann integrable y un criterio de integración. 
+      </p>
+      <p>
+        Sea \(g:[a,b]\to \mathbb{R}\) una función acotada. La integral inferior de \(g\) en 
+        \([a,b]\), denotada \(\underline{\int}_{a}^b g(x)dx\), se define como
+        $$
+        \underline{\int}_{a}^b g(x)dx=\sup \left\{ \int_a^b s(x)dx : s \textrm{ es una función escalonada y $s\leq g$}  
+            \right\}
+        $$
+        La integral superior de \(g\), en \([a,b]\), denotada \(\overline{\int}_{a}^b g(x)dx\), 
+        se define como
+        $$
+        \overline{\int}_{a}^b g(x)dx= \inf \left\{ \int_a^b t(x)dx : t \textrm{ es una función escalonada  y $g\leq t$}  \right\}
+        $$
+        
+    </p>
+    <p>
+        Decimos que \(g\)  Riemann integrable sii  
+        \[
+        \underline{\int}_{a}^b g(x)dx =\overline{\int}_{a}^b g(x)dx.
+        \]
+    </p>
+
+    <p>
+      El criterio de Cauchy para probar si una función es Rieman integrable dice lo siguiente:
+        Sea \(g:[a,b]\to \mathbb{R}\) una función acotada. \(g\) es integrable si y sólo si  
+        para toda \(\varepsilon >0\) 
+        existen \(s,t:[a,b]\to \mathbb{R}\) funciones escalonadas con: 
+        <ol>
+            <li>
+                \begin{eqnarray*}
+                s(x) \leq & g(x) & \leq t(x), \forall x\in [a,b],
+                \end{eqnarray*}
+            </li>
+            <li>
+                \begin{eqnarray*}
+                \int_a^b t(x)dx &-& \int_a^b s(x)dx < \varepsilon
+                \end{eqnarray*}
+            </li>
+        </ol>
+    </p>
+    </p>
+    <p>
+      Vamos a aplicar este critrio para probar que \(f\) es Riemann integrable. 
+    </p>
+    <p>
+      Primero 
+      probamos que \(f\) es acotada. Como cada \(f_n\) es acotada 
+      existe un \(M_n>0\), cota para \(f_n\). Por la convergencia uniforme, tomando \(\varepsilon=1\), existe un \(N\in \mathbb{N}\)
+      tal que: \(|f_n(x)-f(x)|< 1\) para todo \(n\geq N\) y todo \(x\in [a,b]\). Usando que 
+      \(||f_N(x)|-|f(x)|| \leq |f_N(x)-f(x)|\) se sigue que para todo \(x\in [a,b]\)
+      \[
+      |f(x)| \leq |f_N(x)|+|f_N(x)-f(x)|\leq |f_N(x)|+1 \leq M_N+1
+      \] 
+      por lo tanto \(M_N+1\) es una cota para \(f\).
+    </p>
+    <p>
+      Ahora usamos el criterio de Cauhcy para probar que \(f\) es integrable. 
+    </p>
+    <p>
+      Por convergencia uniforme dada \(\varepsilon >0\) existe un \(N\in \mathbb{N}\) 
+      tal que \(|f_n(x)-f(x)|\leq \frac{\varepsilon}{4(b-a)}\) para todo \(n\geq N\) 
+      y todo \(x\in [a,b]\). Ya que \(f_N\) es integrable por el criterio de Cauchy 
+      existen funciones escalonadas, \(s_N,t_N:[a,b]\to \mathbb{R}\) tal que 
+      \(s_N(x)\leq f_N(x) \leq t_N(x)\) para todo \(x\in [a,b]\) y con 
+      \[
+      \int_a^b t_N(x)-s_N(x)dx < \frac{\epsilon}{2}
+      \]
+      Ahora definimos 
+      \[
+      s:=s_N - \frac{\varepsilon}{4(b-a)} , t:= t_N + \frac{\varepsilon}{4(b-a)}
+      \]
+      Entonces \(s\) y \(t\) son funciones escalonadas y satisfacen
+      \begin{eqnarray*}
+      \int_a^b t(x)-s(x)dx&=& \int_a^b (t_N(x)+\frac{\varepsilon}{4(b-a)})-(s_N(x)-\frac{\varepsilon}{4(b-a)}) dx \\
+      &< & \int_a^b t_N(x)-s_N(x)dx + \int_a^b \frac{\epsilon}{2(b-a)}dx   \\
+      &< & \frac{\varepsilon}{2}+\frac{\epsilon}{2}=\varepsilon
+      \end{eqnarray*}
+      Finalmente, para toda \(x\in [a,b]\), usando \(|f(x)-f_N(x)|< \frac{\varepsilon}{4(b-a)}\)
+      obtenemos:
+      \[
+      s(x)= s_N(x) -\frac{\varepsilon}{4(b-a)} \leq f_N(x) + f(x)-f_N(x) =f(x)
+      \]
+      y
+      \[
+      t(x)= t_N(x)+\frac{\varepsilon}{4(b-a)}\geq f_N(x)+ f(x)-f_N(x)=f(x).
+      \]
+      Por lo tanto \(f\) es Riemann integrable.
+    </p>
+    <p>
+      Para terminar resta probar \(\lim_{n\to \infty} \int_a^b f_n(x)dx=\int_a^b f(x)dx\). 
+      Por las propiedades de la integral obtenemos
+      \begin{eqnarray*}
+      \left| \int_a^b f_n(x)dx-\int_a^b f(x)dx\right| &\leq & 
+      \int_a^b |f_n(x)-f(x)|dx \\
+      &\leq & \int_a^b \|f_n-f\|_{[a,b]}dx \\
+      &=& (b-a)\|f_n-f\|_{[a,b]}
+      \end{eqnarray*}
+    </p>
+    <p>
+      Tomando límites cuando \(n\to \infty\) y usando que la convergencia uniforme 
+      implica \(\lim_{n\to \infty}\|f_n-f\|_{[a,b]}=0\) concluimos 
+      \[
+      \lim_{n\to \infty} \left| \int_a^b f_n(x)dx-\int_a^b f(x)dx\right| \leq \lim_{n\to \infty}(b-a)\|f_n-f\|_{[a,b]}=0.
+      \]
+    </p>
+    </div>
+    </div>
+
 
         <!-- <div class="teorema-box">
           <h2 class="number-title" id="Teo:ContUnifIntegracion"> Teorema </h2>
