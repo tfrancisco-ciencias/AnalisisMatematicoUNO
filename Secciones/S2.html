@@ -1011,61 +1011,6 @@
     </div>
 
 
-        <!-- <div class="teorema-box">
-          <h2 class="number-title" id="Teo:ContUnifIntegracion"> Teorema </h2>
-          <p>
-            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una suncesión de funciones continuas.
-            Supongamos que \((f_n)_{n=1}^\infty\) converge uniformemente
-            en \([a,b]\) a una función \(f\). Entonces
-            \[
-            \lim_{n\to \infty} \int_a^b f(t)dt= \int_{a}^b f(t)dt.
-            \]
-            Es decir, podemos "meter el límite dentro de la integral",
-            en otra notación:
-            \[
-            \lim_{n\to \infty} \int_a^b f_n(t)dt = \int_a^b \lim_{n\to \infty}f_n(t)dt.
-           \]
-          </p>
-          <p>
-            Nota: el teorema sigue siendo válido si se pide la hipótesis de que
-            todas las funciones \(f_n\) sean sólo Riemann integrables. Con esta
-            suposición se puede probar que el límite \(f\) también es
-            Rieman integrable y que se puede meter el límite en la integral.
-
-          </p>
-          <button class="respButton hvr-grow"> Demostración </button>
-              <div class="resp-box">
-          <p>
-            Debemos de probar que, dado \(\varepsilon >0\), existe una \(N\in \mathbb{N}\)
-            tal que para todo \(n\geq N\),
-            \[
-            \left| \int_a^b f_n(t)dt - \int_a^n f(t)dt \right| < \varepsilon
-            \] 
-            Pero, por las propiedades de la integral 
-            \begin{equation}\label{Eqn:Aux1ContinuidadUnifintegral}
-            \left| \int_a^b f_n(t)dt - \int_a^n f(t)dt \right|\leq \int_a^b |f_n(t)-f(t)|dt
-            \end{equation}
-          </p>
-          <p>
-            Por otro lado, dabido a la convergencia uniforme existe una \(N\in \mathbb{N}\) tal que 
-            \[
-            |f_n(x)-f(x)|< \frac{\varepsilon}{2(b-a)}
-            \]
-            para todo \(x\in [a,b]\) y \(n\geq N\). Si integramos la desigualdad anterior obtenemos 
-            \[
-            \int_a^b |f_n(t)-f(t)|dt \leq \int_a^b \frac{\varepsilon}{2(b-a)}dt=\frac{\varepsilon}{2}
-            \]
-          </p>
-          <p>
-            Por lo tanto si en \eqref{Eqn:Aux1ContinuidadUnifintegral} tomamos 
-            \(n\geq N\) concluimos que para todo \(n\geq N\) 
-            \[
-            \left| \int_a^b f_n(t)dt - \int_a^n f(t)dt \right| < \varepsilon.
-            \]
-          </p>
-        </div>
-        </div>-->
-
 
 
         <div class="ejercicio-box">
@@ -1201,6 +1146,70 @@
             </p>
           </p>
 
+          <button class="respButton hvr-grow "> Demostración </button>
+          <div class="resp-box">
+          <p>
+            Observación: ya que \(f_n(x)\geq f_{n+1}(x)\) tenemos que, para toda \(x\): 
+            \[
+            f(x)=\lim_{n\to \infty} f_n(x)=\inf_{n\geq 1}\{ f_n(x)\}
+            \]
+          </p>
+          <p>
+            Caso 1: \(f=0\).
+          </p>
+          <p>
+            Por la observación anterior resulta que para toda \(x\),  \(f_n(x)\geq 0\).
+          </p>
+          <p>
+            Si \((f_n)_{n=1}^\infty\) NO converge uniformemente a \(0\) en \([a,b]\), 
+            existe un \(\varepsilon_0>0\), una sucesión de puntos \((x_k)_{k=1}^\infty\subset [a,b]\) y 
+            una subsucesión \((f_{n_k})_{k=1}^\infty\) tal que 
+            \begin{equation}\label{Eqn:Aux1Dini}
+            f_{n_k}(x_k) \geq \varepsilon_0
+            \end{equation}
+            para toda \(k\).
+
+          </p>
+          <p>
+            Por Heine-Borel existe una subsucesión \((x_{k_s})_{s=1}^\infty\) y un \(y\in [a,b]\)
+            tal que \(\lim_{s\to \infty} x_{k_{s}}=y\). 
+          </p>
+          <p>
+            Ya que la sucesión converge puntualmente a cero 
+            tenemos que 
+            \[
+            \lim_{n\to \infty} f_n(y)=0
+            \]
+            por lo tanto existe \(N\in \mathbb{N}\) tal que 
+            \[
+            f_N(y) < \varepsilon_0.
+            \]
+            Ahora, por continuidad de \(f_N\) existe una \(\delta >0\) tal que 
+            si \(|x- y|< \delta \) entonces \(f_N(x)< \varepsilon_0\).
+          </p>
+          <p>
+            Pero tenemos que \(\lim_{s\to \infty} x_{k_s}=y\) por lo que existe un \(t\)
+            tal que \(n_{k_{t}}> N\) y \(|x_{k_{t}}-y|< \delta \). Por lo tanto 
+            \(f_N(x_{k_t})< \varepsilon_0\). Pero ya que la sucesión \((f_n)_{n=1}^\infty\)  
+            es monótona decreciente también tenemos \(f_{n_{k_t}}(x_{k_t}) \leq f_N(x_{x_{k_t}})\)
+            obteniendo que 
+            \[
+            f_{n_{k_t}}(x_{k_t})\leq f_N(x_{x_{k_t}}) < \varepsilon_0
+            \]
+            contradiciendo \eqref{Eqn:Aux1Dini}.
+          </p>
+          <p>
+            Caso 2: caso general.
+          </p>
+          <p>
+            Para este caso tomamos \(g_n:=f_n-f\). Entonces  \((g_n)_{n=1}^\infty\) es una 
+            sucesión de funciones continuas, satisfce \(g_n(x)\geq g_{n+1}(x)\) y 
+            para todo \(x\), \(\lim_{n\to \infty} g_n(x)=0\). Por lo tanto \((g_n)_{n=1}^\infty\)
+            satisface las hipótesis del caso anterior y por lo tanto \((g_n)_{n=1}^\infty\)
+            converge uniformemente a cero en \([a,b]\) y por lo tanto \((f_n)_{n=1}^\infty\)
+            converge uniformemente a \(f\) en \([a,b]\).
+          </p>
+        </div>
         </div>
 
 
