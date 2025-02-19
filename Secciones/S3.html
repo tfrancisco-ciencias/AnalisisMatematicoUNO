@@ -109,11 +109,11 @@
         <h3> Weierstrass (1885)</h3>
         <p>
             Dada \(f\in C[a,b]\) y \(\varepsilon >0\) existe un polinomio 
-            \(p\) tal que \(\|f-p\|_\infty <  \varepsilon\).
+            \(p\) tal que \(\|f-p\|_{[a,b]} <  \varepsilon\).
         </p>
         <p>
             Como consecuencia existe una sucesión de polinomios 
-            \((p_n)_{n=1}^\infty\) tal que \(\lim_{n\to \infty}\|f-p_n\|_\infty =0\).
+            \((p_n)_{n=1}^\infty\) tal que \(\lim_{n\to \infty}\|f-p_n\|_{[a,b]} =0\).
         </p>
 
       </div>
@@ -126,8 +126,18 @@
       <div class="lema-box">
         <h2 class="number-title"> Lema </h2>
         <p>
-            Existe una isometría lineal entre \(C[a,b]\) y \(C[0,1]\) que manda polinomios en 
-            polinomios.
+            Existe una biyecciónn  entre \(C[a,b]\) y \(C[0,1]\) que satisface:
+            <ol>
+              <li>
+                es lineal,
+              </li>
+              <li>
+                preserva la norma uniforme,
+              </li>
+              <li>
+                preserva polinomios.
+              </li>
+            </ol>
         </p>
         <p>
           Nota: este lema nos dice que, para demostrar el Teorema de 
