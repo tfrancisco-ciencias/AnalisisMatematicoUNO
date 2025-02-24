@@ -164,8 +164,9 @@
       <h2 class="number-title"> Nota </h2>
       <h3> Interpretación probabilistica de los polinomios de Bernstein </h3>
       <p>
-        Dada \(x\in [0,1]\) vamos a considerarla como la probabilidad de éxito en un experimento (juego). Es decir
-        dada una variable aleatoria (v.a.) Bernoulli \(X:\Omega \to \{0,1\}\), 
+        Dada \(x\in [0,1]\) vamos a considerarla como la probabilidad de éxito en lanzar una moneda 
+        (es decir un experimento con dos posibles resultados). En leguaje de probabilidad tenemos una 
+        variable aleatoria (abreviado v.a.) Bernoulli \(X:\Omega \to \{0,1\}\) con  
         \(\mathbb{P}(X=1)=x, \mathbb{P}(X=0)=1-x\).
       </p>
       <p>
@@ -173,12 +174,12 @@
         Si \(Pr(k)\) es la probabilidad de observar exáctamente \(k\) victorias en \(n\) juegos 
         entonces 
         \begin{eqnarray*}
-        Pr(K)&=&\sum_{i_1,\dots, i_k \in \{1,\dots, n\}}\mathbb{P}(X_{i_1}=\cdots=X_{i_k}=1,\mathbb{P}(X_i)=0, j\notin \{i_1,\dots, i_k\}) \\
+        Pr(k)&=&\sum_{i_1,\dots, i_k \in \{1,\dots, n\}}\mathbb{P}(X_{i_1}=\cdots=X_{i_k}=1,\mathbb{P}(X_i)=0, j\notin \{i_1,\dots, i_k\}) \\
         &=& \binom{n}{k}\mathbb{P}(X_1=\cdots = X_k=1, X_{k+1}=\cdots = X_n=0) \\
         &=& \binom{n}{k}x^k(1-x)^{n-k}
         \end{eqnarray*}
       </p>
-      <p>
+      <!-- <p>
         Dada una función \(f:[0,1]\to \mathbb{R}\) interpretamos \(f(x)\) como 
         la ganancia, con la probabilidad de ganar siendo \(x\). Por lo tanto \(f(k/n)Pr(k)\) es la ganancia 
         en exáctamente \(k\)-victorias. Por lo tanto el valor esperado
@@ -186,6 +187,16 @@
         \[
         \mathbb{E}(f)=\sum_{k=0}^n f\left( \frac{k}{n}\right)\binom{n}{k}x^k(1-x)^{n-k}.
         \]
+      </p>-->
+      <p>
+        Dada una función \(f:[0,1]\to \mathbb{R}\) y un natural \(n\), vamos a tomar muestras 
+        de \(f\) en la partición uniforme \(\{k/n\}_{n=0}^{n}\) para después tomar su promedio en estos puntos   
+        pero tomando cada punto \(k/n\) con peso (o dicho de otro modo, con probabilidad)  de \(Pr(k)\). Dicho 
+        promedio arroja 
+        \[
+        \mathbb{E}[f]:=\sum_{k=0}^n f\left( \frac{k}{n}\right)\binom{n}{k}x^k(1-x)^{n-k}.
+        \]
+        (donde el lado derecho es la notación para el valor esperado de la función).
       </p>
 
     </div>
