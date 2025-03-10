@@ -69,42 +69,158 @@
  ///////////////////////////////// -->
 
 
-  <body class="flexbox  fondo-body">
+  <body class="flexbox fondo-body">
 
 
     <div class="flexbox">
-      <h1 class="number-title flexbox"> Espacios vectoriales normados </h1>
+      <h1 class="number-title flexbox"> Espacios métricos. </h1>
       <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
       <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
-
       <div class="info-box">
-        <h2 class="number-title"> Introducción </h2>
+        <h2 class="number-title"> Preambulo </h2>
+
         <p>
-          Entre los espacios métricos existen algunos que sobresalen y
-          sobresalen porque a parte de tener una estructura de espacio métrico
-          tienen una estructura de esapcio vectorial  y estás dos estructuras
-          se complementan haciendo que los resultados en estos espacios sean
-          más ricos, por decirlo de alguna forma. Dichos espacios son los
-          espacios vectoriales normados. Los espacios vectoriales normados
-          son una generalización de \(\mathbb{R}^n\) dotado con la
-          norma o longitud usual de un vector:
-          \[
-          \|(x_1,\dots , x_n)\|=\sqrt{x_1^2+\cdots +x_n^2}.
-          \]
-          Lo interesante es que la idea de un espacio vectorial junto
-          con una función que mide la longitud de los vectores aparece
-          en muchos lados y sirve para estudiar espacios muy diferentes
-          a los \(\mathbb{R}^n\), como espacios de sucesiones, espacios
-          de funciones y muchos más.
+          Hasta la sección anterior las herramientas que hemos utilizado son principalmente
+          de cálculo (límites, desigualdades, algo de combinatoria). Pero si queremos analizar 
+          con más profundidad las propiedades de funciones o sucesiones de funciones es necesario 
+          introducir más herramientas. Por ejemplo consideremos el siguiente teorema.  
+          <p>
+           <div class="teorema-box">
+            <h3> Teorema de Bolzano-Weierstrass</h3>
+            <p>
+              Si \((x_n)_{n=1}^\infty \subseteq \mathbb{R}^p\) está acotada entonces existe 
+              un \(x\in \mathbb{R}^p\) y una subsucesión \((x_{n_k})_{k=1}^\infty\) tal que 
+              \[
+              \lim_{k\to \infty} \|x_{n_k}-x\|=0
+              \]
+            </p>
+           </div> 
+            Parte de la importancia de éste teorema es que asegura, directa o indiractamente,  
+            la existencia de soluciones, desde el 
+            algoritmo para calcular \(\sqrt{2}\) hasta el método de Newton. 
+          </p> 
         </p>
         <p>
-          En esta sección se ven espacios vectoriales normados. Para ser
-          concretos no restringimos a espacios vectoriales sobre los reales,
-          pero ésto no es absolutamente necesario pues se pueden utilizar
-          espacios vectoriales complejos.
+          Ahora consideremos la pregunta: ¿existe un Teorema de Bolzano-Weierstrass
+          para sucesiones de funciones continuas con la norma uniforme? Como ejemplo veamos
+          la utilidad de un Teorema de Bolzano-Weierstrass 
+          para asegurar la exitencia de ecuaciones diferenciales ordinarias.
         </p>
+        <p>
+          <div class="teorema-box">
+            <h3> Teorema (Peano)</h3>
+          <p>
+            Sea \(f:[t_0,t_0+a]\times \mathbb{R} \to \mathbb{R}\) una función continua (\(a>0\)). Dado 
+            \(x_0\in \mathbb{R}\) el problema de valores iniciales 
+            \begin{eqnarray} 
+            \frac{dx(t)}{dt}&=&f(t,x(t)) \label{Eqn:ODEPVI-1} \\
+            x(t_0)&=&x_0 \label{Eqn:ODEPVI-2}
+            \end{eqnarray}
+            tiene una solución \(x:[t_0,t_0+\delta]\), para alguna \(\delta \in (0, a)\). 
+          </p>
+          </div>
+          
+          <p>
+            Vamos un bosquejo de la demostración para enfatizar la importancia de obtener 
+            subsucesiones uniformemente convergentes.
+          </p>
+          
+          <button class="respButton hvr-grow"> Bosquejo de la demostración  </button>
+          <div class="resp-box">
+            <h2> Bosquejo de la demostración del Teorema de Peano</h2>
+            <p>
+              Fijamos un \(b>0\) y tomamos 
+              \[
+              M=\sup_{f(t,x): t\in [t_0,t_0+a]\times [-b,b]} 
+              \]
+              y definimos \(\delta=\min\{a,b/M\}\).
+            </p>
+            <p>
+              Para \(n\in \mathbb{N}\) tomamos \((t_k)_{k=0}^n\) la partición 
+              uniforme de longitud \(n\) del intervalo \([t_0,t_0+\delta]\), denotando 
+              \(h_n=\frac{\delta}{n}\). Definimos 
+              \[
+              x_n(t)=\int_{t_0}^{t}f(t,x_n(s-h_n))ds+x_0
+              \] 
+              con \(x_n(s-h_n)=x_0\) si \(t_0< s< t_1\). 
+            </p>
+            <p>
+              Si de alguna manera Bolzano-Weierstrass fuese aplicable en este caso 
+              podríamos encontrar \(x:[t_0,t_0+\delta]\to \mathbb{R}\) función 
+              continua y \((x_{n_k})_{k=1}^\infty\) una subsucesión tal que 
+              \(x_{n_k}\to x\) uniformemente en \([t_0,t_0+\delta]\). Ya que 
+              la convergencia uniforme permite meter límites dentro de la integral se sigue que 
+              \begin{eqnarray*} 
+              x(t)&=&\lim_{k\to \infty} x_{n_k}(t) \\
+              &=& \lim_{k\to \infty} \int_{t_0}^t f(t,x_{n_k}(s-h_{n_k}))ds+x_0 \\
+              &=& \int_{t_0}^t f(t,x(s))ds+x_0
+              \end{eqnarray*}
+              donde usamos que \(\lim_{k\to \infty} h_{n_k}=0\). Por lo tanto 
+              \[
+              x(t)=\int_{t_0}^t f(t,x(s))ds+x_0
+              \]
+              que es otra forma de escribir que \(x\) es solución de \eqref{Eqn:ODEPVI-1}-\eqref{Eqn:ODEPVI-2}.
+            </p>
+          </div>
+          
+          <p>
+            Por lo tanto vemos la utilidad de obtener un teorema tipo Bolzano-Weierstrass
+            para suceciones de funciones. Entonces la idea en lo que sigue es desarrollar 
+            ideas para poder encontrar dicho teorema en el contexto de sucesiones de funciones 
+            con la norma uniforme. Un primer intento es tratar de copiar directamente las hipótesis 
+            pero para sucesiones de funciones.:
+          </p>
+          <p>
+            <h3> Conjetura</h3> 
+            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión de funciones 
+            continuas tal que existe una \(M>0\) con \(\|f_n\|_{[a,b]}\leq M\) para toda \(n\). Entonces 
+            existe una función conntinua \(f:[a,b]\to \mathbb{R}\) y una subsucesión 
+            \((f_{n_k})_{k=1}^\infty\) tal que \(\lim_{k\to \infty}\|f-f_{n_k}\|_{[a,b]}=0\).
+          </p>
+          <p>
+            Desafortunadamente esta conjetura es falsa.
+          </p>
+          <p>
+            <h3>Contraejemplo</h3> 
+            Sea \((f_n:[-\pi,\pi]\to \mathbb{R})_{n=1}^\infty\) dada por \(f_n(x)=\sen(nx)\). Entonces 
+            \(\|f_n\|_{[-\pi,\pi]}=1\) para toda \(n\), pero no existe una subsucesión de \((f_n)_{n=1}^\infty\)
+            uniformemente convergente ya que el límite puntual \(\lim_{n\to \infty} \sen(nx)\) 
+            no existe para todo \(x\in [-\pi,\pi]\).
+          </p>
+        </p>
+        
       </div>
+
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Un espacio métrico es una pareja \((X,d)\), donde
+          \(X\) es un conjunto no vacío y \(d:X\times X \to \mathbb{R}\) satisface, 
+          para todos \(x,y,z\in X\):
+          <ol>
+            <li>  \(d(x,y) \geq 0\), </li>
+            <li> \(d(x,y)=0\) si y sólo si \(x=y\), </li>
+            <li>  \(d(x,y)=d(y,x)\),</li>
+            <li> desigualdad del triángulo: \(d(x,y)\leq d(x,z)+d(z,y)\).</li>
+          </ol>
+        </p>
+       
+
+        <button class="respButton hvr-grow"> Ejemplos </button>
+        <div class="resp-box flexbox">
+            <div class="flexbox">
+              <iframe width="700" height="400" class="video"
+                src="https://www.youtube.com/embed/B3Rv-miv_MI" allowfullscreen="true"> 
+              </iframe>
+            </div>
+        </div>
+
+      </div>
+
+
 
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
@@ -138,287 +254,6 @@
                   
               </div>
           </div>
-
-      </div>
-
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:Normas12inftyEquiv"> Ejercicio </h2>
-        <p>
-          Un espacio vectorial puede tener varias formas de mediar
-          longitudes, es decir, un mismo espacio vectorial puede
-          admitir distintas normas. Este ejercicio presenta la relación entre tres
-          normas
-          distintas en \(\mathbb{R}^n\).
-        </p>
-        <p>
-          Para \(x=(x_1,\dots, x_n)\in \mathbb{R}^n\) se definen:
-          \[
-          \begin{eqnarray*}
-          \|x\|_1&=&\sum_{i=1}^n|x_i|, \\
-          \|x\|_2&=&\left(\sum_{i=1}^2x_i^2\right)^{1/2}, \\
-          \|x\|_\infty &=&\max_{1\leq i \leq n} \{|x_i|\}.
-          \end{eqnarray*}
-          \]
-          Prueba
-          \[
-          \|x\|_\infty \leq \|x\|_2 \leq \|x\|_1
-          \]
-          y además
-          \[
-          \|x\|_1 \leq n \|x\|_\infty, \quad \|x\|_1\leq \sqrt{n}\|x\|_2 .
-          \]
-        </p>
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:EspacioFunAcotadas"> Ejercicio </h2>
-        <p>
-          Sea \(X\ne \emptyset\) un conjunto cualquiera. Por
-          \(\mathcal{B}(X)\) denotamos al conjunto de funciones
-          con valores reales, acotadas sobre \(X\). Es decir
-          \[
-          \mathcal{B}(X)=\{ f:X \to \mathbb{R} | \sup_{x\in X}\{|f(x)| \} <
-            \infty   \}
-          \]
-          Para \(f\in \mathcal{B}\) define
-          \[
-          \|f\|_\infty=\sup_{x\in X}\{ |f(x)|\}
-          \]
-          Prueba que \((\mathcal{B}(X), \|\cdot \|_\infty)\) es un espacio
-          vectorial normado.
-        </p>
-        <p>
-          Nota: si \(X=[a,b]\) sabemos que toda función continua alcanza su máximos y mínimo en \([a,b]\)
-          por lo que \(C[a,b]\subset \mathcal{B}([a,b])\). Además \(C[a,b]\) es un espacio vectorial por lo que 
-          del ejercicio se sigue que \((C[a,b], \|\cdot\|_\infty)\) es un espacio vectorial normado.
-        </p>
-
-
-
-          <button class="respButton hvr-grow"> Respuesta </button>
-            <div class="resp-box flexbox">
-                <div class="flexbox">
-                  <iframe width="700" height="400" class="video"
-                      src="https://www.youtube.com/embed/RDuJidJr02I" allowfullscreen="true"> 
-                  </iframe>
-                    
-                </div>
-            </div>
-      </div>
-
-
-
-
-      <div class="nota-box">
-        <h2 class="number-title"> Nota </h2>
-        <h3>
-          Espacios de sucesiones
-        </h3>
-        <p>
-          Los elementos en \(\mathbb{R}^n\) pueden pensarse como funciones
-          \(x:\{1,\dots n\} \to \mathbb{R}\), donde a cada función
-          \(x\) le asociamos el vector \((x(1), \dots, x(n))\) y viceversa,
-          dado un vector \((x_1,\dots, x_n) \in \mathbb{R}^n\)
-          le asociamos la función \(x(i)=x_i\).
-        </p>
-        <p>
-          Con este punto de vista podemos reemplazar el conjunto
-          \(\{1,\dots,n\}\) por cualquier otro. Una elección importante
-          es cuando lo reemplazamos por \(\mathbb{N}\). Al hacer esto
-          obtenemos el espacio de sucesiones \(\mathbb{R}^{\mathbb{N}}\). Un
-          problema con el espacio anterior es que es "muy grande", para hacer
-          análisis. Para solucionar esto se toman  subconjuntos de
-          \(\mathbb{R}^{\mathbb{N}}\) con ciertas restricciones analíticas,
-          por ejemplo:
-          <ul>
-            <li> sucesiones acotadas, </li>
-            <li> sucesiones absolutamente sumables, </li>
-            <li> sucesiones cuadrado sumables.</li>
-          </ul>
-          Algunos de los ejercicios que siguen estudian estos espacios.
-        </p>
-      </div>
-
-      <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:ellInftyClasico"> Ejercicio </h2>
-
-        <p>
-          Por \(\ell_\infty\) denotamos al conjunto de sucesiones de reales
-          que están acotadas. Es decir
-          \[
-          \ell_\infty=\left\{
-            (x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}} \left|
-            \sup_{i\in \mathbb{N}} \{ |x_i| \} < \infty
-            \right.
-            \right\}
-          \]
-        </p>
-        <p>
-          Dado \(x\in \ell_\infty\) definimos
-          \[
-          \|x\|_\infty:= \sup_{i\in \mathbb{N}}\{ |x_i|\}
-          \]
-        </p>
-        <p>
-          Prueba que \((\ell_\infty, \| \cdot\|_\infty)\) es un espacio vectorial
-          normado.
-        </p>
-
-        <button class="respButton hvr-grow"> Respuesta </button>
-        <div class="resp-box flexbox">
-            <div class="flexbox">
-              <iframe width="700" height="400" class="video"
-                src="https://www.youtube.com/embed/ZENcWe9Rjck" allowfullscreen="true"> 
-              </iframe>
-            </div>
-        </div>
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Por \(\ell_1\) denotamos al conjunto de sucesiones de reales que
-          son absolutamente sumables. Es decir
-          \[
-          \ell_1=\left\{
-            (x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}} \left|
-            \sum_{i=1}^\infty |x_i| < \infty
-            \right.
-            \right\}
-          \]
-        </p>
-        <p>
-          Dado \(x\in \ell_1\) definimos
-          \[
-          \|x\|_1:=\sum_{i=1}^\infty |x_i|
-          \]
-        </p>
-        <p>
-          Prueba que \((\ell_1, \| \cdot\|_1)\) es un espacio vectorial
-          normado.
-        </p>
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Por \(\ell_2\) denotamos al conjunto de sucesiones de reales
-          cuadrado sumables. Es decir
-          \[
-          \ell_2=\left\{(x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}}
-          \left|  \sum_{i=1}^\infty x_i^2< \infty \right. \right\}
-          \]
-        </p>
-        <p>
-          Dado \(x=(x_i)_{i=1}^\infty \in \ell_2 \) definimos
-          \[
-          \|x \|_2:=\left( \sum_{i=1}^\infty x_i^2\right)^{1/2}
-          \]
-        </p>
-        <p>
-          <ol>
-            <li>
-              Para \(x,y\in \ell_2\) prueba
-              \[
-              \sum_{i=1}^\infty |x_i||y_i| \leq \|x\|_2\|y\|_2
-              \]
-            </li>
-            <li>
-              Prueba si \(x,y\in \ell_2\) entonces \(x+y\in \ell_2\) y además
-              \[
-              \| x+y\|_2 \leq \|x\|_2+ \|y\|_2
-              \]
-            </li>
-            <li>
-              Concluye que \((\ell_2,\|\cdot\|_2)\) es un espacio
-              vectorial normado.
-            </li>
-          </ol>
-        </p>
-
-        <button class="respButton hvr-grow"> Respuesta </button>
-        <div class="resp-box flexbox">
-            <div class="flexbox">
-
-              <iframe width="700" height="400" class="video"
-                src="https://www.youtube.com/embed/OREqoVwxx7M" allowfullscreen="true"> 
-              </iframe>
-                
-            </div>
-        </div>
-
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-            <p>
-              Recuerda que si \(\sum_{i=1}^\infty x_i^2 \) es  una serie
-              convergente entonces \(\lim_{i\to \infty}x_i^2=0\), por lo que
-              la sucesión \((x_i)_{i=1}^\infty\) está acotada, es decir,
-              \((x_i)_{i=1}^\infty \in  \ell_\infty\). Esto prueba que
-              \(\ell_2 \subseteq \ell_\infty\).
-            </p>
-            <ol>
-              <li>Prueba que para todo \(x\in \ell_2\)
-              \[
-              \|x\|_\infty \leq \|x\|_2
-              \]
-              </li>
-              <li>
-              Da un ejemplo que muestre que la contención
-              \(\ell_2 \subseteq \ell_\infty\) es propia.
-              </li>
-          </ol>
-      </p>
-      <button class="respButton hvr-grow"> Respuesta </button>
-      <div class="resp-box">
-          <ol>
-              <li>
-                  Sea \(x \in \ell_2\). Para cada \(j \in \mathbb{N}\) se tiene
-                  que \(x_j^2 \leq \sum_{i=1}^\infty x_i^2\), al tomar la raíz
-                  cuadrada de ambos lados de la desigualdad se obtiene
-                  \[|x_j| \leq (\sum_{i=1}^\infty x_i^2)^{1/2} = \|x\|_2,\]
-                  y al tomar supremo sobre \(j\)
-                  \[\|x\|_\infty = \sup_{j \in \mathbb{N}} \{|x_j|\} \leq \|x\|_2\]
-              </li>
-              <li>
-                  Podemos dar una infinidad de ejemplos para mostrar que la contención
-                  es propia. El más sencillo es una sucesión constante \(x_i = k\),
-                  donde \(k \neq 0\). Evidentemente la sucesión es acotada, sin embargo
-                  la primera observación del ejercicio hace notar que es necesario que
-                  \(\lim_{i \to \infty} x_i^2 = 0\) para que la serie converja, lo cual
-                  no ocurre si \(k \neq 0\). Para tener un ejemplo menos trivial recordemos
-                  que la serie armónica \(\sum_{n \in \mathbb{N}} \frac{1}{n}\) diverge, sin
-                  embargo ésta es acotada por 1, por lo que si \(x = (x_i)_{i=1}^\infty =
-                  (\frac{1}{\sqrt{n}})_{n=1}^\infty\), entonces \(x \in \ell_\infty\) pero
-                  \(x \notin \ell_2\).
-              </li>
-          </ol>
-      </div>
-      </div>
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <ol>
-          <li>
-          Prueba que si \(x\in \ell_1\) entonces
-          \[
-          \|x\|_2 \leq \|x\|_1
-          \]
-          Esto prueba que \(\ell_1 \subseteq \ell_2 \).
-          </li>
-          <li>
-            Muestra con un ejemplo que la contención
-            \(\ell_1 \subseteq \ell_2\) es propia. Sugerencia:
-            series \(p\).
-          </li>
-        </ol>
 
       </div>
 
@@ -461,468 +296,639 @@
         </div>
       </div>
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Sea \(V\) un espacio vectorial y \(d\) una métrica en \(V\) que satisface
-          <ol>
-            <li>  \(d(x,y)=d(x-y,0)\). </li>
-            <li> \(d(\alpha x,\alpha y  )= |\alpha| d(x,y)\). </li>
-          </ol>
-        </p>
-        <p>
-          Prueba que \(\|\cdot \| :V\to \mathbb{R}\) dada por
-          \(\|x\|=d(x,0)\) define una norma en \(V\) y que la
-          métrica asociada a esta norma es \(d\).
-        </p>
-        <p>
-          Además da un ejemplo de una métrica en \(\mathbb{R}\) que
-          no pueda ser asociada a una norma de ésta manera.
-        </p>
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Prueba que \(d(x,y)=\left| \frac{1}{x}-\frac{1}{y} \right| \)
+        es una métrica en \((0,\infty)\).
+      </p>
+
+      <button class="respButton hvr-grow"> Respuesta </button>
+      <div class="resp-box">
+          <p>
+              Empecemos por notar que si \(x,y \in (0,\infty)\) entonces \(\frac{1}{x}\)
+              y \(\frac{1}{y}\) están bien definidos. Asímismo, \(\left|z \right| \geq 0\)
+              para toda \(z \in \mathbb{R}\) y es \(0\) únicamente cuando \(z = 0\), es
+              decir, \(d(x,y) \geq 0\) y se anula sólo cuando \(\frac{1}{x} = \frac{1}{y}\).
+              Como \(x,y \neq 0\) podemos multiplicar de ambos lados por éstos para obtener
+              que \(d(x,y) = 0\) si y sólo si \(x = y\).
+          </p>
+          <p>
+              La simetría se debe a que \(\left| z \right| = \left| -z \right|\) y
+              \(d(y,x) = \left| -(\frac{1}{x} - \frac{1}{y})\right| \).
+          </p>
+          <p>
+              Para terminar bastará probar la desigualdad del triángulo, pero ello es
+              consecuencia directa de la desigualdad del triángulo para el valor absoluto.
+              Si \(z \in (0,\infty)\) entonces
+              \begin{eqnarray*} 
+              d(x,y) &=&  \left| \frac{1}{x} - \frac{1}{y} \right| \\
+              &=&  \left| \frac{1}{x} - \frac{1}{z}
+              + \frac{1}{z} - \frac{1}{y} \right| \\
+              & \leq & \left| \frac{1}{x} - \frac{1}{z}\right|
+              + \left| \frac{1}{z} - \frac{1}{y} \right|  \\
+              &=& d(x,z) + d(z,y).
+              \end{eqnarray*}
+          </p>
       </div>
+    </div>
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-
-        <p>
-          La otra desigualdad del triángulo.
-        </p>
-        <p>
-          Sea \((V, \|\cdot \|)\) un espacio vectorial normado. Prueba
-          \[
-          |\|x\|-\|y\| | \leq \|x-y\|
-          \]
-        </p>
-      </div>
 
 
-      <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
-        <h3>
-          Normas-\(p\)
-        </h3>
-        <p>
-            Las normas-\(p\) son una generalización de las norma euclidiana.
-        </p>
-        <p>
-          Para \(p\in [1,\infty)\) se define el espacio \(\ell_p\) como
-          \[
-          \{ (x_i)_{i=1}^\infty \in \mathbb{R}^{\mathbb{N}}:
-          \sum_{i=1}^\infty |x_i|^p < \infty\}
-          \]
-          Dada \(x\in \ell_p\) se define
-          \[
-          \|x\|_p =\left( \sum_{i=1}^\infty |x_i|^p \right)^{1/p}
-          \]
-          Resulta que esta asignación define una norma y hace a
-          \(\ell_p\) un espacio vectorial normado, pero la
-          prueba de que se satisfacen todas las condiciones de una
-          norma no es sencilla. Las partes sencillas, y que se siguen
-          de las propiedades de las series convergentes son:
-          \begin{eqnarray*}
-          \|x\|_p & \geq & 0, \\
-          \|x\|_p & = & 0 \Leftrightarrow x= 0, \\
-          \|\alpha x\|_p & = & |\alpha|\|x\|_p.
-          \end{eqnarray*}
-          No es sorprendente que la parte más complicada es probar que
-          satisface la desigualdad del triángula, la cual en el contexto
-          de los espacios \(\ell_p\) se llama la desigualdad de Minkowski.
-          Los ejercicios que siguen sirven para probar dicha desigualdad.
-        </p>
-      </div>
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Sea \(1< p <\infty\).
-          <ol>
-            <li> Sean \(a,b\geq 0\). Prueba \((a+b)^p \leq 2^p(a^p+b^p)\).</li>
-            <li> Usa el inciso anterior para probar que
-              \(\ell_p\) es cerrado bajo la suma, es decir
-              \(x,y\in \ell_p \Rightarrow x+y \in \ell_p\)
-            </li>
-          </ol>
-        </p>
-        <button class="respButton hvr-grow"> Respuesta </button>
-        <div class="resp-box">
-            <ol>
-                <li>
-                    Sea \(c = \max \{a,b\}\), entonces \(a \leq c\) y \(b \leq c\).
-                    Como la función \(x^p\) es creciente en \(\mathbb{R}^+ \cup
-                    \{0\}\), entonces \((a+b)^p \leq (c+c)^p = (2c)^p = 2^p c^p\).
-                    Finalmente, como \(c=a\) o \(c=b\) y ambos son no negativos,
-                    entonces \(c^p \leq a^p + b^p\) y \(2^p c^p \leq 2^p (a^p + b^p)\).
-                    Por lo tanto \((a+b)^p \leq 2^p(a^p + b^p)\).
-                </li>
-                <li>
-                    Sean \(x,y \in \ell_p\), entonces tanto \(x\) como \(y\) son
-                    sucesiones de números reales que satisfacen
-                    \[\sum_{i = 1}^\infty |x_i|^p < \infty \text{ y }
-                    \sum_{i = 1}^\infty |y_i|^p < \infty.\]
-                    Para cada \(i \in \mathbb{N}\) se tiene que \(|x_i|,|y_i| \geq 0\),
-                    de modo que la prueba del primer inciso nos garantiza que
-                    \(|x_i + y_i|^p \leq 2^p(|x_i|^p + |y_i|^p)\). Por lo tanto
-                    \[\sum_{i=1}^\infty |x_i + y_i|^p \leq
-                    \sum_{i=1}^\infty 2^p(|x_i|^p+|y_i|^p) =
-                    2^p(\sum_{i=1}^\infty |x_i|^p + \sum_{i=1}^\infty |y_i|^p) < \infty,\]
-                    y \(x + y \in \ell_p\)
-                </li>
-            </ol>
-        </div>
-        </div>
+    <div class="ejercicio-box">
+      <h2 class="number-title" id="Ejer:LaOtraDesigTri"> Ejercicio </h2>
+      <p>
+        La otra desigualdad del triángulo.
+      </p>
+      <p>
+        Sea \((X,d)\) un espacio métrico. Prueba que para todos \(x,y,z\in X\)
+        \[
+        |d(x,z)-d(y,z)|\leq d(x,y).
+        \]
+      </p>
+    </div>
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"  id="Ejer:YoungIneq"> Ejercicio </h2>
-        <h3>
-          Desigualdad de Young.
-        </h3>
-        <p>
-          Dos exponenetes \(p,q\in (1,\infty)\) se llaman conjugados si
-          satisfacen \(\frac{1}{p}+\frac{1}{q}=1\). Por ejemplo, 2,2
-          son exponentes conjugados.
-        </p>
-        <p>
-          Sean \(p,q\in (1,\infty)\) exponentes conjugados. Sean
-          \(a,b \geq 0\). La desigualdad de Young dice
-          \[
-          ab \leq \frac{a^p}{p}+\frac{b^q}{q}
-          \]
-          con igualdad si y sólo si \(a^p=b^q\).
-        </p>
-        <p>
-          Ya que es muy importante, se proponen tres demostraciones.
-        </p>
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico. Define una nueva
+        función \(\rho:X\times X \to \mathbb{R}\) dada por
+        \[
+        \rho(x,y)=\frac{d(x,y)}{1+d(x,y)}
+        \]
+        Prueba que \(\rho\) es una métrica.
+      </p>
+      <p>
+        Sugerencia: considera la función \(\varphi:[0,\infty)\to [0,1)\)
+        dada por \(\varphi(t)=\frac{t}{1+t}\). Primera prueba que
+        \(\varphi\) es monótona creciente y que \(\varphi(s+t)\leq \varphi(s)+\varphi(t)\).
+      </p>
 
+      <button class="respButton hvr-grow"> Respuesta </button>
+      <div class="resp-box">
+      <p>
+        Tomando la función  \(\varphi:[0,\infty)\to [0,1)\) como en la sugerencia notamos que
+        \[
+        \rho(x,y)=\varphi(d(x,y)).
+        \]
+        De la ecuación anterior, y usando que \(d\) es una métrico, se puede
+        checar directamente que \(\rho\) satisface:
         <ol>
-          <li>
-            <p>Usando la desigualdad de Bernoulli.</p>
-            <p> La desigualdad de Bernoulli  dice
-            \[
-            (1+t)^p \geq 1+pt, \quad t\geq -1,
-            \]
-            con igualdad si y sólo si \(t=0\).
-            </p>
-            <p>
-              Para probar la desigualdad de Young es suficiente considerar
-              el caso \(a,b>0\). En esta situación toma \(t=\frac{a}{b^{q/p}}-1\)
-              en la desigualdad de Bernoulli para obtener la de Young.
-            </p>
-          </li>
-          <li>
-            <p> Una demostración geométrica. </p>
-
-
-            <p>
-            Para esta demostración considera la función
-            \(f(t)=t^{p-1}\), con \(t\geq 0\). Primero nota que
-            \(f\) es continua y estrictamente creciente. Ahora
-            checa que su inversa bajo composición es \(f^{-1}(s)=s^{q-1}\)
-            (aquí es donde se usa que \(p\) y \(q\) son expoentes conjugados).
-            </p>
-            <p>
-              Usando la interpretación de la integral como área deduce que
-              \[
-              ab \leq \int_{0}^a f(t)dt+\int_0^bf^{-1}(s)ds
-              \]
-              Finalemente, de la desigualdad anterior se obtiene la
-              de Young.
-            </p>
-
-
-
-            <div class="flexbox">
-              <img src="./Images/YoungIneq.png" alt="YoungIneq" width="50%" height="auto">
-            </div>
-
-          </li>
-          <li>
-            <p> Usando convexidad. </p>
-            <p>
-              Una función \(f:\mathbb{R}\to \mathbb{R}\) se llama
-              estrictamente convexa si, siempre que \(x_0,x_1\in \mathbb{R}\),
-              con \(x_0 < x_1\), se cumple
-              \[
-              f((1-\lambda) x_0 + \lambda x_1) \leq (1-\lambda)f(x_0)+
-              \lambda f(x_1)
-              \]
-              para todo \(0< \lambda < 1\), con igualdad si y sólo si
-              \(x_0=x_1\).
-            </p>
-            <p>
-              Por ejemplo, la función exponencial es estrictamente convexa.
-            </p>
-            <p>
-              Para probar la desigualdad de Young, considera
-              \(f(x)=e^x\), \(x_0=\ln(a^p), x_1=\ln(b^q)\) y
-              \(\lambda=\frac{1}{q}\).
-            </p>
-          </li>
+          <li>  \(\rho(x,y) \geq 0\). </li>
+          <li> \(\rho(x,y)=0\) si y sólo si \(x=y\). Ojo aquí se usa que
+            \(\varphi(t)=0 \) sii \(t=0\). </li>
+          <li>  \(\rho(x,y)=\rho(y,x)\).</li>
         </ol>
+      </p>
+      <p>
+        La condición que no es tan clara es la desigualdad del triángulo.  Para
+        esto primero vamos a probar las dos condiciones dadas en la  sugerencia.
+      </p>
+
+      <ol>
+        <li>
+          Primero vamos a probar que \(\varphi\) es estrictamente creciente. Esto
+          se puede hacer de varias formas, veamos dos.
+        </li>
+          <p>
+            De mandera directa.
+          </p>
+          <p>
+            Tomamos \(0 \leq s < t\) y debemos de probar que \(\varphi(s)<\varphi(t)\)
+            o equivalentemente, \(0< \varphi(t)-\varphi(s)\). Haciendo la cuenta resulta
+            \begin{eqnarray*}
+            \varphi(t)-\varphi(s)&=&\frac{t}{1+t}-\frac{s}{1+s} \\
+            &=&\frac{t(1+s)-s(1+t)}{(1+t)(1+s)}\\
+            &=& \frac{t-s}{(1+t)(1+s)}
+            \end{eqnarray*}
+            donde vemos que éste último cociente es positivo pues \(t>s\).
+          </p>
+          <p>
+            Usando derivadas.
+          </p>
+          <p>
+            Ya que \(\varphi\) es diferenciable en \([0,\infty)\) sabemos que si su derivada
+            es positiva entonces es estrictamente creciente. Aplicando la
+            regla del cociente obtenemos
+            \[
+            \varphi'(t)=\frac{(1+t)(1)-t(1)}{(1+t)^2}=\frac{1}{(1+t)^2}
+            \]
+            el cual claramente es positivo.
+          </p>
+
+        <li>
+            Ahora veamos que se satisface \(\varphi(s+t) < \varphi(s)+\varphi(t)\),
+            para todos \(s,t >0 \). Vamos a proceder de manera directa.
+        </li>
+        <p>
+          Primero notamos que
+          \[
+          \frac{s}{1+s+t} \leq \frac{s}{1+s}, \quad \frac{t}{1+t+s} < \frac{t}{1+t}
+          \]
+          sumando ambas desigualdades obtenemos
+          \[
+          \frac{t+s}{1+t+s} < \frac{t}{1+t}+ \frac{s}{1+s}
+          \]
+          lo cual se traduce a \(\varphi(s+t)< \varphi(s)+\varphi(t)\).
+        </p>
+
+      </ol>
+      <p>
+        Ahora sí, se puede probar fácilmente que \(\rho\) satisface la
+        desigualdad del triángulo. Empezando con la desigualdad del
+        triángulo para \(d\) tenemos
+        \[
+        d(x,y) \leq d(x,z)+d(z,y)
+        \]
+        aplicando \(\varphi\) a ambos lados, usando que \(\varphi\) es monótona
+        creciente y usando la propiedad 2 de la sugerencia llegamos a
+
+        \begin{eqnarray*}
+        \varphi(d(x,y)) &\leq & \varphi(d(x,z)+d(z,y)) \\
+         &\leq & \varphi(d(x,z))+\varphi(d(z,y)),
+        \end{eqnarray*}
+        y podemos concluir
+        \[
+        \rho(x,y)=\varphi(d(x,y)) \leq \varphi(d(x,z))+\varphi(d(z,y))=\rho(x,z)+\rho(z,y).
+        \]
+      </p>
+    </div>
+    </div>
+
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Por \(\{0,1\}^{\mathbb{N}}\) denotamos al conjunto de todas
+        las suceciones de 0's y 1's. Es decir \(a\in \{0,1\}^{\mathbb{N}}\)
+        si y sólo si \(a=(a_n)_{n=1}^{\infty}\), con \(a_n\in \{0,1\}\), para
+        toda \(n\).
+      </p>
+      <p>
+        En \(\{0,1\}^{\mathbb{N}}\) define
+        \[
+        d(a,b)=\sum_{n=1}^\infty \frac{1}{2^n}|a_n-b_n|
+        \]
+        Prueba que \(d\) es una métrica en \(\{0,1\}^{\mathbb{N}}\).
+      </p>
+      <button class="respButton hvr-grow"> Respuesta </button>
+      <div class="resp-box">
+          <p>
+              Sean \(a,b \in \{0,1\}^{\mathbb{N}}\). Note que para cada \(n\) se tiene que
+              \( 0 \leq \left| a_n - b_n \right| \leq 1\), de manera que \(0 \leq d(a,b) \leq
+              \sum_{n=1}^\infty \frac{1}{2^n} = 1\) y \(d(a,b)\) está bien definido.
+              Supongamos que \(d(a,b) = 0\), es decir, \(\sum_{n=1}^\infty \frac{|a_n - b_n|}{2^n}
+              = 0\). Como \(\frac{|a_n - b_n|}{2^n} \geq 0\) para cada \(n\), entonces la serie
+              se anula si y sólo si \(|a_n - b_n| = 0\) para toda \(n\), lo cual significa que
+              \(a = b\).
+          </p>
+          <p>
+              Como \(|x - y| = | -(y-x)| = | y-x|\) para cualquier par \(x,y \in \mathbb{R}\), se
+              sigue que \(d(a,b) = d(b,a)\) si \(a,b \in \{0,1\}^\mathbb{N}\).
+          </p>
+          <p>
+              Sean \(a,b,c \in \{0,1\}^\mathbb{N}\), entonces
+              \[
+              \begin{align*}
+              d(a,b)=& \sum_{n=1}^\infty \frac{|a_n - b_n|}{2^n}
+              = \sum_{n=1}^\infty \frac{|a_n - c_n + c_n - b_n|}{2^n}\\
+              \leq& \sum_{n=1}^\infty \frac{|a_n - c_n|+|c_n - b_n|}{2^n}\\
+              =& \sum_{n=1}^\infty \frac{|a_n - c_n|}{2^n} + \sum_{n=1}^\infty \frac{|c_n - b_n|}{2^n}\\
+              =& d(a,c) + d(c,b).
+              \end{align*}
+              \]
+              Con ésto se demuestra que se satisface la desigualdad del triángulo y que \(d(\ ,\ )\)
+              es una métrica en \(\{0,1\}^\mathbb{N}\).
+          </p>
+      </div>
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Por \(\mathbb{R}^{\mathbb{N}}\) denotamos el conunto de todas
+        las sucesiones de números reales. Es decir, \(x\in \mathbb{R}^{\mathbb{N}} \)
+        si y sólo si \(x=(x_n)_{n=1}^\infty\), con \(x_n\in \mathbb{R}\).
+      </p>
+      <p>
+        En \(\mathbb{R}^{\mathbb{N}}\) define
+        \[
+        d(x,y)=\sum_{n=1}^\infty \frac{1}{n!}\frac{|x_n-y_n|}{1+|x_n-y_n|}.
+        \]
+        Prueba que \(d\) es una métrica en \(\mathbb{R}^{\mathbb{N}}\).
+      </p>
+
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Por \(C[a,b]\) denotamos al conjunto de funciones continuas en
+        el intervalo \([a,b]\). En \(C[a,b]\) define
+        \[
+        d_1(f,g)=\int_a^b |f(t)-g(t)|dt.
+        \]
+        Prueba que \(d_1\) es una m\'etrica en \(C[a,b]\).
+      </p>
+
+      
+      <button class="respButton hvr-grow"> Demostración </button>
+      <div class="resp-box">
+      <p>
+        Ya que la integral de funciones no negativas es mayor a igual a cero se sigue que 
+        \(d_1(f,g) \geq 0\) para todas \(f,g\in C[a,b]\).
+      </p>
+      <p>
+        Si \(d_1(f,g)=0\) entonces 
+        \[
+        \int_a^b |f(t)-g(t)|dt =0.
+        \]
+        Ahora, si \(f(s)\ne g(s)\) para algún \(s\in [a,b]\), por continuidad de \(f\) y \(g\)
+        existe un intervalo alrededor de  \(s\), \((s-r,s+r)\), y un número positivo \(\alpha\)
+        tal que \(|f(t)-g(t)|\geq \alpha \) para toda \(t\in (s-r,s+r)\). Usando la monotonía de la
+        integral se sigue que 
+        \[
+        2\alpha r=\int_{s-r}^{s+r}\alpha dt \leq \int_{s-r}^{s+r} |f(t)-g(t)|dt\leq \int_a^b |f(t)-g(t)|dt =0
+        \]
+        por lo que \(2\alpha r =0\), una contradicción pues \(\alpha >0, r>0\). Por lo tanto 
+        debemos de tener que \(f=g\).
+      </p>
+      <p>
+        Ya que \(|f(t)-g(t)|=|g(t)-f(t)|\) para toda \(t\in [a,b]\) se sigue que 
+        \(d_1(f,g)=d(g,f)\).
+      </p>
+      <p>
+        Fijamos funciones \(f,g,h\). Para la desigualdad del triángulo, primero iniciamos con la desigualdad del triángulo para 
+        los reales y obtenemos que, todo \(t \in [a,b]\):
+        \begin{eqnarray*}
+        |f(t)-g(t)| & \leq  & |f(t)-h(t)|+|h(t)-g(t)|  \\
+        \Rightarrow \int_{a}^b |f(t)-g(t)|dt & \leq  & \int_{a}^b(|f(t)-h(t)|+|h(t)-g(t)|)dt \\
+        \Rightarrow d_1(f,g) & \leq &  d_1(f,h)+d_1(h,g).
+        \end{eqnarray*}
+      </p>
 
       </div>
+      
+    </div>
 
 
 
+    
 
-        <div class="lema-box">
-            <h2 class="number-title" id="Lema:Holder"> Lema  </h2>
-            <h3 > Desigualdad de Hølder </h3>
-            <p>
-              Ya que tenemos la desigualdad de Young podemos probar la
-              desigualdad de Hølder, que es una generalización de la de Cauchy-Schwartz.
-            </p>
-            <p>
-              Sean \(p,q\in (1,\infty)\) exponentes conjugados y
-              \(x\in \ell_p, y\in \ell_q\). Entonces
-              \[
-              \sum_{i=1}^\infty |x_i||y_i| \leq \|x\|_p \|y\|_q.
-              \]
-            </p>
+    <div class="ejercicio-box">
+      <h2 class="number-title" id="Ejer:MetProdCarte"> Ejercicio </h2>
+      <p>
+        Supongamos que \((X,d_X)\), \((Y,d_Y)\) son dos espacios métrios.
+        Define
+        \begin{eqnarray*}
+        d((x_1,y_1),(x_2,y_2))&=& d_X(x_1,x_2)+d_Y(y_1,y_2),\\
+        \rho((x_1,y_1),(x_2,y_2)) &=& \max\{d_X(x_1,x_2), d_Y(y_1,y_2)  \}\\
+        \sigma((x_1,y_1),(x_2,y_2)) &=& \sqrt{d_X(x_1,x_2)^2+d_Y(y_1,y_2)^2}
+        \end{eqnarray*}
+        Prueba que \(d\), \(\rho\) y \(\sigma\) son métricas  en \(X\times Y\).
+      </p>
 
-
-            <button class="respButton hvr-grow"> Demostración </button>
-            <div class="resp-box flexbox">
-                <div class="flexbox">
-                  <iframe width="700" height="400" class="video"
-                      src="https://www.youtube.com/embed/yfLDQf_sUAk" allowfullscreen="true"> 
-                  </iframe>
-                </div>
-            </div>
-
-        </div>
+    </div>
 
 
-        <div class="teorema-box">
-          <h2 class="number-title" id="Teo:Minkowski"> Teorema.  </h2>
-          <h3 > La desigualdad de Minkowski </h3>
-          <p>
-            Sea \(1< p <\infty \) un exponente fijo y \(x,y\in \ell_p\).
-            Se cumple que
-            \[
-            \|x+ y\|_p \leq \|x\|_p + \|y\|_p.
-            \]
-          </p>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title" id="Ejer:MetricasGeneradasPorFunciones"> Ejercicio </h2>
+
+      <p>
+        Sea \(f:[0,\infty)\to [0,\infty)\) una función que satisface
+        <ul>
+          <li>
+            \(f\) es monótona creciente.
+          </li>
+          <li> \(f(0)=0\), </li>
+          <li> \(f(x)>0\) para \(x>0\),</li>
+          <li> \(f(x+y)\leq f(x)+f(y)\), para todos \(x,y\). </li>
+        </ul>
+
+      </p>
+
+      <p>
+        Sea \((X,d)\) un espacio métrico. Prueba que \(\rho(x,y):= f(d(x,y)) \)
+        es una métrica en \(X\).
+      </p>
+    </div>
 
 
-          <button class="respButton hvr-grow"> Demostración 1</button>
-            <div class="resp-box">
-                <div class="flexbox">
-                  <iframe width="700" height="400" class="video"
-                      src="https://www.youtube.com/embed/q3mZy0XvX0s" allowfullscreen="true"> 
-                  </iframe>
-                  
-                </div>
-            </div>
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico. Define, \(\rho,\sigma:X\times X\to \mathbb{R}\)
+        por
+        \[
+        \rho(x,y)=\min\{d(x,y),1\}, \quad \sigma(x,y)=\sqrt{d(x,y)}
+        \]
+        Prueba que \(\rho\) y \(\sigma\) son métricas.
+      </p>
+      <p>
+        Sugerencia: utiliza el <a  href="#Ejer:MetricasGeneradasPorFunciones">Ejercicio anterior</a> .</p>
+      </p>
+    </div>
 
-            <button class="respButton hvr-grow"> Demostración 2</button>
-            <div class="resp-box">
-            <p>
-              Esta demostración sólo usa la convexidad de la función \(t \mapsto t^p \), \( t\in [0,\infty ) \), 
-              es decir: \((\lambda s + (1-\lambda) t )^p \leq \lambda s^p+(1-\lambda)t^p\), 
-              para todos \(s,t\in [0,\infty), \lambda \in (0,1)\).
-            </p>
-            <p>
-            <div class="flexbox">
-              <img src="./Images/Sec3-img1.png" alt="covex" width="50%" height="auto" >
-              </div>
-            </p>
-            <p>
-              Sín pérdida de generalidad podemos suponer que \(x\ne 0, y\ne 0\). Denotamos 
-              \[
-              \tilde{x}=\frac{1}{\|x\|_p}x,\, \tilde{y}=\frac{1}{\|y\|_p}y
-              \]
-              los cuales son vectores unitarios. Si tomamos 
-              \[
-              \lambda= \frac{\|y\|_p}{\|x\|_p+\|y\|_p} 
-              \]
-              entonces \(\lambda \in (0,1)\) y 
-              \[
-              1-\lambda = \frac{\|x\|_p}{\|x\|_p+\|y\|_p}. 
-              \]
-            </p>
-
-
-            <p>
-              Aplicando la convexidad de \(f\) obtenemos 
-              \begin{eqnarray*} 
-                f((1-t)|\tilde{x}_i|+ t|\tilde{y}_i|) & \leq & (1-t)|\tilde{x}_i|^p+ t |\tilde{y}_i|^p \\
-                & \Downarrow & \\
-               \frac{1}{(\|x\|_p+\|y\|_p)^p}\left( \|x\|_p\frac{|x_i|}{\|x\|_p} + \|y\|_p\frac{|y_i|}{\|y\|_p} \right)^p
-                & \leq  & (1-t)\frac{|x_i|^p}{\|x\|_p^p}+ t \frac{|y_i|^p}{\|y\|_p^p}\\
-                &\Downarrow & \\
-                \frac{1}{(\|x\|_p+\|y\|_p)^p}\left( |x_i| + |y_i| \right)^p
-                & \leq  & 
-                (1-t)\frac{|x_i|^p}{\|x\|_p^p}+ t \frac{|y_i|^p}{\|y\|_p^p}
-              \end{eqnarray*}
-              Sumando sobre \(i\) las desigualdades anteriores llegamos a 
-              \begin{eqnarray*} 
-                \frac{1}{(\|x\|_p+\|y\|_p)^p}\sum_{i=1}^\infty(|x_i|+|y_i|)^p \leq (1-t)\frac{\|x\|_p^p}{\|x\|_p^p}+t\frac{\|y\|_p^p}{\|y\|_p^p}=1
-              \end{eqnarray*}
-              lo cual implica que 
-              \begin{eqnarray*} 
-              \sum_{i=1}^\infty (|x_i|+|y_i|)^p \leq (\|x\|_p+\|y\|_p)^p 
-              \end{eqnarray*}
-              y sacando raíz \(p\)-ésima obtenemos la desigualdad de Minkowski.
-            </p>
-            
-            </div>
-        </div>
 
 
         <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio</h2>
-          <p>
-            Se \(V\) un espacio vectorial y \(\| \cdot\|_a, \| \cdot\|_b:V \to \mathbb{R}\),
-            dos normas en \(V\). Sea \(\alpha > 0\). Prueba que 
-            \[
-            \|v\|:= \alpha \|v\|_a+ \|v\|_b
-            \]
-            define una norma en \(V\).
-          </p>
-
-          </div>
-
-
-
-
-
-          <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio</h2>
-            <p>
-              Sea \((V,\|\cdot\|_V), (W,\|\cdot\|_W)\) dos espacios vectoriales normados. 
-              Para las siguientes funciones, definidas en \(V\times W\) determina cuáles son 
-              normas en \(V\times W\). Si es norma da una prueba si no especifíca qué propiedad falla.
-
-            </p>
+          <h2 class="number-title"> Ejercicio </h2>
             <ol>
-              <li>\(\|(v,w) \|= ( \|v\|_V^2+\|w\|_W^2)^{1/2} \).</li>
-              <li>\(\|(v,w) \|= \|v\|_V\|w\|_W \).</li>
-              <li>\(\|(v,w) \|= \max\{ \|v\|_V,\|w\|_W \}\).</li>
-              <li>\( \| (v,w)\|=(\|v\|^{1/2}+\|w\|^{1/2})^2\).</li>
+            <li>
+            Sea \(\rho:X\times X\to \mathbb{R}\) una función que satisface,
+            para todos \(x,y,z\in X\):
+            <ol>
+              <li> \(\rho(x,y) = 0\) si y sólo si \(x=y\), </li>
+              <li> \(\rho(x,y)=\rho(y,x)\), </li>
+              <li> \(\rho(x,y) \leq \rho(x,z)+\rho(z,y)\).</li>
             </ol>
-
-          </div>
-
-          <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio</h2>
+            Prueba que \(\rho\) es una métrica en \(X\).
             <p>
-              Sea \(V\) un espacio vectorial y \(\|\cdot\|_a, \|\cdot\|_b\) dos normas en \(V\). Decimos que 
-              son equivalentes, denotado \(\| \cdot \|_a \sim \|\cdot\|_b\), si existen constantes positivas 
-              \(\alpha>0, \beta >0\) tal que, para todo \(v\in V\):
-              \begin{eqnarray*} 
-              \|v\|_b \leq \alpha \|v\|_a,\quad 
-              \|v\|_a \leq \beta \|v\|_b.
-              \end{eqnarray*}
-              Prueba que lo anterior define una relación de equivalente entre las normas en \(V\), es decir, 
-              satisface:
-            
-              <ol>
-                <li> \(\|\cdot \|_a \sim \|\cdot\|_a\).</li>
-                <li>
-                  \(\|\cdot \|_a \sim \|\cdot\|_b \Rightarrow \|\cdot\|_b \sim \| \cdot\|_a\).
-                </li>
-                <li>
-                  \(\|\cdot \|_a \sim \|\cdot\|_b\) y  \(\|\cdot \|_b \sim \|\cdot\|_c\) entonces \(\|\cdot \|_a \sim \|\cdot\|_c\).
-                </li>
-              </ol>
-                
-            </p>
 
+            </p>
+          </li>
+
+            <li>
+              Da un ejemplo de un conjunto \(X\) y  función
+              \(\rho:X\times X\to \mathbb{R} \) tal que,
+              para todos \(x,y\in X\) satisface:
+              <ol>
+                <li>
+                 \(d(x,y)=0\) si y sólo
+                 si \(x=y\)
+               </li>
+               <li>
+                 \(d(x,y)\leq d(x,z)+d(z,y)\)
+               </li>
+             </ol>
+              y sin embargo \(d\) no es una métrica.
+              <p>
+                Sugerencia: piensa en un conjunto \(X\) con
+                sólo dos puntos.
+              </p>
+            </li>
+            <p>
+
+            </p>
+            <li>
+            Sea \(\sigma:X\times X\to \mathbb{R}\) una función que satisface,
+            para todos \(x,y,z\in X\):
+            <ol>
+            <li> \(\sigma(x,y) = 0\) si y sólo si \(x=y\), </li>
+            <li> \(\sigma(x,y) \leq \sigma(x,z)+\sigma(y,z)\).</li>
+            </ol>
+            Prueba que \(\sigma\) es una métrica en \(X\).
+            </li>
+
+
+        </ol>
         </div>
 
+        <div class="ejercicio-box">
+          <h2 class="number-title" id="Ejer:ConjuntoAcotado"> Ejercicio </h2>
+          <p>
+            Un subconjunto \(A\) de un espacio métrico \((X,d)\) se llama
+            acotado si existe un \(r>0\) y un punto \(x_0\) en \(X\) tal que
+            \(d(a,x_0) \leq r\), para toda \(a\in A\).
+          </p>
+          <p>
+            Prueba que la unión finita de subconjuntos acotados sigue siendo
+            acotada.
+          </p>
+        </div>
 
 
         <div class="ejercicio-box">
-          <h2 class="number-title" id="Ejer:EquiNormas-p"> Ejercicio </h2>
+          <h2 class="number-title" id="Ejer:Diametro"> Ejercicio </h2>
           <p>
-            Considera a \(\mathbb{R}^n\) con las normas-p.
+            Dado un subconjunto \(A\ne \emptyset\) de un espacio métrico \((X,d)\),
+            se define si diámetro como
+            \[
+            \operatorname{diam}(A)=\sup_{a,b\in A}\{d(a,b)\}.
+            \]
+            Nota: el diametro puede ser infinito si \(\{d(a,b):a,b\in A\}\)
+            no está acotado superiormente.
           </p>
           <p>
-            Prueba que para todo \(x\in \mathbb{R}^n\):
-            \begin{eqnarray*}
-              \|x\|_\infty & \leq & \|x\|_p, \\
-              \|x\|_p & \leq  & n^{1/p}\| x\|_\infty.
-              \end{eqnarray*}
-            Esto prueba que todas las normas-p en
-            \(\mathbb{R}^n\) son equivalentes.
+            Prueba que \(A\) está acotado si y sólo si \(\operatorname{diam}(A)<\infty\).
           </p>
         </div>
 
 
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
 
+          <p>
+              Dados dos subconjuntos no vacíos, \(A, B\), de un espacio
+              métrico \((X,d)\), se define la distancia entre ellos como
+              \[
+              d(A,B)=\inf_{a\in A, b\in B}\{ d(a,b)\}
+              \]
+          </p>
+
+          Prueba que
+          \[
+          \operatorname{diam}(A\cup B) \leq \operatorname{diam}(A)+d(A,B)+
+          \operatorname{diam}(B).
+          \]
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+              <p>
+                  De la definición de \(\operatorname{diam}\) y \(d(A,B)\) tenemos
+                  las siguientes afirmaciones:
+              </p>
+              <p>
+                  Si \(a,b \in A\) entonces \(d(a,b) \leq \operatorname{diam}(A)\)
+                  y en consecuencia \( d(a,b) \leq \operatorname{diam}(A)
+                  +d(A,B)+ \operatorname{diam}(B).\)
+              </p>
+              <p>
+                  Análogamente, si \(a,b \in B\) entonces \(d(a,b) \leq \operatorname{diam}(B)\)
+                  y \( d(a,b) \leq \operatorname{diam}(A) +d(A,B)+ \operatorname{diam}(B).\).
+              </p>
+              <p>
+                  Si \(x \in A\) y \(y \in B\) entonces \(d(A,B) \leq d(x,y)\).
+              </p>
+              <p>
+                  Si \(a,x \in A\)  y \(b,y \in B\) deducimos por medio de la desigualdad
+                  del triángulo y las afirmaciones anteriores que
+                  \[
+                  d(a,b) \leq d(a,x) + d(x,y) + d(y,b) \leq \operatorname{diam}(A) + d(x,y) +
+                  \operatorname{diam}(B).
+                  \]
+              </p>
+
+              <p>
+                  Al tomar el ínfimo del lado derecho de la desigualdad anterior observamos
+                  \begin{eqnarray*}
+                  d(a,b) & \leq &  \operatorname{diam}(A) + \inf_{x \in A,y \in B}d(x,y) +
+                  \operatorname{diam}(B)\\
+                  & = & \operatorname{diam}(A) + d(A,B) +
+                  \operatorname{diam}(B).
+                  \end{eqnarray*}
+              </p>
+              <p>
+                  Para concluir basta notar que ya hemos probado que la desigualdad anterior es
+                  verdadera si \(a,b \in A\), si \(a,b \in B\) y si \(a \in A, b\in B\), por lo
+                  que es válida para \(a, b \in A \cup B\). Al tomar supremo del lado izquierdo
+                  obtenemos el resultado deseado:
+                  \[
+                  \operatorname{diam}(A \cup B) = \sup_{a,b \in A \cup B} d(a,b) \leq
+                  \operatorname{diam}(A) + d(A,B) + \operatorname{diam}(B).
+                  \]
+              </p>
+
+          </div>
+        </div>
+
+
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Una pseudo métrica en el conjunto \(X\) es una función 
+            \(\rho:X\times X \to \mathbb{R}\) que satisface 
+            <ol>
+            <li>  \(\rho(x,y) \geq 0\), </li>
+            <li>  \(\rho(x,y)=\rho(y,x)\),</li>
+            <li> desigualdad del triángulo: \(\rho(x,y)\leq \rho(x,z)+\rho(z,y)\).</li>
+          </ol>
+            para todos \(x,y,z\in X\).
+          </p>
+          <p>
+            Una familia de pseudo métricas \(\{\rho_i\}_{i\in I}\) se dice que 
+            separa los puntos de \(X\) sii para \(x,y\in X\) con \(x\ne y\)
+            existe \(\rho_j\) tal que 
+            \(\rho_j(x,y) > 0\).
+          </p>
+
+          <p>
+            Por ejemplo, para \(X=C(\mathbb{R})\), el espacio de las funciones continuas en 
+            \(\mathbb{R}\), dado cualquier compacto \(K\subseteq \mathbb{R}\) la función 
+            \[
+            \rho_K(f,g)=\max_{x\in K}\{|f(x)-g(x)| \}
+            \]
+            es una pseudo métrica pero no una métrica.
+          </p>
+
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Supongamos que \(\{\rho_{n}\}_{n=1}^\infty\) es una familia numerable de 
+            pseudo métricas en \(X\) que separan los puntos. Prueba que la función 
+            \(d:X\times X \to \mathbb{R}\) definida por 
+            \[
+            d(x,y)=\sum_{n=1}^\infty \frac{1}{2^n} \frac{\rho_n(x,y)}{1+\rho_n(x,y)}
+            \]
+            es una métrica en \(X\).
+          </p>
+
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Dado \(U \subseteq \mathbb{R}^n\) un conjunto abierto por \(C^\infty(U)\)
+            denotamos al conjunto de funciones infinitamente diferenciales en \(U\).
+          </p>
+          <p>
+            Un multi-indice es un vector 
+            \[
+            \alpha=(\alpha_1,\dots, \alpha_n)
+            \]
+            donde para toda \(i\), \(\alpha_i \geq 0\) es un natural. Dado un multi-indice  (\alpha) denotamos  
+            \(D^\alpha: C^\infty(U)\to C^\infty(U)\) dada por 
+            \[
+            D^\alpha f = \partial_{x_1}^{\alpha_1} \cdots \partial_{x_n}^{\alpha_n} f
+            \]
+            y definimos su orden como \(|\alpha|:=\alpha_1+\cdots +\alpha_n\).
+
+          </p>
+          <p>
+            Nota: \(|\alpha|=0\), \(D^\alpha f =f\), para toda función.
+          </p>
+          <p>
+            Si escribimos \(U=\cup_{n=1}^\infty K_n\), donde cada \(K_n \subset U\) es compacto 
+            la familia 
+            \[
+            \rho_n(f):=\max_{x\in K_n, |\alpha|\leq n}\{|D^\alpha f(x)| \}
+            \]
+            define una familia de seminormas que separan los puntos de \(C^\infty(U)\).
+          </p>
+
+        </div>
 
 
 
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
           <p>
-            Este ejercicio generaliza el <a href="./S2.html#Ejer:MetProdCarte">Ejercicio 2.10</a>
+            Una función \(f:\mathbb{R}\to \mathbb{R}\) se anula en el infinito si 
+            para toda \(\varepsilon >0\) existe una \(M>0\) tal que \(|f(x)|< \varepsilon \)
+            para todo \(x\) con \(|x|\geq M\).
           </p>
           <p>
-            Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y \(\| \cdot \|: \mathbb{R}^2 \to \mathbb{R}\) una 
-            norma en \(\mathbb{R}^2\). En el producto cartesiano \(X\times Y\) define 
-            \[
-            d((x_1,y_1), (x_2,y_2))= \| (d_X(x_1,x_2), d_Y(y_1,y_2)) \|
-            \]
-
-            Prueba que \(d\) define una métrica en \(X\times Y\).
-          </p>
-
-        </div>
-
-        <!-- <div class="ejercicio-box">
-          <h2 class="number-title">Ejercicio</h2>
-          <p>
-            Sea \((V,\|\cdot\|)\) un espacio vectorial normado y \(N\subseteq V\) un subespacio 
-            vectorial. Por \(V/N\) denotamos el espacio vectorial cociente, es decir los elementos de 
-            \(V/N\) se denotan \(x+N\) donde 
-            \[
-            x+N=\{x+n: n\in N \}
-            \]
-            Las operaciones de espacio vectorial en \(V/N\) se definen como 
-            \begin{eqnarray*} 
-            (x+N)+(y+N)=x+y+N, \\
-            \alpha(x+N)= \alpha x + N
-            \end{eqnarray*}
-            y el cero en \(V/N\) es \(0+N\).
+            Por \(C_0(\mathbb{R})\) denotamos al conjunto de funciones en \(\mathbb{R}\) 
+            que se anula en el infinito.
           </p>
           <p>
-            Para \(x+N \in V/N\) define 
-            \[
-            \|x+N\|= \inf_{n\in N}\{ \|x+n\| \}
-            \]
-            Prueba que ésto define una norma en  \(V/N\). 
-          </p>
+            <ol>
 
-        </div>-->
-
-
-        <div class="quiz-box">
-          <h2 id="Quiz:Sec3"> Quiz </h2>
-          <ol>
+            
             <li>
-              <p>
-              (3pts) Sean \(x=(x_1,\dots, x_n), y=(y_1,\dots, y_n)\in \mathbb{R}^n\). Prueba que
-              la igualdad
-              \[
-              \sum_{i=1}^n x_iy_i=\|x\|_2\|y\|_2
-              \]
-              se da si y sólo si existe un \(\alpha \geq 0\) tal que
-              \(x=\alpha y\) ó \(y=\alpha x\).
-            </p>
+              Prueba que toda \(f\in C_0(\mathbb{R})\)  es acotada. 
             </li>
             <li>
-              <p>
-              (2pts) En el espacio de las funciones continuas, \(C([a,b])\), define
+              Para \(f,g\in C_O(\mathbb{R})\) define 
               \[
-              \|f\|_1=\int_a^b |f(t)|dt
+              d_\infty(f,g)=\sup_{x\in \mathbb{R}}\{ |f(x)-g(x)|\}
               \]
-              Prueba que \(\|\cdot\|_1\) es una norma en \(C([a,b])\).
-            </p>
+              Prueba que \(d_\infty\) es una métrica en \(C_0(\mathbb{R})\).
             </li>
           </ol>
+          </p>
+
         </div>
 
+
+
+
+            <div class="quiz-box">
+              <h2 id="Quiz:Sec2"> Quiz </h2>
+              <p>
+                Sean \(d_1,d_2:X\times X \to \mathbb{R}\) dos métricas en \(X\).
+                <ol>
+                  <li> (2pts) Sea \(c>0\). Prueba que \(cd_1+d_2\) es una métrica en \(X\).</li>
+                  <li> (3pts) ¿Cuál de las siguientes funciones define una métrica en \(X\) ?
+                    \[
+                    d(x,y)=\max\{ d_1(x,y), d_2(x,y)\}, d(x,y)= \min\{d_1(x,y),d_2(x,y)\}
+                    \]
+                    Prueba o da un contraejemplo, según corresponda.
+                  </li>
+              </p>
+          </div>
+
+
+
+      <div class="nota-box">
+        <h2 > Lectura</h2>
+        <p>
+          <a href="https://sagrawalx.github.io/teaching/su15_math104/metric_examples.pdf"> Ejemplos de espacios métricos.
+          </a>
+        </p>
+        
+        <p>
+          <a href="http://www.math.uni-bonn.de/people/daniel/2018/ggt/GGT-notes.pdf"> Grupos como espacios métricos.
+          </a>
+        </p>
+      </div>
     </div>
   </body>
