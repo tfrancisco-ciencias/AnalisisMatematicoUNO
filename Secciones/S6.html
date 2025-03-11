@@ -67,7 +67,6 @@
   <!-- This part is for title in tab-->
   <title id="Sec"> § 6 </title>
 
-
   <!--    Contenido empiaza abajo
  ///////////////////////////////// -->
 
@@ -76,988 +75,981 @@
 
 
     <div class="flexbox">
-      <h1 class="number-title flexbox"> Continuidad </h1>
-
+      <h1 class="number-title flexbox"> Topología en espacios métricos </h1>
       <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
       <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
-<div class="info-box">
-  <h2 class="number-title"> Introducción </h2>
-  <p>
-    Las funciones continuas son la estrellas en un primer curso de análisis
-    matemático y uno de los objetivos principales del curso es tomar
-    varias de las propiedades de las funciones continuas que se vieron en cálculo
-    y extenderlas en el contexto de espacios métricos.
-  </p>
-  <p>
-    Hay dos puntos de vista importantes desde los cuales se pueden ver a las
-    funciones continuas. Uno es desde el puntos de vista de sucesiones. Desde
-    esta perspectiva las funciones continuas son las que mandan sucesiones
-    convergentes en sucesiones convergentes. El otro punto de vista tiene
-    que ver con las bolas abiertas y más en general con conjuntos abiertos.
-    Vamos a presentar la definición de continuidad usando este último pero
-    se verá más adelante que son equivalentes (<a href="#Lema:ContinuidadSucesiones">Lema 6.4</a>).
-  </p>
-
-</div>
-
-<div class="definicion-box">
-  <h2 class="number-title"> Definición </h2>
-  <p>
-    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos. Decimos que
-    una función \(f;X\to Y\) es continua en un punto \(x_0\in X\) si:
-  </p>
-  <p>
-    para toda \(\varepsilon > 0\) existe \(\delta >0\), que depende
-    de \(x_0\) y \(\varepsilon\), tal que si un punto \(x\in X\)
-    está a distancia menor a \(\delta\) de \(x_0\), es decir
-    \(d_X(x,x_0) <\delta\) entonces \(d_Y(f(x),f(x_0)) < \varepsilon\).
-  </p>
-  <p>
-    <div class="flexbox">
-      <img src="./Images/Continuidad.png" alt="Continuidad" width="50%" height="auto">
-    </div>
-
-  </p>
-  <p>
-    Nota que para probar que una función  es continua en un punto, dada
-    la \(\varepsilon\) todo el trabajo se enfoca en encontrar la \(\delta\) que satisfaga
-    la condición dada arriba.
-  </p>
-  <p>
-    Usando la notación de bolas abiertas la definición se puede
-    reescribir de la siguiente forma:
-  </p>
-  <p>
-    \(f\) es continua en \(x_0\) sii para toda
-    \(\varepsilon >0 \) existe \(\delta >0\) que satisface
-    \[
-    B^X_\delta(x_0) \subset f^{-1}(B^Y_\varepsilon(f(x_0)))
-    \]
-  </p>
-  <p>
-    donde \(B^X_r(x_0)\) denota la bola abierta en el espacio \(X\).
-  </p>
-  <p>
-    <div class="flexbox">
-      <img src="./Images/ContinuidadImagenInversa.png" alt="ContinuidadImagenInversa" width="50%" height="auto">
-    </div>
-
-  </p>
-  <p>
-    Nota: recuerda que en general, para una función
-    \(f:X\to Y\), la imagen inversa de un subconjunto \(B\subseteq Y\), bajo \(f\)
-    se define como: \(f^{-1}(B):=\{x\in X: f(x)\in B \}\).
-  </p>
-  <p>
-    Decimos que una función es continua en un subconjunto \(A \subseteq X\)
-    si es continua en todo punto de \(A\).
-  </p>
-   <p>
-     Ejemplos
-   </p>
-   <ol>
-     <li>
-       Toda función \(f:\mathbb{N}\to X\) es continua en todo punto de \(\mathbb{N}\),
-       considerando a éste útimo dotado con la métrica heredada de \(\mathbb{R}\)
-       y \(X\) cualquie espacio métrico.
-     </p>
-     <p>Para ver lo anterior tomamos un punto cualquiera \(n_0\in \mathbb{N}\)
-       y fijamos un número positivo \(\varepsilon\). En el caso muy particular
-       de \(\mathbb{N}\) afirmamos que la \(\delta >0\) que nos sirve es \(\delta=1\).
-       Razón: en la métrica de \(\mathbb{N}\) las bolas unitarias son muy simples
-       \[
-       B_1(n_0)=\{n_0\}
-       \]
-       y por lo tanto para todo \(n \in B_1(n_0)\) (que sólo hay uno, \(n_0\)) se cumple
-       \(d(f(n),f(n_0)) < \varepsilon\), pues
-       \[
-       d(f(n),f(n_0))=d(f(n_0), f(n_0))=0.
-       \]
-       Nota: este ejemplo sigue siendo válido si intercambiamos \(\mathbb{N}\)
-       por cualquier otro espacio métrico discreto.
-     </li>
-      <li>
+      <div class="info-box">
+        <h2 class="number-title"> Introducción </h2>
         <p>
-        Todas las isometrías son funciones continuas.
+          La topología se refiere a la parte de las matemáticas que estudia
+          la expansión del concepto de continuidad más allá de los espacios
+          \(\mathbb{R}^n\) o los espacios métricos. La idea principal detrás
+          de dicha generalización es que existen ciertos subconjuntos
+          con características especiales que permiten definir  los
+          conceptos de continuidad. A estos subconjuntos especiales
+          se les llama subconjuntos abiertos e intuitivamente son los
+          que "miden" la cercanía entre puntos de un  espacio dado.
+
        </p>
+       <p>
+         En esta sección se introducen los conceptos de conjuntos abiertos
+         y cerrados en espacios métricos, se ven sus propidades básicas
+         así como algunos ejemplos concretos en los
+         espacios \(\mathbb{R}^n\) y \(\mathcal{B}(X)\), el espacio de funciones acotadas.
+       </p>
+
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+
         <p>
-        Recordamos que una
-        isometría entre dos espacios métricos  es
-        una función que preserva las distancias, es decir una
-        función  \(f:(X,d_X) \to (Y,d_Y)\) que satisface
-        \[
-        d_Y(f(x_1),f(x_2)) = d_X(x_1,x_2),
-        \]
-        para todos \(x_1,x_2\in X\).
-      </p>
-      <p>
-        Dado un punto cualquiera \(x_0\in X\) y un número positivo
-        \(\varepsilon >0\) la \(\delta\) que sirve para la continuidad
-        es \(\delta= \varepsilon\). En efecto, si \(d_X(x,x_0) < \delta \)
-        entonces
-        \[
-        d_Y(f(x),f(x_0))=d_X(x,x_0) < \delta = \varepsilon.
-        \]
-      </p>
-      </li>
+          Sea \((X,d)\) un espacio métrico. Una bola abierta de radio
+          \(r>0\) y centrada en \(x_0\in X\) se define como el conjunto
+          \[
+          B_r(x_0)=\{ x\in X: d(x,x_0)< r\}.
+          \]
+          Si el espacio métrico proviene de un espacio vectorial normado
+          \((V,\|\cdot \|)\) las bolas son
+          \[
+          B_r(x_0)=\{ x\in V: \| x-x_0\| < r\}.
+          \]
+        </p>
+        <p>
+          Además es últil observar que, gracias a la estructura de espacio vectorial,
+          podemos expresar
+          \[
+          B_r(x_0)=x_0+B_r(0)
+          \]
+          por lo que en espacios vectoriales normados las bolas con centro en origen juegan un papel 
+          primordial.
+        </p>
+        <p>
+          La forma de la bola depende del espacio métrico, como se ven
+          en los siguientes ejemplos.
+        </p>
 
-</div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title" id="Ejer:PropiedadesImagenInversa"> Ejercicio </h2>
-  <p>
-    Ya que la continuidad se puede escribir en términos de imágines inversas
-    es útil tener varias propiedades sobre ésta.
-  </p>
-  <p>
-    Sean \(S,T\) dos conjuntos, \(f:S\to T\) una función y
-    subconjuntos \(A,A' \subseteq S, B,B'\subseteq T\). Prueba
-    las siguientes identidades de conjuntos
-  </p>
-  <ol>
-    <li>
-      \(A \subseteq f^{-1}(f(A))\) y la igualdad se da,
-      para todo subconjunto \(A\) si y sólo si
-      \(f\) es inyectiva.
-    </li>
-    <li>
-      \(f(f^{-1}(B)) \subseteq B\) y la igualdad se da,
-      para todo subconjunto \(B\) si y sólo si \(f\)
-      es suprayectiva.
-    </li>
-    <li>
-      \(f^{-1}(B\cap B')=f^{-1}(B)\cap f^{-1}(B')\).
-    </li>
-    <li>
-      \(f^{-1}(B\cup B')=f^{-1}(B)\cup f^{-1}(B')\).
-    </li>
-    <li>
-      \(f^{-1}(B\setminus B')=f^{-1}(B)\setminus f^{-1}(B')\).
-    </li>
-    <li>
-      \(f(A\cup A')=f(A)\cup f(A')\).
-    </li>
-    <li>
-      \(f(A\cap A') \subseteq f(A)\cap f(A')\). Además da
-      un ejemplo dónde la contención sea propia.
-    </li>
-    <li>
-      Si \(B'\subseteq B\\) entonces \(f^{-1}(B')\subseteq f^{-1}(B)\).
-    </li>
-  </ol>
-
-
-</div>
-
-
-<div class="lema-box">
-  <h2 class="number-title" id="Lema:ContinuidadSucesiones"> Lema </h2>
-  <p>
-    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y
-    \(f:X \to Y\) una función.
-  </p>
-  <p>
-    Las siguientes condiciones son equivalentes.
-  </p>
-  <ol>
-    <li>
-      \(f\) es continua en \(x_0\).
-    </li>
-    <li>
-      Para toda sucesión \((x_n)_{n=1}^\infty\) convergente a
-      \(x_0\) se satisface que  \((f(x_n))_{n=1}^\infty\)
-      es convergente a \(f(x_0)\). Lo anterior se puede resumir como:
-      \[
-      \lim_{n\to \infty} f(x_n)=f(\lim_{n\to \infty}x_n)
-      \]
-    </li>
-  </ol>
-    <p>
-      Es decir, se puede meter el límite para funciones continuar,
-      siempre y cuando el límite exista.
-    </p>
-    <button class="respButton hvr-grow"> Respuesta </button>
-    <div class="resp-box">
-    <p>
-      \(\Rightarrow] \) Primero supongamos que \(f\) es continua en \(x_0\)
-      y supongamos que tenemos una sucesión \((x_n)_{n=1}^\infty \subset X\)
-      tal que \(\lim_{n\to \infty}x_n=x_0\).
-    </p>
-    <p>
-        Debemos probar que \(\lim_{n\to \infty }f(x_n)=f(x_0)\), es decir,
-        dada una \(\varepsilon >0\) debemos asegurar la existencia de un natural
-        \(N\in \mathbb{N}\) tal que, para toda \(n \geq N\):
-        \begin{equation}\label{Eqn:auxLemaContinuidad}
-        f(x_n)\in B_\varepsilon^Y(f(x_0)).
-        \end{equation}
-    </p>
-    <p>
-      Usando que \(f\) es continua en \(x_0\), sabemos que existe una
-      \(\delta >0 \) tal que
-      \begin{equation}\label{Eqn:aux2LemaContinuidad}
-      B_\delta^X(x_0) \subseteq f^{-1}(B_\varepsilon)(f(x_0))
-      \end{equation}
-    </p>
-    <p>
-      Pero, usando que \(\lim_{n\to \infty }x_n=x_0\) podemos asegurar que
-      existe \(N\in \mathbb{N}\) tal que, para toda
-      \(n\geq N\), \(x_n\in B_\delta^X(x_0)\). Si usamos
-      \eqref{Eqn:aux2LemaContinuidad} obtenemos que \(f(x_n) \in B_\varepsilon(f(x_0))\),
-      para toda \(n\geq N\), lo cual prueba \eqref{Eqn:auxLemaContinuidad}.
-    </p>
-    <p>
-      \(\Leftarrow]\) Vamos a proceder por contrapositiva. Supongamos que la
-      función \(f\) no es continua en \(x_0\) y con esto vamos a probar que la
-      condición 2 no es válida.
-    </p>
-
-    <p>
-      Si negamos la definición de continuidad de \(f\) en \(x_0\) llegamos
-      a que existe un número positivo \(\varepsilon_0 >0 \), tal que,
-      para toda \(\delta > 0\) no se cumple
-      \[
-      B_{\delta}(x_0) \subseteq f^{-1}(B_{\varepsilon_0}(f(x_0))).
-      \]
-      Si la contención anterior no es válida eso quiere decir que
-      existe un \(x \in B_{\delta}(x_0)\) (la \(x\) va a depender de \(\delta\)),
-       tal que \(x\notin f^{-1}(B_{\varepsilon_0}(f(x_0)))\), es
-       decir, la \(x\) satisface:
-       \[
-       d_X(x,x_0)< \delta, \quad d_Y(f(x),f(x_0)) \geq \varepsilon_0.
-       \]
-    </p>
-    <p>
-      Como lo anterior se vale para todo número \(\delta >0\), tomando
-      \(\delta = \frac{1}{n}\), con \(n \in \mathbb{N}\), obtenemos una
-      sucesión de puntos \((x_n)_{n=1}^\infty \subset X\), tal que
-
-      \[
-      d_X(x_n,x_0) < \frac{1}{n}, \quad d_Y(f(x_n), f(x_0)) \geq \varepsilon_0
-      \]
-
-      Pero lo anterior implica que \(\lim_{n\to \infty} x_n=x_0\)
-      y \(\lim_{n\to \infty} f(x_n)\ne f(x_0)\), contradiciendo la
-      condición 2 del lema.
-    </p>
-  </div>
-</div>
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico y \(f,g:X\to \mathbb{R}\) funciones
-    continuas en \(x_0\in X\). Prueba que las siguientes funciones (dadas por operaciones algebráticas)
-    son continuas en \(x_0\): 
-    <ol> 
-      <li>combinaciones lineales \(\alpha f +g\), donde \(\alpha \in \mathbb{R}\),</li> 
-    <li>la función producto \(fg\), </li> 
-    <li>si \(g(x_0 )\ne 0\), la función cociente \(f/g\).</li>
-    </ol>
-    
-     
-  </p>
-  <p>
-    Sugerencia: usa el <a href="#Lema:ContinuidadSucesiones">Lema 6.4</a>
-  </p>
-  <p>
-    Nota: se puede generalizar este ejercicio cambiando \(\mathbb{R}\)
-    por un espacio vectorial normado.
-  </p>
-</div>
-
-
-
-<div class="lema-box">
-  <h2 class="number-title" id="Lema:ContinuidadAbiertosCerrados"> Lema </h2>
-  <p>
-    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y
-    \(f:X \to Y\) una función. Decimos que \(f\) es continua 
-    en \(X\) si \(f\) es continua en \(x_0\), para todo \(x_0\in X\).
-  </p>
-  <p>
-    Las siguientes condiciones son equivalentes.
-  </p>
-  <ol>
-    <li>
-      \(f\) es continua en todo \(X\).
-    </li>
-    <li>
-      Imagen inversa de abiertos es abierta.
-    </li>
-    <li>
-      Imagen inversa de cerrados es cerrada.
-    </li>
-  </ol>
-
-  <button class="respButton hvr-grow"> Demostración </button>
-  <div class="resp-box">
-  <p>
-    \(1 \Rightarrow 2 ]\) Supongamos que \(f\) es continua en todo \(M\)
-    y sea \(V \subseteq Y\) un subconjunto abierto. Natamos que, al
-    ser \(Y\) abierto, para todo \(y \in V \) existe \(r(y)\), un número positivo
-    que depende de cada punto \(y\), tal que
-    \(B_{r(y)}^Y(y)\subseteq V\). Por lo tanto se sigue que
-    \[
-    V=\cup_{y\in V} B_{r(y)}^Y(y)
-    \]
-  </p>
-  <p>
-    Usando las propiedades de la imagen inversa
-    (<a href="#Ejer:PropiedadesImagenInversa">Ejercicio 6.3</a>) obtenemos
-    \[
-    f^{-1}(V)=\cup_{y\in V} f^{-1}(B_{r(y)}^Y(y))
-    \]
-    y ya que unión arbitraria de abiertos es abierta, para probar que
-    \(f^{-1}(V)\) es abierta es suficiente probar que, para toda bola
-    \(B_r^Y(y)\), su imagen inversa \(f^{-1}(B_r^Y(y))\) es abierta en \(X\).
-  </p>
-  <p>
-    Para probar que \(f^{-1}(B_r^Y(y))\) es abierto en \(X\) tomamos
-    \(x\in f^{-1}(B_r(y))\) arbitrario y probamos que hay una
-    bola centrada en \(x\) totalemente contenida en \(f^{-1}(B_r^Y(y))\). Antes
-    de proceder notamos que \(f(x)\in B_r^Y(y)\) y ya que éste último es abierto
-    existe \(s>0\) tal que \(B_s^Y(f(x)) \subseteq B_r^Y(y)\).
-  </p>
-  <p>
-    Ahora, ya que \(f\) es continua en todo
-    \(X\), en particular \(f\) es continua en \(x\) por lo que existe una \(\delta >0\)
-    para la cual se satisface
-    \[
-    B_\delta^X(x) \subseteq f^{-1}(B_s(f(x)))
-    \]
-    Finalmente notamos que
-    \[
-    B_s^Y(f(x))\subseteq B_r^Y(y) \Rightarrow f^{-1}(B_s^Y(f(x))) \subseteq f^{-1}(B_r^Y(y))
-    \]
-    por lo tanto tenemos la cadena de contenciones
-    \[
-    B_\delta^X(x) \subseteq f^{-1}(B_s^Y(f(x))) \subseteq f^{-1}(B_r^Y(y))
-    \]
-    concluyendo que \(B_\delta^X(x)\) está totalmente contenida en
-    \(f^{-1}(B_r^Y(y))\).
-    </p>
-    <p>
-      \( 2 \Rightarrow 3 ]\) Esta implicación es sencilla.
-    </p>
-    <p>
-      Supoongamos
-      que \(F \subset Y\) es cerrado. Debemos probar que
-      \(f^{-1}(F) \subseteq X\) es cerrado también o, equivalentemente,
-      que \(X\setminus f^{-1}(F)\) es abierto en \(X\). Pero,
-      por las propiedades de la imagen inversa
-      (<a href="#Ejer:PropiedadesImagenInversa">Ejercicio 6.3</a>):
-      \[
-      X\setminus f^{-1}(F) = f^{-1}(Y \setminus F).
-      \]
-      Ahora, \(Y\setminus F\) es abierto en \(Y\), por lo tanto la condición
-      2 implica que \(f^{-1}(Y\setminus F)\) es abierto en \(X\).
-    </p>
-    <p>
-      \(3 \Rightarrow 1 ]\) Sea \(x_0 \in X\) fijo y arbitrario. Dedemos de probar
-      que \(f\) es continua en \(x_0\) y para esto usaremos el
-      <a href="#Lema:ContinuidadSucesiones">Lema 6.4</a>.
-    </p>
-    <p>
-      Sea \((x_n)_{n=1}^\infty \subset X\) una sucesión tal que
-      \(\lim_{n\to \infty} x_n=x_0\). Debemos de probar que
-      \(\lim_{n\to \infty} f(x_n)=f(x_0)\), pero, para llegar
-      a una contradicción supongamos que no es así.
-    </p>
-      <p>
-      Usando el <a href="./S4.html#Ejer:NegacionConvergencia">Ejercicio 4.7</a>
-      sabemos \(\lim_{n\to \infty}f(x_n)\ne f(x_0)\) implica la
-      existencia de un número positivo \(\varepsilon_0 >0\) y
-      una subsucesión \((x_{n_k})_{k=1}^\infty\) tal que
-      \[
-      d(f(x_0), f(x_{n_k})) \geq \varepsilon_0
-      \]
-      para toda \(k\). Reescribiendo lo anterior en términos de imagen inversa
-      de la bola abierta tenemos que
-      \[
-      x_{n_k} \in f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0)))
-      \]
-      para toda \(k\).
-    </p>
-    <p>
-      Por otro lado, sabemos que \(Y\setminus B_{\varepsilon_0}(f(x_0)) \) es cerrado,
-      por lo tanto la condición 3 implica que \(f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0))\)
-      también es cerrado. Por lo tanto la subsucesión \((x_{n_k})_{k=1}^\infty\)
-      está contenida en el cerrado \(f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0))\)
-      y en consecuencias, su límite también (por
-      <a href="./S5.html#Teo:CaracCerrados"> Teorema 5.11</a>). Es decir
-      \[
-      x_0=\lim_{k\to \infty}x_{n_k} \in f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0))
-      \]
-      por lo que \(f(x_0)\in Y\setminus B_{\varepsilon_0}(f(x_0)) \), lo cual
-      es una contradicción.
-    </p>
-  </div>
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <ol>
-    <li>
-      Prueba que una función continua \(f:\mathbb{R}\to \mathbb{R}\)
-      está completamente determinada por sus valores en \(\mathbb{Q}\). Es decir,
-      si \(g:\mathbb{R}\to \mathbb{R}\) es una función continua que satisface
-      \(f(r)=g(r)\) para toda \(r\in \mathbb{Q}\) entonces
-      \(f(x)=g(x)\) para toda \(x\in \mathbb{R}\).
-    </li>
-    <li>
-      <p>
-      Generaliza el ejercicio anterior. Sean \((X,d_X), (Y,d_Y)\) dos
-      espacios métricos y sea \(D\subset X\) un
-      <a href="./S5.html#Ejer:EquivDensos">subconjunto denso</a>. Prueba
-      que una función continua \(f:X \to Y\) está completamente
-      determinada por sus valores en \(D\).
-      </p>
-      <p>
-        Sugerencia: usa el <a href="./S5.html#Ejer:EquivDensos"> Ejercicio 5.32
-        inciso 2</a>.
-      </p>
-
-    </li>
-  </ol>
-  <button class="respButton hvr-grow"> Respuesta </button>
-  <div class="resp-box">
-      <ol>
+        <ol>
           <li>
-              Como \(f,g\) coinciden en \(\mathbb{Q}\) bastará probar que también
-              coinciden en los irracionales \(\mathbb{I}\). Recordemos que todo
-              número irracional es el límite de una sucesión
-              de números racionales. Con esto establecido usaremos el
-              <a href="#Lema:ContinuidadSucesiones"> Lema anterior</a>. Sea
-              \(x\) un número irracional y \((x_n)_n\) una sucesión de racionales
-              tal que \(\lim x_n= x\). Por hipótesis \(f(x_n) = g(x_n)\) para cada
-              \(n \in \mathbb{N}\) y por continuidad de las funciones \(f,g\) en el
-
-              punto \(x\) tenemos que \(f(x) = \lim f(x_n) = \lim g(x_n) = g(x)\).
-              En consecuencia \(f(x) = g(x)\) para todo \(x \in \mathbb{R}\).
-          </li>
-      </ol>
-  </div>
-</div>
-
-
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \(f:\mathbb{R}\to \mathbb{R}\) que satisface:
-    \(f(x+y)=f(x)+f(y)\), para todos \(x,y\in \mathbb{R}\).
-  </p>
-  <p>
-    Prueba que si \(f\) es continua en un punto entonces existe una
-    constante \(a\in \mathbb{R}\) tal que \(f(x)=ax\) para todo \(x\in \mathbb{R}\).
-   </p>
-   <p>
-     Es decir, toda función aditiva y continua en almenos un punto es lineal.
-   </p>
-   <p>
-     Sugerencia: empieza probando que si \(f\) es aditiva y continua en un punto entonces
-     es continua en cero y después prueba que es continua en todo punto.
-   </p>
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico y \(f:X\to \mathbb{R}\) una función.
-  </p>
-  <ol>
-  <li>
-    Si \(f\) es continua en \(X\) entonces, para todo \(a\in \mathbb{R}\)
-    entonces \(\{x: f(x)>a\}\) y \(\{x: f(x)< a \}\) son abiertos.
-  </li>
-  <li>
-    Inversamente, si para toda \(a\in \mathbb{R}\) se satisface  que
-    \(\{x: f(x)>a\}\) y \(\{x: f(x)< a \}\) son conjuntos abiertos prueba
-    que \(f\) es continua en \(\mathbb{R}\).
-  </li>
-  <li>
-    Mejora el inciso anterior. Prueba que si para toda
-    \(a\in \mathbb{Q}\) se satisface  que
-    \(\{x: f(x)>a\}\) y \(\{x: f(x)< a \}\) son conjuntos abiertos prueba
-    que \(f\) es continua en \(\mathbb{R}\).
-  </li>
-  </ol>
-  <p>
-    Sugerencia: usa el <a href="#Lema:ContinuidadAbiertosCerrados"> Lema </a>.
-  </p>
-
-  <button class="respButton hvr-grow"> Respuesta </button>
-  <div class="resp-box flexbox">
-      Se dará prueba de los primeros dos incisos.
-      <div class=" flexbox">
-        <iframe width="700" height="400" class="video"
-          src="https://www.youtube.com/embed/pGlJotPRvGU" allowfullscreen="true"> 
-        </iframe>
-          
+            <p> La métrica discreta.</p>
+            <p>
+            Recordamos que, para un conjunto cualquiera
+            \(X\ne \emptyset\), la métrica discreta en \(X\)
+            de se define por
+            \[
+            d(x,y)=\left\{\begin{array}{cc}
+            0 & \textrm{si \(x=y\)} \\
+            1 & \textrm{si \(x\ne y\)}
+            \end{array}
+            \right.
+            \]
+           </p>
+           <p>
+             Con la métrica discreta se tiene que para todo radio \(r\in (0,1]\):
+             \[
+             B_r(x_0)=\{x_0\},
+             \]
+             y para todo \(r\in (1,\infty)\):
+             \[
+             B_r(x_0)=X.
+             \]
+           </p>
+         </li>
+           <li>
+             <p> Las normas-\(p\).</p>
+             <p>
+               En el espacio vectorial normado \((\mathbb{R}^n, \|\cdot\|_p)\),
+               con \(p\in [1,\infty]\), al forma de la bola depende
+               del parámetro \(p\). La figura de abajo muestra algunas
+               bolas en \(\mathbb{R}^2\), centradas en el origen.
+               <div class="flexbox">
+                   <img src="./Images/FigNormaspBall.png"
+                   alt="BolasNormasp" width="50%" height="auto">
+               </div>
+             </p>
+           </li>
+           <!-- <li>
+             <p> La norma uniforme o infinito. </p>
+             <p>
+               Sea \(X\ne\emptyset\) un conjunto cualquiera y considera
+               el espacio vectorial normado \((\mathcal{B}(X),\|\cdot\|_\infty)\).
+             </p>
+             <p>
+               Dibujar bolas abiertas en \((\mathcal{B}(X), \| \cdot\|_\infty)\)
+               no es tan directo pero tenemos cierta ayuda visual. En este
+               caso una bola abierta es
+               \[
+               B_r(f_0)=\{ f\in \mathcal{B}(X): \|f-f_0\|_\infty < r\}
+               \]
+               donde \(f,f_0\) son funciones acotadas sobre \(X\) con valores
+               reales. En el análisis de los límites en la norma uniforme
+               notamos que la expresión \(\|f-f_0\|< r\)  implica
+               \[
+               |f(x)-f_0(x)|< r, \quad \textrm{para toda \(x\in X\)}
+               \]
+               En términos de las gráficas de \(f\) y \(f_0\) quiere
+               decir que la gráfica de \(f\) está encerrada en una
+               franja de radio \(r>0\) centrada en \(f_0\). Por lo tanto
+               podemos "dibujar" las bolas \(B_r(f_0)\) como
+               <div class="flexbox">
+                   <img src="./Images/FigNormaUnifBall.png"
+                   alt="BolaNormaUnif" width="50%" height="auto">
+               </div>
+             </p>
+           </li>-->
+        </ol>
       </div>
-  </div>
-</div>
 
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title" id="Ejer:GraficaCerrada"> Ejercicio </h2>
-  <p>
-    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y
-    \(f:X\to Y\) una función. La gráfica de \(f\) se define como
-    el subconjunto de \(X\times Y\) dado por
-    \[
-    G(f):=\{(x,f(x)): x\in X\}
-    \]
-  </p>
-  <ol>
-  <li>
-    Prueba que \(f\) es continua en \(X\) entonces
-    \(G(f)\) es un subconjunto cerrado de \(X\times Y\).
-  </li>
-  <li>
-    Da un ejemplo donde \(G(f)\) sea cerrado pero \(f\)
-    no es continua.
-  </li>
-</ol>
-  <p>
-    Nota: considera el espacio \(X\times Y\) dotado con la métrica
-    \(d((x_1,y_1),(x_2,y_2))=d_X(x_1,x_2)+d_Y(y_1,y_2)\).
-  </p>
-</div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-    <p>
-      Sea \(f:\mathbb{R}\to \mathbb{R}\) una función y
-      define \(F:\mathbb{R}\to \mathbb{R}^2\) por \(F(x)=(x,f(x))\). Prueba que las siguientes
-      condiciones son equivalentes.
-    </p>
-    <ol>
-      <li>
-        \(f\) es continua en \(\mathbb{R}\).
-      </li>
-      <li>
-        \(F\) es continua en \(\mathbb{R}\).
-      </li>
-      <li>
-        Los subconjuntos
-        \[
-        \{(x,y)\in \mathbb{R}^2: y \leq f(x) \}, \quad \{(x,y)\in \mathbb{R}^2: f(x)\leq y\}
-        \]
-        son cerrados en \(\mathbb{R}^2\).
-      </li>
-    </ol>
-</div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title" id="Ejer:FunLipschitz"> Ejercicio </h2>
-    <p>
-      Una función entre dos espacio métricos \(f: X \to Y\)
-      se dice que satisface la condición de Lipschitz si
-      existe un constante \(K>0\) para la cual:
-      \[
-      d_Y(f(a),f(b)) \leq K d_X(a,b), \quad \textrm{para todos \(a,b\in X\)}.
-      \]
-      Por sencillez también se dice que \(f\) es Lipschitz con
-      constante \(K\).
-    </p>
-    <ol>
-      <li>
-        Prueba que toda función Lipschitz es continua en todo punto.
-      </li>
-      <li>
-        Mejora el inciso anterior. Prueba que toda función Lipschitz
-        es uniformemente continua en su dominio.
-      </li>
-    </ol>
-    <p>
-      Nota: una función \(g:X\to Y\) se llama uniformemente continua en
-      \(X\) si para toda \(\varepsilon >0\) existe una \(\delta>0\),
-      que sólo depende de \(\varepsilon\), tal que
-      \[
-      d_X(a,b) < \delta \Rightarrow d_Y(g(a),g(b))<\varepsilon
-      \]
-    </p>
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <ol>
-    <li>
-    Prueba que las funciones \(\sen, \cos:\mathbb{R}\to \mathbb{R}\) son Lipschitz con
-    constante \(K=1\).
-    </li>
-    <li>
-        Generaliza el inciso anterior. Si \(f:[a,b]\to \mathbb{R}\)
-        es continua en \([a,b]\), diferenciable en \((a,b)\) y con derivada
-        acotada en \((a,b)\) entonces \(f\) es Lipschitz.
-    </li>
-
-      </p>
-      <button class="respButton hvr-grow"> Respuesta </button>
-  <div class="resp-box">
-      <ol>
+      <div class="definicion-box">
+        <h2 class="number-title" id="Def:ConjuntoAbierto"> Definición </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico. Decimos que un subconjunto
+          \(U\subseteq X\) es abierto en \((X,d)\) si todo punto de
+          \(U\) admite una bola centrada en el punto contenida en
+          \(U\), es decir:
+        </p>
+        <p class="card">
+          para todo \(x\in U\) existe \(r>0\) tal que \(B_r(x)\subseteq U\).
+        </p>
+        <p>
+          Notas.
+        </p>
+        <ol>
+          <li> Dado \(x\in U\) el radio \(r\) que cumple \(B_r(x) \subseteq U\)
+            usualmente  depende de \(x\).
+          </li>
           <li>
+            El cuantificador "para todo" es muy importante. Si existe un sólo
+            punto  \(x\in U\) para el cual no se puede encontrar \(r>0\)
+            que satisfaga \(B_r(x)\subseteq U\), entonces el conjunto no es
+            abierto.
+          </li>
+        </ol>
+        <p>
+          Por ejemplo, en \((\mathbb{R}, |\cdot|)\) los intervalos de la forma
+          \((a,b)\)
+          son subconjuntos abiertos pues para cualquier \(x\in (a,b)\),
+          si tomamos \(r=\min\{x-a, b-x\}\), entonces
+          \(B_r(x)\subset (a,b)\).
+
+          <div class="flexbox">
+              <img src="./Images/FigIntervalOpen.png"
+              alt="IntervaloAbierto" width="35%" height="auto">
+          </div>
+        </p>
+
+        <p>
+          Sin embargo el intervalo \((a,b]\) no es abierto pues, para
+          el elemento \(b\in (a,b]\), siempre se tiene que, sin importar que
+          radio \(r>0\) se tome, \(B_r(b)\cap (a,b]^c \ne \emptyset\), por
+          lo que \(B_r(b)\) no puede estar contenido en \((a,b]\). Nota:
+          \((a,b]^c\) denota el complemento de \((a,b]\)
+
+          <div class="flexbox">
+              <img src="./Images/FigHalfIntervalNotOpen.png"
+              alt="IntervaloSemiAbierto" width="35%" height="auto">
+          </div>
+
+        </p>
+        <p>
+          Hay dos conjuntos especiales, en cualquier espacio métrico
+          \((X,d)\), que siempre son abiertos. Estos son \(\emptyset\) y
+          \(X\) (el vacío y el total). Sin embargo, para cualquier otro
+          conjunto la métrica \(d\) "decide" si es abierto o no.
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          A pesar de que llamamos "bolas abiertas" a los conjuntos
+          \[
+          B_r(x_0)=\{x\in X: d(x,x_0)< r\}
+          \]
+          formalmente debemos de usar la
+          <a href="#Def:ConjuntoAbierto">Definicion 5.3</a> para
+          probar que  son subconjuntos abiertos.
+        </p>
+        <p>
+          Sea \((X,d)\) un espacio métrico. Toda bola abierta
+          es un subconjunto abierto de \(X\).
+        </p>
+
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box flexbox">
+            <div class=" flexbox">
+
+
+              <iframe width="700" height="400" class="video"
+                    src="https://www.youtube.com/embed/q7yQrC7sW44" allowfullscreen="true"> 
+              </iframe>
+                
+            </div>
+        </div>
+
+
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:PropiedadesAbiertos"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico.
+          <ol>
+            <li>
+              Sea \(\{U_i\}_{i\in I}\) una colección arbitraria de conjuntos
+              abiertos. Prueba que la unión \(\cup_{i\in I}U_i\), es abierta.
+            </li>
+            <li>
+              Sea \(U_1,\dots, U_n\) una colección finita de conjuntos
+              abiertos. Prueba que la intersección \(\cap_{i=1}^n U_i\)
+              es abierta.
+            </li>
+            <li>
+              Da un ejemplo de un espacio métrico y una colección numerable
+              de conjuntos abiertos, \(\{U_i\}_{i\in \mathbb{N}}\), tal que
+              su intersección \(\cap_{i\in \mathbb{N}} U_i\) no es abierta.
+            </li>
+          </ol>
+        </p>
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+            <ol>
+                <li>
+                    Sea \(x \in \cup_{i \in I} U_i\), entonces existe \(j \in I\) tal
+                    que \(x \in U_j\). Como \(U_j\) es abierto y \(x \in U_j\) entonces
+                    existe \(r>0\) tal que \(B_r(x) \subseteq U_j \subseteq \cup_{i \in I}U_i\).
+                </li>
+                <li>
+                    Sea \(x \in \cap_{i=1}^n U_i\), entonces \(x \in U_j\) para \(j=1,...,n\) y
+                    existen \(r_1, ...,r_n > 0\) tales que \(B_{r_j}(x) \subseteq U_j\) para
+                    cada \(j=1,...,n\). Sea \(r=\min\{r_1,...,r_n\}\), entonces
+                    \(B_r(x) \subseteq U_j\) para cada \(j\) y \(B_r(x) \subseteq \cap_{i=1}^n U_i\).
+                </li>
+                <li>
+                    Trabajaremos en \(\mathbb{R}\) con la métrica usual, \(d(x,y)=|y-x|\) y
+                    consideremos la colección de abiertos \(U_i = (\frac{-1}{i},\frac{1}{i})\).
+                    Afirmamos que \(\cap_{i \in \mathbb{N}} U_i = \{0\}\) y que dicho conjunto no es
+                    abierto en \(\mathbb{R}\). Como \(0 \in \frac{-1}{i},\frac{1}{i})\) para cada
+                    \(i\), entonces \(0 \in \cap U_i\). Si \(x>0\) entonces existe \(n \in \mathbb{N}\)
+                    tal que \(1/n < x\), por lo que \(x \notin (\frac{-1}{n},\frac{1}{n})\) y tampoco
+                    pertenece a la intersección. El resultado es análogo si suponemos que \(x < 0\).
+
+                    Para terminar basta notar que \(\{0\}\) es un conjunto finito y que toda bola
+                    abierta en \(\mathbb{R}\) es infinita, por lo que \(\cap_{i \in \mathbb{N}}U_i\)
+                    no es un conjunto abierto.
+                </li>
+            </ol>
+        </div>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(U\subseteq X\). Las
+          siguientes condiciones son equivalentes.
+        </p>
+        <ol>
+          <li>
+            \(U\) es abierto.
+          </li>
+          <li>
+            Si \((x_n)_{n\in \mathbb{N}} \subset X\) es una
+            sucesión convergente a un punto \(x\in U \),
+            entonces, \(x_n \in U\) para todos los \(x_n\)'s
+            excepto un número finito.
+          </li>
+        </ol>
+
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definicion </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico. Un subconjunto \(F\subset X\)
+          se llama cerrado si su complemento \(F^c=X\setminus F\) es
+          abierto.
+        </p>
+        <p>
+          Por ejemplo, en \((\mathbb{R},|\cdot|)\), el intervalo
+          \([a,b]\) es un subconjunto cerrado pues su complemente
+          \[
+          [a,b]^c=(-\infty,a)\cup (b,\infty)
+          \]
+          es abierto, al ser la unión de los abiertos
+          \[
+          (-\infty,a )\cup (b,\infty)=\cup_{i=1}^\infty (a-i,a)\cup
+          \cup_{j=1}^\infty (b,b+j)
+          \]
+        </p>
+        <p>
+          Otro ejemplo es \(\mathbb{N}\) el cual es cerrado en \(\mathbb{R}\).
+        </p>
+        <p>
+          También notamos que en cualquier espacio métrico \((X,d)\)
+          tanto \(\emptyset\) como \(X\) son subconjuntos cerrados.
+        </p>
+
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h3>
+          <p>
+            Sea \((X,d)\) un espacio métrico. Prueba que todo
+            subconjunto finito de \(X\) es cerrado.
+          </p>
+
+        </div>
+
+
+
+                <div class="ejercicio-box">
+                  <h2 class="number-title"> Ejercicio </h2>
+                  <p>
+                    Sea \((X,d)\) un espacio métrico, \(F\subseteq X\) un
+                    conjunto cerrado y \(U \subseteq  X\) un conjunto abierto.
+                  </p>
+                  <p>
+                    Prueba que \(F\setminus U\) es cerrado y que
+                    \(U \setminus F \) es abierto.
+                  </p>
+
+                </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:TopologiaEspacioProducto"> Ejercicio </h2>
+          <p>
+            En el <a href="./S4.html#Ejer:MetEquivalentes"> Ejercicio 4.15</a>
+            se definió que dos
+            métricas son equivalentes si tienen las mismas
+            sucesiones convergentes.
+          </p>
+          <p>
+            Prueba que dos métricas son equivalentes si y sólo si generan los
+            mismos conjuntos abiertos.
+          </p>
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box flexbox">
+              <div class="flexbox">
+
+              <iframe width="700" height="400" class="video"
+                src="https://www.youtube.com/embed/8CWr_4HvgNE" allowfullscreen="true"> 
+              </iframe>
+                  
+              </div>
+          </div>
+      </div>
+
+
+      <!---- OJOOOO: ver nota inciso 2-->
+      <div class="teorema-box">
+        <h2 class="number-title" id="Teo:CaracCerrados"> Teorema </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(F\subseteq X\). Las
+          siguientes condiciones son equivalentes:
+        </p>
+        <ol>
+          <li>
+            \(F\) es cerrado.
+          </li>
+
+          <!-- quitar el inciso 2 en futuras entregas, creo que se mucha información y 
+          dice lo mismo que en inciso 3-->
+          <li>
+            Si un punto \(x\) satisface que, para todo \(r>0\)
+            \(B_r(x)\cap F \ne \emptyset\), entonces \(x\in F\).
+          </li>
+          <li>
+            Si existe \((x_n)_{n=1}^\infty\)  es una sucesión de puntos 
+            de \(F\) (es decir, \(x_n\in F\) para toda \(n\)) y \( \lim_{n\to \infty} x_n=x\) 
+            entonces \(x\in F\).
+          </li>
+        </ol>
+
+
+                <button class="respButton hvr-grow"> Respuesta </button>
+                <div class="resp-box flexbox">
+                    <div class="flexbox">
+                      <iframe width="700" height="400" class="video"
+                      src="https://www.youtube.com/embed/ns2S4q75MtI" allowfullscreen="true"> 
+                      </iframe>
+                        
+                    </div>
+                </div>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:PropiedadesCerrados"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico.
+          <ol>
+            <li>
+              Sea \(\{F_i\}_{i\in I}\) una colección arbitraria de conjuntos
+              cerrados. Prueba que la intersección \(\cap_{i\in I}F_i\), es
+              cerrada.
+            </li>
+            <li>
+              Sea \(F_1,\dots, F_n\) una colección finita de conjuntos
+              cerrados. Prueba que la union \(\cup_{i=1}^n F_i\)
+              es cerrada.
+            </li>
+            <li>
+              Da un ejemplo de un espacio métrico y una colección numerable
+              de conjuntos cerrados, \(\{F_i\}_{i\in \mathbb{N}}\), tal que
+              su union \(\cup_{i\in \mathbb{N}} F_i\) no es cerrada.
+            </li>
+          </ol>
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Considera el espacio métrico \((\mathbb{R},|\cdot|)\).
+          <ol>
+            <li>
+              Prueba que  \(\mathbb{Q}\) no es ni abierto ni cerrado en
+              \(\mathbb{R}\).
+            </li>
+            <li>
+              ¿Existe un conjunto abierto en \(\mathbb{R}\), no vacío, contenido
+              en \(\mathbb{Q}\)?
+            </li>
+            <li>
+              Da un ejemplo de un subconjunto de \(\mathbb{R}\), cerrado
+              y que consiste sólo de números irracionales.
+            </li>
+          </ol>
+        </p>
+
+      </div>
+
+
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(f:\mathbb{R}\to \mathbb{R}\) una función continua.
+        </p>
+        <p>
+        Fija \(a\in \mathbb{R}\). Prueba que el conjunto
+        \(\{t\in \mathbb{R}: f(t)>a\}\) es abierto y que
+        \(\{ t\in \mathbb{R}: f(t)=a\}\) es cerrado.
+        </p>
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+            Veamos que si \(t\) pertenece al conjunto descrito entonces podemos
+            encontrar una bola abierta alrededor de \(t\) contenida en el
+            conjunto.
+            <br>
+            Como \(f(t) > a\) entonces podemos tomar \(\epsilon =
+            \frac{1}{2}|f(t)-a|\). Por continuidad de \(f\) existe \(\delta > 0\)
+            tal que si \(|t-s| < \delta\) entonces \(|f(t)-f(s)| < \epsilon\).
+            Ésto último se puede reescribir como, si \(s \in B_{\delta}(t)\),
+            entonces \(|f(t)-f(s)|< \epsilon\). En particular, por definición
+            de \(\epsilon\) se tiene que \(f(s) > a\) y que
+            \(B_{\delta}(t) \subseteq \{t \in \mathbb{R}: f(t) > a\}\).
+            <br>
+            Como consecuencia de lo anterior tenemos que \(\{t \in \mathbb{R}: f(t) \leq a\}\)
+            es un conjunto cerrado. Se puede demostrar que \(\{t \in \mathbb{R}: f(t)<
+            a\}\) también es un conjunto abierto (una opción es definir \(g(t) = -f(t)\) y
+            aplicar el resultado), por lo que \({t \in \mathbb{R}: f(t) \geq a}\) también es cerrado
+            y como
+            \[
+            \{t \in \mathbb{R} : f(t) = a\} = \{t \in \mathbb{R}: f(t) \geq a\} \cap \{t \in \mathbb{R} : f(t) \leq a\}
+            \]
+            concluimos que el conjunto es cerrado.
+        </div>
+      </div>
+
+
+    <div class="ejercicio-box">
+      <h2  class="number-title"> Ejercicio </h2>
+        <p>
+          <ol>
+            <li> Prueba que todo intervalo abierto de \(\mathbb{R}\)
+             es la unión numerable de intervalos cerrados.
+            </li>
+            <li> Prueba que todo intervalo cerrado de \(\mathbb{R}\)
+              es la intersección numerable de intervalos abiertos.
+            </li>
+          </ol>
+        </p>
+    </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d_X)\), \((Y,d_Y)\) dos espacios métricos y \(A \subseteq X\),
+          \(B\subseteq Y\). Cosdiera el espacio métrico \(X\times Y, d\)
+          con la métrica
+          \[
+          \sigma((x_1,y_1),(x_2,y_2))= \sqrt{d_X(x_1,x_2)^2+d_Y(y_1,y_2)^2}
+          \]
+          Ver <a href="./S2.html#Ejer:MetProdCarte">Ejercicio 2.10</a>.
+        </p>
+          <ol>
+            <li> Si \(A\) es abierto en \(X\) y \(B\) es abierto
+              en \(Y\) prueba que \(A\times B\) es abierto en \(X\times Y\).
+            </li>
+            <li> Si \(A\) es cerrado en \(X\) y \(B\) es cerrado
+              en \(Y\) prueba que \(A\times B\) es cerrado en \(X\times Y\).
+            </li>
+          </ol>
+          <p>
+            Nota: gracias al <a href="./S4.html#Ejer:MetEquivProdCarte">Ejercicio 4.17</a>
+            y <a href="#Ejer:TopologiaEspacioProducto">Ejercicio 5.10</a>,
+            éste ejercicio sigue siendo válidos si se reemplaza
+            \(\sigma\) por cualquier otra de las métricas del
+            <a href="./S2.html#Ejer:MetProdCarte">Ejercicio 2.20</a>.
+           </p>
+        </div>
+
+
+
+          <div class="definicion-box">
+            <h2 class="number-title" id="Def:ProductoEspaciosMetricos"> Definición </h2>
+
               <p>
-                Comencemos por recordar el Teorema del Valor Medio. Si \(f:[a,b] \to \mathbb{R}\)
-                es continua en \([a,b]\) y diferenciable en \((a,b)\) entonces existe un punto
-                \(c \in (a,b)\) tal que \(f'(c) = \frac{f(b)-f(a)}{b-a}\).
-              </p> 
-              <p>
-                Dado que \(\sen\) y \(\cos\)
-                son continuas y diferenciables en todo \(\mathbb{R}\). Trabajaremos con \(\sen\) y
-                el caso para \(\cos\) será análogo. Recordemos que ambas funciones toman valores en
-                el intervalo \([0,1]\) y \(\sen '(x) = \cos(x)\), de esta forma si \(a,b \in \mathbb{R}\)
-                entonces existe \(c \in (a,b)\) tal que \(\cos(c) = \frac{\sen(b)-\sen(a)}{b-a}\).
-                Basta tomar valor absoluto en ambos lados de la ecuación y despejar el término
-                \(|b-a|\) para obtener \(|\sen(b) - \sen(a)| = |\cos(c)||b-a|\). Como \(|\cos(c)| \leq 1\)
-                concluimos que \(|\sen(b) - sen(a)| \leq 1 \cdot |b-a|\) y la función en cuestión es
-                Lipschitz con constante \(K=1\). El caso de \(\cos\) es análogo. Dados \(a,b \in \mathbb{R}\)
-                existe \(c \in (a,b)\) tal que \(|\cos(b) - \cos(a)| = |-\sen(c)||b-a| \leq 1 \cdot |b-a|\).
+                Sean \((X,d_Y)\) y \((Y,d_Y)\) dos espacios métricos.
               </p>
-          </li>
-          <li>
-              Notemos que la generalización la obtenemos de manera natural de la demostración anterior.
-              Supongamos que \(|f'(z)| \leq K \). Sean \(x,y \in [a,b]\) y supongamos SPG que \(x < y\).
-              Por el Teo. del Valor Medio sabemos que existe \(z \in (x,y) \subseteq (a,b)\) tal que
-              \(f'(z) = \frac{f(y) - f(x)}{y - x}\). Tomando valor absoluto de ambos lados de la ecuación
-              y despejando el término \(|y-x|\) tenemos \(|f(y) - f(x)| = |f'(z)||y - x| \leq K |y-x|\),
-              por lo que la función es Lipschitz.
-          </li>
+              <p>
+                Ya que todas las métricas
+                \begin{eqnarray*}
+                d((x_1,y_1),(x_2,y_2))&=& d_X(x_1,x_2)+d_Y(y_1,y_2),\\
+                \rho((x_1,y_1),(x_2,y_2)) &=& \max\{d_X(x_1,x_2), d_Y(y_1,y_2)  \}\\
+                \sigma((x_1,y_1),(x_2,y_2)) &=& \sqrt{d_X(x_1,x_2)^2+d_Y(y_1,y_2)^2}.
+                \end{eqnarray*}
+                son equivalentes
+                ( gracias al <a href="./S4.html#Ejer:MetEquivProdCarte">Ejercicio 4.17</a>)
+                van a generar los mismos subconjuntos abiertos en
+                \(X\times Y\), (ver <a href="./S5.html#Ejer:TopologiaEspacioProducto">Ejercicio 5.10</a>). Por lo tanto
+                definimos el producto de los espacios métricos
+                \((X,d_X)\) y \((Y,d_Y)\) como el espacio métrico \(X\times Y\) dotado
+                con cualquiera de las métricas anteriores.
+              </p>
+
+            </div>
+
+
+      <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+            <p>
+            Para  \(k\in \mathbb{N}\) denota \(e^{(k)}\) la sucesión de
+            números reales que es todo cero excepto en el lugar \(k\), donde
+            tiene un 1. Prueba que el conjunto
+            \(\{e^{(k)}\}_{k\in \mathbb{N}}\) es cerrado en
+            \((\ell_p, \|\cdot\|_p)\), para todo \(p\in [1,\infty]\).
+            </p>
+            <p>
+              Sugerencia: usa el <a href="#Teo:CaracCerrados">Teorema 5.11 </a>
+              inciso 3.
+            </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Considera el espacio vectorial normado
+            \((\ell_\infty, \|\cdot\|_\infty)\). Por
+            \(c_0\) denotamos al conjunto de sucesiones de números
+            reales que convergen a cero. Ya que toda sucesión convergente
+            es acotada tenemos que \(c_0 \subseteq \ell_\infty\).
+          </p>
+          <p>
+            Prueba que \(c_0\) es cerrado en \(\ell_\infty\).
+          </p>
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box flexbox">
+              <div class=" flexbox">
+                <iframe width="700" height="400" class="video"
+                      src="https://www.youtube.com/embed/Ee6IlXaQXO8" allowfullscreen="true"> 
+                </iframe>
+              </div>
+          </div>
+        </div>
+
+
+    <div class="definicion-box">
+      <h2 class="number-title"> Definición </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico y \(A \subseteq X\).
+      </p>
+      <p>
+        Se define el interior de \(A\), denotado \(\inte_X(A)\)
+        ó \(\inte(A)\) (si el espacio ambiente \(X\) es claro)  como
+        \[
+        \inte(A)=\cup\{ U \subseteq X : \textrm{\(U\) es abierto en \(X\)
+        y \(U \subseteq A\)}\}
+        \]
+      </p>
+      <p>
+        Ya que siempre tenemos \(\emptyset \subset A\) y
+        \(\emptyset\) es un conjunto abierto, el interior
+        de un conjunto está bien definido. Además, usando que
+        unión arbitraria de conjuntos abiertos es abierta
+        (<a href="#Ejer:PropiedadesAbiertos">Ejercicio 5.5</a>) resulta
+        que el interior de un conjunto siempre es un conjunto abierto.
+        Finalmente, como el interior es la unión de todos los abiertos contenidos
+        en el conjunto también es el abierto más grande contenido en el
+        conjunto.
+      </p>
+      <p>
+        Se define la cerradura de \(A\), denotada \(\overline{A}\),
+        \(\cer_X(A)\) ó \(\cer(A)\)  como el cerrado más chico que contiene a \(A\), es decir
+        \[
+        \cer(A)=\cap \{ F\subseteq X: \textrm{\(F\) es cerrado en
+        \(X\) y \(A\subseteq F\)} \}
+        \]
+        Ya que \(X\) es un conjunto cerrado y \(A\subset X\) la cerradura
+        está bien definida. Además por el
+        <a href="#Ejer:PropiedadesCerrados">Ejercicio 5.12</a>
+        tenemos que \(\cer(A)\) es siempre un conjunto cerrado.
+      </p>
+      <p>
+        Nota que si \(A\) es cerrado entonces \(A=\overline{A}\) y
+        si \(A\) es abierto \(\inte(A)=A\).
+      </p>
+    </div>
+
+
+
+    <div class="lema-box">
+      <h2 class="number-title"> Lema </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico y \(A\subseteq X\).
+      </p>
+      <p>
+        Un punto \(x\in X\) satisface \(x\in \overline{A}\)
+        si y sólo si para toda \(r>0\), \(B_r(x)\cap A \ne \emptyset\).
+      </p>
+      <p>
+        Un punto \(x\in X\) satisface \(x\in \inte(A)\)
+        si y sólo si exite \(r>0\) tal que \(B_r(x)\subseteq  A \).
+      </p>
+
+
+              <button class="respButton hvr-grow"> Respuesta </button>
+              <div class="resp-box flexbox ">
+                  <div class=" flexbox">
+                    <iframe width="700" height="400" class="video"
+                      src="https://www.youtube.com/embed/TbVa-nkp61A" allowfullscreen="true"> 
+                    </iframe>
+                  </div>
+              </div>
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title" id="Ejer:CaractCerraduraSuc"> Ejercicio </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico y \(A\subseteq X\).
+      </p>
+      <p>
+        Prueba que \(x\in \overline{A}\) si y sólo si
+        existe una sucesión de elementos de \(A\),
+        \((a_n)_{n\in \mathbb{N}} \subset A\), tal que
+        \(\lim_na_n=x\).
+      </p>
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Prueba las siguientes indentidades.
+      </p>
+      <ol>
+        <li> \(\inte([a,b) )= (a,b)\), \(\cer([a,b))=[a,b]\). </li>
+        <li> \(\inte(\mathbb{Q})=\emptyset\), \(\cer(\mathbb{Q})=\mathbb{R}\) .</li>
+        <li> \(\inte(\Delta)=\emptyset\), \(\cer(\Delta)=\Delta\),
+          donde \(\Delta\) es el conjunto de cantor.</li>
       </ol>
-  </div>
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Considera la función \(L: \ell_\infty \to \mathbb{R}\)
-    dada por
-    \[
-    L(x)=\sum_{n=1}^\infty \frac{1}{2^n} x_n
-    \]
-    donde consideramos \(\ell_\infty\) dotado con la norma
-    \(\|\cdot\|_\infty\).
-  </p>
-  <p>
-    Prueba que \(L\) es Lipschitz.
-  </p>
-</div>
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <ol>
-  <li>
-    <p>
-    Fija \(y=(y_n)_{n=1}^\infty \in \ell_2\) y define \(g:\ell_2 \to \mathbb{R}\) por
-    \[
-    g(x)=\sum_{n=1}^\infty x_ny_n
-    \]
-    Por la desigualdad de Cauchy-Schwartz \(g\) está bien definida,
-    es decir, la serie \(\sum_{n=1}^\infty x_ny_n\) es convergente.
-  </p>
-  <p>
-    Prueba que \(g\) es Lipschitz.
-  </p>
-  </li>
-  <li>
-    Generaliza el inciso anterior. Sean \(p,q\in (1,\infty)\) exponentes
-    conjugados y fija \(y\in \ell_q \). Define
-    \(g:\ell_p \to \mathbb{R} \) por
-    \[
-      g(x)=\sum_{n=1}^\infty x_ny_n
-    \]
-    Prueba que \(g\) es Lipschitz. Sugerencia: usa
-    la <a href="./S3.html#Lema:Holder"> desigualdad de Hølder</a>.
-  </li>
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos. Una
-    función \(f:X \to Y\) se llama isometría si para todos \(a,b\in X\)
-    \[
-     d_X(a,b)=d_Y(f(a),f(b)).
-    \]
-  <p>
-    <ol>
-      <li>
-        Prueba que la función \(F: \mathbb{N} \to \ell_1\) dada por
-        \[
-        F(n)=(\underbrace{1,\dots,1}_{n \quad \textrm{lugares}}, 0, 0, \dots)
-        \]
-        es una isometría. Nota: \(\mathbb{N}\) está dotado con la métrica usual
-        heredada de \(\mathbb{R}\).
-      </li>
-      <li>
-        Sea \(p\in [1,\infty) \). Define \(G: \ell_p \to \ell_p\) dada por
-        \[
-        G((x_1,x_2,\dots, ))=(0,x_1,x_2,\dots)
-        \]
-        Prueba que \(G\) es una isometría.
-      </li>
-    </ol>
-</div>
-
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title" id="Ejer:ContinuidadFunDistanciaConjunto"> Ejercicio </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico y \(A\subseteq X\). La distancia
-    de un punto \(x\in X\) al conjunto \(A\) se define como
-    \[
-    d(x,A):=\inf_{a\in A}\{ d(x,a) \}
-    \]
-    Prueba que \(|d(x,A)-d(y,A)|\leq d(x,y)\), para todos \(x,y\in X\).
-  </p>
-    <p>
-    Por
-    lo tanto la función distancia a un conjunto es Lipschitz continua con
-    \(K=1\).
-    </p>
-</div>
-
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico y \(E,F \subseteq X\) dos
-    conjuntos cerrados, no vacíos y ajenos. Define
-    \(f:X\to \mathbb{R}\) por
-    \[
-    f(x)=\frac{d(x,E)}{d(x,E)+d(x,F)}
-    \]
-  </p>
-  <ol>
-    <li>
-      Prueba que \(f\) es continua.
-    </li>
-    <li>
-      Para toda \(x\in X\), \(0\leq f(x)\leq 1\).
-    </li>
-    <li>
-      \(f^{-1}(0)=E\), \(f^{-1}(1)=F\).
-    </li>
-  </ol>
-  <p>
-    Sugerencia: usa  <a href="#Ejer:ContinuidadFunDistanciaConjunto">Ejercicio 6.18</a>
-    y <a href="./S5.html#Ejer:DistanciaConjuntoCerradura">Ejercicio 5.31</a>
-  </p>
-  <p>
-    Usa lo anterior prueba que existen dos conjuntos abiertos,
-    \(U,V\), ajenos con \(E\subset U\), \(F \subset V\). Se dice
-    que los conjuntos \(U\) y \(V\) separan a \(E\) y \(F\).
-  </p>
-
-</div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Una función definida sobre un espacio métrico, con valores
-    en \(\mathbb{R}\), \(f:X\to \mathbb{R}\) se llama semi-continua
-    inferiormente si para toda \(a\in \mathbb{R}\) el conjunto
-    \[
-      \{x\in X: f(x)\leq a \}
-    \]
-    es cerrado.
-  </p>
-  <p>
-    Prueba que \(f\) es semi-continua inferiormente si y sólo si
-    \[
-    f(x)\leq \liminf_{n\to \infty} f(x_n)
-    \]
-    siempre que \(\lim_{n\to \infty} x_n=x\).
-  </p>
-  <p>
-    Nota: para una sucesión de números reales \((r_n)_{n=1}^\infty\)
-    se define
-    \[
-    \liminf_{n\to \infty} r_n = \sup_{n\geq 1} \left\{ \inf_{k\geq n} \{r_k\} \right\}
-    \]
-  </p>
-
-  <button class="respButton hvr-grow"> Respuesta </button>
-  <div class="resp-box flexbox">
-      <div class=" flexbox">
-        <iframe width="700" height="400" class="video"
-          src="https://www.youtube.com/embed/wxV64UovdQ8" allowfullscreen="true"> 
-        </iframe>
-          
-      </div>
-  </div>
-</div>
-
-
-<div class="definicion-box">
-  <h2 class="number-title"> Definicion </h2>
-  <p>
-    Un homeomorfismo entre dos espacios métricos, \((X,d_X), (Y,d_Y)\),
-    es una función \(f: X\to Y\) que satisface:
-    <ul>
-      <li>
-        \(f\) es inyectiva.
-      </li>
-      <li>
-        \(f\) es suprayectiva.
-      </li>
-      <li>
-        Tanto \(f\) como su inversa, \(f^{-1}\), son funciones continuas.
-      </li>
-    </ul>
-
-  </p>
-  <p>
-    Si existe un homeomorfismo entre los espacios \(X\) y \(Y\) se dicen
-    que son homeomorfos.
-  </p>
-  <p>
-    Ejemplo
-  </p>
-  <ul>
-    <li>
-    Cualquier función \(f:\mathbb{R}\to \mathbb{R}\)
-    de la forma \(f(x)=mx+b\), con \(m\ne 0\), es un homemorfimo de \(\mathbb{R}\)
-    pues \(f^{-1}(y)=\frac{y-b}{m}\) y tanto \(f\) como \(f^{-1}\) son
-    continuas.
-    </li>
-    <!--<li>
-    Sea \((X,d)\) un espacio métrico, fija \(z\in X\) y define \(f:X\to [0,\infty)\) por
-    \(f(x)=d(x,z)\). Por el <a href="./S2.html#Ejer:LaOtraDesigTri">Ejercicio 2.14</a>
-    la función \(f\) satisface \(|f(x)-f(y)|\leq d(x,y)\) por lo  que
-    \(f\) es Lipschitz con constante \(K=1\).
-    </li>-->
-    <li>
-      Toda isometría \(f:(X,d_X)\to (Y,d_Y)\) suprayectiva es un homemomorfismo. 
-    </li>
-  </ul>
-</div>
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sean \((X,d_X), (Y,d_Y)\) espacios métricos y \(f:X\to Y\)
-    una biyección. Las siguientes condiciones son equivalentes.
-  </p>
-  <ol>
-    <li>
-      \(f\) es un homemorfismo.
-    </li>
-    <li>
-      \(U\) abierto en \(X\) si y sólo si \(f(U)\)  abierto en \(Y\).
-    </li>
-    <li>
-      \(F\) cerrado en \(X\) si y sólo si \(f(U)\)  cerrado en \(Y\).
-    </li>
-    <li>
-      una sucesión \((x_n)_{n=1}^\infty \subseteq X\) satisface 
-      \(\lim_{n\to \infty}x_n=x\) en \(X\) si y sólo si la sucesión 
-      \((f(x_n))_{n=1}^\infty\subseteq Y\)  satisface \(\lim_{n\to \infty} f(x_n)=f(x)\) en \(Y\).
-    </li>
-  </ol>
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \(X \ne \emptyset\) un conjunto y \(d,\rho\) dos métricas
-    sobre \(X\).
-  </p>
-  <p>
-    Prueba que las métricas \(d\) y \(\rho\) son
-    equivalentes si y sólo si la función identidad
-    \(\operatorname{id}: (X,d) \to (X,\rho)\) es un
-    homemorfismo.
-  </p>
-
-</div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Por \((X,d)\) denotamos al espacio métrico \(X=\{0\} \cup \{\frac{1}{n}: n=1,2,\dots \}\)
-    donde \(d \) es la métrica usual, heredada de \(\mathbb{R}\).
-  </p>
-  <p>
-    En \(X\) define una nueva métrica dada por
-    \[
-    \rho(x,y)=\left\{
-      \begin{array}{cc}
-      \left| \frac{1}{n}-\frac{1}{m} \right| & \textrm{si \(x=1/n, y=1/m\) con \(n,m\geq 2\)}\\
-      \frac{1}{n} & \textrm{si \(y=1\), \(x=1/n\) con \(n\geq 2\)} \\
-      1-\frac{1}{n} & \text{si \(y=0\), \(x=1/n\) con \(n\geq 2\))} \\
-      1 & \textrm{si  \(y=0\), \(x=1\)}
-      \end{array}
-      \right.
-    \]
-  </p>
-  <p>
-    Prueba que \((X,d)\) y \((X,\rho)\) son homemomorfos y que
-    la función identidad \(\operatorname{id}:X \to X\) no es continua.
-  </p>
-</div>
+    </div>
 
 
     <div class="ejercicio-box">
       <h2 class="number-title"> Ejercicio </h2>
       <p>
-        Sea \((V,\|\cdot\|)\) un espaio vectorial normado. Prueba que \(V\) y \(B_1(0)\) son homeomorfos.
+        Sea \((X,d)\) un espacio métrico y \(A,B \subseteq X\).
+      </p>
+      <ol>
+        <li>
+          Prueba \(\cer(A\cup B)=\cer(A)\cup \cer(B)\).
+        </li>
+        <li>
+          Prueba \(\cer(A \cap B)\subseteq \cer(A)\cap \cer(B) \)
+          y da un ejemplo que muestre que la contención puede ser propia.
+        </li>
+        <li>
+          Prueba \(\inte(A\cap B)= \inte(A)\cap \inte(B)\).
+        </li>
+        <li>
+          Prueba \(\inte(A)\cup \inte(B) \subseteq \inte(A\cup B) \) y
+          da un ejemplo que muestre que la contención puede ser propia.
+        </li>
+      </ol>
+
+
+              <button class="respButton hvr-grow"> Respuesta incisos 1,2 </button>
+              <div class="resp-box flexbox">
+                  <div class="flexbox">
+                    <iframe width="700" height="400" class="video"
+                      src="https://www.youtube.com/embed/lEKm-feQ6f0" allowfullscreen="true"> 
+                    </iframe>
+                      
+                  </div>
+              </div>
+    </div>
+
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h3>
+      <p>
+        Sea \((X,d)\) un espacio métrico y \(A\subseteq X\).
       </p>
       <p>
-        Hint: considera la función \(f: V\to B_1(0)\) dada por \(f(x)=\frac{1}{1+\|x\|}x\).
+        Un punto \(x\in X\) se llama punto de acumulación de \(A\)
+        (o punto límite de \(A\)) si para todo \(r>0\) exite
+        \(a\in A\), \(a\ne x\) tal que \(d(x,a)< r\).
+      </p>
+      <p>
+        Si \(x\in X\) es un punto límite de \(A\) prueba que para todo 
+       abierto \(U\) tal que \(x\in U\) contiene una cantidad
+        infinita de elementos de \(A\).
+      </p>
+    </div>
+
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Sea \((X,d)\) un espacio métrico, \(A\subseteq X\) y \(x\in X\).
+    </p>
+    <p>
+      Prueba que \(x\) es un punto límite de \(A\) si y  sólo si
+      existe una sucesión \((a_n)_{n\in \mathbb{N}} \subset A\)
+      tal que \(\lim_{n\to \infty}a_n=x\) y \(a_n\neq x\), para toda \(n\).
+    </p>
+
+  </div>
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Sea \((X,d)\) un espacio métrico y \(A\subseteq X\). Por
+      \(A'\) denotamos al conjunto de todolos puntos de acumulación de
+      \(A\).
+    </p>
+    <ol>
+      <li>
+        Prueba que \(A'\) es un conjunto cerrado.
+      </li>
+      <li>
+        Prueba que \(\cer(A)=A\cup A'\).
+      </li>
+      <li>
+        Prueba que \(A\) es cerrado si y sólo si \(A'\subseteq A\).
+      </li>
+
+    </ol>
+  </div>
+
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Sea \((X,d)\) un espacio métrico y \(A \subseteq X\). Un punto
+      \(x\in X\) se llama punto frontera de \(A\) si, para todo
+      \(r>0\) se cumple
+      \[
+      B_r(x)\cap A \ne \emptyset \quad  \textrm{y} \quad B_r(x)\cap A^c \ne \emptyset.
+      \]
+      Al conjunto de puntos frontera lo denotamos por \(\partial(A)\).
+    </p>
+    <p>
+      Prueba las siguientes identidades.
+      <ol>
+        <li> \(\partial(A)=\partial(A^c)\).</li>
+        <li> \(\cer(A)=\inte(A)\cup \partial(A)\).</li>
+        <li> \(X= \inte(A)\cup \partial(A)\cup \inte(A^c)\).</li>
+      </ol>
+    </p>
+  </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico,  \(x_0\in X\) y
+        \(r>0\). El conjunto
+        \[
+        \{x\in X: d(x,x_0) \leq r\}
+        \]
+        se llama la bola cerrada, centrada en \(x\), de radio \(r\).
+      </p>
+      <p>
+        Prueba que la bola cerrada es un subconjunto cerrado pero da
+         un ejemplo que muestra que la cerradura de la bola abierta no
+         es la bola cerrada, es decir:
+         \[
+         \overline{B_r(x_0)} \ne \{x\in X: d(x,x_0) \leq r\}
+         \]
+      </p>
+      <p>
+        Sugerencia: metrica discreta.
       </p>
 
     </div>
 
-    <div class="quiz-box">
-      <h2 id="Quiz:Sec6"> Quiz </h2>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \((V,\|\cdot\|)\) un espacio vectorial normado,
+        \(v_0\in V\), \(r>0\).
+      </p>
+      <p>
+        Prueba
+        \[
+        \overline{B_r(v_0)}=\{ v\in V: \| v-v_0\| \leq r\}.
+        \]
+      </p>
+      <p>
+        Es decir, para espacios vectoriales normados
+        la cerradura de la bola abierta sí es la bola cerrada.
+      </p>
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title" id="Ejer:DiamCerradura"> Ejercicio </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico y \(A\subseteq X\).
+        Prueba que \(\operatorname{diam}(A)=\operatorname{diam}(\overline{A})\).
+      </p>
+      <p>
+        Ver <a href="./S2.html#Ejer:Diametro">Ejercicio 2.26</a> para definción
+        de diámetro.
+      </p>
+      <button class="respButton hvr-grow"> Respuesta </button>
+      <div class="resp-box">
+          Recordemos que en la sección anterior demostramos que si
+          \(\lim_{n \to \infty} x_n = x\) y \(\lim_{n \to \infty} y_n = y\) entonces
+          \(d(x,y)= \lim_{n \to \infty} d(x_n,y_n)\), asimismo \(z \in \overline{A}\)
+          si y sólo si existe una sucesión \((z_n)_{n \in \mathbb{N}} \subseteq A\)
+          que converge a \(z\). Sean \(a,b \in \overline{A}\) y \((a_n), (b_n)\)
+          sucesiones en \(A\) tales que \(\lim a_n = a\) y \(\lim b_n = b\). Para
+          cada \(n \in \mathbb{N}\) se tiene que \(d(a_n,b_n) \leq \operatorname{diam}(A)\),
+          por lo que \(d(a,b) = \lim_{n \to \infty} d(a_n,b_n) \leq \operatorname{diam}(A)\).
+
+          En consecuencia \(\operatorname{diam}(\overline{A}) = \sup_{a,b \in \overline A} d(a,b) \leq \operatorname{diam}(A)\)
+          <br>
+          La otra contención es consecuencia de las propiedades del supremo, como
+          \(A \subseteq \overline A\) entonces \(\sup_{a,b \in A}\{d(a,b)\} \leq \sup_{a,b \in \overline A}d(a,b)\)
+          y \(\operatorname{diam}(A) \leq \operatorname{diam}(\overline A)\).
+      </div>
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title" id="Ejer:DistanciaConjuntoCerradura"> Ejercicio </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico y \(A\subseteq X\) un subconjunto
+        no vacío. Dado un punto \(x\in X\) se define la distancia de
+        \(x\) al subconjunto \(A\) como
+        \[
+        d(x,A)=\inf\{d(x,a): a\in A \}.
+        \]
+        <div class="flexbox">
+            <img src="./Images/DefDistConj.png"
+            alt="DistanciaConjunto" width="30%" height="auto">
+        </div>
+      </p>
+      <p>
+        Prueba que \(x\in \overline{A}\) si y sólo si \(d(x,A)=0\).
+      </p>
+      <p>
+        Sugerencia: <a href="#Ejer:CaractCerraduraSuc">Ejercicio 5.21</a>
+      </p>
+    </div>
+
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title" id="Ejer:EquivDensos"> Ejercicio </h2>
+      <p>
+        Sea \((X,d_X)\) un espacio métrico. Decimos que un subconjunto
+        \( D \subseteq X\) se llama denso  en \(X\) si \(\overline{D}=X\). Por
+        ejemplo \(\mathbb{Q}\) es denso en \(\mathbb{R}\).
+      </p>
+      <p>
+        Prueba que las siguientes condiciones son equivalentes.
+      </p>
       <ol>
         <li>
-          <p>
-          (3 pts) Considera el espacio  \((\ell_2,\|\cdot\|_2)\). Prueba que
-          el conjunto
-          \[
-          A=\{x\in \ell_2:  \sum_{n=1}^{\infty} \frac{x(n)}{n} >0\}
-          \]
-          es abierto.
-        </p>
+          \(D\) es denso en \(X\).
         </li>
         <li>
-          <p>
-          (2 pts)  Considera el espacio \((C([a,b]), \|\cdot\|_1)\)
-           (<a href="./S3.html#Quiz:Sec3">ver quiz de la sección 3</a>).
-          Fija una función \(h_0\in C([a,b])\).
-          Define la función \(L:C([a,b])\to \mathbb{R}\) por
-          \[
-          L(f)=\int_a^b f(t)h_0(t)dt.
-          \]
-          Prueba que \(L\) es Lipschitz continua.
-        </p>
+          Para todo \(x\in X\) existe una sucesión de elementos
+          de \(D\), \((d_n)_{n=1}^\infty \subseteq D\), tal que
+          \(\lim_{n\to \infty} d_n=x\).
+        </li>
+        <li>
+          Para todo \(x\in X\) y para toda \(r>0\),
+          \(B_r(x)\cap D \ne \emptyset \).
+        </li>
+        <li>
+          Para todo subconjunto abierto no vacío \(U \subseteq X\),
+          \(U\cap D \ne \emptyset\).
+        </li>
+        <li>
+          \(D^c\) tiene interior vacío.
         </li>
       </ol>
     </div>
 
+
+    <div class="quiz-box">
+      <h2 id="Quiz:Sec5"> Quiz </h2>
+      <ol>
+        <li>
+          <p>
+          (2 pts) Sean \(\alpha\) un real fijo y \(y \in \mathbb{R}^n\)
+          un vector fijo. Considera el subconjunto
+          \[
+          F=\{x\in \mathbb{R}^n: x\cdot y \geq \alpha\}
+          \]
+          donde \(x\cdot y\) denota el producto punto en \(\mathbb{R}^n\).
+          Prueba que \(F\) es un subconjunto cerrado.
+        </p>
+        </li>
+        <li>
+          <p>
+            (3 pts) Sea \((V,\|\cdot\|)\) un espacio vectorial normado
+            y \(U\subseteq V\) un subconjunto abierto. Toma un escalar fijo \(\alpha \ne 0\)
+             y define
+            \[
+            W=\{\alpha u: u\in U\}
+            \]
+            es decir, \(W\) es la homotecia de \(U\) bajo \(\alpha\).
+            Prueba que \(W\) es un subconjunto abierto.
+        </p>
+        </li>
+      </ol>
+    </div>
 
 
     </div>

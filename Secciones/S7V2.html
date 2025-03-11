@@ -1,0 +1,1014 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            cer: "\\operatorname{cer}",
+            inte: "\\operatorname{int}"
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+      body.number-title{
+        counter-reset: sectionCounter 6 cardCounter ;
+      }
+      h1.number-title{
+        counter-reset: sectionCounter 6 cardCounter ;
+      }
+    </style>
+
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <h1 class="calculo-title"> Análisis Matemático UNO</h1>
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio  </a> </li>
+        <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+        <li> <a href="../Secciones.html"> Secciones  </a> </li>
+      </ul>
+     
+    </nav>
+    <label class="switch">
+      <input type="checkbox" onclick="myFunction()">
+      <span class="slider"></span>
+    </label>
+
+    
+
+  </header>
+
+<!-- This part is for title in tab-->
+<title id="Sec"> § 7 </title>
+
+
+  <!--    Contenido empiaza abajo
+ ///////////////////////////////// -->
+
+
+  <body class="flexbox  fondo-body">
+
+
+    <div class="flexbox">
+      <h1 class="number-title flexbox"> Conexidad </h1>
+
+      <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
+      <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
+
+
+      <div class="info-box">
+        <h2 class="number-title"> Introducción </h2>
+        <p>
+          La idea de la conexidad es sencilla: "un conjunto es conexo si es
+          un sola pieza". A pesar de que la idea es sencilla su formalización
+          en términos matemáticos no es tan sencilla. La primera curiosidad es que
+          no se define cuando un conjunto es conexo si no que se define cuando
+          un conjunto no lo es y a partir de esto se da la definición de conexidad.
+          Lo anterior se debe a que es más sencillo definir cuando un conjunto consiste
+          en dos o más piezas pues se usan abiertos para poder "separar" dichas piezas.
+          Así un conjunto va a ser conexo si "no se puede separar" usando abiertos.
+        </p>
+        <p>
+          Otra de las peculiaridades con la conexidad es que enunciados aparentemente
+          sencillos, por ejemplo \(\mathbb{R}\) es conexo, pueden ser laboriosos de demostrar
+          pues hay que cuidar varios detalles que uno piensa que son claro, pero
+          que formalmente necesitan una demostración a partir de la definición.
+        </p>
+        <p>
+          Mencionamos lo anterior no para dar la impresión de que la conexidad
+          sea "dificil" si no para advertir que se requiere aprender a pensar
+          sobre estos conjuntos, aprender a programar nuevas rutinas en el cerebro
+          por decirlo así. Pero las recompensas son muchas pues la relación de la
+          conexidad con las funciones continuas es sorprendente y muy útil
+          (para una muestra ver ejercicios <a href="#Ejer:PuntoFijoFunIntervalos">7.17</a>,
+          <a href="#Ejer:FunContinuaInyectivaEsCreciente">7.18</a> y
+          <a href="#Ejer:FunContinuasRacioIrra">7.19</a>)
+
+        </p>
+      </div>
+
+
+     <!--  <div class="definicion-box">
+        <h2 class="number-title" id="Def:ConexidadEspMet"> Definición </h2>
+
+      <p>
+        Sea \((X,d)\) un espacio métrico.
+      </p>
+      <p>
+        Decimos que
+        \((X,d)\) es disconexo si existen dos subconjuntos
+        \(U,V\subseteq X\), abiertos en \(X\) que satisfacen:
+        <ul>
+          <li>
+            \(U \cap V = \emptyset\).
+          </li>
+          <li>
+            \(U \ne \emptyset\), \(V \ne \emptyset\).
+          </li>
+          <li>
+            \(X = U \cup V\).
+          </li>
+
+        </ul>
+         A un par de conjuntos
+        que satisfacen estan condiciones se les llama una disconexión de \(X\).
+      </p>
+      <p>
+        El espacio \((X,d)\) se llama conexo si no es disconexo.
+      </p>
+      <p>
+        Por ejemplo, el conjunto vacío \(\emptyset\) es conexo por vacuidad.
+      </p>
+      <p>
+        El espacio discreto con un sólo punto
+        \(\{x\}\), es conexo. Para ver esto sólo hay que notar que  el único subconjunto
+        abierto, no vacío es \(\{x\}\), por lo que no es posible
+        dar una disconexión \(U,V\) como se menciona arriba.
+      </p>
+      <p>
+        Por otro lado
+        si tenemos un espacio con la métrica discreta, \((X,d)\), y
+        \(X\) tiene más de un punto dicho espacio es disconexo, pues si
+        \(x\in X\) podemos tomar la disconexión \(U=\{x\}, V=X\setminus \{x\}\).
+        Como en \(X\) todos los subconjuntos son abiertos entonces \(U\) y \(V\)
+        son abiertos, además claramente son ajenos no vacíos (pues \(X\) contiene
+        más de un elemento) y \(X=U\cup V\).
+      </p>
+      </div>--> 
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico. Un subconjunto
+          \(E \subseteq X\) se llama disconexo si existen
+          \(A,B\subset X\) subconjuntos abiertos de \(X\) que
+          satisfacen:
+          <ul>
+            <li>
+              \(A \cap B = \emptyset\).
+            </li>
+            <li>
+              \(A\cap E \ne \emptyset\), \(B\cap E \ne \emptyset\).
+            </li>
+            <li>
+              \(E \subseteq A \cup B\)
+            </li>
+
+          </ul>
+          A un par de dichos conjuntos \(A,B\) se le llama una disconexión.
+        </p>
+
+        <p>
+          El subconjunto  se llama conexo si no es disconexo.
+        </p>
+        <p>
+          Nota: para el caso \(E=X\), tenemos que el espacio métrico es 
+          disconexo si existen dos conjuntos, \(A\) y \(B\), ajenos no vacíos tal que \(X=A\cup B\) 
+        </p>
+        <h4> Ejemplos </h4>
+        <ol>
+          <li>
+            Por ejemplo, el conjunto vacío \(\emptyset\) es conexo por vacuidad.
+          </li>
+          <li>
+            El espacio discreto con un sólo punto
+            \(\{x\}\), es conexo. Para ver esto sólo hay que notar que  el único subconjunto
+            abierto, no vacío es \(\{x\}\), por lo que no es posible
+            dar una disconexión \(U,V\) como se menciona arriba.
+          </li>  
+          <li>
+            Sea \((X,d)\) un espacio métrico discreto con más de dos puntos. Cualquier 
+            subconjunto \(E \subseteq X\) con más de dos puntos es disconexo.
+          </li>
+          <li>
+            Sea \((X,d)\) un espacio métrico arbitrario. Entonces todo singulete \(\{x\}\)
+            es un subconjunto conexo de \(X\).
+          </li>
+        </ol>
+        
+      </div>
+
+      
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:ConexidadIntervalosCerrados"> Ejercicio </h2>
+          <p>
+            Cualquier intervalo cerrado \([a.b]\)
+            es un subconjunto conexo de \(\mathbb{R}\).
+          </p>
+          <button class="respButton hvr-grow"> Demostración </button>
+          <div class="resp-box">
+              <p>
+                  Supongamos que \([a,b]\) es un conjunto
+                  disconexo y que \(U,V\) es una disconexión, es decir 
+                  <ol>
+                    <li>
+                      \(U\cap V \ne \emptyset \)
+                    </li>
+                    <li>
+                      \( U\cap [a,b]\ne \emptyset \),\( V\cap [a,b]\ne \emptyset \).
+                    </li>
+                    <li>
+                      \( [a,b] \subseteq U\cap V \).
+                    </li>
+                  </ol>
+              </p>
+              <p>
+                Como
+                  \([a,b] \subseteq U \cup V\) entonces \(b \in U\) o
+                  \(b \in V\), supongamos sin pérdida de generalidad supongamos que
+                  \(b \in V\). Dado que \(V\) es abierto y \(b \in V\) entonces
+                  existe \(r > 0\) tal que \((b-r,b_r) \subseteq V\). 
+              </p>
+              <p>
+                Sea \(A=U\cap [a,b]\ne \emptyset \) y \(\alpha=\sup(A) \) (bien definido 
+                pues \(b\) es cota superior de \(A\)). Por la propiedad universal 
+                del supremo existe una sucesión  \((u_n)_{n=1}^\infty \subseteq A\) tal que 
+                \(\lim_{n\to \infty}u_n=\alpha\). Ya que \((u_n)_{n=1}^\infty \subseteq [a,b]\)
+                y éste es cerrado, \(\alpha \in [a,b]\).
+              </p>
+              <p>
+                Ya que \([a,b]\subseteq U\cap V\) tenemos dos casos. 
+              </p>
+              <p>
+                Caso 1: \(\alpha \in V\). Ya que este es abierto y \(\lim_{n\to \infty}u_n=\alpha\)
+                existe \(N\) tal que \(u_N\in V\), pero entonces \(u_N\in U\cap V\), una contradicción. 
+              </p>
+              <p>
+                Caso 2: \(\alpha \in U\). Al ser \(U\) abierto, existe \(s> 0\) tal que 
+                \((\alpha-s,\alpha+s) \subseteq U\). Ya que \(\alpha < b \) (pues \(b\in V\) y \(\alpha \notin V\)
+                por el caso anterior), podemos tomar \(s\) que también satisface, \(\alpha+s < b \). Pero entonces 
+                \(\alpha+s/2 \in U\cap [a,b] \), contradiciendo \(\alpha = \sup(U\cap [a,b])\).
+              </p>
+              <!--  <p>
+                  Consideremos ahora el intervalo \((a,b)\) con la posibilidad
+                  de que \(a,b\) sean infinitos. Supongamos que el intervalo es
+                  disconexo y que \(U,V\) es una disconexión. Como \(U \cap (a,b) \neq
+                  \varnothing\) y \(V \cap (a,b) \neq \varnothing\) entonces podemos
+                  tomar \(x \in U \cap (a,b)\) y \(y \in V \cap (a,b)\). Supongamos
+                  sin pérdida de generalidad que \(x < y\). Por definición de
+                  disconexión tenemos que \(U \cap V = \varnothing\) y
+                  \([x,y] \subseteq (a,b) \subseteq U \cup V\). Finalmente, tenemos que
+                  \(x \in [x,y] \cap U\) y \(y \in [x,y] \cap V\), por lo que \(U,V\)
+                  es una disconexión del intervalo \([x,y]\) y contradice al resultado
+                  anterior. Por lo tanto \((a,b)\) es un conjunto conexo.
+              </p>-->
+          </div>
+        </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Un espacio métrico \((X,d)\) es conexo si y sólo si los
+          únicos subconjuntos simultaneamente abiertos y cerrados son
+          \(\emptyset\) y \(X\).
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+            Suponga que \(U\) es un conjunto abierto y cerrado de manera simultánea,
+            entonces \(V = X \setminus U\) también es un conjunto abierto y cerrado,
+            en particular, si \(\varnothing \neq U \neq X\) entonces \(U,V\) forman
+            una disconexión de \(X\). Por lo tanto, si \(X\) es conexo entonces los
+            únicos conjuntos simultáneamente abiertos y cerrados son \(X, \varnothing\).
+
+            Por otro lado, si los conjuntos \(U,V\) forman una disconexión de \(X\)
+            notamos que \(U \cap V = \varnothing\), por lo que \(V \subseteq X \setminus U\),
+            y como \(X = U \cup V\) entonces concluimos que \(V = X \setminus U\) por lo
+            que ambos son abiertos y cerrados. De esta manera, si los únicos
+            conjuntos abiertos y cerrados son \(X, \varnothing\) entonces no puede
+            existir una disconexión de \(X\) y el espacio es conexo.
+        </div>
+      </div>
+
+      <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
+        <p>
+          Un espacio métrico  \((X,d)\) es disconexo si y sólo si
+          existe una función \(f:X \to \{0,1\}\), continua y suprayectiva.
+        </p>
+        <p>
+          Nota: se considera a \(\{0,1\}\) con la métrica discreta.
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          \(\Rightarrow]: \) Supongamos que \((X,d)\) es disconexo. Entonces existe una
+          disconexión \((U,V)\) y con ésta definamos
+          \(f: X\to \{0,1\}\),
+          por
+          \[
+          f(x)=\left\{
+            \begin{array}{cc}
+            0 & \textrm{si \(x\in U\),} \\
+            1 & \textrm{si \(x\in V\).}
+            \end{array}
+            \right.
+          \]
+          Como \(U\ne \emptyset\) y \(V\ne \emptyset \) resulta que  \(f\) es
+          suprayectiva.
+        </p>
+        <p>
+          Afirmamos que \(f\) es continua, para lo cual vamos a probar que la
+          imagen inversa de abiertos es abierto
+          (ver <a href="./S6.html#Lema:ContinuidadAbiertosCerrados">Ejercicio 6.6</a>).
+        </p>
+        <p>
+          Los únicos abiertos en el espacio métrico discreto \(\{0,1\}\) son
+          \[
+          \emptyset, \{0,1\}, \{0\}, \{1\}.
+          \]
+          Usando la definición de \(f\) tenemos:
+          \[
+          f^{-1}(\emptyset)=\emptyset, f^{-1}(\{0,1\})=X, f^{-1}(\{0\})=U,
+          f^{-1}(\{1\})=V,
+          \]
+          todos los cuales son abiertos. Por lo tanto \(f\) es continua.
+        </p>
+        <p>
+          \(\Leftarrow]: \) Supongamos que existe una función continua y suprayectiva
+          \(f:X\to \{0,1\}\).
+        </p>
+        <p>
+          Definamos \(U:=f^{-1}(\{0\})\) y \(V:=f^{-1}(\{1\})\). Ya que
+          \(f\) es continua resulta que tanto \(U\) y \(V\) son abiertos. Además,
+          ya que \(f\) es suprayectiva resulta que \(U\ne \emptyset\)
+          y \(V\ne \emptyset\). Además \(U\) y \(V\) son ajenos pues
+          \[
+          U\cap V= f^{-1}(\{0\})\cap f^{-1}(\{1\})=f^{-1}(\{0\}\cap \{1\})=\emptyset.
+          \]
+          Finalmente
+          \[
+          X=f^{-1}(\{0,1\})=f^{-1}(\{0\}\cup \{1\})=f^{-1}(\{0\})\cup f^{-1}(\{1\})=U\cup V.
+          \]
+          Por lo tanto \((U,V)\) es una disconexión de \(X\).
+        </p>
+      </div>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:EquivConexidadFuncCont01"> Ejercicio </h2>
+        <p>
+          Prueba que un espacio métrico \((X,d)\) es conexo si y sólo
+          si toda función continua \(f:X\to \{0,1\}\) es constante.
+        </p>
+        <p>
+          Nota:se considera a \(\{0,1\}\) con la métrica discreta.
+        </p>
+        <p>
+          Sugerencia: usa el lema anterior.
+        </p>
+      </div>
+
+      
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(E \subset X\) un
+          subconjunto conexo. Supón que \(U,V \subseteq X\) son
+          dos subconjuntos abiertos, ajenos que cumplen
+          \(E \subset U\cup V\). Prueba que \(E\subseteq U\)
+          ó \(E\subseteq V\).
+          </p>
+        </div>
+
+
+
+
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title" id="Ejer:InterseccionConexos"> Ejercicio </h2>
+         <ol>
+          <li>
+            Sea \((X,d)\) un espacio métrico y \(E,F\subseteq X\)
+            dos subconjuntos conexos de \(X\) tal que
+            \(E\cap F \ne \emptyset\). Prueba que \(E\cup F\)
+            es conexo.
+          </li>
+          <li>
+            Generaliza el ejercicio anterior. Supon que
+            \(\{E\}_{i\in I}\) es una familia de subconjuntos
+            conexos de \(X\) con la propiedad de que todos
+            tiene un punto en común. Prueba que
+            \(\cup_{i\in I} E_i\) es conexo.
+          </li>
+        </ol>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Considera a \(\mathbb{R}\) con la métrica usual.
+          </p>
+          <ol>
+            <li>
+              Cualquier intervalo abierto \((a,b)\) es un subconjunto conexo de \(\mathbb{R}\).
+            </li>
+            <li>
+              \(\mathbb{R}\) es conexo.
+            </li>
+          </ol>
+          
+          <p>
+            Sugerencia: usa los ejercicios <a href="#Ejer:ConexidadIntervalosCerrados"> Ejercicio 7.3</a>
+            y <a href="#Ejer:InterseccionConexos"> Ejercicio 7.8</a>
+          </p>
+         <!--  <button class="respButton hvr-grow"> Demostración </button>
+          <div class="resp-box">
+          <p>
+            Vamos a proceder por contradicción, es decir vamos a suponer que
+            \(\mathbb{R}\) es disconexo. Por lo tanto existe \((U,V)\), una
+            disconexción de \(\mathbb{R}\).
+          </p>
+          <p>
+            La idea de la prueba es que vamos a poder encontrar rayos
+            infinitos tal que
+            \[
+            [x,\infty) \subseteq U, \quad [y,\infty) \subseteq V,
+            \]
+            lo cual contradice el hecho de que \(U\) y \(V\) sean ajenos.
+          </p>
+          <p>
+            Ya que \(U \ne \emptyset\) podemos fijar \(x\in U\). La idea es que
+            nos vamos a ir "moviendo" desde \(x\) a la derecha y resulta que
+            no nos vamos a "parar".
+          </p>
+          <p>
+            Para formalizar lo anterior consideramos el conjunto
+            \[
+            A=\{ a \geq x  : [x,a] \subseteq U\}.
+            \]
+          </p>
+          <p> Lo primero que notamos es que \(x\in A\), por lo que \(A\ne \emptyset\).
+          <p>
+            Lo segundo que notamos es la siguiente propidad de \(A\):
+            \begin{equation}\label{Eqn:PropiedadAux}
+              \textrm{si \(x'>x\) y \(x'\in A\) entonces \([x,x']\subseteq A\).}
+            \end{equation}
+          </p>
+          <p>
+            Para probar la contención tomemos \(z\in [x,x']\). Se sigue que \([x,z]\subseteq [x,x']\).
+            Ya que \(x'\in A\) también tenemos que \([x,x']\subseteq U\).
+            Por lo tanto
+            \([x,z]\subseteq U\) lo cual dice que \(z\in A\).
+          </p>
+          <p>
+            El tercer paso es probar  que \(A\) no está acotado superiormente.
+          </p>
+           <p> Para probar lo anterior vamos a
+            proceder por contradicción. Si \(A\) está acotado superiormente por
+            el axioma del supermo existe \(\alpha = \sup(A)\). Veamos que éste
+            \(\alpha\) genera una contradicción.
+          </p>
+          <p>
+            Ya que \(\mathbb{R}=U\cup V\) y \(U\cap V = \emptyset\) tenemos
+            dos casos excluyentes: \(\alpha \in U\) ó \(\alpha \in V\).
+          </p>
+          <p>
+            Supongamos que \(\alpha \in U\).
+          </p>
+          <p>
+            Usando que \(U\) es abierto
+            existe un número positivo \(r\) tal que \((\alpha-r,\alpha+r) \subseteq U\).
+            Se sigue que
+            \begin{equation}\label{Eqn:Aux1ConexidadR}
+            [\alpha-r/2, \alpha+r/2] \subseteq U
+            \end{equation}
+            Por otro lado, usando que \(\alpha\) es el supremo de \(A\) existe
+            \(a\in A\) con \( \alpha - r/2 < a \leq \alpha\). Ya que \(a\in A\)
+            tanemos
+            \begin{equation}\label{Eqn:Aux2ConexidadR}
+            [x,a]\subseteq U
+            \end{equation}
+            Por lo tanto, de \eqref{Eqn:Aux1ConexidadR} y \eqref{Eqn:Aux2ConexidadR}
+            concluimos que
+            \[
+            [x,\alpha+r/2] \subseteq U
+            \]
+            y por lo tanto \(\alpha + r/2 \in A\), contradiciendo que
+            \(\alpha\) sea el supremo de \(A\).
+          </p>
+          <p>
+            Ahora supongamos que \(\alpha \in V\). Vamos a proceder de manera
+            muy similar.
+          </p>
+          <p>
+            Ya que \(V\) es abierto existe un número positivo \(s\) tal que
+            \((\alpha-s, \alpha+s) \subseteq V \).
+          </p>
+          <p>
+            Ya que \(\alpha\) es el supermo de \(A\) existe \(a'\in A\)
+            con \(\alpha -s < a' \leq \alpha\). Nota que también se tiene que \(a'\in V\),
+            pues \(a'\in (\alpha-s,\alpha+s )\subseteq V\).
+         </p>
+         <p>
+           Por otro lado, ya que \(a'\in A \), \([x,a]\subseteq U\), por lo que
+           \(a'\in U\).
+         </p>
+           <p>
+           Pero entonces \(a' \in U\cap V\), una contradicción
+           pues \(U\cap V=\emptyset\).
+         </p>
+         <p>
+           Con esto se concluye la prueba de que \(A\) no está acotado
+           superiormente.
+         </p>
+         <p>
+           Ahora, usando la propiedad \eqref{Eqn:PropiedadAux} y que
+           \(A\) no está acotado superiormente podemos concluir que
+           \([x,\infty) \subseteq A\) de donde se sigue que
+           \[
+           [x,\infty)\subseteq U.
+           \]
+         </p>
+         <p>
+           Para finalizar notamos que podemos hacer el mismo razonamiento si
+           empezamos con el conjunto \(V\). Por lo tanto existe un \(y\in V\)
+           tal que
+           \[
+           [y,\infty) \subseteq V,
+           \]
+           lo cual contradice \(U\cap V =\emptyset\).
+         </p>
+       </div>-->
+          </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(E\subseteq \mathbb{R}\) un subconjunto que contiene más
+          de dos elementos.
+        </p>
+        <p>
+          Prueba que \(E\) es conexo si y sólo si, siempre que
+          \(x,y\in E\) entonces también se cumple \([x,y]\subseteq E\).
+        </p>
+        <p>
+          Concluye que los subconjuntos conexos de \(\mathbb{R}\)
+          son precisamente los intervalos.
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+            <p>
+                Probaremos ambas implicaciones por contrapuesta.
+                Supongamos que \(x,y \in E\) son tales que
+                \([x,y] \not\subseteq E\), es decir, existe \(z \in (x,y)\)
+                tal que \(z \notin E\). Entonces los conjuntos
+                \(U = (-\infty, z), V = (z,\infty)\) forman una disconexión
+                de \(E\).
+            </p>
+            <p>
+                Supongamos ahora que \(E\) es disconexo, entonces existe una
+                disconexión \(U,V\) de E. Por definición \(U \cap E \neq \varnothing
+                \neq V \cap E\), por lo que podemos tomar \(x \in U \cap E\) y
+                \(y \in V \cap E\) y suponemos sin pérdida de generalidad que
+                \(x < y\). Para concluir note que \([x,y] \not\subseteq E\), pues de
+                lo contrario \(U,V\) sería una disconexión del intervalo que
+                sabemos conexo.
+                Por definición, un intervalo es un conjunto que cumple la propiedad
+                descrita, es decir, si \(x,y \in E\) entonces \([x,y] \subseteq E\),
+                con lo que hemos demostrado que los conjuntos conexos de \(\mathbb{R}\)
+                son exactamente los intervalos.
+            </p>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+          Sea \(f:(X,d_X)\to (Y,d_Y)\) una función continua
+          entre dos espacios métricos. Si \(C\subset X \) es
+          conexo entonces su imagen directa bajo \(f\)
+          también es conexo.
+        </p>
+
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          Vamos a demostrarlo por contradicción.
+        </p>
+        <p>
+          Supongamos que \(f(C)\subseteq Y\) es disconexo. Entonces
+          existen \(A,B\subseteq Y\) tal que forman una disconexión de \(f(C)\).
+        </p>
+        <p>
+        Definamos \(U=f^{-1}(A)\) y \(V=f^{-1}(B)\). Afirmamos que \((U,V)\)
+        es una disconexión de \(C\).
+       </p>
+        <p>
+        Primero notamos que al ser \(f\) contínua y \(A,B\subseteq Y\) abiertos
+        \(U\) y \(V\) también son abierto.
+        </p>
+        <p>
+          \(U\) y \(V\) son ajenos pues
+          \[
+          A\cap B= \emptyset \Rightarrow \emptyset = f^{-1}(A\cap B)=f^{-1}(A)\cap f^{-1}(B)
+          =U\cap V.
+          \]
+        </p>
+        <p>
+          Para probar \(U\cap C \ne \emptyset\) empezamos con
+          \(A\cap f(C)\ne \emptyset\) y tomamos \(a \in A\cap f(C) \). Entonces
+          existe \(x\in C\) tal que \(f(x)=a\) y por lo tanto \(x\in C\cap f^{-1}(A)\).
+        </p>
+        <p>
+          De manera similar se tiene \(V\cap C\ne \emptyset\).
+        </p>
+        <p>
+          Para probar que \((U,V)\) es disconexión resta probar \(C\subseteq U\cup V\). Pero
+          \[
+          f(C) \subseteq A\cup B \Rightarrow f^{-1}(f(C))\subseteq f^{-1}(A\cup B)=
+          f^{-1}(A)\cup f^{-1}(B)=U\cup V.
+          \]
+          Usando que \(C\subseteq f^{-1}(f(C))\) concluimos que \(C\subseteq U\cup V\).
+        </p>
+        <p>
+          Concluimos que \((U,V)\) es una disconexión de \(C\) lo cual es una
+          contraficción pues \(C\) es conexo.
+        </p>
+        </div>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(I \subseteq \mathbb{R}\) un intervalo y
+          \(f:I\to \mathbb{R}\) una función continua. Prueba que
+          \(f(I)\) también es un intervalo.
+        </p>
+        <p>
+          Nota: el intervalo \(I\) puede se abierto, cerrado, semi-abierto,
+          acotado, no acotado etc.
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(E \subseteq X\)
+          un subconjunto conexo. Prueba que si un subconjunto
+          \(F\) satiface \(E \subseteq F \subseteq \overline{E}\)
+          entonces \(F\) es conexo.
+        </p>
+        <p>
+          En particular si \(E\) es conexo entonces su cerradura, \(\overline{E}\),
+          también.
+        </p>
+        <p>
+          ¿ Es cierto que si \(\overline{E}\) es conexo entonces \(E\)
+          también?
+        </p>
+      </div>
+
+
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico conexo con almenos dos puntos.
+          Prueba que \(X\) es no numerable.
+        </p>
+        <p>
+          Sugerencia: encuentra una función continua, no constante,
+          de \(X\) en \(\mathbb{R}\).
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+            <p>
+                Sea \(x_0 \in X\) fijo y consideremos la función
+                \(f:X \to \mathbb{R}\) dada por \(f(x) = d(x,x_0)\). Por
+                la desigualdad del triángulo inversa tenemos que para
+                cualquier par \(x,y \in X\), \(|f(x)-f(y)| = |d(x,x_0) - d(y,x_0)|
+                \leq d(x,y)\), por lo que \(f\) es continua. Asímismo, como \(X\)
+                tiene al menos dos puntos existe \(x \neq x_0\) y \(f\) toma, al
+                menos, los valores \(0\) y \(d(x,x_0)\), por lo que no es constante.
+                Como \(X\) es conexo entonces su imagen directa \(f(X)\) es un
+                conjunto conexo en \(\mathbb{R}\), y como tiene al menos dos puntos
+                tiene que ser un intervalo. Toda función es suprayectiva en su
+                imagen directa, entonces \(X\) tiene al menos tantos elementos como
+                un intervalo, que sabemos que es no numerable.
+            </p>
+        </div>
+      </div>
+
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos conexos.
+        </p>
+        <p>
+          Considera el espacio métrico producto \((X\times Y,d)\),
+          donde \(d\) puede ser cualquiera de las métricas dadas en
+          <a  href="./S2.html#Ejer:MetProdCarte">Ejercicio 2.20</a>. Prueba que \(X\times Y\) es conexo.
+        </p>
+        <p>
+          Sugerencia: usa el <a href="#Ejer:EquivConexidadFuncCont01">Ejercicio 7.6</a>
+        </p>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:PuntoFijoFunIntervalos"> Ejercicio </h2>
+        <p>
+          Si \(f:[a,b]\to [a,b]\) es continua prueba que
+          \(f\) tiene  un punto fijo.
+          </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title" id="Ejer:FunContinuaInyectivaEsCreciente"> Ejercicio </h2>
+          <p>
+            Si \(f:\mathbb{R}\to \mathbb{R}\) es continua e inyectiva
+            prueba que \(f\) es estrictamente creciente o estrictamente decreciente.
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title" id="Ejer:FunContinuasRacioIrra"> Ejercicio </h2>
+          <p>
+            Prueba que no existe una función continua
+            \(f:\mathbb{R}\to \mathbb{R}\) que satisface
+            \(f(\mathbb{Q}) \subset \mathbb{R} \setminus \mathbb{Q}\)
+            y \(f(\mathbb{R}\setminus \mathbb{Q}) \subseteq \mathbb{Q}\).
+          </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \(f:\mathbb{R} \to \mathbb{R}\) una función que es: (1) biyectiva, (2) continua.
+          </p>
+          <p>
+            Prueba que \(f\) es un homeomorfismo.
+          </p>
+
+        </div>
+
+
+        <div class="nota-box">
+          <h2 class="number-title" id="Nota:DefConexidad"> Sobre la definición de subconjunto conexo </h2>
+          <p>
+            La <a href="#">Definición 7.2</a> da la impresión de que
+            la conexidad de un conjunto depende del espacio ambiente donde vivve,
+            pues está dada en términos de los subconjuntos abiertos de \((X,d)\).
+            En realidad la conexidad es una propiedad inherente del subconjunto
+            y los ejercicios siguientes exploran este punto de vista.
+          </p>
+        </div>
+
+
+        <div class="definicion-box">
+          <h2 class="number-title" id="Def:MetricaRelativa"> Definición </h2>
+          <p>
+            Sea \((X,d)\) un espacio métrico y \(\emptyset \ne E \subseteq X\).
+            La métrica inducida por \(d\) en \(E\) es simplemente la métrica
+            \(d\) restrigida a \(E\times E\), \(d_E=\left. d\right|_{E\times E}\).
+            Se dice que \((E,d_E)\)
+            es un subespacio de \((X,d)\).
+
+          </p>
+          <p>
+            Por ejemplo, en \(\mathbb{R}^3\) tomando \(E=\{p\in \mathbb{R}^3: \|p\|=1\}\)
+            como subespacio, tenemos \(d_E((0,0,1),(0,0,-1))=2\).
+          </p>
+          <p>
+            Pero si consideramos  a \(E\) con la métrica coordal, denotada \(\rho\), entonces 
+            \(\rho((0,0,1),(0,0,-1))=\pi\).
+          </p>
+          <p>
+            La métrica \(d_E\) induce una
+            topología en \(E\), llama la topología inducida por \((X,d)\),
+            de la siguiente forma. Las bolas abiertas en \((E,d_E)\),
+            denotadas \(B_r^E(x)\), son
+            simplemente
+            \[
+            B_{r}^E(x)=\{e \in E: d_E(x,e)< r\}
+            \]
+            lo cual se puede ver que es igual a
+            \[
+            B_r^E(x)=E\cap B_r(x).
+            \]
+          </p>
+          <p>
+            Un subconjunto \(U \subseteq E\) se llama abierto si, para todo
+            \(x\in U\), existe \(r>0\) tal que \(B_r^E(x)\subset U\).
+          </p>
+
+          <p>
+            Para
+            hacer referencia que los abiertos de \((E,d_E)\) están dados
+            por la métrica inducida por \(d\) en \(E\) se dice que
+            son abiertos relativos a \(E\). Por ejemplo si
+            \(E=[0,1]\) entonces \(U=[0,1/2)\) NO es abierto en
+            \(\mathbb{R}\) pero es abierto relativo
+            en \([0,1]\) pues
+            \[
+            [0,1/2)=[0,1] \cap B_{1/2}(0).
+            \]
+          </p>
+        </div>
+
+
+        <div class="lema-box">
+          <h2 class="number-title" id="Lema:AbiertosSubEspacios"> Lema </h2>
+          <p>
+            Sea \((X,d)\) un espacio métrico y considera
+            el subespacio \((E,d_E)\), donde \(E \subseteq X\)
+            y \(d_E\) denota la métrica inducida en \(E\).
+          </p>
+          <p>
+            Si \(U,V\subseteq E\) son abiertos ajenos en \(E\) prueba
+            que existen \(\tilde{U},\tilde{V}\subseteq X\), abiertos en
+            \(X\) y ajenos tales que \(U=E\cap \tilde{U}\),
+            \(V=\tilde{V}\cap E\).
+
+          </p>
+          <button class="respButton hvr-grow"> Demostración </button>
+          <div class="resp-box">
+          <p>
+            Ya que \(U\) es abierto en \(E\) para toda \(x\in U\) existe
+            un número positivo \(r(x)>0\) tal que
+            \[
+            E\cap B_{r(x)}(x) \subseteq U,
+            \]
+            donde \(B_{r(x)}(x)\) denota la bola abierta en \((X,d)\) por lo que
+            \(E\cap B_{r(x)}(x)\) representa la bola abierta en \((E,d_E)\).
+          </p>
+          <p>
+            De manera similar, para todo \(y\in V\) existe un número positivo
+            \(s(y)>0\) tal que
+            \[
+            E\cap B_{s(y)}(y) \subseteq V.
+            \]
+          </p>
+          <p>
+            Tomemos los abiertos
+            \[
+            \tilde{U}=\cup_{x\in U}B_{r(x)/2}(x), \quad \tilde{V}=\cup_{y\in V}B_{s(y)/2}(y)
+            \]
+          </p>
+          <p>
+            Afirmamos que \(\tilde{U}\cap \tilde{V}=\emptyset\).
+          </p>
+          <p>
+            Ya que
+            \[
+            \tilde{U}\cap \tilde{V}=\cup_{x\in U, y\in V} B_{r(x)/2}(x)\cap B_{s(y)/2}(y)
+            \]
+            es suficiente probar que \(B_{r(x)/2}(x)\cap B_{s(y)/2}(y)=\emptyset\)
+            para todos \(x\in U\), \(y\in V\). 
+          </p>
+          <p>
+            Supongamos que existe \(z\in B_{r(x)/2}(x)\cap B_{s(y)/2}(y)\). Entonces 
+            \[
+            d(x,y) \leq d(x,z)+d(z,y) < \frac{r(x)}{2}+ \frac{s(y)}{2} \leq  \max\{ r(x),s(x)\}
+            \]
+            S.P.G. \(\max\{ r(x),s(x)\}=r(x)\). Se sigue que \(y\in B_{r(x)}(x)\cap E \subseteq U\). 
+            Por lo tanto \(y\in V\cap U\), una contradicción pues \(U\cap V =\emptyset\).
+          </p>
+          <p>
+            Para terminar notamos que de las contenciones
+            \(E\cap B_{r(x)}(x)\subseteq U\), \(E\cap B_{s(y)}(y)\subseteq V\)
+            concluimos
+            \[
+            E\cap \tilde{U}=\cup_{x\in U}E\cap B_{r(x)/2}(x)=U,
+            \]
+            \[
+            E\cap \tilde{V}=\cup_{y\in V}E\cap B_{s(y)/2}(y)=V.
+            \]
+          </p>
+        </div>
+        </div>
+
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio</h2>
+          <p>
+            Sea \((X,\|\cdot\|)\) un espacio vectorial normado.
+          </p>
+          <p>
+            Un subconjunto \(C\subseteq X\) se llama conexo por trayectorias si 
+            para todos \(x,y\in C\) existe una función 
+            \(\alpha:[0,1]\to X\) tal que 
+            <ol>
+              <li>
+                \(\alpha\) es continua,
+              </li>
+              <li>
+                \(\alpha(0)=x\), \(\alpha(1)=y\),
+              </li>
+              <li>
+                \(\alpha(t)\in C\), para todo \(t\in [0,1]\).
+              </li>
+            </ol>
+
+          </p>
+          <p>
+            Prueba que si \(C\) es conexo por trayectorias entonces \(C\) es conexo.
+          </p>
+
+          <p>
+            Nota: el regreso no se vale, un ejemplo es \(X=\mathbb{R}^2\) con 
+            \[
+            C=\{(x,\sin(1/x)): x\ne 0\}\cup \left( \{0\}\times [-1,1]\right)
+            \]
+          </p>
+
+        </div>
+
+        <!-- <div class="definicion-box">
+          <h2 class="number-title" id="Def:AlternativaConexidadEspMet"> Definición </h2>
+          <p>
+            Sea \((X,d)\) un espacio métrico y \(E\subseteq X\). Decimos
+            que \(E\) es disconexo si el subespacio métrico \((E,d_E)\),
+            es disconexo, es decir es disconexo
+            según la <a href="#Def:ConexidadEspMet">Definición 7.2</a>.
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba que las definiciones <a href="Def:ConexidadEspMet">7.2</a>
+            y <a href="#Def:AlternativaConexidadEspMet">7.23</a> son
+            equivalentes.
+          </p>
+          <p>
+            Sugerencia: usa el <a href="#Lema:AbiertosSubEspacios">Lema 7.22</a>
+          </p>
+        </div> -->
+
+
+            <div class="quiz-box">
+              <h2 id="Quiz:Sec7"> Quiz </h2>
+              <ol>
+                <li>
+                  <p>
+                  (2 pts) Sea \((X,d)\) un espacio métrico y considera subconjuntos de \(X\),
+                  \(A\subseteq B \subseteq C\), donde \(A\) y \(C\) son conexos.
+                  Prueba o da un contraejemplo: \(B\) es conexo.
+                </p>
+                </li>
+                <li>
+                  <p>
+                  (3 pts)  Prueba que todo subconjunto abierto, acotado y conexo de
+                  \(\mathbb{R}\) es un intervalo de la forma \((a,b)\), para algunos reales \(a< b\).
+                </p>
+                </li>
+              </ol>
+            </div>
+
+
+
+
+    </div>
+  </body>
