@@ -681,14 +681,14 @@
               <p>
                 Ya se este ejercicio maneja sucesiones de vectores introducimos
                 la siguiente notación: dado \(x\in \mathbb{R^d}\) por
-                \(x(1), x(2), \dots, x(n)\)  denotamos a sus coordenadas, es decir
+                \(x(1), x(2), \dots, x(d)\)  denotamos a sus coordenadas, es decir
                 \[
-                x= (x(1), x(2), \dots, x(n)).
+                x= (x(1), x(2), \dots, x(d)).
                 \]
                 Con ésta notación, dada una sucesión de vectores
                 \((x_k)_{k\in \mathbb{N}}\) sus coordenadas están denotadas por
                 \[
-                x_k=(x_k(1), x_k(2), \dots, x_k(n)).
+                x_k=(x_k(1), x_k(2), \dots, x_k(d)).
                 \]
               </p>
               <p>
@@ -697,7 +697,7 @@
                 <ol>
                 <li>
                 Prueba que, para toda
-                \(i=1,\dots, n\):
+                \(i=1,\dots, d\):
                 \[
                 |x(i)-y(i)| \leq \| x-y\|_p.
                 \]
@@ -705,7 +705,7 @@
                 <li>
                 Además prueba que
                 \[
-                \quad \|x-y\|_p \leq n^{1/p}\max_{i=1,\dots, n} \{|x(i)-y(i)| \}
+                \quad \|x-y\|_p \leq d^{1/p}\max_{i=1,\dots, d} \{|x(i)-y(i)| \}
                 \]
                 </li>
 
@@ -713,7 +713,7 @@
                   <p>
                     Sea \((x_n)_{n\in \mathbb{N}}\) una sucesión en \(\mathbb{R}^d\)
                     y  \(x\in \mathbb{R}^d\). Prueba que \(\lim_{n\to \infty} x_n=x\)
-                    si y sólo si, para toda \(i=1,\dots, n\), se cumple
+                    si y sólo si, para toda \(i=1,\dots, d\), se cumple
                     \(\lim_{n\to \infty}x_n(i)=x(i)\).
                   </p>
                   <p>
@@ -792,7 +792,7 @@
                   <p>
                     Por el inciso 2:
                     \[
-                    \|x_n-x\|_p \leq n^{1/p}\max_{1\leq i \leq n}\{|x_n(i)-x(i)|\}
+                    \|x_n-x\|_p \leq d^{1/p}\max_{1\leq i \leq d}\{|x_n(i)-x(i)|\}
                     \]
                     Usando que el máximo es una función continua y
                     la ley del Sandwich si tomamos límite en ambos lados
