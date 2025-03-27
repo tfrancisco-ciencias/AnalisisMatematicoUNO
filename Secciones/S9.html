@@ -64,7 +64,6 @@
 
   </header>
 
-
   <!-- This part is for title in tab-->
   <title id="Sec"> § 9 </title>
 
@@ -77,7 +76,7 @@
 
 
     <div class="flexbox">
-      <h1 class="number-title flexbox "> Completitud </h1>
+      <h1 class="number-title flexbox"> Continuidad </h1>
 
       <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
       <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
@@ -85,1174 +84,1246 @@
 <div class="info-box">
   <h2 class="number-title"> Introducción </h2>
   <p>
-    De manera intuitiva un espacio métrico es completo si "no tiene agujeros". Este concepto es 
-    imporante pues se traduce en existencia de soluciones de muchos tipos de ecuaciones.
+    Las funciones continuas son la estrellas en un primer curso de análisis
+    matemático y uno de los objetivos principales del curso es tomar
+    varias de las propiedades de las funciones continuas que se vieron en cálculo
+    y extenderlas en el contexto de espacios métricos.
   </p>
   <p>
-    El concepto de completitud también está muy ligado al de compacidad pues de hecho todo espacio métrico 
-    compacto es completo (pero no  siempre alrevés).
+    Hay dos puntos de vista importantes desde los cuales se pueden ver a las
+    funciones continuas. Uno es desde el puntos de vista de sucesiones. Desde
+    esta perspectiva las funciones continuas son las que mandan sucesiones
+    convergentes en sucesiones convergentes. El otro punto de vista tiene
+    que ver con las bolas abiertas y más en general con conjuntos abiertos.
+    Vamos a presentar la definición de continuidad usando este último pero
+    se verá más adelante que son equivalentes (<a href="#Lema:ContinuidadSucesiones">Lema 6.4</a>).
   </p>
+
 </div>
-
-
 
 <div class="definicion-box">
   <h2 class="number-title"> Definición </h2>
   <p>
-    Un espacio métrico \((X,d)\) se llama completo si
-    toda sucesión de Cauchy en \(X\) converge a
-    un punto en \(X\).
+    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos. Decimos que
+    una función \(f;X\to Y\) es continua en un punto \(x_0\in X\) si:
   </p>
   <p>
-    Por ejemplo, todo espacio métrico discreto es completo,
-    pues las únicas sucesiones de Cauchy son las sucesiones
-    constantes.
+    para toda \(\varepsilon > 0\) existe \(\delta >0\), que depende
+    de \(x_0\) y \(\varepsilon\), tal que si un punto \(x\in X\)
+    está a distancia menor a \(\delta\) de \(x_0\), es decir
+    \(d_X(x,x_0) <\delta\) entonces \(d_Y(f(x),f(x_0)) < \varepsilon\).
   </p>
   <p>
-    Muchos de los ejemplos de espacios métricos completos
-    basan su completitud en la completitud de \(\mathbb{R}\)
-    la cual a su vez es consecuencia del axioma del supremo.
-  </p>
-</div>
+    <div class="flexbox">
+      <img src="./Images/Continuidad.png" alt="Continuidad" width="50%" height="auto">
+    </div>
 
-
-<div class="teorema-box">
-  <h2 class="number-title"> Teorema </h2>
-  <p>
-    \(\mathbb{R}\) con la métrica usual es completo.
-  </p>
-
-
-
-
-  <button class="respButton hvr-grow"> Demostración 1</button>
-  <div class="resp-box">
-  <p>
-    Sea \((x_n)_{n=1}^\infty\) una sucesión de Cauchy (fija y arbitraria). Debemos de probar que 
-    existe \(x\in \mathbb{R}\) tal que \(\lim_{n\to \infty}x_n=x\).
   </p>
   <p>
-  Paso 1: \( (x_n)_{n=1}^\infty\)  es una sucesión acotada.
+    Nota que para probar que una función  es continua en un punto, dada
+    la \(\varepsilon\) todo el trabajo se enfoca en encontrar la \(\delta\) que satisfaga
+    la condición dada arriba.
   </p>
   <p>
-    Ya que \( (x_n)_{n=1}^\infty\) es de Cauchy, para \(\varepsilon =1\) existe \(N_1\in \mathbb{N}\)
-    tal que, para todos \(n,m \geq N_1\), \(|x_n-x_m|< 1\). Por lo tanto, para toda \(n \geq N_1\):
+    Usando la notación de bolas abiertas la definición se puede
+    reescribir de la siguiente forma:
+  </p>
+  <p>
+    \(f\) es continua en \(x_0\) sii para toda
+    \(\varepsilon >0 \) existe \(\delta >0\) que satisface
     \[
-    ||x_n|-|x_{N_1}||\leq |x_n-x_{N_1}| < 1 \Rightarrow |x_n| \leq 1+ |x_{N_1}|.
-    \]
-    Si tomamos \(M=\max\{|x_1|, \dots, |x_{N_1}|, 1+|x_{N_1}|  \}\), se sigue que, \(|x_n|\leq M\) 
-    para todo \(n\geq 1\).
-  </p>
-
-  <p>
-    Paso 2: usar compacidad para encontrar el límite.
-  </p>
-  <p>
-    Sabemos que  \([-M,M]\) es compacto (y por lo tanto, compacto por sucesiones) 
-    y \((x_n)_{n=1}^\infty \subset [-M,M]\), por lo tanto existe una subsuseción \((x_{n_k})_{k=1}^\infty\)
-    de \( (x_n)_{n=1}^\infty\) y un punto \(x\in [-M,M]\), tal que \(\lim_{k\to \infty} x_{n_k}=x\).
-  </p>
-  <p>
-    Paso 3: probar \(\lim_{n\to \infty}x_n=x\).
-  </p>
-  <p>
-    Sea \(\varepsilon >0\). Ahora, \( (x_n)_{n=1}^\infty\) Cauchy implica que existe 
-    \(N_0\in \mathbb{N}\) tal que para todo 
-    \(n,m\geq N_0\), 
-    \[
-    |x_n-x_m|< \varepsilon/2.
+    B^X_\delta(x_0) \subset f^{-1}(B^Y_\varepsilon(f(x_0)))
     \]
   </p>
   <p>
-    Usando que \(\lim_{k\to \infty} x_{n_k}=x\) existe \(k_0 \in \mathbb{N}\) tal que, para todo \(k\geq k_0\),
-    \[
-    |x_{n_k}-x|< \varepsilon/2.
-    \] 
-    
-    Recordando de que \(n_1 < n_2< \cdots <  n_k < n_{k+1}< \cdots \), existe \(k > k_0\) tal que \(n_k> N_0\). Ahora, 
-    para toda \(n\geq N_0\) se sigue:
-    \[
-    |x_n-x|\leq |x_n-x_{n_k}|\leq |x_{n_k}-x| \leq \frac{\varepsilon}{2}+\frac{\varepsilon}{2}=\varepsilon.
-    \]
+    donde \(B^X_r(x_0)\) denota la bola abierta en el espacio \(X\).
+  </p>
+  <p>
+    <div class="flexbox">
+      <img src="./Images/ContinuidadImagenInversa.png" alt="ContinuidadImagenInversa" width="50%" height="auto">
+    </div>
 
   </p>
-  </div>
-
-
-  <button class="respButton hvr-grow"> Demostración 2</button>
-  <div class="resp-box">
   <p>
-    Sea \((x_n)_{n=1}^\infty \subseteq \mathbb{R}\) una sucesión de Cauchy. 
+    Nota: recuerda que en general, para una función
+    \(f:X\to Y\), la imagen inversa de un subconjunto \(B\subseteq Y\), bajo \(f\)
+    se define como: \(f^{-1}(B):=\{x\in X: f(x)\in B \}\).
   </p>
   <p>
-    Por el <a href="./S4.html#Ejer:SubsucesionConvDeUnaCauchy">Ejercicio 4.29</a> 
-    es suficiente probar que \((x_n)_{n=1}^\infty\) admite una subsucesión 
-    convergente.
-  </p>
-  <p>
-    Usando que \((x_n)_{n=1}^\infty\) es de Cauhcy podemos encontrar una subsucesión 
-    \((x_{n_k})_{k=1}^\infty\) que satisface 
-    \[
-    |x_{n_{k+1}}-x_{n_k}|< \frac{1}{2^k}
-    \]
-    para todo \(k=1,2,\dots\). En consecuencia para todo natural  \(p\geq 1\) 
-    \[
-    |x_{n_{k+p}-x_{n_k}}| \leq \sum_{i=0}^{p-1} \frac{1}{2^{k+i}}
-    \]
-  </p>
-  <p>
-    Ahora definimos 
-    \begin{eqnarray*} 
-      \alpha &=& \liminf_{n\to \infty}x_n=  \sup_{j \geq 1}\{ \inf_{k\geq j } \{ x_{n_k}\}  \} \\
-      \beta &=&  \limsup_{n\to \infty}x_n = \inf_{j \geq 1}\{ \sup_{k\geq j } \{x_{n_k} \}\} 
-    \end{eqnarray*}
-    las cuales están bien definidas pues toda subsucesión de Cauchy es acotada 
-    (ver <a href="./S4.html#Ejer:CauchyAcotada">Ejercicio 4.27</a>). Por el <a href="./S4.html#Lema:LimSupLimInf">Lema 4.26</a>
-    es suficiente probar que \(\alpha=\beta\).
-  </p>
-  <p>
-    En primer lugar por las 
-    propiedades de supremos e ínfimos, para toda \(j\)
-    \begin{eqnarray} 
-    \alpha_j:= \inf_{k\geq j } \{x_{n_k} \} & \leq &  \sup_{k\geq j } \{x_{n_k} \}=:\beta_j \label{Eqn:Aux1Rcomp}\\
-    \alpha_j= \inf_{k\geq j } \{x_{n_k} \} & \leq &  \inf_{k\geq j+1 } \{x_{n_k} \} =\alpha_{j+1} \label{Eqn:Aux2Rcomp} \\
-    \beta_{j}=\sup_{k\geq j} \{x_{n_k} \} & \geq & \inf_{k\geq j+1 } \{x_{n_k} \}=\beta_{j+1} \label{Eqn:Aux3Rcomp}
-    \end{eqnarray}
-  </p>
-
-
-
-
-  <p>
-    Por \eqref{Eqn:Aux1Rcomp} podemos concluir que \(\alpha \leq \beta\) y por \eqref{Eqn:Aux2Rcomp} y 
-    \eqref{Eqn:Aux3Rcomp} tenemos que 
-    \begin{eqnarray*} 
-    \alpha_1 \leq \alpha_2 \leq \cdots \leq  \alpha  \\
-    \beta  \leq \cdots \leq \beta_2 \leq \beta_1
-    \end{eqnarray*}
-  </p>
-  <p>
-    Afirmamos que  para toda \(j\geq 1\):
-    \[
-    \beta_j-\alpha_j \leq \frac{1}{2^{j-1}}.
-    \]
-  </p>
-  <p>
-    Fijamos \(\varepsilon\in (0,1)\) arbitrario. Ahora, para \(j\geq 1\) arbitrario, usando las propiedades fundamentales de ínfimos y supremos 
-    existen \(k_1,k_2 \geq j\) tales que 
-    \begin{eqnarray*} 
-      \alpha_j + \varepsilon & > & x_{n_{k_1}} \\ 
-      \beta_j -\varepsilon & < & x_{n_{k_2}}
-    \end{eqnarray*}
-    se sigue que 
-    \begin{eqnarray*} 
-      \beta_j-\varepsilon - (\alpha_j +\varepsilon) < x_{n_{k_2}} - x_{n_{k_1}} \leq |x_{n_{k_2}} - x_{n_{k_1}} |
-    \end{eqnarray*}
-  </p>
-  <p>
-    Sin pérdida de generalidad podemos suponer \(k_2=k_1+p\), para algún \(p\geq 1\). Por lo tanto se sigue que 
-    \begin{eqnarray*} 
-    \beta_j - \alpha_j - 2\varepsilon \leq |x_{n_{k_1+p}}-x_{n_{k_1}}|\leq \sum_{i=0}^{p-1} \frac{1}{2^{k_1+i}}
-    \end{eqnarray*}
-    y ya que \(k_1 \geq j\) lo anterior también implica que 
-    \begin{eqnarray*} 
-    \beta_j - \alpha_j - 2\varepsilon & \leq &  \sum_{i=0}^{p-1} \frac{1}{2^{j+i}} \\
-    &=& \frac{1}{2^j}\sum_{i=0}^{p-1}\frac{1}{2^i} \\
-    & < & \frac{1}{2^j}\sum_{i=0}^\infty \frac{1}{2^j} \\
-    &=& \frac{1}{2^j}2 =\frac{1}{2^{j-1}}
-    \end{eqnarray*}
-  </p>
-  <p>
-    Tomando límite cuando \(\varepsilon \to 0\) en la desigualdad anterior llegamos a 
-    \(\beta_j - \alpha_j \leq 1/2^{j-1}\).
-  </p>
-  <p>
-    Para concluir que \(\alpha = \beta\) usando que \(\alpha_j \leq \alpha \leq \beta \leq \beta_j\) llegamos a 
-    \[
-    \beta - \alpha \leq \beta_j -\alpha_j \leq \frac{1}{2^{j-1}}
-    \]
-    por lo cual, haciendo \(j\to \infty\) concluimos que \(\alpha = \beta\).
-  </p>
- 
-</div>
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Prueba que \(\mathbb{R}\) con la métrica
-    \(\rho(x,y)=|\arctan(x)-\arctan(y)|\) no es completo.
-  </p>
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-
-  <p>
-    Sean \(X,Y\) dos espacios métricos completos.
+    Decimos que una función es continua en un subconjunto \(A \subseteq X\)
+    si es continua en todo punto de \(A\).
   </p>
    <p>
-    Prueba que el espacio métrico producto \(X\times Y\) es completo
-    si y sólo si ambos \(X\) e \(Y\) son completos.
+     Ejemplos
+   </p>
+   <ol>
+     <li>
+       Toda función \(f:\mathbb{N}\to X\) es continua en todo punto de \(\mathbb{N}\),
+       considerando a éste útimo dotado con la métrica heredada de \(\mathbb{R}\)
+       y \(X\) cualquie espacio métrico.
+     </p>
+     <p>Para ver lo anterior tomamos un punto cualquiera \(n_0\in \mathbb{N}\)
+       y fijamos un número positivo \(\varepsilon\). En el caso muy particular
+       de \(\mathbb{N}\) afirmamos que la \(\delta >0\) que nos sirve es \(\delta=1\).
+       Razón: en la métrica de \(\mathbb{N}\) las bolas unitarias son muy simples
+       \[
+       B_1(n_0)=\{n_0\}
+       \]
+       y por lo tanto para todo \(n \in B_1(n_0)\) (que sólo hay uno, \(n_0\)) se cumple
+       \(d(f(n),f(n_0)) < \varepsilon\), pues
+       \[
+       d(f(n),f(n_0))=d(f(n_0), f(n_0))=0.
+       \]
+       Nota: este ejemplo sigue siendo válido si intercambiamos \(\mathbb{N}\)
+       por cualquier otro espacio métrico discreto.
+     </li>
+      <li>
+        <p>
+        Todas las isometrías son funciones continuas.
+       </p>
+        <p>
+        Recordamos que una
+        isometría entre dos espacios métricos  es
+        una función que preserva las distancias, es decir una
+        función  \(f:(X,d_X) \to (Y,d_Y)\) que satisface
+        \[
+        d_Y(f(x_1),f(x_2)) = d_X(x_1,x_2),
+        \]
+        para todos \(x_1,x_2\in X\).
+      </p>
+      <p>
+        Dado un punto cualquiera \(x_0\in X\) y un número positivo
+        \(\varepsilon >0\) la \(\delta\) que sirve para la continuidad
+        es \(\delta= \varepsilon\). En efecto, si \(d_X(x,x_0) < \delta \)
+        entonces
+        \[
+        d_Y(f(x),f(x_0))=d_X(x,x_0) < \delta = \varepsilon.
+        \]
+      </p>
+      </li>
+
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:PropiedadesImagenInversa"> Ejercicio </h2>
+  <p>
+    Ya que la continuidad se puede escribir en términos de imágines inversas
+    es útil tener varias propiedades sobre ésta.
+  </p>
+  <p>
+    Sean \(S,T\) dos conjuntos, \(f:S\to T\) una función y
+    subconjuntos \(A,A' \subseteq S, B,B'\subseteq T\). Prueba
+    las siguientes identidades de conjuntos
+  </p>
+  <ol>
+    <li>
+      \(A \subseteq f^{-1}(f(A))\) y la igualdad se da,
+      para todo subconjunto \(A\) si y sólo si
+      \(f\) es inyectiva.
+    </li>
+    <li>
+      \(f(f^{-1}(B)) \subseteq B\) y la igualdad se da,
+      para todo subconjunto \(B\) si y sólo si \(f\)
+      es suprayectiva.
+    </li>
+    <li>
+      \(f^{-1}(B\cap B')=f^{-1}(B)\cap f^{-1}(B')\).
+    </li>
+    <li>
+      \(f^{-1}(B\cup B')=f^{-1}(B)\cup f^{-1}(B')\).
+    </li>
+    <li>
+      \(f^{-1}(B\setminus B')=f^{-1}(B)\setminus f^{-1}(B')\).
+    </li>
+    <li>
+      \(f(A\cup A')=f(A)\cup f(A')\).
+    </li>
+    <li>
+      \(f(A\cap A') \subseteq f(A)\cap f(A')\). Además da
+      un ejemplo dónde la contención sea propia.
+    </li>
+    <li>
+      Si \(B'\subseteq B\\) entonces \(f^{-1}(B')\subseteq f^{-1}(B)\).
+    </li>
+  </ol>
+
+
+</div>
+
+
+<div class="lema-box">
+  <h2 class="number-title" id="Lema:ContinuidadSucesiones"> Lema </h2>
+  <p>
+    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y
+    \(f:X \to Y\) una función.
+  </p>
+  <p>
+    Las siguientes condiciones son equivalentes.
+  </p>
+  <ol>
+    <li>
+      \(f\) es continua en \(x_0\).
+    </li>
+    <li>
+      Para toda sucesión \((x_n)_{n=1}^\infty\) convergente a
+      \(x_0\) se satisface que  \((f(x_n))_{n=1}^\infty\)
+      es convergente a \(f(x_0)\). Lo anterior se puede resumir como:
+      \[
+      \lim_{n\to \infty} f(x_n)=f(\lim_{n\to \infty}x_n)
+      \]
+    </li>
+  </ol>
+    <p>
+      Es decir, se puede meter el límite para funciones continuar,
+      siempre y cuando el límite exista.
+    </p>
+    <button class="respButton hvr-grow"> Respuesta </button>
+    <div class="resp-box">
+    <p>
+      \(\Rightarrow] \) Primero supongamos que \(f\) es continua en \(x_0\)
+      y supongamos que tenemos una sucesión \((x_n)_{n=1}^\infty \subset X\)
+      tal que \(\lim_{n\to \infty}x_n=x_0\).
+    </p>
+    <p>
+        Debemos probar que \(\lim_{n\to \infty }f(x_n)=f(x_0)\), es decir,
+        dada una \(\varepsilon >0\) debemos asegurar la existencia de un natural
+        \(N\in \mathbb{N}\) tal que, para toda \(n \geq N\):
+        \begin{equation}\label{Eqn:auxLemaContinuidad}
+        f(x_n)\in B_\varepsilon^Y(f(x_0)).
+        \end{equation}
+    </p>
+    <p>
+      Usando que \(f\) es continua en \(x_0\), sabemos que existe una
+      \(\delta >0 \) tal que
+      \begin{equation}\label{Eqn:aux2LemaContinuidad}
+      B_\delta^X(x_0) \subseteq f^{-1}(B_\varepsilon)(f(x_0))
+      \end{equation}
+    </p>
+    <p>
+      Pero, usando que \(\lim_{n\to \infty }x_n=x_0\) podemos asegurar que
+      existe \(N\in \mathbb{N}\) tal que, para toda
+      \(n\geq N\), \(x_n\in B_\delta^X(x_0)\). Si usamos
+      \eqref{Eqn:aux2LemaContinuidad} obtenemos que \(f(x_n) \in B_\varepsilon(f(x_0))\),
+      para toda \(n\geq N\), lo cual prueba \eqref{Eqn:auxLemaContinuidad}.
+    </p>
+    <p>
+      \(\Leftarrow]\) Vamos a proceder por contrapositiva. Supongamos que la
+      función \(f\) no es continua en \(x_0\) y con esto vamos a probar que la
+      condición 2 no es válida.
+    </p>
+
+    <p>
+      Si negamos la definición de continuidad de \(f\) en \(x_0\) llegamos
+      a que existe un número positivo \(\varepsilon_0 >0 \), tal que,
+      para toda \(\delta > 0\) no se cumple
+      \[
+      B_{\delta}(x_0) \subseteq f^{-1}(B_{\varepsilon_0}(f(x_0))).
+      \]
+      Si la contención anterior no es válida eso quiere decir que
+      existe un \(x \in B_{\delta}(x_0)\) (la \(x\) va a depender de \(\delta\)),
+       tal que \(x\notin f^{-1}(B_{\varepsilon_0}(f(x_0)))\), es
+       decir, la \(x\) satisface:
+       \[
+       d_X(x,x_0)< \delta, \quad d_Y(f(x),f(x_0)) \geq \varepsilon_0.
+       \]
+    </p>
+    <p>
+      Como lo anterior se vale para todo número \(\delta >0\), tomando
+      \(\delta = \frac{1}{n}\), con \(n \in \mathbb{N}\), obtenemos una
+      sucesión de puntos \((x_n)_{n=1}^\infty \subset X\), tal que
+
+      \[
+      d_X(x_n,x_0) < \frac{1}{n}, \quad d_Y(f(x_n), f(x_0)) \geq \varepsilon_0
+      \]
+
+      Pero lo anterior implica que \(\lim_{n\to \infty} x_n=x_0\)
+      y \(\lim_{n\to \infty} f(x_n)\ne f(x_0)\), contradiciendo la
+      condición 2 del lema.
+    </p>
+  </div>
+</div>
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico y \(f,g:X\to \mathbb{R}\) funciones
+    continuas en \(x_0\in X\). Prueba que las siguientes funciones (dadas por operaciones algebráticas)
+    son continuas en \(x_0\): 
+    <ol> 
+      <li>combinaciones lineales \(\alpha f +g\), donde \(\alpha \in \mathbb{R}\),</li> 
+    <li>la función producto \(fg\), </li> 
+    <li>si \(g(x_0 )\ne 0\), la función cociente \(f/g\).</li>
+    </ol>
+    
+     
+  </p>
+  <p>
+    Sugerencia: usa el <a href="#Lema:ContinuidadSucesiones">Lema 6.4</a>
+  </p>
+  <p>
+    Nota: se puede generalizar este ejercicio cambiando \(\mathbb{R}\)
+    por un espacio vectorial normado.
+  </p>
+</div>
+
+
+
+<div class="lema-box">
+  <h2 class="number-title" id="Lema:ContinuidadAbiertosCerrados"> Lema </h2>
+  <p>
+    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y
+    \(f:X \to Y\) una función. Decimos que \(f\) es continua 
+    en \(X\) si \(f\) es continua en \(x_0\), para todo \(x_0\in X\).
+  </p>
+  <p>
+    Las siguientes condiciones son equivalentes.
+  </p>
+  <ol>
+    <li>
+      \(f\) es continua en todo \(X\).
+    </li>
+    <li>
+      Imagen inversa de abiertos es abierta.
+    </li>
+    <li>
+      Imagen inversa de cerrados es cerrada.
+    </li>
+  </ol>
+
+  <button class="respButton hvr-grow"> Demostración </button>
+  <div class="resp-box">
+  <p>
+    \(1 \Rightarrow 2 ]\) Supongamos que \(f\) es continua en todo \(M\)
+    y sea \(V \subseteq Y\) un subconjunto abierto. Natamos que, al
+    ser \(Y\) abierto, para todo \(y \in V \) existe \(r(y)\), un número positivo
+    que depende de cada punto \(y\), tal que
+    \(B_{r(y)}^Y(y)\subseteq V\). Por lo tanto se sigue que
+    \[
+    V=\cup_{y\in V} B_{r(y)}^Y(y)
+    \]
+  </p>
+  <p>
+    Usando las propiedades de la imagen inversa
+    (<a href="#Ejer:PropiedadesImagenInversa">Ejercicio 6.3</a>) obtenemos
+    \[
+    f^{-1}(V)=\cup_{y\in V} f^{-1}(B_{r(y)}^Y(y))
+    \]
+    y ya que unión arbitraria de abiertos es abierta, para probar que
+    \(f^{-1}(V)\) es abierta es suficiente probar que, para toda bola
+    \(B_r^Y(y)\), su imagen inversa \(f^{-1}(B_r^Y(y))\) es abierta en \(X\).
+  </p>
+  <p>
+    Para probar que \(f^{-1}(B_r^Y(y))\) es abierto en \(X\) tomamos
+    \(x\in f^{-1}(B_r(y))\) arbitrario y probamos que hay una
+    bola centrada en \(x\) totalemente contenida en \(f^{-1}(B_r^Y(y))\). Antes
+    de proceder notamos que \(f(x)\in B_r^Y(y)\) y ya que éste último es abierto
+    existe \(s>0\) tal que \(B_s^Y(f(x)) \subseteq B_r^Y(y)\).
+  </p>
+  <p>
+    Ahora, ya que \(f\) es continua en todo
+    \(X\), en particular \(f\) es continua en \(x\) por lo que existe una \(\delta >0\)
+    para la cual se satisface
+    \[
+    B_\delta^X(x) \subseteq f^{-1}(B_s(f(x)))
+    \]
+    Finalmente notamos que
+    \[
+    B_s^Y(f(x))\subseteq B_r^Y(y) \Rightarrow f^{-1}(B_s^Y(f(x))) \subseteq f^{-1}(B_r^Y(y))
+    \]
+    por lo tanto tenemos la cadena de contenciones
+    \[
+    B_\delta^X(x) \subseteq f^{-1}(B_s^Y(f(x))) \subseteq f^{-1}(B_r^Y(y))
+    \]
+    concluyendo que \(B_\delta^X(x)\) está totalmente contenida en
+    \(f^{-1}(B_r^Y(y))\).
+    </p>
+    <p>
+      \( 2 \Rightarrow 3 ]\) Esta implicación es sencilla.
+    </p>
+    <p>
+      Supoongamos
+      que \(F \subset Y\) es cerrado. Debemos probar que
+      \(f^{-1}(F) \subseteq X\) es cerrado también o, equivalentemente,
+      que \(X\setminus f^{-1}(F)\) es abierto en \(X\). Pero,
+      por las propiedades de la imagen inversa
+      (<a href="#Ejer:PropiedadesImagenInversa">Ejercicio 6.3</a>):
+      \[
+      X\setminus f^{-1}(F) = f^{-1}(Y \setminus F).
+      \]
+      Ahora, \(Y\setminus F\) es abierto en \(Y\), por lo tanto la condición
+      2 implica que \(f^{-1}(Y\setminus F)\) es abierto en \(X\).
+    </p>
+    <p>
+      \(3 \Rightarrow 1 ]\) Sea \(x_0 \in X\) fijo y arbitrario. Dedemos de probar
+      que \(f\) es continua en \(x_0\) y para esto usaremos el
+      <a href="#Lema:ContinuidadSucesiones">Lema 6.4</a>.
+    </p>
+    <p>
+      Sea \((x_n)_{n=1}^\infty \subset X\) una sucesión tal que
+      \(\lim_{n\to \infty} x_n=x_0\). Debemos de probar que
+      \(\lim_{n\to \infty} f(x_n)=f(x_0)\), pero, para llegar
+      a una contradicción supongamos que no es así.
+    </p>
+      <p>
+      Usando el <a href="./S4.html#Ejer:NegacionConvergencia">Ejercicio 4.7</a>
+      sabemos \(\lim_{n\to \infty}f(x_n)\ne f(x_0)\) implica la
+      existencia de un número positivo \(\varepsilon_0 >0\) y
+      una subsucesión \((x_{n_k})_{k=1}^\infty\) tal que
+      \[
+      d(f(x_0), f(x_{n_k})) \geq \varepsilon_0
+      \]
+      para toda \(k\). Reescribiendo lo anterior en términos de imagen inversa
+      de la bola abierta tenemos que
+      \[
+      x_{n_k} \in f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0)))
+      \]
+      para toda \(k\).
+    </p>
+    <p>
+      Por otro lado, sabemos que \(Y\setminus B_{\varepsilon_0}(f(x_0)) \) es cerrado,
+      por lo tanto la condición 3 implica que \(f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0))\)
+      también es cerrado. Por lo tanto la subsucesión \((x_{n_k})_{k=1}^\infty\)
+      está contenida en el cerrado \(f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0))\)
+      y en consecuencias, su límite también (por
+      <a href="./S5.html#Teo:CaracCerrados"> Teorema 5.11</a>). Es decir
+      \[
+      x_0=\lim_{k\to \infty}x_{n_k} \in f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0))
+      \]
+      por lo que \(f(x_0)\in Y\setminus B_{\varepsilon_0}(f(x_0)) \), lo cual
+      es una contradicción.
+    </p>
+  </div>
+</div>
+
+
+
+
+<div class="lema-box">
+  <h2 class="number-title" id="Ejer:ImagenDeCompactoEsCompcto"> Lema </h2>
+    <p>
+      Sea \(f:(X,d_X)\to (Y,d_Y)\) una función continua y
+      \(K \subseteq X\) un subconjunto compacto. Prueba
+      que \(f(K)\subseteq Y \) es compacto.
+    </p>
+    <button class="respButton hvr-grow"> Solución </button>
+    <div class="resp-box">
+    <p>
+      Sea \(\{U_\alpha\}_{\alpha \in \Lambda }\) una cubierta
+      abierta de \(f(K)\).
+    </p>
+    <p>
+      Afirmamos que \(\{f^{-1}(U_\alpha)\}_{\alpha \in \Lambda}\)
+      es una cubierta abierta de \(K\). Razón: ya que \(f\)  es continua
+      y \(U_\alpha \subseteq Y\) es abierto  se sigue que
+      \(f^{-1}(U_\alpha)\subseteq X\) es abierto. Ahora probamos la
+      contención \(K\subseteq \cup_{\alpha \in \Lambda} f^{-1}(U_\alpha)\):
+      dado \(x\in K\) se sigue
+      \[
+      f(x)\in f(K) \subseteq \cup_{\alpha \in \Lambda} U_\alpha
+      \]
+      por lo que existe un índice \(\alpha_0\) para el cual
+      \(f(x)\in U_{\alpha_0}\) lo cual implica \(x\in f^{-1}(U_{\alpha_0})\).
+    </p>
+    <p>
+    Como \(K\) es compacto y \(\{f^{-1}(U_\alpha)\}_{\alpha \in \Lambda}\)
+    es una cubierta abierta, existen índices \(\alpha_1,\dots, \alpha_n\)
+    para los cuales
+    \begin{equation}\label{Eqn:AuxImagenDeCompactoEsCompacto}
+    K\subseteq \cup_{i=1}^n f^{-1}(U_{\alpha_i})
+    \end{equation}
+    </p>
+    <p>
+      Resta probar que \(f(K)\subseteq \cup_{i=1}^n U_{\alpha_i}\). Dado
+      \(y\in f(K)\), existe \(x\in K\) tal que \(y=f(x)\). Por
+      la contención \eqref{Eqn:AuxImagenDeCompactoEsCompacto}
+      existe \(\alpha_{i_0}\) tal que \(x\in f^{-1}(U_{\alpha_{i_0}})\)
+      lo cual implica \(y=f(x)\in U_{\alpha_{i_0}}\).
+    </p>
+  </div>
+  </div>
+
+
+
+<div class="teorema-box">
+  <h2 class="number-title" id="Teo:FunContAcotEnCompactos"> Teorema </h2>
+
+  <p>
+    Sea \((X,d)\) un espacio métrico, \(K\subseteq X\) compacto y
+    \(f:K \to \mathbb{R}\) una función continua en \(K\). Entonces
+    \(f\) alcanza su máximo y
+    su mínimo en \(K\), es decir, existen puntos \(x_*,x^*\in K\)
+    tales que, para todo \(x\in K\)
+    \[
+    f(x_*) \leq f(x) \leq f(x^*).
+    \]
+    En notación: \(\min_{x\in X}\{f(x)\}=f(x_*), \max_{x\in X}\{f(x)\}=f(x^*)\)
   </p>
 
+  <button class="respButton hvr-grow"> Solución </button>
+  <div class="resp-box">
+  <p>
+
+    Por el <a href="#Ejer:ImagenDeCompactoEsCompcto">Lema  8.5</a>,
+    \(f(K)\) es un subconjunto compacto de \(\mathbb{R}\), por lo tanto
+    \(f(K)\) es cerrado y acotado. Por lo tanto existen 
+    \[
+    \alpha = \sup(f(K)), \beta= \inf(f(K))
+    \]
+    Por las propiedades fundamentales del ínfirmo y supremo existen sucesiones 
+    \((y_n)_{n=1}^\infty, (z_m)_{m=1}^\infty \subset K\) tales que 
+    \begin{equation}\label{Eqn:Aux1MaxMinFunContinuasCompactos}
+    \lim_{n\to \infty} f(y_n)=\alpha, \lim_{m\to \infty} f(z_m)=\beta.
+    \end{equation}    
+  </p>
+  <p>
+    Por el Teroema 8.14, existen subcuseciones \((y_{n_k})_{k=1}^\infty \),
+    \((z_{m_j})_{j=1}^\infty\) y puntos \(x_*, x^*\in K\) tales que 
+    \[
+    \lim_{k\to \infty} y_{n_k}=x_*, \quad \lim_{j\to \infty} z_{n_j}=x^*
+    \]
+    y por la continuidad de \(f\) en \(K\) concluimos 
+    \begin{equation}\label{Eqn:Aux2MaxMinFunContinuasCompactos}
+    \lim_{k\to \infty} f(y_{n_k})=f(x_*), \lim_{j \to \infty} f(z_{m_j})= f(x^*).
+    \end{equation}
+  </p>
+  <p>
+    Comparando \eqref{Eqn:Aux1MaxMinFunContinuasCompactos}, \eqref{Eqn:Aux2MaxMinFunContinuasCompactos}
+    concluimos 
+    \[
+    f(x_*)=\alpha = \inf(f(K)), f(x^*)=\beta =\sup(f(K))
+    \]
+    por lo que 
+    \[
+     f(x_*)\leq f(x) \leq f(x^*)
+    \]
+    para todo \(x\in K\).
+  </p>
+</div>
+</div>
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \(f:[a,b]\to \mathbb{R}\) función continua. Entonces
+    la imagen de \(f\) es un intervalo de la forma \([c,d]\),
+    para algunos \(c,d\in \mathbb{R}\).
+  </p>
+</div>
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d_X)\) un espacio métrico compacto.
+  </p>
+  <p>
+      Supón que \(f: (X,d_X) \to (Y,d_Y)\) es una función continua, inyectiva y
+      suprayectiva. Prueba que \(f\) es un homeomorfismo.
+  </p>
+  <button class="respButton hvr-grow"> Demostración </button>
+  <div class="resp-box">
+      <p>
+      Nuestras hipótesis incluyen continuidad y biyectividad de la función \(f\),
+      únicamente es necesario demostrar que \(f^{-1}\) también es continua. Por el
+      <a href="./S6.html#Lema:ContinuidadAbiertosCerrados">Lema</a> bastará demostrar
+      que si \(C\subseteq X\) es cerrado, entonces \(((f^{-1})^{-1}(C))=f(C)\) es
+      cerrado. Sea \(C \subseteq X\) un conjunto cerrado, como \(X\) es compacto
+      entonces \(C\) también es compacto. Dado que \(f\) es continua y \(C\) es
+      compacto \(f(C)\subseteq Y\) también es compacto. Para concluir demostraremos
+      que en un espacio métrico los subconjuntos compactos son cerrados.
+      </p>
+      <p>
+      Sea \(K \subseteq X\) compacto y \((x_n)_{n=1}^\infty\) una sucesión en \(K\) que
+      converja a un punto \(x \in X\). Por <a href="#Lema:CompactoImplicaCpS">Lema</a>
+      \((x_n)_{n=1}^\infty\) admite una subsucesión \((x_{n_k})_{k=1}^\infty\) que
+      converge a un punto \(y \in K\). Recordemos que si una sucesión es convergente
+      entonces toda subsucesión converge al mismo punto, por lo que \(x=y\in K\) y
+      \(K\) es cerrado.
+      </p>
+  </div>
 </div>
 
 
 <div class="ejercicio-box">
   <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico y \(K \subset X\) un
+    subconjunto compacto. Prueba que \(\operatorname{diam}(K)\) es finito.
+    Es más, si \(K\ne \emptyset\), prueba que existen
+    \(x,y\in K\) tal que \(\operatorname{diam}(K)=d(x,y)\).
+  </p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio  </h2>
+  <p>
+    Cualesquiera dos normas en \(\mathbb{R}^n\) son equivalentes.
+  </p>
+  <button class="respButton hvr-grow"> Demostración </button>
+  <div class="resp-box">
+      <p>
+          Empecemos por notar que la relación de 'ser norma equivalente' es una relación
+          de equivalencia. Si \(\| \|\) es una norma, claramente \(\|x\| \leq 1 \cdot \|x\|\)
+          para todo \(x \in X\), por lo que la relación es reflexiva. De la definición de
+          norma equivalente también tenemos de forma inmediata que la relación es simétrica.
+          Si \(\|\|_1, \|\|_2, \|\|_3\) son normas equivalentes entonces existen \(c_1,d_1,c_2,d_2 >0\)
+          tales que para todo \(x \in X\)
+          \[\|x\|_1 \leq c_1\|x\|_2, \quad \|x\|_2 \leq d_1 \|x\|_1\] y
+          \[\|x\|_2 \leq c_2\|x\|_3, \quad \|x\|_3 \leq d_2 \|x\|_2,\] de donde
+          \[\|x\|_1 \leq (c_1c_2)\|x\|_3, \quad \|x\|_3 \leq (d_1d_2) \|x\|_1,\]
+          y tenemos que la relación es transitiva.
+      <p>
+          Una vez que lo anterior ha sido establecido será suficiente demostrar que toda norma en \(\mathbb{R}^n\)
+          es equivalente a la norma \(\|\|_\infty\) en \(\mathbb{R}^n\).
+      </p>
+      <p>
+          Consideremos la base canónica en \(\mathbb{R}^n\), \(\{e_1,...,e_n\}\), y sea \(x \in \mathbb{R}^n\).
+          Entonces \(x = (x_1,...,x_n) = x_1 e_1 + ... + x_n e_n\). Definimos \(0 < C = \max \{||e_i||:1 \leq i \leq n\}\)
+          y tenemos lo siguiente:
+          \[
+          ||x|| = ||x_1 e_1 + ... + x_n e_n|| \leq \sum_{i=1}^n |x_i| ||e_i|| \leq C \sum_{i=1}^n |x_i| \leq C ||x||_\infty
+          \]
+      </p>
+      <p>
+          Para mostrar la segunda desigualdad tendremos que observar varias cosas:
+          <ul>
+              <li>El conjunto \(S = \{x : ||x||_\infty = 1\}\) es compacto en \((\mathbb{R}^n,||||_\infty)\). Como
+                  \(||x||_\infty \leq ||x||_2 \leq \sqrt{n}||x||_2\) entonces \(||x||_2 \leq \sqrt{n}\) para
+                  todo \(x \in S\) y \(S\) es acotado.
+                  \(S\) es cerrado bajo la norma \(||||_\infty\), y como \(||||_2\) y \(||||_\infty\) son equivalentes,
+                  también es cerrado bajo \(||||_2\). Por el
+                  Teorema de Heine-Borel tenemos que es compacto en la topología inducida por la norma \(||||_2\),
+                  pero al ser equivalente a la norma \(||||_\infty\) también es compacto respecto a \(||||_\infty\).
+              </li>
+              <li>
+                  La norma \(||||\) es una función continua \(||||:\mathbb{R}^n \to \mathbb{R}\) respecto a la norma
+                  \(||||_\infty\). Como \(||||\) es norma entonces satifsface la desigualdad del triángulo inversa.
+                  Si además utilizamos la desigualdad mostrada en la primera parte de la prueba tenemos lo siguiente:
+                  \[
+                  |||x||-||y||| \leq ||x-y|| \leq C ||x-y||_\infty.
+                  \]
+                  Si \(\epsilon >0\) entonces podemos tomar \(\delta = \epsilon / C\) como testigo de la continuidad de
+                  \(||||\).
+              </li>
+              <li>Como \(S\) es compacto y \(||||\) es continua, entonces \(||||\) alcanza un mínimo en \(S\), llamemos
+                  \(x_0\) a un punto donde se alcanza dicho mínimo.
+              </li>
+
+              Sea \(x \in \mathbb{R}^n\). Si \(x=0\) entonces \(0=||x||_\infty \leq D ||x|| = 0\) para toda \(D\in \mathbb{R}\).
+              Supongamos ahora que \(x \neq 0\), entonces \(||x||_\infty > 0\) y \(x/{||x||_\infty} \in S\). Por definición de \(x_0\)
+              se tiene que \(||x_0|| \leq ||x/||x||_\infty|| = \frac{||x||}{||x||_\infty}\) y en consecuencia \(||x||_\infty \leq
+              \frac{1}{||x_0||}||x||\), por lo que si \(D=1/||x_0||\) entonces \(||x||_\infty \leq D ||x||\) y hemos probado lo
+              que las normas son equivalentes.
+          </ul>
+      </p>
+      </p>
+  </div>
+
+  </div>
+
+
+
+
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    
+      <p>
+        Sea \(A \subset \mathbb{R}^n\) un cerrado y \(x\notin A\). Prueba que 
+        existe un \(a_*\in A\) tal que 
+        \[
+        d(x,A)=d(x,a_*)
+        \]
+      </p>
+    
+
+  </div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <ol>
+    <li>
+      Prueba que una función continua \(f:\mathbb{R}\to \mathbb{R}\)
+      está completamente determinada por sus valores en \(\mathbb{Q}\). Es decir,
+      si \(g:\mathbb{R}\to \mathbb{R}\) es una función continua que satisface
+      \(f(r)=g(r)\) para toda \(r\in \mathbb{Q}\) entonces
+      \(f(x)=g(x)\) para toda \(x\in \mathbb{R}\).
+    </li>
+    <li>
+      <p>
+      Generaliza el ejercicio anterior. Sean \((X,d_X), (Y,d_Y)\) dos
+      espacios métricos y sea \(D\subset X\) un
+      <a href="./S5.html#Ejer:EquivDensos">subconjunto denso</a>. Prueba
+      que una función continua \(f:X \to Y\) está completamente
+      determinada por sus valores en \(D\).
+      </p>
+      <p>
+        Sugerencia: usa el <a href="./S5.html#Ejer:EquivDensos"> Ejercicio 5.32
+        inciso 2</a>.
+      </p>
+
+    </li>
+  </ol>
+  <button class="respButton hvr-grow"> Respuesta </button>
+  <div class="resp-box">
+      <ol>
+          <li>
+              Como \(f,g\) coinciden en \(\mathbb{Q}\) bastará probar que también
+              coinciden en los irracionales \(\mathbb{I}\). Recordemos que todo
+              número irracional es el límite de una sucesión
+              de números racionales. Con esto establecido usaremos el
+              <a href="#Lema:ContinuidadSucesiones"> Lema anterior</a>. Sea
+              \(x\) un número irracional y \((x_n)_n\) una sucesión de racionales
+              tal que \(\lim x_n= x\). Por hipótesis \(f(x_n) = g(x_n)\) para cada
+              \(n \in \mathbb{N}\) y por continuidad de las funciones \(f,g\) en el
+
+              punto \(x\) tenemos que \(f(x) = \lim f(x_n) = \lim g(x_n) = g(x)\).
+              En consecuencia \(f(x) = g(x)\) para todo \(x \in \mathbb{R}\).
+          </li>
+      </ol>
+  </div>
+</div>
+
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \(f:\mathbb{R}\to \mathbb{R}\) que satisface:
+    \(f(x+y)=f(x)+f(y)\), para todos \(x,y\in \mathbb{R}\).
+  </p>
+  <p>
+    Prueba que si \(f\) es continua en un punto entonces existe una
+    constante \(a\in \mathbb{R}\) tal que \(f(x)=ax\) para todo \(x\in \mathbb{R}\).
+   </p>
+   <p>
+     Es decir, toda función aditiva y continua en almenos un punto es lineal.
+   </p>
+   <p>
+     Sugerencia: empieza probando que si \(f\) es aditiva y continua en un punto entonces
+     es continua en cero y después prueba que es continua en todo punto.
+   </p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico y \(f:X\to \mathbb{R}\) una función.
+  </p>
   <ol>
   <li>
-    Prueba que \(\mathbb{R}^n\), con la métrica inducida por
-    \(\|\cdot\|_2\), \(\|\cdot\|_1\) ó \(\|\cdot\|_\infty\) es completo.
-
+    Si \(f\) es continua en \(X\) entonces, para todo \(a\in \mathbb{R}\)
+    entonces \(\{x: f(x)>a\}\) y \(\{x: f(x)< a \}\) son abiertos.
   </li>
   <li>
-    Más en general, prueba que para cualquier norma en \(\mathbb{R}^n\),
-    \(\mathbb{R}^n\), \(\| \cdot \|\)  es completo.
+    Inversamente, si para toda \(a\in \mathbb{R}\) se satisface  que
+    \(\{x: f(x)>a\}\) y \(\{x: f(x)< a \}\) son conjuntos abiertos prueba
+    que \(f\) es continua en \(\mathbb{R}\).
+  </li>
+  <li>
+    Mejora el inciso anterior. Prueba que si para toda
+    \(a\in \mathbb{Q}\) se satisface  que
+    \(\{x: f(x)>a\}\) y \(\{x: f(x)< a \}\) son conjuntos abiertos prueba
+    que \(f\) es continua en \(\mathbb{R}\).
+  </li>
+  </ol>
+  <p>
+    Sugerencia: usa el <a href="#Lema:ContinuidadAbiertosCerrados"> Lema </a>.
+  </p>
+
+  <button class="respButton hvr-grow"> Respuesta </button>
+  <div class="resp-box flexbox">
+      Se dará prueba de los primeros dos incisos.
+      <div class=" flexbox">
+        <iframe width="700" height="400" class="video"
+          src="https://www.youtube.com/embed/pGlJotPRvGU" allowfullscreen="true"> 
+        </iframe>
+          
+      </div>
+  </div>
+</div>
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:GraficaCerrada"> Ejercicio </h2>
+  <p>
+    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y
+    \(f:X\to Y\) una función. La gráfica de \(f\) se define como
+    el subconjunto de \(X\times Y\) dado por
+    \[
+    G(f):=\{(x,f(x)): x\in X\}
+    \]
+  </p>
+  <ol>
+  <li>
+    Prueba que \(f\) es continua en \(X\) entonces
+    \(G(f)\) es un subconjunto cerrado de \(X\times Y\).
+  </li>
+  <li>
+    Da un ejemplo donde \(G(f)\) sea cerrado pero \(f\)
+    no es continua.
   </li>
 </ol>
-</div>
-
-
-<div class="teorema-box">
-  <h2 class="number-title">Teorema  </h2>
   <p>
-    Sea \(p\in [1,\infty]\). Prueba que  \((\ell_p, \|\cdot \|_p)\)
-    es completo.
+    Nota: considera el espacio \(X\times Y\) dotado con la métrica
+    \(d((x_1,y_1),(x_2,y_2))=d_X(x_1,x_2)+d_Y(y_1,y_2)\).
   </p>
 </div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico completo y \(A \subset X\).
-    Considera el subespacio con la métrica inducida \((A,d_A)\).
-
-  </p>
-  <p>
-    Prueba que \((A,d_A)\) es completo si y sólo si
-    \(A\) es un subconjunto cerrado de \(X\).
-  </p>
-
-</div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-
-  <p>
-    Prueba que \((c_0, \|\cdot\|_\infty)\) es completo.
-  </p>
-  <p>
-    Sugerencia: usa el ejercicio anterior.
-  </p>
-</div>
-
-
-
-<div class="definicion-box">
-  <h2 class="number-title"> Definición </h2>
-  <p>
-    Sea \(X\) un conjunto cualquiera. Por
-    \(\ell_\infty(X)\) denotamos al conjunta de
-    todas las funciones de \(X\) en \(\mathbb{R}\) que están
-    acotadas en \(X\). Es decir \(f\in \ell_\infty(X)\) si y sólo si
-    \(f:X\to \mathbb{R}\) satisface
-    \[
-     \sup_{x\in X}\{|f(x)|\} <\infty
-    \]
-  </p>
-  <p>
-    Para \(f\in \ell_\infty(X)\) definimos
-    \[
-    \|f\|_\infty:=\sup_{x\in X}\{|f(x)|\}
-    \]
-    La misma prueba de que \(\|\cdot\|_\infty\) es una
-    norma en \(\ell_\infty\) (<a href="./S3.html#Ejer:ellInftyClasico">Ejercicio 3.5</a>)
-    se puede extendar para llegar a que
-    \((\ell_\infty(X), \|\cdot\|_\infty)\) es un
-    espacio vectorial normado. Es más, el caso usual de
-    \(\ell_\infty\) se obtiene cuando \(X=\mathbb{N}\).
-  </p>
-</div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico. Prueba que
-    \((\ell_\infty(X), \|\cdot \|_\infty)\) es un completo.
-  </p>
-</div>
-
-<div class="teorema-box">
-  <h2 class="number-title" id="Teo:CerradosAnidados"> Teorema </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico. Las siguientes
-    condiciones son equivalentes.
-  </p>
-  <ol>
-    <li>
-      \((X,d)\) es completo.
-    </li>
-    <li>
-      <p>
-      Propiedad de los Cerrados Anidados.
-      </p>
-      <p>
-      Toda sucesión decreciente de cerrados
-      en \(X\), \(F_1 \supseteq F_2 \supset \cdots \), con
-      la característica de que \(\lim_{n\to \infty} \operatorname{diam}(F_n)=0\),
-      satisface que existe \(x\in X\) con 
-      \[
-      \cap_{n=1}^\infty F_n =\{ x \}
-      \]
-      </p>
-    </li>
-  </ol>
-  <button class="respButton hvr-grow"> Demostración </button>
-  <div class="resp-box">
-  <p>
-    \(\Rightarrow ] \) Supongamos que \((X,d)\) es completo y  sea \((F_n)_{n=1}^\infty\) una sucesión de cerrados que satisfacen 
-    las suposiciones del inciso 2.
-  </p>
-  <p>
-    Para cada natural \(n\) fijamos un elemento \(x_n \in F_n \). Afirmamos que \((x_n)_{n=1}^\infty\) es una sucesión de 
-    Cauchy. En efecto, dada \(\varepsilon >0\) el límite \(\lim_{n\to \infty} \operatorname{diam}(F_n)=0\)
-    implica que existe un natural \(N \) tal que \(\operatorname{diam}(F_n) < \varepsilon \) para todo 
-    \(n \geq N\). Ahora, si \(n,m \geq N\) y \(m\geq n\) usando que la sucesión es anidada tenemos que 
-    \(x_n,x_m \in F_m\) y por lo tanto 
-    \[
-    d(x_n, x_m)\leq \operatorname{diam}(F_m) < \varepsilon.
-    \]
-  </p>
-  <p>
-    Por completez existe un \(x\in X\) tal que \(\lim_{n\to \infty} x_n = x\). Para terminar vamos a probar 
-    que \(\cap_{n=1}^\infty F_n=\{x\}\).
-  </p>
-  <p>
-    Fijamos un natural \(n\). Al ser la sucesión anidada tenemos que \(F_k \subseteq F_n\) para todo 
-    \(k\geq n \), por lo tanto \(x_k \in F_n\) para todo \(k\geq n\) y como \(\lim_{k \to \infty}x_k=x\)
-    se sique que \(x\) está en la cerradura de \(F_n\) pero al ser éste cerrado concluimos que 
-    \(x\in F_n\). Por lo tanto concluimos que  \(x\in \cap_{n=1}^\infty F_n\).
-  </p>
-  <p>
-    Por otro lado, si \(y\in \cap_{n=1}^\infty F_n\) se sigue que para todo natural \(n\), \(x,y\in F_n\)
-    y por lo tanto:
-    \[
-    d(x,y)\leq \operatorname{diam}(F_n)
-    \]
-    y como \(\lim_{n\to \infty} \operatorname{diam}(F_n)=0\) de la desigualdad anterior concluimos que 
-    \(d(x,y)=0\) es decir \(x=y\). Por lo tanto conclumos que \(\cap_{n=1}^\infty F_n \subseteq \{x\}\).
-  </p>
-  <p>
-    De lo anterior obtenemos \(\cap_{n=1}^\infty F_n=\{x\}\).
-  </p>
-  <p>
-    \(\Leftrightarrow ] \) Supongamos que el espacio \((X,d)\) satisface la propiedad de 
-    los cerrados anidados y sea \((x_k)_{k=1}^\infty\) una sucesión de Cauchy. Debemos de 
-    probar que existe un \(x\in X\) tal que \(\lim_{k\to \infty} x_k=x\).
-  </p>
-  <p>
-    Para cada natural \(n\) definimos \(F_n=\overline{\{ x_k\}_{k\geq n}}\). Por definición cada 
-    \(F_n\) es cerrado y además \(F_{n+1} \subseteq F_n\). El siguiente paso es probar que 
-    \(\lim_{n\to \infty} \operatorname{diam}(F_n)=0\). 
-  </p>
-  <p>
-    Dada \(\varepsilon >0\), al ser 
-    \((x_k)_{k=1}^\infty\) de Cauchy existe un \(N \in \mathbb{N}\) tal que para todos 
-    \(k,l \geq N\), \(d(x_k,x_l) < \varepsilon \). En particular, si \(n \geq N\) 
-    \[
-    \operatorname{diam}(\{x_k \}_{k\geq n})=\sup_{k,l\geq n}\{ d(x_k,x_l)\} \leq \varepsilon.
-    \]
-    Del <a href="./S5.html#Ejer:DiamCerradur">Ejercicio 5.31</a> conclumios que para todo \(n \geq N\),
-    \(\operatorname{diam}(F_n)\leq \varepsilon\). 
-  </p>
-  <p>
-    Por lo tanto la sucesión de conjuntos \((F_n)_{n=1}^\infty\) satisface las condiciones de la propiedad 
-    de cerrados anidados y por lo tanto existe \(x\in X\) tal que:
-    \[
-    \cap_{n=1}^\infty F_n=\{x\}.
-    \]
-  </p>
-  <p>
-    Afirmamos que \(\lim_{k\to \infty}x_k=x\) para lo cual notamos que si \(\varepsilon >0\) y 
-    \(N \in \mathbb{N}\) son como arriba, \(\operatorname{diam}(F_n) \leq \varepsilon\) para todo 
-    \(n\geq N\). Si fijamos \(k \geq N\) y notamos que \(x,x_k \in F_k \) llegamos a que 
-    \[
-    d(x,x_k) \leq \operatorname{diam}(F_k) \leq \varepsilon
-    \]
-    por lo que concluimos \(\lim_{k\to \infty} x_k=x\).
-  </p>
-</div>
-</div>
-
-
-
-
-<div class="definicion-box">
-  <h2 class="number-title"> Definición  </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico. Un subconjunto
-    \(A \subseteq X\) se llama <i>totalmente acotado</i>
-    si, para toda \(\varepsilon > 0 \) existen puntos
-    \(x_1,\dots, x_n \in X\) que satisfacen
-    \[
-    A\subseteq \cup_{i=1}^n B_{\varepsilon}(x_i)
-    \]
-    Con estas condiciones decimos que el conjunto
-    \(\{x_1,\dots, x_n\}\) es una \(\varepsilon\)-red
-    para \(A\).
-  </p>
-  <p>
-    Ejemplos.
-  </p>
-  <ul>
-  <li>
-    Todo conjunto finito,
-    \(A=\{a_1,\dots, a_m\}\) es totalemente acotado
-    pues \(\{a_1,\dots, a_m\}\) es una \(\varepsilon\)-red
-    para \(A\), sin importar quién es el \(\varepsilon\).
-  </li>
-  <li>
-    Sea \((X.d)\) un espacio métrico y \((x_n)_{n=1}^\infty\)
-    una sucesión en \(X\) tal que \(\lim_{n\to \infty} x_n=x\).
-    Entonces el conjunto \(A=\{x_n\}_{n=1}^\infty\cup \{x\}\)
-    es totalmente acotado. Para ver esto sea \(\varepsilon >0\)
-    arbitraria. Ya que \(\lim_{n\to \infty}x_n=x\) existe
-    \(N\in \mathbb{N}\) tal que \(d(x_n,x)< \varepsilon\)
-    para toda \(n \geq N\), es decir \(x_n \in B_\varepsilon(x)\)
-    para toda \(n\geq N\). Por lo tanto  el conjunto
-    \(\{x_1,\dots, x_{N-1}, x\} \) es una \(\varepsilon\)-red para
-    \(A\).
-  </li>
-</ul>
-<p>
-  La idea de los subconjuntos totalmente acotados es que
-  tratan de relajar las condiciones de un subconjunto acotado pero
-  tratando de mantener algunos de las propiedades fundamentales. En otras
-  palabras, si un conjunto no es acotado lo siguiente mejor es que sea
-  totalmente acotado.
-</p>
-</div>
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico y \( A\subseteq X\) un
-    subconjunto totalmente acotado. Prueba que
-    simpre es posible encontrar una \(\varepsilon\)-red
-    cuyos elementos están todos en \(A\).
-  </p>
-
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title" id="Ejer:CompactoImplicaTA"> Ejercicio </h2>
- <p>
-   Prueba que todo subconjunto compacto es totalmente acotado.
- </p>
-
- <button class="respButton hvr-grow"> Respuesta </button>
- <div class="resp-box">
- <p>
-   Para probar lo anterior sea \( K \subset X\) un
-   conjunto compacto de \((X,d)\) y sea \(\varepsilon >0\). Ya que
-   \(x\in B_\varepsilon(x)\) para toda \(x\in K\) tenemos que
-   \[
-   K \subseteq \cup_{x\in K}B_{\varepsilon}(x).
-   \]
-   Por la compacidad de \(K\) existen \(x_1,\dots, x_n \in K\)
-   tal que
-   \[
-   K \subseteq \cup_{i=1}^n B_\varepsilon(x_i)
-   \]
-   por lo que \(\{x_1,\dots, x_n\}\) es una \(\varepsilon\)-red
-   para \(K\).
- </p>
-</div>
-</div>
-
 
 <div class="ejercicio-box">
   <h2 class="number-title"> Ejercicio </h2>
     <p>
-      Considera a \(\mathbb{R}^n\) con la métrica usual.
+      Sea \(f:\mathbb{R}\to \mathbb{R}\) una función y
+      define \(F:\mathbb{R}\to \mathbb{R}^2\) por \(F(x)=(x,f(x))\). Prueba que las siguientes
+      condiciones son equivalentes.
     </p>
-    <p>
-      Prueba que un subconjunto de \(\mathbb{R}^n\) es
-      totalmente acotado si y sólo si es acotado.
-    </p>
-
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-
-  <ol>
-    <li>
-      Prueba que todo subconjunto totalmente acotado es acotado.
-    </li>
-    <li>
-      En \((\ell_1, \|\cdot\|_1)\) considera la bola cerrada 
-      \[
-      \overline{B}_1(0)=\{x\in \ell_1| \|x\|_1\leq 1 \}
-      \]
-       Prueba
-      que \(\overline{B}_1(0)\) es acotado pero no totalmenete acotado.
-      
-    </li>
-  </ol>
-  <p>
-    Sugerencia: considera los vectores 
-    \(e_n\), \(n\in \mathbb{N}\), donde \(e_n\) es la sucesión que tiene todas las entradas
-  igual a cero, excepto la entrada \(n\) donde tiene un 1. Empieza probando que \(\|e_n-e_m\|_1=2\) si \(n\ne m\).
-  </p>
-  <p>
-      Por lo tanto los conjuntos totalmente acotados contienen
-      propiamente a los conjuntos acotados.
-  </p>
-</div>
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <ol>
-    <li>
-      Prueba que todo subconjunto de un subconjunto totalmente acotado
-      también es totalmente acotado.
-    </li>
-    <li>
-    Prueba que un subconjunto \(A\) es totalmente acotado si y
-    sólo si su cerradura, \(\overline{A}\), es totalmente acotado.
-   </li>
-   
-  </ol>
-</div>
-
-
-
-
-
-<div class="lema-box">
-  <h2 class="number-title" id="Lema:GeneTotAcot"> Lema </h2>
-  <p>
-    \(A\) es totalmente acotado si y sólo si
-    para toda \(\varepsilon >0\) existe un número
-    finito de subconjuntos \(A_1,\dots, A_n \subseteq A\),
-    con \(\operatorname{diam}(A_i)< \varepsilon\), \(i=1,\dots, n\), tal que
-    \[
-    A\subseteq \cup_{i=1}^n A_i
-    \]
-  </p>
-  <button class="respButton hvr-grow"> Demostración </button>
-  <div class="resp-box">
-  <p>
-    \(\Rightarrow ]\) Si \(A\) es totalmente acotado dada \(\varepsilon >0\) existen 
-    \(a_1\dots, a_n \in A\) tal que \(A\subseteq \cup_{i=1}^n B_{\varepsilon / 3}(a_i)\). Tomando 
-    \(A_i=B_{\varepsilon /3}(a_i)\cap A\) obtenemos que \(A_i \subseteq A\) y 
-
-    \[
-    \operatorname{diam}(A_i)\leq \operatorname{diam}(B_{\varepsilon/3}(a_i)) \leq 
-    \frac{2\varepsilon}{3}< \varepsilon.
-    \]
-  </p>
-  <p>
-    \(\Leftarrow ]\) Ahora supongamos que \(A\) satisface las suposiciones del lema y probemos que 
-    \(A\) es totalmente acotado. Dada \(\varepsilon >0\) existen subconjuntos 
-    \(A_1,\dots, A_n \subseteq A\) tal que \(A \subseteq \cup_{i=1}^n A_i\) y \(\operatorname{diam}(A_i)< \varepsilon\).
-    Fijamos un \(a_i\in A_i\). Afirmamos que 
-    \[
-    A\subseteq \cup_{i=1}^n B_{\varepsilon}(a_i).
-    \]
-    Para probar la contención tomamos \(a\in A\) arbitrario. Ya que \(A\subseteq \cup_{i=1}^n A_i\), existe 
-    un índice \(i\) tal que \(a\in A_i\). En particular \(d(a,a_i)\leq \operatorname{diam}(A_i) < \varepsilon\)
-    lo cual se puede reescribir como \(a\in B_{\varepsilon}(a_i)\). Por lo tanto 
-    \(A\subseteq \cup_{i=1}^n B_{\varepsilon}(a_i)\).
-
-  </p>
-  </div>
-</div>
-
-
-<div class="lema-box">
-  <h2 class="number-title" id="Lema:CaractSucTotAcot"> Lema </h2>
-
-  <p>
-    Sea \((X,d)\) un espacio métrico y \((x_n)_{n=1}^\infty\) una sucesión
-    de elementos de \(X\). Toma \(A=\{x_n: n\in \mathbb{N}\}\).
-  </p>
-  <ol>
-    <li>
-      Si \((x_n)_{n=1}^\infty\) es de Cauchy entonces \(A\) es totalmente
-      acotado.
-    </li>
-    <li>
-      Si \(A\) es totalmente acotado entonces \((x_n)_{n=1}^\infty\)
-      admite una subsucesión que es  Cauchy.
-    </li>
-  </ol>
-
-  <button class="respButton hvr-grow"> Demostración inciso 1 </button>
-  <div class="resp-box">
-  <p>
-    Sea \(\varepsilon >0\). Al ser \((x_n)_{n=1}^\infty\) de Cauchy, existe una \(N\in \mathbb{N}\)
-    tal que si \(n,m \geq N\) entonces \(d(x_n,x_m) < \varepsilon\). De lo anterior se sigue que 
-    \(\{ x_n: n\geq N\} \subseteq B_\varepsilon(x_N)\) y por lo tanto 
-    \[
-    A \subseteq \cup_{i=1}^N B_{\varepsilon}(x_i).
-    \]
-  </p>
-  </div>
-  <button class="respButton hvr-grow"> Demostración inciso 2 </button>
-  <div class="resp-box">
-  <p>
-    Caso 1: \(A\) es finito. 
-  </p>
-  <p>
-    En este caso existe un punto \(x\in A\) para el cual hay una infinidad de naturales \(n's\)
-    para los cuales \(x_n=x\). A partir de lo anterior se puede construir una subsucesión 
-    \((x_{n_k})_{k=1}^\infty\) tal que \(x_{n_k}=x\) para todo \(x\). Por lo tanto 
-    \((x_{n_k})_{k=1}^\infty\) es de Cauchy.
-  </p>
-  <p>
-    Caso 2: \(A\) es infinito.
-  </p>
-  <p>
-    Se construirá la subsucesión de Cauchy aplicando el <a href="Lema:GeneTotAcot">Lema 9.19</a>.
-  </p>
-  <p>
-    Aplicando el <a href="Lema:GeneTotAcot">Lema 9.19</a> al conjunto \(A\) con \(\varepsilon=1/2\) 
-    podemos asegurar que existen subconjuntos \(A_1^{(1)},\dots, A_{m_1}^{(1)} \subseteq A \) 
-    con \(\operatorname{diam}(A_i^{(1)}) < 1/2\) y \(A \subseteq \cup_{i=1}^{m_1}A_i^{(1)}\). Ya que 
-    \(A\) es infinito al menos uno de los conjuntos \(A_i^{(1)}\) es infinito. Sea \(A_1\) uno de 
-    esos conjuntos infinitos.
-  </p>
-  <p>
-    Ahora aplicamos el <a href="Lema:GeneTotAcot">Lema 9.19</a> al conjunto \(A_1\) con \(\varepsilon=1/2^2\).
-    Por lo tanto existen subconjuntos \(A_1^{(2)}, \dots, A_{m_2}^{(2)}\subseteq A_1\) con 
-    \(\operatorname{diam}(A_i^{(2)})< 1/2^2\) y \(A_1 \subseteq \cup_{i=1}^{m_2}A_i^{(2)}\). Ya que 
-    \(A_1\) es infinito al menos uno de los conjuntos \(A_i^{(2)}\) es infinito. Sea \(A_2\) uno de 
-    esos conjuntos infinitos.
-  </p>
-  <p>
-    Continuiando con este proceso podemos construir una sucesión de conjuntos \((A_k)_{k=1}^\infty\)
-    tal que: \(A_k\subseteq A\), \(A_{k+1}\subseteq A_k\), \(\operatorname{diam}(A_k)< 1/2^k\) y \(A_k\) es infinito. 
-  </p>
-  <p>
-    Finalmente para construir la subsucesión iniciamos tomamos \(x_{n_1}\in A_1\). Como \(A_2\) es infinito 
-    existe un \(x_{n_2}\), con \(n_2 > n_1\) con \(x_{n_2}\in A_2\). De esta forma podemos encontrar
-    \(x_{n_1}, \dots, x_{n_k}\), con \(n_k > \cdots > n_2 > n_1\) y tal que \(x_{n_k}\in A_k\). Afirmamos que la 
-    subsucesión \((x_{n_k})_{k=1}^\infty\) es de Cauchy. En efecto, dada \(\varepsilon >0\) tomamos un 
-    \(k_0\) tal que \(1/2^{k_0}< \varepsilon\). Entonces para todo \(k,l \geq k_0\), 
-    se cunple que \(x_{n_k},x_{n_l} \in A_{\min\{k,l\}}\) y 
-    \[ 
-    d(x_{n_k},x_{n_l}) \leq \operatorname{diam}(A_{\min\{k,l\}})\leq 1/2^{\min\{k,l\}} \leq 1/2^{k_0} < \varepsilon
-    \]
-  </p>
-</div>
-
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Un subconjunto \(A\), de un espacio métrico \((X,d)\),
-    es totalmente acotado si y sólo si toda sucesión en \(A\) admite
-    una subcusesión que es Cauchy.
-  </p>
-  <button class="respButton hvr-grow"> Demostración </button>
-    <div class="resp-box">
-  <p>
-    \(\Rightarrow ]\) Supongamos que \(A\) es totalmente acotado. 
-    Sea \((x_n)_{n=1}^\infty \) una sucesión de elementos de \(A\). Ya que el conjunto 
-    \(\{x_n: n\in \mathbb{N}\}\) también es totalmente acotado 
-    (al ser subconjunto de \(A\)) el <a href="Lema:CaractSucTotAcot">Lema 9.20-2 </a> 
-    asegura que existe una subsucesión de \((x_n)_{n=1}^\infty\) que es de Cauchy.
-  </p>
-  <p>
-    \(\Leftarrow ]\) Por contrapositiva, es decir, suponemos que \(A\) no es 
-    totalmente acotado y vamos a construir una sucesión de elementos de \(A\) tal que no 
-    admite una subsucesión de Cauchy.
-  </p>
-  <p>
-    Como suponemos que \(A\) no es totalmente acotado existe una \(\varepsilon >0\) tal que \(A\) no puede ser cubierto por una cantidad 
-    finita de bolas con radio \(\varepsilon\). 
-  </p>
-  <p>
-    Afirmamos que existe una sucesión de elementos de 
-    \(A\), \((x_n)_{n=1}^\infty\) tal que \(d(x_n,x_m) \geq \varepsilon\) para todos \(n,m\).
-    Para construir dicha subsucesión inciamos con un \(x_1\in A\). Ya que \(A\) no está contenido en 
-    \(B_\varepsilon(x_1)\) existe un \(x_2\in A\) con \(d(x_1,x_2) \geq \varepsilon\). 
-    Ya que \(A\) no está contenido en \(B_\varepsilon(x_1)\cup B_\varepsilon(x_2)\) existe un 
-    \(x_3 \in A\) con \(d(x_3,x_1)\geq \varepsilon, d(x_3,x_1)\geq \varepsilon\).
-    Por inducción, si tenemos \(x_1,\dots, x_k \in A\) con \(d(x_i,x_j)\geq \varepsilon\), para \(i\ne j\)
-    con \(1\leq i,j \leq k\), usamos el hecho de que \(A\) no está contenido en 
-    \(\cup_{i=1}^k B_\varepsilon(x_i)\) para asegurar la existencia de un \(x_{k+1}\in A\) con la propiedad de que 
-    \(d(x_{k+1}, x_i) \geq \varepsilon\), para todo \(i=1,\dots, k\).
-  </p>
-  <p>
-    Para terminar simplemente se nota que la sucesión \((x_n)_{n=1}^\infty\) no admite una subsucesión de 
-    Cauchy.
-  </p>
-  </div>
-</div>
-
-
-
-<div class="teorema-box">
-  <h2 class="number-title"> Teorema </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico. Las siguientes
-    condiciones son equivalentes.
-  </p>
-  <ol>
-    <li>
-      \((X,d)\) es completo.
-    </li>
-    <li>
-      <p>
-        Propiedad de Bolzano-Weierstrass.
-      </p>
-      <p>
-        Todo subconjunto de \(X\), infinito y totalmente acotado
-        tiene un punto límite en \(X\).
-      </p>
-    </li>
-  </ol>
-  <button class="respButton hvr-grow"> Demostración </button>
-  <div class="resp-box">
-  <p>
-    \(\Rightarrow ]\) Supongamos que \((X,d)\) es completo y sea \(A\subseteq X\) infinito y 
-    totalmente acotado. Ya que \(A\) es infinito podemos encontrar 
-    \((x_n)_{n=1}^\infty\), una sucesión de elementos de \(A\), tal que 
-    \(x_n \ne x_m\) para todos \(n\ne m\). Aplicando el lema 
-    <a href="Lema:CaractSucTotAcot">Lema 9.20-2</a> podemos asegurar que existe \((x_{n_k})_{k=1}^\infty\), 
-    una subsucesión de Cauchy. Al ser \((X,d)\) completo existe un \(x\in X\) tal que 
-    \(\lim_{k\to \infty}x_{n_k}=x\). Finalmente, ya que \(x_k \in A\) y \(x_{n_k}\ne x_{n_j}\), 
-    para todos \(j,k\), concluimos que \(x\) es un punto de acumulación de \(A\).
-  </p>
-  <p>
-    \(\Leftarrow ] \) Supongamos que \((X,d)\) satisface la propiedad de Bolzano-Weierstrass. Debemos de probar que 
-    \((X,d)\) es completo. Sea \((x_n)_{n=1}^\infty\) una sucesión de Cauchy, debemos de probar que 
-    ésta sucesión converge a un punto de \(X\). Denotemos \(A=\{x_n:n\in \mathbb{N}\}\).
-  </p>
-  <p>
-    Caso 1: \(A\) es finito.
-  </p>
-  <p>
-    En este caso existe un punto \(x\in A\) para el cual hay una infinidad de \(n's\) con 
-    \(x_n=x\). Por lo tanto podemos encontrar una subsucesión \((x_{n_k})_{k=1}^\infty\) con 
-    \(x_{n_k}=x\) para toda \(k\). Pero entonces \((x_{n})_{n=1}^\infty\) es de Cauchy y 
-    la subsucesión \((x_{n_k})_{k=1}^\infty\) es convergente, por lo tanto la sucesión inicial 
-    \((x_n)_{n=1}^\infty\) es convergente en \(X\) (ver <a href="./S4.html#Ejer:SubsucesionConvDeUnaCauchy">Ejercicio 4.29</a>). 
-  </p>
-  <p>
-    Caso 2: \(A\) es infinito.
-  </p>
-  <p>
-    Por la propiedad de Bolzano-Weierstrass el conjunto \(A\) tiene un punto límite en \(A\). De lo anterior 
-    se sigue que existe una subsucesión \((x_{n_k})_{k=1}^\infty\) convergente a un punto de \(X\). Pero entonces 
-    tenemos la misma situación que en el caso 1: \((x_{n})_{n=1}^\infty\) es de Cauchy y 
-    la subsucesión \((x_{n_k})_{k=1}^\infty\) es convergente. Por el <a href="./S4.html#Ejer:SubsucesionConvDeUnaCauchy">Ejercicio 4.29</a>
-    la sucesión original es convergente.
-  </p>
-  </div>
-</div>
-
-
-<div class="nota-box">
-  <h2 class="number-title"> Nota </h2>
-  <p>
-    Otro aspecto importante de los espacios métricos completos
-    es una caracterización de los subconjuntos compactos similar
-    al <a href="./S8.html#Teo:HeineBorel">Teorema de Heine-Borel</a>
-    en \(\mathbb{R}^n\). Recordemos que
-    este teorema dice que un subconjunto de \(\mathbb{R}^n\) es
-    compacto si y sólo si es cerrado y acotado. Para espacios métricos
-    completos mucho más generales que \(\mathbb{R}^n\) se necesita
-    cambiar la hipótesis de acotado por totalmente acotado.
-  </p>
-</div>
-
-
-<div class="teorema-box">
-  <h2 class="number-title" id="Teo:CaractCompacidadEnCompletos"> Teorema </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico completo y \(K \subseteq X\).
-  </p>
-  <p>
-    \(K\) es compacto si y sólo si
-    es cerrado y totalmente acotado.
-  </p>
-
-  <button class="respButton hvr-grow"> Demostración </button>
-  <div class="resp-box">
-
-  <p>
-    \(\Rightarrow ] \)  Supongamos que \(K\) es compacto. El <a href="./S8.html#Ejer:CompactoImplicaCerrado">Lema 8.11</a> nos dice que 
-    \(K\) es cerrado. Además por el <a href="#Ejer:CompactoImplicaTA">Ejercicio 9.15</a> \(K\) es totalmente acotado y terminamos.
-  </p>
-  <p>
-    \(\Leftrightarrow ] \) Supongamos que \(K\) es cerrado y totalmente acotado. Por el 
-    <a href="./S8.html#Teo:CompactoImplicaCpS">Teorema 8.14</a> es suficiente probar que \(K\) 
-    es compacto por sucesiones.  
-  </p>
-  <p>
-    Sea \((x_n)_{n=1}^\infty\) una sucesión en \(K\). Debemos de 
-    probar que existe una subsucesión convergente a un punto de \(K\). Ya que 
-    \(K\) es totalmente acotado, el conjunto \(A=\{x_n\}_{n\in \mathbb{N}} \subset K\) es totalmente acotado.
-    Por el <a href="#Lema:CaractSucTotAcot">Lema 9.20</a> existe \((x_{n_k})_{k=1}^\infty\) una subsucesión de Cauchy.
-    Al ser \((X,d)\) completo existe \(x\in X\) tal que \(\lim_{k\to \infty}x_{n_k}=x\). Finalmente como 
-    \(K\) es cerrado \(x\in K\).
-  </p>
-  </div>
-</div>
-
-
-<div class="nota-box">
-  <h2 class="number-title"> Nota </h2>
-  <p>
-    Parte de la importancia de los espacios métricos completos es que
-    en ellos se pueden encontrar soluciones a numerosas ecuaciones. El
-    ejemplo más sencillo es \(\mathbb{R}\), donde la ecuación \(x^2=2\)
-    tiene dos soluciones. Otro ejemplo es que, para ciertos espacios métricos,
-    ser completo asegura la existencia de soluciones a ecuaciones diferenciales.
-    Uno de los teoremas más importantes en espacios métricos completos  y
-    que asegura la existencia de soluciones a ecuaciones muy generales
-    es el Teorema del punto fijo de Banach, que se ve más adelante.
-  </p>
-
-</div>
-
-<div class="definicion-box">
-  <h2 class="number-title"> Definición </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico y  \(f:X\to X\) una función.
-  </p>
-  <p>
-    La función \(f\) se llama una contracción estricta si
-    existe un número positivo \( \alpha \), con \(\alpha < 1\), tal que
-    \[
-    d(f(x),f(y))\leq  \alpha d(x,y)
-    \]
-    para todos \(x,y\in X\).
-  </p>
-
-</div>
-
-
-<div class="teorema-box">
-  <h2 class="number-title"> Teorema </h2>
-  <h3>
-    Teorema del punto fijo de Banach
-  </h3>
-  <p>
-    Sea \((X,d)\) un espacio métrico completo y
-    \(f:X\to X\) una contracción estricta. Entonces
-    \(f\) tiene un único punto fijo.
-  </p>
-  <p>
-    Es más, para cualquier \(x_0\in X\) dado, la sucesión de iteradas
-    \((f^n(x_0))_{n=1}^\infty\) converge al punto fijo de \(f\).
-  </p>
-  <p>
-    Nota: por \(f^n(x_0)\) denotamos la \(n\)-ésima iterada de \(f\) en el punto \(x_0\), por ejemplo
-    \(f^2(x_0)=f(f(x_0)), f^3(x_0)=f(f(f(x_0)))\), etc.
-  </p>
-  <button class="respButton hvr-grow"> Demostración </button>
-              <div class="resp-box">
-  <p>
-    Primeramente vamos a probar que la sucesión de iteradas, \((f^n(x_0)_{n=1}^\infty)\)
-     es de Cauchy.  Para iniciar notamos que aplicando   la 
-     propiedad de contracción estricta \(n\)-veces nos lleva a 
-    \begin{equation}\label{Eqn:Aux1PtoFijo}
-    d(f^{n+p}(x_0),f^{n}(x_0))\leq \alpha^{n}d(f^p(x_0),x_0), 
-    \end{equation}
-    donde \(n,p\in \mathbb{N}\).
-  </p>
-  <p>
-    El siguiente paso es probar, por inducción, la siguiente desigualdad 
-
-    \begin{equation}\label{Eqn:Aux2PuntoFijo}  
-      d(f^p(x_0),x_0) \leq \left(\sum_{j=0}^{p-1}\alpha^j\right)d(f(x_0),x_0).
-    \end{equation}
-
-    El caso \(p=1\) es inmediato. 
-
-    Supongamos que  \eqref{Eqn:Aux2PuntoFijo} es válido para \(p\) y probemos  para 
-    \(p+1\).  Aplicando la desigualdad del triángulo para la primera desigualdad y la 
-    propiedad de contraccíon estrcita para la segunda desigualdad lleamos a: 
-    \begin{eqnarray*} 
-      d(f^{p+1}(x_0),x_0)  & \leq &  d(f^{p+1}(x_0),f(x_0))+ d(f(x_0),x_0)  \\
-      &\leq & \alpha d(f^p(x_0),x_0)+d(f(x_0),x_0)
-    \end{eqnarray*}
-    y añidiendo la hipótesis de inducción obtenemos 
-    \begin{eqnarray*} 
-    d(f^{p+1}(x_0),x_0) &\leq & \alpha \left[ \left( \sum_{j=0}^{p-1}\alpha^j\right) d(f(x_0),x_0) \right] + d(f(x_0),x_0) \\
-    &=& \left( \sum_{j=1}^p \alpha^j \right) d(f(x_0),x_0)+ d(f(x_0),x_0) \\
-    &= & \left( \sum_{j=0}^p\alpha^j \right)d(f(x_0),x_0).
-    \end{eqnarray*} 
-  </p>
-  <p>
-    Juntando \eqref{Eqn:Aux1PtoFijo}, \eqref{Eqn:Aux2PuntoFijo} obtenemos 
-    \begin{eqnarray*}  
-    d(f^{n+p}(x_0),f^n(x_0)) &\leq &  \alpha^n \left( \sum_{j=0}^{p-1}\alpha^j \right)d(f(x_0),x_0)    \\ 
-    &= & \left( \sum_{j=n}^{n+p-1} \alpha^j \right)d(f(x_0),x_0).
-    \end{eqnarray*}
-  </p>
-  <p>
-    Finalmente, para probar que \((f^n(x_0))_{n=1}^\infty\) es de Cauchy notamos que \(\sum_{j=n}^{n+p-1} \alpha^j \)
-    es parte del residuo de la serie geométrica \(\sum_{j=0}^\infty \alpha^j \), la cual es convergente al ser \(\alpha < 1\). Por lo tanto, 
-    dado \(\varepsilon > 0 \) existe una \(N\in \mathbb{N}\) tal que si \(n\geq N\) y \(p\geq 1\),
-    se tiene 
-    \[
-    \sum_{j=n}^{n+p-1} \alpha^j < \frac{\varepsilon}{d(f(x_0),x_0)+1}
-    \]
-    por lo que se tiene \(d(f^{n+p}(x_0), f^n(x_0)) < \varepsilon\).
-  </p>
-    <p>
-      Continuando con la prueba del Teorema del Punto Fijo, al ser \((X,d)\) completo existe un 
-      \(y\in X\) tal que \(\lim_{n\to \infty} f^n(x_0)=y\). Vamos a probar que \(f(y)=y\). 
-    </p>
-    <p>
-      Usando que \(f\) es continua obtenemos que 
-      \[
-      f(\lim_{n\to \infty} f^n(x_0))=\lim_{n\to \infty} f(f^n(x_0)).
-      \]
-      Pero \(f(f^{n}(x_0))=f^{n+1}(x_0)\) y la sucesión \((f^{n+1}(x_0))_{n=1}^\infty\) es una 
-      subsucesión de \((f^{n}(x_0))_{n=1}^\infty\) por lo que \(\lim_{n\to \infty}f^{n+1}(x_0)=y\). 
-      Por lo tanto se concluye que 
-      \[
-      f(y)=f\left(\lim_{n\to \infty}f^n(x_0) \right)=\lim_{n\to \infty} f^{n+1}(x_0)=y.
-      \]
-    </p>
-    <p>
-      Resta probar la unicidad. Supongamos que tenemos otro punto \(z\) con \(f(z)=z\). Aplicando 
-      la propiedad de contracción estricta tenemos 
-      \[
-      d(y,z)=d(f(y),f(z))\leq \alpha d(y,z).
-      \]
-      Si \(y\ne z\) entonces \(d(y,z)> 0\) y podemos cancelar la en la desigualdad anterior 
-      para llegar a \(1 \leq \alpha\), contradiciendo que \(\alpha < 1\).
-    </p>
-  </div>
-
-</div>
-
-
-
-
-<div class="definicion-box">
-  <h2 class="number-title"> Definición </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico.
-  </p>
-  <p>
-    Una completación de \((X,d)\) es un espacio métrico,
-    \((\tilde{X}, \tilde{d})\), que satisface
-  </p>
-  <ol>
-    <li>
-      \((\tilde{X}, \tilde{d})\) es un espacio métrico completo.
-    </li>
-    <li>
-      \((X,d)\) es isométrico a un subespacio denso de
-      \((\tilde{X},\tilde{d})\).
-    </li>
-  </ol>
-</div>
-
-<div class="lema-box">
-  <h2 class="number-title" id="Lema:XisometricoSubLinfty"> Lema </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico.
-  </p>
-  <p>
-    Entonces \((X,d)\) es isométrico a un subconjunto de
-    \((\ell_\infty(X), \|\cdot\|_\infty)\).
-  </p>
-  <button class="respButton hvr-grow"> Demostración </button>
-              <div class="resp-box">
-  <p>
-    Fijamos un \(a\in X\) y para \(x\in X\) arbitrario definimos la función 
-    \(f_x:X\to \mathbb{R}\) por 
-    \[
-    f_x(y)=d(x,y)-d(y,a)
-    \]
-    Por la otra desigualdad del triángulo \(|d(x,y)-d(y,a)|\leq d(x,a)\) para todo 
-    \(y\in X\) por lo que \(f_x\in \ell_\infty(X)\) y \(\|f_x\|_\infty \leq d(x,a)\).
-  </p>
-  <p>
-    Resta probar que la función \(x\mapsto f_x\) es una isometría, es decir 
-    \(d(x_1,x_2)=\|f_{x_1}-f_{x_2}\|_\infty\). Pero 
-    \begin{eqnarray*} 
-    \|f_{x_1}-f_{x_2}\|_\infty&=& \sup_{y\in X}\{|f_{x_1}(y)-f_{x_2}(y)| \}\\
-    &=& \sup_{y\in Y} \{| d(x_1,y)-d(y,a)- (d(x_2,y)-d(y,a))  | \} \\
-    &=& \sup_{y\in Y}\{| d(x_1,y)-d(x_2,y)| \}
-    \end{eqnarray*}
-    y por la otra desigualdad del triángulo \(| d(x_1,y)-d(x_2,y)|  \leq d(x_2,x_2)\) para toda \(y\). 
-    Por lo tanto \(\|f_{x_1}-f_{x_2}\|_\infty \leq d(x_1,x_2)\). Finalmente la igualdad en la 
-    desigualdad anterior se da cuando 
-    \(y=x_2\).
-  </p>
-  </div>
-</div>
-
-<div class="coro-box">
-  <h2 class="number-title"> Corolario </h2>
-  <p>
-    Todo espacio métrico admite una completación. 
-  </p>
-  <button class="respButton hvr-grow"> Demostración </button>
-              <div class="resp-box">
-  <p>
-    Sea \((X,d)\) un espacio métrico. Por el <a href="#Lema:XisometricoSubLinfty">Lema 9.29</a>
-    existe una isometría  \(\Phi:(X,d)\to (\ell_\infty(X), \|\cdot\|_\infty)\). Tomamos 
-    \(\tilde{X}=\overline{\Phi(X)}\). Ya que \(\ell_\infty(X)\) es completo tenemos que 
-    \(\tilde{X}\) también es completo. Finalmente \(X\) es isométrico a \(\Phi(X)\) y éste 
-    último es denso en \(\tilde{X}\).  
-  </p>
-  </div>
-
-</div>
-
-
-<div class="quiz-box">
-  <h2> Quiz  </h2>
-  <ol>
+    <ol>
       <li>
-        <p>
-          Sea \((X,d)\) un espacio métrico totalmente acotado. Prueba que
-          \(X\) es separable.
-        </p>
-        <p>
-          Sugerencia: para \(n\in \mathbb{N}\) sea \(D_n\)
-          una \(\frac{1}{n}\)-red para \(X\).
-        </p>
-      
+        \(f\) es continua en \(\mathbb{R}\).
       </li>
       <li>
-        Prueba o da un contraejemplo: si \((X,d_X), (Y,d_Y)\) son espacios métricos 
-        con \(X\) completo y \(f:X\to Y\) es una función continua entonces \(f(X)\) es completo. 
-       </li>
-  </ol>
-  
+        \(F\) es continua en \(\mathbb{R}\).
+      </li>
+      <li>
+        Los subconjuntos
+        \[
+        \{(x,y)\in \mathbb{R}^2: y \leq f(x) \}, \quad \{(x,y)\in \mathbb{R}^2: f(x)\leq y\}
+        \]
+        son cerrados en \(\mathbb{R}^2\).
+      </li>
+    </ol>
 </div>
-<!--<div class="teorema-box">
-  <h2 class="number-title"> Teorema </h2>
-  <p>
-    Si \((\tilde{X}, \tilde{d})\) y \((\hat{X}, \hat{d})\) son dos
-    completaciones de \((X,d)\) entonces ambas son isométricas.
-  </p>
-  <button class="respButton hvr-grow"> Demostración </button>
-              <div class="resp-box">
-  <p>
-    Debemos de probar que existe una biyección \(f:\tilde{X}\to \hat{X}\) que cumple 
-    \(\hat{d}(f(x),f(y))=\tilde{d}(x,y)\), para todos \(x,y\in \hat{X}\).
-  </p>
-  <p>
-    Sean \(\alpha: X \to \tilde{X}, \beta:X \to \hat{X}\) isometrías tal que 
-    \(\alpha(X)\) es denso en \(\tilde{X}\) y \(\beta(X)\) es denso en \(\hat{X}\). 
-  </p>
-  <p>
-    La idea para encontrar \(f\) es completar el siguiente diagrama "levantando" la función 
-    identidad en \(X\)
-    \[
-    \begin{array}{ccc} 
-     \tilde{X} & \xrightarrow{f}  & \hat{X} \\
-     \uparrow_\alpha   &   &   \uparrow_\beta  \\
-     X  & \xrightarrow{\textrm{id}} &  X 
-    \end{array}
-    \]
-  </p>
-  <p>
-    Dado un punto \(\tilde{x} \in \tilde{X}\), al ser \(\alpha(X)\) denso en \(\tilde{X}\) existe una 
-    sucesión \((x_n)_{n=1}^\infty \subseteq X\) tal que \(\lim_{n\to \infty}\tilde{d}(\alpha(x_n),\tilde{x})=0\). 
-    Al ser \((\alpha(x_n))_{n=1}^\infty\) convergente es \(\tilde{d}\)-Cauchy  y como \(\alpha\) es isometría 
-    \[
-    \tilde{d}(\alpha(x_n),\alpha(x_n))= d(x_n,x_m)
-    \] 
-    por lo que \((x_n)_{n=1}^\infty\) es \(d\)-Cauhcy. Pero al ser \(\beta\) una isometría 
-    \[
-    d(x_n,x_m)=\hat{d}(\beta(x_n), \beta(x_m))
-    \]
-    por lo que \((\beta(x_n))_{n=1}^\infty\) es \(\hat{d}\)-Cauchy y al ser \(\hat{X}\) completo 
-    existe un punto \(\hat{x}\in \hat{X}\) tal que \(\lim_{n\to \infty}\hat{d}(\beta(x_n),\hat{x})=0\).
-  </p>
-  <p>
-    Definimos \(f(\tilde{x})=\hat{x}\). Antes de prosegir debemos de probar que \(f(\tilde{x})\) es independiente de 
-    la sucesión \((x_n)_{n=1}^\infty\). Supongamos que \((x_n')_{n=1}^\infty\) es otra sucesión 
-    tal que \(\lim_{n\to \infty}\tilde{d}(\alpha(x_n'),\tilde{x})=0\). Por la desigualdad del triángulo,
-    \(d(\alpha(x_n),\alpha(x_n'))\leq d(\alpha(x_n),\tilde{x})+d(\tilde{x},\alpha(x_n'))\), se sigue que 
-    \[
-    \lim_{\to \infty} \tilde{d}(\alpha(x_n), \alpha(x_n'))=0.
-    \]
-    Al ser \(\alpha\) y \(\beta\) isometrías  
-    \[
-    \tilde{d}(\alpha(x_n), \alpha(x_n'))= d(x_n,x_n') = \hat{d}(\beta(x_n),\beta(x_n'))
-    \]
-    de donde se sigue que 
-    \begin{equation}\label{Eqn:Aux1Completaciones}
-    \lim_{n\to \infty} \tilde{d}(\beta(x_n), \beta(x_n'))=0.
-    \end{equation}
-    Ahora, si tenemos dos posibles límites 
-    \begin{equation}\label{Eqn:Aux2Completaciones}
-    \lim_{n\to \infty}\hat{d}(\beta(x_n),\hat{x})=0, \quad \lim_{n\to \infty}\hat{d}(\beta(x_n'),\hat{x}')=0
-    \end{equation}
-    la desigualdad 
-    \[
-    d(\hat{x},\hat{x}')\leq d(\hat{x},\beta(x_n))+d(\beta(x_n),\beta(x_n'))+d(\beta(x_n'),\hat{x}')
-    \]
-    y los límites \eqref{Eqn:Aux1Completaciones}, \eqref{Eqn:Aux2Completaciones} conclumios que 
-    \(\hat{x}=\hat{x}'\). Por lo tanto \(f(\tilde{x})\) no depende de la sucesión que aproxima a \(\tilde{x}\).
-  </p>
-  <p>
-    Nota que podemos describir 
-    \[
-    f(\tilde{x})=f(\lim_{n\to \infty} \alpha(x_n))=\lim_{n\to \infty}\beta(x_n).
-    \]
-  </p>
-  <p>
-    El siguiente paso es probar que \(f\) es isometría. Dados \(\tilde{x},\tilde{y}\in \tilde{X}\)
-    si utilizamos que la función distancia y \(\alpha\) son continuas tenemos que 
-    \[
-    \tilde{d}(x,y)=\lim_{n\to \infty} \tilde{d}(\alpha(x_n),\alpha(y_n))
-    \]
-    y al ser \(\alpha, \beta\) isometrías 
-    \[
-    \tilde{d}(\alpha(x_n),\alpha(y_n))=d(x_n,y_n)=\hat{d}(\beta(x_n),\beta(y_n))
-    \]
-    al tomar límites llegamos a 
-    \begin{eqnarray*} 
-    \tilde{d}(\tilde{x},\tilde{y})&=& \lim_{n\to \infty} \tilde{d}(\alpha(x_n),\alpha(y_n)) \\
-    &=& \lim_{n\to \infty}\hat{d}(\beta(x_n),\beta(y_n)) \\
-    &=&  \hat{d}(f(\hat{x}),f(\hat{y})).
-    \end{eqnarray*}
-    lo cual prueba que \(f\) es una isometría.
-  </p>
-  <p>
-    Al ser isometría \(f\) es inyectiva, resta probar que \(f\) es suprayectiva. Pero 
-    por construcción de \(f\), \(f(\alpha(x))=\beta(x)\) para toda \(x\in X\) (pues 
-    la sucesión cosntante \(\alpha(x)\) se aproxima a \(\alpha(x)\)). Por lo tanto 
-    \(f(\alpha(X))=\beta(X)\). Tomando cerradura en ambos lados y usando que \(\hat{X}\) es 
-    una completación 
-    llegamos a 
-    \[
-    \overline{f(X)}=\overline{\beta(X)}=\hat{X}
-    \]
-    pero al ser \(f\) isometría, \(\overline{f(\alpha(X))}=f(\overline{\alpha(X)})=f(\tilde{X})\). 
-    Por lo tanto \(f(\tilde{X})=\hat{X}\) y \(f\) es suprayectiva.
-  </p>
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:FunLipschitz"> Ejercicio </h2>
+    <p>
+      Una función entre dos espacio métricos \(f: X \to Y\)
+      se dice que satisface la condición de Lipschitz si
+      existe un constante \(K>0\) para la cual:
+      \[
+      d_Y(f(a),f(b)) \leq K d_X(a,b), \quad \textrm{para todos \(a,b\in X\)}.
+      \]
+      Por sencillez también se dice que \(f\) es Lipschitz con
+      constante \(K\).
+    </p>
+    <ol>
+      <li>
+        Prueba que toda función Lipschitz es continua en todo punto.
+      </li>
+      <li>
+        Mejora el inciso anterior. Prueba que toda función Lipschitz
+        es uniformemente continua en su dominio.
+      </li>
+    </ol>
+    <p>
+      Nota: una función \(g:X\to Y\) se llama uniformemente continua en
+      \(X\) si para toda \(\varepsilon >0\) existe una \(\delta>0\),
+      que sólo depende de \(\varepsilon\), tal que
+      \[
+      d_X(a,b) < \delta \Rightarrow d_Y(g(a),g(b))<\varepsilon
+      \]
+    </p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <ol>
+    <li>
+    Prueba que las funciones \(\sen, \cos:\mathbb{R}\to \mathbb{R}\) son Lipschitz con
+    constante \(K=1\).
+    </li>
+    <li>
+        Generaliza el inciso anterior. Si \(f:[a,b]\to \mathbb{R}\)
+        es continua en \([a,b]\), diferenciable en \((a,b)\) y con derivada
+        acotada en \((a,b)\) entonces \(f\) es Lipschitz.
+    </li>
+
+      </p>
+      <button class="respButton hvr-grow"> Respuesta </button>
+  <div class="resp-box">
+      <ol>
+          <li>
+              <p>
+                Comencemos por recordar el Teorema del Valor Medio. Si \(f:[a,b] \to \mathbb{R}\)
+                es continua en \([a,b]\) y diferenciable en \((a,b)\) entonces existe un punto
+                \(c \in (a,b)\) tal que \(f'(c) = \frac{f(b)-f(a)}{b-a}\).
+              </p> 
+              <p>
+                Dado que \(\sen\) y \(\cos\)
+                son continuas y diferenciables en todo \(\mathbb{R}\). Trabajaremos con \(\sen\) y
+                el caso para \(\cos\) será análogo. Recordemos que ambas funciones toman valores en
+                el intervalo \([0,1]\) y \(\sen '(x) = \cos(x)\), de esta forma si \(a,b \in \mathbb{R}\)
+                entonces existe \(c \in (a,b)\) tal que \(\cos(c) = \frac{\sen(b)-\sen(a)}{b-a}\).
+                Basta tomar valor absoluto en ambos lados de la ecuación y despejar el término
+                \(|b-a|\) para obtener \(|\sen(b) - \sen(a)| = |\cos(c)||b-a|\). Como \(|\cos(c)| \leq 1\)
+                concluimos que \(|\sen(b) - sen(a)| \leq 1 \cdot |b-a|\) y la función en cuestión es
+                Lipschitz con constante \(K=1\). El caso de \(\cos\) es análogo. Dados \(a,b \in \mathbb{R}\)
+                existe \(c \in (a,b)\) tal que \(|\cos(b) - \cos(a)| = |-\sen(c)||b-a| \leq 1 \cdot |b-a|\).
+              </p>
+          </li>
+          <li>
+              Notemos que la generalización la obtenemos de manera natural de la demostración anterior.
+              Supongamos que \(|f'(z)| \leq K \). Sean \(x,y \in [a,b]\) y supongamos SPG que \(x < y\).
+              Por el Teo. del Valor Medio sabemos que existe \(z \in (x,y) \subseteq (a,b)\) tal que
+              \(f'(z) = \frac{f(y) - f(x)}{y - x}\). Tomando valor absoluto de ambos lados de la ecuación
+              y despejando el término \(|y-x|\) tenemos \(|f(y) - f(x)| = |f'(z)||y - x| \leq K |y-x|\),
+              por lo que la función es Lipschitz.
+          </li>
+      </ol>
   </div>
-</div>-->
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Considera la función \(L: \ell_\infty \to \mathbb{R}\)
+    dada por
+    \[
+    L(x)=\sum_{n=1}^\infty \frac{1}{2^n} x_n
+    \]
+    donde consideramos \(\ell_\infty\) dotado con la norma
+    \(\|\cdot\|_\infty\).
+  </p>
+  <p>
+    Prueba que \(L\) es Lipschitz.
+  </p>
+</div>
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <ol>
+  <li>
+    <p>
+    Fija \(y=(y_n)_{n=1}^\infty \in \ell_2\) y define \(g:\ell_2 \to \mathbb{R}\) por
+    \[
+    g(x)=\sum_{n=1}^\infty x_ny_n
+    \]
+    Por la desigualdad de Cauchy-Schwartz \(g\) está bien definida,
+    es decir, la serie \(\sum_{n=1}^\infty x_ny_n\) es convergente.
+  </p>
+  <p>
+    Prueba que \(g\) es Lipschitz.
+  </p>
+  </li>
+  <li>
+    Generaliza el inciso anterior. Sean \(p,q\in (1,\infty)\) exponentes
+    conjugados y fija \(y\in \ell_q \). Define
+    \(g:\ell_p \to \mathbb{R} \) por
+    \[
+      g(x)=\sum_{n=1}^\infty x_ny_n
+    \]
+    Prueba que \(g\) es Lipschitz. Sugerencia: usa
+    la <a href="./S3.html#Lema:Holder"> desigualdad de Hølder</a>.
+  </li>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos. Una
+    función \(f:X \to Y\) se llama isometría si para todos \(a,b\in X\)
+    \[
+     d_X(a,b)=d_Y(f(a),f(b)).
+    \]
+  <p>
+    <ol>
+      <li>
+        Prueba que la función \(F: \mathbb{N} \to \ell_1\) dada por
+        \[
+        F(n)=(\underbrace{1,\dots,1}_{n \quad \textrm{lugares}}, 0, 0, \dots)
+        \]
+        es una isometría. Nota: \(\mathbb{N}\) está dotado con la métrica usual
+        heredada de \(\mathbb{R}\).
+      </li>
+      <li>
+        Sea \(p\in [1,\infty) \). Define \(G: \ell_p \to \ell_p\) dada por
+        \[
+        G((x_1,x_2,\dots, ))=(0,x_1,x_2,\dots)
+        \]
+        Prueba que \(G\) es una isometría.
+      </li>
+    </ol>
+</div>
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:ContinuidadFunDistanciaConjunto"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico y \(A\subseteq X\). La distancia
+    de un punto \(x\in X\) al conjunto \(A\) se define como
+    \[
+    d(x,A):=\inf_{a\in A}\{ d(x,a) \}
+    \]
+    Prueba que \(|d(x,A)-d(y,A)|\leq d(x,y)\), para todos \(x,y\in X\).
+  </p>
+    <p>
+    Por
+    lo tanto la función distancia a un conjunto es Lipschitz continua con
+    \(K=1\).
+    </p>
+</div>
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico y \(E,F \subseteq X\) dos
+    conjuntos cerrados, no vacíos y ajenos. Define
+    \(f:X\to \mathbb{R}\) por
+    \[
+    f(x)=\frac{d(x,E)}{d(x,E)+d(x,F)}
+    \]
+  </p>
+  <ol>
+    <li>
+      Prueba que \(f\) es continua.
+    </li>
+    <li>
+      Para toda \(x\in X\), \(0\leq f(x)\leq 1\).
+    </li>
+    <li>
+      \(f^{-1}(0)=E\), \(f^{-1}(1)=F\).
+    </li>
+  </ol>
+  <p>
+    Sugerencia: usa  <a href="#Ejer:ContinuidadFunDistanciaConjunto">Ejercicio 6.18</a>
+    y <a href="./S5.html#Ejer:DistanciaConjuntoCerradura">Ejercicio 5.31</a>
+  </p>
+  <p>
+    Usa lo anterior prueba que existen dos conjuntos abiertos,
+    \(U,V\), ajenos con \(E\subset U\), \(F \subset V\). Se dice
+    que los conjuntos \(U\) y \(V\) separan a \(E\) y \(F\).
+  </p>
+
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Una función definida sobre un espacio métrico, con valores
+    en \(\mathbb{R}\), \(f:X\to \mathbb{R}\) se llama semi-continua
+    inferiormente si para toda \(a\in \mathbb{R}\) el conjunto
+    \[
+      \{x\in X: f(x)\leq a \}
+    \]
+    es cerrado.
+  </p>
+  <p>
+    Prueba que \(f\) es semi-continua inferiormente si y sólo si
+    \[
+    f(x)\leq \liminf_{n\to \infty} f(x_n)
+    \]
+    siempre que \(\lim_{n\to \infty} x_n=x\).
+  </p>
+  <p>
+    Nota: para una sucesión de números reales \((r_n)_{n=1}^\infty\)
+    se define
+    \[
+    \liminf_{n\to \infty} r_n = \sup_{n\geq 1} \left\{ \inf_{k\geq n} \{r_k\} \right\}
+    \]
+  </p>
+
+  <button class="respButton hvr-grow"> Respuesta </button>
+  <div class="resp-box flexbox">
+      <div class=" flexbox">
+        <iframe width="700" height="400" class="video"
+          src="https://www.youtube.com/embed/wxV64UovdQ8" allowfullscreen="true"> 
+        </iframe>
+          
+      </div>
+  </div>
+</div>
+
+
+<div class="definicion-box">
+  <h2 class="number-title"> Definicion </h2>
+  <p>
+    Un homeomorfismo entre dos espacios métricos, \((X,d_X), (Y,d_Y)\),
+    es una función \(f: X\to Y\) que satisface:
+    <ul>
+      <li>
+        \(f\) es inyectiva.
+      </li>
+      <li>
+        \(f\) es suprayectiva.
+      </li>
+      <li>
+        Tanto \(f\) como su inversa, \(f^{-1}\), son funciones continuas.
+      </li>
+    </ul>
+
+  </p>
+  <p>
+    Si existe un homeomorfismo entre los espacios \(X\) y \(Y\) se dicen
+    que son homeomorfos.
+  </p>
+  <p>
+    Ejemplo
+  </p>
+  <ul>
+    <li>
+    Cualquier función \(f:\mathbb{R}\to \mathbb{R}\)
+    de la forma \(f(x)=mx+b\), con \(m\ne 0\), es un homemorfimo de \(\mathbb{R}\)
+    pues \(f^{-1}(y)=\frac{y-b}{m}\) y tanto \(f\) como \(f^{-1}\) son
+    continuas.
+    </li>
+    <!--<li>
+    Sea \((X,d)\) un espacio métrico, fija \(z\in X\) y define \(f:X\to [0,\infty)\) por
+    \(f(x)=d(x,z)\). Por el <a href="./S2.html#Ejer:LaOtraDesigTri">Ejercicio 2.14</a>
+    la función \(f\) satisface \(|f(x)-f(y)|\leq d(x,y)\) por lo  que
+    \(f\) es Lipschitz con constante \(K=1\).
+    </li>-->
+    <li>
+      Toda isometría \(f:(X,d_X)\to (Y,d_Y)\) suprayectiva es un homemomorfismo. 
+    </li>
+  </ul>
+</div>
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sean \((X,d_X), (Y,d_Y)\) espacios métricos y \(f:X\to Y\)
+    una biyección. Las siguientes condiciones son equivalentes.
+  </p>
+  <ol>
+    <li>
+      \(f\) es un homemorfismo.
+    </li>
+    <li>
+      \(U\) abierto en \(X\) si y sólo si \(f(U)\)  abierto en \(Y\).
+    </li>
+    <li>
+      \(F\) cerrado en \(X\) si y sólo si \(f(U)\)  cerrado en \(Y\).
+    </li>
+    <li>
+      una sucesión \((x_n)_{n=1}^\infty \subseteq X\) satisface 
+      \(\lim_{n\to \infty}x_n=x\) en \(X\) si y sólo si la sucesión 
+      \((f(x_n))_{n=1}^\infty\subseteq Y\)  satisface \(\lim_{n\to \infty} f(x_n)=f(x)\) en \(Y\).
+    </li>
+  </ol>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \(X \ne \emptyset\) un conjunto y \(d,\rho\) dos métricas
+    sobre \(X\).
+  </p>
+  <p>
+    Prueba que las métricas \(d\) y \(\rho\) son
+    equivalentes si y sólo si la función identidad
+    \(\operatorname{id}: (X,d) \to (X,\rho)\) es un
+    homemorfismo.
+  </p>
+
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Por \((X,d)\) denotamos al espacio métrico \(X=\{0\} \cup \{\frac{1}{n}: n=1,2,\dots \}\)
+    donde \(d \) es la métrica usual, heredada de \(\mathbb{R}\).
+  </p>
+  <p>
+    En \(X\) define una nueva métrica dada por
+    \[
+    \rho(x,y)=\left\{
+      \begin{array}{cc}
+      \left| \frac{1}{n}-\frac{1}{m} \right| & \textrm{si \(x=1/n, y=1/m\) con \(n,m\geq 2\)}\\
+      \frac{1}{n} & \textrm{si \(y=1\), \(x=1/n\) con \(n\geq 2\)} \\
+      1-\frac{1}{n} & \text{si \(y=0\), \(x=1/n\) con \(n\geq 2\))} \\
+      1 & \textrm{si  \(y=0\), \(x=1\)}
+      \end{array}
+      \right.
+    \]
+  </p>
+  <p>
+    Prueba que \((X,d)\) y \((X,\rho)\) son homemomorfos y que
+    la función identidad \(\operatorname{id}:X \to X\) no es continua.
+  </p>
+</div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \((V,\|\cdot\|)\) un espaio vectorial normado. Prueba que \(V\) y \(B_1(0)\) son homeomorfos.
+      </p>
+      <p>
+        Hint: considera la función \(f: V\to B_1(0)\) dada por \(f(x)=\frac{1}{1+\|x\|}x\).
+      </p>
+
+    </div>
+
+    <div class="quiz-box">
+      <h2 id="Quiz:Sec6"> Quiz </h2>
+      <ol>
+        <li>
+          <p>
+          (3 pts) Considera el espacio  \((\ell_2,\|\cdot\|_2)\). Prueba que
+          el conjunto
+          \[
+          A=\{x\in \ell_2:  \sum_{n=1}^{\infty} \frac{x(n)}{n} >0\}
+          \]
+          es abierto.
+        </p>
+        </li>
+        <li>
+          <p>
+          (2 pts)  Considera el espacio \((C([a,b]), \|\cdot\|_1)\)
+           (<a href="./S3.html#Quiz:Sec3">ver quiz de la sección 3</a>).
+          Fija una función \(h_0\in C([a,b])\).
+          Define la función \(L:C([a,b])\to \mathbb{R}\) por
+          \[
+          L(f)=\int_a^b f(t)h_0(t)dt.
+          \]
+          Prueba que \(L\) es Lipschitz continua.
+        </p>
+        </li>
+      </ol>
+    </div>
+
+    <div class="quiz-box">
+      <h2 id="Quiz:Sec9"> Quiz </h2>
+      <ol>
+        <li>  
+        <p>
+          (3 pts) Sean \((X,d_X)\), \((Y,d_Y)\)  espacios métricos con \(X\) compacto y
+          sea \(f:X\to Y\) una función continua. Prueba que \(f\) es cerrada.
+        </p>
+        <p>
+          Nota: una función se llama cerrada si manda cerrados en cerrados. Es
+          decir, si \(F \subseteq X\) es cerrado entonces \(f(F)\subseteq Y\) es cerrado.
+        </p>
+        </li>
+      </ol>
+
+
+    </div>
 
 
 

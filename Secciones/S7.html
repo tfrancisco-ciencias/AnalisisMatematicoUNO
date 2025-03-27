@@ -34,10 +34,10 @@
     <!-- This part restart counter of cards to start at n+1 -->
     <style>
       body.number-title{
-        counter-reset: sectionCounter 5 cardCounter ;
+        counter-reset: sectionCounter 6 cardCounter ;
       }
       h1.number-title{
-        counter-reset: sectionCounter 5 cardCounter ;
+        counter-reset: sectionCounter 6 cardCounter ;
       }
     </style>
 
@@ -67,7 +67,6 @@
   <!-- This part is for title in tab-->
   <title id="Sec"> § 7 </title>
 
-
   <!--    Contenido empiaza abajo
  ///////////////////////////////// -->
 
@@ -76,989 +75,931 @@
 
 
     <div class="flexbox">
-      <h1 class="number-title flexbox"> Continuidad </h1>
+      <h1 class="number-title flexbox"> Compacidad </h1>
 
       <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
       <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
-<div class="info-box">
-  <h2 class="number-title"> Introducción </h2>
-  <p>
-    Las funciones continuas son la estrellas en un primer curso de análisis
-    matemático y uno de los objetivos principales del curso es tomar
-    varias de las propiedades de las funciones continuas que se vieron en cálculo
-    y extenderlas en el contexto de espacios métricos.
-  </p>
-  <p>
-    Hay dos puntos de vista importantes desde los cuales se pueden ver a las
-    funciones continuas. Uno es desde el puntos de vista de sucesiones. Desde
-    esta perspectiva las funciones continuas son las que mandan sucesiones
-    convergentes en sucesiones convergentes. El otro punto de vista tiene
-    que ver con las bolas abiertas y más en general con conjuntos abiertos.
-    Vamos a presentar la definición de continuidad usando este último pero
-    se verá más adelante que son equivalentes (<a href="#Lema:ContinuidadSucesiones">Lema 6.4</a>).
-  </p>
 
+      <div class="info-box">
+        <h2 class="number-title"> Introducción </h2>
+        <p>
+          Los conjuntos finitos a pesar de no ser muy interesantes
+          tienen la ventaja que son fáciles de manejar. Los conjuntos
+          compactos se pueden pensar como lo "siguiente mejor" a ser
+          finito. Algunas de las características de los conjuntos
+          compacots son muy útiles: se pueden encontar máximos
+          o mínios de funciones con valores reales; en ciertos
+          tipos de espacios la compacidad está íntimamente relacionada
+          con la existencia de soluciones a diferentes tipos de ecuacione y
+          en varios casos la compacidad permite asegurar que cierta
+          receta/algoritmo para obtener o aproximar las soluciones es "una buena receta",
+          es decir el proceso realmente arroja una solución.
+        </p>
+        <p>
+          En esta sección introducimos los conjuntos compactos usando cubiertas
+          abiertas, presentamos algunos ejemplos para después ver
+          algunas de sus características y aplicaciones.
+        </p>
+      </div>
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(A \subseteq X\).
+        </p>
+        <p>
+          Una cubierta abierta de \(A\) es una familia de
+          subconjuntos abiertos, \(\mathcal{U}=\{U_i\}_{i\in I}\),
+          que satisface
+          \[
+          A \subseteq \cup_{i\in I}U_i.
+          \]
+          Un subconjunto \(\mathcal{U}' \subseteq \mathcal{U}\)
+          se llama subcubierta de \(\mathcal{U}\) si a su vez
+          \(\mathcal{U}'\) es una cubierta de \(A\).
+        </p>
+
+
+        <p>
+          Un subconjunto \(K\subseteq X\) se llama compacto si
+          <i>toda</i> cubierta abierta de \(K\) admite una subcubierta
+          finita. Es decir, si \(\mathcal{U}=\{U_i\}_{i\in I}\)
+          es cualquier cubierta abierta de \(K\)  entonces existe
+          \(\mathcal{U}'=\{U_{i_1}, \dots, U_{i_n}\} \subseteq \mathcal{U}\)
+          tal que
+          \[
+          K \subseteq U_{i_1}\cup U_{i_2}\cup \cdots  \cup U_{i_n}
+          \]
+         </p>
+         <p>
+           Nota: la palabra clave de la definición es "cualquiera", es
+           decir, no importa que cubierta abierta del conjunto compacto
+           se considera, siempre es posible encontrar una subcubierta finita.
+           Si se puede dar una cubierta abierta para la cual no sea posible
+           dar una subcubierta finita entonces el conjunto en consideración
+           no es compacto.
+         </p>
+         <p>
+           Es más fácil dar ejemplos de conjuntos no compactos que de compactos.
+         </p>
+         <ul>
+          <li>
+            \(\mathbb{R}^n\), con la métrica usual, no es compacto. Para ver
+            lo anterior consideramos la cubierta abierta
+            \[
+            \mathcal{U}=\{B_j(0): j\in \mathbb{N}\}
+            \]
+            Es claro que \(\mathbb{R}^n=\cup_{j\in \mathbb{N}}B_j(0) \),
+            sin embargo, dado cualquier subconjunto finito de \(\mathcal{U}\),
+            \(\mathcal{U}'=\{B_{j_1}(0),\dots, B_{j_m}(0) \}\), podemos
+            notar que
+            \[
+             B_{j_1}(0)\cup B_{j_2}(0)\cup \cdots \cup B_{j_m}(0)=B_{r}(0)
+            \]
+            donde \(r=\max\{j_1,j_2,\dots, j_m\}\), de lo que se sigue
+            que
+            \[
+            \mathbb{R}^n \nsubseteq  B_{j_1}(0)\cup B_{j_2}(0)\cup \cdots \cup B_{j_m}(0)
+            \]
+          </li>
+          <li>
+            Modificando un poco el ejemplo anterior vemos que las bolas abiertas
+            \(B_r(0)\) no son compactas, pues si consideramos la familia de
+            subconjuntos abiertos
+            \[
+            \mathcal{U}=\{ B_{r_j}(0): j \in \mathbb{N} \}
+            \]
+            donde \((r_j)_{j=1}^\infty\) es una sucesión de reales positivos
+            que satisface \(r_1< r_2 < \dots < r_j< \cdots < r \) y
+            \(\lim_{j \to \infty} r_j=r\), obtenemos que
+            \(\mathcal{U}\) es una cubierta abierta de \(B_r(0)\), pero
+            no es posible extraer un subcubierta finita.
+          </li>
+        </ul>
+      </div>
+
+
+      <!-- <div class="nota-box">
+        <h2 class="number-title"> Nota sobre la definición de compacidad </h2>
+        <p>
+          En la definición anterior se presenta la noción de compacidad dentro del
+          contexto de un espacio métrico dado, \((X,d)\), pero en realidad
+          la compacidad de un conjunto \(K\)  no depende del espacio ambiente \(X\)
+          donde esté si no más bien de la métrica del espacio \(K\). Esta
+          distinción es similar a la de conexidad y que se discute en
+          la <a href="./S7.html#Nota:DefConexidad"> Nota 20 </a> y ejercicios posteriores.
+        </p>
+        <p>
+          Modifiquemos un poco la definición de compacidad de la sigueinte manera.
+        </p>
+        <h3 > Definición  B </h3>
+        <p>
+          Sea \((X,d)\) un espacio métrico. Decimos que \((X,d)\) es compacto
+          si, toda familia de subconjuntos abiertos \(\mathcal{U}=\{U_i\}_{i\in I}\)
+          que satisfce
+          \[
+          X=\cup_{i\in I} U_i
+          \]
+          admite una subfamilia finita
+          \(\mathcal{U}'=\{U_{i_n}\}_{n=1}^N\subset \mathcal{U}\)
+          tal que
+          \[
+          X=\cup_{n=1}^N U_{i_n}
+          \]
+          Dado \(E\subseteq X\) decimos que \(E\) es compacto si el espacio
+          métrico \((E,d_E)\), donde \(d_E\) la métrica
+          heredada de \((X,d)\)
+          (ver <a href="./S7.html#Def:MetricaRelativa"> Definición 7.21 </a>
+           para la métrica heredada).
+        </p>
+        <h3> Equivalencia entre definiciones </h3>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(E \subseteq X\).
+          Veamos que  la Definición 8.2 y la Definición B son equivalentes.
+        </p>
+        <p>
+          Supongamos que \(E\) es compacto usando la Definición 8.2. Queremos
+          ver que \(E\) satisface la Definición B. Sea pues
+          \(\mathcal{V}=\{V_i\}_{i\in I}\) una familia de abiertos en
+          \((E,d_E)\) tal que \(E=\cup_{i\in I}V_i\). El objetivo es
+          asegurar la existencia de una subfamilia finita de \(\mathcal{V}\)
+          que cubra a \(E\).
+          Por el <a href="./S7.html#Lema:AbiertosSubEspacios">Lema 7.22</a>
+          para cada \(i\) existe \(\tilde{V}_i\subseteq X\), abierto en
+          \((X,d)\), tal que \(V_i=E\cap \tilde{V}_i\). Se sigue que
+          \(E\subseteq \cup_{i\in I}\tilde{V}_i\). Ya que \(E\) es
+          compacto (según la Definición 8.2) podemos asegurar que existe
+          una subfamilia finita \(\{\tilde{V}_{i_n}\}_{n=1}^N\) tal que
+          \(E\subseteq \cup_{n=1}^N \tilde{V}_{i_n}\). Intersectanto ambos lados
+          de ésta última inclusión con \(E\) llegamos a
+          \[
+          E=\cup_{n=1}^N \tilde{V}_{i_n}\cap E= \cup_{n=1}^N V_{i_n}
+          \]
+          y por lo tanto \(\{V_{i_n}\}_{n=1}^N\) es una subfamilia
+          finita de \(\mathcal{V}\) que cubre a \(E\), concluyendo
+          que \((E,d_E)\) satisface la Definición B.
+        </p>
+        <p>
+          Ahora supongamos que \((E, d_E)\) es compacto usando la Definición B.
+          Queremos probar que \(E\) es compacto, según la Definición 8.2.
+          Para lo cual consideramos \(\{U_i\}_{i\in I}\) una familia
+          de abiertos en \(X\) tal que \(E \subseteq \cup_{i\in I}U_i\).
+          Intersectando ambos lados de la contención anterior obtenemos
+          \[
+          E=\cup_{i\in I} E\cap U_i
+          \]
+          peor el conjunto \(V_i:=E\cap U_i\) es un abierto en \((E,d_E)\).
+          Ya que \((E,d_E)\) es compacto, según la Definición B,
+          existe una subfamilia finita
+          \(\{V_{i_n}\}_{n=1}^N\) tal que
+          \[
+          E=\cup_{n=1}^N V_{i_n} = \cup_{n=1}^N E\cap U_{i_n}
+          \]
+          de lo cual se sigue que
+          \[
+          E\subseteq \cup_{n=1}^N U_{i_n}
+          \]
+          por lo que \(\{U_{i_n}\}_{n=1}^N\) es una subcubierta
+          finta de \(\mathcal{U}\) y por lo tanto
+          \(E\) es compacto según la Definción 8.2.
+        </p>
+
+      </div>-->
+
+
+
+
+
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:IntervalosCompactos"> Ejercicio </h2>
+        <p>
+          Todo intervalo cerrado y acotado de \(\mathbb{R}\) es compacto.
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          Denotemos al intervalo por \([a,b]\), con \(a< b\) y sea
+          \(\{U_i\}_{i\in I}\) una cubierta abierta para \([a,b]\).
+        </p>
+
+        <p>
+          Ya que \(a\in \cup_{i\in I}U_i\), existe \(i_0\) tal que
+          \(a\in U_{i_0}\). Por otro lado ya que  \(U_{i_0}\) es abierto
+          existe un número positivo \(r\) tal que \((a-r,a+r)\subseteq U_{i_0}\).
+          Tomando \(r\) suficiente mente pequeña podemos suponer 
+          \(a+r< b\). Tomando  \(x_0=a+r/2\) se sigue que 
+          \(a< x_0 < b \) y 
+          \[
+          [a,x_0]\subseteq U_{i_0}.
+          \]
+        </p>
+
+        <div class="flexbox">
+          <img src="./Images/S8-img1.png" alt="PuntoInicial" width="40%" height="auto">
+        </div>
+        <p>
+          Ahora consideremos el conjunto \(S\) formado por los puntos \(x\in [a,b]\)
+          con la propiedad de que \([a,x]\) está contenido en una unión finita
+          de elementos de \(\{U_i\}_{i\in I}\). Entonces \(S\) está acotado
+          superiormente (por \(b\)) y \(S\ne \emptyset\) (pues \(x_0\in S\)). Sea
+          \(x^*=\sup(S)\).
+        </p>
+        <p>
+          Afirmamos que \(x^*=b\). Nota que hasta el momento
+          se tiene que \(x^*\leq b\) asi que si no se da la igualdad se debe 
+          de tener \(x^*< b\). 
+        </p>
+        <p>
+          Ya que \(x^*\in [a,b] \subseteq \cup_{i\in I }U_i\), existe \(j \in I\) 
+          tal que \(x^*\in U_{j}\). Usando
+          que \(U_{j}\) es abierto existe \(t>0\) tal que \((x^*-t,x^*+t)\subseteq U_{j}\).
+          Por la propiedad fundamental del supermo 
+          existe \(y\in S\) tal que \(x^*-t < y \leq x^*\). Ya que \(y\in S\) 
+          existen \(U_{i_1},\dots, U_{i_n}\) tal que 
+          \[
+          [a,y] \subset \cup_{k=1}^n U_{i_k}. 
+          \]
+          lo cual implica que 
+          \[
+          [a,x^*+t/2]=[a,y]\cup [y,x^*+t/2] \subseteq \cup_{k=1}^n U_{i_k} \cup U_j.
+          \]
+          <div class="flexbox">
+            <img src="./Images/S8-img3.png" alt="Seguimiento" width="40%" height="auto">
+          </div>
+          
+        </p>
+        <p>
+          Por lo tanto \(x^*+t/2\in S\) pero \(\sup(S)=x^*<  x^*+t/2 \in S\), una 
+          contradicción. Por lo que concluimos \(x^*=b\).    
+        </p>
+        
+      
+        <p>
+          Para terminar vamos a probar que  \([a,b]\) se puede cubrir con una 
+          cantidad finita de las \(U_i's\). Pero por lo anterior \(b=x^*\in U_j\)
+          y 
+          \[
+          [a,b]\subseteq [a,x^*+t/2]\subseteq \cup_{k=1}^n U_{i_k} \cup U_j.
+          \]
+        
+        </p>
+        
+        
+      </div>
+      </div>
+
+
+
+
+      <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
+        <p>
+        Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y considera
+        el espacio métrico producto \((X\times Y, d)\)
+        (ver <a href="./S5.html#Def:ProductoEspaciosMetricos">Definición 5.17</a>).
+        </p>
+
+        <p>
+        Sea \(\mathcal{O} \subseteq X\times Y\) un subconjunto abierto y  \(B \subseteq Y\)
+        un subconjunto compacto.
+        </p>
+        <p>
+          Define el subconjunto
+          \[
+          V=\{x\in X: \{x\}\times B \subseteq \mathcal{O} \}.
+          \]
+        </p>
+        <p>
+          Prueba que \(V\) es abierto en \(X\).
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          Fijemos \(x_0\in V\). Vamos a encontrar un número positivo \(r>0\)
+          tal que \(B_r^X(x_0)\subseteq V\).
+        </p>
+        <p>
+          Por definición de \(V\) tenemos que \(\{x_0\}\times B \subseteq \mathcal{O}\).
+          Ya que \(\mathcal{O}\) es abierto en \(X\times Y\), para todo
+          \(b\in B\) existe \(r_b>0\) tal que
+          \[
+          B_{r_b}((x_0,b))\subseteq \mathcal{O}.
+          \]
+        </p>
+        <p>
+            Ahora consideramos la cubierta abierta de \(B\) dada por
+            \(\{ B_{r_b/2}(b)\}_{b\in B}\). Por la compacidad de \(B\)
+            existen puntos \(b_1,\dots, b_n \in B\) tal que:
+            \[
+            B\subseteq \cup_{i=1}^n B_{r_{b_i}/2}(b_i).
+            \]
+        </p>
+        <p>
+          Definamos \(r=\min\{r_{b_1}/2,\dots, r_{b_n}/2\}\).
+        </p>
+        <p>
+          Tomemos
+          \(x\in B_r^X(x_0)\). Queremos probar que \(x\in V\), es decir
+          debemos de probar que \(\{x\}\times B \subseteq \mathcal{O}\). Dado
+          \(b\in B\) existe \(b_j\) tal que \(b\in B^Y_{r_{b_j}/2}(b_j)\). Por
+          lo tanto
+          \[
+          d((x,b),(x_0,b_{j})) = d_X(x,x_0)+ d_Y(b,b_j) < r + r_{b_j}/2\leq r_{b_j}
+          \]
+          es decir, \((x,b)\in B_{r_{b_j}}((x_0,b_j)) \subseteq \mathcal{O}\).
+          Concluimos que \(\{x\}\times B \subseteq \mathcal{O}\).
+        </p>
+      </div>
+
+      </div>
+
+
+
+      <div class="teorema-box">
+        <h2 class="number-title" id="Teo:ProductoCompactos"> Teorema </h2>
+        <p>
+          Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos
+          y \( A \subseteq X \), \(B \subseteq Y\)
+          subconjuntos compactos.
+        </p>
+        <p>
+          Prueba que \(A\times B\) es un subconjunto compacto.
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          La idea es probar que cada "rebanada" de \(A\times B\) se puede
+          cubrir con una cantidad finita de abiertos y después asegurarnos
+          que podemos usar una cantidad finita de rebanadas para cubrir a
+          todo \(A\times B\). Las rebanadas van a ser
+          conjuntos de la forma \(\{a\}\times B\).
+
+        </p>
+        <p>
+          Sea \(\{\mathcal{O}_i\}_{i\in I}\) una cubierta abierta de \(A\times B\).
+        </p>
+        <p>
+          Primero vamos a probar que, para todo \(a\in A\), fijo y arbitrario, existe un
+          conjunto finito de índices, \(I_a \subseteq I\), tal que
+          \begin{equation}\label{Eqn:Aux1ProductoCompactos}
+          \{a\}\times B \subseteq \cup_{i\in I_a}\mathcal{O}_i
+          \end{equation}
+        </p>
+        <p>
+           En efecto, para todo \(b\in B\) tenemos
+           \((a,b)\in A\times B\subseteq \cup_{i\in I}\mathcal{O}_i\),
+           por lo que existe un índice \(i_b\in I\), que va a depender de \(b\),
+          tal que \((a,b)\in \mathcal{O}_{i_b}\). Variando la \(b\in B\)
+          obtenemos la siguiente contención:
+           \[
+           \{a\}\times B \subseteq \cup_{b\in B}\mathcal{O}_{i_b}.
+           \]
+           Nota que varios puntos en \(B\) pueden compatir el mismo
+           abierto \(\mathcal{O}_{i_b}\), pero gracias a la compacidad
+           de \(B\) vamos a quedarnos sólo con un número finito de los \(\mathcal{O}_{i_b}\).
+         </p>
+           Considerando a la función proyección de \(A\times B\) a \(B\) y usando que
+           \(B\) es compacto obtenemos que existe \(F_a\), un subconjunto finito
+           de \(B\), tal que
+           \[
+           \{a\}\times B \subseteq \cup_{b\in F_a}\mathcal{O}_{i_b}.
+           \]
+           Tomamos \(I_a=\{i_b: b\in F_a\}\). Con esto terminamos la
+           prueba de \eqref{Eqn:Aux1ProductoCompactos}.
+
+        </p>
+        <p>
+          Continuando con la prueba del teorema, para todo \(a\in A\)
+          definimos
+          \[
+          \mathcal{O}_a=\cup_{i\in I_a}\mathcal{O}_i
+          \]
+          y
+          \[
+          V_a=\{x\in X: \{x \} \times B \subseteq \mathcal{O}_a\}.
+          \]
+        </p>
+        <p>
+          Por el lema anterior \(V_a\) es abierto en \(X\) y por
+          construcción de \(\mathcal{O}_a\), \(a\in V_a\). Entonces
+          se tiene que \(\{V_a\}_{a\in A}\) es una cubierta abierta
+          de \(A\). Por la compacidad de \(A\) existen puntos
+          \(a_1,\dots, a_n\in A\) tal que
+          \begin{equation}\label{Eqn:Aux2ProductoCompactos}
+          A \subseteq \cup_{s=1}^nV_{a_s}.
+          \end{equation}
+        </p>
+        <p>
+          Para terminar vamos a probar la contención
+          \[
+          A\times B \subseteq \cup_{s=1}^n \cup_{i\in I_{a_s}}\mathcal{O}_i.
+          \]
+        </p>
+        <p>
+          Tomamos \((a,b)\in A\times B\). Por \eqref{Eqn:Aux2ProductoCompactos}
+          existe \(s_0\) tal que \(a\in V_{a_{s_0}}\) de lo cual obtenemos
+          \[
+          \{a\}\times B \subseteq \mathcal{O}_{a_{s_0}}
+          \]
+          y entonces
+          \[
+          (a,b)\in \{a\}\times B \subseteq \mathcal{O}_{a_{s_0}}=\cup_{i\in I_{a_{s_0}}}\mathcal{O}_i
+          \]
+          es decir, existe \(i\in I_{a_{s_0}}\) con \((a,b)\in \mathcal{O}_{i}\).
+        </p>
+      </div>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:HiperCubosCompactos"> Ejercicio </h2>
+        <p>
+          Prueba que el subconjunto
+          \[
+          [a_1,b_1]\times [a_2,b_2]\times \cdots \times [a_n,b_n] \subseteq \mathbb{R}^n
+          \]
+          es un subconjunto compacto.
+        </p>
+        <p>
+          Sugerencia: usa inducción junto con el teorema anterior y el <a href="#Ejer:IntervalosCompactos"> Ejercicio 8.4</a>
+        </p>
+
+      </div>
+
+
+
+
+            <div class="ejercicio-box">
+              <h2 class="number-title" id="Ejer:CerradosEnCompactos"> Ejercicio </h2>
+              <p>
+                Sea \((X,d)\) un espacio métrico y \(K\subseteq X\)
+                compacto. Si \(C \subseteq K\) es un subconjunto cerrado
+                entonces \(C\) también es compacto.
+              </p>
+              <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+                  <p>
+                      Sea \(\mathcal{U} = \{U_i\}_{i \in I}\) una cubierta abierta de \(C\).
+                      Como \(C\) es cerrado entonces \(X \setminus C\) es un conjunto abierto,
+                      por lo que \(\mathcal{V} = \mathcal{U} \cup \{X \setminus C\}\) es una
+                      cubierta abierta de \(K\). Por compacidad de \(K\) existe una subcubierta
+                      finita \(\mathcal{\tilde V} = \{U_1, ..., U_n\}\) de \(\mathcal{V}\).
+                  </p>
+                  <p>
+                      Podemos considerar el caso en que \(X \setminus C\) pertenece a \(\mathcal{
+                      \tilde V}\) y el caso en que ésto no ocurre. Si \(X \setminus C\) no
+                      pertenece a la subcubierta, entonces \(C \subseteq K \subseteq \bigcup_
+                      {i = 1}^n U_i\) y es evidente que ésta es una subcubierta finita de \(\mathcal{U}\).
+                      Por otro lado, si \(X \setminus C \in \mathcal{\tilde V}\) entonces
+                      \(\mathcal{\tilde V} \setminus \{X \setminus C\} \subseteq \mathcal{U}\).
+
+                      Recordemos que \(C \cap (X\setminus C) = \varnothing\), de modo que
+                      \(\mathcal{\tilde U} = \mathcal{\tilde V} \setminus \{X \setminus C\} \subseteq
+                      \mathcal{U}\) es una subcubierta finita de \(\mathcal{U}\) y concluimos que \(C\)
+                      es compacto.
+                  </p>
+              </div>
+            </div>
+
+
+            <div class="ejercicio-box" >
+              <h2 class="number-title" id="Ejer:RegreoHeineBorel"> Ejercicio </h2>
+              <p>
+                Prueba que todo subconjunto cerrado y acotado de \(\mathbb{R}^n\)
+                es compacto.
+              </p>
+              <p>
+                Sugerencia: usa <a href="#Ejer:HiperCubosCompactos">Ejercicio 8.8</a>
+                y <a href="#Ejer:CerradosEnCompactos">Ejercicio 8.9</a>
+              </p>
+            </div>
+
+
+
+
+
+
+
+      
+      <div class="lema-box">
+        <h2 class="number-title" id="Ejer:CompactoImplicaCerrado"> Lema</h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(K\subseteq X\). Si
+          \(K\) es compacto entonces \(K\) es cerrado.
+        </p>
+              <p>
+      </p>
+
+      <button class="respButton hvr-grow"> Demostración 1</button>
+      <div class="resp-box">
+      <p>
+        Vamos a probar que el complemento de \(K\) es abierto. Sea \(z \in X\setminus K\).
+      </p>
+      <p>
+        Para todo \(x\in K\) existe \(r_x>0\) tal que
+        \begin{equation}\label{Eqn:Aux3CompactosCerrados}
+        B_{r_x}(x)\cap B_{r_x}(z) = \emptyset
+        \end{equation}
+      <p>
+        <p>
+          Ahora consideramos la cubierta abierta de \(K\) dada por
+          \(\{B_{r_x}(x)\}_{x\in K}\). Por compacidad existen una
+          cantidad finita de puntos \(x_1,\dots, x_n\in K\) tal que
+          \[
+          K\subseteq \cup_{i=1}^n B_{r_{x_i}}(x_i)
+          \]
+        </p>
+        <p>
+          Consideramos el número positivo \(r=\min\{r_{x_1},\dots, r_{x_n}\}\).
+          Afirmamos que \(B_r(x) \subseteq X\setminus K\). Razón:
+
+          \[
+          B_r(x)\cap K \subseteq B_r(x)\cap \left( \cup_{i=1}^nB_{r_{x_i}}(x_i) \right)
+          =\cup_{i=1}^n B_r(x)\cap B_{r_{x_i}}(x_i)=\emptyset
+          \]
+          donde la última igualdad se da por \eqref{Eqn:Aux3CompactosCerrados}.
+        </p>
+      </div>
+      <p>
+
+      </p>
+      <button class="respButton hvr-grow"> Demostración 2</button>
+        <div class="resp-box">
+        <p>
+            Vamos a probar que todo punto en la cerradura de \(K\)
+            está también en \(K\). Sea pues \(x \in \overline{K}\).
+            Entonces, por <a href="./S5.html#Teo:CaracCerrados"> Teorema 5.11</a> existe
+            una sucesión de puntos en \(K\), \((x_n)_{n=1}^\infty\),
+            tal que
+            \begin{equation}\label{Eqn:Aux1CompactosSonCerrados}
+            \lim_{n\to \infty} x_n=x.
+            \end{equation}
+        </p>
+        <p>
+          Ahora, por el <a href="#Teo:CompactoImplicaCpS">Teorema 8.14</a> existe \((x_{n_k})_{k=1}^\infty\),
+          una subsucesión de \((x_n)_{n=1}^\infty\) y un punto \(y\in K\),
+          tal que
+          \begin{equation}\label{Eqn:Aux2CompactosSonCerrados}
+          \lim_{k \to \infty} x_{n_k}=y
+          \end{equation}
+        </p>
+        <p>
+          De \eqref{Eqn:Aux1CompactosSonCerrados} y \eqref{Eqn:Aux2CompactosSonCerrados}
+          se sigue que \(x=y\) por lo que \(x\in K\).
+        </p>
+      </div>
+
+      </div>
+
+      <div class="lema-box">
+        <h2 class="number-title" id="Lema:CompactoImplicaAcotado"> Lema </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(K\subseteq X\). Si
+          \(K\) es compacto entonces \(K\) es acotado.
+        </p>
+        <p>
+          Es decir, existe \(x\in X\) y \(r>0\), tal que
+          \(K\subseteq B_r(x)\).
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+          Tomamos un punto \(x\in X\) fijo y arbitrario. Vamos a
+          probar que existe un \(r>0\) tal que \(K\subseteq B_r(x)\).
+        </p>
+        <p>
+          Consideramos la cubierta abierta de \(K\) dada por
+          \[
+          \{B_r(y)\}_{r>0, y \in K }
+          \]
+          Por compacidad de \(K\) existe una cantidad finita de números
+          positivos \(r_1,\dots, r_n\) y puntos \(y_1,\dots, y_n\) tal que
+          \[
+            K\subseteq \cup_{i=1}^n B_{r_i}(y_i).
+          \]
+        </p>
+        <p>
+          Tomamos \(r=\max\{r_1,\dots, r_n\}+\max\{ d(y_1,x), \dots d(y_n,x)\}\).
+          Afirmamos que \(K \subseteq B_r(x)\). Razón: dado
+          \(y\in K\) existe \(y_j\in K\) y \(r_j >0\) tal que
+          \(y\in B_{r_j}(y_j)\). Por la desigualdad del triángulo:
+          \[
+          d(y,x)\leq d(y,y_j)+d(y_j,x) < r_j + d(y_j,x) \leq   r.
+          \]
+        </p>
+      </div>
+      </div>
+
+
+<div class="teorema-box">
+  <h2 class="number-title" id="Teo:HeineBorel"> Teorema </h2>
+  <h3> Heine-Borel </h3>
+  <p>
+    Un subconjunto de \(\mathbb{R}^n\) es compacto si y sólo si
+    es cerrado y acotado.
+  </p>
+  <p>
+    Sugerencia: la ida se sigue inmediatamente de <a href="#Ejer:CompactoImplicaCerrado">Lema 8.11</a> y
+    <a href="#Lema:CompactoImplicaAcotado">Lema 8.12</a> (nota que para esta
+    implicación no se usa que estamos en \(\mathbb{R}^n\)). El regreso es el
+     <a href="#Ejer:RegreoHeineBorel"> Ejercicio 8.10</a>.
+  </p>
 </div>
 
-<div class="definicion-box">
-  <h2 class="number-title"> Definición </h2>
+
+
+<div class="teorema-box">
+  <h2 class="number-title" id="Teo:CompactoImplicaCpS"> Teorema  </h2>
   <p>
-    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos. Decimos que
-    una función \(f;X\to Y\) es continua en un punto \(x_0\in X\) si:
+    Sea \((X,d)\) un espacio métrico y \(K\subseteq X\). 
+  </p>
+  <ol>
+    <li>
+      <p>
+        Si
+        \(K\) es compacto entonces toda subsucesión de elementos
+        de \(K\) admite una subsucesión que converge a un punto de
+        \(K\).
+      </p>
+      <p>
+        Es decir, si \((x_n)_{n=1}^\infty \subseteq K\)
+        entonces existe una subsucesión \((x_{n_k})_{k=1}^\infty\)
+        y \(x\in K\) tal que \(\lim_{k\to \infty} x_{n_k}=x\).
+      </p>
+
+    </li>
+    <li>
+      Inversamente, si toda sucesión de elementos de \(K\) admite una subsucesión
+      convergente a un punto de \(K\), entonces \(K\) es compacto.
+    </li>
+  </ol>
+  <p>
+    Nota: un subconjunto \(K\) que satisface que toda subsucesión \((x_n)_{n=1}^\infty \)
+    de elementos de \(K\) admite una subsucesión convergente a un punto de \(K\) se llama 
+    compacto por sucesiones. Este teorema  nos dice que, en espacios métricos,
+    compacto y compacto por sucesiones son equivalentes.
+  </p>
+  
+  <button class="respButton hvr-grow"> Demostración inciso 1</button>
+  <div class="resp-box">
+  <p>
+    Ya que la compacidad es una propiedad sobre las cubiertas
+    abiertas de \(K\) vamos a iniciar relacionando las bolas
+    abiertas con subsucesiones de la sucesión \((x_n)_{n=1}^\infty\).
   </p>
   <p>
-    para toda \(\varepsilon > 0\) existe \(\delta >0\), que depende
-    de \(x_0\) y \(\varepsilon\), tal que si un punto \(x\in X\)
-    está a distancia menor a \(\delta\) de \(x_0\), es decir
-    \(d_X(x,x_0) <\delta\) entonces \(d_Y(f(x),f(x_0)) < \varepsilon\).
-  </p>
-  <p>
-    <div class="flexbox">
-      <img src="./Images/Continuidad.png" alt="Continuidad" width="50%" height="auto">
-    </div>
+    Dado un punto cualquiera \(y \in K\) y \(r>0\) denotamos
+    \[
+    I_r(y)=\{n\in \mathbb{N}: d(y,x_n)< r\}.
+    \]
+
 
   </p>
   <p>
-    Nota que para probar que una función  es continua en un punto, dada
-    la \(\varepsilon\) todo el trabajo se enfoca en encontrar la \(\delta\) que satisfaga
-    la condición dada arriba.
+    La idea de la prueba es que si el resultado del lema es falso
+    los conjuntos \(I_r(y)\) van a partir a \(\mathbb{N}\) en una
+    cantidad finita de conjuntos finitos, una clara contradicción.
   </p>
   <p>
-    Usando la notación de bolas abiertas la definición se puede
-    reescribir de la siguiente forma:
+    Para iniciar vamos a probar el siguiente lema que relaciona
+    los conjuntos \(I_r(y)\) y las subsucesiones de \((x_n)_{n=1}^\infty\).
+  </p>
+    <h3>
+      Afirmación. 
+    </h3>
+    <p>
+      Fija \(y\in K\) arbitrario. Si no existe una subsucesión de
+      \((x_n)_{n=1}^\infty\) que converge a \(y\) entonces 
+      existe  \(r>0\) tal que  \(I_r(y)\) es finito.
+    </p>
+  <p>
+    Vamos a probar la afirmación por contrapositiva. 
   </p>
   <p>
-    \(f\) es continua en \(x_0\) sii para toda
-    \(\varepsilon >0 \) existe \(\delta >0\) que satisface
+    Supongamos que para toda \(r>0\), 
+    \(I_r(y)\) es infinito. Debemos probar que existe una subsucesión de \((x_n)_{n=1}^\infty\) convergente a \(y\).
+  </p>
+  <p>
+    Tomando \(r=1\) existe una \(n_1\in I_1(y)\).
+  </p>
+  <p>
+    Tomando \(r=1/2\) existe un \(n_2 \in I_{1/2}(y)\). Como \(I_{1/2}(y)\) es 
+    infinito podemos suponer que \(n_1 < n_2\).
+  </p>
+  <p>
+    Si hemos encontrado \(n_1 < n_2 < \cdots< n_k \) tal que \(x_{n_j}\in I_{1/j}(y)\),\(j=1,\dots, k\), tomando 
+    \(r=1/(k+1)\), exsite \(n_{k+1}\in I_{1/(k+1)}(y)\). Ya que \(I_{1/(k+1)}(y)\) es infinito 
+    podemos suponer que \(n_{k}< n_{k+1}\). 
+  </p>
+  <p>
+    Se sigue que \((x_{n_k})_{k=1}^\infty\) es una subsucesión de \((x_n)_{n=1}^\infty\) y que 
+    \(\lim_{k\to \infty } x_{n_k}=y\).
+  </p>
+  <p>
+    Esto termina la prueba de la afirmación. 
+  </p>
+  <p>
+    Para terminar la prueba de este inciso supongamos que el resultado es falso. Entonces
+    se sigue de la Afirmación que para todo \(y \in K\) existe \(r(y)>0\)
+    tal que \(I_{r(y)}(y)\) es finito.
+  </p>
+  <p>
+    Ahora consideramos la cubierta abierta de \(K\), \(\{ B_{r(y)}(y)\}_{y \in K}\).
+    Por la compacidad de \(K\) existe una cantidad finita de puntos
+    \(y_1,\dots y_m\in K\) tal que:
     \[
-    B^X_\delta(x_0) \subset f^{-1}(B^Y_\varepsilon(f(x_0)))
+    K \subseteq \cup_{j=1}^m B_{r(y_j)}(y_j).
+    \]
+    Afirmamos que la contención anterior implica que \(\mathbb{N}\) es finito.
+    Para verlo, dado \(n\in \mathbb{K}\), ya que \(x_n \in K\) y  
+    \[
+    K \subseteq \cup_{j=1}^m B_{r(y_j)}(y_j)
+    \]
+    existe \(i\) tal que \(x_{n}\in B_{r(y_i)}(y_i)\). En términos
+    de los conjuntos \(I_r(y)\) lo anterior se escribe como \(n \in I_{r(y_i)}(y_i)\). Por
+    lo tanto
+    \[
+    \mathbb{N} \subseteq \cup_{j=1}^m I_{r(y_j)}(y_j).
     \]
   </p>
   <p>
-    donde \(B^X_r(x_0)\) denota la bola abierta en el espacio \(X\).
+    Como cada \(I_{r(y_j)}(y_j)\) es finito, \(\mathbb{N}\) es finito.
   </p>
-  <p>
-    <div class="flexbox">
-      <img src="./Images/ContinuidadImagenInversa.png" alt="ContinuidadImagenInversa" width="50%" height="auto">
-    </div>
-
-  </p>
-  <p>
-    Nota: recuerda que en general, para una función
-    \(f:X\to Y\), la imagen inversa de un subconjunto \(B\subseteq Y\), bajo \(f\)
-    se define como: \(f^{-1}(B):=\{x\in X: f(x)\in B \}\).
-  </p>
-  <p>
-    Decimos que una función es continua en un subconjunto \(A \subseteq X\)
-    si es continua en todo punto de \(A\).
-  </p>
-   <p>
-     Ejemplos
-   </p>
-   <ol>
-     <li>
-       Toda función \(f:\mathbb{N}\to X\) es continua en todo punto de \(\mathbb{N}\),
-       considerando a éste útimo dotado con la métrica heredada de \(\mathbb{R}\)
-       y \(X\) cualquie espacio métrico.
-     </p>
-     <p>Para ver lo anterior tomamos un punto cualquiera \(n_0\in \mathbb{N}\)
-       y fijamos un número positivo \(\varepsilon\). En el caso muy particular
-       de \(\mathbb{N}\) afirmamos que la \(\delta >0\) que nos sirve es \(\delta=1\).
-       Razón: en la métrica de \(\mathbb{N}\) las bolas unitarias son muy simples
-       \[
-       B_1(n_0)=\{n_0\}
-       \]
-       y por lo tanto para todo \(n \in B_1(n_0)\) (que sólo hay uno, \(n_0\)) se cumple
-       \(d(f(n),f(n_0)) < \varepsilon\), pues
-       \[
-       d(f(n),f(n_0))=d(f(n_0), f(n_0))=0.
-       \]
-       Nota: este ejemplo sigue siendo válido si intercambiamos \(\mathbb{N}\)
-       por cualquier otro espacio métrico discreto.
-     </li>
-      <li>
-        <p>
-        Todas las isometrías son funciones continuas.
-       </p>
-        <p>
-        Recordamos que una
-        isometría entre dos espacios métricos  es
-        una función que preserva las distancias, es decir una
-        función  \(f:(X,d_X) \to (Y,d_Y)\) que satisface
-        \[
-        d_Y(f(x_1),f(x_2)) = d_X(x_1,x_2),
-        \]
-        para todos \(x_1,x_2\in X\).
-      </p>
-      <p>
-        Dado un punto cualquiera \(x_0\in X\) y un número positivo
-        \(\varepsilon >0\) la \(\delta\) que sirve para la continuidad
-        es \(\delta= \varepsilon\). En efecto, si \(d_X(x,x_0) < \delta \)
-        entonces
-        \[
-        d_Y(f(x),f(x_0))=d_X(x,x_0) < \delta = \varepsilon.
-        \]
-      </p>
-      </li>
-
 </div>
+
+
+<button class="respButton hvr-grow"> Demostración inciso 2</button>
+<div class="resp-box">
+  <p>
+    Supongamos que toda sucesión de elementos de \(K\)
+    admite una subsucesión convergente en \(K\). Debemos de probar que 
+    \(K\) es compacto. Primero vamos a probar la siguiente afirmación.
+  </p>
+  <h3>
+    Afirmación. 
+  </h3>
+  <p>
+    Sea \(\{ U_i\}_{i\in I}\) una cubierta abierta de \(K\). Entonces existe un 
+    \(r>0\), tal que para toda \(x\in K\), existe un \(i\in I\) con \(B_r(x)\subset U_i\).
+  </p>
+  <p>
+    Demostración.
+  </p>
+  <p>
+    Supongamos que la afirmación es falsa. Entonces para todo \(n\in \mathbb{N}\) 
+    existe \(x_n \in K\) tal que: 
+    \begin{equation}\label{Eqn:Aux1CompactoXSucesiones}
+    B_{1/n}(x_n) \quad \textrm{ no está contenido en ningún \(U_i\)}.
+    \end{equation}
+  </p>
+  <p>
+    Por hipótesis la sucesión \((x_n)_{n=1}^\infty\) admite una subsucesión \((x_{n_k})_{k=1}^\infty\)
+    convergente a un punto de \(K\), digamos \(\lim_{k\to \infty} x_{n_k}=x\), con \(x\in K\).
+  </p>
+  <p>
+    Ahora, ya que \(\{U_i\}_{i\in I}\) es una cubierta abierta de \(K\) existe un \(i_0\in I\) tal que 
+    \(x\in U_{i_0}\). Ya que \(U_{i_0}\) es abierto existe \(r>0\) tal que \(B_r(x) \subseteq U_{i_0}\). 
+  </p>
+  <p>
+    Pero \(\lim_{k\to \infty}x_{n_k}=x\) así que exsite \(k_0\) con \(1/n_{k_0}< r/2\) y  \(d(x_{n_{k_0}},x) < r/2\). Por 
+    lo tanto 
+    \[
+    B_{1/n_{k_0}}(x_{n_{k_0}})\subseteq B_{r/2}(x_{n_{k_0}}) \subseteq B_r(x) \subseteq U_{i_0}
+    \]
+    contradiciendo \eqref{Eqn:Aux1CompactoXSucesiones}. Esto termina la afirmación.
+  </p>
+  <p>
+    Para continuar con la prueba del inciso 2 sea \(\{U_i\}_{i\in I}\) una cubierta abierta de 
+    \(K\) y sea \(r>0\) como en la afirmación. 
+  </p>
+  <p>
+    Tomemos \(x_1\in K\) arbitrario. Si \(K\subseteq B_r(x_1)\) entonces acabamos pues 
+    por elección de \(r\), \(B_r(x_1)\subseteq U_i\), para alguna i. 
+  </p>
+  <p>
+    Si \(K \not\subseteq B_r(x_1)\) tomamos \(x_2\in K \) con \(d(x_1,x_2 )\geq r\). 
+    Si \(K\subseteq B_r(x_1)\cup B_2(x_2)\), acabamos. 
+  </p>
+  <p>
+    Si \(K \not\subseteq B_r(x_1) \cup B_r(x_2)\) tomamos \(x_3\in K\) con \(d(x_1,x_3)\geq r, 
+    d(x_2,x_3)\geq r\).
+  </p>
+  <p>
+    Continuando con este proceso tenemos dos opciones:
+    <ol>
+      <li>
+        existen \(x_1,\dots, x_n \in K\) tal que 
+        \(K\subseteq \cup_{i=1}^n B_r(x_i)\). Como cada \(B_r(x_j)\) está contenido 
+        en algún \(U_i\), esto genera una subcubierta finita de \(K\).
+      </li>
+      
+      <li>
+        se obtiene una subsucesión \((x_n)_{n=1}^\infty \subset K\) tal que 
+        \(d(x_n,x_m) \geq r\), para todos \(n\ne m\). Pero entonces 
+        \((x_n)_{n=1}^\infty\) NO es Cauchy y por lo tanto no puede tener subsucesiones convergentes,
+        contradicienco la suposición sobre \(K\).
+      </li>
+    </ol>
+  </p>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
 
 <div class="ejercicio-box">
-  <h2 class="number-title" id="Ejer:PropiedadesImagenInversa"> Ejercicio </h2>
+  <h2 class="number-title" id="Ejer:InfimoSupremoPertenecenCompacto"> Ejercicio </h2>
   <p>
-    Ya que la continuidad se puede escribir en términos de imágines inversas
-    es útil tener varias propiedades sobre ésta.
+    Sea \(K \subseteq \mathbb{R}\) un subconjunto compacto. Por el
+    <a href="#Teo:HeineBorel">Teorema de Heine-Borel</a>
+    \(K\) es acotado, por lo que existen
+    \(\inf(K)\) y \(\sup(K)\). Prueba que tanto el ínfimo como
+    el supremo de \(K\) pertenecen a \(K\).
   </p>
-  <p>
-    Sean \(S,T\) dos conjuntos, \(f:S\to T\) una función y
-    subconjuntos \(A,A' \subseteq S, B,B'\subseteq T\). Prueba
-    las siguientes identidades de conjuntos
-  </p>
-  <ol>
-    <li>
-      \(A \subseteq f^{-1}(f(A))\) y la igualdad se da,
-      para todo subconjunto \(A\) si y sólo si
-      \(f\) es inyectiva.
-    </li>
-    <li>
-      \(f(f^{-1}(B)) \subseteq B\) y la igualdad se da,
-      para todo subconjunto \(B\) si y sólo si \(f\)
-      es suprayectiva.
-    </li>
-    <li>
-      \(f^{-1}(B\cap B')=f^{-1}(B)\cap f^{-1}(B')\).
-    </li>
-    <li>
-      \(f^{-1}(B\cup B')=f^{-1}(B)\cup f^{-1}(B')\).
-    </li>
-    <li>
-      \(f^{-1}(B\setminus B')=f^{-1}(B)\setminus f^{-1}(B')\).
-    </li>
-    <li>
-      \(f(A\cup A')=f(A)\cup f(A')\).
-    </li>
-    <li>
-      \(f(A\cap A') \subseteq f(A)\cap f(A')\). Además da
-      un ejemplo dónde la contención sea propia.
-    </li>
-    <li>
-      Si \(B'\subseteq B\\) entonces \(f^{-1}(B')\subseteq f^{-1}(B)\).
-    </li>
-  </ol>
-
-
 </div>
-
-
-<div class="lema-box">
-  <h2 class="number-title" id="Lema:ContinuidadSucesiones"> Lema </h2>
-  <p>
-    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y
-    \(f:X \to Y\) una función.
-  </p>
-  <p>
-    Las siguientes condiciones son equivalentes.
-  </p>
-  <ol>
-    <li>
-      \(f\) es continua en \(x_0\).
-    </li>
-    <li>
-      Para toda sucesión \((x_n)_{n=1}^\infty\) convergente a
-      \(x_0\) se satisface que  \((f(x_n))_{n=1}^\infty\)
-      es convergente a \(f(x_0)\). Lo anterior se puede resumir como:
-      \[
-      \lim_{n\to \infty} f(x_n)=f(\lim_{n\to \infty}x_n)
-      \]
-    </li>
-  </ol>
-    <p>
-      Es decir, se puede meter el límite para funciones continuar,
-      siempre y cuando el límite exista.
-    </p>
-    <button class="respButton hvr-grow"> Respuesta </button>
-    <div class="resp-box">
-    <p>
-      \(\Rightarrow] \) Primero supongamos que \(f\) es continua en \(x_0\)
-      y supongamos que tenemos una sucesión \((x_n)_{n=1}^\infty \subset X\)
-      tal que \(\lim_{n\to \infty}x_n=x_0\).
-    </p>
-    <p>
-        Debemos probar que \(\lim_{n\to \infty }f(x_n)=f(x_0)\), es decir,
-        dada una \(\varepsilon >0\) debemos asegurar la existencia de un natural
-        \(N\in \mathbb{N}\) tal que, para toda \(n \geq N\):
-        \begin{equation}\label{Eqn:auxLemaContinuidad}
-        f(x_n)\in B_\varepsilon^Y(f(x_0)).
-        \end{equation}
-    </p>
-    <p>
-      Usando que \(f\) es continua en \(x_0\), sabemos que existe una
-      \(\delta >0 \) tal que
-      \begin{equation}\label{Eqn:aux2LemaContinuidad}
-      B_\delta^X(x_0) \subseteq f^{-1}(B_\varepsilon)(f(x_0))
-      \end{equation}
-    </p>
-    <p>
-      Pero, usando que \(\lim_{n\to \infty }x_n=x_0\) podemos asegurar que
-      existe \(N\in \mathbb{N}\) tal que, para toda
-      \(n\geq N\), \(x_n\in B_\delta^X(x_0)\). Si usamos
-      \eqref{Eqn:aux2LemaContinuidad} obtenemos que \(f(x_n) \in B_\varepsilon(f(x_0))\),
-      para toda \(n\geq N\), lo cual prueba \eqref{Eqn:auxLemaContinuidad}.
-    </p>
-    <p>
-      \(\Leftarrow]\) Vamos a proceder por contrapositiva. Supongamos que la
-      función \(f\) no es continua en \(x_0\) y con esto vamos a probar que la
-      condición 2 no es válida.
-    </p>
-
-    <p>
-      Si negamos la definición de continuidad de \(f\) en \(x_0\) llegamos
-      a que existe un número positivo \(\varepsilon_0 >0 \), tal que,
-      para toda \(\delta > 0\) no se cumple
-      \[
-      B_{\delta}(x_0) \subseteq f^{-1}(B_{\varepsilon_0}(f(x_0))).
-      \]
-      Si la contención anterior no es válida eso quiere decir que
-      existe un \(x \in B_{\delta}(x_0)\) (la \(x\) va a depender de \(\delta\)),
-       tal que \(x\notin f^{-1}(B_{\varepsilon_0}(f(x_0)))\), es
-       decir, la \(x\) satisface:
-       \[
-       d_X(x,x_0)< \delta, \quad d_Y(f(x),f(x_0)) \geq \varepsilon_0.
-       \]
-    </p>
-    <p>
-      Como lo anterior se vale para todo número \(\delta >0\), tomando
-      \(\delta = \frac{1}{n}\), con \(n \in \mathbb{N}\), obtenemos una
-      sucesión de puntos \((x_n)_{n=1}^\infty \subset X\), tal que
-
-      \[
-      d_X(x_n,x_0) < \frac{1}{n}, \quad d_Y(f(x_n), f(x_0)) \geq \varepsilon_0
-      \]
-
-      Pero lo anterior implica que \(\lim_{n\to \infty} x_n=x_0\)
-      y \(\lim_{n\to \infty} f(x_n)\ne f(x_0)\), contradiciendo la
-      condición 2 del lema.
-    </p>
-  </div>
-</div>
-
 
 
 <div class="ejercicio-box">
   <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico y \(f,g:X\to \mathbb{R}\) funciones
-    continuas en \(x_0\in X\). Prueba que las siguientes funciones (dadas por operaciones algebráticas)
-    son continuas en \(x_0\): 
-    <ol> 
-      <li>combinaciones lineales \(\alpha f +g\), donde \(\alpha \in \mathbb{R}\),</li> 
-    <li>la función producto \(fg\), </li> 
-    <li>si \(g(x_0 )\ne 0\), la función cociente \(f/g\).</li>
-    </ol>
-    
-     
-  </p>
-  <p>
-    Sugerencia: usa el <a href="#Lema:ContinuidadSucesiones">Lema 6.4</a>
-  </p>
-  <p>
-    Nota: se puede generalizar este ejercicio cambiando \(\mathbb{R}\)
-    por un espacio vectorial normado.
-  </p>
-</div>
 
-
-
-<div class="lema-box">
-  <h2 class="number-title" id="Lema:ContinuidadAbiertosCerrados"> Lema </h2>
   <p>
-    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y
-    \(f:X \to Y\) una función. Decimos que \(f\) es continua 
-    en \(X\) si \(f\) es continua en \(x_0\), para todo \(x_0\in X\).
+    Considera el espacio vectorial normado \((\ell_p, \|\cdot\|_p)\)
+    con \(p\in [1,\infty]\) y la bola unitaria cerrada
+    \[
+    \overline{B}_1(0)=\{x\in \ell_p: \|x\|_p \leq 1 \}
+    \]
+    Prueba que \(\overline{B}_1(0)\) no es compacta.
   </p>
   <p>
-    Las siguientes condiciones son equivalentes.
+    Sugerencia: considera la sucesión \((e^{(n)})_{n=1}^\infty\), donde
+    \(e^{(n)}\) es la sucesión de números reales que es cero en todas sus
+    entradas excepto en el lugar \(n\), donde tiene un 1. Prueba
+    que \(\|e^{(n)}-e^{(m)}\|_p \geq 1\); de lo anterior  deduce que
+    no es posible extraer de \((e^{(n)})_{n=1}^\infty\) una
+    subsucesión convergente y concluye por
+    <a href="#Lema:CompactoImplicaCpS">Lema</a>
+    que la bola cerrada no es compacta.
   </p>
-  <ol>
-    <li>
-      \(f\) es continua en todo \(X\).
-    </li>
-    <li>
-      Imagen inversa de abiertos es abierta.
-    </li>
-    <li>
-      Imagen inversa de cerrados es cerrada.
-    </li>
-  </ol>
-
   <button class="respButton hvr-grow"> Demostración </button>
   <div class="resp-box">
-  <p>
-    \(1 \Rightarrow 2 ]\) Supongamos que \(f\) es continua en todo \(M\)
-    y sea \(V \subseteq Y\) un subconjunto abierto. Natamos que, al
-    ser \(Y\) abierto, para todo \(y \in V \) existe \(r(y)\), un número positivo
-    que depende de cada punto \(y\), tal que
-    \(B_{r(y)}^Y(y)\subseteq V\). Por lo tanto se sigue que
-    \[
-    V=\cup_{y\in V} B_{r(y)}^Y(y)
-    \]
-  </p>
-  <p>
-    Usando las propiedades de la imagen inversa
-    (<a href="#Ejer:PropiedadesImagenInversa">Ejercicio 6.3</a>) obtenemos
-    \[
-    f^{-1}(V)=\cup_{y\in V} f^{-1}(B_{r(y)}^Y(y))
-    \]
-    y ya que unión arbitraria de abiertos es abierta, para probar que
-    \(f^{-1}(V)\) es abierta es suficiente probar que, para toda bola
-    \(B_r^Y(y)\), su imagen inversa \(f^{-1}(B_r^Y(y))\) es abierta en \(X\).
-  </p>
-  <p>
-    Para probar que \(f^{-1}(B_r^Y(y))\) es abierto en \(X\) tomamos
-    \(x\in f^{-1}(B_r(y))\) arbitrario y probamos que hay una
-    bola centrada en \(x\) totalemente contenida en \(f^{-1}(B_r^Y(y))\). Antes
-    de proceder notamos que \(f(x)\in B_r^Y(y)\) y ya que éste último es abierto
-    existe \(s>0\) tal que \(B_s^Y(f(x)) \subseteq B_r^Y(y)\).
-  </p>
-  <p>
-    Ahora, ya que \(f\) es continua en todo
-    \(X\), en particular \(f\) es continua en \(x\) por lo que existe una \(\delta >0\)
-    para la cual se satisface
-    \[
-    B_\delta^X(x) \subseteq f^{-1}(B_s(f(x)))
-    \]
-    Finalmente notamos que
-    \[
-    B_s^Y(f(x))\subseteq B_r^Y(y) \Rightarrow f^{-1}(B_s^Y(f(x))) \subseteq f^{-1}(B_r^Y(y))
-    \]
-    por lo tanto tenemos la cadena de contenciones
-    \[
-    B_\delta^X(x) \subseteq f^{-1}(B_s^Y(f(x))) \subseteq f^{-1}(B_r^Y(y))
-    \]
-    concluyendo que \(B_\delta^X(x)\) está totalmente contenida en
-    \(f^{-1}(B_r^Y(y))\).
-    </p>
-    <p>
-      \( 2 \Rightarrow 3 ]\) Esta implicación es sencilla.
-    </p>
-    <p>
-      Supoongamos
-      que \(F \subset Y\) es cerrado. Debemos probar que
-      \(f^{-1}(F) \subseteq X\) es cerrado también o, equivalentemente,
-      que \(X\setminus f^{-1}(F)\) es abierto en \(X\). Pero,
-      por las propiedades de la imagen inversa
-      (<a href="#Ejer:PropiedadesImagenInversa">Ejercicio 6.3</a>):
-      \[
-      X\setminus f^{-1}(F) = f^{-1}(Y \setminus F).
-      \]
-      Ahora, \(Y\setminus F\) es abierto en \(Y\), por lo tanto la condición
-      2 implica que \(f^{-1}(Y\setminus F)\) es abierto en \(X\).
-    </p>
-    <p>
-      \(3 \Rightarrow 1 ]\) Sea \(x_0 \in X\) fijo y arbitrario. Dedemos de probar
-      que \(f\) es continua en \(x_0\) y para esto usaremos el
-      <a href="#Lema:ContinuidadSucesiones">Lema 6.4</a>.
-    </p>
-    <p>
-      Sea \((x_n)_{n=1}^\infty \subset X\) una sucesión tal que
-      \(\lim_{n\to \infty} x_n=x_0\). Debemos de probar que
-      \(\lim_{n\to \infty} f(x_n)=f(x_0)\), pero, para llegar
-      a una contradicción supongamos que no es así.
-    </p>
-      <p>
-      Usando el <a href="./S4.html#Ejer:NegacionConvergencia">Ejercicio 4.7</a>
-      sabemos \(\lim_{n\to \infty}f(x_n)\ne f(x_0)\) implica la
-      existencia de un número positivo \(\varepsilon_0 >0\) y
-      una subsucesión \((x_{n_k})_{k=1}^\infty\) tal que
-      \[
-      d(f(x_0), f(x_{n_k})) \geq \varepsilon_0
-      \]
-      para toda \(k\). Reescribiendo lo anterior en términos de imagen inversa
-      de la bola abierta tenemos que
-      \[
-      x_{n_k} \in f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0)))
-      \]
-      para toda \(k\).
-    </p>
-    <p>
-      Por otro lado, sabemos que \(Y\setminus B_{\varepsilon_0}(f(x_0)) \) es cerrado,
-      por lo tanto la condición 3 implica que \(f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0))\)
-      también es cerrado. Por lo tanto la subsucesión \((x_{n_k})_{k=1}^\infty\)
-      está contenida en el cerrado \(f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0))\)
-      y en consecuencias, su límite también (por
-      <a href="./S5.html#Teo:CaracCerrados"> Teorema 5.11</a>). Es decir
-      \[
-      x_0=\lim_{k\to \infty}x_{n_k} \in f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0))
-      \]
-      por lo que \(f(x_0)\in Y\setminus B_{\varepsilon_0}(f(x_0)) \), lo cual
-      es una contradicción.
-    </p>
+      Consideremos la sucesión \((e^{(n)})_{n=1}^\infty\) y comencemos por notar
+      que \(\|e^{(n)}\|_p = 1\) para cada \(n \in \mathbb{N}\). Para
+      \(n,m \in \mathbb{N}\) arbitrarios tenemos que \(\|e^{(n)} - e^{(m)}\|_p
+      = (1^p + 1^p)^{1/p} = 2^{1/p} \geq 1\), por lo que la sucesión no puede
+      tener ninguna subsucesión de Cauchy y en particular no puede tener
+      ninguna subsucesión convergente. Por el <a href="#Lema:CompactoImplicaCpS">Lema</a>
+      se tiene que \(\overline{B}_1(0)\) no es compacto.
   </div>
 </div>
 
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <ol>
-    <li>
-      Prueba que una función continua \(f:\mathbb{R}\to \mathbb{R}\)
-      está completamente determinada por sus valores en \(\mathbb{Q}\). Es decir,
-      si \(g:\mathbb{R}\to \mathbb{R}\) es una función continua que satisface
-      \(f(r)=g(r)\) para toda \(r\in \mathbb{Q}\) entonces
-      \(f(x)=g(x)\) para toda \(x\in \mathbb{R}\).
-    </li>
-    <li>
-      <p>
-      Generaliza el ejercicio anterior. Sean \((X,d_X), (Y,d_Y)\) dos
-      espacios métricos y sea \(D\subset X\) un
-      <a href="./S5.html#Ejer:EquivDensos">subconjunto denso</a>. Prueba
-      que una función continua \(f:X \to Y\) está completamente
-      determinada por sus valores en \(D\).
-      </p>
-      <p>
-        Sugerencia: usa el <a href="./S5.html#Ejer:EquivDensos"> Ejercicio 5.32
-        inciso 2</a>.
-      </p>
-
-    </li>
-  </ol>
-  <button class="respButton hvr-grow"> Respuesta </button>
-  <div class="resp-box">
-      <ol>
-          <li>
-              Como \(f,g\) coinciden en \(\mathbb{Q}\) bastará probar que también
-              coinciden en los irracionales \(\mathbb{I}\). Recordemos que todo
-              número irracional es el límite de una sucesión
-              de números racionales. Con esto establecido usaremos el
-              <a href="#Lema:ContinuidadSucesiones"> Lema anterior</a>. Sea
-              \(x\) un número irracional y \((x_n)_n\) una sucesión de racionales
-              tal que \(\lim x_n= x\). Por hipótesis \(f(x_n) = g(x_n)\) para cada
-              \(n \in \mathbb{N}\) y por continuidad de las funciones \(f,g\) en el
-
-              punto \(x\) tenemos que \(f(x) = \lim f(x_n) = \lim g(x_n) = g(x)\).
-              En consecuencia \(f(x) = g(x)\) para todo \(x \in \mathbb{R}\).
-          </li>
-      </ol>
-  </div>
-</div>
-
-
-
-
-
 <div class="ejercicio-box">
   <h2 class="number-title"> Ejercicio </h2>
   <p>
-    Sea \(f:\mathbb{R}\to \mathbb{R}\) que satisface:
-    \(f(x+y)=f(x)+f(y)\), para todos \(x,y\in \mathbb{R}\).
+    Recuerda que un espacio métrico se llama separable si
+    contiene un subconjunto denso y numerable.
   </p>
   <p>
-    Prueba que si \(f\) es continua en un punto entonces existe una
-    constante \(a\in \mathbb{R}\) tal que \(f(x)=ax\) para todo \(x\in \mathbb{R}\).
-   </p>
-   <p>
-     Es decir, toda función aditiva y continua en almenos un punto es lineal.
-   </p>
-   <p>
-     Sugerencia: empieza probando que si \(f\) es aditiva y continua en un punto entonces
-     es continua en cero y después prueba que es continua en todo punto.
-   </p>
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico y \(f:X\to \mathbb{R}\) una función.
-  </p>
-  <ol>
-  <li>
-    Si \(f\) es continua en \(X\) entonces, para todo \(a\in \mathbb{R}\)
-    entonces \(\{x: f(x)>a\}\) y \(\{x: f(x)< a \}\) son abiertos.
-  </li>
-  <li>
-    Inversamente, si para toda \(a\in \mathbb{R}\) se satisface  que
-    \(\{x: f(x)>a\}\) y \(\{x: f(x)< a \}\) son conjuntos abiertos prueba
-    que \(f\) es continua en \(\mathbb{R}\).
-  </li>
-  <li>
-    Mejora el inciso anterior. Prueba que si para toda
-    \(a\in \mathbb{Q}\) se satisface  que
-    \(\{x: f(x)>a\}\) y \(\{x: f(x)< a \}\) son conjuntos abiertos prueba
-    que \(f\) es continua en \(\mathbb{R}\).
-  </li>
-  </ol>
-  <p>
-    Sugerencia: usa el <a href="#Lema:ContinuidadAbiertosCerrados"> Lema </a>.
-  </p>
-
-  <button class="respButton hvr-grow"> Respuesta </button>
-  <div class="resp-box flexbox">
-      Se dará prueba de los primeros dos incisos.
-      <div class=" flexbox">
-        <iframe width="700" height="400" class="video"
-          src="https://www.youtube.com/embed/pGlJotPRvGU" allowfullscreen="true"> 
-        </iframe>
-          
-      </div>
-  </div>
-</div>
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title" id="Ejer:GraficaCerrada"> Ejercicio </h2>
-  <p>
-    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos y
-    \(f:X\to Y\) una función. La gráfica de \(f\) se define como
-    el subconjunto de \(X\times Y\) dado por
-    \[
-    G(f):=\{(x,f(x)): x\in X\}
-    \]
-  </p>
-  <ol>
-  <li>
-    Prueba que \(f\) es continua en \(X\) entonces
-    \(G(f)\) es un subconjunto cerrado de \(X\times Y\).
-  </li>
-  <li>
-    Da un ejemplo donde \(G(f)\) sea cerrado pero \(f\)
-    no es continua.
-  </li>
-</ol>
-  <p>
-    Nota: considera el espacio \(X\times Y\) dotado con la métrica
-    \(d((x_1,y_1),(x_2,y_2))=d_X(x_1,x_2)+d_Y(y_1,y_2)\).
-  </p>
-</div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-    <p>
-      Sea \(f:\mathbb{R}\to \mathbb{R}\) una función y
-      define \(F:\mathbb{R}\to \mathbb{R}^2\) por \(F(x)=(x,f(x))\). Prueba que las siguientes
-      condiciones son equivalentes.
-    </p>
-    <ol>
-      <li>
-        \(f\) es continua en \(\mathbb{R}\).
-      </li>
-      <li>
-        \(F\) es continua en \(\mathbb{R}\).
-      </li>
-      <li>
-        Los subconjuntos
-        \[
-        \{(x,y)\in \mathbb{R}^2: y \leq f(x) \}, \quad \{(x,y)\in \mathbb{R}^2: f(x)\leq y\}
-        \]
-        son cerrados en \(\mathbb{R}^2\).
-      </li>
-    </ol>
-</div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title" id="Ejer:FunLipschitz"> Ejercicio </h2>
-    <p>
-      Una función entre dos espacio métricos \(f: X \to Y\)
-      se dice que satisface la condición de Lipschitz si
-      existe un constante \(K>0\) para la cual:
-      \[
-      d_Y(f(a),f(b)) \leq K d_X(a,b), \quad \textrm{para todos \(a,b\in X\)}.
-      \]
-      Por sencillez también se dice que \(f\) es Lipschitz con
-      constante \(K\).
-    </p>
-    <ol>
-      <li>
-        Prueba que toda función Lipschitz es continua en todo punto.
-      </li>
-      <li>
-        Mejora el inciso anterior. Prueba que toda función Lipschitz
-        es uniformemente continua en su dominio.
-      </li>
-    </ol>
-    <p>
-      Nota: una función \(g:X\to Y\) se llama uniformemente continua en
-      \(X\) si para toda \(\varepsilon >0\) existe una \(\delta>0\),
-      que sólo depende de \(\varepsilon\), tal que
-      \[
-      d_X(a,b) < \delta \Rightarrow d_Y(g(a),g(b))<\varepsilon
-      \]
-    </p>
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <ol>
-    <li>
-    Prueba que las funciones \(\sen, \cos:\mathbb{R}\to \mathbb{R}\) son Lipschitz con
-    constante \(K=1\).
-    </li>
-    <li>
-        Generaliza el inciso anterior. Si \(f:[a,b]\to \mathbb{R}\)
-        es continua en \([a,b]\), diferenciable en \((a,b)\) y con derivada
-        acotada en \((a,b)\) entonces \(f\) es Lipschitz.
-    </li>
-
-      </p>
-      <button class="respButton hvr-grow"> Respuesta </button>
-  <div class="resp-box">
-      <ol>
-          <li>
-              <p>
-                Comencemos por recordar el Teorema del Valor Medio. Si \(f:[a,b] \to \mathbb{R}\)
-                es continua en \([a,b]\) y diferenciable en \((a,b)\) entonces existe un punto
-                \(c \in (a,b)\) tal que \(f'(c) = \frac{f(b)-f(a)}{b-a}\).
-              </p> 
-              <p>
-                Dado que \(\sen\) y \(\cos\)
-                son continuas y diferenciables en todo \(\mathbb{R}\). Trabajaremos con \(\sen\) y
-                el caso para \(\cos\) será análogo. Recordemos que ambas funciones toman valores en
-                el intervalo \([0,1]\) y \(\sen '(x) = \cos(x)\), de esta forma si \(a,b \in \mathbb{R}\)
-                entonces existe \(c \in (a,b)\) tal que \(\cos(c) = \frac{\sen(b)-\sen(a)}{b-a}\).
-                Basta tomar valor absoluto en ambos lados de la ecuación y despejar el término
-                \(|b-a|\) para obtener \(|\sen(b) - \sen(a)| = |\cos(c)||b-a|\). Como \(|\cos(c)| \leq 1\)
-                concluimos que \(|\sen(b) - sen(a)| \leq 1 \cdot |b-a|\) y la función en cuestión es
-                Lipschitz con constante \(K=1\). El caso de \(\cos\) es análogo. Dados \(a,b \in \mathbb{R}\)
-                existe \(c \in (a,b)\) tal que \(|\cos(b) - \cos(a)| = |-\sen(c)||b-a| \leq 1 \cdot |b-a|\).
-              </p>
-          </li>
-          <li>
-              Notemos que la generalización la obtenemos de manera natural de la demostración anterior.
-              Supongamos que \(|f'(z)| \leq K \). Sean \(x,y \in [a,b]\) y supongamos SPG que \(x < y\).
-              Por el Teo. del Valor Medio sabemos que existe \(z \in (x,y) \subseteq (a,b)\) tal que
-              \(f'(z) = \frac{f(y) - f(x)}{y - x}\). Tomando valor absoluto de ambos lados de la ecuación
-              y despejando el término \(|y-x|\) tenemos \(|f(y) - f(x)| = |f'(z)||y - x| \leq K |y-x|\),
-              por lo que la función es Lipschitz.
-          </li>
-      </ol>
-  </div>
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Considera la función \(L: \ell_\infty \to \mathbb{R}\)
-    dada por
-    \[
-    L(x)=\sum_{n=1}^\infty \frac{1}{2^n} x_n
-    \]
-    donde consideramos \(\ell_\infty\) dotado con la norma
-    \(\|\cdot\|_\infty\).
-  </p>
-  <p>
-    Prueba que \(L\) es Lipschitz.
+    Sea \((K,d)\) un espacio métrico compacto. Prueba que
+    \(K\) es separable.
   </p>
 </div>
 
 
 
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <ol>
-  <li>
-    <p>
-    Fija \(y=(y_n)_{n=1}^\infty \in \ell_2\) y define \(g:\ell_2 \to \mathbb{R}\) por
-    \[
-    g(x)=\sum_{n=1}^\infty x_ny_n
-    \]
-    Por la desigualdad de Cauchy-Schwartz \(g\) está bien definida,
-    es decir, la serie \(\sum_{n=1}^\infty x_ny_n\) es convergente.
-  </p>
-  <p>
-    Prueba que \(g\) es Lipschitz.
-  </p>
-  </li>
-  <li>
-    Generaliza el inciso anterior. Sean \(p,q\in (1,\infty)\) exponentes
-    conjugados y fija \(y\in \ell_q \). Define
-    \(g:\ell_p \to \mathbb{R} \) por
-    \[
-      g(x)=\sum_{n=1}^\infty x_ny_n
-    \]
-    Prueba que \(g\) es Lipschitz. Sugerencia: usa
-    la <a href="./S3.html#Lema:Holder"> desigualdad de Hølder</a>.
-  </li>
-</div>
 
+                <div class="quiz-box">
+                  <h2 id="Quiz:Sec8"> Quiz </h2>
+                  <ol>
+                    <li>
+                      <p>
+                      (2 pts)  Si \(K\) es un subconjunto compacto de \(\mathbb{R}^2\)
+                      prueba que existen intervalos, \([a,b]\) y \([c,d]\) tal que
+                      \(K\subseteq [a,b]\times [c,d]\).
+                    </p>
+                    </li>
+                    <li>
+                      <p>
+                        Sean \(A,B\) dos subconjuntos compactos de \((X,d)\). Prueba que
+                        \(A\cup B\) es compacto.
+                      </p>
+                    
+                    </li>
 
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos. Una
-    función \(f:X \to Y\) se llama isometría si para todos \(a,b\in X\)
-    \[
-     d_X(a,b)=d_Y(f(a),f(b)).
-    \]
-  <p>
-    <ol>
-      <li>
-        Prueba que la función \(F: \mathbb{N} \to \ell_1\) dada por
-        \[
-        F(n)=(\underbrace{1,\dots,1}_{n \quad \textrm{lugares}}, 0, 0, \dots)
-        \]
-        es una isometría. Nota: \(\mathbb{N}\) está dotado con la métrica usual
-        heredada de \(\mathbb{R}\).
-      </li>
-      <li>
-        Sea \(p\in [1,\infty) \). Define \(G: \ell_p \to \ell_p\) dada por
-        \[
-        G((x_1,x_2,\dots, ))=(0,x_1,x_2,\dots)
-        \]
-        Prueba que \(G\) es una isometría.
-      </li>
-    </ol>
-</div>
-
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title" id="Ejer:ContinuidadFunDistanciaConjunto"> Ejercicio </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico y \(A\subseteq X\). La distancia
-    de un punto \(x\in X\) al conjunto \(A\) se define como
-    \[
-    d(x,A):=\inf_{a\in A}\{ d(x,a) \}
-    \]
-    Prueba que \(|d(x,A)-d(y,A)|\leq d(x,y)\), para todos \(x,y\in X\).
-  </p>
-    <p>
-    Por
-    lo tanto la función distancia a un conjunto es Lipschitz continua con
-    \(K=1\).
-    </p>
-</div>
-
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico y \(E,F \subseteq X\) dos
-    conjuntos cerrados, no vacíos y ajenos. Define
-    \(f:X\to \mathbb{R}\) por
-    \[
-    f(x)=\frac{d(x,E)}{d(x,E)+d(x,F)}
-    \]
-  </p>
-  <ol>
-    <li>
-      Prueba que \(f\) es continua.
-    </li>
-    <li>
-      Para toda \(x\in X\), \(0\leq f(x)\leq 1\).
-    </li>
-    <li>
-      \(f^{-1}(0)=E\), \(f^{-1}(1)=F\).
-    </li>
-  </ol>
-  <p>
-    Sugerencia: usa  <a href="#Ejer:ContinuidadFunDistanciaConjunto">Ejercicio 6.18</a>
-    y <a href="./S5.html#Ejer:DistanciaConjuntoCerradura">Ejercicio 5.31</a>
-  </p>
-  <p>
-    Usa lo anterior prueba que existen dos conjuntos abiertos,
-    \(U,V\), ajenos con \(E\subset U\), \(F \subset V\). Se dice
-    que los conjuntos \(U\) y \(V\) separan a \(E\) y \(F\).
-  </p>
-
-</div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Una función definida sobre un espacio métrico, con valores
-    en \(\mathbb{R}\), \(f:X\to \mathbb{R}\) se llama semi-continua
-    inferiormente si para toda \(a\in \mathbb{R}\) el conjunto
-    \[
-      \{x\in X: f(x)\leq a \}
-    \]
-    es cerrado.
-  </p>
-  <p>
-    Prueba que \(f\) es semi-continua inferiormente si y sólo si
-    \[
-    f(x)\leq \liminf_{n\to \infty} f(x_n)
-    \]
-    siempre que \(\lim_{n\to \infty} x_n=x\).
-  </p>
-  <p>
-    Nota: para una sucesión de números reales \((r_n)_{n=1}^\infty\)
-    se define
-    \[
-    \liminf_{n\to \infty} r_n = \sup_{n\geq 1} \left\{ \inf_{k\geq n} \{r_k\} \right\}
-    \]
-  </p>
-
-  <button class="respButton hvr-grow"> Respuesta </button>
-  <div class="resp-box flexbox">
-      <div class=" flexbox">
-        <iframe width="700" height="400" class="video"
-          src="https://www.youtube.com/embed/wxV64UovdQ8" allowfullscreen="true"> 
-        </iframe>
-          
-      </div>
-  </div>
-</div>
-
-
-<div class="definicion-box">
-  <h2 class="number-title"> Definicion </h2>
-  <p>
-    Un homeomorfismo entre dos espacios métricos, \((X,d_X), (Y,d_Y)\),
-    es una función \(f: X\to Y\) que satisface:
-    <ul>
-      <li>
-        \(f\) es inyectiva.
-      </li>
-      <li>
-        \(f\) es suprayectiva.
-      </li>
-      <li>
-        Tanto \(f\) como su inversa, \(f^{-1}\), son funciones continuas.
-      </li>
-    </ul>
-
-  </p>
-  <p>
-    Si existe un homeomorfismo entre los espacios \(X\) y \(Y\) se dicen
-    que son homeomorfos.
-  </p>
-  <p>
-    Ejemplo
-  </p>
-  <ul>
-    <li>
-    Cualquier función \(f:\mathbb{R}\to \mathbb{R}\)
-    de la forma \(f(x)=mx+b\), con \(m\ne 0\), es un homemorfimo de \(\mathbb{R}\)
-    pues \(f^{-1}(y)=\frac{y-b}{m}\) y tanto \(f\) como \(f^{-1}\) son
-    continuas.
-    </li>
-    <!--<li>
-    Sea \((X,d)\) un espacio métrico, fija \(z\in X\) y define \(f:X\to [0,\infty)\) por
-    \(f(x)=d(x,z)\). Por el <a href="./S2.html#Ejer:LaOtraDesigTri">Ejercicio 2.14</a>
-    la función \(f\) satisface \(|f(x)-f(y)|\leq d(x,y)\) por lo  que
-    \(f\) es Lipschitz con constante \(K=1\).
-    </li>-->
-    <li>
-      Toda isometría \(f:(X,d_X)\to (Y,d_Y)\) suprayectiva es un homemomorfismo. 
-    </li>
-  </ul>
-</div>
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sean \((X,d_X), (Y,d_Y)\) espacios métricos y \(f:X\to Y\)
-    una biyección. Las siguientes condiciones son equivalentes.
-  </p>
-  <ol>
-    <li>
-      \(f\) es un homemorfismo.
-    </li>
-    <li>
-      \(U\) abierto en \(X\) si y sólo si \(f(U)\)  abierto en \(Y\).
-    </li>
-    <li>
-      \(F\) cerrado en \(X\) si y sólo si \(f(U)\)  cerrado en \(Y\).
-    </li>
-    <li>
-      una sucesión \((x_n)_{n=1}^\infty \subseteq X\) satisface 
-      \(\lim_{n\to \infty}x_n=x\) en \(X\) si y sólo si la sucesión 
-      \((f(x_n))_{n=1}^\infty\subseteq Y\)  satisface \(\lim_{n\to \infty} f(x_n)=f(x)\) en \(Y\).
-    </li>
-  </ol>
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \(X \ne \emptyset\) un conjunto y \(d,\rho\) dos métricas
-    sobre \(X\).
-  </p>
-  <p>
-    Prueba que las métricas \(d\) y \(\rho\) son
-    equivalentes si y sólo si la función identidad
-    \(\operatorname{id}: (X,d) \to (X,\rho)\) es un
-    homemorfismo.
-  </p>
-
-</div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Por \((X,d)\) denotamos al espacio métrico \(X=\{0\} \cup \{\frac{1}{n}: n=1,2,\dots \}\)
-    donde \(d \) es la métrica usual, heredada de \(\mathbb{R}\).
-  </p>
-  <p>
-    En \(X\) define una nueva métrica dada por
-    \[
-    \rho(x,y)=\left\{
-      \begin{array}{cc}
-      \left| \frac{1}{n}-\frac{1}{m} \right| & \textrm{si \(x=1/n, y=1/m\) con \(n,m\geq 2\)}\\
-      \frac{1}{n} & \textrm{si \(y=1\), \(x=1/n\) con \(n\geq 2\)} \\
-      1-\frac{1}{n} & \text{si \(y=0\), \(x=1/n\) con \(n\geq 2\))} \\
-      1 & \textrm{si  \(y=0\), \(x=1\)}
-      \end{array}
-      \right.
-    \]
-  </p>
-  <p>
-    Prueba que \((X,d)\) y \((X,\rho)\) son homemomorfos y que
-    la función identidad \(\operatorname{id}:X \to X\) no es continua.
-  </p>
-</div>
-
-
-    <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
-      <p>
-        Sea \((V,\|\cdot\|)\) un espaio vectorial normado. Prueba que \(V\) y \(B_1(0)\) son homeomorfos.
-      </p>
-      <p>
-        Hint: considera la función \(f: V\to B_1(0)\) dada por \(f(x)=\frac{1}{1+\|x\|}x\).
-      </p>
-
-    </div>
-
-    <div class="quiz-box">
-      <h2 id="Quiz:Sec6"> Quiz </h2>
-      <ol>
-        <li>
-          <p>
-          (3 pts) Considera el espacio  \((\ell_2,\|\cdot\|_2)\). Prueba que
-          el conjunto
-          \[
-          A=\{x\in \ell_2:  \sum_{n=1}^{\infty} \frac{x(n)}{n} >0\}
-          \]
-          es abierto.
-        </p>
-        </li>
-        <li>
-          <p>
-          (2 pts)  Considera el espacio \((C([a,b]), \|\cdot\|_1)\)
-           (<a href="./S3.html#Quiz:Sec3">ver quiz de la sección 3</a>).
-          Fija una función \(h_0\in C([a,b])\).
-          Define la función \(L:C([a,b])\to \mathbb{R}\) por
-          \[
-          L(f)=\int_a^b f(t)h_0(t)dt.
-          \]
-          Prueba que \(L\) es Lipschitz continua.
-        </p>
-        </li>
-      </ol>
-    </div>
-
-
+                  </ol>
+                </div>
 
     </div>
   </body>
+
