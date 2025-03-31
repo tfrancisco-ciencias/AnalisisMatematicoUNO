@@ -173,7 +173,9 @@
              <p> La norma uniforme o infinito. </p>
              <p>
                Sea \(X\ne\emptyset\) un conjunto cualquiera y considera
-               el espacio vectorial normado \((\mathcal{B}(X),\|\cdot\|_\infty)\).
+               el espacio vectorial normado de las funciones con valores reales, acotadas en \(X\) y con la norma 
+               uniforme (ó norma infinito),  denotado
+               \((\mathcal{B}(X),\|\cdot\|_\infty)\).
              </p>
              <p>
                Dibujar bolas abiertas en \((\mathcal{B}(X), \| \cdot\|_\infty)\)
@@ -261,8 +263,8 @@
       </div>
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+      <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
         <p>
           A pesar de que llamamos "bolas abiertas" a los conjuntos
           \[
@@ -294,8 +296,8 @@
       </div>
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:PropiedadesAbiertos"> Ejercicio </h2>
+      <div class="prop-box">
+        <h2 class="number-title" id="Ejer:PropiedadesAbiertos"> Proposición  </h2>
         <p>
           Sea \((X,d)\) un espacio métrico.
           <ol>
@@ -535,41 +537,6 @@
 
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Sea \(f:\mathbb{R}\to \mathbb{R}\) una función continua.
-        </p>
-        <p>
-        Fija \(a\in \mathbb{R}\). Prueba que el conjunto
-        \(\{t\in \mathbb{R}: f(t)>a\}\) es abierto y que
-        \(\{ t\in \mathbb{R}: f(t)=a\}\) es cerrado.
-        </p>
-        <button class="respButton hvr-grow"> Respuesta </button>
-        <div class="resp-box">
-            Veamos que si \(t\) pertenece al conjunto descrito entonces podemos
-            encontrar una bola abierta alrededor de \(t\) contenida en el
-            conjunto.
-            <br>
-            Como \(f(t) > a\) entonces podemos tomar \(\epsilon =
-            \frac{1}{2}|f(t)-a|\). Por continuidad de \(f\) existe \(\delta > 0\)
-            tal que si \(|t-s| < \delta\) entonces \(|f(t)-f(s)| < \epsilon\).
-            Ésto último se puede reescribir como, si \(s \in B_{\delta}(t)\),
-            entonces \(|f(t)-f(s)|< \epsilon\). En particular, por definición
-            de \(\epsilon\) se tiene que \(f(s) > a\) y que
-            \(B_{\delta}(t) \subseteq \{t \in \mathbb{R}: f(t) > a\}\).
-            <br>
-            Como consecuencia de lo anterior tenemos que \(\{t \in \mathbb{R}: f(t) \leq a\}\)
-            es un conjunto cerrado. Se puede demostrar que \(\{t \in \mathbb{R}: f(t)<
-            a\}\) también es un conjunto abierto (una opción es definir \(g(t) = -f(t)\) y
-            aplicar el resultado), por lo que \({t \in \mathbb{R}: f(t) \geq a}\) también es cerrado
-            y como
-            \[
-            \{t \in \mathbb{R} : f(t) = a\} = \{t \in \mathbb{R}: f(t) \geq a\} \cap \{t \in \mathbb{R} : f(t) \leq a\}
-            \]
-            concluimos que el conjunto es cerrado.
-        </div>
-      </div>
 
 
     <div class="ejercicio-box">
