@@ -399,6 +399,34 @@
 
       </div>
 
+
+
+      <div class="prop-box">
+        <h2 class="number-title" id="Ejer:PropiedadesCerrados"> Proposición </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico.
+          <ol>
+            <li>
+              Sea \(\{F_i\}_{i\in I}\) una colección arbitraria de conjuntos
+              cerrados. Prueba que la intersección \(\cap_{i\in I}F_i\), es
+              cerrada.
+            </li>
+            <li>
+              Sea \(F_1,\dots, F_n\) una colección finita de conjuntos
+              cerrados. Prueba que la union \(\cup_{i=1}^n F_i\)
+              es cerrada.
+            </li>
+            <li>
+              Da un ejemplo de un espacio métrico y una colección numerable
+              de conjuntos cerrados, \(\{F_i\}_{i\in \mathbb{N}}\), tal que
+              su union \(\cup_{i\in \mathbb{N}} F_i\) no es cerrada.
+            </li>
+          </ol>
+        </p>
+      </div>
+
+
+
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h3>
           <p>
@@ -426,7 +454,7 @@
       <div class="ejercicio-box">
         <h2 class="number-title" id="Ejer:TopologiaEspacioProducto"> Ejercicio </h2>
           <p>
-            En el <a href="./S4.html#Ejer:MetEquivalentes"> Ejercicio 4.15</a>
+            En el <a href="./S5.html#Ejer:MetEquivalentes"> Ejercicio 5.15</a>
             se definió que dos
             métricas son equivalentes si tienen las mismas
             sucesiones convergentes.
@@ -449,66 +477,62 @@
       </div>
 
 
-      <!---- OJOOOO: ver nota inciso 2-->
-      <div class="teorema-box">
-        <h2 class="number-title" id="Teo:CaracCerrados"> Teorema </h2>
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición</h2>
         <p>
-          Sea \((X,d)\) un espacio métrico y \(F\subseteq X\). Las
+          Sea \((X,d)\) un espacio métrico y \(A\subseteq X\).
+        </p>
+        <ol>
+          <li>
+            Un punto \(x\in X\) se llama punto interior de \(A\) si 
+            existe un \(r>0\) tal que \(B_r(x)\subseteq A\). 
+          </li>
+          <li>
+            Un punto \(x\in X\) se llama punto de acumulación o punto límite 
+            de \(A\) si para todo \(n\in \mathbb{N}\) existe un \(a_n\in A\)
+            tal que \(0< d(a_n,x) \leq \frac{1}{n}\). Observación: ya que pedimos 
+            \(0< d(a_n,x)\) necesariamente se tiene que \(a_n\ne x\).
+          </li>
+        </ol>
+
+      </div>
+
+
+      <div class="teorema-box">
+        <h2 class="number-title" id="Teo:CaracAbiertos"> Teorema </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \( A \subseteq X\). Las
           siguientes condiciones son equivalentes:
         </p>
         <ol>
           <li>
-            \(F\) es cerrado.
-          </li>
-
-          <!-- quitar el inciso 2 en futuras entregas, creo que se mucha información y 
-          dice lo mismo que en inciso 3-->
-          <li>
-            Si un punto \(x\) satisface que, para todo \(r>0\)
-            \(B_r(x)\cap F \ne \emptyset\), entonces \(x\in F\).
+            \(A\) es abierto.
           </li>
           <li>
-            Si existe \((x_n)_{n=1}^\infty\)  es una sucesión de puntos 
-            de \(F\) (es decir, \(x_n\in F\) para toda \(n\)) y \( \lim_{n\to \infty} x_n=x\) 
-            entonces \(x\in F\).
+            Todo punto de \(A\) es un punto interior de \(A\).
           </li>
         </ol>
+        </div>
 
 
-                <button class="respButton hvr-grow"> Respuesta </button>
-                <div class="resp-box flexbox">
-                    <div class="flexbox">
-                      <iframe width="700" height="400" class="video"
-                      src="https://www.youtube.com/embed/ns2S4q75MtI" allowfullscreen="true"> 
-                      </iframe>
-                        
-                    </div>
-                </div>
-      </div>
-
-      <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:PropiedadesCerrados"> Ejercicio </h2>
+      <div class="teorema-box">
+        <h2 class="number-title" id="Teo:CaracCerrados"> Teorema </h2>
         <p>
-          Sea \((X,d)\) un espacio métrico.
-          <ol>
-            <li>
-              Sea \(\{F_i\}_{i\in I}\) una colección arbitraria de conjuntos
-              cerrados. Prueba que la intersección \(\cap_{i\in I}F_i\), es
-              cerrada.
-            </li>
-            <li>
-              Sea \(F_1,\dots, F_n\) una colección finita de conjuntos
-              cerrados. Prueba que la union \(\cup_{i=1}^n F_i\)
-              es cerrada.
-            </li>
-            <li>
-              Da un ejemplo de un espacio métrico y una colección numerable
-              de conjuntos cerrados, \(\{F_i\}_{i\in \mathbb{N}}\), tal que
-              su union \(\cup_{i\in \mathbb{N}} F_i\) no es cerrada.
-            </li>
-          </ol>
+          Sea \((X,d)\) un espacio métrico y \(B \subseteq X\). Las
+          siguientes condiciones son equivalentes:
         </p>
+        <ol>
+          <li>
+            \(B \) es cerrado.
+          </li>
+
+          <li>
+            \(B\) contiene a todos sus puntos de acumulación.
+          </li>
+          
+        </ol>
       </div>
+
 
 
       <div class="ejercicio-box">
@@ -563,7 +587,7 @@
           \[
           \sigma((x_1,y_1),(x_2,y_2))= \sqrt{d_X(x_1,x_2)^2+d_Y(y_1,y_2)^2}
           \]
-          Ver <a href="./S2.html#Ejer:MetProdCarte">Ejercicio 2.10</a>.
+          Ver <a href="./S4.html#Ejer:MetProdCarte">Ejercicio 4.22</a>.
         </p>
           <ol>
             <li> Si \(A\) es abierto en \(X\) y \(B\) es abierto
@@ -574,11 +598,11 @@
             </li>
           </ol>
           <p>
-            Nota: gracias al <a href="./S4.html#Ejer:MetEquivProdCarte">Ejercicio 4.17</a>
-            y <a href="#Ejer:TopologiaEspacioProducto">Ejercicio 5.10</a>,
+            Nota: gracias al <a href="./S5.html#Ejer:MetEquivProdCarte">Ejercicio 5.14</a>
+            y <a href="#Ejer:TopologiaEspacioProducto">Ejercicio 6.11</a>,
             éste ejercicio sigue siendo válidos si se reemplaza
             \(\sigma\) por cualquier otra de las métricas del
-            <a href="./S2.html#Ejer:MetProdCarte">Ejercicio 2.20</a>.
+            <a href="./S4.html#Ejer:MetProdCarte">Ejercicio 4.22</a>.
            </p>
         </div>
 
@@ -598,9 +622,9 @@
                 \sigma((x_1,y_1),(x_2,y_2)) &=& \sqrt{d_X(x_1,x_2)^2+d_Y(y_1,y_2)^2}.
                 \end{eqnarray*}
                 son equivalentes
-                ( gracias al <a href="./S4.html#Ejer:MetEquivProdCarte">Ejercicio 4.17</a>)
+                (gracias al <a href="./S5.html#Ejer:MetEquivProdCarte">Ejercicio 5.14</a>)
                 van a generar los mismos subconjuntos abiertos en
-                \(X\times Y\), (ver <a href="./S5.html#Ejer:TopologiaEspacioProducto">Ejercicio 5.10</a>). Por lo tanto
+                \(X\times Y\), (ver <a href="#Ejer:TopologiaEspacioProducto">Ejercicio 6.11</a>). Por lo tanto
                 definimos el producto de los espacios métricos
                 \((X,d_X)\) y \((Y,d_Y)\) como el espacio métrico \(X\times Y\) dotado
                 con cualquiera de las métricas anteriores.
@@ -619,8 +643,9 @@
             \((\ell_p, \|\cdot\|_p)\), para todo \(p\in [1,\infty]\).
             </p>
             <p>
-              Sugerencia: usa el <a href="#Teo:CaracCerrados">Teorema 5.11 </a>
-              inciso 3.
+              Sugerencia: primero prueba que \(\{e^{(k)}\}_{k\in \mathbb{N}}\) 
+              no tiene puntos de acumulación y luego usa el <a href="#Teo:CaracCerrados">Teorema 6.14.</a>
+            
             </p>
         </div>
 
