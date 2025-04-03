@@ -680,8 +680,8 @@
         Sea \((X,d)\) un espacio métrico y \(A \subseteq X\).
       </p>
       <p>
-        Se define el interior de \(A\), denotado \(\inte_X(A)\)
-        ó \(\inte(A)\) (si el espacio ambiente \(X\) es claro)  como
+        Se define el interior de \(A\), denotado \(\inte(A)\)
+        ó \(A^o\)  como
         \[
         \inte(A)=\cup\{ U \subseteq X : \textrm{\(U\) es abierto en \(X\)
         y \(U \subseteq A\)}\}
@@ -692,22 +692,22 @@
         \(\emptyset\) es un conjunto abierto, el interior
         de un conjunto está bien definido. Además, usando que
         unión arbitraria de conjuntos abiertos es abierta
-        (<a href="#Ejer:PropiedadesAbiertos">Ejercicio 5.5</a>) resulta
+        (<a href="#Ejer:PropiedadesAbiertos">Ejercicio 6.5</a>) resulta
         que el interior de un conjunto siempre es un conjunto abierto.
         Finalmente, como el interior es la unión de todos los abiertos contenidos
         en el conjunto también es el abierto más grande contenido en el
         conjunto.
       </p>
       <p>
-        Se define la cerradura de \(A\), denotada \(\overline{A}\),
-        \(\cer_X(A)\) ó \(\cer(A)\)  como el cerrado más chico que contiene a \(A\), es decir
+        Se define la cerradura de \(A\), denotada
+        \(\cer(A)\) ó \(\overline{A}\)  como el cerrado más chico que contiene a \(A\), es decir
         \[
         \cer(A)=\cap \{ F\subseteq X: \textrm{\(F\) es cerrado en
         \(X\) y \(A\subseteq F\)} \}
         \]
         Ya que \(X\) es un conjunto cerrado y \(A\subset X\) la cerradura
         está bien definida. Además por el
-        <a href="#Ejer:PropiedadesCerrados">Ejercicio 5.12</a>
+        <a href="#Ejer:PropiedadesCerrados">Ejercicio 6.8</a>
         tenemos que \(\cer(A)\) es siempre un conjunto cerrado.
       </p>
       <p>
@@ -728,7 +728,7 @@
         si y sólo si para toda \(r>0\), \(B_r(x)\cap A \ne \emptyset\).
       </p>
       <p>
-        Un punto \(x\in X\) satisface \(x\in \inte(A)\)
+        Un punto \(x\in X\) satisface \(x\in A^o\)
         si y sólo si exite \(r>0\) tal que \(B_r(x)\subseteq  A \).
       </p>
 
@@ -744,8 +744,8 @@
     </div>
 
 
-    <div class="ejercicio-box">
-      <h2 class="number-title" id="Ejer:CaractCerraduraSuc"> Ejercicio </h2>
+    <div class="lema-box">
+      <h2 class="number-title" id="Ejer:CaractCerraduraSuc"> Lema  </h2>
       <p>
         Sea \((X,d)\) un espacio métrico y \(A\subseteq X\).
       </p>
@@ -813,11 +813,6 @@
         Sea \((X,d)\) un espacio métrico y \(A\subseteq X\).
       </p>
       <p>
-        Un punto \(x\in X\) se llama punto de acumulación de \(A\)
-        (o punto límite de \(A\)) si para todo \(r>0\) exite
-        \(a\in A\), \(a\ne x\) tal que \(d(x,a)< r\).
-      </p>
-      <p>
         Si \(x\in X\) es un punto límite de \(A\) prueba que para todo 
        abierto \(U\) tal que \(x\in U\) contiene una cantidad
         infinita de elementos de \(A\).
@@ -850,10 +845,7 @@
         Prueba que \(A'\) es un conjunto cerrado.
       </li>
       <li>
-        Prueba que \(\cer(A)=A\cup A'\).
-      </li>
-      <li>
-        Prueba que \(A\) es cerrado si y sólo si \(A'\subseteq A\).
+        Prueba que \(\overline{A}=A\cup A'\).
       </li>
 
     </ol>
@@ -875,7 +867,7 @@
       Prueba las siguientes identidades.
       <ol>
         <li> \(\partial(A)=\partial(A^c)\).</li>
-        <li> \(\cer(A)=\inte(A)\cup \partial(A)\).</li>
+        <li> \(\overline{A}=\inte(A)\cup \partial(A)\).</li>
         <li> \(X= \inte(A)\cup \partial(A)\cup \inte(A^c)\).</li>
       </ol>
     </p>
@@ -926,8 +918,8 @@
     </div>
 
 
-    <div class="ejercicio-box">
-      <h2 class="number-title" id="Ejer:DiamCerradura"> Ejercicio </h2>
+    <div class="lema-box">
+      <h2 class="number-title" id="Ejer:DiamCerradura"> Lema  </h2>
       <p>
         Sea \((X,d)\) un espacio métrico y \(A\subseteq X\).
         Prueba que \(\operatorname{diam}(A)=\operatorname{diam}(\overline{A})\).
@@ -956,8 +948,8 @@
     </div>
 
 
-    <div class="ejercicio-box">
-      <h2 class="number-title" id="Ejer:DistanciaConjuntoCerradura"> Ejercicio </h2>
+    <div class="lema-box">
+      <h2 class="number-title" id="Ejer:DistanciaConjuntoCerradura"> Lema  </h2>
       <p>
         Sea \((X,d)\) un espacio métrico y \(A\subseteq X\) un subconjunto
         no vacío. Dado un punto \(x\in X\) se define la distancia de
