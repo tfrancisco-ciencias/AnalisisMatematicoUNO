@@ -463,13 +463,21 @@
            abierto \(\mathcal{O}_{i_b}\), pero gracias a la compacidad
            de \(B\) vamos a quedarnos sólo con un número finito de los \(\mathcal{O}_{i_b}\).
          </p>
-           Considerando a la función proyección de \(A\times B\) a \(B\) y usando que
-           \(B\) es compacto obtenemos que existe \(F_a\), un subconjunto finito
-           de \(B\), tal que
+           Considerando que \((a,b)\in \mathcal{O}_{i_b}\) y que éste 
+           es abierto existen bolas abiertas tales que 
+           \((a,b)\in B_{s_b}^X(a)\times B_{t_b}^Y(b)\subseteq \mathcal{O}_{i_b}\). 
+           
+           Por lo tanto \(\{B_{t_b}^Y(b)\}_{b\in B}\) es una 
+           cubierta abierta de \(B\) y al ser \(B\) compacto existen \(b_1,\dots, b_n\) 
+           tal que 
            \[
-           \{a\}\times B \subseteq \cup_{b\in F_a}\mathcal{O}_{i_b}.
+           B\subseteq \cup_{j=1}^n B^Y_{t_{b_j}(b_j)}
+           \] 
+           Si tomamos \(I_a=\{i_{b_j}: j=1,\dots, n\}\) entonces 
+           \[
+           \{a\}\times B \subseteq \cup_{j=1}^n B^X_{s_{b_j}}(a)\times B^Y_{t_{b_j}}(b_j)\subseteq  \cup_{i\in I_a}\mathcal{O}_{i}.
            \]
-           Tomamos \(I_a=\{i_b: b\in F_a\}\). Con esto terminamos la
+           Con esto terminamos la
            prueba de \eqref{Eqn:Aux1ProductoCompactos}.
 
         </p>
