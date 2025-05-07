@@ -150,7 +150,9 @@
   <p>
     Sabemos que  \([-M,M]\) es compacto (y por lo tanto, compacto por sucesiones) 
     y \((x_n)_{n=1}^\infty \subset [-M,M]\), por lo tanto existe una subsuseción \((x_{n_k})_{k=1}^\infty\)
-    de \( (x_n)_{n=1}^\infty\) y un punto \(x\in [-M,M]\), tal que \(\lim_{k\to \infty} x_{n_k}=x\).
+    de \( (x_n)_{n=1}^\infty\) y un punto \(x\in [-M,M]\), tal que \(\lim_{k\to \infty} x_{n_k}=x\). Alternativamente
+    podemos usar el Teorema de Bolzano-Weierstrass para asegurar la existencia de dicha 
+    subsucesión convergente. 
   </p>
   <p>
     Paso 3: probar \(\lim_{n\to \infty}x_n=x\).
@@ -185,7 +187,7 @@
     Sea \((x_n)_{n=1}^\infty \subseteq \mathbb{R}\) una sucesión de Cauchy. 
   </p>
   <p>
-    Por el <a href="./S4.html#Ejer:SubsucesionConvDeUnaCauchy">Ejercicio 4.29</a> 
+    Por el <a href="./S5.html#Ejer:SubsucesionConvDeUnaCauchy">Lema 5.28</a> 
     es suficiente probar que \((x_n)_{n=1}^\infty\) admite una subsucesión 
     convergente.
   </p>
@@ -207,7 +209,7 @@
       \beta &=&  \limsup_{n\to \infty}x_n = \inf_{j \geq 1}\{ \sup_{k\geq j } \{x_{n_k} \}\} 
     \end{eqnarray*}
     las cuales están bien definidas pues toda subsucesión de Cauchy es acotada 
-    (ver <a href="./S4.html#Ejer:CauchyAcotada">Ejercicio 4.27</a>). Por el <a href="./S4.html#Lema:LimSupLimInf">Lema 4.26</a>
+    (ver <a href="./S5.html#Ejer:CauchyAcotada">Ejercicio 5.26</a>). Por el <a href="./S5.html#Lema:LimSupLimInf">Lema 5.23</a>
     es suficiente probar que \(\alpha=\beta\).
   </p>
   <p>
@@ -370,7 +372,7 @@
     \|f\|_\infty:=\sup_{x\in X}\{|f(x)|\}
     \]
     La misma prueba de que \(\|\cdot\|_\infty\) es una
-    norma en \(\ell_\infty\) (<a href="./S3.html#Ejer:ellInftyClasico">Ejercicio 3.5</a>)
+    norma en \(\ell_\infty\) (<a href="./S4.html#Ejer:ellInftyClasico">Ejercicio 4.9</a>)
     se puede extendar para llegar a que
     \((\ell_\infty(X), \|\cdot\|_\infty)\) es un
     espacio vectorial normado. Es más, el caso usual de
@@ -466,7 +468,7 @@
     \[
     \operatorname{diam}(\{x_k \}_{k\geq n})=\sup_{k,l\geq n}\{ d(x_k,x_l)\} \leq \varepsilon.
     \]
-    Del <a href="./S5.html#Ejer:DiamCerradur">Ejercicio 5.31</a> conclumios que para todo \(n \geq N\),
+    Del <a href="./S6.html#Ejer:DiamCerradura">Lema 6.32</a> conclumios que para todo \(n \geq N\),
     \(\operatorname{diam}(F_n)\leq \varepsilon\). 
   </p>
   <p>
@@ -725,17 +727,17 @@
     Caso 2: \(A\) es infinito.
   </p>
   <p>
-    Se construirá la subsucesión de Cauchy aplicando el <a href="Lema:GeneTotAcot">Lema 9.19</a>.
+    Se construirá la subsucesión de Cauchy aplicando el <a href="#Lema:GeneTotAcot">Lema 8.19</a>.
   </p>
   <p>
-    Aplicando el <a href="Lema:GeneTotAcot">Lema 9.19</a> al conjunto \(A\) con \(\varepsilon=1/2\) 
+    Aplicando el <a href="#Lema:GeneTotAcot">Lema 8.19</a> al conjunto \(A\) con \(\varepsilon=1/2\) 
     podemos asegurar que existen subconjuntos \(A_1^{(1)},\dots, A_{m_1}^{(1)} \subseteq A \) 
     con \(\operatorname{diam}(A_i^{(1)}) < 1/2\) y \(A \subseteq \cup_{i=1}^{m_1}A_i^{(1)}\). Ya que 
     \(A\) es infinito al menos uno de los conjuntos \(A_i^{(1)}\) es infinito. Sea \(A_1\) uno de 
     esos conjuntos infinitos.
   </p>
   <p>
-    Ahora aplicamos el <a href="Lema:GeneTotAcot">Lema 9.19</a> al conjunto \(A_1\) con \(\varepsilon=1/2^2\).
+    Ahora aplicamos el <a href="#Lema:GeneTotAcot">Lema 8.19</a> al conjunto \(A_1\) con \(\varepsilon=1/2^2\).
     Por lo tanto existen subconjuntos \(A_1^{(2)}, \dots, A_{m_2}^{(2)}\subseteq A_1\) con 
     \(\operatorname{diam}(A_i^{(2)})< 1/2^2\) y \(A_1 \subseteq \cup_{i=1}^{m_2}A_i^{(2)}\). Ya que 
     \(A_1\) es infinito al menos uno de los conjuntos \(A_i^{(2)}\) es infinito. Sea \(A_2\) uno de 
@@ -774,7 +776,7 @@
     \(\Rightarrow ]\) Supongamos que \(A\) es totalmente acotado. 
     Sea \((x_n)_{n=1}^\infty \) una sucesión de elementos de \(A\). Ya que el conjunto 
     \(\{x_n: n\in \mathbb{N}\}\) también es totalmente acotado 
-    (al ser subconjunto de \(A\)) el <a href="Lema:CaractSucTotAcot">Lema 9.20-2 </a> 
+    (al ser subconjunto de \(A\)) el <a href="#Lema:CaractSucTotAcot">Lema 8.20-2 </a> 
     asegura que existe una subsucesión de \((x_n)_{n=1}^\infty\) que es de Cauchy.
   </p>
   <p>
@@ -834,7 +836,7 @@
     totalmente acotado. Ya que \(A\) es infinito podemos encontrar 
     \((x_n)_{n=1}^\infty\), una sucesión de elementos de \(A\), tal que 
     \(x_n \ne x_m\) para todos \(n\ne m\). Aplicando el lema 
-    <a href="Lema:CaractSucTotAcot">Lema 9.20-2</a> podemos asegurar que existe \((x_{n_k})_{k=1}^\infty\), 
+    <a href="#Lema:CaractSucTotAcot">Lema 8.20-2</a> podemos asegurar que existe \((x_{n_k})_{k=1}^\infty\), 
     una subsucesión de Cauchy. Al ser \((X,d)\) completo existe un \(x\in X\) tal que 
     \(\lim_{k\to \infty}x_{n_k}=x\). Finalmente, ya que \(x_k \in A\) y \(x_{n_k}\ne x_{n_j}\), 
     para todos \(j,k\), concluimos que \(x\) es un punto de acumulación de \(A\).
@@ -852,7 +854,7 @@
     \(x_n=x\). Por lo tanto podemos encontrar una subsucesión \((x_{n_k})_{k=1}^\infty\) con 
     \(x_{n_k}=x\) para toda \(k\). Pero entonces \((x_{n})_{n=1}^\infty\) es de Cauchy y 
     la subsucesión \((x_{n_k})_{k=1}^\infty\) es convergente, por lo tanto la sucesión inicial 
-    \((x_n)_{n=1}^\infty\) es convergente en \(X\) (ver <a href="./S4.html#Ejer:SubsucesionConvDeUnaCauchy">Ejercicio 4.29</a>). 
+    \((x_n)_{n=1}^\infty\) es convergente en \(X\) (ver <a href="./S5.html#Ejer:SubsucesionConvDeUnaCauchy">Ejercicio 5.28</a>). 
   </p>
   <p>
     Caso 2: \(A\) es infinito.
@@ -861,7 +863,7 @@
     Por la propiedad de Bolzano-Weierstrass el conjunto \(A\) tiene un punto límite en \(A\). De lo anterior 
     se sigue que existe una subsucesión \((x_{n_k})_{k=1}^\infty\) convergente a un punto de \(X\). Pero entonces 
     tenemos la misma situación que en el caso 1: \((x_{n})_{n=1}^\infty\) es de Cauchy y 
-    la subsucesión \((x_{n_k})_{k=1}^\infty\) es convergente. Por el <a href="./S4.html#Ejer:SubsucesionConvDeUnaCauchy">Ejercicio 4.29</a>
+    la subsucesión \((x_{n_k})_{k=1}^\infty\) es convergente. Por el <a href="./S5.html#Ejer:SubsucesionConvDeUnaCauchy">Ejercicio 5.28</a>
     la sucesión original es convergente.
   </p>
   </div>
@@ -873,7 +875,7 @@
   <p>
     Otro aspecto importante de los espacios métricos completos
     es una caracterización de los subconjuntos compactos similar
-    al <a href="./S8.html#Teo:HeineBorel">Teorema de Heine-Borel</a>
+    al <a href="./S7.html#Teo:HeineBorel">Teorema de Heine-Borel</a>
     en \(\mathbb{R}^n\). Recordemos que
     este teorema dice que un subconjunto de \(\mathbb{R}^n\) es
     compacto si y sólo si es cerrado y acotado. Para espacios métricos
@@ -897,19 +899,19 @@
   <div class="resp-box">
 
   <p>
-    \(\Rightarrow ] \)  Supongamos que \(K\) es compacto. El <a href="./S8.html#Ejer:CompactoImplicaCerrado">Lema 8.11</a> nos dice que 
-    \(K\) es cerrado. Además por el <a href="#Ejer:CompactoImplicaTA">Ejercicio 9.15</a> \(K\) es totalmente acotado y terminamos.
+    \(\Rightarrow ] \)  Supongamos que \(K\) es compacto. El <a href="./S7.html#Ejer:CompactoImplicaCerrado">Lema 7.9</a> nos dice que 
+    \(K\) es cerrado. Además por el <a href="#Ejer:CompactoImplicaTA">Ejercicio 8.15</a> \(K\) es totalmente acotado y terminamos.
   </p>
   <p>
     \(\Leftrightarrow ] \) Supongamos que \(K\) es cerrado y totalmente acotado. Por el 
-    <a href="./S8.html#Teo:CompactoImplicaCpS">Teorema 8.14</a> es suficiente probar que \(K\) 
+    <a href="./S7.html#Teo:CompactoImplicaCpS">Teorema 7.12</a> es suficiente probar que \(K\) 
     es compacto por sucesiones.  
   </p>
   <p>
     Sea \((x_n)_{n=1}^\infty\) una sucesión en \(K\). Debemos de 
     probar que existe una subsucesión convergente a un punto de \(K\). Ya que 
     \(K\) es totalmente acotado, el conjunto \(A=\{x_n\}_{n\in \mathbb{N}} \subset K\) es totalmente acotado.
-    Por el <a href="#Lema:CaractSucTotAcot">Lema 9.20</a> existe \((x_{n_k})_{k=1}^\infty\) una subsucesión de Cauchy.
+    Por el <a href="#Lema:CaractSucTotAcot">Lema 8.20</a> existe \((x_{n_k})_{k=1}^\infty\) una subsucesión de Cauchy.
     Al ser \((X,d)\) completo existe \(x\in X\) tal que \(\lim_{k\to \infty}x_{n_k}=x\). Finalmente como 
     \(K\) es cerrado \(x\in K\).
   </p>
@@ -1114,7 +1116,7 @@
   <button class="respButton hvr-grow"> Demostración </button>
               <div class="resp-box">
   <p>
-    Sea \((X,d)\) un espacio métrico. Por el <a href="#Lema:XisometricoSubLinfty">Lema 9.29</a>
+    Sea \((X,d)\) un espacio métrico. Por el <a href="#Lema:XisometricoSubLinfty">Lema 8.29</a>
     existe una isometría  \(\Phi:(X,d)\to (\ell_\infty(X), \|\cdot\|_\infty)\). Tomamos 
     \(\tilde{X}=\overline{\Phi(X)}\). Ya que \(\ell_\infty(X)\) es completo tenemos que 
     \(\tilde{X}\) también es completo. Finalmente \(X\) es isométrico a \(\Phi(X)\) y éste 
