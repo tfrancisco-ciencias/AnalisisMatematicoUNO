@@ -96,7 +96,7 @@
     convergentes en sucesiones convergentes. El otro punto de vista tiene
     que ver con las bolas abiertas y más en general con conjuntos abiertos.
     Vamos a presentar la definición de continuidad usando este último pero
-    se verá más adelante que son equivalentes (<a href="#Lema:ContinuidadSucesiones">Lema 6.4</a>).
+    se verá más adelante que son equivalentes (<a href="#Lema:ContinuidadSucesiones">Lema 9.4</a>).
   </p>
 
 </div>
@@ -360,7 +360,7 @@
      
   </p>
   <p>
-    Sugerencia: usa el <a href="#Lema:ContinuidadSucesiones">Lema 6.4</a>
+    Sugerencia: usa el <a href="#Lema:ContinuidadSucesiones">Lema 9.4</a>
   </p>
   <p>
     Nota: se puede generalizar este ejercicio cambiando \(\mathbb{R}\)
@@ -406,7 +406,7 @@
   </p>
   <p>
     Usando las propiedades de la imagen inversa
-    (<a href="#Ejer:PropiedadesImagenInversa">Ejercicio 6.3</a>) obtenemos
+    (<a href="#Ejer:PropiedadesImagenInversa">Ejercicio 9.3</a>) obtenemos
     \[
     f^{-1}(V)=\cup_{y\in V} f^{-1}(B_{r(y)}^Y(y))
     \]
@@ -448,7 +448,7 @@
       \(f^{-1}(F) \subseteq X\) es cerrado también o, equivalentemente,
       que \(X\setminus f^{-1}(F)\) es abierto en \(X\). Pero,
       por las propiedades de la imagen inversa
-      (<a href="#Ejer:PropiedadesImagenInversa">Ejercicio 6.3</a>):
+      (<a href="#Ejer:PropiedadesImagenInversa">Ejercicio 9.3</a>):
       \[
       X\setminus f^{-1}(F) = f^{-1}(Y \setminus F).
       \]
@@ -458,7 +458,7 @@
     <p>
       \(3 \Rightarrow 1 ]\) Sea \(x_0 \in X\) fijo y arbitrario. Dedemos de probar
       que \(f\) es continua en \(x_0\) y para esto usaremos el
-      <a href="#Lema:ContinuidadSucesiones">Lema 6.4</a>.
+      <a href="#Lema:ContinuidadSucesiones">Lema 9.4</a>.
     </p>
     <p>
       Sea \((x_n)_{n=1}^\infty \subset X\) una sucesión tal que
@@ -467,7 +467,7 @@
       a una contradicción supongamos que no es así.
     </p>
       <p>
-      Usando el <a href="./S4.html#Ejer:NegacionConvergencia">Ejercicio 4.7</a>
+      Usando el <a href="./S5.html#Ejer:NegacionConvergencia">Ejercicio 5.18</a>
       sabemos \(\lim_{n\to \infty}f(x_n)\ne f(x_0)\) implica la
       existencia de un número positivo \(\varepsilon_0 >0\) y
       una subsucesión \((x_{n_k})_{k=1}^\infty\) tal que
@@ -487,7 +487,7 @@
       también es cerrado. Por lo tanto la subsucesión \((x_{n_k})_{k=1}^\infty\)
       está contenida en el cerrado \(f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0))\)
       y en consecuencias, su límite también (por
-      <a href="./S5.html#Teo:CaracCerrados"> Teorema 5.11</a>). Es decir
+      <a href="./S6.html#Teo:CaracCerrados"> Teorema 6.14</a>). Es decir
       \[
       x_0=\lim_{k\to \infty}x_{n_k} \in f^{-1}(Y\setminus B_{\varepsilon_0}(f(x_0))
       \]
@@ -565,7 +565,7 @@
   <div class="resp-box">
   <p>
 
-    Por el <a href="#Ejer:ImagenDeCompactoEsCompcto">Lema  8.5</a>,
+    Por el <a href="#Ejer:ImagenDeCompactoEsCompcto">Lema  9.7</a>,
     \(f(K)\) es un subconjunto compacto de \(\mathbb{R}\), por lo tanto
     \(f(K)\) es cerrado y acotado. Por lo tanto existen 
     \[
@@ -616,38 +616,20 @@
 </div>
 
 
-
 <div class="ejercicio-box">
   <h2 class="number-title"> Ejercicio </h2>
   <p>
-    Sea \((X,d_X)\) un espacio métrico compacto.
+    Sea \((X,d)\) un espacio métrico y fija un punto \(y\in X\). Define 
+    \(f:X\to \mathbb{R}\) por \(f(x)=d(x,y)\). Prueba que \(f\) es continua 
+    en todo \(X\).
   </p>
   <p>
-      Supón que \(f: (X,d_X) \to (Y,d_Y)\) es una función continua, inyectiva y
-      suprayectiva. Prueba que \(f\) es un homeomorfismo.
+    Sugerencia: <a href="./S4.html#Ejer:LaOtraDesigTri"> Ejercicio 4.17</a>
   </p>
-  <button class="respButton hvr-grow"> Demostración </button>
-  <div class="resp-box">
-      <p>
-      Nuestras hipótesis incluyen continuidad y biyectividad de la función \(f\),
-      únicamente es necesario demostrar que \(f^{-1}\) también es continua. Por el
-      <a href="./S6.html#Lema:ContinuidadAbiertosCerrados">Lema</a> bastará demostrar
-      que si \(C\subseteq X\) es cerrado, entonces \(((f^{-1})^{-1}(C))=f(C)\) es
-      cerrado. Sea \(C \subseteq X\) un conjunto cerrado, como \(X\) es compacto
-      entonces \(C\) también es compacto. Dado que \(f\) es continua y \(C\) es
-      compacto \(f(C)\subseteq Y\) también es compacto. Para concluir demostraremos
-      que en un espacio métrico los subconjuntos compactos son cerrados.
-      </p>
-      <p>
-      Sea \(K \subseteq X\) compacto y \((x_n)_{n=1}^\infty\) una sucesión en \(K\) que
-      converja a un punto \(x \in X\). Por <a href="#Lema:CompactoImplicaCpS">Lema</a>
-      \((x_n)_{n=1}^\infty\) admite una subsucesión \((x_{n_k})_{k=1}^\infty\) que
-      converge a un punto \(y \in K\). Recordemos que si una sucesión es convergente
-      entonces toda subsucesión converge al mismo punto, por lo que \(x=y\in K\) y
-      \(K\) es cerrado.
-      </p>
-  </div>
+
 </div>
+
+
 
 
 <div class="ejercicio-box">
@@ -761,12 +743,12 @@
       <p>
       Generaliza el ejercicio anterior. Sean \((X,d_X), (Y,d_Y)\) dos
       espacios métricos y sea \(D\subset X\) un
-      <a href="./S5.html#Ejer:EquivDensos">subconjunto denso</a>. Prueba
+      <a href="./S6.html#Ejer:EquivDensos">subconjunto denso</a>. Prueba
       que una función continua \(f:X \to Y\) está completamente
       determinada por sus valores en \(D\).
       </p>
       <p>
-        Sugerencia: usa el <a href="./S5.html#Ejer:EquivDensos"> Ejercicio 5.32
+        Sugerencia: usa el <a href="./S6.html#Ejer:EquivDensos"> Ejercicio 6.34
         inciso 2</a>.
       </p>
 
@@ -839,7 +821,7 @@
   </li>
   </ol>
   <p>
-    Sugerencia: usa el <a href="#Lema:ContinuidadAbiertosCerrados"> Lema </a>.
+    Sugerencia: usa el <a href="#Lema:ContinuidadAbiertosCerrados"> Lema 9.6</a>.
   </p>
 
   <button class="respButton hvr-grow"> Respuesta </button>
@@ -1029,7 +1011,7 @@
       g(x)=\sum_{n=1}^\infty x_ny_n
     \]
     Prueba que \(g\) es Lipschitz. Sugerencia: usa
-    la <a href="./S3.html#Lema:Holder"> desigualdad de Hølder</a>.
+    la  desigualdad de Hølder.
   </li>
 </div>
 
@@ -1107,8 +1089,8 @@
     </li>
   </ol>
   <p>
-    Sugerencia: usa  <a href="#Ejer:ContinuidadFunDistanciaConjunto">Ejercicio 6.18</a>
-    y <a href="./S5.html#Ejer:DistanciaConjuntoCerradura">Ejercicio 5.31</a>
+    Sugerencia: usa  <a href="#Ejer:ContinuidadFunDistanciaConjunto">Ejercicio 9.24</a>
+    y <a href="./S6.html#Ejer:DistanciaConjuntoCerradura">Ejercicio 6.33</a>
   </p>
   <p>
     Usa lo anterior prueba que existen dos conjuntos abiertos,
@@ -1183,22 +1165,49 @@
   </p>
   <ul>
     <li>
-    Cualquier función \(f:\mathbb{R}\to \mathbb{R}\)
-    de la forma \(f(x)=mx+b\), con \(m\ne 0\), es un homemorfimo de \(\mathbb{R}\)
-    pues \(f^{-1}(y)=\frac{y-b}{m}\) y tanto \(f\) como \(f^{-1}\) son
-    continuas.
+    Cualquier función \(f:(-1,1)\to \mathbb{R}\)
+    de la forma \(f(x)=\frac{x}{1-x^2}\), es un homeomorfismo entre \((-1,1)\) y \(\mathbb{R}\).
     </li>
-    <!--<li>
-    Sea \((X,d)\) un espacio métrico, fija \(z\in X\) y define \(f:X\to [0,\infty)\) por
-    \(f(x)=d(x,z)\). Por el <a href="./S2.html#Ejer:LaOtraDesigTri">Ejercicio 2.14</a>
-    la función \(f\) satisface \(|f(x)-f(y)|\leq d(x,y)\) por lo  que
-    \(f\) es Lipschitz con constante \(K=1\).
-    </li>-->
+    
     <li>
       Toda isometría \(f:(X,d_X)\to (Y,d_Y)\) suprayectiva es un homemomorfismo. 
     </li>
   </ul>
 </div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d_X)\) un espacio métrico compacto.
+  </p>
+  <p>
+      Supón que \(f: (X,d_X) \to (Y,d_Y)\) es una función continua, inyectiva y
+      suprayectiva. Prueba que \(f\) es un homeomorfismo.
+  </p>
+  <button class="respButton hvr-grow"> Demostración </button>
+  <div class="resp-box">
+      <p>
+      Nuestras hipótesis incluyen continuidad y biyectividad de la función \(f\),
+      únicamente es necesario demostrar que \(f^{-1}\) también es continua. Por el
+      <a href="./S6.html#Lema:ContinuidadAbiertosCerrados">Lema</a> bastará demostrar
+      que si \(C\subseteq X\) es cerrado, entonces \(((f^{-1})^{-1}(C))=f(C)\) es
+      cerrado. Sea \(C \subseteq X\) un conjunto cerrado, como \(X\) es compacto
+      entonces \(C\) también es compacto. Dado que \(f\) es continua y \(C\) es
+      compacto \(f(C)\subseteq Y\) también es compacto. Para concluir demostraremos
+      que en un espacio métrico los subconjuntos compactos son cerrados.
+      </p>
+      <p>
+      Sea \(K \subseteq X\) compacto y \((x_n)_{n=1}^\infty\) una sucesión en \(K\) que
+      converja a un punto \(x \in X\). Por <a href="#Lema:CompactoImplicaCpS">Lema</a>
+      \((x_n)_{n=1}^\infty\) admite una subsucesión \((x_{n_k})_{k=1}^\infty\) que
+      converge a un punto \(y \in K\). Recordemos que si una sucesión es convergente
+      entonces toda subsucesión converge al mismo punto, por lo que \(x=y\in K\) y
+      \(K\) es cerrado.
+      </p>
+  </div>
+</div>
+
 
 
 
