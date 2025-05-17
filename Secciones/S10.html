@@ -75,29 +75,206 @@
 
 
     <div class="flexbox">
-      <h1 class="number-title flexbox"> Espacios de funciones </h1>
+      <h1 class="number-title flexbox"> Espacios de funciones continuas  </h1>
       <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
       
     
 
 
 
-      <!--<div class="info-box">
+      <div class="info-box">
         <h2 class="number-title"> Introducción </h2>
-        <!-- <p>
-          En esta sección se hace notar que no todas las funciones continuas son iguales. Por ejemplo,
-          hay una diferencie importante entre la continuidad de la 
-          función \(f(x)=\frac{1}{x}\) y cualquier función lineal. Para la primera 
-          la continuidad depende mucho del punto en donde uno la analiza (para puntos 
-          cerca del cero la función crece muy rápido mientras que para puntos en el 
-          infinito la función está muy plana) mientras que en la  segunda 
-          la función "se ve igual" en todas partes. Este tipo de diferencia se trata de 
-          capturar con la definición de continuidad uniforme donde, en resumen, para una \(\varepsilon >0\) 
-          la misma \(\delta\) sirve para todo punto del dominio.
+        <p>
+          En esta sección vamos a generalizar muchas de las definiciones y teoremas de la sección 2, ahora en 
+          el contexto de continuidad en espacios métricos. Además usando el concepto de 
+          espacios métricos vamos a poder dotar de una métrica al conjunto de funciones continuas y 
+          en éste marco  el objetivo 
+          principal es caracterizar los subconjuntos de funciones que son compactos, esto es lo que será el 
+          Teorema de Arzelá-Ascoli.
         </p>
-      </div>-->
+      </div>
 
 
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Las siguientes definiciones son  una generalización, para espacios métricos, de la 
+          <a href="./S2.html#Def:ConvergenciaPuntual">Definición 2.2</a> y 
+          la  <a href="./S2.html#Def:ConvergenciaUniforme">Definición 2.8</a> . Por lo tanto todos los 
+          ejemplos de la Sección 2 pueden verse como ejemplos de este tipo de convergencia más general.
+        </p>
+        <p>
+          Sea \(X\) un conjunto no vacío, \((Y,d_Y)\) un espacio métrico y \((f_n:X\to Y)_{n=1}^\infty\)
+          una sucesión de funiciones. 
+          </p>
+          <p>
+            Dado \(A\subseteq X\) decimos que la sucesión 
+          \((f_n)_{n=1}^\infty\) converge puntualmente a la función \(f:A\to Y\) si para todo 
+          \(a\in A\), \(\lim_{n\to \infty}f_n(a)=f(a)\). Nota que éste último límite 
+          es un límite en el espacio \((Y,d_Y)\).
+          </p>
+          <p>
+            Dado \(A\subseteq X\) decimos que la sucesión 
+          \((f_n)_{n=1}^\infty\) converge uniformemente a la función \(f:A\to Y\) si para todo 
+          \(\varepsilon >0\) existe un \(N\in \mathbb{N}\) tal que para todo \(n\geq N\) 
+          y para toda \(a\in A\) se cumple 
+          \[
+          d_Y(f_n(a),f(a)) < \varepsilon.
+          \]
+        </p>
+        <p>
+          Nota: lo más importante es que la misma \(\varepsilon\) sirve para toda \(a\in A\).
+        </p>
+          </p>
+      </div>
+
+
+
+  <div class="teorema-box">
+    <h2 class="number-title" id="Teo:LimiteUnifContinuasEsContinua"> Teorema </h2>
+    <p>
+      Sean \((X,d_X), (Y,d_Y)\)  espacios métricos y sea \((f_n:X\to Y)_{n=1}^\infty\)
+      una sucesión de funciones. Supongamos que 
+      todas las funciones \(f_n\) son continuas en \(x_0\) y la sucesión 
+      \((f_n)_{n=1}^\infty\) converge unfirmemente en \(X\) a la función \(f:X\to Y\).
+      Entonces \(f\) es continua en \(x_0\).
+    </p>
+    
+    <button class="respButton hvr-grow"> Demostración </button>
+            <div class="resp-box">
+    <p>
+      Vamos a probar que  \(f\) es continua en \(x_0\) usando \(\varepsilon\) y \(\delta\). 
+    </p>
+    <p>
+      Sea \(\varepsilon >0\) fija y arbitraria.
+    </p>
+    <p>
+      Por convergencia uniforme primero encontramos un \(N\in \mathbb{N}\) tal que 
+      para todo \(n\geq N\) y todo \(x\in X\):
+      \[
+      d(f_n(x),f(x)) < \frac{\varepsilon}{3}.
+      \]
+    </p>
+    <p>
+      A continuación, usando que \(f_{N}\) es continua encontramos un \(\delta> 0\) que satisfaga
+      \[
+      d(x,x_0)< \delta \Rightarrow d_Y(f_{N}(x)-f_{N}(x_0)) <\frac{\varepsilon}{3}.
+      \]
+      Vamos a ver que ésta \(\delta\) sirve para la continuidad de \(f\) en \(x_0\).
+    </p>
+    <p>
+      Para empezar, por la desigualdad del triángulo:
+      \begin{eqnarray*}
+      d_Y(f(x),f(x_0)) & \leq &   d_Y(f(x),f_{N}(x)) \ \\
+      &+& d_Y(f_{N}(x),f_{N}(x_0))  \\
+      &+&  d_Y(f_{N}(x_0),f(x_0)) ,
+      \end{eqnarray*}
+      pero por la convergencia uniforme  podemos acotar dos de los tres sumandos anteriores como
+      \begin{eqnarray*} 
+      d_Y(f(x),f_{N}(x))< \frac{\varepsilon}{3},\\
+      d_Y(f(x_0),f_{N}(x_0))< \frac{\varepsilon}{3}.
+      \end{eqnarray*}
+      Por lo tanto se sigue: 
+      \[
+      d_Y(f(x),f(x_0)) <   \frac{2\varepsilon}{3}+d_Y(f_{N}(x),f_{N}(x_0))
+      \]
+      Finalmente si además pedimos que \(d(x,x_0)< \delta\) de la continuidad de \(f_{N}\) 
+      concluimos 
+      \[
+      d_Y(f(x),f(x_0)) < \frac{2\varepsilon}{3}+\frac{\varepsilon }{3}=\varepsilon.
+      \]
+    </p>
+    
+  </div>
+  </div>
+
+
+
+  <div class="nota-box">
+    <h2 class="number-title"> Nota </h2>
+    <h3> El espacio \(C(X,Y)\)</h3>
+    <p>
+      Para poder dar estructura de espacio métrico a las funciones continuas se necesita pedir 
+      condiciones extra, ya sea al espacio dominio o las funciones. Para el objetivo de esta sección 
+      vamos a pedir que el espacio domino sea compacto.
+    </p>
+    <p>
+      Sean \((X,d_X), (Y,d_Y) \) espacios métricos con \((X,d)\) compacto y sean 
+      \(f,g:X\to Y\) dos funciones continuas. Afirmamos que el siguiente supremo es finito:
+      \[
+      \sup_{x\in X}\{d_Y(f(x),f(y))\}
+      \]
+    </p>
+    <p>
+      Razón:
+    </p>
+    <p>
+
+      Por el <a href="./S9.html#Ejer:ImagenDeCompactoEsCompcto">Lema 9.7 </a> sabemos que \(f(X)\) y 
+      \(g(X)\) son compactos. Por lo tanto acotados es decir, existen \(y_1,y_2\in Y\) y \(R_1, R_2\) 
+      números positivos tal que:  
+      \begin{eqnarray*} 
+        d_Y(f(x),y_1) \leq R_1, \quad \forall x\in X, \\
+        d_Y(g(x),y_2) \leq R_2, \quad \forall x\in X.
+      \end{eqnarray*}
+      Se sigue que para toda \(x\in X\):
+      \[
+      d_Y(f(x),g(x))\leq d_Y(f(x),y_1)+d_Y(y_1,y_2)+ d_Y(y_2,g(x))\leq R_1+d_Y(y_1,y_2)+R_2
+      \]
+      concluyendo que \(\sup_{x\in X}\{d_Y(f(x),f(y))\}\leq R_1+d_Y(y_1,y_2)+R_2\).
+    </p>
+    <p>
+      Por \(C(X,Y)\) denotamos al conjunto de funciones de \(X\) a \(Y\) continuas en todo \(X\). 
+      Dadas \(f,g\in C(X,Y)\) definimos 
+      \[
+      d_\infty(f,g)=\sup_{x\in X}\{d_Y(f(x),g(x))\},
+      \]
+      la cual se llama la métrica uniforme y se llama así pues captura la convergencia uniforme de funciones, 
+      lo cual mostramos acontinuación.
+    </p>
+    <p>
+      Sea \((f_n:X\to Y)_{n=1}^\infty\) una sucesión de funciones contiuas. Afirmamos que 
+      \((f_n)_{n=1}^\infty\) converge uniformemente en \(X\) a una función \(f:X\to Y\) 
+      (que necesariamente es continua por el <a href="#Teo:LimiteUnifContinuasEsContinua">Teorema 10.3</a>) si y sólo si 
+      \(\lim_{n\to \infty}d_\infty(f_n,f)=0\).
+    </p>
+    <p>
+      Razón:
+    </p>
+    <p>
+      \(\Rightarrow]\) Supongamos que \(f_n\to f\) uniformemente en \(X\). Entonces 
+      dada \(\varepsilon>0\) existe \(N\in \mathbb{N}\) tal que para todo 
+      \(n\geq N\) y para todo \(x\in X\), \(d_Y(f_n(x),f(x)) < \varepsilon/2\). Tomando 
+      supremos sobre \(x\in X\) se sigue que para todo \(n\geq N\), \(\sup_{x\in X}\{d_Y(f_n(x),f(x))\}\leq 
+      \varepsilon/2\), lo cual se puedes reescribir como: para todo \(n\geq N\), \(d_\infty(f_n, f)\leq \varepsilon/2 < \varepsilon\).
+      Concluimos que  \(\lim_{n\to \infty}d_\infty(f_n,f)=0\).
+    </p>
+    <p>
+      \(\Leftarrow]\) Supongamos que \(\lim_{n\to \infty} d_\infty(f_n,f)=0\). Entonces 
+      para toda \(\varepsilon >0\) existe una \(N\in \mathbb{N}\) tal que para todo 
+      \(n\geq N\), \(d_\infty(f_n,f)< \varepsilon\). Pero por definición de \(d_\infty\) se tiene que 
+      para toda \(x\in X\), \(d_Y(f_n(x),f(x)) \leq d_\infty (f_n,f)\). Por lo tanto se sigue que 
+      para todo \(n\geq N\) y para todo \(x\in X\), \(d_Y(f_n(x),f(x))< \varepsilon\). Concluimos que 
+      \(f_n\to f\) uniformemente en \(X\).
+    </p>
+  </div>
+
+
+  <div class="prop-box">
+    <h2 class="number-title"> Proposición </h2>
+    <p>
+      Sean \((X,d_X), (Y,d_Y)\) espacios métricos. El conjunto de funciones continuas 
+      \(C(X,Y)\) con la función 
+      \[
+      d_\infty(f,g)=\sup_{x\in X}\{d_Y(f(x),g(x))\}
+      \]
+      es un espacio métrico.
+    </p>
+    <p>
+      Además, si \((Y,d_Y)\) es completo entonces \((C(X,Y),d_\infty)\) también es completo.
+    </p>
+
+  </div>
 
       <div class="ejercicio-box">
         <h2 class="number-title" id="Ejer:EspacioFunAcotadas"> Ejercicio </h2>
@@ -318,42 +495,6 @@
         </div>
       
 
-  <div class="teorema-box">
-    <h2 class="number-title"> Teorema </h2>
-    <p>
-      Sea \((X,d)\) un espacio métrico y sea \((f_n)_{n=1}^\infty \subset \mathcal{B}(X)\). Supongamos que 
-      todas las funciones \(f_n\) son continuas en \(x_0\) y \(\lim_{n\to \infty}\|f_n-f\|_\infty=0\)
-      para una función \(f\in \mathcal{B}(X)\). Entonces \(f\) es continua en \(x_0\).
-    </p>
-    <p>
-      En consecuencia el espacio de funciones acotadas y continuas en \(X\) forma un 
-      espacio vectorial normado completo.
-    </p>
-    <button class="respButton hvr-grow"> Demostración </button>
-            <div class="resp-box">
-    <p>
-      Fijamos \(x_0\in X\) y probamos que \(f\) es continua en \(x_0\). 
-    </p>
-    <p>
-      Primero encontramos un \(n_1\in \mathbb{N}\) tal que \(\|f_{n_1}-f\|_\infty < \varepsilon/3\).
-    </p>
-    <p>
-      A continuación, usando que \(f_{n_1}\) es continua encontramos un \(\delta> 0\) que satisfaga
-      \[
-      d(x,x_0)< \delta \Rightarrow |f_{n_1}(x)-f_{n_1}(x_0)| < \varepsilon/3
-      \]
-    </p>
-    <p>
-      Por último se sigue que si  \(d(x,x_0)< \delta \) entonces 
-      \begin{eqnarray*}
-      |f(x)-f(x_0)| &\leq  & |f(x)-f_{n_1}(x)|+|f_{n_1}(x)-f_{n_1}(x_0)|+ |f_{n_1}(x_0)-f(x_0)| \\
-      &\leq & 2\|f_{n_2}-f\|_\infty + |f_{n_1}(x)-f_{n_1}(x_0)| \\
-      &< &2 \frac{\varepsilon}{3}+ \frac{\varepsilon}{3}=\varepsilon.
-      \end{eqnarray*}
-    </p>
-    
-  </div>
-  </div>
 
 
 
