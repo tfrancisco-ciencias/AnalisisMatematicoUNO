@@ -307,6 +307,15 @@
 
   </div>
 
+  <div class="ejercicio-box">
+    <h2 class="number-title" id="Ejer:EvaluacionContinua"> Ejercicio </h2>
+    <p>
+      Sean \((X,d_X), (Y,d_Y)\) espacios métricos. Fija \(x\in X\) y define 
+      \(ev_x: C(X,Y)\to Y\) por \(ev_x(f)=f(x)\). Prueba que 
+      \(ev_x\) es una función continua. 
+    </p>
+
+  </div>
 
 
       <div class="definicion-box">
@@ -513,26 +522,27 @@
       <div class="lema-box">
         <h2 class="number-title" id="Lema:AuxArzelaAscoli"> Lema </h2>
         <p>
-          Sea \((X,d)\) un espacio métrico compacto. Si \(\mathcal{F}\subset C(X)\) es 
+          Sea \((X,d_X), (Y,d_Y)\)  espacios métricos, con \(X\) compacto. Si \(\mathcal{F}\subset C(X,Y)\) es 
           totalmente acotado entonces \(\mathcal{F}\) es uniformemente equicontinua.
         </p>
         <button class="respButton hvr-grow"> Demostración </button>
         <div class="resp-box">
           <p>
             Sea \(\varepsilon >0\) y tomemos \(f_1,\cdots, f_n \in \mathcal{F}\) una 
-            \(\frac{\varepsilon}{3}\)-red de \(\mathcal{F}\). Al ser \((X,d)\) compacto cada 
+            \(\frac{\varepsilon}{3}\)-red de \(\mathcal{F}\). Al ser \((X,d_X)\) compacto cada 
             función \(f_i\) es uniformemente continua en \(X\) y por lo tanto 
-            existe \(\delta_i >0\) con la propiedad de que si \(d(x,y)< \delta_i\)
+            existe \(\delta_i >0\), \(i=1,\dots, n\), con la propiedad de que si \(d(x,y)< \delta_i\)
             entonces \(|f_i(x)-f_i(y)|< \frac{\varepsilon}{3}\). Tomamos \(\delta=\min\{\delta_1,\cdots, \delta_n\}\).
           </p>
           <p>
             Finalmente probamos que para toda \(f\in \mathcal{F}\), \(\delta\) sirve como la de la continuidad 
             uniforme. Sea \(x,y\in X\) con \(d(x,y)<\delta\). Ya que \(\{f_1,\dots, f_n\}\) es una \(\varepsilon\)-red 
-            de \(\mathcal{F}\), existe \(f_i\) tal que \(\|f-f_i\|_\infty < \varepsilon \). Se sigue que 
+            de \(\mathcal{F}\), existe \(f_i\) tal que \(d_\infty(f,f_i) < \varepsilon \). Se sigue que: 
             \begin{eqnarray*} 
-            |f(x)-f(y)| &\leq  & |f(x)-f_i(x)|+ |f_i(x)-f_i(y)|+ |f_i(y)-f(y)| \\
-            &\leq & 2\| f-f_i\|_\infty+ |f_i(x)-f_i(y)| \\
-            &< & 2\frac{\varepsilon}{3}+ \frac{\varepsilon}{3}
+            d_Y(f(x),f(y)) &\leq  & d_Y(f(x),f_i(x))+ d_Y(f_i(x),f_i(y))+ d_Y(f_i(y),f(y)) \\
+            &\leq & 2d_\infty( f,f_i)+ d_Y(f_i(x),f_i(y)) \\
+            &< & 2\frac{\varepsilon}{3}+ \frac{\varepsilon}{3} \\
+            &=& \varepsilon.
             \end{eqnarray*}
            
           </p>
@@ -542,17 +552,22 @@
       <div class="lema-box">
         <h2 class="number-title" id="Lema:Aux2ArzelaAscoli">  Lema</h2>
         <p>
-          Sea \((X,d)\) un espacio métrico compacto. Sea \(\mathcal{F}\subset C(X)\)
-          una familia de funciones que satisface:
+          Sea \((X,d_X), (Y,d_Y)\)  espacios métricos, con \(X\) compacto. Sea \(\mathcal{F}\subset C(X,Y)\)
+          una familia de funciones. Para \(x\in X\)  denotamos 
+          \[
+          \mathcal{F}[x]=\overline{\{f(x): f\in \mathcal{F}\}}.
+          \]
+          
+          Si la familia \(\mathcal{F}\) satisface:
           <ol>
             <li>
               \(\mathcal{F}\) es uniformemente equicontinua,
             </li>
             <li>
-              para toda \(x\in X\), \(\sup_{f \in \mathcal{F}}\{ |f(x)|\}< + \infty\).
+              para toda \(x\in X\), \(\mathcal{F}[x]\) es compacto,
             </li>
           </ol>
-          Entonces \(\mathcal{F}\) es totalmente acotado. 
+          entonces \(\mathcal{F}\) es totalmente acotado. 
         </p>
         <button class="respButton hvr-grow"> Demostración </button>
         <div class="resp-box">
@@ -560,19 +575,93 @@
         <p>
           Sea \(\varepsilon >0\). Vamos a descomponer \(\mathcal{F}\) como la unión finita 
           de conjuntos con diámetro menor o igual a \(\varepsilon\) 
-          (ver <a href="./S9.html#Lema:GeneTotAcot">Lema 9.19</a>).
+          (ver <a href="./S8.html#Lema:GeneTotAcot">Lema 8.19</a>).
         </p>
         <p>
           Para  \(\frac{\varepsilon}{4}\) sea \(\delta>0 \) la de la equicontinuidad uniforme para \(\mathcal{F}\).
-          Es decir, si \(d(x,y)< \delta\), \(|f(x)-f(y)|< \frac{\varepsilon}{4}\), para toda \(f\in \mathcal{F}\).
+          Es decir, si \(d_Y(x,y)< \delta\) entonces  \(d_Y(f(x),f(y))< \frac{\varepsilon}{4}\), para toda \(f\in \mathcal{F}\).
         </p>
         <p>
-          Al ser \((X,d)\) compacto existe \(\{x_1,\dots, x_k\}\)  una \(\delta\)-red, es decir 
+          Al ser \((X,d_X)\) compacto existe \(\{x_1,\dots, x_k\}\)  una \(\delta\)-red, es decir 
           \[
           X=\cup_{i=1}^k B_{\delta}(x_i).
           \]
         </p>
         <p>
+          Por hipótesis, para toda \(i=1,\dots, k\), \(\mathcal{F}[x_i]\) es compacto por lo tanto el producto 
+          cartesiano
+          \[
+          K=\mathcal{F}[x_1]\times \cdots \times \mathcal{F}[x_k]
+          \]
+          también es compacto. Por lo tanto existen \(t_1,\dots, t_m\in K \) tal que 
+          \[
+          K\subseteq \cup_{j=1}^m B_{\varepsilon/4}(t_j)
+          \]
+          donde \(t_j\in Y^k\) (el producto de \(Y\) consigo mismo \(k\)-veces) y 
+          \(B_{\varepsilon/4}(t_j)\) es una bola en dicho espacio. Si en \(Y^k\) tomamos 
+          la métrica 
+          \[
+          d_{Y^k}((y_1,\dots, y_k),(z_1,\dots, z_k))=\max\{d_Y(y_1,z_1),\dots, d_Y(y_k,z_k)\}
+          \]
+          tenemos que 
+          \[
+          B_{\varepsilon/4}(t_j)=B_{\varepsilon/4}(t_j(1))\times \cdots \times B_{\varepsilon/4}(t_j(k))
+          \]
+          donde \(t_j=(t_j(1),\dots, t_j(k))\in Y^k\) y \(B_{\varepsilon/4}(t_j(1),\dots,B_{\varepsilon/4}(t_j(k)\) 
+          son bolas abiertas en \(Y\).
+        </p>
+        <p>
+          En consecuencia:
+          \[
+          K\subseteq  \cup_{j=1}^m B_{\varepsilon/4}(t_j(1))\times \cdots \times B_{\varepsilon/4}(t_j(k))
+          \]
+          Para un \(t_j=(t_j(1), \dots, t_j(k))\) definimos 
+          \[
+          A(t_j)=\{f\in \mathcal{F}: f(x_1)\in B_{\varepsilon/4}(t_j(1)),\dots, f(x_k)\in B_{\varepsilon/4}(t_j(k))\}
+          \]
+        </p>
+        <p>
+          Ya que para toda \(f\in \mathcal{F}\) y toda \(i=1,\dots, k\), 
+          \[ (f(x_1), \dots , f(x_k))\in K \subseteq \cup_{j=1}^n B_{\varepsilon/4}(t_j(1))\times \dots \times B_{\varepsilon/4}(t_j(k))
+          \] 
+          existen \((t_{j}(1), \dots, t_j(k))\) tal que \(f(x_i)\in B_{\varepsilon/4}(t_{j}(i))\), \(i=1,\dots,k\), por lo que 
+          \[
+          \mathcal{F}=\cup_{j=1}^m A(t_j). 
+          \]
+        </p>
+        <p>
+          Afirmamos que \( \textrm{diam}(A(t_j)) \leq  \varepsilon\).
+        </p>
+        <p>
+          Sean \(f,g\in A(t_j) \). Para \(x\in X\) y al ser, \(\{x_1,\dots, x_k\}\)
+          una \(\delta\)-red,  existe \(x_i\) en la red 
+          con \(d(x,x_i)< \delta\). 
+        </p>
+        <p>
+          Por equicontinuidad uniforme: 
+          \begin{eqnarray*} 
+          d_y(f(x),f(x_i))< \frac{\varepsilon}{4},\\
+          d_Y(g(x),g(x_i))< \frac{\varepsilon}{4},
+          \end{eqnarray*}
+          y por lo tanto podemos estimar: 
+          \begin{eqnarray*}
+          d_Y(f(x),g(x)) &\leq & d_Y(f(x),f(x_i))+ d_Y(f(x_i),g(x_i))+d_Y(g(x_i),g(x)) \\
+          & < & \frac{\varepsilon}{2}+ d_Y(f(x_i),g(x_i)).
+          \end{eqnarray*}
+        </p>
+        <p>
+          Por otro lado ya que \(f,g\in A(t_j)\) tenemos que 
+          \(f(x_i),g(x_i)\in B_{\varepsilon/4}(t_j(i))\) por lo que \(d_Y(f(x_i),g(x_i))< \frac{\varepsilon}{2}\), 
+          concluyendo  que 
+          \[
+          d_Y(f(x),g(x)) < \frac{\varepsilon}{2}+ d_Y(f(x_i),g(x_i))< \varepsilon.
+          \] 
+          Al ser \(x\) arbitraria tomando supremo sobre \(x\in X\) concluimos 
+          \(d_\infty(f,g)\leq \varepsilon \) y al ser \(f,g\in A(t_{j})\) arbitrarios 
+          tenemos \(\textrm{diam}(A(t_{j}))\leq \varepsilon\).
+
+        </p>
+        <!-- <p>
           Por hipótesis, para toda \(i=1,\dots, k\), \(\sup_{f\in \mathcal{F}}\{ |f(x_i)|\}<+\infty\) asi que 
           existe \(M_i>0\) tal que \(\{ f(x_i): f\in \mathcal{F}\}\subseteq [-M_i,M_i]\). Sea \(M=\max_{i=1,\dots, k}\{M_i\}\).
          </p>
@@ -617,7 +706,7 @@
           \(\|f-g\|_\infty \leq \varepsilon \) y al ser \(f,g\in A(t_{j_1},\dots, t_{j_k})\) arbitrarios 
           tenemos \(\rm{diametro}(A(t_{j_1},\dots, t_{j_k}))\leq \varepsilon\).
 
-        </p>
+        </p>-->
       </div>
       </div>
 
@@ -678,9 +767,17 @@
         <button class="respButton hvr-grow"> Demostración  versión 2</button>
         <div class="resp-box">
         <p>
-          \(\Rightarrow ]:\) Si \(\mathcal{F}\) es compacto entonces es cerrado y totalmente acotado.
-          Totalmente acotado implica acotado y por lo tanto, para toda 
-          \(x\in X\), \(\sup_{f\in \mathcal{F}}\{|f(x)|\}<+\infty\). Así que sólo resta probar que 
+          \(\Rightarrow ]:\) Si \(\mathcal{F}\) es compacto entonces es cerrado.
+          
+          Para continuar vamos a usar el  <a href="#Ejer:EvaluacionContinua">Ejercicio 10.7</a>. 
+          Para cada \(x\in X\) sabemos que \(ev_x\) es continua asi que usando que
+          \(\mathcal{F}\subseteq C(X,Y)\) es compacto se sigue que \(ev_x(\mathcal{F}) \subseteq Y\) 
+          es compacto. Pero con la notación del  <a href="#Ejer:EvaluacionContinua">Ejercicio 10.7</a> se tiene 
+          que \(\mathcal{F}[x]=\overline{ev_x(\mathcal{F})}\) pero al ser \(ev_x(\mathcal{F})\) compacto es 
+          cerrado por lo que \(\overline{ev_x(\mathcal{F})}=ev_x(\mathcal{F})\). Entonces 
+          \(\mathcal{F}[x]=ev_x(\mathcal{F})\) por lo que \(\mathcal{F}[x]\) es compacto. 
+          
+          . Así que sólo resta probar que 
           \(\mathcal{F}\) es uniformemente equicontinuo. Pero <a href="#Lema:AuxArzelaAscoli">Lema 10.23</a>
           dice precisamente que totalmente acotado implica equicontinuidad, así que terminamos.
         </p>
