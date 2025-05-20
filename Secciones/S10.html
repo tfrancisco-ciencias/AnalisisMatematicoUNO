@@ -561,10 +561,10 @@
           Si la familia \(\mathcal{F}\) satisface:
           <ol>
             <li>
-              \(\mathcal{F}\) es uniformemente equicontinua,
+              para toda \(x\in X\), \(\mathcal{F}[x]\) es compacto,
             </li>
             <li>
-              para toda \(x\in X\), \(\mathcal{F}[x]\) es compacto,
+              \(\mathcal{F}\) es uniformemente equicontinua,
             </li>
           </ol>
           entonces \(\mathcal{F}\) es totalmente acotado. 
@@ -714,39 +714,32 @@
 
       <div class="teorema-box">
         <h2 class="number-title" id="Teo;ArzelaAscoli"> Teorema </h2>
-        <h3> Arzelá-Ascoli (versión 1)</h3>
-        <p>
-          Sea \((X,d)\) un espacio métrico compacto.
-        </p>
-        <p>
-          Un subconjunto \(\mathcal{F} \subseteq C(X)\) es compacto, en 
-          \((C(X),\|\cdot\|_\infty)\), si y sólo si 
-          <ol>
-            <li>
-              \(\mathcal{F}\) es cerrado (con respecto a la norma \(\|\cdot\|_\infty\)),
-            </li>
-            <li>
-              \(\mathcal{F}\) es acotado (con respecto a la norma \(\|\cdot\|_\infty\)),
-            </li>
-            <li>
-              \(\mathcal{F}\) es uniformemente equicontinua.
-            </li>
-          </ol>
-          
-        </p>
         <h3> Arzelá-Ascoli (versión 2)</h3>
         <p>
-          Sea \((X,d)\) un espacio métrico compacto.
+          Sea \((X,d_X)\) un espacio métrico compacto y \((Y,d_Y)\) 
+          un espacio métrico completo. 
         </p>
         <p>
-          Un subconjunto \(\mathcal{F} \subseteq C(X)\) es compacto, en 
-          \((C(X),\|\cdot\|_\infty)\), si y sólo si 
+          Sea \(\mathcal{F}\subseteq C(X,Y)\). Recordamos un poco de notación:
+          para un \(x\in X\) denotamos,
+          \[
+          \mathcal{F}[x]:=\overline{\{f(x): f\in \mathcal{F}\}}\subseteq Y.
+          \]
+        </p>
+        <p>
+          En el espacio de funciones continuas \(C(X,Y)\), con la métrica uniforme, \(d_\infty\), 
+          tenemos:
+        </p>
+        
+        <p>
+          \(\mathcal{F} \subseteq C(X,Y)\) es compacto, en 
+          si y sólo si: 
           <ol>
             <li>
-              \(\mathcal{F}\) es cerrado (con respecto a la norma \(\|\cdot\|_\infty\)),
+              \(\mathcal{F}\) es cerrado,
             </li>
             <li>
-              para toda \(x\in X\), \(\sup_{f\in \mathcal{F}}\{|f(x)|\}<+\infty\),
+              para toda \(x\in X\), \(\mathcal{F}[x]\) es compacto,
             </li>
             <li>
               \(\mathcal{F}\) es uniformemente equicontinua.
@@ -754,21 +747,18 @@
           </ol>
 
         </p>
-
-        <p>
-          Nota: si \(\mathcal{F}\) es acotado con respecto a la norma  \(\|\cdot\|_\infty\) 
-          entonces para toda \(x\in X\):
-          \[
-          \sup_{f\in \mathcal{F}}\{|f(x)| \} \leq \sup_{f\in \mathcal{F}}\{\|f\|_\infty \}< +\infty.
-          \] 
-          Así pues es suficiente probar la versión 2.  
-        </p>
         
-        <button class="respButton hvr-grow"> Demostración  versión 2</button>
+        <button class="respButton hvr-grow"> Demostración</button>
         <div class="resp-box">
         <p>
-          \(\Rightarrow ]:\) Si \(\mathcal{F}\) es compacto entonces es cerrado.
+          \(\Rightarrow ]:\)
+          </p>
           
+          <p>
+          Si \(\mathcal{F}\) es compacto entonces es \(\mathcal{F}\) es cerrado.
+          </p>
+
+          <p>
           Para continuar vamos a usar el  <a href="#Ejer:EvaluacionContinua">Ejercicio 10.7</a>. 
           Para cada \(x\in X\) sabemos que \(ev_x\) es continua asi que usando que
           \(\mathcal{F}\subseteq C(X,Y)\) es compacto se sigue que \(ev_x(\mathcal{F}) \subseteq Y\) 
@@ -776,16 +766,24 @@
           que \(\mathcal{F}[x]=\overline{ev_x(\mathcal{F})}\) pero al ser \(ev_x(\mathcal{F})\) compacto es 
           cerrado por lo que \(\overline{ev_x(\mathcal{F})}=ev_x(\mathcal{F})\). Entonces 
           \(\mathcal{F}[x]=ev_x(\mathcal{F})\) por lo que \(\mathcal{F}[x]\) es compacto. 
-          
-          . Así que sólo resta probar que 
-          \(\mathcal{F}\) es uniformemente equicontinuo. Pero <a href="#Lema:AuxArzelaAscoli">Lema 10.23</a>
+          </p>
+          <p>
+          Así que sólo resta probar que 
+          \(\mathcal{F}\) es uniformemente equicontinuo. 
+          </p>
+          <p>
+          Ahora, si \(\mathcal{F}\) es compacto entonces \(\mathcal{F}\) 
+          es totalmente acotado. Pero <a href="#Lema:AuxArzelaAscoli">Lema 10.23</a>
           dice precisamente que totalmente acotado implica equicontinuidad, así que terminamos.
-        </p>
+          </p>
+        
+          <p>
+              \(\Leftarrow ]: \)
+          </p>
         <p>
-          \(\Leftarrow ]: \) Al ser \(C(X)\) completo 
-          (ver <a  href="./S9.html#Teo:CaractCompacidadEnCompletos">Teorema 9.27</a> ) 
+           Al ser \(C(X,Y)\) completo 
           es suficiente probar que \(\mathcal{F}\)
-          es cerrado y totalmente acotado. Cerrado lo tenemos por hipótesis asi que resta probar que 
+          es cerrado y totalmente acotado (ver <a  href="./S8.html#Teo:CaractCompacidadEnCompletos">Teorema 8.24</a> ). Cerrado lo tenemos por hipótesis asi que resta probar que 
           \(\mathcal{F}\) es totalmente acotado. Pero por el <a href="#Lema:Aux2ArzelaAscoli">Lema 10.24</a>
           los incisos 2 y 3 de las hipótesis implican que \(\mathcal{F}\) es totalmente acotado, lo que termina 
           la prueba. 
@@ -794,6 +792,7 @@
 
 
       </div>
+
 
       
 
@@ -831,108 +830,15 @@
 
 
 
-
-     <!--  <div class="nota-box">
-        <h2 class="number-title"> Nota </h2>
-        <h3>
-          El espacio de las funciones acotadas y la norma uniforme.
-        </h3>
-        <p>
-          El espacio vectorial normado, \((\mathcal{B}(X),\| \cdot \|_\infty)\),
-          jugará un papel importante en el estudio de las funciones continuas
-          pues bajo ciertas suposiciones \(\mathcal{B}(X)\) las contiene. Por
-          lo tanto se presentan algunos ejemplos de subconjuntos de dichos
-          espacios y una manera de visualizarlos.
-        </p>
-
-
-          <button class="respButton hvr-grow"> Ejemplos </button>
-            <div class="resp-box flexbox">
-             <div class="flexbox">
-                <iframe width="700" height="400" class="video"
-                      src="https://www.youtube.com/embed/A2bROP17djs" allowfullscreen="true"> 
-                </iframe>
-              
-             </div>
-           </div>
-      </div>
-
-
-
-      <div class="nota-box">
-        <h2 class="number-title"> Nota </h2>
-        <h3> Límites en la norma uniforme </h3>
-        <p>
-          En esta nota veremos la convergencia
-          en el espacio de funciones acotadas con la
-          norma uniforme, \(\mathcal{B}(X), \| \cdot\|_\infty\).
-          Rcordamos que una sucesión
-          de funcions \((f_n)_{n\in \mathbb{N}}\)
-          en \(\mathcal{B}(X)\) converge a una
-          función \(f \in \mathbb{B}(X)\) si y sólo si
-          \[
-          \lim_{n\to \infty} \| f_n - f \|_\infty =0.
-          \]
-
-        </p>
-        <p>
-          En términos de \(\varepsilon\)'s lo anterior quiere
-          decir que, para toda \(\varepsilon >0\) existe
-          \(N\in \mathbb{N}\), tal que para toda \(n \geq N\)
-          \(\| f_n - f \|_\infty < \varepsilon\). Si analizamos
-          la expresión \(\|f_n-f\|_\infty <\varepsilon \) aún más
-          tenemos que se debe de cumplir
-          \[
-          |f_n(x)-f(x)| < \varepsilon
-          \]
-          para toda \(x\in X\). En términos de las gráficas de
-          \(f\) y \(f_n\) lo anterior nos dice que las
-          gráficas de \(f_n\), para \(n \geq N\), están todas
-          contenidas en una franja centrada en la gráfica de
-          \(f\) de radio \(\varepsilon\):
-        </p>
-
-        <p>
-          Así la convergencia en el espacio
-          \((\mathcal{B}(X), \| \cdot\|_\infty)\)
-          se puede pensar como que las gráficas se van concentrando
-          dentro de franjas donde éstas franjas se pueden tomar tan
-          angostas como se quieran.
-
-          <div class="flexbox">
-              <img src="./Images/FigSucEspFun.png" alt="ConvergenciaSucEspFunciones"
-              width="50%" height="auto">
-          </div>
-        </p>
-
-        <p>
-          Otra característica importante de la convergencia
-          en el espacio \((\mathcal{B}(X),\|\cdot\|_\infty)\) es que
-          si \(\lim_{n\to \infty} \|f_n - f\|=0\) entonces, para
-          toda \(x\in X\) se cumple
-          \begin{equation}\label{Eqn:LimitePuntual}
-          \lim_{n\to \infty} f_n(x)=f(x).
-          \end{equation}
-          Es importante notar que el último límite es un límite
-          de números reales. Para probar \eqref{Eqn:LimitePuntual}
-          simplemente notamos que, de la definición de la norma
-          \(\|\cdot \|_\infty\), se sigue
-          \[
-          |f_n(x)-f(x)| \leq \|f_n-f\|_\infty
-          \]
-          tomando límite cuando \(n\to \infty\) y usando la ley
-          del sandwich concluimos que \(\lim_{n\to \infty}f_n(x)=f(x)\).
-        </p>
-      </div>-->
-
-
-
-
       <div class="ejercicio-box">
         <h2 class="number-title" id="Teo:AcotadasEspacioBanach">  Ejercicio  </h2>
         <p>
-          Sea \(X\ne \emptyset\) un conjunto cualquiera. Entonces 
-          \((\mathcal{B}(X), \| \cdot\|_\infty)\) es un espacio vectorial normado completo.
+          Sea \((X,d_X)\) un espacio métrico compacto. Entonces para toda \(f\in C(X,\mathbb{R})\),
+          \[
+          \|f\|_\infty:=\sup_{x\in X}\{|f(x)|\} < +\infty.
+          \] 
+          Prueba que 
+          \((C(X,Y), \| \cdot\|_\infty)\) es un espacio vectorial normado completo.
         </p>
        <!-- <button class="respButton hvr-grow"> Demostración </button>
             <div class="resp-box">
@@ -989,6 +895,54 @@
       </div>
 
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+
+        <h3> Arzelá-Ascoli (versión 2)</h3>
+        <p>
+          Sea \((X,d_X)\) un espacio métrico compacto.
+        </p>
+        <p>
+          Un subconjunto \(\mathcal{F} \subseteq C(X,\mathbb{R})\) es compacto, en 
+          \((C(X,\mathbb{R}),\|\cdot\|_\infty)\), si y sólo si 
+          <ol>
+            <li>
+              \(\mathcal{F}\) es cerrado (con respecto a la norma \(\|\cdot\|_\infty\)),
+            </li>
+            <li>
+              para todo \(x\in X\), \(\sup_{f\in \mathcal{F}}\{|f(x)|\} < +\infty\),
+            </li>
+            <li>
+              \(\mathcal{F}\) es uniformemente equicontinua.
+            </li>
+          </ol>
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+
+        <h3> Arzelá-Ascoli (versión 3)</h3>
+        <p>
+          Sea \((X,d_X)\) un espacio métrico compacto.
+        </p>
+        <p>
+          Un subconjunto \(\mathcal{F} \subseteq C(X,\mathbb{R})\) es compacto, en 
+          \((C(X,\mathbb{R}),\|\cdot\|_\infty)\), si y sólo si 
+          <ol>
+            <li>
+              \(\mathcal{F}\) es cerrado (con respecto a la norma \(\|\cdot\|_\infty\)),
+            </li>
+            <li>
+              \(\mathcal{F}\) es acotado (con respecto a la norma \(\|\cdot\|_\infty\)),
+            </li>
+            <li>
+              \(\mathcal{F}\) es uniformemente equicontinua.
+            </li>
+          </ol>
+
+      </div>
 
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
