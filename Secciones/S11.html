@@ -64,1174 +64,240 @@
 
   </header>
 
-  <!-- This part is for title in tab-->
-  <title id="Sec"> § 11 </title>
-
+<!-- This part is for title in tab-->
+<title id="Sec"> § 11 </title>
 
   <!--    Contenido empiaza abajo
  ///////////////////////////////// -->
 
 
-  <body class="flexbox card fondo-body">
+  <body class="flexbox fondo-body">
 
 
     <div class="flexbox">
-      <h1 class="number-title flexbox"> Convergencia puntual y uniforme </h1>
-       
+      <h1 class="number-title flexbox"> Espacios de funciones continuas. Parte 2.  </h1>
       <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
-      <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button> 
+      
+    
+
 
 
       <div class="info-box">
         <h2 class="number-title"> Introducción </h2>
         <p>
-          Desde este punto en adelante en el curso nos enfocaremos en espacios de funciones. 
-          Es decir vamos a trabajar en espacios métricos donde cada punto 
-          es una función.  Muy en particular vamos a estudiar sucesiones
-          de funciones y los distitos tipos de convergencia que surgen para estas sucesiones.
-          Las dos más importantes para el resto del curso son convergencia puntual y uniforme.
+          
         </p>
       </div>
 
-      <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
-        <p>
-          Sea \(X\) cualquier conjunto, \((Y,d)\) un espacio métrico y consideremos
-          una sucesión de funciones  \((f:X \to Y)_{n=1}^\infty\).
-          Decimos que la sucesión converge puntualmente en un subconjunto  \(A \subseteq X\) si,
-          para todo punto \(x\in A\) el siguiente límite existe en \((Y,d)\):
-          \[
-          \lim_{n\to \infty} f_n(x).
-          \]
 
-        </p>
-        <p>
-          Definimos la función \(f:A \to Y\) por
-          \(f(x):=\lim_{n\to \infty}f_n(x)\). Con esta notación
-          decimos que la sucesión de funciones \((f_n)_{n=1}^\infty\)
-          converge puntualmente a \(f\) en \(A\) (o sobre \(A\)).
-        </p>
-        <p>
-          Nota: a veces el límite \(\lim_{n\to \infty}f_n(x)\) es conocido
-          pero a veces no y parte del problema es calcular estos límites
-          (nota que el límite depende del punto \(x\) que se toma).
-        </p>
-        <p>
-          Ejemplos.
+      <div class="nota-box"> 
+      <h2 class="number-title"> Nota  </h2>
+      <h3> La estructura de álgebra de \(\mathcal{B}(X)\) </h3>
+      <p>
+        Sea \((X,d)\) un conjunto  no vacío. Por \(\mathcal{B}(X)\) denotamos al conjunto de funciones
+          con valores reales, acotadas sobre \(X\). Es decir
+          \[
+          \mathcal{B}(X)=\{ f:X \to \mathbb{R} | \sup_{x\in X}\{|f(x)| \} <
+            \infty   \}.
+          \]
+          Para \(f\in \mathcal{B}\) define
+          \[
+          \|f\|_\infty=\sup_{x\in X}\{ |f(x)|\}.
+          \]
+      </p>
+      <p>
+        El <a href="./S10.html#">Ejercicio 10.17</a> nos dice que \((\mathcal{B}(X),\|\cdot\|_\infty)\)
+        es un espacio vectorial normado. Ahora queremos enfatizar otra operción presente en \(\mathcal{B}(X)\):
+        la multiplicación. Si \(f,g:X\to \mathbb{R}\) son funciones acotadas, entonces su multiplicación, \(fg\), 
+        es acotada pues para todo \(x\in X\):
+        \begin{eqnarray*} 
+        |f(x)| \leq \|f\|_{\infty}, |g(x)|\leq \|g\|_{\infty} \Rightarrow |f(x)g(x)| \leq \|f\|_\infty\|g\|_\infty.
+        \end{eqnarray*}
+        Por lo tanto \(fg\in \mathcal{B}(X)\) y si además en la última desigualdad de arriba tomamos supremo sobre las 
+        \(x\in X\) obtenemos que  \(\|fg\|_{\infty}\leq \|f\|_\infty\|g\|_\infty\).
+      </p>
+      <p>
+        Con la operación multiplicación \(\mathcal{B}(X)\) es lo que se conoce como una álgebra. 
+      </p>
+     
+      <p>
+        Ahora supongamos además que \((X,d)\) es un espacio métrico compacto. Como toda función continua 
+        sobre un compacto alcanza si máximo 
+        y su mínimo, tenemos que toda función continua en \(X\) está acotada. Si por \(C(X)\) denotamos 
+        las funciones continuas sobre \(X\) con valores reales podemos resumir lo anterior como 
+        \(C(X)\subset \mathcal{B}(X)\). Finalmente como suma de continuas y multiplicación, tanto escalar como de funciones continuas,
+        son continuas, tenemos que \(C(X)\) también es una álgebra.
+      </p>
+     </div>
+
+     <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <h3> Algebra y álgebra normada </h3>
+        <p> 
+            Un conjunto \(A\) es una álgebra sobre \(\mathbb{R}\) si es un espacio vectorial 
+            sobre \(\mathbb{R}\) que además tiene una operación binaria, 
+            \(A\times A \to A \), denotada \((a,b)\mapsto ab\), que satisface:
         </p>
         <ol>
-          <li>
-            De cálculo sabemos que, para toda \(x\in \mathbb{R}\)
-            \[
-            \lim_{n\to \infty} \left(1+ \frac{x}{n} \right)^n=e^x
-            \]
-            Por lo tanto, la sucesión de funciones
-            \(f_n:\mathbb{R}\to \mathbb{R}\) dada por
-            \(f_n(x)=\left(1+\frac{x}{n}\right)^n\) converge puntualmente
-            a la función exponencial en todo \(\mathbb{R}\).
-          </li>
-          <li>
-            Definamos la sucesión de funciones \(f_n:[-1,1]\to \mathbb{R}\)
-            por \(f_n(x)=x^n\). Usando que \(\lim_{n\to \infty} r^n=0\)
-            para \(r\in \mathbb{R}\) con \(|r|< 1\) tenemos que
-            \[
-            \lim_{n\to \infty} f_n(x)=
-            \left\{
-              \begin{array}{cc}
-              1, &  x=1 ,\\
-              0, &  |x|< 1 ,\\
-              \textrm{no existe}, &  x=-1.
-              \end{array}
-              \right.
-            \]
-            Por lo tanto, la sucesión no converge puntualmente en \([-1,1]\)
-            (por la obstrucción que hay en \(x=-1\)), pero sí converge
-            puntualmente en \((-1,1]\) y converge puntualmente a la función
-            \[
-            f(x)=
-            \left\{
-              \begin{array}{cc}
-              1, &  x=1 ,\\
-              0, &  |x|< 1 .\\
-              \end{array}
-              \right.
-            \]
-
-          </li>
+            <li>
+                \((ab)c=a(bc)\), para todas \(a,b,c\in A \);
+            </li>
+            <li>
+                \(a(b+c)=ab+ac, (c+d)a=ca+ca\),  para todas \(a,b,c\in A\);
+            </li>
+            <li>
+                \(\alpha(ab)=(\alpha a)b= a(\alpha b)\), para todas \(a,b,c\in A\) y todo 
+                escalar \(\alpha \in \mathbb{R}\).
+            </li>
         </ol>
-      </div>
+        <p>
+            Si además  \(ab=ba\) para todas \(a,b\in A\), decimos que 
+            el álgebra \(A\) es conmutativa.
+        </p>
+        <p>
+            Si además existe un elemento, \(e\in A\), que satisface: \(ae=ea\),
+            para toda \(a\in A\), decimos que \(e\) el uno del 
+            álgebra.
+        </p>
+        <p>
+            Por ejemplo \(\mathcal{B}(X)\) es conmutativa y la función constante 1
+            funciona como el uno del álgebra. 
+        </p>
+
+        <p>
+            Si además \(A\) es un espacio vectorial normado y su norma satisface la identidad 
+            \[
+            \|ab\| \leq \|a\|\|b\|,
+            \]
+            para todos \(a.b\in A\), decimos que \(A\) es una álgebra normada. Por 
+            ejemplo, ya que \(\|fg\|_\infty \leq \|f\|_\infty\|g\|_\infty\) 
+            para todos \(f,g\in \mathcal{B}(X)\), tenemos que \((\mathcal{B}(X),\|\cdot\|_\infty )\)
+            es una álgbera normada.
+        </p>
+        <p>
+            Finalmente, un subespacio \(B\subseteq A\) se llama subalgebra de \(A\) si 
+            \(B\) es cerrado bajo la multiplicación, es decir: \(b_1,b_2\in B\) 
+            entonces \(b_1b_2\in B\).
+        </p>
+     </div>
 
 
-      <div class="ejercicio-box">
+     <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
-          Encuentra el límite puntual (si existe) de las siguientes
-          sucesiones de funciones.
+            En el espacio vectorial \(\mathbb{R}^n\) define la multiplicación de vectores entrada 
+            por entrada, es decir:
+            \[
+            (x_1,\dots, x_n)(y_1,\dots, y_n)=(x_1y_1,\dots, x_ny_n)
+            \]
         </p>
         <ol>
-          <li>
-            \(f_n :\mathbb{R}\setminus \{-1\} \to \mathbb{R}\) dada por
-            \[
-            f_n(x)=\frac{x^n}{1+x^n}.
+            <li>
+            Prueba que con ésta multiplicación \(\mathbb{R}\) 
+            es una álgebra conmutativa con uno. Además con la 
+            norma 
+            \[ 
+            \|(x_1,\dots, x_n)\|:=\max_{i=1,\dots, n}\{ |x_i|\}
             \]
-          </li>
-          <li>
-            \(f_n:[0,1]\to \mathbb{R}\) dada por
-            \[
-            f_n(x)=\left\{
-              \begin{array}{cc}
-               4n^2 x , & 0 \leq x \leq \frac{1}{2n}, \\
-              -4n^2x+4n , &  \frac{1}{2n} \leq x \leq \frac{1}{n}, \\
-              0 , & \frac{1}{n}\leq x \leq 1 .
-              \end{array}
-              \right.
-            \]
-          </li>
-          <li>
-            \(f_n:\mathbb{R}\to \mathbb{R}\) dada por
-            \[
-            f_n(x)=\frac{\sen(\sqrt{n} x)}{n}.
-            \]
-          </li>
+            es una álgebra normada.
+            </li>
+            <li>
+                Prueba que las única subálgebras de \(\mathbb{R}^2\), otras que \(\{(0,0)\}\)
+                y \(\mathbb{R}^2\) son:
+                \begin{eqnarray*} 
+                \{(t,0): t\in \mathbb{R}\}, \\ 
+                \{(0,t ): t \in \mathbb{R}\}, \\
+                \{(t,t): t\in \mathbb{R} \}.
+                \end{eqnarray*}
+            </li>
         </ol>
-        <button class="respButton hvr-grow"> Solución inciso 1 </button>
-              <div class="resp-box">
+     </div>
+
+
+     <div class="prop-box">
+        <h2 class="number-title"> Proposición  </h2>
         <p>
-          Para \(|x|< 1 \), \(\lim_{n\to \infty}x^n=0\), por lo que: 
-          \[
-          \lim_{n\to \infty} \frac{x^n}{1+x^n} =0.
-          \]
+            Sea \((A,\|\cdot\|)\) una álgebra normada y \(B\subseteq A\) una 
+            subálgebra. Prueba que su cerradura, \(\overline{B}\), 
+            también es una subálgebra de \(A\).
+        </p>
+
+     </div>
+
+
+
+     <div class="prop-box">
+        <h2 class="number-title"> Proposición </h2>
+        <p>
+            Sea \((X,d)\) un espacio métrico compacto y \(B \subseteq C(X)\) una 
+            subálgebra cerrada de \(C(X)\). Entonces \(B\) es una sub-retícula 
+            de \(C(X)\).
+        </p>
+
+     </div>
+
+     <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            Sea \(X\) un conjunto y \(A \subseteq \mathcal{B}(X)\). 
+        </p>
+        <ol>
+            <li>
+                Decimos que \(A\) separa los puntos de \(X\) si para todos 
+                \(x,y\in X\), \(x\ne y\), existe una función \(f\in A\) 
+                tal que \(f(x)\ne f(y)\).
+            </li>
+            <li>
+                DEcimos que \(A\) no se anula en \(X\) si para todo \(x\in X\)
+                existe una función  \(g\in A\) tal que \(g(x)\ne 0\).
+            </li>
+        </ol>
+        <p>
+            Por ejemplo, si \(X=[0,1]\) y \(A\) es la familia de polinomios 
+            entonces \(A\) separa los puntos de \([0,1]\) (por ejemplo, el polinomios
+            \(p(x)=x\) separa los puntos de \([0,1]\)) y no se anula en \([0,1]\) 
+            (pues los polinomios contienen a la función constante uno).
+        </p>
+
+     </div>
+
+     <div class="prop-box">
+        <h2 class="number-title"> Proposición </h2>
+        <p>
+            Sea \(X\)  un conjunto no vacío y \(A \subseteq \mathcal{B}(X)\) 
+            una subálgebra de \(\mathcal{B}(X)\) que separa los 
+            puntos de \(X\) y no se anula en \(X\).
         </p>
         <p>
-          Para \(x=1\), 
-          \[
-          \lim_{n\to \infty} \frac{1^n}{1+1^n} =\frac{1}{2}.
-          \]
+            Entonces para todos \(x,y\in X\), con \(x\ne y\), y cualesquiera escalares \(a,b\in \mathbb{R}\)
+            existe una función \(f\in A\) tal que \(f(x)=a\) y \(f(y)=b\).
         </p>
+
+     </div>
+
+     <div class="teorema-box">
+        <h2 class="number-title"> Teorema (Stone-Weiertrass) </h2>
         <p>
-          Para \(|x|> 1\),  \(\lim_{n\to \infty} \frac{1}{x^n}=0\), usando que 
-          \[
-           \frac{x^n}{1+x^n}= \frac{1}{\frac{1}{x^n}+1}
-          \]
-          obtenemos que: 
-          \[
-          \lim_{n\to \infty} \frac{x^n}{1+x^n} =1.
-          \]
+            Sea \((X,d)\) un espacio métrico compacto y considera 
+            el espacio de funciones \((C(X),\|\cdot\|_\infty)\).
         </p>
-        <p>
-          En conclusión 
-          \[
-          \lim_{n\to \infty}f_n(x)=
-          \left\{ 
-            \begin{array}{cc} 
-            0 & |x| < 1 \\
-            \frac{1}{2} & x = 1 \\
-            1 & |x|>1 
-            \end{array}
-            \right.
-          \]
-        </p>
-        </div>
-      </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Prueba que, para toda \(x>0\),
-            \[
-            \lim_{n\to \infty} n(\sqrt[n]{x}-1)=\ln(x)
-            \]
-          </p>
-          <p>
-            Por lo tanto, la sucesión de funciones \(f_n(x)=n(\sqrt[n]{x}-1)\),
-            converge puntualmente a la función logaritmo en \((0,\infty)\).
-          </p>
-        </div>
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Sea \(\{q_n\}_{n=1}^\infty\) una enumaración de \(\mathbb{Q}\).
-            Define \(f_n:\mathbb{R}\to \mathbb{R}\) por
-            \[
-            f_n(x)=\left\{
-              \begin{array}{cc}
-              1, & \textrm{si \(x\in \{q_1,\dots, q_n\}\)}, \\
-              0, & \textrm{en otro caso} .
-              \end{array}
-              \right.
-            \]
-            Encuantra el límite puntual de \((f_n)_{n=1}^\infty\).
-          </p>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            El límite puntual no se lleva muy bien con las derivadas.
-          </p>
-          <ol>
-            <li>
-              Consiera la sucesión de funciones \((f_n:\mathbb{R}\to \mathbb{R})\)
-              dada por \(f_n(x)=\frac{\sen(nx)}{n}\). Encuentra el límite
-              puntual de \((f_n)_{n=1}^\infty\) pero muestra que
-              el límite puntual de \((f_n')_{n=1}^\infty\) no existe.
-            </li>
-            <li>
-              Considera la sucesión de funciones \(f:[0,1]\to \mathbb{R}\)
-              dada por \(f_n(x)=\frac{x^{n}}{n}\). Prueba que,
-              para todo \(x\in [0,1]\), los límites puntuales
-              \(\lim_{n\to \infty} f_n(x)\) y \(\lim_{n\to \infty} f_n'(x)\)
-              existen. Define \(f(x):=\lim_{n\to \infty} f_n(x)\) y para \(x\ne 1\)
-              prueba
-              \[
-              \lim_{n\to \infty} f_n'(x)= f'(x)
-              \]
-              pero
-              \[
-              \lim_{n\to \infty} f_n'(1) \ne f'(1)
-              \]
-              Por lo tanto, no siempre pasa que el límite puntual de las
-              derivadas es la derivada del límite puntual.
-
-            </li>
-
-          </ol>
-          <button class="respButton hvr-grow"> Solución inciso 1 </button>
-              <div class="resp-box">
-          <p>
-            Ya que \(|\frac{\sen(nx)}{n}|\leq \frac{1}{n}\) para todo \(x\in \mathbb{R}\), se sigue que 
-            \(\lim_{n\to \infty} f_n(x)=0\) para toda \(x\).
-          </p>
-          <p>
-            Sin embargo \(f_n'(x)=\cos(nx)\) el cual, para \(x\ne 0\), cumple que 
-            \(\lim_{n\to \infty}\cos(nx)\) no existe. Por ejemplo, para \(x=\pi\),
-            \(\cos(nx)=-1\) ó \(\cos(nx)=1\), dependiendo si \(n\) es impar o par, respectivamente. 
-          </p>
-          </div>
-
-          <button class="respButton hvr-grow"> Solución inciso 2 </button>
-              <div class="resp-box">
-
-          <p>
-            Ya que \(\left| \frac{x^n}{n} \right| \leq \frac{1}{n}\) para todo \(x\in [0,1]\), se sigue que 
-            \[
-            \lim_{n\to \infty}f_n(x)=0
-            \]
-            para todo \(x\in [0,1]\) y por lo tanto \(f=0\).
-          </p>
-          <p>
-            Por otro lado, \(f_n'(x)=x^{n-1}\), el cual sabemos que satisface
-            \[
-            \lim_{n\to \infty} f_n'(x)=
-            \left\{
-              \begin{array}{cc} 
-                0 & 0\leq x < 1, \\
-                1 & x=1 .
-              \end{array}
-              \right.
-            \]
-            Por lo tanto \(\lim_{n\to \infty}f_n'(1)\ne f'(1)\).
-          </p>
-          </div>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            El límite puntual no se lleva bien con las integrales.
-          </p>
-          <p>
-            Considera la sucesión de funciones
-            \[
-            f_n(x)=\left\{
-              \begin{array}{cc}
-               4n^2 x , & 0 \leq x \leq \frac{1}{2n}, \\
-              -4n^2x+4n , &  \frac{1}{2n} \leq x \leq \frac{1}{n}, \\
-              0 , & \frac{1}{n}\leq x \leq 1 .
-              \end{array}
-              \right.
-            \]
-            y sea \(f(x)=\lim_{n\to \infty} f_n(x)\) su límite puntual.
-          </p>
-          <p>
-            Prueba
-            \[
-            \lim_{n\to \infty} \int_0^1 f_n(t)dt \ne \int_0^1 f(t)dt
-            \]
-          </p>
-        </div>
-
-
-        <div class="definicion-box">
-          <h2 class="number-title"> Definición </h2>
-          <p>
-            Sea \(X\) un conjunto cualquiera y \((f_n:X\to \mathbb{R})_{n=1}^\infty\)
-            una sucesión de funciones. Decimos que la sucesión
-            \((f_n)_{n=1}^\infty\) converge uniformemente en el subconjunto \(A \subseteq X\), si  
-            existe una  función \(f:A\to \mathbb{R}\) tal que 
-            para toda \(\varepsilon >0\), existe una \(N\in \mathbb{N}\)
-            con la propiedad de que, para toda \(x\in X\) y \(n \geq N\):
-            \[
-            |f_n(x)-f(x)| < \varepsilon 
-            \]
-          </p>
-          <p>
-            Una de las partes más importantes de la definición es que la
-            \(N\) que aparece sirve para todos los puntos de \(X\), de ahí
-            viene el nombre, pues la \(N\) es uniforme (la misma) para todo
-            punto en \(X\).
-           </p>
-           <p>
-             Notas.
-           </p>
-           <ol>
-             <li>
-               Para la convergencia uniforme no es necesario pedir
-               al domino de las funciones (denotado por
-               \(X\) arriba) que sea espacio métrico.
-             </li>
-             <li>
-               El codominio de las funciones no tiene que ser necesariamente
-               \(\mathbb{R}\) y se puede cambiar por cualquier espacio métrico.
-               Si \((Y,d_Y)\) es un espacio métrico, decimos que una
-               sucesión de funciones \((f_n:X\to Y)_{n=1}^\infty\) converge
-               uniformemente a \(f\) en \(X\) si:
-               <p>
-                 Para toda \(\varepsilon >0\), existe una \(N\in \mathbb{N}\)
-                 con la propiedad de que, para toda \(x\in X\) y toda \(n \geq N\):
-                 \[
-                 d_Y(f_n(x),f(x)) < \varepsilon 
-                 \]
-                 donde la única diferencia es que se usa la distancia en el espacio \(Y\)
-                 en vez del valor absoluto.
-               </p>
-             </li>
-             <li>
-               La convergencia uniforme depende mucho del dominio de las funciones.
-               Puede pasar que una sucesión no sea uniformemente convergente en \(A\)
-               pero sí sea uniformemente convergente en un subconjunto propio de
-               \(A\).
-             </li>
-           </ol>
-         </div>
-
-
-           <div class="nota-box">
-             <h2 class="number-title"> Nota </h2>
-             <h3 > Convergencia uniforme y la norma uniforme </h3>
-           <p>
-             Otra forma de reescribir la convergencia uniforme es
-             con la norma uniforme o norma infinito. Recordamos que para una
-             función \(g:X\to \mathbb{R}\) acotada
-             \[
-             \|g\|_X:=\sup_{x\in X}\{|g(x)| \}
-             \]
-             Si el dominio es claro también se escribe \(\|g\|_\infty\).
-             Con esta notación se puede escribir la convergencia
-             uniforme de la siguiente forma.
-           </p>
-           <p>
-             La sucesión \((f_n:X\to \mathbb{R})_{n=1}^\infty\) converge
-             uniformemente en el subconjunto \(A\subseteq X\) a la función \(f:X\to \mathbb{R}\) si,
-             para toda \(\varepsilon > 0\) existe una \(N \in \mathbb{N}\)
-             tal que para toda \(n\geq N\)
-             \[
-             \|f_n-f\|_A <  \varepsilon 
-             \]
-             Esta forma de escribir tiene la ventaja de que \(\|f_n-f\|_A\)
-             es un número real. Así
-             la convergencia uniforme sobre \(A\) está codificada en la sucesión de números
-             reales \((\|f_n-f\|_A)_{n=1}^\infty\) y notamos que, en términos de
-             esta sucesión, la convergencia uniforme se puede escribir
-             simplemente como
-             \[
-             \lim_{n\to \infty}\| f_n-f\|_A= 0,
-             \]
-             claro que el problema importante es calcular los números
-             \(\|f_n-f\|_A\).
-           </p>
-           <!-- <p>
-             En la <a href=""> Nota 3.19</a> vimos una forma de visualizar
-             la bolas abiertas en la norma \(\|\cdot\|_\infty\),
-             \[
-             B_r(f)=\{g:X\to \mathbb{R}: \| g-f\|< r \}.
-             \]
-             Una función \(g\) está en la bola si y sólo si su gráfica esta
-             en la franja de radio \(r\) centrada en \(f\).
-
-             Por lo tanto, ya que la convergencia uniforme se puede
-             puede escribir como \(\lim_{n\to \infty}\|f_n-f\|_\infty=0\),
-             podemos pensar que una sucesión \((f_n)_{n=1}^\infty\)
-             converge uniformemente a \(f\) si las gráficas de
-             \(f_n\) se van metiendo en franjas alrededor de \(f\) de
-             radios cada vez más pequeños.
-           </p>-->
-           <p>
-             Ejemplos.
-           </p>
-           <ol>
-             <li>
-               La sucesión de funciones \((f_n:\mathbb{R}\to \mathbb{R})_{n=1}^\infty\)
-               dada por \(f_n(x)=\frac{1}{n}\sen(nx)\) converge uniformemente
-               en \(\mathbb{R}\) a la función constante cero. Para probarlo,
-               usamos que \(|\sen(\theta)| \leq 1\) para toda \(\theta\)
-               para obtener
-               \begin{eqnarray*}
-               \| f_n-0\|_\mathbb{R}&=&  \|f_n\|_{\mathbb{R}} \\
-               &=& \sup_{x\in \mathbb{R}}\left\{\frac{1}{n}|\sen(nx)| \right\}  \\
-               &\leq & \frac{1}{n}
-               \end{eqnarray*}
-               Por lo tanto \(\lim_{n\to \infty} \|f_n\|_{\mathbb{R}}=0\).
-             </li>
-             <li>
-               Consideremos \(f:[a,b]\to \mathbb{R}\) cualquier función y
-               definamos las sucesión de funciones \(f_n:[a,b]\to \mathbb{R}\)
-               dada por \(f_n(x)=f(x)+\frac{1}{n}\). La sucesión
-               \((f_n)_{n=1}^\infty\) converge uniformente en \([a,b]\) a \(f\).
-               Para probarlo sólo notamos que, para toda \(x\in [a,b]\)
-               \[
-               |f_n(x)-f(x)|=\frac{1}{n}
-               \]
-               por lo que \(\|f_n-f\|_{[a,b]} \leq \frac{1}{n}\)
-               y por lo tanto \(\lim_{n\to \infty}\|f_n-f\|_{[a,b]} = 0\).
-             </li>
-           </ol>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Investiga si las siguientes sucesiones de funciones convergen
-            uniformemente  ó no, sobre el dominio dado, a la función constante cero.
-          </p>
-          <ol>
-            <li>
-              \((f_n:\mathbb{R}\to \mathbb{R})_{n=1}^\infty\) dada por
-              \(f_n(x)=\frac{x}{1+nx^2}\).
-            </li>
-            <li>
-              \((f_n:[0,\infty)\to \mathbb{R})_{n=1}^\infty \) dada por
-              \(f_n(x)=xe^{-2nx}\).
-            </li>
-          </ol>
-          Sugerencia: usa cálculo para encontar la norma uniforme de cada \(f_n\).
-        </div>
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <ol>
-            <li>
-              Sea  \(X\) un conjunto, \(A\subseteq X\) y \((Y,d_Y)\) un espacio 
-              métrico. Prueba que la sucesión de funciones \((f_n:X\to Y)_{n=1}^\infty\) 
-               NO
-              converge uniformemente en \(A\)  a la función
-              \(f:A \to \mathbb{R}\) si y sólo si
-              existe un \(\varepsilon_0>0\), una subsucesión
-              \((f_{n_k})_{k=1}^\infty\)
-              y una sucesión  \((a_n)_{n=1}^\infty \subset A \)
-              que satisface
-              \[
-              d_Y(f_{n_k}(a_k), f(a_{k})) \geq \varepsilon_0
-              \]
-              para toda \(k \geq 1\).
-            </li>
-            <li>
-              Usa esto para dar otra prueba de que la sucesión
-              \((f_n:\mathbb{R}\to \mathbb{R})_{n=1}^\infty\)
-              dada por \(f_n(x)=x^n\), no converge uniformemente en \((-1,1)\) a la función cero.
-            </li>
-          </ol>
-          
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Considera \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\)
-            una sucesión de funciones continuas con la propiedad de que
-            converge uniformemente en \(\mathbb{Q}\cap [a,b]\).
-          </p>
-          <p>
-            Prueba o da un contraejemplo: la sucesión \((f_n)_{n=1}^\infty\)
-            converge uniformemente en \([0,1]\).
-          </p>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Sea \((X,d)\) un espacio métrico y
-            \((f_n:X\to \mathbb{R})_{n=1}^\infty\) una sucesión de
-            funciones Lipschitz continuas, con la misma constante. Es decir,
-            exite \(M>0\) tal que, para todo \(n\in
-            \mathbb{N}\)  y para todos \(x_1,x_2\in X\)
-            \[
-            |f_n(x_1)-f_n(x_2)| \leq M d(x_1,x_2)
-            \]
-            Supón que la sucesión \((f_n)_{n=1}^\infty\) converge
-            puntualmente a una función \(f:X\to \mathbb{R}\).
-          </p>
-          <ol>
-            <li>
-              Prueba que \(f\) es Lipschitz continua con la misma constante
-              \(M\).
-            </li>
-            <li>
-              Prueba que si \(X\) es compacto entonces la sucesión \((f_n)_{n=1}^\infty\) converge
-              uniformemente en \(X\) a la función \(f\).
-            </li>
-          </ol>
-        </div>
-
-
-        <div class="nota-box">
-          <h2 class="number-title"> Nota </h2>
-          <h3>
-              Convergencia uniforme implica convergencia puntual.
-          </h3>
-          <p>
-            Si una sucesión de funciones \((f_n:X\to \mathbb{R})_{n=1}^\infty\)
-            converge uniformemente en \(A\subseteq X\) a una función
-            \(f:A \to \mathbb{R}\) entonces también converge puntualmente.
-            Para ver la implicación sabemos que, por la convergencia
-            uniforme tenemos
-            \[
-            \lim_{n\to \infty}\|f_n-f\|_A = 0,
-            \]
-            pero, por la definición de la norma \(\|\cdot\|_A\)
-            tenemos que, para toda \(a \in A\), \(|f_n(a)-f(a)|\leq \|f_n-f\|_A \),
-            por lo tanto
-            \[
-            0\leq \lim_{n\to \infty} |f_n(a)-f(a)|\leq \lim_{n\to \infty} \|f_n-f\|_A=0
-            \]
-            es decir, \(\lim_{n\to \infty} f_n(a)=f(a)\).
-          </p>
-          <p>
-            La implicación
-            \[
-            \textrm{convergencia uniforme} \Rightarrow \textrm{convergencia puntual}
-            \]
-            nos da un punto de partida para investigar la convergecia
-            de una sucesión de funciones dadas. Por ejemplo, si queremos
-            investigar la convergencia uniforme
-            de la sucesión \((f_n:X\to \mathbb{R})_{n=1}^\infty\) sobre \(A\), lo
-            primero que hacemos es calcular o investigar la convergencia del
-            límite \(\lim_{n\to \infty} f_n(a)\), para toda \(a\in A\). Después definimos
-            la función \(f(a)=\lim_{n\to \infty}f_n(a)\) y para la
-            convergencia uniforme se estiman las normas
-            \(\|f_n-f\|_A\).
-          </p>
-          <p>
-            La implicación de regreso:
-            \(\textrm{convergencia puntual} \Rightarrow \textrm{convergencia uniforme}\),
-            no es cierta como se verá en los ejercicios que siguen.
-          </p>
-
-        </div>
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio  </h2>
-          <p>
-            Considera la sucesión de funciones
-            \((f_n:[-1,1]\to \mathbb{R})_{n=1}^\infty\) dada por
-            \(f_n(x)=x^n\). Tenemos que ésta sucesión de funciones
-            converge puntualmente en \((-1,1]\) a la función
-            \[
-            f(x)=\left\{
-              \begin{array}{cc}
-              1 & \textrm{si |x| = 1} \\
-              0 & \textrm{si |x| < 1 }
-              \end{array}
-              \right.
-            \]
-
-          </p>
-          <ol>
-            <li>
-            Prueba que la sucesión \((f_n)_{n=1}^\infty\)
-            no converge uniformemente
-            en \((-1,1]\) a la función  \(f\).
-            </li>
-            <li>
-            Prueba que, para todo
-            subintervalo cerrado \([a,b]\subset (-1,1)\),
-            \((f_n)_{n=1}^\infty\) sí converge uniformemente en \([a,b]\) a
-            la función cero.
-          </ol>
-          <p>
-            Este ejercicio muestra que convergencia puntual no implica convergencia
-            uniforme y que la convergencia uniforme también depende del dominio
-            que se está considerando.
-          </p>
-          <button class="respButton hvr-grow"> Respuesta </button>
-          <div class="resp-box">
-          <p>
-            Primer inciso.
-          </p>
-          <p>
-            Para probar que \((f_n)_{n=1}^\infty\) no converge uniformemente
-            a \(f\) veremos dos métodos.
-          </p>
-          <p>
-            El primer método es geométrico, y consiste en observar las
-            bolas, en la norma \(\|\cdot\|_\infty\), centradas en \(f\).
-            Geométricamente sabemos que cualquier función
-            que esté en \(B_r(f)\) tiene la propiedad de que su gráfica
-            queda dentro de la franja centrada en la gráfica de \(f\)
-            de radio \(r\).
-
-            Ahora, ya que cualquiera de las funciones \(f_n\) es continua
-            y \(f\) tiene una discontinuidad de salto en \(x=1\), ninguna
-            de las gráficas de las funciones \(f_n\) queda totalmente
-            contenida en dicha franja, por lo tanto la sucesión no
-            converge uniformemente a \(f\).
-          </p>
-            El segundo método es estimar las normas \(\|f_n-f\|_\infty\). Ya que
-            el punto \(x=1\) parace especial notamos que
-            \(|f_n(1)-f(1)|=|1-1|=0\), por lo que el supremo
-            de los valores \(|f_n(x)-f(x)|\), corriendo \(x\in [0,1]\),
-            está determinado cuando \(0< x < 1\), y para estos
-            valores tenemos
-            \[
-            |f_n(x)-f(x)|=|x^n|=x^n
-            \]
-            Finalmente, usando que \(x\mapsto x^n\) es estrictamente
-            creciente en \([0,1]\), tenemos
-            \[
-            \sup_{x\in [0,1]}\{ |f_n(x)-f(x)|\}=\sup_{x\in [0,1)}\{x^n\}=1
-            \]
-            Por lo tanto, \(\|f_n-f\|_\infty=1\), para toda \(n\), y
-            la sucesión no converge uniformemente.
-          </p>
-          <p>
-            Segundo inciso.
-          </p>
-          <p>
-            Para este inciso es muy importante notar que estamos
-            cambiando el dominio, de \((-1,1]\) a \([a,b]\). Por lo
-            tanto el cálculo de las normas infinito cambia teniendo
-            \[
-            \|f_n\|_\infty=\sup_{x\in [a,b]}\{|f_n(x)|\}
-            \]
-            Para calcular \(\|f_n\|_\infty\) notamos que:
-            <ul>
-              <li>
-                Para \(n\) impar \(f_n\) es estrictamente creciente en \((-1,1]\)
-                y por lo tanto
-                \[
-                \sup_{x\in [a,b]}\{|f_n(x)|\}=|b|^n
-                \]
-              </li>
-              <li>
-                Para \(n\) par \(f_n\) es decreciente en \((-1,0]\)
-                y creciente en \([0,1)\), por lo tanto
-                \[
-                \sup_{x\in [a,b]}\{|f_n(x)|\}=
-                \left\{
-                  \begin{array}{cc}
-                  |a|^n & \textrm{si \([a,b] \subset (-1,0]\),} \\
-                  |b|^n & \textrm{si \([a,b]\subset [0,1)\),} \\
-                  \max\{|a|^n,|b|^n\}   &    \textrm{si \( a< 0 < b \).}
-                  \end{array}
-                  \right.
-                \]
-              </li>
-              En cuqlquier caso, ya que \([a,b]\subset (-1,1)\), tenemos
-              que \(-1< a < b < 1\) y por lo tanto
-              \(\lim_{n\to \infty}|a|^n=\lim_{n\to \infty}|b|^n=0\). Por lo
-              tanto,
-              \[
-              \lim_{n\to \infty} \|f_n\|_\infty=0.
-              \]
-            </ul>
-
-          </p>
-        </div>
-        </div>
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Para las siguientes sucesiones de funciones ecuentra su límite
-            puntual (si existe) y los subintervalos donde la convergencia
-            es uniforme.
-          </p>
-          <ol>
-            <li>
-              \(f_n:[0,1]\to \mathbb{R}\) dada por
-              \(f_n(x)=n^2x(1-x^2)^n\).
-            </li>
-            <li>
-              \(f_n:[0,\infty)\to \mathbb{R}\) dada por \(f_n(x)=\frac{nx}{1+nx}\).
-            </li>
-            <li>
-              \(f_n:[0,\infty)\to \mathbb{R}\) dada por \(f_n(x)=\frac{nx}{1+n^2x^2}\).
-            </li>
-            <li>
-              \(f_n:\mathbb{R}\to \mathbb{R}\) dada por \(f_n(x)=\frac{x^n}{1+x^n}\).
-            </li>
-          </ol>
-
-
-        </div>
-
-
-
-        <div class="teorema-box">
-          <h2 class="number-title" id="Teo:ConveUnifYConti"> Teorema </h2>
-          <p>
-            Sean \((X,d_X), (Y,d_Y)\) espacios métricos y
-            \((f_n:X\to Y)_{n=1}^\infty\) una sucesión de funciones tal que
-            cada una de las \(f_n\) es continua en el punto  \(x_0\in X\).
-          </p>
-          <p>
-            Si \((f_n)_{n=1}^\infty\) converge uniformemene en \(X\)
-            a una función \(f\), entonces \(f\) también es continua en \(x_0\).
-          </p>
-          <p>
-            En particular, si las \(f_n\) son continuas en todo \(X\)
-            también \(f\) lo es.
-          </p>
-          <button class="respButton hvr-grow"> Demostración </button>
-              <div class="resp-box">
-          <p>
-            La demostración es un argumento del tipo \(3\varepsilon\).
-          </p>
-          <p>
-            Primero, usamos la convergencia uniforme de \((f_n)_{n=1}^\infty\)
-            para asegurar que existe una \(N\in \mathbb{N}\) tal que 
-            \begin{equation}\label{Eqn:Aux1ConvergenciaUnifCont}
-            d_Y(f(x),f_n(x)) < \varepsilon
-            \end{equation}
-            para todo \(x\in X\) y todo \(n\geq N\).
-          </p>
-          <p>
-            Segundo, usando que \(f_N\) es continua en \(x_0\) 
-            aseguramos que existe una \(\delta > 0\) tal que 
-            \begin{equation}\label{Eqn:Aux2ConvergenciaUnifCont}
-            d_Y(f_N(x),f_N(x_0))< \varepsilon
-            \end{equation}
-            siempre que \(x\in X\) con \(d_X(x,x_0)< \delta\).
-          </p>
-          <p>
-            Finalmente, juntanto \eqref{Eqn:Aux1ConvergenciaUnifCont} 
-            y \eqref{Eqn:Aux2ConvergenciaUnifCont}, para \(x\in X\) con \(d_X(x,x_0)< \delta \) se tiene:
-          </p>
-          <p>
-            \begin{eqnarray*} 
-            d_Y(f(x),f(x_0)) &\leq & d_Y(f(x),f_N(x)) + d_Y(f_N(x),f_N(x_0))+ d_Y(f_N(x_0),f(x_0)) \\
-            & < &  \varepsilon + d_Y(f_N(x),f_N(x_0)) +\varepsilon  \\
-            & < & 3\varepsilon
-            \end{eqnarray*}
-          </p>
-        </div>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Sean \((X,d_X), (Y,d_Y)\) espacios métricos y
-            \((f_n:X\to Y)_{n=1}^\infty\) una sucesión de funciones continuas
-            tal que convergen uniformemente en \(X\).
-          </p>
-          <p>
-            Sea \((x_m)_{m=1}^\infty \subset X\) una sucesión  convergente
-            en \(X\). Prueba
-            \[
-            \lim_{n\to \infty}\left( \lim_{m\to \infty} f_n(x_m)\right)=
-            \lim_{m\to \infty}\left( \lim_{n\to \infty} f_n(x_m)\right)
-            \]
-          </p>
-          <p>
-            Sugerencia: usa el <a href="#Teo:ConveUnifYConti">teorema anterior</a>.
-          </p>
-        </div>
-
-        <div class="teorema-box">
-          <h2 class="number-title" id="Teo:ContUnifIntegracion"> Teorema </h2>
-          <p>
-            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una suncesión de funciones continuas.
-            Supongamos que \((f_n)_{n=1}^\infty\) converge uniformemente
-            en \([a,b]\) a una función \(f\). Entonces
-            \[
-            \lim_{n\to \infty} \int_a^b f(t)dt= \int_{a}^b f(t)dt.
-            \]
-            Es decir, podemos "meter el límite dentro de la integral",
-            en otra notación:
-            \[
-            \lim_{n\to \infty} \int_a^b f_n(t)dt = \int_a^b \lim_{n\to \infty}f_n(t)dt.
-           \]
-          </p>
-          <p>
-            Nota: el teorema sigue siendo válido si se pide la hipótesis de que
-            todas las funciones \(f_n\) sean sólo Riemann integrables. Con esta
-            suposición se puede probar que el límite \(f\) también es
-            Rieman integrable y que se puede meter el límite en la integral.
-
-          </p>
-          <button class="respButton hvr-grow"> Demostración </button>
-              <div class="resp-box">
-          <p>
-            Debemos de probar que, dado \(\varepsilon >0\), existe una \(N\in \mathbb{N}\)
-            tal que para todo \(n\geq N\),
-            \[
-            \left| \int_a^b f_n(t)dt - \int_a^n f(t)dt \right| < \varepsilon
-            \] 
-            Pero, por las propiedades de la integral 
-            \begin{equation}\label{Eqn:Aux1ContinuidadUnifintegral}
-            \left| \int_a^b f_n(t)dt - \int_a^n f(t)dt \right|\leq \int_a^b |f_n(t)-f(t)|dt
-            \end{equation}
-          </p>
-          <p>
-            Por otro lado, dabido a la convergencia uniforme existe una \(N\in \mathbb{N}\) tal que 
-            \[
-            |f_n(x)-f(x)|< \frac{\varepsilon}{2(b-a)}
-            \]
-            para todo \(x\in [a,b]\) y \(n\geq N\). Si integramos la desigualdad anterior obtenemos 
-            \[
-            \int_a^b |f_n(t)-f(t)|dt \leq \int_a^b \frac{\varepsilon}{2(b-a)}dt=\frac{\varepsilon}{2}
-            \]
-          </p>
-          <p>
-            Por lo tanto si en \eqref{Eqn:Aux1ContinuidadUnifintegral} tomamos 
-            \(n\geq N\) concluimos que para todo \(n\geq N\) 
-            \[
-            \left| \int_a^b f_n(t)dt - \int_a^n f(t)dt \right| < \varepsilon.
-            \]
-          </p>
-        </div>
-        </div>
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Prueba
-            \[
-            \lim_{n\to \infty}\int_{\pi/2}^\pi\frac{\sen(nx)}{nx}dx=0
-            \]
-          </p>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Cálcula el límite
-            \[
-            \lim_{n\to \infty} \int_0^1 \frac{e^{-nt}}{\sqrt{t}} dt
-            \]
-          </p>
-        </div>
-
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión
-            de funciones continuas que converge uniformemente en \([a,b]\).
-          </p>
-          <p>
-            Define \(F_n:[a,b]\to \mathbb{R}\) por
-            \[
-              F_n(x):=\int_a^x f_n(t)dt
-            \]
-            Prueba que la sucesión \((F_n)_{n=1}^\infty\)
-            converge uniformemente en \([a,b]\).
-          </p>
-        </div>
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Supongamos que tenemos una sucesión de funciones continuas
-            \((f_n:[a,b]\to \mathbb{R})\) que converge uniformemente
-            en \([a,b]\) a la función \(f:[a,b]\to \mathbb{R}\). Prueba
-            \[
-            \lim_{n\to \infty}\int_a^b \left( \int_a^xf_n(t)dt \right) dx=
-            \int_a^b \left(\int_a^x f(t)dt\right)dx
-            \]
-          </p>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-
-          <p>
-            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una
-            sucesión de funciones continuas que converge
-            uniformemente en \([a,b]\) a una función
-            \(f\).
-          </p>
-          <p>
-            Supón que \(g:[a,b]\to \mathbb{R}\) es una función Riemann
-            integrable en \([a,b]\). Prueba que
-            \[
-            \lim_{n\to \infty} \int_a^b f_n(t)g(t)dt =\int_a^b f(t)g(t)dt
-            \]
-          </p>
-        </div>
-
-
-        <div class="definicion-box">
-          <h2 class="number-title"> Definición </h2>
-          <p>
-            Sea \(X\) un conjunto cualquiera y 
-            \((Y,d_Y)\) un espacio métrico. Decimos que una
-            sucesión de funciones \((f_n:X\to Y)_{n=1}^\infty\)
-            es uniformemente de Cauhcy (o Cauchy-uniforme) en \(X\) si:
-          </p>
-          <p>
-            para toda \(\varepsilon > 0 \) existe \(N\in \mathbb{N}\)
-            con la propiedad de que, para todo \(x\in X\) y  para todos \(n,m \geq N\)
-            \[
-            | f_n(x)-f_m(x)| < \varepsilon 
-            \]
-          </p>
-
-        </div>
-
-
-        <div class="teorema-box">
-          <h2 class="number-title"> Teorema </h2>
-          <p>
-            Sea \((Y,d_Y)\) un espacio métrico completo y \(X\) un conjunto cualquiera.
-          </p>
-          <p>
-            Sea \((f_n:X\to Y)_{n=1}^\infty\) es una sucesión
-            de funciones que es uniformemente de Cauchy en \(X\).
-          </p>
-          <p>
-            Entonces existe \(f:X\to Y\) tal que
-            \((f_n)_{n=1}^\infty\) converge uniformemente a \(f\) en \(X\).
-          </p>
-
-        </div>
-
-
-<!--         <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-
-          <p>
-            Sea \((X,d)\) un espacio métrico compacto. Por
-            \(C(X)\) denotamos las funciones continuas en \(X\) que toman
-            valores reales. Por el
-            <a href="./S8.html#"Teo:FunContAcotEnCompactos>Teorema 8.18</a>
-            sabemos que toda función \(f\) en \(C(X)\) está acotada y por
-            lo tanto
-            \[
-            \|f\|_\infty =\sup_{x\in X}\{|f(x)|\}
-            \]
-            está bien definida y por el
-            <a href="./S3.html#Ejer:EspacioFunAcotadas">Ejercicio 3.18</a> es una norma.
-          </p>
-          <p>
-            Prueba que \((C(X), \|\cdot\|_\infty)\) es un espacio completo.
-          </p>
-
-        </div>-->
-
-
-        <div class="teorema-box">
-          <h2 class="number-title"> Teorema  </h2>
-            <h3> Criterio M de Weierstrass</h3>
             <p>
-              Sea \((f_n:X\to \mathbb{R})_{n=1}^\infty\) una sucesión
-              de funciones. Supongamos que existe una sucesión
-              de números no negativos \((M_n)_{n=1}^\infty\) tal que
-              <ul>
+            Si \(A \subseteq C(X)\) es una subálgebra de \(C(X)\) que satisface:
+            </p>
+            <ol>
                 <li>
-                  La serie \(\sum_{n=1}^\infty M_n\) es convergente.
+                    \(A\) separa los puntos de \(X\);
                 </li>
                 <li>
-                  Para todo \(x\in X\) y para todo \(n\in \mathbb{N}\), \(|f_n(x)|\leq M_n\).
+                    \(A\)  no se anula en \(X\).
                 </li>
-              </ul>
-              Entonces la sucesión de funciones \((S_N)_{N=1}^\infty\), dada
-              por \(S_N(x)=\sum_{n=1}^N f_n(x)\) converge
-              uniformemente en \(X\).
-
-              También se dice que  la serie \(\sum_{n=1}^\infty f_n(x)\)
-              es  uniformemente convergente en \(X\).
-            </p>
-            <p>
-              Usando la norma \(\|\cdot\|_\infty\) el criterio M se puede
-              resumir como
-              \[
-              \sum_{n=1}^\infty \| f_n\|_\infty < + \infty \Rightarrow
-              \sum_{n=1}^\infty f_n(x) \quad \textrm{converge uniformemente en \(X\)}
-              \]
-            </p>
-        </div>
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Prueba que la serie \(\sum_{n=1}^\infty x^n\) es uniformemente
-            convergente en cualquier subintervalo cerrado contenido en
-            \((-1,1)\).
-          </p>
-
-        </div>
-
-        <div class="teorema-box">
-          <h2 class="number-title"> Teorema </h2>
-          <p>
-            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión de funciones
-            continuas en \([a,b]\) y tal que su derivada, \(f_n'\), existe y
-            es continua en todo \([a,b]\).
-          </p>
-          <p>
-            Supongamos que
-            <ol>
-              <li>
-                \((f_n')\) converge uniformemente en \([a,b]\) a una
-                función \(g:[a,b]\to \mathbb{R}\).
-              </li>
-              <li>
-                Existe un punto \(x_0\in [a,b]\) tal que
-                la sucesión \((f_n(x_0))_{n=1}^\infty\) converge.
-              </li>
-            </ol>
-          </p>
-          <p>
-            Entonces la sucesión original, \((f_n)_{n=1}^\infty\), converge
-            uniformemente en \([a,b]\). Además, si  \(f\) es el límite de
-            \((f_n)_{n=1}^\infty\) entonces \(f\) es diferenciable y
-            \(f'=g\). Es decir, podemos meter el límite en la derivada
-            \[
-            \lim_{n\to \infty} \frac{d}{dx}f_n(x) =
-            \frac{d}{dx}\left( \lim_{n\to \infty} f_n (x) \right)
-            \]
-          </p>
-        </div>
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <h3 > Series de potencias </h3>
-          <p>
-            Si la serie de potencias \(\sum_{n=1}^\infty a_nx^n\)
-            converge absolutamente para un punto \(x_0 \ne 0\), entonces
-            <ol>
-            <li>
-              \(\sum_{n=1}^\infty a_nx^n\) converge
-              uniformemente en todo intervalo de la forma
-              \([-R,R]\), con \(R\) cualquier número positivo con
-              \(|R|<|x_0|\).
-            </li>
-            <li>
-              En el intervalo \((-|x_0|,|x_0|)\) se puede
-              derivar la serie término a término:
-              \[
-              \left(\sum_{n=1}^\infty a_nx^n \right)'=\sum_{n=1}^\infty na_nx^{n-1}
-              \]
-            </li>
-            <li>
-              Para cualquier intervalo cerrado \([a,b]\subset (-|x_0|,|x_0|)\)
-              la serie se puede integrar término a término:
-              \[
-              \int_a^b \left( \sum_{n=1}^\infty a_nx^n \right)dx=
-              \sum_{n=1}^\infty \frac{a_n}{n+1}(b^{n+1}-a^{n+1})
-              \]
-            </li>
-           </ol>
-          </p>
-        </div>
-
-
-        <div class="teorema-box">
-          <h2 class="number-title"> Teorema </h2>
-          <h3> Teorema de Dini </h3>
-          <p>
-            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión de funciones continuas en \([a,b]\).
-            Supón que: 
-            <ol>
-              <li>
-                para todo \(x\in [a,b]\) y  para todo \(n\in \mathbb{N}\) se cumple:
-                 \[ f_{n+1}(x) \leq f_n(x)\]
-              </li>
-              <li>
-                para todo \(x\in [a,b]\) el límite \(\lim_{n\to \infty}f_n(x)\) existe y la función 
-                \(f:[a,b]\to \mathbb{R}\) definida por 
-                \[
-                f(x)=\lim_{n\to \infty} f_n(x)
-                \]
-                es continua en \([a,b]\).
-              </li>
             </ol> 
             <p>
-              Entonces \((f_n)_{n=1}^\infty\) converge uniformemente a \(f\) en \([a,b]\).
+                Entonces \(A\) es uniformemente denso en \(C(X)\), es decir 
+                para todo \(f\in C(X)\) existe \(h\in A\) tal que \(\|f-h\|_\infty < \varepsilon.\)
             </p>
-          </p>
-
-        </div>
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Por \(C^{(1)}([a,b])\) denotamos al conjunto de funciones
-            \(f:[a,b]\to \mathbb{R}\) con las propiedades de que:
-            <ul>
-            <li> \(f\) es continua en todo \([a,b]\),</li>
-            <li> \(f'\) existe y es continua en todo \([a,b]\).</li>
-          </ul>
-          </p>
-          <p>
-          Para  \(f\in C^{(1)}([a,b])\) definimos
-          \[
-          \|f\|_{C^{(1)}}=\max_{x\in [a,b]}\{|f(x)|\}+\max_{x\in [a,b]}\{ |f'(x)|\}
-          \]
-          Prueba que el espacio \((C^{(1)}([a,b]),\|\cdot\|_{C^{(1)}})\)
-          es completo.
-          </p>
-        </div>
+        
+     </div>
 
     </div>
-
-
-
-<div class="quiz-box">
-  <h2> Quiz  </h2>
-  <ol>
-      <li>
-        <p>
-          Sea \((X,d)\) un espacio métrico y considera dos sucesiones 
-          \((f_n:X\to \mathbb{R})_{n=1}^\infty, (g_n:X\to \mathbb{R})_{n=1}^\infty\) tal que 
-          \(f_n \to f\)  y \(g_n \to g\)  uniformemente en \(X\).
-        </p>
-        <p>
-          Si existe una \(M>0\) tal que \(\sup_{x\in X}\{ |g_n(x)|\} \leq M\), para toda \(n\),
-          prueba que la sucesión producto \((f_ng_n:X\to \mathbb{R})_{n=1}^\infty\)
-          converge uniformemente a \(fg\) en \(X\).
-        </p>
-      
-      </li>
-      <li>
-        Da un ejemplo que muestra que el resultado del ejercicio anterior 
-        puede fallar si la hipótesis, \(\sup_{x\in X}\{ |g_n(x)|\} \leq M\), para toda \(n\),
-        se elimina.
-       </li>
-  </ol>
-  
-</div>
   </body>
