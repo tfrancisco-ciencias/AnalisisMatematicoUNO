@@ -90,22 +90,318 @@
       </div>
 
 
-      <div class="nota-box"> 
-      <h2 class="number-title"> Nota  </h2>
-      <h3> La estructura de álgebra de \(\mathcal{B}(X)\) </h3>
-      <p>
+
+
+     <div class="nota-box"> 
+        <h2 class="number-title"> Nota </h2>
+        <h3> La estructura de retícula de \(\mathcal{B}(X)\)</h3>
+
+        <p>
         Sea \((X,d)\) un conjunto  no vacío. Por \(\mathcal{B}(X)\) denotamos al conjunto de funciones
           con valores reales, acotadas sobre \(X\). Es decir
           \[
           \mathcal{B}(X)=\{ f:X \to \mathbb{R} | \sup_{x\in X}\{|f(x)| \} <
             \infty   \}.
           \]
-          Para \(f\in \mathcal{B}\) define
+          En \(\mathcal{B}(X)\) definimos la norma uniforme como:
           \[
           \|f\|_\infty=\sup_{x\in X}\{ |f(x)|\}.
           \]
+          En esta nota queremos enfatizar la estructura de orden en \(\mathcal{B}(X)\).
       </p>
+        <p>
+            Recordamos que la estructura usual de orden dice que dadas \(f,g\in \mathcal{B}(X)\) 
+            decimos que \(f\leq g\) si \(f(x)\leq g(x)\) para toda \(x\in X\). Este orden dota a 
+            \(\mathcal{B}(X)\) con una estructura de conjunto parcialmente ordenado (COPO), es decir 
+            satisface: 
+            <ol>
+                <li>
+                    \(f\leq f\);
+                </li>
+                <li>
+                        \(f\leq g\) y \(g\leq f\) entonces \(f=g\);
+                </li>
+                <li>
+                    \(f\leq g\) y \(g\leq h\) entonces \(f\leq h\).
+                </li>
+            </ol>
+            <p>
+                Con ésta estructura de orden \(\mathcal{B}(X)\) tiene la siguiente 
+                propiedad: si \(f,g\in \mathcal{B}(X)\) entonces 
+                \(\min\{f,g\}\) y \(\max\{f,g\}\) también están en \(\mathcal{B}(X)\). Razón:
+                <p>
+                    Denotemos \(M=\max\{\|f\|_\infty, \|g\|_\infty\}\).
+                    Por definición de la norma \(\|\cdot\|_\infty\), para toda \(x\in X\) se cumple:
+                    \begin{eqnarray*} 
+                    -M \leq -\|f\|_\infty \leq f(x)\leq \|f\|_\infty\leq M,  \\
+                    -M\leq -\|g\|_\infty \leq g(x)\leq \|g\|_\infty  \leq M.
+                    \end{eqnarray*}
+                    De éstas desigualdades se sigue que 
+                    \begin{eqnarray*} 
+                    -M \leq \max\{f(x),g(x) \} \leq M \\
+                    -M \leq \min\{f(x),g(x) \} \leq M 
+                    \end{eqnarray*}
+                    por lo tanto \(\min\{f,g\}, \max\{f,g\} \in \mathcal{B}(X)\).
+
+                </p>
+            </p>
+            <p>
+                Cuando un COPO satsface éstas propiedades se llama una retícula. La 
+                siguiente definición generaliza éstas propiedades.
+            </p>
+        </p>
+     </div>
+
+     <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <h3> Retícula </h3>
+        <p>
+            Sea \((R, \leq)\) un conjunto parcialmente ordenado. Es decir, el orden satisface:
+            <ol>
+                <li>
+                    \(a\leq a\) para toda \(a\in R\);
+                </li>
+                <li>
+                    si \(a\leq b\) y \(b \leq a\) entonces \(a=b\);
+                </li>
+                <li>
+                    si \(a\leq b\) y \(b\leq c\) entonces \(a\leq c\).
+                </li>
+            </ol>
+        </p>
+        <p>
+            Decimos que \((R, \leq )\) es una retícula si para todos \(a,b\in R\)
+            existe el supremo y ínfimo de \(\{a,b\}\). Es decir existen 
+            dos elementos, denotados \(a\vee b=\sup\{a,b\}\) y \(a\wedge b=\inf\{a,b\}\), que satisfacen:
+            <ol>
+                <li>
+                    \(a\leq a\vee b\), \(b \leq a\vee b \) y si 
+                    \(a\leq c\) y \(b\leq c\) entonces \(a\vee b \leq c\);
+                </li>
+                <li>
+                    \(a\wedge b \leq a \), \(  a\wedge b \leq b\) y si 
+                    \(c \leq a\) y \(c \leq b\) entonces \(c\leq a\wedge b\);
+
+                </li>
+            </ol>
+        </p>
+        <p>
+            Si \((R,\leq )\) es una retícula, una sub-retícula de \(R\) es un subsonjunto \(S\)
+            que es cerrado bajo ínfimos y supremos, es decir, si \(c,d\in S\) entonces 
+            \(c\vee d, c\wedge d\in S\).
+        </p>
+     </div>
+
+
+     <div class="prop-box">
+        <h2 class="number-title"> Lema </h2>
+        <p>
+            Sea \((X,d)\) un espacio métrico compacto. Por \(C(X)\) denotamos 
+            al conjunto de funciones continuas de \(X\) en \(\mathbb{R}\). Con 
+            el orden usual de funciones \(C(X)\) es una retícula.
+        </p>
+    
+        <p>
+            Un cálculo directo muestra las siguientes fórmulas: dados \(s,t\in \mathbb{R}\) 
+            \[
+            \max\{s,t\}=\frac{s+t+|s-t|}{2}, \quad \min\{s,t\}=\frac{s+t-|s-t|}{2}
+            \]
+            De estas fórmulas podemos escribir: 
+            \begin{eqnarray*} 
+            \max\{f,g\}(x) =\frac{f(x)+g(x)+|f(x)-g(x)|}{2}, \\
+            \min\{f,g\}(x) =\frac{f(x)+g(x)-|f(x)-g(x)|}{2}.
+            \end{eqnarray*}
+        </p>
+        <p>
+            Ya que combinaciones lineales de funciones continuas sigue siendo continua 
+            para probar que \(\max\{f,g\},\min\{f,g\}\in C(X)\) es suficiente probar que 
+            si \(h\in C(X)\) entonces \(|h|\in C(X)\).
+        </p>
+        <p>
+            Ahora, supongamos que \(h\) es continua. Usando la ótra desigualdad del triángulo tenemos 
+            \[
+            ||h(x)|-|h(y)|| \leq |h(x)-h(y)|
+            \]
+            para todos \(x,y\in X\). Si fijamos \(x\) y tomamos \((x_n)_{n=1}^\infty\subset X\)
+            una sucesión convergente a \(x\), tomando \(y=x_n\) en la desigualdad anterior 
+            y tomando límite llegamos a 
+            \[
+            \lim_{n\to \infty}||h(x)|-|h(x_n)|| \leq \lim_{n\to \infty}|h(x)-h(x_n)|=0
+            \]
+            donde la última identidad se sigue del hecho de que \(h\) es continua. Por lo tanto 
+            \(\lim_{n\to \infty}|h(x_n)|=|h(x)|\). Al ser \(x\) arbitrario concluimos que \(|h|\)
+            es continua en todo \(X\).
+        </p>
+
+     </div>
+
+     <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            Dado un subconjunto no vacío \(S \subseteq \mathcal{B}(X)\), decimos que 
+            \(S\) <i>distingue</i> los puntos de \(X\) si: 
+            <p>
+                para cualesquiera \(x,y\in X\), con \(x\ne y\), 
+            y para todos \(a,b\in \mathbb{R}\) existe una función \(f\in S\) que satisface:
+            \[
+            f(x)=a, \quad f(y)=b.
+            \]
+            </p>
+        </p>
+        <p>
+            Por ejemplo, en \(\mathcal{B}([0,1])\), el conjunto de polinomios distingue los puntos de 
+            \([0,1]\), pues dados \(x,y\in [0,1]\), \(x\ne y\) y escalares \(a,b\in \mathbb{R}\)
+            el polinomio 
+            \[
+            p(t)=\frac{a}{x-y}(t-y)+\frac{b}{y-x}(t-x)=(A+B)t+C,
+            \] 
+            (con \(A=\frac{a}{x-y}, B=\frac{b}{y-x}, C=-\frac{ay}{x-y}-\frac{bx}{y-x}\)) satisface:
+            \[
+            p(x)=a, p(y)=b.
+            \]
+            
+        </p>
+     </div>
+
+
+
+     <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+            Sea \((X,d)\) un espacio métrico compacto y considera 
+            el espacio de funciones continuas de \(X\) en \(\mathbb{R}\)
+            con la norma uniforme: \((C(X),\|\cdot\|_\infty)\).
+        </p>
+            <p>
+            Sea \(R \subseteq C(X)\) un subconjunto que satisface:
+            </p>
+            <ol>
+                <li>
+                    \(R\) es una retícula de \(C(X)\);
+                </li>
+                <li>
+                    \(R\) distingue los puntos de  \(X\).
+                </li>
+            </ol> 
+            <p>
+                Entonces \(R\) es uniformemente denso en \(C(X)\), es decir 
+                para todo \(f\in C(X)\) existe \(h\in R\) tal que \(\|h-f\|_\infty < \varepsilon.\)
+            </p>
+            <p>
+                Fijamos \(f\in C(X)\) y \(\varepsilon >0\).
+            </p>
+            <p>
+                Paso 1: para todo \(x\in X\) existe una función \(h_x\in R\) tal que 
+                <ol>
+                    <li>
+                        \(h_x(x)=f(x)\);
+                    </li>
+                    <li>
+                        para toda \(y\in X\), \(h_x(y)- f(y) < \varepsilon\).
+                    </li>
+                </ol>
+                <p>
+                   Razón: 
+                </p>
+                <p>
+                    Ya que \(R\) distingue los puntos de \(X\), para todo \(y\in X\) con \(y\ne x\),
+                    existe \(h_{x,y}\in A\) tal que \(h_{x,y}(x)=f(x)\) y \(h_{x,y}(y)=f(y)\). Ya que 
+                    \(f\) y \(h_{x,y}\) son continuas el conjunto 
+                    \[
+                    U_y:=\{z\in X: h_{x,y}(z)-f(z)< \varepsilon \} 
+                    \]
+                    es abierto. Además para todo \(y\in X\), 
+                    \begin{eqnarray*} 
+                    h_{x,y}(y)-f(y)=f(y)-f(y)=0<\varepsilon ,\\
+                    \end{eqnarray*}
+                    por lo que \(y\in U_y\) y como 
+                    \(h_{x,y}(x)-f(x)=f(x)-f(x)=0\), también tenemos que \(x\in U_y\). De lo anterior se sigue que 
+                    \(X\subseteq \cup_{ y\ne x} U_y\) y al ser 
+                    \(X\) compacto existen \(y_1,\dots, y_n \in X\) que satisfacen:
+                    \[
+                    X\subseteq \cup_{i=1}^n U_{y_i}.
+                    \]
+                    Ahora definimos \(h_x=\min\{h_{x,y_1},\dots, h_{x,y_n}\}\). Al ser 
+                    \(R\) una retícula, \(h_x\in R\). Notamos que \(h_{x,y_i}(x)=f(x)\)
+                    para todo \(i\) por lo que \(h_x(x)=\min\{h_{x,y_1}(x),\dots, h_{x,y_n}(x)\}=f(x)\).
+                </p>
+                <p>
+                    Finalmente vamos a probar \(h_x(y)-f(y) < \varepsilon \)  para 
+                    todo \(y\in X\). 
+                    Dado \(y\in X\) existe un \(y_j\) tal que \(y\in U_{y_j}\) y por lo tanto
+                    \(h_{x,y_j}(y)-f(y)< \varepsilon\) pero usando la definición 
+                    de \(h_x\) se tiene \(h_{x}(y)\leq h_{x,y_j}(y)\) por lo que: 
+                    \[
+                     h_x(y) - f(y) \leq h_{x,y_j}(y)-f(y) < \varepsilon.
+                    \]
+                </p>
+                <p>
+                    Aqui termina el paso 1.
+                </p>
+            </p>                       
+            <p>
+                <p>
+                    Paso 2: existe \(h\in R\) tal que: \(-\varepsilon < h(x)-f(x) <\varepsilon\),
+                    para todo \(x\in X\). 
+                </p>
+                <p>
+                    Por el Paso 1, dado \(x\in X\) tomamos \(h_x\in R\) que satisfaga: 
+                    <ol>
+                        <li>
+                            \(h_x(x)=x\);
+                        </li>
+                        <li>
+                            \(h_x(y)-f(y)< \varepsilon\), para todo \(y\in Y\)
+                        </li>        
+                    </ol>
+                </p>
+                    <p>
+                        Repitiendo el método del paso 1 consideramos el conjunto 
+                        \[
+                        V_x:=\{ z\in X : -\varepsilon < h_x(z)-f(z) \}
+                        \]
+                        el cual es abierto. Ya que \(h_x(x)-f(x)=f(x)-f(x)=0\) 
+                        resulta que \(x\in V_x\). Por lo tanto 
+                        \(X \subseteq \cup_{x\in X} V_x\) y al ser \(X\) compacto 
+                        existen \(x_1,\dots x_m\in X\) tales que 
+                        \[
+                        X\subseteq \cup_{i=1}^m V_{x_i}.
+                        \]
+                        Definimos \(h=\max\{h_{x_1},\dots, h_{x_m}\}\). Al ser 
+                        \(R\) una retícula tenemos que \(h\in R\).
+                    </p>
+                    <p>
+                        Ahora vamos a probar que para todo \(x\in X\), \(-\varepsilon< h(x)-f(x)< \varepsilon\).
+                    </p>
+                    <p>
+                        Dado \(x\in X\) existe un \(j\) tal que \(x\in V_{x_j}\) lo que implica:
+                        \(-\varepsilon< h_{x_j}(x)-f(x)\). Pero por definición de \(h\), \(h_{x_j}(x)\leq h(x)\) de 
+                        lo que se sigue:
+                        \[
+                        -\varepsilon< h_{x_j}(x)-f(x) \leq  h(x)-f(x).
+                        \]
+                        Por otro lado, \(h(x)=\max\{h_{x_1}(x),\dots, h_{x_m}(x)\}\) por lo que existe un
+                        \(k\) tal que \(h(x)=h_{x_k}(x)\) y por el paso 1, \(h_{x_k}(x)-f(x)< \varepsilon\) y entonces 
+                        \[
+                        h(x)-f(x)=h_{x_k}(x)-f(x) < \varepsilon.
+                        \]
+                    </p>
+                    <p>
+                        Con esto terminamos de probar que para toda \(x\in X\), \(-\varepsilon< h(x)-f(x)< \varepsilon\), 
+                        lo cual implica \(\|h-f\|_\infty < \varepsilon\).
+                    </p>
+            </p>
+     </div>
+
+
+
+      <div class="nota-box"> 
+      <h2 class="number-title"> Nota  </h2>
+      <h3> La estructura de álgebra de \(\mathcal{B}(X)\) </h3>
+      
       <p>
+        Para llegar al Teorema de Stone-Weierstrass vamos a necesitar 
+        más estructura por parte de \(\mathcal{B}(X)\). 
         El <a href="./S10.html#">Ejercicio 10.17</a> nos dice que \((\mathcal{B}(X),\|\cdot\|_\infty)\)
         es un espacio vectorial normado. Ahora queremos enfatizar otra operción presente en \(\mathcal{B}(X)\):
         la multiplicación. Si \(f,g:X\to \mathbb{R}\) son funciones acotadas, entonces su multiplicación, \(fg\), 
@@ -143,7 +439,7 @@
                 \((ab)c=a(bc)\), para todas \(a,b,c\in A \);
             </li>
             <li>
-                \(a(b+c)=ab+ac, (c+d)a=ca+ca\),  para todas \(a,b,c\in A\);
+                \(a(b+c)=ab+ac, (c+d)a=ca+da\),  para todas \(a,b,c\in A\);
             </li>
             <li>
                 \(\alpha(ab)=(\alpha a)b= a(\alpha b)\), para todas \(a,b,c\in A\) y todo 
@@ -180,6 +476,7 @@
             entonces \(b_1b_2\in B\).
         </p>
      </div>
+
 
 
      <div class="ejercicio-box">
@@ -221,9 +518,24 @@
             subálgebra. Prueba que su cerradura, \(\overline{B}\), 
             también es una subálgebra de \(A\).
         </p>
-
+        <p>
+            Primero vamos a probar que \(\overline{B}\) es un subespacio vectorial. Dados 
+            \(b,c\in \overline{B}\) y un escalar \(\alpha\in \mathbb{R}\) debemos de 
+            probar que \(\alpha b+c \in \overline{B}\). Por la caracterización 
+            de los puntos en la cerradura (<a href="./S6.html#Ejer:CaractCerraduraSuc">Lema 6.23</a>) existen 
+            sucesiones \((b_n)_{n=1}^\infty, (c_n)_{n=1}^\infty \subset B\) con 
+            \(\lim_{n\to \infty}b_n=b, \lim_{n\to \infty}c_n=c\). Del <a>Ejercicio 5.10</a>
+            se sigue que 
+            \[
+            \lim_{n\to \infty} \alpha b_n+c_n=\alpha b + c. 
+            \]
+            Pero al ser \(B\) un espacio vectorial, para todo \(n\), 
+            \(\alpha b_n+c_n\in B\). Por lo tanto 
+            \( (\alpha b_n+c_n)_{n=1}^\infty\) es una sucesión en \(B\),
+             así que de nuevao aplicando el <a href="./S6.html#Ejer:CaractCerraduraSuc">Lema 6.23</a>
+            concluimos \(\alpha b+c \in \overline{B}\).
+        </p>
      </div>
-
 
 
      <div class="prop-box">
@@ -233,8 +545,8 @@
             subálgebra cerrada de \(C(X)\). Entonces \(B\) es una sub-retícula 
             de \(C(X)\).
         </p>
-
      </div>
+
 
      <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
@@ -262,7 +574,7 @@
      </div>
 
      <div class="prop-box">
-        <h2 class="number-title"> Proposición </h2>
+        <h2 class="number-title" id="Prop:Separa+NoseAnula"> Proposición </h2>
         <p>
             Sea \(X\)  un conjunto no vacío y \(A \subseteq \mathcal{B}(X)\) 
             una subálgebra de \(\mathcal{B}(X)\) que separa los 
@@ -275,29 +587,10 @@
 
      </div>
 
-     <div class="teorema-box">
-        <h2 class="number-title"> Teorema (Stone-Weiertrass) </h2>
-        <p>
-            Sea \((X,d)\) un espacio métrico compacto y considera 
-            el espacio de funciones \((C(X),\|\cdot\|_\infty)\).
-        </p>
-            <p>
-            Si \(A \subseteq C(X)\) es una subálgebra de \(C(X)\) que satisface:
-            </p>
-            <ol>
-                <li>
-                    \(A\) separa los puntos de \(X\);
-                </li>
-                <li>
-                    \(A\)  no se anula en \(X\).
-                </li>
-            </ol> 
-            <p>
-                Entonces \(A\) es uniformemente denso en \(C(X)\), es decir 
-                para todo \(f\in C(X)\) existe \(h\in A\) tal que \(\|f-h\|_\infty < \varepsilon.\)
-            </p>
-        
-     </div>
+
+
+
+
 
     </div>
   </body>
