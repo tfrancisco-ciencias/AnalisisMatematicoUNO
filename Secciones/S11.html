@@ -524,7 +524,7 @@
             probar que \(\alpha b+c \in \overline{B}\). Por la caracterización 
             de los puntos en la cerradura (<a href="./S6.html#Ejer:CaractCerraduraSuc">Lema 6.23</a>) existen 
             sucesiones \((b_n)_{n=1}^\infty, (c_n)_{n=1}^\infty \subset B\) con 
-            \(\lim_{n\to \infty}b_n=b, \lim_{n\to \infty}c_n=c\). Del <a>Ejercicio 5.10</a>
+            \(\lim_{n\to \infty}b_n=b, \lim_{n\to \infty}c_n=c\). Del <a href="./S5.html#Ejer:SumaContinua">Ejercicio 5.10</a>
             se sigue que 
             \[
             \lim_{n\to \infty} \alpha b_n+c_n=\alpha b + c. 
@@ -534,6 +534,35 @@
             \( (\alpha b_n+c_n)_{n=1}^\infty\) es una sucesión en \(B\),
              así que de nuevao aplicando el <a href="./S6.html#Ejer:CaractCerraduraSuc">Lema 6.23</a>
             concluimos \(\alpha b+c \in \overline{B}\).
+        </p>
+        <p>
+            Para la segunda parte vamos a probar que \(B\) es cerrada bajo el producto del álgebra. 
+            Dados \(b,c\in \overline{B}\) debemos de probar que \(bc\in \overline{B}\). Sean 
+            \((b_n)_{n=1}^\infty, (c_n)_{n=1}^\infty \subset B\) como en la primera parte. Afirmamos 
+            que \(\lim_{n\to \infty}b_nc_n=bc\). Para probar lo anterior tenemos:
+            \begin{eqnarray*} 
+            \|b_nc_n-bc\|&=& \|b_nc_n - b_nc + b_nc -bc \| \\
+            &\leq & \|b_nc_n-b_nc\| + \| b_nc-bc\| \\
+            &= & \| b_n(c_n-c)\|+ \|(b_n-b)c\| \\
+            &\leq & \|b_n\| \|c_n-c\| + \|b_n-b\|\|c\|
+            \end{eqnarray*}
+            donde en la última desigualdad usamos  la propiedad de la norma en las álgebras normadas.
+            Ahora, ya que \(\lim_{n\to \infty}b_n=b\), la sucesión \((b_n)_{n=1}^\infty\) está acotada 
+            por lo que existe \(M>0\) tal que \(\|b_n\|\leq M\) para toda \(n\). Insertando ésta cota 
+            en la cadena de desigualdades anteriores llegamos a: 
+            \[
+            \|b_nc_n-bc\| \leq M\|c_n-c\|+ \|b_n-b\|\|c\|.
+            \]
+            Finamlemte, tomando límite cuando \(n\to \infty\) en la desigualdad anterior tenemos 
+            por la ley del Sandwich
+            \[
+            0 \leq \lim_{n\to \infty} \| b_nc_n-bc\| \leq M\lim_{n\to \infty}\|c_n-c\|+\|c\|\lim_{n\to \infty}\|b_n-b\|=0
+            \]
+            de lo que concluimos \(\lim_{n\to \infty}b_nc_n=bc\). Para terminar la prueba de que \(\overline{B}\)
+            es cerrada bajo producto procedemos como sigue: ya que \(B\) es una álgebra y \(b_n,c_n\in B\) para toda 
+            \(n\) se sigue que \(b_nc_n\in B\) para toda \(n\) y como \(\lim_{n\to \infty} b_nc_n=bc\)
+            por la caracterización de los puntos en la cerradura 
+            (<a href="./S6.html#Ejer:CaractCerraduraSuc">Lema 6.23</a>) concluimos que \(bc\in \overline{B}\).
         </p>
      </div>
 
