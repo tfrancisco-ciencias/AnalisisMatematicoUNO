@@ -200,7 +200,8 @@
             al conjunto de funciones continuas de \(X\) en \(\mathbb{R}\). Con 
             el orden usual de funciones \(C(X)\) es una retícula.
         </p>
-    
+    <button class="respButton hvr-grow"> Demostración </button>
+    <div class="resp-box">
         <p>
             Un cálculo directo muestra las siguientes fórmulas: dados \(s,t\in \mathbb{R}\) 
             \[
@@ -232,7 +233,7 @@
             \(\lim_{n\to \infty}|h(x_n)|=|h(x)|\). Al ser \(x\) arbitrario concluimos que \(|h|\)
             es continua en todo \(X\).
         </p>
-
+        </div>
      </div>
 
      <div class="definicion-box">
@@ -266,7 +267,7 @@
 
 
      <div class="teorema-box">
-        <h2 class="number-title"> Teorema </h2>
+        <h2 class="number-title" id="Teo:ReticulaDensa"> Teorema </h2>
         <p>
             Sea \((X,d)\) un espacio métrico compacto y considera 
             el espacio de funciones continuas de \(X\) en \(\mathbb{R}\)
@@ -287,6 +288,11 @@
                 Entonces \(R\) es uniformemente denso en \(C(X)\), es decir 
                 para todo \(f\in C(X)\) existe \(h\in R\) tal que \(\|h-f\|_\infty < \varepsilon.\)
             </p>
+            <p>
+                Nota: que \(R\) sea uniformemente denso en \(C(X)\) es equivalente a la identidad \(\overline{R}=C(X)\).
+            </p>
+            <button class="respButton hvr-grow"> Demostración </button>
+            <div class="resp-box">
             <p>
                 Fijamos \(f\in C(X)\) y \(\varepsilon >0\).
             </p>
@@ -391,6 +397,7 @@
                         lo cual implica \(\|h-f\|_\infty < \varepsilon\).
                     </p>
             </p>
+        </div>
      </div>
 
 
@@ -402,7 +409,7 @@
       <p>
         Para llegar al Teorema de Stone-Weierstrass vamos a necesitar 
         más estructura por parte de \(\mathcal{B}(X)\). 
-        El <a href="./S10.html#">Ejercicio 10.17</a> nos dice que \((\mathcal{B}(X),\|\cdot\|_\infty)\)
+        El <a href="./S10.html#Ejer:EspacioFunAcotadas"> Ejercicio 10.17</a> nos dice que \((\mathcal{B}(X),\|\cdot\|_\infty)\)
         es un espacio vectorial normado. Ahora queremos enfatizar otra operción presente en \(\mathcal{B}(X)\):
         la multiplicación. Si \(f,g:X\to \mathbb{R}\) son funciones acotadas, entonces su multiplicación, \(fg\), 
         es acotada pues para todo \(x\in X\):
@@ -512,12 +519,14 @@
 
 
      <div class="prop-box">
-        <h2 class="number-title"> Proposición  </h2>
+        <h2 class="number-title" id="Prop:CerraduraAlgebraEsAlgebra"> Proposición  </h2>
         <p>
             Sea \((A,\|\cdot\|)\) una álgebra normada y \(B\subseteq A\) una 
             subálgebra. Prueba que su cerradura, \(\overline{B}\), 
             también es una subálgebra de \(A\).
         </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
         <p>
             Primero vamos a probar que \(\overline{B}\) es un subespacio vectorial. Dados 
             \(b,c\in \overline{B}\) y un escalar \(\alpha\in \mathbb{R}\) debemos de 
@@ -564,17 +573,10 @@
             por la caracterización de los puntos en la cerradura 
             (<a href="./S6.html#Ejer:CaractCerraduraSuc">Lema 6.23</a>) concluimos que \(bc\in \overline{B}\).
         </p>
+        </div>
      </div>
 
 
-     <div class="prop-box">
-        <h2 class="number-title"> Proposición </h2>
-        <p>
-            Sea \((X,d)\) un espacio métrico compacto y \(B \subseteq C(X)\) una 
-            subálgebra cerrada de \(C(X)\). Entonces \(B\) es una sub-retícula 
-            de \(C(X)\).
-        </p>
-     </div>
 
 
      <div class="definicion-box">
@@ -589,7 +591,7 @@
                 tal que \(f(x)\ne f(y)\).
             </li>
             <li>
-                DEcimos que \(A\) no se anula en \(X\) si para todo \(x\in X\)
+                Decimos que \(A\) no se anula en \(X\) si para todo \(x\in X\)
                 existe una función  \(g\in A\) tal que \(g(x)\ne 0\).
             </li>
         </ol>
@@ -603,19 +605,173 @@
      </div>
 
      <div class="prop-box">
-        <h2 class="number-title" id="Prop:Separa+NoseAnula"> Proposición </h2>
+        <h2 class="number-title" id="Prop:Separa+NoseAnula"> Lema </h2>
         <p>
             Sea \(X\)  un conjunto no vacío y \(A \subseteq \mathcal{B}(X)\) 
             una subálgebra de \(\mathcal{B}(X)\) que separa los 
-            puntos de \(X\) y no se anula en \(X\).
+            puntos de \(X\) y no se anula en \(X\). Entonces \(A\) distingue los puntos de \(X\).
         </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
         <p>
-            Entonces para todos \(x,y\in X\), con \(x\ne y\), y cualesquiera escalares \(a,b\in \mathbb{R}\)
+            Sean \(x,y\in X\) con \(x\ne y\) y \(a,b\in \mathbb{R}\). Debemos asegurar que 
             existe una función \(f\in A\) tal que \(f(x)=a\) y \(f(y)=b\).
         </p>
-
+        <p>
+            Como \(A\) no se anula en \(X\) existen funciones \(g_x,g_y\in A\) tal que 
+            \(g_y(y)\ne 0\) y \(g_x(x)\ne 0\). Ahora usando que \(A\) separa los 
+            puntos de \(A\) existe \(h\in A\) tal que \(h(x)\ne h(y)\).
+        </p>
+        <p>
+            Ahora definimos \(F,G:X\to \mathbb{R}\) por 
+            \[
+            F(z)=(h(z)-h(y))g_x(z), G(z)=(h(z)-h(x))g_y(z). 
+            \]
+            Notamos que: \(F(x)\ne 0\), \(F(y)= 0 \), \(G(y)\ne 0, G(x)=0\). Además 
+            ya que \(A\) es una álgebra tenemos que \(F,G \in A\). 
+        </p>
+        <p>
+            Con éstas funciones definimos \(f:X\to \mathbb{R}\) por:
+            \[
+            f(z)=\frac{a}{F(x)}F(z)+ \frac{b}{G(y)}G(z).
+            \]
+            Al ser \(A\) espacio vectorial \(f\in A\).
+        </p>
+        <p>
+            Finalmente un cálculo directo prueba 
+            \begin{eqnarray*} 
+            f(x)=\frac{a}{F(x)}F(x)+ \frac{b}{G(y)}G(x)=a+0=a,\\
+            f(y)=\frac{a}{F(x)}F(y)+ \frac{b}{G(y)}G(y)=0+b=b.
+            \end{eqnarray*}
+        </p>
+        </div>
      </div>
 
+     <div class="teorema-box"> 
+        <h2 class="number-title"> Teorema (Stone-Weierstrass)</h2>
+        <p>
+            Sea \((X,d)\) un espacio métrico compacto y sea \(A\subseteq C(X)\)
+            que satisface:
+            <ol>
+                <li>
+                    \(A\) es una álgebra,
+                </li>
+                <li>
+                    \(A\) no se anula en \(X\),
+                </li>
+                <li>
+                    \(A\) separa los puntos de \(X\).
+                </li>
+            </ol>
+            
+        </p>
+        <p>
+            Entonces \(A\) es denso en el espacio \((C(X),\|\cdot\|_\infty)\). Es decir, 
+            para toda \(\varepsilon >0 \) y 
+            para todo \(f \in C(X)\) existe un \(h\in A\) tal que \(\|f-h\|_\infty < \varepsilon\). 
+        </p>
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+        <p>
+         Por la caracterización de los puntos en la cerradura 
+         de un conjunto, para probar el resultado es suficiente demostrar que \( \overline{A}=C(X)\).
+        </p>
+        <p>
+            Sea \(B=\overline{A}\). Si logramos probar que \(\overline{B}=C(X)\) 
+            habremos acabado pues \(\overline{B}=\overline{\overline{A}}=\overline{A}\).
+        </p>
+        <p>
+            Ahora, para probar que \(\overline{B}=C(X)\) vamos a usar el <a href="#Teo:ReticulaDensa">Teorema 11.6</a>. 
+            Para poder aplicar el dicho teorema debemos probar que:
+            <ol>
+                <li>
+                    \(B\) distingue los puntos de \(X\),
+                </li>
+                <li>
+                    \(B\) es una retícula de \(C(X)\).
+                </li>
+            </ol>
+        </p>
+        <p>
+            Primera veamos que \(B\) distingue los puntos de \(X\). Como  el conjunto 
+            \(A\) no se anula en \(X\) y separa los puntos de \(X\) del <a>Lema</a> se sigue 
+            que \(A\) distingue los puntos de \(X\). Pero como \(A\subseteq \overline{A}=B\)
+            se sigue que \(B\) distingue los puntos de \(X\).
+        </p>
+        <p>
+            Para probar que \(B\) es una retícula vamos a probar antes la siguiente afirmación.
+        </p>
+        <p>
+            Afirmación: si \(g\in B\) entonces \(|g|\in B\) (ésta es la parte más larga de la 
+            prueba de Stone-Weierstrass).
+        </p>
+        <p>
+            Razón:
+        </p>
+        <p>
+            Primero vamos a ver un poco de álgebra. Por la <a href="#Prop:CerraduraAlgebraEsAlgebra">Proposición 11.10</a> tenemos que 
+            \(B\) es una subálgebra. Ahora si \(p\) es un polinomio sin término constante
+            vamos a probar que \(p(g)\in B\) (nota: \(p(g)=p\circ g\)).  Como 
+            \(p\) no tiene término constante   lo podemos escribimos como 
+            \[
+            p(t)=\sum_{k=1}^m a_kt^k.
+            \]
+            Entonces para toda \(x\in X\):
+            \[
+            p(g(x))=\sum_{k=1}^m a_k g(x)^k.
+            \]
+            Tomando en cuenta de que \(B\) es subálgebra \(g^2, \dots, g^m \in B\) y al 
+            ser subespacio vectorial también tenemos que 
+            \(
+            \sum_{k=1}^m a_kg^k \in B
+            \) y por lo tanto \(p(g)\in B\).
+        </p>
+        <p>
+            El siguiente paso es hacer un poco de análisis. Ya que \(g:X\to \mathbb{R}\) es continua y \(X\) es compacto, \(g(B)\subset \mathbb{R}\)
+            es compacto, por lo tanto existe un \(M>0\) que cumple \(g(B)\subseteq [-M,M]\). 
+            Por otro lado, usando el Teorema de aproximación de Weierstrass (ó alternativamente el 
+            <a href="./S3.html#Ejer:AproxValorAbs">Ejercicio 3.20</a>) existe una sucesión de polinomios \((p_n)_{n=1}^\infty\)
+            que cumplen: \(p_n(t)\to |t|\) uniformemente en \([-M,M]\). Ahora viene una observación importante: como 
+            el valor absoluto de del cero es cero podemos suponer que para toda \(n\), \(p_n\) no tiene término constante.
+            (esto se puede justificar usando directamente el <a href="./S3.html#Ejer:AproxValorAbs">Ejercicio 3.20</a> 
+            o aplicando el <a href="./S3.html#Ejer:AproxSinterminoConstante">Ejercicio 3.15</a>). Usando la primera 
+            parte (la algebráica) tenemos que para toda \(n\), \(p_n(g)\in B\). 
+        </p>
+        <p>
+            Para continuar probamos que 
+            \(\lim_{n\to \infty}\|p_n(g)-|g|\|_\infty = 0\). En efecto, sabemos que 
+            \(p_n(t)\to |t|\)  uniformemente en \([-M,M]\), por lo tanto dado \(\varepsilon >0\)
+            existe \(N\in \mathbb{N}\) tal que para toda \(n\geq N\) y para toda \(t\in [-M,M]\),
+            \(|p_n(t)-|t|| < \varepsilon\). Tomando en cuenta que \(g(B)\subseteq [-M,M]\)
+            para los valores de la forma \(t=g(x)\) tenemos: \(| p_n(g(x))-|g(x)|| < \varepsilon\). Tomando 
+            supremo para \(x\in X\) en ésta última desigualdad llegamos que \(\|p_n(g)-|g|\|_\infty < \varepsilon\),
+            para toda \(n\geq N\), probando que \(\lim_{n\to \infty}\|p_n(g)-|g|\|=0\).
+        </p>
+        <p>
+            Ahora sí, vamos a probar que \(|g|\in B\). Por la primera parte \(p_n(g)\in B\)
+            para toda \(n\) y por la segunda, \(\lim_{n\to \infty}\|p_n(g)-|g|\|_\infty=0\)
+            lo cual implica que \(|g|\in \overline{B}\). Pero \(B\) es cerrado, por lo tanto 
+            podemos concluir que \(|g|\in B\). Aquí termina la afirmación.
+        </p>
+        <p>
+            Acontinuación probamos que \(B\) es una retícula. Dados \(f,h\in B\) sabemos que 
+            \[
+            \max\{f,h\}=\frac{f+h+|f-h|}{2}, \quad \min\{f,h\}=\frac{f+h-|f-h|}{2}
+            \]
+            pero como \(B\) es espacio vectorial, \(f+h, f-h \in B\) y por la afirmación 
+            \(|f-h|\in B\) así que usando nuevamente la estructura de espacio vectorial 
+            concluimos 
+            \[
+            \frac{f+h+|f-h|}{2}, \frac{f+h-|f-h|}{2} \in B, 
+            \]
+            probando que \(B\) es una retícula.
+        </p>
+        <p>
+            Como ya probamos que \(B\) distingue los puntos de \(X\) y que \(B\) es una retícula
+            el <a href="#Teo:ReticulaDensa">Teorema 11.6</a> implica inmediatamente que \(\overline{B}=C(X)\).
+        </p>
+    </div>
+    </div>
 
 
 
