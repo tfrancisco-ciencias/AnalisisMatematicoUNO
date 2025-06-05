@@ -85,7 +85,13 @@
       <div class="info-box">
         <h2 class="number-title"> Introducción </h2>
         <p>
-          
+            Vamos a terminar el curso como lo iniciamos, aproximando funciones continuas con
+            polinomios. La diferencia es que ahora tenemos la herramienta para 
+            hablar de funciones continuas sobre espacios más generales y vamos a reemplazar 
+            la familia de polinomios por familias más generales que se  llaman álgebras. El 
+            objetivo principal de ésta sección es probar el Teorema de aproximación de 
+            Stone-Weierstrass que es una generalización del 
+            <a href="./S3.html#Teo:AproxWeiestrass">Teorema de Aproximación de Weierstrass </a>.
         </p>
       </div>
 
@@ -693,8 +699,8 @@
             </ol>
         </p>
         <p>
-            Primera veamos que \(B\) distingue los puntos de \(X\). Como  el conjunto 
-            \(A\) no se anula en \(X\) y separa los puntos de \(X\) del <a>Lema</a> se sigue 
+            Primera veamos que \(B\) distingue los puntos de \(X\). Como  el álgebra  
+            \(A\) no se anula en \(X\) y separa los puntos de \(X\) del <a href="#Prop:Separa+NoseAnula">Lema 11.12</a> se sigue 
             que \(A\) distingue los puntos de \(X\). Pero como \(A\subseteq \overline{A}=B\)
             se sigue que \(B\) distingue los puntos de \(X\).
         </p>
@@ -732,24 +738,32 @@
             Por otro lado, usando el Teorema de aproximación de Weierstrass (ó alternativamente el 
             <a href="./S3.html#Ejer:AproxValorAbs">Ejercicio 3.20</a>) existe una sucesión de polinomios \((p_n)_{n=1}^\infty\)
             que cumplen: \(p_n(t)\to |t|\) uniformemente en \([-M,M]\). Ahora viene una observación importante: como 
-            el valor absoluto de del cero es cero podemos suponer que para toda \(n\), \(p_n\) no tiene término constante.
+            el valor absoluto de del cero es cero podemos suponer que para toda \(n\), \(p_n(0)=0\), lo 
+            cual implica que \(p_n\) no tiene término constante.
             (esto se puede justificar usando directamente el <a href="./S3.html#Ejer:AproxValorAbs">Ejercicio 3.20</a> 
             o aplicando el <a href="./S3.html#Ejer:AproxSinterminoConstante">Ejercicio 3.15</a>). Usando la primera 
             parte (la algebráica) tenemos que para toda \(n\), \(p_n(g)\in B\). 
         </p>
         <p>
             Para continuar probamos que 
-            \(\lim_{n\to \infty}\|p_n(g)-|g|\|_\infty = 0\). En efecto, sabemos que 
-            \(p_n(t)\to |t|\)  uniformemente en \([-M,M]\), por lo tanto dado \(\varepsilon >0\)
-            existe \(N\in \mathbb{N}\) tal que para toda \(n\geq N\) y para toda \(t\in [-M,M]\),
-            \(|p_n(t)-|t|| < \varepsilon\). Tomando en cuenta que \(g(B)\subseteq [-M,M]\)
-            para los valores de la forma \(t=g(x)\) tenemos: \(| p_n(g(x))-|g(x)|| < \varepsilon\). Tomando 
-            supremo para \(x\in X\) en ésta última desigualdad llegamos que \(\|p_n(g)-|g|\|_\infty < \varepsilon\),
-            para toda \(n\geq N\), probando que \(\lim_{n\to \infty}\|p_n(g)-|g|\|=0\).
+            \(\lim_{n\to \infty}\|p_n(g)-|g|\|_X = 0\). En efecto, sabemos que 
+            \(p_n(t)\to |t|\)  uniformemente en \([-M,M]\), por lo tanto dado 
+            \[
+            \lim_{n\to \infty}\left( \sup_{t\in [-M,M]}\{ |p_n(t)-|t||\}\right)=\lim_{n\to \infty}\|p_n-|t|\|_{[-M,M]}=0,
+            \]
+            pero usando que \(g(B)\subseteq [-M,M]\) llegamos a:
+            \[
+            \sup_{x\in X}\{|p_n(g(x))-|g(x)|| \} \leq \sup_{t\in [-M,M]}\{ |p_n(t)-|t||\}.
+            \]
+            Tomando límite cuando \(n\to \infty\) en la desigualdad anterior la ley del Sandwich implica que:
+            \[
+            \lim_{n\to \infty}\|p_n(g)-|g|\|_X=\lim_{n\to \infty}\left(\sup_{x\in X}\{|p_n(g(x))-|g(x)|| \}\right)=0.
+            \]
+            
         </p>
         <p>
             Ahora sí, vamos a probar que \(|g|\in B\). Por la primera parte \(p_n(g)\in B\)
-            para toda \(n\) y por la segunda, \(\lim_{n\to \infty}\|p_n(g)-|g|\|_\infty=0\)
+            para toda \(n\) y por la segunda, \(\lim_{n\to \infty}\|p_n(g)-|g|\|_X=0\)
             lo cual implica que \(|g|\in \overline{B}\). Pero \(B\) es cerrado, por lo tanto 
             podemos concluir que \(|g|\in B\). Aquí termina la afirmación.
         </p>
@@ -774,7 +788,76 @@
     </div>
 
 
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Sea \( (X,d_X), (Y,d_Y)\) dos espacios métricos compactos. Pruebe que 
+            toda función continua \(f:X\times Y \to \mathbb{R}\) puede 
+            aproximarse uniformemente con funciones de la forma
+            \begin{eqnarray*}
+            \sum_{i=1}^n g_i(x)h_i(y) 
+            \end{eqnarray*}
+            donde \(g_i:X\to \mathbb{R}\) y \(h_i:Y\to \mathbb{R}\) son continuas.
 
+        </p>
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Sea \(f:[0,1]\to \mathbb{R}\) una función continua. Suponga que 
+            \[
+            \int_0^1 f(x)(x^{n+1}(1-x)^2)''dx=0
+            \]
+            para todo \(n\geq 1\). Pruebe que \(f\) es una función lineal.
+        </p>
+    </div>
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Una función \(f:[a,b]\to \mathbb{R}\) se llama escalonada si 
+            existe una partición de \([a,b]\), \(\{a=t_0< t_1 < \cdots < t_n = b\}\), tal que 
+            para toda \(i=1,\dots, n\), existe una constante \(c_i\) tal que 
+            \(f(x)=c_i\), para toda \(x\in (t_{i-1},t_i)\).
+        </p>
+        <p>
+            Por \(S[a,b]\) denotamos al conjunto de funciones escalonadas de \([a,b]\) a 
+            \(\mathbb{R}\). Prueba que 
+            <ol>
+                <li>
+                    \(S[a,b]\) es una retícula.
+                </li>
+                <li>
+                    \(S[a,b]\) distingue los puntos de \([a,b]\).
+                </li>
+                <li>
+                    \(S[a,b]\) es una álgebra.
+                </li>
+                <li>
+                    \(S[a,b]\) es uniformemente densa en \(C[a,b]\).
+                </li>
+            </ol>
+        </p>
+    </div>
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+            Prueba que el conjunto de funciones pares en \(C[-1,1]\) es una subálgebra 
+            cerrada de \((C[-1,1],\|\cdot\|_\infty)\).
+        </p>
+    </div>
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio</h2>
+        <p>
+            Sea \(K\subset \mathbb{R}^n\) un subconjunto compacto. Prueba que el conjunto 
+            de polinomios en \(n\)-variables es uniformemente denso en \(C(K)\).
+        </p>
+    </div>
 
 
     </div>
