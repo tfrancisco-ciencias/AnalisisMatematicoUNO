@@ -175,40 +175,18 @@
       </div>
 
 
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+      <div class="info-box">
+        <h2 class="number-title"> Ejemplo </h2>
         <p>
-          Encuentra el límite puntual (si existe) de las siguientes
-          sucesiones de funciones.
+          Encuentra el límite puntual (si existe) de la siguiente 
+          sucesión \(f_n :\mathbb{R}\setminus \{-1\} \to \mathbb{R}\) dada por
         </p>
-        <ol>
-          <li>
-            \(f_n :\mathbb{R}\setminus \{-1\} \to \mathbb{R}\) dada por
+        <p>
             \[
             f_n(x)=\frac{x^n}{1+x^n}.
             \]
-          </li>
-          <li>
-            \(f_n:[0,1]\to \mathbb{R}\) dada por
-            \[
-            f_n(x)=\left\{
-              \begin{array}{cc}
-               4n^2 x , & 0 \leq x \leq \frac{1}{2n}, \\
-              -4n^2x+4n , &  \frac{1}{2n} \leq x \leq \frac{1}{n}, \\
-              0 , & \frac{1}{n}\leq x \leq 1 .
-              \end{array}
-              \right.
-            \]
-          </li>
-          <li>
-            \(f_n:\mathbb{R}\to \mathbb{R}\) dada por
-            \[
-            f_n(x)=\frac{\sen(\sqrt{n} x)}{n}.
-            \]
-          </li>
-        </ol>
-        <button class="respButton hvr-grow"> Solución inciso 1 </button>
+        </p>
+        <button class="respButton hvr-grow"> Solución  </button>
               <div class="resp-box">
         <p>
           Para \(|x|< 1 \), \(\lim_{n\to \infty}x^n=0\), por lo que: 
@@ -246,143 +224,10 @@
           \]
         </p>
         </div>
-      </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Prueba que, para toda \(x>0\),
-            \[
-            \lim_{n\to \infty} n(\sqrt[n]{x}-1)=\ln(x)
-            \]
-          </p>
-          <p>
-            Por lo tanto, la sucesión de funciones \(f_n(x)=n(\sqrt[n]{x}-1)\),
-            converge puntualmente a la función logaritmo en \((0,\infty)\).
-          </p>
-        </div>
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Sea \(\{q_n\}_{n=1}^\infty\) una enumaración de \(\mathbb{Q}\).
-            Define \(f_n:\mathbb{R}\to \mathbb{R}\) por
-            \[
-            f_n(x)=\left\{
-              \begin{array}{cc}
-              1, & \textrm{si \(x\in \{q_1,\dots, q_n\}\)}, \\
-              0, & \textrm{en otro caso} .
-              \end{array}
-              \right.
-            \]
-            Encuantra el límite puntual de \((f_n)_{n=1}^\infty\).
-          </p>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            El límite puntual no se lleva muy bien con las derivadas.
-          </p>
-          <ol>
-            <li>
-              Consiera la sucesión de funciones \((f_n:\mathbb{R}\to \mathbb{R})\)
-              dada por \(f_n(x)=\frac{\sen(nx)}{n}\). Encuentra el límite
-              puntual de \((f_n)_{n=1}^\infty\) pero muestra que
-              el límite puntual de \((f_n')_{n=1}^\infty\) no existe.
-            </li>
-            <li>
-              Considera la sucesión de funciones \(f_n:[0,1]\to \mathbb{R}\)
-              dada por \(f_n(x)=\frac{x^{n}}{n}\). Prueba que,
-              para todo \(x\in [0,1]\), los límites puntuales
-              \(\lim_{n\to \infty} f_n(x)\) y \(\lim_{n\to \infty} f_n'(x)\)
-              existen. Define \(f(x):=\lim_{n\to \infty} f_n(x)\) y para \(x\ne 1\)
-              prueba
-              \[
-              \lim_{n\to \infty} f_n'(x)= f'(x)
-              \]
-              pero
-              \[
-              \lim_{n\to \infty} f_n'(1) \ne f'(1)
-              \]
-              Por lo tanto, no siempre pasa que el límite puntual de las
-              derivadas es la derivada del límite puntual.
-
-            </li>
-
-          </ol>
-          <button class="respButton hvr-grow"> Solución inciso 1 </button>
-              <div class="resp-box">
-          <p>
-            Ya que \(|\frac{\sen(nx)}{n}|\leq \frac{1}{n}\) para todo \(x\in \mathbb{R}\), se sigue que 
-            \(\lim_{n\to \infty} f_n(x)=0\) para toda \(x\).
-          </p>
-          <p>
-            Sin embargo \(f_n'(x)=\cos(nx)\) el cual, para \(x\ne 0\), cumple que 
-            \(\lim_{n\to \infty}\cos(nx)\) no existe. Por ejemplo, para \(x=\pi\),
-            \(\cos(nx)=-1\) ó \(\cos(nx)=1\), dependiendo si \(n\) es impar o par, respectivamente. 
-          </p>
-          </div>
-
-          <button class="respButton hvr-grow"> Solución inciso 2 </button>
-              <div class="resp-box">
-
-          <p>
-            Ya que \(\left| \frac{x^n}{n} \right| \leq \frac{1}{n}\) para todo \(x\in [0,1]\), se sigue que 
-            \[
-            \lim_{n\to \infty}f_n(x)=0
-            \]
-            para todo \(x\in [0,1]\) y por lo tanto \(f=0\).
-          </p>
-          <p>
-            Por otro lado, \(f_n'(x)=x^{n-1}\), el cual sabemos que satisface
-            \[
-            \lim_{n\to \infty} f_n'(x)=
-            \left\{
-              \begin{array}{cc} 
-                0 & 0\leq x < 1, \\
-                1 & x=1 .
-              \end{array}
-              \right.
-            \]
-            Por lo tanto \(\lim_{n\to \infty}f_n'(1)\ne f'(1)\).
-          </p>
-          </div>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            El límite puntual no se lleva bien con las integrales.
-          </p>
-          <p>
-            Considera la sucesión de funciones
-            \[
-            f_n(x)=\left\{
-              \begin{array}{cc}
-               4n^2 x , & 0 \leq x \leq \frac{1}{2n}, \\
-              -4n^2x+4n , &  \frac{1}{2n} \leq x \leq \frac{1}{n}, \\
-              0 , & \frac{1}{n}\leq x \leq 1 .
-              \end{array}
-              \right.
-            \]
-            y sea \(f(x)=\lim_{n\to \infty} f_n(x)\) su límite puntual.
-          </p>
-          <p>
-            Prueba
-            \[
-            \lim_{n\to \infty} \int_0^1 f_n(t)dt \ne \int_0^1 f(t)dt
-            \]
-          </p>
-        </div>
-
-
-        <div class="definicion-box">
+       </div>   
+      
+          
+               <div class="definicion-box">
           <h2 class="number-title" id="Def:ConvergenciaUniforme"> Definición </h2>
           <p>
             Sea \(X\) un conjunto cualquiera y \((f_n:X\to \mathbb{R})_{n=1}^\infty\)
@@ -522,145 +367,8 @@
         </div>
 
 
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Investiga si las siguientes sucesiones de funciones convergen
-            uniformemente  ó no, sobre el dominio dado, a la función constante cero.
-          </p>
-          <ol>
-            <li>
-              \((f_n:\mathbb{R}\to \mathbb{R})_{n=1}^\infty\) dada por
-              \(f_n(x)=\frac{x}{1+nx^2}\).
-            </li>
-            <li>
-              \((f_n:[0,\infty)\to \mathbb{R})_{n=1}^\infty \) dada por
-              \(f_n(x)=xe^{-2nx}\).
-            </li>
-          </ol>
-          Sugerencia: usa cálculo para encontar la norma uniforme de cada \(f_n\).
-        </div>
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <ol>
-            <li>
-              Sea  \(X\) un conjunto, \(A\subseteq X\). 
-              Prueba que la sucesión de funciones \((f_n:X\to \mathbb{R}^n)_{n=1}^\infty\) 
-               NO
-              converge uniformemente en \(A\)  a la función
-              \(f\) si y sólo si
-              existe un \(\varepsilon_0>0\), una subsucesión
-              \((f_{n_k})_{k=1}^\infty\)
-              y una sucesión  \((a_n)_{n=1}^\infty \subset A \)
-              que satisface
-              \[
-              \| f_{n_k}(a_k)- f(a_{k})\| \geq \varepsilon_0
-              \]
-              para toda \(k \geq 1\).
-            </li>
-            <li>
-              Usa esto para probar que la sucesión
-              \((f_n:\mathbb{R}\to \mathbb{R})_{n=1}^\infty\)
-              dada por \(f_n(x)=x^n\), no converge uniformemente 
-              en \((-1,1)\) a la función cero. Nota: este ejemplo 
-              muestra que convergencia puntual no implica convergencia uniforme.
-            </li>
-          </ol>
-          
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Considera \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\)
-            una sucesión de funciones continuas con la propiedad de que
-            converge uniformemente en \(\mathbb{Q}\cap [a,b]\).
-          </p>
-          <p>
-            Prueba o da un contraejemplo: la sucesión \((f_n)_{n=1}^\infty\)
-            converge uniformemente en \([0,1]\).
-          </p>
-        </div>
-
-
-        <!-- <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Sea \((X,d)\) un espacio métrico y
-            \((f_n:X\to \mathbb{R})_{n=1}^\infty\) una sucesión de
-            funciones Lipschitz continuas, con la misma constante. Es decir,
-            exite \(M>0\) tal que, para todo \(n\in
-            \mathbb{N}\)  y para todos \(x_1,x_2\in X\)
-            \[
-            |f_n(x_1)-f_n(x_2)| \leq M d(x_1,x_2)
-            \]
-            Supón que la sucesión \((f_n)_{n=1}^\infty\) converge
-            puntualmente a una función \(f:X\to \mathbb{R}\).
-          </p>
-          <ol>
-            <li>
-              Prueba que \(f\) es Lipschitz continua con la misma constante
-              \(M\).
-            </li>
-            <li>
-              Prueba que si \(X\) es compacto entonces la sucesión \((f_n)_{n=1}^\infty\) converge
-              uniformemente en \(X\) a la función \(f\).
-            </li>
-          </ol>
-        </div>--> 
-
-
-        <!-- <div class="nota-box">
-          <h2 class="number-title"> Nota </h2>
-          <h3>
-              Convergencia uniforme implica convergencia puntual.
-          </h3>
-          <p>
-            Si una sucesión de funciones \((f_n:X\to \mathbb{R})_{n=1}^\infty\)
-            converge uniformemente en \(A\subseteq X\) a una función
-            \(f:A \to \mathbb{R}\) entonces también converge puntualmente.
-            Para ver la implicación sabemos que, por la convergencia
-            uniforme tenemos
-            \[
-            \lim_{n\to \infty}\|f_n-f\|_A = 0,
-            \]
-            pero, por la definición de la norma \(\|\cdot\|_A\)
-            tenemos que, para toda \(a \in A\), \(|f_n(a)-f(a)|\leq \|f_n-f\|_A \),
-            por lo tanto
-            \[
-            0\leq \lim_{n\to \infty} |f_n(a)-f(a)|\leq \lim_{n\to \infty} \|f_n-f\|_A=0
-            \]
-            es decir, \(\lim_{n\to \infty} f_n(a)=f(a)\).
-          </p>
-          <p>
-            La implicación
-            \[
-            \textrm{convergencia uniforme} \Rightarrow \textrm{convergencia puntual}
-            \]
-            nos da un punto de partida para investigar la convergecia
-            de una sucesión de funciones dadas. Por ejemplo, si queremos
-            investigar la convergencia uniforme
-            de la sucesión \((f_n:X\to \mathbb{R})_{n=1}^\infty\) sobre \(A\), lo
-            primero que hacemos es calcular o investigar la convergencia del
-            límite \(\lim_{n\to \infty} f_n(a)\), para toda \(a\in A\). Después definimos
-            la función \(f(a)=\lim_{n\to \infty}f_n(a)\) y para la
-            convergencia uniforme se estiman las normas
-            \(\|f_n-f\|_A\).
-          </p>
-          <p>
-            La implicación de regreso:
-            \(\textrm{convergencia puntual} \Rightarrow \textrm{convergencia uniforme}\),
-            no es cierta como se verá en los ejercicios que siguen.
-          </p>
-
-        </div>-->
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio  </h2>
+        <div class="info-box">
+          <h2 class="number-title"> Ejemplo </h2>
           <p>
             Considera la sucesión de funciones
             \((f_n:[-1,1]\to \mathbb{R})_{n=1}^\infty\) dada por
@@ -780,35 +488,6 @@
         </div>
 
 
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Para las siguientes sucesiones de funciones ecuentra su límite
-            puntual (si existe) y los subintervalos donde la convergencia
-            es uniforme.
-          </p>
-          <ol>
-            <li>
-              \(f_n:[0,1]\to \mathbb{R}\) dada por
-              \(f_n(x)=n^2x(1-x^2)^n\).
-            </li>
-            <li>
-              \(f_n:[0,\infty)\to \mathbb{R}\) dada por \(f_n(x)=\frac{nx}{1+nx}\).
-            </li>
-            <li>
-              \(f_n:[0,\infty)\to \mathbb{R}\) dada por \(f_n(x)=\frac{nx}{1+n^2x^2}\).
-            </li>
-            <li>
-              \(f_n:\mathbb{R}\to \mathbb{R}\) dada por \(f_n(x)=\frac{x^n}{1+x^{2n}}\).
-            </li>
-          </ol>
-
-
-        </div>
-
-
-
         <div class="teorema-box">
           <h2 class="number-title" id="Teo:ConveUnifYConti"> Teorema </h2>
           <p>
@@ -859,31 +538,8 @@
         </div>
 
 
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Sea
-            \((f_n:[a,b]\to \mathbb{R}^n)_{n=1}^\infty\) una sucesión de funciones continuas
-            tal que convergen uniformemente en \([a,b]\).
-          </p>
-          <p>
-            Sea \((x_m)_{m=1}^\infty \subset [a,b]\) una sucesión  convergente
-            en \([a,b]\). Prueba
-            \[
-            \lim_{n\to \infty}\left( \lim_{m\to \infty} f_n(x_m)\right)=
-            \lim_{m\to \infty}\left( \lim_{n\to \infty} f_n(x_m)\right)
-            \]
-          </p>
-          <p>
-            Sugerencia: usa el <a href="#Teo:ConveUnifYConti">teorema anterior</a>.
-          </p>
-        </div>
 
-
-
-
-
-      <div class="teorema-box">
+          <div class="teorema-box">
         <h2 class="number-title"> Teorema </h2>
         <p>
           Sea \((f_n:[a,b]\to \mathbb{R})\) una sucesión 
@@ -1010,80 +666,6 @@
     </div>
     </div>
 
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Prueba
-            \[
-            \lim_{n\to \infty}\int_{\pi/2}^\pi\frac{\sen(nx)}{nx}dx=0
-            \]
-          </p>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Cálcula el límite
-            \[
-            \lim_{n\to \infty} \int_0^1 \frac{e^{-nt}}{\sqrt{t}} dt
-            \]
-          </p>
-        </div>
-
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión
-            de funciones continuas que converge uniformemente en \([a,b]\).
-          </p>
-          <p>
-            Define \(F_n:[a,b]\to \mathbb{R}\) por
-            \[
-              F_n(x):=\int_a^x f_n(t)dt
-            \]
-            Prueba que la sucesión \((F_n)_{n=1}^\infty\)
-            converge uniformemente en \([a,b]\).
-          </p>
-        </div>
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Supongamos que tenemos una sucesión de funciones continuas
-            \((f_n:[a,b]\to \mathbb{R})\) que converge uniformemente
-            en \([a,b]\) a la función \(f:[a,b]\to \mathbb{R}\). Prueba
-            \[
-            \lim_{n\to \infty}\int_a^b \left( \int_a^xf_n(t)dt \right) dx=
-            \int_a^b \left(\int_a^x f(t)dt\right)dx
-            \]
-          </p>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-
-          <p>
-            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una
-            sucesión de funciones continuas que converge
-            uniformemente en \([a,b]\) a una función
-            \(f\).
-          </p>
-          <p>
-            Supón que \(g:[a,b]\to \mathbb{R}\) es una función Riemann
-            integrable en \([a,b]\). Prueba que
-            \[
-            \lim_{n\to \infty} \int_a^b f_n(t)g(t)dt =\int_a^b f(t)g(t)dt
-            \]
-          </p>
-        </div>
 
 
 
@@ -1251,6 +833,443 @@
 
 
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Encuentra el límite puntual (si existe) de las siguientes
+          sucesiones de funciones.
+        </p>
+        <ol>
+
+          <li>
+            \(f_n:[0,1]\to \mathbb{R}\) dada por
+            \[
+            f_n(x)=\left\{
+              \begin{array}{cc}
+               4n^2 x , & 0 \leq x \leq \frac{1}{2n}, \\
+              -4n^2x+4n , &  \frac{1}{2n} \leq x \leq \frac{1}{n}, \\
+              0 , & \frac{1}{n}\leq x \leq 1 .
+              \end{array}
+              \right.
+            \]
+          </li>
+          <li>
+            \(f_n:\mathbb{R}\to \mathbb{R}\) dada por
+            \[
+            f_n(x)=\frac{\sen(\sqrt{n} x)}{n}.
+            \]
+          </li>
+        </ol>
+           </div>
+      </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba que, para toda \(x>0\),
+            \[
+            \lim_{n\to \infty} n(\sqrt[n]{x}-1)=\ln(x)
+            \]
+          </p>
+          <p>
+            Por lo tanto, la sucesión de funciones \(f_n(x)=n(\sqrt[n]{x}-1)\),
+            converge puntualmente a la función logaritmo en \((0,\infty)\).
+          </p>
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \(\{q_n\}_{n=1}^\infty\) una enumaración de \(\mathbb{Q}\).
+            Define \(f_n:\mathbb{R}\to \mathbb{R}\) por
+            \[
+            f_n(x)=\left\{
+              \begin{array}{cc}
+              1, & \textrm{si \(x\in \{q_1,\dots, q_n\}\)}, \\
+              0, & \textrm{en otro caso} .
+              \end{array}
+              \right.
+            \]
+            Encuantra el límite puntual de \((f_n)_{n=1}^\infty\).
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            El límite puntual no se lleva muy bien con las derivadas.
+          </p>
+          <ol>
+            <li>
+              Consiera la sucesión de funciones \((f_n:\mathbb{R}\to \mathbb{R})\)
+              dada por \(f_n(x)=\frac{\sen(nx)}{n}\). Encuentra el límite
+              puntual de \((f_n)_{n=1}^\infty\) pero muestra que
+              el límite puntual de \((f_n')_{n=1}^\infty\) no existe.
+            </li>
+            <li>
+              Considera la sucesión de funciones \(f_n:[0,1]\to \mathbb{R}\)
+              dada por \(f_n(x)=\frac{x^{n}}{n}\). Prueba que,
+              para todo \(x\in [0,1]\), los límites puntuales
+              \(\lim_{n\to \infty} f_n(x)\) y \(\lim_{n\to \infty} f_n'(x)\)
+              existen. Define \(f(x):=\lim_{n\to \infty} f_n(x)\) y para \(x\ne 1\)
+              prueba
+              \[
+              \lim_{n\to \infty} f_n'(x)= f'(x)
+              \]
+              pero
+              \[
+              \lim_{n\to \infty} f_n'(1) \ne f'(1)
+              \]
+              Por lo tanto, no siempre pasa que el límite puntual de las
+              derivadas es la derivada del límite puntual.
+
+            </li>
+
+          </ol>
+          <button class="respButton hvr-grow"> Solución inciso 1 </button>
+              <div class="resp-box">
+          <p>
+            Ya que \(|\frac{\sen(nx)}{n}|\leq \frac{1}{n}\) para todo \(x\in \mathbb{R}\), se sigue que 
+            \(\lim_{n\to \infty} f_n(x)=0\) para toda \(x\).
+          </p>
+          <p>
+            Sin embargo \(f_n'(x)=\cos(nx)\) el cual, para \(x\ne 0\), cumple que 
+            \(\lim_{n\to \infty}\cos(nx)\) no existe. Por ejemplo, para \(x=\pi\),
+            \(\cos(nx)=-1\) ó \(\cos(nx)=1\), dependiendo si \(n\) es impar o par, respectivamente. 
+          </p>
+          </div>
+
+          <button class="respButton hvr-grow"> Solución inciso 2 </button>
+              <div class="resp-box">
+
+          <p>
+            Ya que \(\left| \frac{x^n}{n} \right| \leq \frac{1}{n}\) para todo \(x\in [0,1]\), se sigue que 
+            \[
+            \lim_{n\to \infty}f_n(x)=0
+            \]
+            para todo \(x\in [0,1]\) y por lo tanto \(f=0\).
+          </p>
+          <p>
+            Por otro lado, \(f_n'(x)=x^{n-1}\), el cual sabemos que satisface
+            \[
+            \lim_{n\to \infty} f_n'(x)=
+            \left\{
+              \begin{array}{cc} 
+                0 & 0\leq x < 1, \\
+                1 & x=1 .
+              \end{array}
+              \right.
+            \]
+            Por lo tanto \(\lim_{n\to \infty}f_n'(1)\ne f'(1)\).
+          </p>
+          </div>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            El límite puntual no se lleva bien con las integrales.
+          </p>
+          <p>
+            Considera la sucesión de funciones
+            \[
+            f_n(x)=\left\{
+              \begin{array}{cc}
+               4n^2 x , & 0 \leq x \leq \frac{1}{2n}, \\
+              -4n^2x+4n , &  \frac{1}{2n} \leq x \leq \frac{1}{n}, \\
+              0 , & \frac{1}{n}\leq x \leq 1 .
+              \end{array}
+              \right.
+            \]
+            y sea \(f(x)=\lim_{n\to \infty} f_n(x)\) su límite puntual.
+          </p>
+          <p>
+            Prueba
+            \[
+            \lim_{n\to \infty} \int_0^1 f_n(t)dt \ne \int_0^1 f(t)dt
+            \]
+          </p>
+        </div>
+
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Investiga si las siguientes sucesiones de funciones convergen
+            uniformemente  ó no, sobre el dominio dado, a la función constante cero.
+          </p>
+          <ol>
+            <li>
+              \((f_n:\mathbb{R}\to \mathbb{R})_{n=1}^\infty\) dada por
+              \(f_n(x)=\frac{x}{1+nx^2}\).
+            </li>
+            <li>
+              \((f_n:[0,\infty)\to \mathbb{R})_{n=1}^\infty \) dada por
+              \(f_n(x)=xe^{-2nx}\).
+            </li>
+          </ol>
+          Sugerencia: usa cálculo para encontar la norma uniforme de cada \(f_n\).
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <ol>
+            <li>
+              Sea  \(X\) un conjunto, \(A\subseteq X\). 
+              Prueba que la sucesión de funciones \((f_n:X\to \mathbb{R}^n)_{n=1}^\infty\) 
+               NO
+              converge uniformemente en \(A\)  a la función
+              \(f\) si y sólo si
+              existe un \(\varepsilon_0>0\), una subsucesión
+              \((f_{n_k})_{k=1}^\infty\)
+              y una sucesión  \((a_n)_{n=1}^\infty \subset A \)
+              que satisface
+              \[
+              \| f_{n_k}(a_k)- f(a_{k})\| \geq \varepsilon_0
+              \]
+              para toda \(k \geq 1\).
+            </li>
+            <li>
+              Usa esto para probar que la sucesión
+              \((f_n:\mathbb{R}\to \mathbb{R})_{n=1}^\infty\)
+              dada por \(f_n(x)=x^n\), no converge uniformemente 
+              en \((-1,1)\) a la función cero. Nota: este ejemplo 
+              muestra que convergencia puntual no implica convergencia uniforme.
+            </li>
+          </ol>
+          
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Considera \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\)
+            una sucesión de funciones continuas con la propiedad de que
+            converge uniformemente en \(\mathbb{Q}\cap [a,b]\).
+          </p>
+          <p>
+            Prueba o da un contraejemplo: la sucesión \((f_n)_{n=1}^\infty\)
+            converge uniformemente en \([0,1]\).
+          </p>
+        </div>
+
+
+        <!-- <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \((X,d)\) un espacio métrico y
+            \((f_n:X\to \mathbb{R})_{n=1}^\infty\) una sucesión de
+            funciones Lipschitz continuas, con la misma constante. Es decir,
+            exite \(M>0\) tal que, para todo \(n\in
+            \mathbb{N}\)  y para todos \(x_1,x_2\in X\)
+            \[
+            |f_n(x_1)-f_n(x_2)| \leq M d(x_1,x_2)
+            \]
+            Supón que la sucesión \((f_n)_{n=1}^\infty\) converge
+            puntualmente a una función \(f:X\to \mathbb{R}\).
+          </p>
+          <ol>
+            <li>
+              Prueba que \(f\) es Lipschitz continua con la misma constante
+              \(M\).
+            </li>
+            <li>
+              Prueba que si \(X\) es compacto entonces la sucesión \((f_n)_{n=1}^\infty\) converge
+              uniformemente en \(X\) a la función \(f\).
+            </li>
+          </ol>
+        </div>--> 
+
+
+        <!-- <div class="nota-box">
+          <h2 class="number-title"> Nota </h2>
+          <h3>
+              Convergencia uniforme implica convergencia puntual.
+          </h3>
+          <p>
+            Si una sucesión de funciones \((f_n:X\to \mathbb{R})_{n=1}^\infty\)
+            converge uniformemente en \(A\subseteq X\) a una función
+            \(f:A \to \mathbb{R}\) entonces también converge puntualmente.
+            Para ver la implicación sabemos que, por la convergencia
+            uniforme tenemos
+            \[
+            \lim_{n\to \infty}\|f_n-f\|_A = 0,
+            \]
+            pero, por la definición de la norma \(\|\cdot\|_A\)
+            tenemos que, para toda \(a \in A\), \(|f_n(a)-f(a)|\leq \|f_n-f\|_A \),
+            por lo tanto
+            \[
+            0\leq \lim_{n\to \infty} |f_n(a)-f(a)|\leq \lim_{n\to \infty} \|f_n-f\|_A=0
+            \]
+            es decir, \(\lim_{n\to \infty} f_n(a)=f(a)\).
+          </p>
+          <p>
+            La implicación
+            \[
+            \textrm{convergencia uniforme} \Rightarrow \textrm{convergencia puntual}
+            \]
+            nos da un punto de partida para investigar la convergecia
+            de una sucesión de funciones dadas. Por ejemplo, si queremos
+            investigar la convergencia uniforme
+            de la sucesión \((f_n:X\to \mathbb{R})_{n=1}^\infty\) sobre \(A\), lo
+            primero que hacemos es calcular o investigar la convergencia del
+            límite \(\lim_{n\to \infty} f_n(a)\), para toda \(a\in A\). Después definimos
+            la función \(f(a)=\lim_{n\to \infty}f_n(a)\) y para la
+            convergencia uniforme se estiman las normas
+            \(\|f_n-f\|_A\).
+          </p>
+          <p>
+            La implicación de regreso:
+            \(\textrm{convergencia puntual} \Rightarrow \textrm{convergencia uniforme}\),
+            no es cierta como se verá en los ejercicios que siguen.
+          </p>
+
+        </div>-->
+
+        
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Para las siguientes sucesiones de funciones ecuentra su límite
+            puntual (si existe) y los subintervalos donde la convergencia
+            es uniforme.
+          </p>
+          <ol>
+            <li>
+              \(f_n:[0,1]\to \mathbb{R}\) dada por
+              \(f_n(x)=n^2x(1-x^2)^n\).
+            </li>
+            <li>
+              \(f_n:[0,\infty)\to \mathbb{R}\) dada por \(f_n(x)=\frac{nx}{1+nx}\).
+            </li>
+            <li>
+              \(f_n:[0,\infty)\to \mathbb{R}\) dada por \(f_n(x)=\frac{nx}{1+n^2x^2}\).
+            </li>
+            <li>
+              \(f_n:\mathbb{R}\to \mathbb{R}\) dada por \(f_n(x)=\frac{x^n}{1+x^{2n}}\).
+            </li>
+          </ol>
+
+
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea
+            \((f_n:[a,b]\to \mathbb{R}^n)_{n=1}^\infty\) una sucesión de funciones continuas
+            tal que convergen uniformemente en \([a,b]\).
+          </p>
+          <p>
+            Sea \((x_m)_{m=1}^\infty \subset [a,b]\) una sucesión  convergente
+            en \([a,b]\). Prueba
+            \[
+            \lim_{n\to \infty}\left( \lim_{m\to \infty} f_n(x_m)\right)=
+            \lim_{m\to \infty}\left( \lim_{n\to \infty} f_n(x_m)\right)
+            \]
+          </p>
+          <p>
+            Sugerencia: usa el <a href="#Teo:ConveUnifYConti">teorema anterior</a>.
+          </p>
+        </div>
+
+
+
+
+
+    
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba
+            \[
+            \lim_{n\to \infty}\int_{\pi/2}^\pi\frac{\sen(nx)}{nx}dx=0
+            \]
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Cálcula el límite
+            \[
+            \lim_{n\to \infty} \int_0^1 \frac{e^{-nt}}{\sqrt{t}} dt
+            \]
+          </p>
+        </div>
+
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión
+            de funciones continuas que converge uniformemente en \([a,b]\).
+          </p>
+          <p>
+            Define \(F_n:[a,b]\to \mathbb{R}\) por
+            \[
+              F_n(x):=\int_a^x f_n(t)dt
+            \]
+            Prueba que la sucesión \((F_n)_{n=1}^\infty\)
+            converge uniformemente en \([a,b]\).
+          </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Supongamos que tenemos una sucesión de funciones continuas
+            \((f_n:[a,b]\to \mathbb{R})\) que converge uniformemente
+            en \([a,b]\) a la función \(f:[a,b]\to \mathbb{R}\). Prueba
+            \[
+            \lim_{n\to \infty}\int_a^b \left( \int_a^xf_n(t)dt \right) dx=
+            \int_a^b \left(\int_a^x f(t)dt\right)dx
+            \]
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+
+          <p>
+            Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una
+            sucesión de funciones continuas que converge
+            uniformemente en \([a,b]\) a una función
+            \(f\).
+          </p>
+          <p>
+            Supón que \(g:[a,b]\to \mathbb{R}\) es una función Riemann
+            integrable en \([a,b]\). Prueba que
+            \[
+            \lim_{n\to \infty} \int_a^b f_n(t)g(t)dt =\int_a^b f(t)g(t)dt
+            \]
+          </p>
+        </div>
+
+
+
+
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
           <p>
@@ -1376,19 +1395,15 @@
         </div>
         </div>-->
 
-
-
-
-
-
     </div>
 
 
+    <div class="ejercicio-box"> 
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
 
-<div class="quiz-box">
-  <h2> Quiz  </h2>
-  <ol>
-      <li>
+       <ol>
+       <li>
         <p>
           Sea \(X\) un conjunto no vacío y considera dos sucesiones de funciones 
           \((f_n:X\to \mathbb{R})_{n=1}^\infty, (g_n:X\to \mathbb{R})_{n=1}^\infty\) tal que 
@@ -1401,13 +1416,56 @@
           converge uniformemente a \(fg\) en \(X\).
         </p>
       
-      </li>
-      <li>
+       </li>
+       <li>
         Da un ejemplo que muestra que el resultado del ejercicio anterior 
         puede fallar si la hipótesis, \(\sup_{x\in X}\{ |g_n(x)|\} \leq M\), para toda \(n\) ó
         que la función \(f\) sea acotada, se elimina.
-       </li>
-  </ol>
+      </li>
+     </ol>
+     </p>
+    </div>
+
+
+
+    <div class="ejercicio-box"> 
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión de funciones continuas que converge uniformemente 
+        a \(f\) en \([a,b]\).
+      </p>
+
+       <ol>
+        <li>
+          Prueba que existe una constante \(M>0\) tal que \(|f_n(x)|\leq M\) para todo \(x\in [a,b]\) y para toda \(n\).
+        </li>
+        <li>
+          Sea \((g_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión de funciones continuas que converge uniformemente 
+          a \(g\) en \([a,b]\). Prueba que la sucesión producto \((f_ng_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) converge 
+          uniformemente a \(fg\) en \([a,b]\).
+        </li>
+        <li>
+          ¿Contradice esto el resultado del ejercicio anterior? ¿Por qué?
+        </li>
+       </ol>
+    </div>
+
+
+
+
+<div class="quiz-box">
+  <h2> Quiz  </h2>
+ 
+
+            <p>
+              Pidele a Gemini que genere un quiz para repasar el tema de ésta sección. 
+              El default son 10 preguntas de opción múltiple 
+              y ojo que puede tardar 
+              un poco en generar el quiz (fijate en la esquina superior derecha).
+            </p>
+            <p class="flexbox">
+              <a href="https://gemini.google.com/gem/1tyAWlfzBjk1c0jv5yhU10nGz9r0sZnq1?usp=sharing" target="_blank" style="font-size: 30px"> Quiz me! </a>
+            </p>
   
 </div>
 
