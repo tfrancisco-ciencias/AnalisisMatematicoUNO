@@ -178,15 +178,6 @@
         </div>
 
 
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio  </h2>
-          <p>
-            Si \(A\) es un subconjunto finito y \(B\subseteq A\) entonces \(B\) también es finito.
-          </p>
-
-        </div>
-
         <div class="lema-box">
           <h2 class="number-title"> Lema </h2>
           <p>
@@ -204,166 +195,7 @@
         </div>
         </div>
 
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            <ol>
-              <li>Prueba que un conjunto es infinito si y sólo si contiene
-            un conjunto numerable.
-            </li>
-          <li>
-            Prueba que un conjunto es infinito si y sólo si contiene
-            un subconjunto propio equivalente a él mismo.
-          </li>
-          </p>
 
-          <!--<button class="respButton hvr-grow"> Respuesta </button>
-          <div class="resp-box">
-              <p>1.
-
-                  \(\Rightarrow\) Supongamos que \(A\) es infinito.
-                  Comencemos por notar que si \(A\) es un conjunto finito y \(x_1 \notin A\)
-                  entonces \(A \cup \{x_1\}\) también es un conjunto finito. Equivalentemente,
-                  si \(x_i \notin A\) y \(A \cup \{x_1\}\) es infinito, entonces \(A\) es infinito.
-                  Esta observación nos permite construir de manera recursiva un subconjunto
-                  numerable:
-              </p>
-              <p>
-                  Como \(A \neq \varnothing\) existe \(x_1 \in A\) y \(A \setminus \{x_1\} = A_1\) es
-                  infinito. De manera análoga podemos extraer \(x_2 \in A_1\) y \(A_2 = A_1 \setminus \{x_2\}\)
-                  es infinito. Supongamos que hemos extraído \(n\) elementos distintos de \(A\), de esta
-                  manera \(A_n = A \setminus \{x_1,...,x_n\}\) es un conjunto infinito al cual no
-                  pertenece ninguno de los elementos removidos y podemos extraer un elemento
-                  \(x_{n+1}\) distinto de todos los anteriores. Denotamos por \(A_0 = \{x_1,x_2,...\}\)
-                  al conjunto obtenido de esta manera.
-                  Por construcción \(A_0\) es numerable, la biyección está dada por \(n \mapsto x_n\)
-              </p>
-              <p>
-                  \(\Leftarrow\). Supongamos ahora que \(A\) es un conjunto finito. Si \(A = \varnothing\)
-                  es inmediato que no tiene ningún subconjunto numerable porque no existen funciones
-                  \(f: \mathbb{N} \to \varnothing\). Trabajemos con el caso en que \(A \neq \varnothing\).
-                  Si \(f: \{1,...,n\} \to A\) y \(B \subseteq A\) entonces podemos definir una función \(g\)
-                  de la siguiente manera:
-              </p>
-              <p>
-                  \(g(1) = f(\min \{k : f(k) \in B\})\).
-                  Si \(B \setminus \{g(1)\} = \varnothing\) entonces hemos terminado, si no es así entonces
-                  definimos \(B_1 = B \setminus g(1)\) y definimos \(g(2)= \min \{k : f(k) \in B_1\}\).
-                  Este proceso se puede repetir a lo más \(n\) veces, una vez que obtenemos el conjunto
-                  vacío hemos terminado, y como \(m < n\) implica que \(g(m) \neq g(n)\), entonces \(g\) es
-                  una biyección con \(\{1,...,m\}\), \(m \leq n\). Por lo tanto \(A\) no tiene ningún
-                  subconjunto numerable.
-              </p>
-              <p>
-                  2.\(\Rightarrow\) Supongamos que \(A\) es infinito. Por 1) \(A\) tiene un subconjunto
-                  numerable al cual denotamos por \(A_0\). Sea \(f: \mathbb{N} \to A_0\) una biyección.
-                  Observe que \(\tilde{f}(n) = f(n+1)\) define una biyección entre \(\mathbb{N}\) y
-                  \(A_0 \setminus \{f(1)\}\), y en consecuencia entre \(A_0 \setminus \{f(1)\}\) y
-                  \(A_0\) por medio de \(g = \tilde{f} \circ f^{-1}\). Para concluir, observe que
-                  \(h: A \to A \setminus \{f(1)\}\) dada por \(h(x) = x\) si \(x \notin A_0\) y
-                  \(h(x) = g(x)\) si \(x \in A_0\).
-              </p>
-              <p>
-                  \(\Leftarrow\) Suponga ahora que \(A\) es finito. Si \(B \subsetneq A\) entonces
-                  existe \(x_0 \in A\) tal que \(x_0 \notin B\). Si \(f: \{1,...,n\} \to A\) es una
-                  biyección, entonces existe \(k \leq n\) tal que \(x_0 = f(k)\). Al repetir la construcción
-                  de una función \(g\) como en la segunda parte del inciso 1) se observa que el proceso
-                  termina en \(m\) pasos, con \(m \leq n-1\). Como \(\{1,...,m\}\) y \(\{1,...,n\}\)
-                  no son biyectables si \(n \neq m\), entonces \(A\) y \(B\) tampoco lo son y \(A\)
-                  no tiene ningún subconjunto propio equivalente a él mismo.
-              </p>
-          </div>-->
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Prueba que si \(A\) es infinito y \(B\) es contable
-            entonces \(A\) y \(A\cup B\) son equivalentes.
-          </p>
-          <p>
-            Sugerencia: usar el ejercicio anterior para "acomodar"
-            a \(B\) en una parte de \(A\).
-          </p>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Sean \(A_1,A_2,B_1,B_2\) conjuntos tales que
-            \(A_1\) y \(A_2\) son equivalentes y
-            \(B_1\) y \(B_2\) son equivalentes. Prueba que
-            \(A_1\times B_1\) es equivalente a \(A_2\times B_2\).
-          </p>
-          <p>
-            Sugerencia: tomar producto cartesiano de funciones.
-          </p>
-        </div>
-
-        <div class="ejercicio-box">
-          <h2 class="number-title" id="Ejer:InAndOutNumerables"> Ejercicio </h2>
-          <p>
-            Sea \(A\) un conjunto contable y sean
-            \(C,B\) dos conjuntos.
-          </p>
-          <ol>
-            <li> Prueba que si existe una función \(f:A\to B\)
-              suprayectiva entonces \(B\) es contable .</li>
-            <li>
-              Prueba que si existe una función \(f:C \to A\)
-              inyectiva entonces \(C\) es contable.
-            </li>
-          </ol>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Prueba que \((0,1)\) y \((0,1]\) son equivalentes.
-          </p>
-          <button class="respButton hvr-grow"> Respuesta </button>
-          <div class="resp-box">
-              <p>
-                  Considere la siguiente función. \[f(x) =
-                  \begin{cases}
-                  x \text{ si x es irracional}, \\
-                  x \text{ si } x=\frac{p}{q} \text{ con }p>1,\\
-                  \frac{1}{n-1} \text{ si } x=\frac{1}{n} \text{ y } n\geq 2,
-                  \end{cases}\]
-                  donde \(x = \frac{p}{q}\) es la representación de un racional
-                  en primos relativos. Comencemos por notar que si \(x \in (0,1)\)
-                  entonces \(x\) es racional o irracional, y si es racional de la
-                  forma \(\frac{p}{q}\) entonces \(p,q \geq 1\). Adicionalmente
-                  \(1 \notin (0,1)\), por lo que \(f\) está bien definida.
-              </p>
-              <p>
-                  Supongamos que \(f(x) = f(y)\). Podemos considerar el caso en
-                  que \(f(x)\) es irracional y el caso en que es racional. Por
-                  definición, \(x\) es racional si y sólo si \(f(x)\) lo es, por
-                  lo que \(x\) es racional si y sólo si \(y\) también lo es. La
-                  restricción de \(f\) a \(\mathbb{I}\) es la identidad, por lo
-                  que es inyectiva en dicho subconjunto. Note que \(\frac{1}{n}\) y
-                  \(\frac{1}{n-1}\) son representaciones de números racionales en
-                  primos relativos, por lo que la restricción \(f\) a \(\mathbb{Q} \cap (0,1)\)
-                  también es inyectiva, y por la primera observación se tiene que
-                  necesariamente \(x = y\), es decir, \(f\) es inyectiva.
-              </p>
-              <p>
-                  Para demostrar que la función es sobreyectiva también separamos
-                  el problema en casos. Si \(y \in (0,1]\) es irracional, entonces
-                  \(y \in (0,1)\) y \(f(y) = y\). Si \(y\) es racional, entonces es
-                  de la forma \(y = \frac{p}{q}\) con \(p,q\) primos relativos. Si
-                  \(p > 1\) entonces nuevamente se observa que \(y = \frac{p}{q} = f(y)\).
-                  Finalmente, si \(y = \frac{1}{n}\) entonces notamos que \(n+1 \geq 2\) y
-                  que \(y = \frac{1}{n} = \frac{1}{(n+1) - 1} = f(\frac{1}{n+1})\).
-                  Se concluye que \(f\) es sobreyectiva y que los conjuntos propuestos
-                  son equivalentes.
-              </p>
-          </div>
-        </div>
 
         <div class="teorema-box">
           <h2 class="number-title"> Teorema </h2>
@@ -391,19 +223,7 @@
           </div>
           </div>
 
-
-
-          <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-            <p>
-              Prueba que \(\mathbb{Q}\) es numerable.
-            <p>
-              <p>
-                Sugerencia: usa el teorema anterior.
-              </p>
-          </div>
-
-          <div class="nota-box">
+                    <div class="nota-box">
             <h2 class="number-title">  Nota </h2>
             <h3> Expansión decimal </h3>
             <p>
@@ -568,36 +388,6 @@
             </div>
           </div>
 
-          <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-            <p>
-              Prueba que toda familia de intervalos abiertos en
-              \(\mathbb{R}\), distintos del vacío y ajenos dos a dos, debe ser contable.
-            </p>
-            <p>
-              Es decir, si \(\mathcal{F}\) es una familia de
-              intervalos abiertos de \(\mathbb{R}\), que satisface
-              \(I\neq \emptyset\) para toda \(I\in \mathcal{F}\)
-              y \(I\cap J =\emptyset\), para cualesquiera
-              \(I,J\in \mathcal{F}\) distintos, entonces
-              \(\mathcal{F}\) es contable.
-            </p>
-          </div>
-
-
-
-
-          <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-            <p>
-              Prueba que \(\mathbb{N}\) tiene una cantidad infinidad de
-              conjuntos infinitos, ajenos dos a dos.
-            </p>
-
-            <p>
-              Sugerencia: usa que \(\mathbb{N}\sim \mathbb{N}\times \mathbb{N}\).
-            </p>
-          </div>
 
           <div class="teorema-box">
             <h2 class="number-title" id="Teo:CantorB"> Teorema (Cantor-Bernstein)</h2>
@@ -620,57 +410,7 @@
           </div>
 
 
-
-
-          <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-            <p>
-                Prueba que \((0,1)\) y \((0,1)\times (0,1)\) son equivalentes.
-            </p>
-            <button class="respButton hvr-grow"> Demostración </button>
-            <div class="resp-box flexbox">
-                <div class="flexbox">
-                  <iframe width="700" height="400" class="video"
-                    src="https://www.youtube.com/embed/k-yduTh5_yA" allowfullscreen="true"> 
-                  </iframe>
-
-        
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Prueba que \((0,1)\) y \(\mathbb{R}\) son equivalentes.
-          </p>
-
-        </div>
-
-          <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-            <p>
-              Dado un natural \(r \in\mathbb{N} \)
-              por \(\mathbb{N}^r \) denotamos el producto cartesiano
-              de \(\mathbb{N}\) con sigo mismo \(r\)-veces.
-            </p>
-            <pp>
-              Usando el Teorema de Bernstein da una prueba de que
-              \(\mathbb{N}\) y \(\mathbb{N}^r\) son equivalentes.
-            </p>
-            <p>
-              Sugerencia: nota que si \(p_1,\dots p_r\) son
-              \(r\) primos distintos entonces
-              \(p_1^{n_1}\dots p_{r}^{n_r}=p_1^{m_1}\dots p_{r}^{m_r}\)
-              si y sólo si \(n_i=m_i\) para toda \(i\).
-            </p>
-
-          </div>
-
-      
-            <div class="definicion-box">
+                <div class="definicion-box">
               <h2 class="number-title"> Definición. El conjunto de Cantor. </h2>
               <p> Se inicia con el intervalo unitario
                 \[
@@ -741,10 +481,10 @@
                 que siguen se explora ésta y otras características de \(\Delta\).
               </p>
             </div>
-      
-      
-            <div class="ejercicio-box">
-              <h2 class="number-title"> Ejercicio </h2>
+
+
+             <div class="lema-box">
+              <h2 class="number-title"> Lema </h2>
       
               <p>
                 Sean \(a,b\in \mathbb{R}\) con \(a< b\) y fija
@@ -811,8 +551,8 @@
             </div>
       
       
-            <div class="ejercicio-box">
-              <h2 class="number-title"> Ejercicio </h2>
+            <div class="lema-box">
+              <h2 class="number-title"> Lema </h2>
               <p>
                 Todo elemento \(x\in [0,1]\) admite una representación ternaria, es decir
                 se puede escribir
@@ -867,30 +607,9 @@
             </div>
             </div>
       
-            <div class="ejercicio-box">
-              <h2 class="number-title"> Ejercicio </h2>
-              <p>
-                <ol>
-                  <li>Encuentra dos representaciones ternarias distintas de
-                los siguientes números: \(1/3, 2/3, 1/9\).
-                </li>
-                <li> Encuentra la representación ternaria de \(1/2\) y
-                  prueba que es única.
-                </li>
-                <li>
-                  Sea \(x\in [0,1]\) con descomposición ternaria
-                  \[
-                  x=\sum_{i=1}^\infty\frac{\alpha_i}{3^i}.
-                  \]
-                  Prueba: \(x=0 \Leftrightarrow \alpha_i=0\) para toda \(i\);
-                  \(x=1 \Leftrightarrow \alpha_i=2\) para toda \(i\).
-                </li>
-              </p>
-            </div>
-      
-      
-            <div class="ejercicio-box">
-              <h2 class="number-title"> Ejercicio </h2>
+
+              <div class="lema-box">
+              <h2 class="number-title"> Lema </h2>
               <p>
                 Se \(x\in [0,1]\), con \(x\ne 1,0\).
               </p>
@@ -924,11 +643,10 @@
               </iframe>
             </div>
           </div>
+          </div>
       
-      
-            </div>
-      
-            <div class="teorema-box">
+
+                  <div class="teorema-box">
               <h2 class="number-title" id="Teo:CaractPuntosCantor"> Teorema </h2>
               <p>
                 \(x\in \Delta\) si y sólo si \(x\) admite una representación ternaria
@@ -948,23 +666,303 @@
               </div>
             </div>
       
-            
       
+      
+      
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio  </h2>
+          <p>
+            Si \(A\) es un subconjunto finito y \(B\subseteq A\) entonces \(B\) también es finito.
+          </p>
+
+        </div>
+
+        
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            <ol>
+              <li>Prueba que un conjunto es infinito si y sólo si contiene
+            un conjunto numerable.
+            </li>
+          <li>
+            Prueba que un conjunto es infinito si y sólo si contiene
+            un subconjunto propio equivalente a él mismo.
+          </li>
+          </p>
+
+          <!--<button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+              <p>1.
+
+                  \(\Rightarrow\) Supongamos que \(A\) es infinito.
+                  Comencemos por notar que si \(A\) es un conjunto finito y \(x_1 \notin A\)
+                  entonces \(A \cup \{x_1\}\) también es un conjunto finito. Equivalentemente,
+                  si \(x_i \notin A\) y \(A \cup \{x_1\}\) es infinito, entonces \(A\) es infinito.
+                  Esta observación nos permite construir de manera recursiva un subconjunto
+                  numerable:
+              </p>
+              <p>
+                  Como \(A \neq \varnothing\) existe \(x_1 \in A\) y \(A \setminus \{x_1\} = A_1\) es
+                  infinito. De manera análoga podemos extraer \(x_2 \in A_1\) y \(A_2 = A_1 \setminus \{x_2\}\)
+                  es infinito. Supongamos que hemos extraído \(n\) elementos distintos de \(A\), de esta
+                  manera \(A_n = A \setminus \{x_1,...,x_n\}\) es un conjunto infinito al cual no
+                  pertenece ninguno de los elementos removidos y podemos extraer un elemento
+                  \(x_{n+1}\) distinto de todos los anteriores. Denotamos por \(A_0 = \{x_1,x_2,...\}\)
+                  al conjunto obtenido de esta manera.
+                  Por construcción \(A_0\) es numerable, la biyección está dada por \(n \mapsto x_n\)
+              </p>
+              <p>
+                  \(\Leftarrow\). Supongamos ahora que \(A\) es un conjunto finito. Si \(A = \varnothing\)
+                  es inmediato que no tiene ningún subconjunto numerable porque no existen funciones
+                  \(f: \mathbb{N} \to \varnothing\). Trabajemos con el caso en que \(A \neq \varnothing\).
+                  Si \(f: \{1,...,n\} \to A\) y \(B \subseteq A\) entonces podemos definir una función \(g\)
+                  de la siguiente manera:
+              </p>
+              <p>
+                  \(g(1) = f(\min \{k : f(k) \in B\})\).
+                  Si \(B \setminus \{g(1)\} = \varnothing\) entonces hemos terminado, si no es así entonces
+                  definimos \(B_1 = B \setminus g(1)\) y definimos \(g(2)= \min \{k : f(k) \in B_1\}\).
+                  Este proceso se puede repetir a lo más \(n\) veces, una vez que obtenemos el conjunto
+                  vacío hemos terminado, y como \(m < n\) implica que \(g(m) \neq g(n)\), entonces \(g\) es
+                  una biyección con \(\{1,...,m\}\), \(m \leq n\). Por lo tanto \(A\) no tiene ningún
+                  subconjunto numerable.
+              </p>
+              <p>
+                  2.\(\Rightarrow\) Supongamos que \(A\) es infinito. Por 1) \(A\) tiene un subconjunto
+                  numerable al cual denotamos por \(A_0\). Sea \(f: \mathbb{N} \to A_0\) una biyección.
+                  Observe que \(\tilde{f}(n) = f(n+1)\) define una biyección entre \(\mathbb{N}\) y
+                  \(A_0 \setminus \{f(1)\}\), y en consecuencia entre \(A_0 \setminus \{f(1)\}\) y
+                  \(A_0\) por medio de \(g = \tilde{f} \circ f^{-1}\). Para concluir, observe que
+                  \(h: A \to A \setminus \{f(1)\}\) dada por \(h(x) = x\) si \(x \notin A_0\) y
+                  \(h(x) = g(x)\) si \(x \in A_0\).
+              </p>
+              <p>
+                  \(\Leftarrow\) Suponga ahora que \(A\) es finito. Si \(B \subsetneq A\) entonces
+                  existe \(x_0 \in A\) tal que \(x_0 \notin B\). Si \(f: \{1,...,n\} \to A\) es una
+                  biyección, entonces existe \(k \leq n\) tal que \(x_0 = f(k)\). Al repetir la construcción
+                  de una función \(g\) como en la segunda parte del inciso 1) se observa que el proceso
+                  termina en \(m\) pasos, con \(m \leq n-1\). Como \(\{1,...,m\}\) y \(\{1,...,n\}\)
+                  no son biyectables si \(n \neq m\), entonces \(A\) y \(B\) tampoco lo son y \(A\)
+                  no tiene ningún subconjunto propio equivalente a él mismo.
+              </p>
+          </div>-->
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba que si \(A\) es infinito y \(B\) es contable
+            entonces \(A\) y \(A\cup B\) son equivalentes.
+          </p>
+          <p>
+            Sugerencia: usar el ejercicio anterior para "acomodar"
+            a \(B\) en una parte de \(A\).
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sean \(A_1,A_2,B_1,B_2\) conjuntos tales que
+            \(A_1\) y \(A_2\) son equivalentes y
+            \(B_1\) y \(B_2\) son equivalentes. Prueba que
+            \(A_1\times B_1\) es equivalente a \(A_2\times B_2\).
+          </p>
+          <p>
+            Sugerencia: tomar producto cartesiano de funciones.
+          </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title" id="Ejer:InAndOutNumerables"> Ejercicio </h2>
+          <p>
+            Sea \(A\) un conjunto contable y sean
+            \(C,B\) dos conjuntos.
+          </p>
+          <ol>
+            <li> Prueba que si existe una función \(f:A\to B\)
+              suprayectiva entonces \(B\) es contable .</li>
+            <li>
+              Prueba que si existe una función \(f:C \to A\)
+              inyectiva entonces \(C\) es contable.
+            </li>
+          </ol>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba que \((0,1)\) y \((0,1]\) son equivalentes.
+          </p>
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+              <p>
+                  Considere la siguiente función. \[f(x) =
+                  \begin{cases}
+                  x \text{ si x es irracional}, \\
+                  x \text{ si } x=\frac{p}{q} \text{ con }p>1,\\
+                  \frac{1}{n-1} \text{ si } x=\frac{1}{n} \text{ y } n\geq 2,
+                  \end{cases}\]
+                  donde \(x = \frac{p}{q}\) es la representación de un racional
+                  en primos relativos. Comencemos por notar que si \(x \in (0,1)\)
+                  entonces \(x\) es racional o irracional, y si es racional de la
+                  forma \(\frac{p}{q}\) entonces \(p,q \geq 1\). Adicionalmente
+                  \(1 \notin (0,1)\), por lo que \(f\) está bien definida.
+              </p>
+              <p>
+                  Supongamos que \(f(x) = f(y)\). Podemos considerar el caso en
+                  que \(f(x)\) es irracional y el caso en que es racional. Por
+                  definición, \(x\) es racional si y sólo si \(f(x)\) lo es, por
+                  lo que \(x\) es racional si y sólo si \(y\) también lo es. La
+                  restricción de \(f\) a \(\mathbb{I}\) es la identidad, por lo
+                  que es inyectiva en dicho subconjunto. Note que \(\frac{1}{n}\) y
+                  \(\frac{1}{n-1}\) son representaciones de números racionales en
+                  primos relativos, por lo que la restricción \(f\) a \(\mathbb{Q} \cap (0,1)\)
+                  también es inyectiva, y por la primera observación se tiene que
+                  necesariamente \(x = y\), es decir, \(f\) es inyectiva.
+              </p>
+              <p>
+                  Para demostrar que la función es sobreyectiva también separamos
+                  el problema en casos. Si \(y \in (0,1]\) es irracional, entonces
+                  \(y \in (0,1)\) y \(f(y) = y\). Si \(y\) es racional, entonces es
+                  de la forma \(y = \frac{p}{q}\) con \(p,q\) primos relativos. Si
+                  \(p > 1\) entonces nuevamente se observa que \(y = \frac{p}{q} = f(y)\).
+                  Finalmente, si \(y = \frac{1}{n}\) entonces notamos que \(n+1 \geq 2\) y
+                  que \(y = \frac{1}{n} = \frac{1}{(n+1) - 1} = f(\frac{1}{n+1})\).
+                  Se concluye que \(f\) es sobreyectiva y que los conjuntos propuestos
+                  son equivalentes.
+              </p>
+          </div>
+        </div>
+
+        
+
+
+          <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+              Prueba que \(\mathbb{Q}\) es numerable.
+            <p>
+              <p>
+                Sugerencia: usa el teorema anterior.
+              </p>
+          </div>
+
+
+          <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+              Prueba que toda familia de intervalos abiertos en
+              \(\mathbb{R}\), distintos del vacío y ajenos dos a dos, debe ser contable.
+            </p>
+            <p>
+              Es decir, si \(\mathcal{F}\) es una familia de
+              intervalos abiertos de \(\mathbb{R}\), que satisface
+              \(I\neq \emptyset\) para toda \(I\in \mathcal{F}\)
+              y \(I\cap J =\emptyset\), para cualesquiera
+              \(I,J\in \mathcal{F}\) distintos, entonces
+              \(\mathcal{F}\) es contable.
+            </p>
+          </div>
+
+
+
+
+          <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+              Prueba que \(\mathbb{N}\) tiene una cantidad infinidad de
+              conjuntos infinitos, ajenos dos a dos.
+            </p>
+
+            <p>
+              Sugerencia: usa que \(\mathbb{N}\sim \mathbb{N}\times \mathbb{N}\).
+            </p>
+          </div>
+
+          
+
+
+          <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Prueba que \((0,1)\) y \((0,1)\times (0,1)\) son equivalentes.
+            </p>
+            <button class="respButton hvr-grow"> Demostración </button>
+            <div class="resp-box flexbox">
+                <div class="flexbox">
+                  <iframe width="700" height="400" class="video"
+                    src="https://www.youtube.com/embed/k-yduTh5_yA" allowfullscreen="true"> 
+                  </iframe>
+
+        
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Prueba que \((0,1)\) y \(\mathbb{R}\) son equivalentes.
+          </p>
+
+        </div>
+
+          <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+              Dado un natural \(r \in\mathbb{N} \)
+              por \(\mathbb{N}^r \) denotamos el producto cartesiano
+              de \(\mathbb{N}\) con sigo mismo \(r\)-veces.
+            </p>
+            <pp>
+              Usando el Teorema de Bernstein da una prueba de que
+              \(\mathbb{N}\) y \(\mathbb{N}^r\) son equivalentes.
+            </p>
+            <p>
+              Sugerencia: nota que si \(p_1,\dots p_r\) son
+              \(r\) primos distintos entonces
+              \(p_1^{n_1}\dots p_{r}^{n_r}=p_1^{m_1}\dots p_{r}^{m_r}\)
+              si y sólo si \(n_i=m_i\) para toda \(i\).
+            </p>
+
+          </div>
+
+      
+           
             <div class="ejercicio-box">
               <h2 class="number-title"> Ejercicio </h2>
               <p>
-                Prueba que todo intervalo abierto de la forma, \((a,b)\), que
-                contiene un punto de \(\Delta\) también contiene un subintervalo
-                "de en medio", de los que se removieron para formar \(\Delta\).
-              </p>
-              <p>
-                Como consecuencia, \(\Delta\) no contiene intervalos abiertos
-                no vacíos.  Entonces, desde el punto de vista de los intervalos, \(\Delta\)
-                es "chico".
+                <ol>
+                  <li>Encuentra dos representaciones ternarias distintas de
+                los siguientes números: \(1/3, 2/3, 1/9\).
+                </li>
+                <li> Encuentra la representación ternaria de \(1/2\) y
+                  prueba que es única.
+                </li>
+                <li>
+                  Sea \(x\in [0,1]\) con descomposición ternaria
+                  \[
+                  x=\sum_{i=1}^\infty\frac{\alpha_i}{3^i}.
+                  \]
+                  Prueba: \(x=0 \Leftrightarrow \alpha_i=0\) para toda \(i\);
+                  \(x=1 \Leftrightarrow \alpha_i=2\) para toda \(i\).
+                </li>
               </p>
             </div>
       
       
+
             <div class="ejercicio-box">
               <h2 class="number-title"> Ejercicio </h2>
               <p>
@@ -986,33 +984,23 @@
               </div>
             </div>
       
+          
       
-            <div class="ejercicio-box" id="Ejer:EscaleraCantor">
-              <h2 class="number-title">  Ejercicio </h2>
+            
+      
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
               <p>
-                Para \(x\in [0,1]\), toma una representación ternaria
-                \[
-                x=\sum_{i=1}^\infty \frac{\alpha_i }{3^i}
-                \]
-                Sea \(N=N(x)\in \mathbb{N}\) el primer índice para el cual
-                \(\alpha_N=1\), tal tal \(N\) no existe se toma \(N(x)=\infty\).
+                Prueba que todo intervalo abierto de la forma, \((a,b)\), que
+                contiene un punto de \(\Delta\) también contiene un subintervalo
+                "de en medio", de los que se removieron para formar \(\Delta\).
               </p>
               <p>
-                Define \(\Psi:[0,1]\to [0,1]\) por
-                \[
-                \Psi(x)=\sum_{i=1}^{N-1}\frac{\beta_i}{2^i}+\frac{1}{2^N}, \quad
-                \beta_i=\frac{\alpha_i}{2}
-                \]
-                La función \(\Psi\) se le llama la escalera de Cantor.
-              </p>
-              <p>
-                Prueba que \(\Psi\) está bien definida, es decir, no
-                depende de la representación ternaria de \(x\) y que
-                \(\Psi\) es no decreciente.
+                Como consecuencia, \(\Delta\) no contiene intervalos abiertos
+                no vacíos.  Entonces, desde el punto de vista de los intervalos, \(\Delta\)
+                es "chico".
               </p>
             </div>
-      
-      
       
       
 
@@ -1088,6 +1076,37 @@
               </p>
             </div>
           </div>
+      
+            <div class="ejercicio-box" id="Ejer:EscaleraCantor">
+              <h2 class="number-title">  Ejercicio </h2>
+              <p>
+                Para \(x\in [0,1]\), toma una representación ternaria
+                \[
+                x=\sum_{i=1}^\infty \frac{\alpha_i }{3^i}
+                \]
+                Sea \(N=N(x)\in \mathbb{N}\) el primer índice para el cual
+                \(\alpha_N=1\), tal tal \(N\) no existe se toma \(N(x)=\infty\).
+              </p>
+              <p>
+                Define \(\Psi:[0,1]\to [0,1]\) por
+                \[
+                \Psi(x)=\sum_{i=1}^{N-1}\frac{\beta_i}{2^i}+\frac{1}{2^N}, \quad
+                \beta_i=\frac{\alpha_i}{2}
+                \]
+                La función \(\Psi\) se le llama la escalera de Cantor.
+              </p>
+              <p>
+                Prueba que \(\Psi\) está bien definida, es decir, no
+                depende de la representación ternaria de \(x\) y que
+                \(\Psi\) es no decreciente.
+              </p>
+            </div>
+      
+      
+      
+      
+
+
 
 
 
@@ -1104,7 +1123,18 @@
 
           <div class="quiz-box">
             <h2 id="Quiz:Sec1"> Quiz </h2>
-              <ol>
+
+
+            <p>
+              Pidele a Gemini que genere un quiz para repasar el tema de ésta sección. 
+              El default son 10 preguntas de opción múltiple 
+              y ojo que puede tardar 
+              un poco en generar el quiz (fijate en la esquina superior derecha).
+            </p>
+            <p class="flexbox">
+              <a href="https://gemini.google.com/gem/1mrceQyP92HY6lMM7SnG5_lXCANbeFFUU?usp=sharing" target="_blank" style="font-size: 30px"> Quiz me! </a>
+            </p>
+           <!--- <ol>
 
                 <li>
                   <p>
@@ -1126,7 +1156,7 @@
                 </li>
 
 
-              </ol>
+              </ol>-->
           </div>
 
 
