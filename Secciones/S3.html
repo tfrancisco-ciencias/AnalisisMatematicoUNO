@@ -416,6 +416,54 @@
     </div>
     </div>
 
+
+
+    <div class="teorema-box">
+      <h2 class="number-title"> Teorema </h2>
+      <h3> Teorema de Korovkin</h3>
+      <p>
+        Una función lineal \(A:C[0,1]\to C[0,1]\) 
+        se llama positiva si manda funciones no negativas 
+        a funciones no negativas, es decir, si 
+        \(f\geq 0\) entonces \(Af \geq 0\).
+      </p>
+      <p>
+        Sea \((A_n:C[0,1]\to C[0,1])_{n=1}^\infty\) 
+        una sucesión de funciones lineales positivas 
+        con la propiedad de que 
+        \[
+        \lim_{n\to \infty}\|A_nf_i - f_i \|_{[0,1]}=0
+        \]
+        donde \(f_i(x)=x^i\), \(i=0,1,2\). 
+     </p>
+     <p>
+      Entonces para toda \(f\in C[0,1]\) se cumple que 
+      \[
+      \lim_{n\to \infty}\|A_nf - f \|_{[0,1]}=0
+      \]
+      </p>
+
+
+    </div>
+
+
+
+    <div class="nota-box">
+      <h2> La prueba original del Teorema de Weierstrass </h2>
+      <p>
+        El su tesina, Osvaldo Aparicio Hernández, da una prueba (muy parecida) a la 
+        prueba original de Weierestrass (la prueba original no es tán práctica de dar pues 
+        para empezar la notación es algo enticuada). El link a la tesina está abajo, la 
+        prueba está en la primera sección.
+        <p>
+          <a href="TesinaO.pdf">Link  a la Tesina </a>
+        </p>
+      </p>
+
+      
+    </div>
+
+
     <div class="ejercicio-box">
       <h2 class="number-title"> Ejercicio </h2>
       <p>
@@ -429,6 +477,11 @@
     <div class="ejercicio-box">
       <h2 class="number-title"> Ejercicio </h2>
       <p>
+        Este ejercicio da una prueba del Teorea de Weierstrass usando el Teorema de Weierstrass 
+        usando los polinomios de Bernstein.
+      </p>
+
+      <p>
         Usando la isometría lineal de \(C[a,b]\) a \(C[0,1]\) inducida 
         por la función \(\beta:[a,b]\to [0,1]\) dada por \(\beta(x)=\frac{x-a}{b-a}\)
         prueba que la definición de los polinomios de Bernstein en \([a,b]\) está dada por 
@@ -440,6 +493,22 @@
       </p>
       <p>
         Sugerencia: usa en caso \([0,1]\) y los cambios de variable \(\alpha(t)=t(b-a)+a, \beta(x)=\frac{x-a}{b-a}\).
+      </p>
+
+    </div>
+
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Si \(f:[0,1]\to \mathbb{R}\) es una función acotada, 
+        prueba que 
+        \[
+        \lim_{n\to \infty}B_n(f)(x_0)=f(x_0)
+        \]
+        para todo punto \(x_0\in [0,1]\) donde 
+        la función \(f\) sea continua.
       </p>
 
     </div>
@@ -467,22 +536,9 @@
 
 
 
-    <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
-      <p>
-        Si \(f:[0,1]\to \mathbb{R}\) es una función acotada, 
-        prueba que 
-        \[
-        \lim_{n\to \infty}B_n(f)(x_0)=f(x_0)
-        \]
-        para todo punto \(x_0\in [0,1]\) donde 
-        la función \(f\) sea continua.
-      </p>
-
-    </div>
 
 
-    <div class="ejercicio-box">
+<!--    <div class="ejercicio-box">
       <h2 class="number-title"> Ejercicio</h2>
       <p>
         Prueba que si \(f:[0,1]\to \mathbb{R}\)
@@ -491,7 +547,7 @@
         en \([0,1]\).
       </p>
 
-    </div>
+    </div>--> 
 
 
     <div class="ejercicio-box">
@@ -585,6 +641,26 @@
 
     </div>
 
+
+
+      <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+      <ol>
+          <li>
+            Sea \(f:[0,1]\to \mathbb{R}\) una función con \(f(0)=0\).
+            Prueba que para toda \(n\), \(B_n(f)(0)=0\).
+          </li>  
+
+          <li>
+            Si \(f:[0,1]\to \mathbb{R}\) es una función tal que existen constantes, \(m,M\), tal que  
+            \(m\leq f(x) \leq M\), para toda \(x\in [a,b]\), 
+            prueba que \(m\leq B_n(f)(x)\leq M\), para todo \(x\in [0,1]\).    
+          </li> 
+      </ol>
+      </p>
+      </div>
+
     <div class="ejercicio-box">
       <h2 class="number-title" id="Ejer:AproxValorAbs"> Ejercicio </h2>
       <p>
@@ -652,6 +728,7 @@
           \[ 
           g(x)=g(a)+ c_0L_{t_0}(x)+c_1L_{t_1}(x)+\cdots + c_{n-1}L_{t_{n-1}}(x)
           \]
+          Hint: usar inducción sobre el número de segmentos de \(g\).
         </li>
         <li>
           Concluye que toda función poligonal se puede 
@@ -681,7 +758,7 @@
            h(x)=C|x-t|
            \] 
            Usa el ejercicio 
-           <a href="#Ejer:AproxValorAbs"> Ejercicio 3.20</a> 
+           <a href="#Ejer:AproxValorAbs"> Ejercicio 3.21</a> 
            para probar que dado un subintervalo 
            \([a,b]\) y 
            \(\varepsilon> 0\) 
@@ -699,7 +776,7 @@
         </li>
         <li>
           Finalmente usando el  
-          <a href="#Ejer:RepreFunPoligonales"> Ejercicio 3.21</a>
+          <a href="#Ejer:RepreFunPoligonales"> Ejercicio 3.22</a>
           prueba que el conjunto de 
          polinomios es uniformemente denso en 
          \(C[a,b]\).
@@ -707,76 +784,10 @@
       </ol>
     </div>
 
-
-    <div class="teorema-box">
-      <h2 class="number-title"> Teorema </h2>
-      <h3> Teorema de Korovkin</h3>
-      <p>
-        Una función lineal \(A:C[0,1]\to C[0,1]\) 
-        se llama positiva si manda funciones no negativas 
-        a funciones no negativas, es decir, si 
-        \(f\geq 0\) entonces \(Af \geq 0\).
-      </p>
-      <p>
-        Sea \((A_n:C[0,1]\to C[0,1])_{n=1}^\infty\) 
-        una sucesión de funciones lineales positivas 
-        con la propiedad de que 
-        \[
-        \lim_{n\to \infty}\|A_nf_i - f_i \|_{[0,1]}=0
-        \]
-        donde \(f_i(x)=x^i\), \(i=0,1,2\). 
-     </p>
-     <p>
-      Entonces para toda \(f\in C[0,1]\) se cumple que 
-      \[
-      \lim_{n\to \infty}\|A_nf - f \|_{[0,1]}=0
-      \]
-      </p>
-
-
-    </div>
-
-
-
-    <div class="nota-box">
-      <h2> La prueba original del Teorema de Weierstrass </h2>
-      <p>
-        El su tesina, Osvaldo Aparicio Hernández, da una prueba (muy parecida) a la 
-        prueba original de Weierestrass (la prueba original no es tán práctica de dar pues 
-        para empezar la notación es algo enticuada). El link a la tesina está abajo, la 
-        prueba está en la primera sección.
-        <p>
-          <a href="TesinaO.pdf">Link  a la Tesina </a>
-        </p>
-      </p>
-
-      
-    </div>
     
-
-    <div class="quiz-box">
-      <h2> Quiz  </h2>
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
       <ol>
-          <li>
-            Sea \(f:[0,1]\to \mathbb{R}\) una función con \(f(0)=0\).
-            Prueba que para toda \(n\), \(B_n(f)(0)=0\).
-          </li>  
-
-          <li>
-            Si \(f:[0,1]\to \mathbb{R}\) es una función tal que existen constantes, \(m,M\), tal que  
-            \(m\leq f(x) \leq M\), para toda \(x\in [a,b]\), 
-            prueba que \(m\leq B_n(f)(x)\leq M\), para todo \(x\in [0,1]\).    
-          </li> 
-      </ol>
-    </div>
-
-
-    
-
-    <div class="quiz-box">
-      <h2> Quiz  </h2>
-      <ol>
-          
         <li>
           Sea \(f\in C[a,b]\) tal que \(f(x)\geq 1\) para todo \(x\in [a,b]\). Prueba que 
           existe un polinomio \(p(x)\) que satisface  
@@ -804,8 +815,25 @@
       Hint: inicia con la función identidad en \([0,1]\) 
       y extiéndela adecuadamente.
       </ol>
+      </div>
+
+
+    <div class="quiz-box">
+      <h2> Quiz  </h2>
+            <p>
+              Pidele a Gemini que genere un quiz para repasar el tema de ésta sección. 
+              El default son 10 preguntas de opción múltiple 
+              y ojo que puede tardar 
+              un poco en generar el quiz (fijate en la esquina superior derecha).
+            </p>
+            <p class="flexbox">
+              <a href="https://gemini.google.com/gem/1YHjMA3A_ukl5GVpB-1DDcvYvJExP4YXD?usp=sharing" target="_blank" style="font-size: 30px"> Quiz me! </a>
+            </p>
+      
     </div>
 
+
+    
 
     </div>
   </body>
