@@ -180,17 +180,47 @@
 
         <div class="lema-box">
           <h2 class="number-title"> Lema </h2>
-          <p>
+          <ol>
+
+          
+          <li>
             Si \(A\subseteq \mathbb{N}\) es infinito entonces
             \(A\) es equivalente a \(\mathbb{N}\).
-          </p>
-          <button class="respButton hvr-grow"> Demostración </button>
+          <p>
+              <button class="respButton hvr-grow"> Demostración </button>
           <div class="resp-box flexbox">
           <div class=" flexbox">
             <iframe width="700" height="400" class="video"
             src="https://www.youtube.com/embed/AH19SmhLS-g" allowfullscreen="true"> 
           </iframe>
-            
+          </p>
+          
+        </li>
+        <li>
+         \(\mathbb{N}\times \mathbb{N}\) es equivalente a \(\mathbb{N}\).
+         <button class="respButton hvr-grow"> Demostración </button>
+          <div class="resp-box flexbox">
+         <p>
+          Dado \(k\in \mathbb{N}\), por el teorema fundamental de la aritmética, \(k\) se puede escribir como
+          \(k=2^{m-1}(2n-1)\), para algunos \(n,m\in \mathbb{N}\). Definimos \(f:\mathbb{N}\times \mathbb{N}\to \mathbb{N}\) por
+          \(f(m,n)=2^{m-1}(2n-1)\).    
+         </p>
+         <p>
+          Esta función es inyectiva pues si \(f(m_1,n_1)=f(m_2,n_2)\) entonces
+          \(2^{m_1-1}(2n_1-1)=2^{m_2-1}(2n_2-1)\). Sin pérdida de generalidad supongamos que \(m_2\leq m_1\). Entonces
+          \[
+          2^{m_1-1}(2n_1-1)=2^{m_2-1}(2n_2-1) \Rightarrow 2^{m_1-m_2} (2n_1-1)= 2n_2-1
+          \]
+          como el lado derecho es impar el lado izquierdo también debe ser impar, por lo que \(m_1-m_2=0\) y \(m_1=m_2\). 
+          Por lo tanto \(2n_1-1=2n_2-1\) y \(n_1=n_2\).
+         </p>
+         <p>
+          La suprayectividad se sigue de la descomposición \(k=2^{m-1}(2n-1)\) para \(k\in \mathbb{N}\).
+         </p>
+         </div>
+        </li>  
+
+          </ol>
           </div>
         </div>
         </div>
@@ -217,8 +247,19 @@
             \(f_n(m)=x\). 
           </p>
           <p>
-            Ya que \(\mathbb{N}\times \mathbb{N}\) es numerable se sigue del 
-            <a href="#Ejer:InAndOutNumerables">Ejercicio 1.8</a> que \(\cup_{i=1}^\infty A_i\) es numerable.
+            A partir de \(f\) podemos construir una función inyectiva \(g:\mathbb{N}\to \cup_{i=1}^\infty A_i\) de la siguiente manera:
+            dado \(a\in \cup_{i=1}^\infty A_i\)  al ser \(f\) suprayectiva la imagen inversa 
+            \[f^{-1}(a)=\{(n,m)\in \mathbb{N}\times \mathbb{N} : f(n,m)=a\}\] 
+            es distinta del vacío. Por el axioma de elección fijamos \(g(a)\in f^{-1}(a)\). Asi pues \(g(a)\) satisface \(f(g(a))=a\).
+          </p>
+          <p>
+            La función \(g\) es inyectiva pues si \(g(a_1)=g(a_2)\) entonces 
+            \[
+            f(g(a_1))=f(g(a_2)) \Rightarrow a_1=a_2
+            \]
+            Por lo tanto \(g\) es una biyección entre \(\cup_{i=1}^\infty A_i\) y su imagen, que es un subconjunto de \(\mathbb{N}\times \mathbb{N}\). 
+            Por el lema anterior \(\mathbb{N}\times \mathbb{N}\) es numerable y por lo tanto \(\cup_{i=1}^\infty A_i\) es un conjunto infinito 
+            contenido en un conjunto numerable, por lo que \(\cup_{i=1}^\infty A_i\) es numerable.
           </p>
           </div>
           </div>
