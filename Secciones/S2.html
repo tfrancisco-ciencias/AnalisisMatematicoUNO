@@ -273,6 +273,17 @@
                 La convergencia uniforme implica  convergencia puntual pero 
                 la implicación de regreso no es cierta.
              </li>
+             <li>
+              La convergencia uniforme tiene una interpretación geométrica. Si copiamos la gráfica de 
+              \(f\), epsilon arriba y epsilon abajo de la gráfica de \(f\) obtenemos una franja de radio 
+              \(\varepsilon\) centrada en la gráfica de \(f\). Si \(f_n\subset{n\to \infty}{\to}f\)
+              uniformemente en \([a,b]) entonces las gráficas de las \(f_n\) eventualmente caen dentro de ésta
+              franja.
+              <div class="flexbox">
+                  <img src="./Images/Sec2-ImageUnifConvergence.png" alt="UniformConvergence" width="50%" height="auto" >
+                  </div>
+
+             </li>
            </ol>
            
          </div>
@@ -530,7 +541,7 @@
           </p>
           <p>
             \begin{eqnarray*} 
-            \| f(x) -f(x_0)|  &\leq & \| f(x)- f_N(x)\| + \| f_N(x)-f_N(x_0)\|+ \| f_N(x_0)-f(x_0)\| \\
+            | f(x) -f(x_0)|  &\leq & \| f(x)- f_N(x)\| + \| f_N(x)-f_N(x_0)\|+ \| f_N(x_0)-f(x_0)\| \\
             & < &  \varepsilon + \| f_N(x) -f_N(x_0)\| +\varepsilon  \\
             & < & 3\varepsilon
             \end{eqnarray*}
