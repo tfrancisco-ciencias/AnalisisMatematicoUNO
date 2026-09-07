@@ -277,7 +277,7 @@
               La convergencia uniforme tiene una interpretación geométrica. Si copiamos la gráfica de 
               \(f\), epsilon arriba y epsilon abajo de la gráfica de \(f\) obtenemos una franja de radio 
               \(\varepsilon\) centrada en la gráfica de \(f\). Si \(f_n\subset{n\to \infty}{\to}f\)
-              uniformemente en \([a,b]) entonces las gráficas de las \(f_n\) eventualmente caen dentro de ésta
+              uniformemente en \([a,b]\) entonces las gráficas de las \(f_n\) eventualmente caen dentro de ésta
               franja.
               <div class="flexbox">
                   <img src="./Images/Sec2-ImageUnifConvergence.png" alt="UniformConvergence" width="50%" height="auto" >
@@ -612,7 +612,7 @@
     </p>
     </p>
     <p>
-      Vamos a aplicar este critrio para probar que \(f\) es Riemann integrable. 
+      Vamos a aplicar este criterio para probar que \(f\) es Riemann integrable. 
     </p>
     <p>
       Primero 
@@ -685,12 +685,14 @@
           <h2 class="number-title"> Teorema </h2>
           <p>
             Sea \((f_n:[a,b]\to \mathbb{R})_{n=1}^\infty\) una sucesión de funciones
-            continuas en \([a,b]\) y tal que su derivada, \(f_n'\), existe y
-            es continua en todo \([a,b]\).
+            continuas en \([a,b]\). Supongamos que: 
           </p>
           <p>
-            Supongamos que
+            
             <ol>
+              <li>
+                para toda \(n\), \(f_n'\) existe y es continua en \([a,b]\).
+              </li>
               <li>
                 \((f_n')\) converge uniformemente en \([a,b]\) a una
                 función \(g:[a,b]\to \mathbb{R}\).
@@ -702,15 +704,69 @@
             </ol>
           </p>
           <p>
-            Entonces la sucesión original, \((f_n)_{n=1}^\infty\), converge
-            uniformemente en \([a,b]\). Además, si  \(f\) es el límite de
-            \((f_n)_{n=1}^\infty\) entonces \(f\) es diferenciable y
-            \(f'=g\). Es decir, podemos meter el límite en la derivada
+            Entonces existe \(f:[a,b]\to \mathbb{R}\) continua y diferenciable en \([a,b]\) 
+            tal que:
+            <ol>
+              <li>
+                \(f_n \underset{n\to \infty}{\to} f\) uniformemente en \([a,b]\).
+              </li>
+              <li>
+                \(f_n' \underset{n\to \infty}{\to} f'\) uniformemente en \([a,b]\).
+              </li>
+            </ol>
+          </p>
+          
+          <p>
+            Es decir, podemos meter el límite en la derivada
             \[
             \lim_{n\to \infty} \frac{d}{dx}f_n(x) =
             \frac{d}{dx}\left( \lim_{n\to \infty} f_n (x) \right)
             \]
           </p>
+
+          <button class="respButton hvr-grow "> Demostración </button>
+          <div class="resp-box">
+          <p>
+            Observamos que si es cierto que \(f_n'\underset{n\to \infty}{\to} f'\) uniformemente en \([a,b]\)
+            la hipótesis de que \(f_n' \underset{n\to \infty}{\to} g\) uniformemente en \([a,b]\) nos fuerza
+            a que \(f'=g\). Por lo tanto proponemos 
+            \[
+            f(x)=\int_{x_0}^x g(t)dt + c
+            \]
+            donde \(c=\lim_{n\to \infty} f_n(x_0)\), el cual existe por hipótesis.
+          </p>
+          <p>
+            De la definición de \(f\) y el segundo teorema fundamental del cálculo tenemos 
+            que \(f\) es continua, diferenciable en \([a,b]\) y que \(f'=g\). Así pues 
+            ya tenemos que \(f_n'\underset{n\to \infty}{\to} g=f'\) uniformemente en \([a,b]\). 
+            
+          </p>
+          <p>
+            Sólo resta probar que \(f_n\underset{n\to \infty}{\to} f\) uniformemente en \([a,b]\).
+          </p>
+          <p>
+            Fijemos \(x\in [a,b]\). Entonces por el segundo teorema fundamental del cálculo tenemos que 
+            \begin{eqnarray*}
+              f(x) - f_n(x) &=& \int_{x_0}^x g(t)dt +c  - \int_{x_0}^x f_n'(t)dt - f_n(x_0) \\
+              &=& \int_{x_0}^x (g(t)-f_n'(t))dt + (c - f_n(x_0)).
+            \end{eqnarray*}
+            Tomando valor absoluto y usando la desigualdad del triángulo obtenemos
+            \begin{eqnarray*}
+              |f(x)-f_n(x)| &\leq &  \int_{x_0}^x |g(t)-f_n'(t)|dt + |c - f_n(x_0)| \\ 
+              &\leq & \|f_n'-g\|_{[a,b]}|x-x_0| + |c - f_n(x_0)| \\
+              &\leq & \|f_n'-g\|_{[a,b]}(b-a) + |c - f_n(x_0)|
+              \end{eqnarray*}
+              Tomando supremo sobre las \(x\in [a,b]\) obtenemos
+              \[
+              \|f_n-f\|_{[a,b]} \leq \|f_n'-g\|_{[a,b]}(b-a) + |c - f_n(x_0)|
+              \]
+              Por hipótesis tenemos que \(\lim_{n\to \infty} \|f_n'-g\|_{[a,b]}=0\) y \(\lim_{n\to \infty} |c - f_n(x_0)|=0\) por lo que
+              \[
+              \lim_{n\to \infty} \|f_n-f\|_{[a,b]}=0
+              \]
+              y por lo tanto \(f_n\underset{n\to \infty}{\to} f\) uniformemente en \([a,b]\).
+          </p>
+          </div>
         </div>
 
 
