@@ -144,6 +144,70 @@
           Weierstrass, es suficiente probarlo para el caso \(C[0,1]\).
         </p>
 
+        <button class="respButton hvr-grow "> Demostración </button>
+          <div class="resp-box">
+        <p>
+          Para ayudar a la escritura por \(x\) denotamos a los elementos en 
+          \([a,b]\) y por \(t\) a los elementos de \([0,1]\).
+        </p>
+        <p>
+          La biyección está inducida por la función \(\beta:[a,b]\to [0,1]\) dada por
+          \[
+          \beta(x)=\frac{x-a}{b-a},
+          \]
+          la cual tiene inversa \(\alpha:[0,1]\to [a,b]\) dada por 
+          \[
+          \alpha(t)=t(b-a)+a.
+          \]
+        </p>
+        <p>
+          Vamos a definir \(T:C[a,b]\to C[0,1]\) por
+          \[
+          T(f)(t)=f(\alpha(t)).
+          \]
+          Si ahora definimos \(S:C[0,1]\to C[a,b]\) por 
+          \[
+          S(g)(x)=g(\beta(x)).
+          \]
+          Un cálculo directo prueba que \((T\circ S)(g)=g\) y \((S\circ T) (f)=f\), 
+          para todas las funciones \(g\in C[0,1]\), \(f\in C[a,b]\). Por lo que 
+          \(T\) es una biyección.
+        </p>
+        <p>
+          Para probar que \(T\) es lineal tomamos \(f_1,f_2\in C[a,b]\) y \(\alpha \in \mathbb{R}\).
+          Ahora si \(t\in [0,1]\) es arbitrario tenemos
+          \begin{eqnarray*} 
+          T(\alpha f_1+f_2)(t)&=&(\alpha f_1 + f_2)(\alpha(t))\\
+          &=& \alpha f_1(\alpha(t))+ f_2(\alpha(t))\\
+          &=& \alpha T(f_1)(t)+T(f_2)(t).
+          \end{eqnarray*}
+        Por lo tanto \(T(\alpha f_1+f_2)=\alpha T(f_1)+T(f_2)\).
+        </p>
+
+        <p>
+          Para ver que \(T\) preserva la norma uniforme notamos que 
+          al ser \(\alpha:[0,1]\to [a,b]\) una biyección, dada 
+          \(f\in C[a,b]\), se tiene que
+          \begin{eqnarray*}
+          \{ |f(x)|: x\in [a,b] \}&=&\{ |f(\alpha(t))|: t\in [0,1] \} \\
+          &=& \{ |T(f)(t)|: t\in [0,1] \}
+          \end{eqnarray*}
+          entonces al tomar supremo en ambos lados concluimos 
+          \(\|f\|_{[a,b]}=\|T(f)\|_{[0,1]}\).
+        </p>
+        <p>
+          Por último nos resta ver que si \(p\in C[a,b]\) es un 
+          polinomio entonces \(T(p)\in C[0,1]\) también. Por la 
+          definición de \(T(p)\), si escribimos \(p(x)=\sum_{k=0}^n a_kx^k\), 
+          tenemos:
+          \begin{eqnarray*} 
+          T(p)(t)&=&p(\alpha(t)) \\
+          &=& \sum_{k=0}^n a_k (\alpha(t))^k \\
+          &=& \sum_{k=0}^n a_k (t(b-a)+a)^k \\
+          \end{eqnarray*}
+          el cual es un polinomio en la variable \(t\).
+        </p>
+        </div>
 
       </div>
 

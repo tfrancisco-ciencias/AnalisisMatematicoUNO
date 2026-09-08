@@ -897,6 +897,38 @@
               \]
               converge uniformemente en \(X\).
             </p>
+            <button class="respButton hvr-grow "> Demostración </button>
+          <div class="resp-box">
+            <p>
+              Primero notamos que la serie \(\sum_{n=1}^\infty f_n(x)\) es absolutamente convergente, pues 
+              \[
+              \sum_{n=1}^\infty |f_n(x)| \leq \sum_{n=1}^\infty M_n < +\infty
+              \]
+              para todo \(x\in X\). Por lo tanto \(\sum_{n=1}^\infty f_n(x)\) converge puntualmente en \(X\).
+            </p>
+            <p>
+              Sea \(S(x):=\sum_{n=1}^\infty f_n(x)\). Ahora vamos a probar que 
+              \[
+              \lim_{N\to \infty}\|S_N-S\|_\infty=0
+              \]
+            </p>
+            <p>
+              Sea \(\varepsilon>0\). Debido a que \(\sum_{n=1}^\infty M_n < +\infty\), existe \(M\in \mathbb{N}\) tal que
+              para todo \(n\geq M\), \(\sum_{k=n}^\infty M_k < \varepsilon\). Se sigue que si 
+              \(N\geq M\) y \(x\in X\) tenemos
+              \begin{eqnarray*}
+              |S(x)-S_N(x)|&=&\left|\sum_{n=N+1}^\infty f_n(x)\right| \\
+              &\leq & \sum_{n=N+1}^\infty |f_n(x)| \\
+              &\leq & \sum_{n=N+1}^\infty M_n \\
+              &< &  \varepsilon.
+              \end{eqnarray*}
+              Tomando supremo sobre \(x\in X\) obtenemos
+              \[
+              \|S-S_N\|_\infty < \varepsilon,
+              \]
+              para todo \(N\geq M\). Por lo tanto \(\lim_{N\to \infty}\|S_N-S\|_\infty=0\).
+            </p>
+            </div>
         </div>
 
 
