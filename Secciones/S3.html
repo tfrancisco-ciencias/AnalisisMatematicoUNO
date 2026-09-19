@@ -324,32 +324,64 @@
         <button class="respButton hvr-grow"> Demostración  inciso 2</button>
               <div class="resp-box">
         <p>
-          Para \(B_n(f_2)\) primero notamos que, para \(k\geq 2\): 
+          Iniciamos la prueba  notando que, para \(k\geq 2\): 
           \begin{eqnarray*} 
           \frac{k-1}{n}\binom{n-1}{k-1}&=&\frac{k-1}{n}\frac{(n-1)!}{(k-1)!(n-k)!}\\
           &=&\frac{(n-1)}{n}\frac{(n-2)!}{(k-2)!(n-k)!}\\
-          &=& \frac{(n-1)}{n}\binom{n-2}{k-2}\\
+          &=& \frac{(n-1)}{n}\binom{n-2}{k-2}.\\
           \end{eqnarray*}
         </p>
         <p>
-          Por lo tanto 
+          Ahora empezamos a calcular \(B_n(f_2)(x)\) y usando la misma cuenta que en el inciso 1
+          se puede simplificar como:
           \begin{eqnarray*} 
           B_n(f_2)(x)&=&\sum_{k=0}^n \frac{k^2}{n^2}\binom{n}{k}x^k(1-x)^{n-k} \\
           &=&\sum_{k=1}^n \frac{k^2}{n^2}\binom{n}{k}x^k(1-x)^{n-k} \\
+          &=&\sum_{k=1}^n \frac{k}{n}\left[ \frac{k}{n}\binom{n}{k}\right] x^k(1-x)^{n-k}\\
           &=&\sum_{k=1}^n \frac{k}{n}\binom{n-1}{k-1}x^k(1-x)^{n-k} \\
-          &=&\sum_{k=1}^n \frac{k-1}{n}\binom{n-1}{k-1}x^k(1-x)^{n-k} \\
-          &+&\sum_{k=1}^n \frac{1}{n}\binom{n-1}{k-1}x^k(1-x)^{n-k} \\
-          &=&\sum_{k=2}^{n} \frac{k-1}{n}\binom{n-1}{k-1}x^{k}(1-x)^{n-k} \\
-          &+&\frac{1}{n} \sum_{j=0}^{n-1} \binom{n-1}{j}x^{j+1}(1-x)^{n-1-j} \\
-          &=&\sum_{k=2}^{n} \frac{n-1}{n}\binom{n-2}{k-2}x^{k}(1-x)^{n-k} \\
-          &+&\frac{x}{n} \sum_{j=0}^{n-1} \binom{n-1}{j}x^{j}(1-x)^{n-1-j} \\
-          &=&\frac{n-1}{n} \sum_{j=0}^{n-2} \binom{n-2}{j}x^{j+2}(1-x)^{n-2-j} \\
-          &+&\frac{x}{n}  \\
-          &=&\left( \frac{n-1}{n}\right)x^2 \sum_{j=0}^{n-2} \binom{n-2}{j}x^{j}(1-x)^{n-2-j} \\
-          &+&\frac{x}{n}  \\
-          &=&\left( 1- \frac{1}{n}\right)x^2  \\
-          &+&\frac{x}{n}  \\
           \end{eqnarray*}
+        </p>
+        <p>
+          Ahora, escribiendo 
+          \begin{eqnarray*} 
+          \frac{k}{n}\binom{n-1}{k-1}&=&\frac{k-1+1}{n}\binom{n-1}{k-1} \\
+          &=&\frac{k-1}{n}\binom{n-1}{k-1}+\frac{1}{n}\binom{n-1}{k-1},
+          \end{eqnarray*}
+        </p>
+        <p>
+          obtenemos
+        \begin{eqnarray*} 
+        B_n(f_2)(x)&=&\underbrace{\sum_{k=1}^n \frac{k-1}{n}\binom{n-1}{k-1}x^k(1-x)^{n-k}}_{S_1} \\
+          &+&\underbrace{\sum_{k=1}^n \frac{1}{n}\binom{n-1}{k-1}x^k(1-x)^{n-k}}_{S_2}. \\
+        \end{eqnarray*}
+        Ahora simplificamos \(S_1\) y \(S_2\) por separado.
+        </p>
+        <p>
+          Para \(S_1\), usando la cuenta de al principio, obtenemos:
+          \begin{eqnarray*} 
+          S_1&=&\sum_{k=2}^{n} \frac{k-1}{n}\binom{n-1}{k-1}x^{k}(1-x)^{n-k} \\
+          &=&\sum_{k=2}^{n} \frac{n-1}{n}\binom{n-2}{k-2}x^{k}(1-x)^{n-k} \\
+          &\underbrace{=}_{j=k-2}&\frac{n-1}{n} \sum_{j=0}^{n-2} \binom{n-2}{j}x^{j+2}(1-x)^{n-2-j} \\
+          &=&\left( \frac{n-1}{n}\right)x^2 \sum_{j=0}^{n-2} \binom{n-2}{j}x^{j}(1-x)^{n-2-j} \\
+          &=&\left( 1- \frac{1}{n}\right)x^2 \\
+          &=& \left( 1- \frac{1}{n}\right)f_2(x)
+          \end{eqnarray*}
+        </p>
+        <p>
+          La cuenta para \(S_2\) es más sencilla:
+          \begin{eqnarray*} 
+           S_2&=& \sum_{k=1}^n \frac{1}{n}\binom{n-1}{k-1}x^k(1-x)^{n-k}\\
+           &\underbrace{=}_{j=k-1}&\frac{1}{n} \sum_{j=0}^{n-1} \binom{n-1}{j}x^{j+1}(1-x)^{n-1-j} \\
+           &=&\frac{x}{n} \sum_{j=0}^{n-1} \binom{n-1}{j}x^{j}(1-x)^{n-1-j} \\ 
+           &=&\frac{x}{n} \\
+           &=&\frac{1}{n}f_1(x).
+          \end{eqnarray*}
+        </p>
+        <p>
+          Concluimos que
+          \[
+          B_n(f_2)(x)=\left( 1- \frac{1}{n}\right)f_2(x)+\frac{1}{n}f_1(x).
+          \]
         </p>
         </div>
 
