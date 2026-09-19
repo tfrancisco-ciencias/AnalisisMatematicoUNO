@@ -407,8 +407,8 @@
         Notamos que si \(k\in F\) entonces \(\delta^2 \leq (k/n -x)^2 \) por lo que 
         \(1\leq (k/n-x)^2/\delta^2\) por lo tanto 
         \begin{eqnarray*} 
-        \sum_{k\in F} \binom{n}{k}x^k(1-x)^{n-k} & \leq & 
-        \frac{1}{\delta^2}\sum_{k\in F} \left(\frac{k}{n} -x \right)^2\binom{n}{k}x^k(1-x)^{n-k} \\
+         & & \sum_{k\in F} \binom{n}{k}x^k(1-x)^{n-k}  \\
+        & \leq &  \frac{1}{\delta^2}\sum_{k\in F} \left(\frac{k}{n} -x \right)^2\binom{n}{k}x^k(1-x)^{n-k} \\
         &\leq &\frac{1}{\delta^2}\sum_{k=0}^n \left(\frac{k}{n} -x \right)^2\binom{n}{k}x^k(1-x)^{n-k} 
         \end{eqnarray*}
        </p>
@@ -421,18 +421,28 @@
        <p>
         Para lo anterior desarrollando el cuadrado tenemos 
         \begin{eqnarray*} 
-        \sum_{k=0}^n \left(\frac{k}{n} -x \right)^2\binom{n}{k}x^k(1-x)^{n-k} &=&
-        \sum_{k=0}^n \left(\frac{k}{n}\right)^2\binom{n}{k}x^k(1-x)^{n-k}  \\
+        & & \sum_{k=0}^n \left(\frac{k}{n} -x \right)^2\binom{n}{k}x^k(1-x)^{n-k} \\
+        &=& \sum_{k=0}^n \left(\frac{k}{n}\right)^2\binom{n}{k}x^k(1-x)^{n-k}  \\
         &-&2x \sum_{k=0}^n \left( \frac{k}{n}\right) \binom{n}{k}x^k(1-x)^{n-k}  \\
         &+& x^2 \sum_{k=0}^n \binom{n}{k}x^k(1-x)^{n-k} \\
         \end{eqnarray*}
-        y usando los polinomios de Bernstein para \(f_0,f_1,f_2\) y el <a href="#Lema:ConvergenciaBernstein012">Lema 3.6</a>
+        y usando los polinomios de Bernstein para \(f_0,f_1,f_2\) 
         podemos escribir 
         \begin{eqnarray*} 
-        & & \sum_{k=0}^n \left(\frac{k}{n}\right)^2\binom{n}{k}x^k(1-x)^{n-k}  \\
-        &-&2x \sum_{k=0}^n \left( \frac{k}{n}\right) \binom{n}{k}x^k(1-x)^{n-k}  \\
-        &+& x^2 \sum_{k=0}^n \binom{n}{k}x^k(1-x)^{n-k} \\
-        &=& B_n(f_2)(x)-2xB_n(f_1)(x)+x^2 B_n(f_0)(x)\\
+         \sum_{k=0}^n \left(\frac{k}{n}\right)^2\binom{n}{k}x^k(1-x)^{n-k} &=& B_n(f_2)(x), \\
+        \sum_{k=0}^n \left( \frac{k}{n}\right) \binom{n}{k}x^k(1-x)^{n-k} &=& B_n(f_1)(x), \\
+       \sum_{k=0}^n \binom{n}{k}x^k(1-x)^{n-k} &=&1.
+        
+        \end{eqnarray*}
+        Por lo tanto 
+        \begin{eqnarray*} 
+        & & \sum_{k=0}^n \left(\frac{k}{n} -x \right)^2\binom{n}{k}x^k(1-x)^{n-k}  \\
+        &=& B_n(f_2)(x)-2xB_n(f_1)(x)+x^2. 
+        \end{eqnarray*}
+        Ahora por el lema <a href="#Lema:ConvergenciaBernstein012">Lema 3.6</a>
+        podemos simplificar lo anterior como:
+        \begin{eqnarray*} 
+        & & B_n(f_2)(x)-2xB_n(f_1)(x)+x^2 \\
         &=& \left(1-\frac{1}{n} \right)x^2+\frac{1}{n}x- 2x^2+x^2 \\
         &=& \left(1-\frac{1}{n} \right)x^2+\frac{1}{n}x- x^2 \\
         &=& \frac{1}{n}x(1-x) \\
