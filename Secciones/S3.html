@@ -481,7 +481,8 @@
         Por el Teorema del binomio, \(1=\sum_{k=0}^n \binom{n}{k}x^k(1-x)^{n-k}\), por lo que 
         \(f(x)=\sum_{k=0}^n f(x)\binom{n}{k}x^k(1-x)^{n-k}\) por lo que 
         \begin{eqnarray*} 
-        \left| f(x) - B_n(f)(x) \right| &=& \left| \sum_{k=0}^n f(x)\binom{n}{k}x^k(1-x)^{n-k}
+        & & \left| f(x) - B_n(f)(x) \right| \\
+        &=& \left| \sum_{k=0}^n f(x)\binom{n}{k}x^k(1-x)^{n-k}
         - \sum_{k=0}^n f\left(\frac{k}{n} \right)\binom{n}{k}x^k(1-x)^{n-k} \right| \\
         &\leq & \sum_{k=0}^n \left| f(x) -f\left( \frac{k}{n}\right)\right| \binom{n}{k}x^k(1-x)^{n-k}
         \end{eqnarray*}
@@ -492,8 +493,8 @@
         \]
         Entonces 
         \begin{eqnarray*} 
-        \sum_{k=0}^n \left| f(x) -f\left( \frac{k}{n}\right)\right| \binom{n}{k}x^k(1-x)^{n-k} &=& 
-        \sum_{k\notin F} \left| f(x)-  f\left( \frac{k}{n}\right) \right|x^k(1-x)^{n-k}\\
+        & & \sum_{k=0}^n \left| f(x) -f\left( \frac{k}{n}\right)\right| \binom{n}{k}x^k(1-x)^{n-k} \\
+        &=& \sum_{k\notin F} \left| f(x)-  f\left( \frac{k}{n}\right) \right|x^k(1-x)^{n-k}\\
         &+&  \sum_{k\in F}\left| f(x)-  f\left( \frac{k}{n}\right) \right|x^k(1-x)^{n-k} \\
         & \leq &  \varepsilon \left( \sum_{k\notin F}  x^k(1-x)^{n-k} \right) \\
         &+&  2\|f\|_\infty \left( \sum_{k\in F}  x^k(1-x)^{n-k} \right) \\
@@ -531,7 +532,8 @@
         Una función lineal \(A:C[0,1]\to C[0,1]\) 
         se llama positiva si manda funciones no negativas 
         a funciones no negativas, es decir, si 
-        \(f\geq 0\) entonces \(Af \geq 0\).
+        \(f\geq 0\) entonces \(Af \geq 0\). Nota: por simplicidad
+        denotamos \(Af\) en vez de \(A(f)\).
       </p>
       <p>
         Sea \((A_n:C[0,1]\to C[0,1])_{n=1}^\infty\) 
@@ -549,6 +551,105 @@
       \]
       </p>
 
+      <p>
+        Primero vamos a observar algunas propiedades de los operadores lineales positivos. En 
+        lo que sigue, \(f,g,h\in C[0,1]\).
+        <ol>
+          <li>
+            Si \(f\leq g\) entonces \(Af \leq Ag\). 
+            <p>
+            Razón: si \(f\leq g\Rightarrow 0\leq g-f\) y al ser \(A\) positivo, obtenemos 
+            \(0\leq A(g-f)\). Pero por linealidad:
+            \begin{eqnarray*}
+            0\leq A(g-f)=Ag-Af \\ 
+            \Rightarrow Af\leq Ag.
+            \end{eqnarray*}
+            </p>
+          </li>
+          <li>
+            Si \(|f-h|\leq g \) entonces \(|Af-Ah|\leq Ag\).
+            <p>
+              Razón:
+              \begin{eqnarray*}
+              |f-h|\leq g & \Rightarrow & -g \leq f-h \leq g \\
+              &\Rightarrow & A(-g) \leq A(f-h) \leq Ag \\
+              &\Rightarrow & -Ag \leq Af-Ah \leq Ag \\
+              &\Rightarrow & |Af-Ah | \leq Ag.   
+              \end{eqnarray*}
+            </p>
+          </li>
+        </ol>
+      </p>
+       Para continuar, vamos a copiar  la prueba del Teorema de Bernstein: 
+        usamos la continuidad uniforme de \(f\) en \([0,1]\). 
+     </p>
+     <p>
+      Dada \(\varepsilon> 0\)
+        existe un  \(\delta >0\) tal que para todos \(x,y\in [0,1]\)
+        con \(|y-x|<\delta \) se cumple \(|f(y)-f(x)|< \varepsilon\). 
+     </p>
+     <p>
+      Ahora, si \(|y-x| \geq \delta \) entonces \(1 \leq \frac{(y-x)^2}{\delta^2}\) por lo que 
+      \begin{eqnarray*}
+      |f(y)-f(x)| & \leq  &\frac{(y-x)^2}{\delta^2} |f(y)-f(x)|  \\
+      &\leq & 2\|f\|_{[0,1]}\frac{1}{\delta^2}(y-x)^2
+      \end{eqnarray*}
+     </p>
+     
+     <p>
+      Combinando estos dos casos tenemos que para todos \(x,y\in [0,1]\)
+      \begin{eqnarray*} 
+      |f(y)-f(x)| < \varepsilon+ 2\|f\|_{[0,1]}\frac{1}{\delta^2}(y-x)^2.
+      \end{eqnarray*}
+      Por simplicidad denotamos \(c=2\|f\|_{[0,1]}\frac{1}{\delta^2}\). 
+     </p>
+     <p>
+      Ahora 
+      vamos a cambiar de perspectiva, vamos a tomar a \(x\) como fija y \(y\)
+      como variable. Por ejemplo podemos reescribir \((y-x)^2\) como
+      \[ 
+      (y-x)^2=f_2(y)-2xf_1(y)+x^2f_0(y)
+      \]
+      recordando que \(f_0(y)=1, f_1(y)=y\) y  \(f_2(y)=y^2\).     
+    </p>
+    <p>
+      Con esta notación podemos reescribir la desigualdad anterior como
+      \begin{eqnarray*}
+        |f(y)-f(x)f_0(y)| < \varepsilon+ c(f_2(y)-2xf_1(y)+x^2f_0(y)).
+      \end{eqnarray*}
+      Pensando ésta desigualdad como una desigualdad de funciones 
+      podemos escribir
+      \[
+       |f-f(x)f_0| < \varepsilon f_0+ c(f_2-2xf_1+x^2f_0).
+      \]
+      donde tratamos a \(x\) como constante.
+    </p>
+    <p>
+      Aplicando el operador lineal \(A_n\) y usando sus propiedades 
+      de ser positivo llegamos a 
+      \[
+      |A_nf- f(x)A_nf_0|\leq \varepsilon A_nf_0+c(A_nf_2-2xA_nf_1+x^2A_nf_0).
+      \]
+      Tomando la ventaja de que la desigualdad anterior es una 
+      desigualdad de funciones podemos evaluar en \(x\) para 
+      obtener:
+
+      \[
+      |(A_nf)(x)- f(x)(A_nf_0)(x)|\leq \varepsilon (A_nf_0)(x)+c((A_nf_2)(x)-2x(Af_1)(x)+x^2(A_nf_0)(x)).
+      \]
+      Ahora hacemos una pequeña correción:
+      \begin{eqnarray*}
+      |(A_nf)(x)-f(x)| &\leq  & |(A_nf)(x)-f(x)(A_nf_0)(x)|+|f(x)(A_nf)(x)-f(x)| \\
+      &\leq & |(A_nf)(x)-f(x)(A_nf_0)(x)|+|f(x)|| (A_nf)(x)-1| 
+      \end{eqnarray*}
+    </p>
+    <p>
+      Juntando las dos últimas desigualdades llegamos a 
+      \begin{eqnarray*} 
+      |(A_nf)(x)-f(x)|  & \leq & |f(x)|| (A_nf)(x)-1| + \varepsilon (A_nf_0)(x)\\
+      &+ & c((A_nf_2)(x)-2x(Af_1)(x)+x^2(A_nf_0)(x)).
+      \end{eqnarray*}
+    </p>
 
     </div>
 
