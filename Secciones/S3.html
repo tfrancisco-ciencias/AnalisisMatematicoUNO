@@ -580,6 +580,59 @@
           </li>
         </ol>
       </p>
+
+      <p>
+        Ahora vamos a ver propiedades de la convergencia uniforme y operadores lineales.
+        <ol>
+          <li>
+            La otra desigualdad del triángulo. Para \(f,g\in C[0,1]\):
+            \[
+            | \|f\|_{[0,1]}-\|g\|_{[0,1]}| \leq \|f-g\|_{[0,1]}.
+            \]
+            <p>
+              Razón: usando las propiedades de \(\|\cdot\|_{[0,1]}\) tenemos
+              \begin{eqnarray*} 
+              \|f\|_{[0,1]}&=& \|f-g+g\|_{[0,1]} \\
+              &\leq & \|f-g\|_{[0,1]}+\|g\|_{[0,1]}.
+              \end{eqnarray*}
+              Pasando \(\|g\|_{[0,1]}\) del lado izquierdo llegamos a 
+              \[
+              \|f\|_{[0,1]}-\|g\|_{[0,1]} \leq \|f-g\|_{[0,1]}.
+              \]
+              De manera similar se obtiene 
+              \[
+              \|g\|_{[0,1]}-\|f\|_{[0,1]} \leq \|f-g\|_{[0,1]}.
+              \]
+              Juntando éstas dos desigualdades llgamos a 
+              \[
+              | \|f\|_{[0,1]}-\|g\|_{[0,1]}| \leq \|f-g\|_{[0,1]}.
+              \]
+            </p>
+          </li>
+          <li>
+            Si \((A_n:C[0,1]\to C[0,1])_{n=1}^\infty\) es una sucesión 
+            de operadores lineales tal que \(\lim_{n\to \infty}\|A_nf-f\|_{[0,1]}=0\)
+            entonces 
+            \[
+            \lim_{n\to \infty}\|A_nf\|_{[0,1]}=\|f\|_{[0,1]}.
+            \] 
+            <p>
+              Razón: usando la otra desigualdad del triángulo tenemos que para todo 
+              \(n\in \mathbb{N}\):
+              \[
+              |\|A_nf\|_{[0,1]}-\|f\|_{[0,1]}| \leq \|A_nf-f\|_{[0,1]}.
+              \]
+              Pero por hipótesis, \(\lim_{n\to \infty}\|A_nf-f \|_{[0,1]}=0\), por lo 
+              que la ley del Sandwich para límites implica
+              \[
+              \lim_{n\to \infty}|\|A_nf\|_{[0,1]}-\|f\|_{[0,1]}|=0\Rightarrow 
+              \lim_{n\to \infty}\| A_nf\|_{[0,1]}=\|f\|_{[0,1]}
+              \]
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
        Para continuar, vamos a copiar  la prueba del Teorema de Bernstein: 
         usamos la continuidad uniforme de \(f\) en \([0,1]\). 
      </p>
@@ -649,6 +702,16 @@
       |(A_nf)(x)-f(x)|  & \leq & |f(x)|| (A_nf)(x)-1| + \varepsilon (A_nf_0)(x)\\
       &+ & c((A_nf_2)(x)-2x(Af_1)(x)+x^2(A_nf_0)(x)).
       \end{eqnarray*}
+    </p>
+    <p>
+      Ahora definimos \(g_n(x)=(A_nf_2)(x)-2x(Af_1)(x)+x^2(A_nf_0)(x) \).
+    </p>
+    <p>
+      Entonces la desigualdad anterior se puede escribir:
+      \[
+      |(A_nf)(x)-f(x)| \leq  |f(x)|| (A_nf)(x)-1| + \varepsilon (A_nf_0)(x)\\
+      +  cg_n(x).
+      \]
     </p>
 
     </div>
