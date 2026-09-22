@@ -550,7 +550,8 @@
       \lim_{n\to \infty}\|A_nf - f \|_{[0,1]}=0
       \]
       </p>
-
+      <button class="respButton hvr-grow "> Demostración </button>
+          <div class="resp-box">
       <p>
         Primero vamos a observar algunas propiedades de los operadores lineales positivos. En 
         lo que sigue, \(f,g,h\in C[0,1]\).
@@ -630,6 +631,25 @@
               \]
             </p>
           </li>
+          <li>
+            Si \((A_n:C[0,1]\to C[0,1])_{n=1}^\infty\) es una sucesión 
+            de operadores lineales tal que \(\lim_{n\to \infty}\|A_nf-f\|_{[0,1]}=0\)
+            y \(h\in C[0,1]\) es cualquier función, entonces
+            \[
+            \lim_{n\to \infty}\|hA_nf-hf\|=0.
+            \]
+            <p>
+              Razón: simplemente notamos que para toda \(x\in [0,1]\),
+              \begin{eqnarray*} 
+              |h(x)(A_nf)(x)-h(x)f(x)|&=& |h(x)||(A_nf)(x)-f(x)|
+              &\leq & \|h\| \|A_nf-f\| 
+              \end{eqnarray*}
+              tomando supremo sobre las \(x\in[0,1]\), llegamos 
+              \[
+              \|hA_nf-hf\| \leq \|h\| \|A_nf-f\| \to 0.
+              \]
+            </p>
+          </li>
         </ol>
       </p>
       <p>
@@ -692,14 +712,14 @@
       \]
       Ahora hacemos una pequeña correción:
       \begin{eqnarray*}
-      |(A_nf)(x)-f(x)| &\leq  & |(A_nf)(x)-f(x)(A_nf_0)(x)|+|f(x)(A_nf)(x)-f(x)| \\
-      &\leq & |(A_nf)(x)-f(x)(A_nf_0)(x)|+|f(x)|| (A_nf)(x)-1| 
+      |(A_nf)(x)-f(x)| &\leq  & |(A_nf)(x)-f(x)(A_nf_0)(x)|+|f(x)(A_nf_0)(x)-f(x)| \\
+      &\leq & |(A_nf_0)(x)-f(x)(A_nf_0)(x)|+|f(x)|| (A_nf_0)(x)-1| 
       \end{eqnarray*}
     </p>
     <p>
       Juntando las dos últimas desigualdades llegamos a 
       \begin{eqnarray*} 
-      |(A_nf)(x)-f(x)|  & \leq & |f(x)|| (A_nf)(x)-1| + \varepsilon (A_nf_0)(x)\\
+      |(A_nf)(x)-f(x)|  & \leq & |f(x)|| (A_nf_0)(x)-1| + \varepsilon (A_nf_0)(x)\\
       &+ & c((A_nf_2)(x)-2x(Af_1)(x)+x^2(A_nf_0)(x)).
       \end{eqnarray*}
     </p>
@@ -708,12 +728,80 @@
     </p>
     <p>
       Entonces la desigualdad anterior se puede escribir:
-      \[
-      |(A_nf)(x)-f(x)| \leq  |f(x)|| (A_nf)(x)-1| + \varepsilon (A_nf_0)(x)\\
+      \begin{equation}\label{Eqn:AuxKorovkin}
+      |(A_nf)(x)-f(x)| \leq  |f(x)|| (A_nf_0)(x)-1| + \varepsilon (A_nf_0)(x)
       +  cg_n(x).
+      \end{equation}
+    
+    </p>
+    <p>
+      Afirmación: \(g_n\to 0\), uniformemente en \([0,1]\).
+      <p>
+        Para probar esto vamos a usar las hipótesis
+        \begin{eqnarray*} 
+        A_nf_2 \to f_2, \quad \text{uniformemente}, \\
+        A_nf_1 \to f_1, \quad  \text{uniformemente}, \\
+        A_nf_0 \to f_1, \quad  \text{uniformemente}. 
+        \end{eqnarray*}
+         Multiplicando la segunda ecuación de arriba por \(-2x\) llegamos a:
+         \[
+         -2xA_nf_1 \to -2xf_1, \quad \text{uniformemente}. 
+         \] 
+         Multiplicando la tercera ecuación de arriba por \(x^2\) llegamos a: 
+         \[
+         x^2A_nf_0 \to x^2f_0, \quad \text{uniformemente}
+         \]
+         Como la suma preserva la convergencia uniforme tenemos
+         \begin{eqnarray*}
+         g_n&=&A_nf_2-2xA_nf_1+x^2A_nf_0 \\
+         &\to & f_2-2xf_1+x^2f_0 \\
+         &=& x^2-2xx+x^2=0, \quad \text{uniformemente}.
+         \end{eqnarray*}
+         Esto termina la afirmación.
+      </p>
+    </p>
+    <p>
+      Ahora vamos a pasar a la norma uniforme para terminar la demostración. Primero
+      tenemos las cotas:
+      \begin{eqnarray*} 
+      |(A_nf)(x)-1| &\leq & \|A_nf_0 - 1 \|=\|A_nf_0-f_0\| \\
+      |f(x)| & \leq & \|f\| \\
+      \|A_nf_0(x)\| & \leq & \|A_nf_0\| \\
+      |g_n(x)| &\leq & \|g_n\| 
+      \end{eqnarray*}
+      válidas para toda \(x\in [0,1]\). Substituyendo  éstas cotas en \eqref{Eqn:AuxKorovkin}
+      obtenemos
+      \begin{eqnarray*} 
+      |(A_nf)(x)-f(x)| \leq \|f\| \|A_nf_0-f_0\|+\varepsilon \|A_nf_0\|+c\|g_n\|
+      \end{eqnarray*}
+      válidas para toda \(x\in[0,1]\), entonces tomando supremo sobre las \(x\in [0,1]\)
+      llegamos a 
+      \[
+      \|A_nf-f\| \leq \|f\| \|A_nf_0-f_0\|+\varepsilon \|A_nf_0\|+c\|g_n\|
+      \]
+
+    </p>
+    <p>
+      Tomando límite en los sumandos del lado derecho obtenemos
+      \begin{eqnarray*} 
+      \lim_{n\to \infty}\|A_nf_0-f_0\|=0,\\
+      \lim_{n\to \infty}\|A_nf_0\|=\|f_0\|=1,\\
+      \lim_{n\to \infty} \|g_n\|=0.
+      \end{eqnarray*}
+
+    </p>
+    <p>
+      Entonces llegamos a que 
+      \[
+      \lim_{n\to \infty}\|A_nf- f\| \leq \varepsilon.
+      \]
+      Al ser \(\varepsilon>0\) arbitrario concluimos 
+      \[
+      \lim_{n\to \infty}\| A_nf-f\|=0.
       \]
     </p>
 
+    </div>
     </div>
 
 
