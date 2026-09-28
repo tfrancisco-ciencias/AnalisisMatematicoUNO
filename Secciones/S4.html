@@ -258,15 +258,15 @@
       </div>
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+      <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
         <p>
           Sea \((V, \|\cdot \|)\) un espacio vectorial normado. Define
           \(d:V\times V \to \mathbb{R}\)  por
           \[
           d(x,y)=\|x-y\|
           \]
-          Prueba que \(d\) es una métrica en \(V\).
+          Entonces \(d\) es una métrica en \(V\).
         </p>
         <button class="respButton hvr-grow"> Respuesta </button>
         <div class="resp-box">
@@ -330,22 +330,23 @@
 
      </div> 
 
-     <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
+     <div class="lema-box">
+      <h2 class="number-title"> Lema </h2>
       <p>
         Sea \(1\leq  p <\infty\).
         <ol>
-          <li> Sean \(a,b\geq 0\). Prueba \((a+b)^p \leq 2^p(a^p+b^p)\).</li>
+          <li> Sean \(a,b\geq 0\). Entonces \((a+b)^p \leq 2^p(a^p+b^p)\).</li>
           <li> Usa el inciso anterior para probar que
             \(\ell_p\) es cerrado bajo la suma, es decir
             \(x,y\in \ell_p \Rightarrow x+y \in \ell_p\).
           </li>
-          <li>
-            Concluye que \(\ell_p\) es un espacio vectorial.
-          </li>
+          
         </ol>
+        <p>
+          Conclusión: \(\ell_p\) es un espacio vectorial.
+        </p>
       </p>
-      <button class="respButton hvr-grow"> Respuesta incisos 1,2</button>
+      <button class="respButton hvr-grow"> Demostración </button>
       <div class="resp-box">
           <ol>
               <li>
@@ -451,11 +452,42 @@
 
 
 
+            <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Una pseudo métrica en el conjunto \(X\) es una función 
+            \(\rho:X\times X \to \mathbb{R}\) que satisface 
+            <ol>
+            <li>  si \(x=y\) entonces \(\rho(x,y) = 0\), </li>
+            <li>  \(\rho(x,y)=\rho(y,x)\),</li>
+            <li> desigualdad del triángulo: \(\rho(x,y)\leq \rho(x,z)+\rho(z,y)\).</li>
+          </ol>
+            para todos \(x,y,z\in X\).
+          </p>
+          <p>
+            Una familia de pseudo métricas \(\{\rho_i\}_{i\in I}\) se dice que 
+            separa los puntos de \(X\) sii para \(x,y\in X\) con \(x\ne y\)
+            existe \(\rho_j\) tal que 
+            \(\rho_j(x,y) > 0\).
+          </p>
+
+          <p>
+            Por ejemplo, para \(X=C(\mathbb{R})\), el espacio de las funciones continuas en 
+            \(\mathbb{R}\), dado cualquier compacto \(K\subseteq \mathbb{R}\) la función 
+            \[
+            \rho_K(f,g)=\max_{x\in K}\{|f(x)-g(x)| \}
+            \]
+            es una pseudo métrica pero no una métrica.
+          </p>
+
+        </div>
+
+
 
     <div class="ejercicio-box">
       <h2 class="number-title" id="Ejer:ellInftyClasico"> Ejercicio  </h2>
       <p>
-        \((\ell_{\infty}, \|\cdot\|_{\infty})\) es un espacio vectorial normado.
+       Prueba que \((\ell_{\infty}, \|\cdot\|_{\infty})\) es un espacio vectorial normado.
       </p>
 
     </div>
@@ -533,26 +565,6 @@
       </div>
 
 
-
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio</h2>
-        <p>
-          Sea \((V,\|\cdot\|_V), (W,\|\cdot\|_W)\) dos espacios vectoriales normados. 
-          Para las siguientes funciones, definidas en \(V\times W\) determina cuáles son 
-          normas en \(V\times W\). Si es norma da una prueba si no especifíca qué propiedad falla.
-
-        </p>
-        <ol>
-          <li>\(\|(v,w) \|= ( \|v\|_V^2+\|w\|_W^2)^{1/2} \).</li>
-          <li>\(\|(v,w) \|= \|v\|_V\|w\|_W \).</li>
-          <li>\(\|(v,w) \|= \max\{ \|v\|_V,\|w\|_W \}\).</li>
-          <li>\( \| (v,w)\|=(\|v\|^{1/2}+\|w\|^{1/2})^2\).</li>
-        </ol>
-
-      </div>
-
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio</h2>
         <p>
@@ -580,6 +592,27 @@
 
     </div>
 
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio</h2>
+        <p>
+          Sea \((V,\|\cdot\|_V), (W,\|\cdot\|_W)\) dos espacios vectoriales normados. 
+          Para las siguientes funciones, definidas en \(V\times W\) determina cuáles son 
+          normas en \(V\times W\). Si es norma da una prueba si no especifíca qué propiedad falla.
+
+        </p>
+        <ol>
+          <li>\(\|(v,w) \|= ( \|v\|_V^2+\|w\|_W^2)^{1/2} \).</li>
+          <li>\(\|(v,w) \|= \|v\|_V\|w\|_W \).</li>
+          <li>\(\|(v,w) \|= \max\{ \|v\|_V,\|w\|_W \}\).</li>
+          <li>\( \| (v,w)\|=(\|v\|^{1/2}+\|w\|^{1/2})^2\).</li>
+        </ol>
+
+      </div>
+
+      
 
 
     <div class="ejercicio-box">
@@ -1152,36 +1185,6 @@
 
         </div>
 
-
-        <div class="definicion-box">
-          <h2 class="number-title"> Definición </h2>
-          <p>
-            Una pseudo métrica en el conjunto \(X\) es una función 
-            \(\rho:X\times X \to \mathbb{R}\) que satisface 
-            <ol>
-            <li>  si \(x=y\) entonces \(\rho(x,y) = 0\), </li>
-            <li>  \(\rho(x,y)=\rho(y,x)\),</li>
-            <li> desigualdad del triángulo: \(\rho(x,y)\leq \rho(x,z)+\rho(z,y)\).</li>
-          </ol>
-            para todos \(x,y,z\in X\).
-          </p>
-          <p>
-            Una familia de pseudo métricas \(\{\rho_i\}_{i\in I}\) se dice que 
-            separa los puntos de \(X\) sii para \(x,y\in X\) con \(x\ne y\)
-            existe \(\rho_j\) tal que 
-            \(\rho_j(x,y) > 0\).
-          </p>
-
-          <p>
-            Por ejemplo, para \(X=C(\mathbb{R})\), el espacio de las funciones continuas en 
-            \(\mathbb{R}\), dado cualquier compacto \(K\subseteq \mathbb{R}\) la función 
-            \[
-            \rho_K(f,g)=\max_{x\in K}\{|f(x)-g(x)| \}
-            \]
-            es una pseudo métrica pero no una métrica.
-          </p>
-
-        </div>
 
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
