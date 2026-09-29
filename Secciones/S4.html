@@ -141,9 +141,9 @@
               uniforme de longitud \(n\) del intervalo \([t_0,t_0+\delta]\), denotando 
               \(h_n=\frac{\delta}{n}\). Definimos 
               \[
-              x_n(t)=\int_{t_0}^{t}f(t,x_n(s-h_n))ds+x_0
+              x_n(t)=\int_{t_0}^{t}f(t,x_n(s))ds+x_0
               \] 
-              con \(x_n(s-h_n)=x_0\) si \(t_0< s< t_1\). 
+              con \(x_n(t_0)=x_0\) y \(f(t,x_n(s))=f(t_{k-1},x_{n}(k-1))\), si \(t\in [t_{k-1}.t_k]\). 
             </p>
             <p>
               Si de alguna manera Bolzano-Weierstrass fuese aplicable en este caso 
