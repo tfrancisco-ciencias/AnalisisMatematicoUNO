@@ -793,7 +793,7 @@
         \]
         Prueba que \(d\) es una métrica en \(\{0,1\}^{\mathbb{N}}\).
       </p>
-      <button class="respButton hvr-grow"> Respuesta </button>
+      <!-- <button class="respButton hvr-grow"> Respuesta </button>
       <div class="resp-box">
           <p>
               Sean \(a,b \in \{0,1\}^{\mathbb{N}}\). Note que para cada \(n\) se tiene que
@@ -841,8 +841,8 @@
         Prueba que \(d\) es una métrica en \(\mathbb{R}^{\mathbb{N}}\).
       </p>
 
-    </div>
-
+    </div>-->
+</div>
 
     <div class="ejercicio-box">
       <h2 class="number-title"> Ejercicio </h2>
@@ -1012,19 +1012,6 @@
         <div class="ejercicio-box">
           <h2 class="number-title" id="Ejer:ConjuntoAcotado"> Ejercicio </h2>
           <p>
-            Un subconjunto \(A\) de un espacio métrico \((X,d)\) se llama
-            acotado si existe un \(r>0\) y un punto \(x_0\) en \(X\) tal que
-            \(d(a,x_0) \leq r\), para toda \(a\in A\).
-          </p>
-          <p>
-            Prueba que la unión finita de subconjuntos acotados sigue siendo
-            acotada.
-          </p>
-        </div>
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
             Sea \((X,d)\) un espacio métrico. Dado \(x_0\in X\) y \(r>0\) definimos 
             la bola abierta centrada en \(x_0\) y de radio \(r\) como 
             \[
@@ -1032,19 +1019,21 @@
             \]
           </p>
           <p>
-            Prueba que un conjunto \(A\subseteq X\) está acotado si y sólo si para todo  
-            un \(x_0\in X\) existe un  \(r>0\) tal que \(A\subseteq B_r(x_0)\).
-          </p>
-          
-        </div>
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio  </h2>
-          <p>
-            Sea \((X,d)\) un espacio métrico, \(x_0\in X\) y \(r>0\).
+            Un subconjunto \(A\) de un espacio métrico \((X,d)\) se llama
+            acotado si existe un \(r>0\) y un punto \(x_0\) en \(X\) tal que
+            \(A\subseteq B_r(x_0)\).
           </p>
           <ol>
             <li>
+            Prueba que la unión finita de subconjuntos acotados sigue siendo
+            acotada.
+            </li>
+            <li>
+              El diámetro de un subconjunto \(A\subseteq X\) 
+              se define como
+              \[
+              \textrm{diam}(A)=\sup_{a,b\in A}\{d(a,b)\}.
+              \]
               Prueba que \(\textrm{diam}(B_r(x_0))\leq 2r\).
             </li>
             <li>
@@ -1055,8 +1044,9 @@
               \(\textrm{diam}(B_r(x_0))=2r\).
             </li>
           </ol>
-
+          
         </div>
+
 
 
         <div class="ejercicio-box">
@@ -1093,7 +1083,7 @@
           \operatorname{diam}(B).
           \]
 
-          <button class="respButton hvr-grow"> Respuesta </button>
+          <!-- <button class="respButton hvr-grow"> Respuesta </button>
           <div class="resp-box">
               <p>
                   De la definición de \(\operatorname{diam}\) y \(d(A,B)\) tenemos
@@ -1140,7 +1130,7 @@
                   \]
               </p>
 
-          </div>
+          </div>-->
         </div>
 
 
@@ -1266,9 +1256,27 @@
         </div>
 
 
-
-
             <div class="quiz-box">
+      <h2> Quiz  </h2>
+            <p>
+              Pidele a Gemini que genere un quiz para repasar el tema de ésta sección. 
+              El default son 10 preguntas de opción múltiple 
+              y ojo que puede tardar 
+              un poco en generar el quiz (fijate en la esquina superior derecha).
+            </p>
+            <p class="flexbox">
+              <a href="https://gemini.google.com/gem/1Ln9p-BzjJSYPgL8VmsdXOOvsQ9tHa6NN?usp=sharing" target="_blank" style="font-size: 30px"> Quiz me! </a>
+            </p>
+      
+    </div>
+
+        
+
+        
+
+
+
+           <!-- <div class="quiz-box">
               <h2 id="Quiz:Sec2"> Quiz </h2>
               <p>
                 Sean \(d_1,d_2:X\times X \to \mathbb{R}\) dos métricas en \(X\).
@@ -1281,7 +1289,7 @@
                     Prueba o da un contraejemplo, según corresponda.
                   </li>
               </p>
-          </div>
+          </div>-->
 
 
 
