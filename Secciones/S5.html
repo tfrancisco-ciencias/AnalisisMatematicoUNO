@@ -7,7 +7,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <!-- This part is for jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
     <!-- This part is to load main.js -->
     <script type="text/javascript" src="../main.js"></script>
 
@@ -185,7 +185,7 @@
 
         <h3> Ejemplos sucesiones convergentes</h3>
 
-        <h4>
+        <p>
           <li>
             Si \((x_n)_{n=1}^\infty\) es una sucesión de reales  monótona 
             creciente (es decir \(x_1\leq x_2\leq \cdots \leq x_n \leq x_{n+1} \leq \cdots \) ) y 
@@ -215,12 +215,12 @@
           Nota: existe un resultado similar para sucesiones monótonas decrecientes acotadas 
           inferiormente. En ese caso tenemos \(\lim_{n\to \infty}x_n=\inf_{n\in \mathbb{N}}\{x_n\}\).
         </p>
-        </h4>
-        <h4>
+      </p>
+        <p>
           <li>
             \(\lim_{n\to \infty} \sqrt[n]{n}=1\).
           </li>
-        </h4>
+        </p>
         <button class="respButton hvr-grow">Demostración </button>
               <div class="resp-box">
         <p>
@@ -267,6 +267,369 @@
       </div>
 
 
+
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+
+        <p>
+          Sea \(X\ne \emptyset\) un conjunto. Una sucesión en
+          \(X\) es simplemente una función que va de \(\mathbb{N}\) a \(X\).
+          Por constumbre una sucesión suele denotarse como
+          \((x_n)_{n\in \mathbb{N}}\) ó \((x_n)_{n \geq 1}\), donde para
+          toda \(n\), \(x_n\) es un elemento en \(X\).
+          Con esta notación la función de dónde
+          proviene \((x_n)_{n\in \mathbb{N}}\) es simplemente \(n \mapsto x_n\).
+        </p>
+        <p>
+          Por ejemplo
+          <ol>
+            <li> En \(\mathbb{R}^3\),
+            \[
+            x_n= \left( \cos(n\pi), \frac{1}{n^2}, \sqrt[n]{2} \right), n=1,2 \dots
+            \]
+            </li>
+            <li>
+              En \(\ell_2\),
+              \[
+              e_n= \left( 0, 0, \dots, 0, \underbrace{1}_{\textrm{lugar \(n\)}},
+               0, \dots   \right),
+              n=1,2 \dots
+              \]
+            </li>
+            <li>
+              En \(C([0,1])\),
+              \[
+              f_n(x)=\frac{x^n}{1+x^n}, n=1,2 \dots
+              \]
+            </li>
+          </ol>
+        </p>
+        <p>
+          Intuitivamente, lo más importantde de las sucesiones es que sus
+          elementos están ordenados, es decir, sebemos quién va primero y
+          quién va después: \(x_1\) es el primer elemento, \(x_2\) el segundo
+          y así sucesivamente.
+        </p>
+
+        <p>
+          Ya que lo más importante de la sucesión es que los elementos
+          están ordenados por eso se usa la notación \((x_n)_{n\in \mathbb{N}}\),
+          para recordar una \(n\)-ada de números ordenados,
+          \((x_1,\dots, x_n)\). Para denotar al conjunto formado
+          por los elementos de la sucesión usamos
+          \[
+          \{x_n\}_{n\in \mathbb{N}}=\{ x_1,x_2, \dots, x_n, \dots \}
+          \]
+        </p>
+        <p>
+          Lo más importante de  \(\mathbb{N}\) en la definición de
+          sucesión son sus características de  conjunto totalmente ordenado, así que en principio
+          podemos substituirlo por cualquier otro conjunto con las mismas carácterísticas.
+          Asi podemos considerar que, para cualquier \(a\in \mathbb{Z}\),
+           \((x_n)_{n \geq a}\) como una sucesión.
+        </p>
+
+      </div>
+
+
+
+
+      <div class="definicion-box">
+        <h2 class="number-title" id="Def:SucesionConvergente"> Definición </h2>
+        <p>
+          De manera intuitiva, una sucesión converge
+          si, eventualmente, sus elementos se aproximan a un punto del espacio.
+        </p>
+
+        <p>
+
+          Sea \((X, d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
+          una sucesión en \(X\). Decimos que la sucesión es convergente en \(X\) si
+          existe un \(x\in X\) que satisface:
+        </p>
+        <p>
+          para toda \(\varepsilon >0\) existe \(N\in \mathbb{N}\)
+          tal que para toda \(n \geq N\),
+          \(
+            d(x_n, x) < \varepsilon .
+          \)
+        </p>
+        <p>
+          Por simplicidad, si \((x_n)_{n\in \mathbb{N}}\) converge a
+          \(x\), escribimos \(\lim_{n\to \infty} x_n=x\).
+        </p>
+        <p>
+          Geométricamente la idea es muy parecida al caso real sólo que
+          ahora  \(\varepsilon \) representa el radio de una
+          bola y la métrica \(d\) determina la forma de la bola o
+          vecindad centrada en \(x\).
+
+          <div class=" flexbox">
+              <img src="./Images/FigSucEspMet.png" alt="ConvergenciaSucEspMet"
+              width="50%" height="auto">
+          </div>
+
+
+        </p>
+        <p>
+          Notas:
+          <ol>
+          <li>
+          Usualmente la \(N\) en la definición anterior
+          depende de \(\varepsilon\) y ésta dependencia puede denotarse
+          como \(N(\varepsilon)\).
+          </li>
+          <li>
+            A pesar que en la definición se pide \(d(x_n,x)< \varepsilon \),
+            se puede cambiar a \(d(x_n,x) \leq \varepsilon \), esto debido
+            al cuantificador "para toda \(\varepsilon>0\)". Pues si
+            tenemos que se vale la condición con \(\leq\) simplemente tomamos
+            \(\varepsilon/2\) para obtener: \(d(x_n,x)\leq
+            \varepsilon/2 < \varepsilon\).
+          </li>
+          <li>
+            La definición pueden pensarse de la siguiente forma: a partir de cierto instante
+            de la sucesión
+            (el instante es \(N\)) la distancia entre los elementos de la
+            sucesión y el punto de convergencia se hace tan chiquita como
+            queramos (que tan chiquito lo mide la \(\varepsilon\)).
+          </li>
+          <li>
+            \(\lim_{n\to \infty} x_n=x\) en \(X\) si y sólo si \(\lim_{n\to \infty} d(x_n,x)=0\), en \(\mathbb{R}\).
+          </li>
+        </p>
+      </div>
+
+
+
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <h3> Límites en espacios vectoriales normados </h3>
+        <p>
+          Recordamos que dado un espacio vectorial normado, \((V,\|\cdot\|)\),
+          la norma induce una métrica mediante, \(d(v,w)=\|v-w\|\). En este
+          contexto la definición de que \(\lim_{n\to \infty}v_n=v\) se
+          traduce como:
+         </p>
+         <p>
+           para toda \(\varepsilon > 0\), existe \(N\in\mathbb{N}\)
+           tal que, para toda \(n \geq N\) se cumple,
+           \( \| v_n-v\| < \varepsilon\).
+         </p>
+         <p>
+           Nota que lo anterior se puede escribir como
+           \[
+           \lim_{n\to \infty}\|v_n-v\|=0
+           \]
+           y la ventaja de éste último límite es que es un límite de números
+           reales, de los que se ven en cálculo.
+         </p>
+      </div>
+
+
+
+
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+
+            
+            <p>
+              Si pensamos a la sucesión como una función 
+              \(x: \mathbb{N} \to X\) una subsucesión de \(x\)
+              es una función de la forma \(x\circ \varphi \), donde 
+              \(\varphi: \mathbb{N} \to \mathbb{N}\) es una función 
+              estrictamente creciente. 
+              <div class="flexbox">
+                <img src="./Images/Subsusecion.png"
+                alt="ConvergenciaSuc" width="50%" height="auto">
+              </div>  
+            </p>
+            <p>
+              Usando la notación  \((x_n)_{n\in \mathbb{N}}\), una subsucesión de \((x_n)_{n\in \mathbb{N}}\)
+              se puede escribir como  \((x_{\varphi(k)})_{k=1}^\infty\).
+              Por ejemplo
+              \((x_{2n})_{n\in \mathbb{N}}\) y \((x_{2n+1})_{n\in \mathbb{N}}\)
+              son subcesiones de \((x_n)_{n\in \mathbb{N}}\), en la 
+              primera tenemos \(\varphi(n)=2n\) y en la segunda \(\varphi(n)=2n+1\). 
+            </p>
+            <p>
+              Por costumbre
+              una subcesión de \((x_n)_{n\in \mathbb{N}}\) suele denotarse
+              \((x_{n_k})_{k\in \mathbb{N}}\), donde en ésta notación
+              se entiende \(n_k=\varphi(k)\), para alguna función
+              estrictamente creciente \(\varphi\).
+            </p>
+            <p>
+              Observación.
+            </p>
+            <p>
+              Si \((x_{\varphi(k)})_{k=1}\) es una subseción de \((x_n)_{n=1}^\infty\) y 
+              \((x_{\psi(\varphi(s))})_{s=1}^\infty\) es una subsucesión de \((x_{\varphi(k)})_{k=1}^\infty\)
+              entonces \((x_{\psi(\varphi(s))})_{s=1}^\infty\) es una subsucesión de \((x_n)_{n=1}^\infty\).
+              Razón: composición de funciones estrictamente creciente son estrictamente crecientes, 
+              en este caso \(\psi \circ \varphi\) es estrictamente creciente.
+            </p>
+        </div>
+
+
+            <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
+          <p>
+            Sea \((X,d)\) un espacio métrico y
+            \((x_n)_{n\in \mathbb{N}}\) una sucesión en \(X\) y \(x\in X\)
+            tal que \((x_n)_{n\in \mathbb{N}}\) converge a \(x\). Prueba que toda
+            subsucesión de \((x_n)_{n\in \mathbb{N}}\) también converge a \(x\).
+          </p>
+
+
+
+                  <button class="respButton hvr-grow"> Demostración </button>
+                  <div class="resp-box flexbox">
+                      <div class="flexbox">
+                        <iframe width="700" height="400" class="video"
+                          src="https://www.youtube.com/embed/RWp7ynBONOc" allowfullscreen="true"> 
+                        </iframe>
+                          
+                      </div>
+                  </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico, \((x_n)_{n\in \mathbb{N}}\)
+          una sucesión en \(X\) y \(x\in X\). Prueba que si para toda subsucesión
+          de \((x_n)_{n\in \mathbb{N}}\) le podemos extraer otra subsucesión
+          convergente a \(x\), entonces la sucesión
+          original \((x_n)_{n\in \mathbb{N}}\) converge a \(x\).
+        </p>
+
+            <button class="respButton hvr-grow"> Respuesta </button>
+            <div class="resp-box flexbox">
+                <div class=" flexbox">
+
+                  <iframe width="700" height="400" class="video"
+                    src="https://www.youtube.com/embed/iOj6VDGCqIU" allowfullscreen="true"> 
+                  </iframe>
+                    
+                </div>
+            </div>
+      </div>
+
+
+
+
+            <div class="definicion-box">
+              <h2 class="number-title"> Definición </h2>
+              <h3> Límites inferior y superior </h3>
+              <p>
+                Dada una sucesión acotada de números reales, \((x_n)_{n\in \mathbb{N}}\), 
+                definimos, respectivamente, su límite inferior y superior como 
+                \begin{eqnarray*} 
+                \liminf_{n\to \infty} x_n = \sup_{n\geq 1} \{\inf_{k\geq n}\{ x_k\} \}\\
+                \limsup_{n\to \infty} x_n = \inf_{n\geq 1} \{\sup_{k\geq n}\{ x_k\} \}
+                \end{eqnarray*}
+              </p>
+              <p>
+                Observación:
+                de la definición se sigue directamente que \(\liminf_{n}x_n \leq \limsup_{n}x_n\).
+              </p>
+
+            </div>
+
+            <div class="lema-box">
+              <h2 class="number-title" id="Lema:LimSupLimInf"> Lema </h2>
+              <p>
+                Sea \((x_n)_{n=1}^\infty\) una sucesión acotada de números reales. Prueba que \((x_n)_{n=1}^\infty\)
+                es convergente si y sólo si 
+                \[\liminf_{n\to \infty} x_n = \limsup_{n\to \infty} x_n.\]
+                
+              </p>
+              <p>
+                En cuyo caso se tiene que \(\liminf_{n\to \infty}x_n=\limsup_{n\to \infty}x_n=\lim_{n\to \infty}x_n\).
+              </p>
+
+              <!--<p>
+                Ahora denotamos \(x=\alpha=\beta\) y para terminar probamos que \(\lim_{k\to \infty}x_{n_k}=x\).
+              </p>
+            
+               <p>
+                Ahora por las propiedades fundamentales de ínfimos y supremos para \(\varepsilon >0\) existen \(j_1,j_2\)
+                tales que 
+                \begin{eqnarray*} 
+                x- \varepsilon < \alpha_{j_1}, \\
+                \beta_{j_2} < x+\varepsilon.
+                \end{eqnarray*}
+                Sea \(j_3=\max\{j_1,j_2\}\). Por \eqref{Eqn:Aux2Rcomp} y \eqref{Eqn:Aux3Rcomp} tenemos que 
+                \(\alpha_{j_1}\leq \alpha_{j_3}\) y \(\beta_{j_3}\leq \beta_{j_2}\) y por \eqref{Eqn:Aux1Rcomp}
+                tenemos \(\alpha_{j_3} \leq \beta_{j_3}\). Con toda la información anterior tenemos la siguiente cadena 
+                de desigualdades
+                \begin{eqnarray*} 
+                x -\varepsilon <  \alpha_{j_3}\leq x_{n_k} \leq  \beta_{j_3} <  x +\varepsilon
+                \end{eqnarray*}
+                para todo \(k\geq j_3\), lo cual se puede reescribir como \(|x-x_{n_k}|< \varepsilon\) para todo 
+                \(k \geq j_3\), es decir \(\lim_{k\to \infty}x_{n_k}=x\).
+              </p>-->
+            </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico. Una sucesión en
+          \(X\), \((x_n)_{n\in \mathbb{N}}\), se llama de Cauchy
+          o Cauchy respecto a \(d\) si  las distancias
+          entre sus elementos tiene a cero, es decir
+          \[
+          \lim_{n,m\to \infty}d(x_n,x_m)=0
+          \]
+        </p>
+        <p>
+          En términos de \(\varepsilon\)'s lo anterior quiere
+          decir que, para toda \(\varepsilon >0\) existe
+          \(N\in \mathbb{N}\) tal que, para \(n,m \geq N\) se cumple
+          \[
+          d(x_n,x_m) < \varepsilon.
+          \]
+        </p>
+      </div>
+
+  
+
+      <div class="lema-box">
+        <h2 class="number-title" id="Ejer:SubsucesionConvDeUnaCauchy"> Lema </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
+          una sucesión de Cauchy en \(X\).
+        </p>
+        <p>
+          Supón que \((x_n)_{n\in \mathbb{N}}\) admite una subsucesión
+          convergente en \(X\). Prueba que la sucesión original,
+          \((x_n)_{n\in \mathbb{N}}\), también es convergente.
+        </p>
+
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box flexbox">
+            <div class="flexbox">
+
+              <iframe width="700" height="400" class="video"
+                    src="https://www.youtube.com/embed/27jPgRSkR-Q" allowfullscreen="true"> 
+                  </iframe>
+                
+            </div>
+        </div>
+
+      </div>
 
             <div class="ejercicio-box">
               <h2 class="number-title"> Ejercicio </h2>
@@ -372,140 +735,6 @@
 
 
 
-      <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
-
-        <p>
-          Sea \(X\ne \emptyset\) un conjunto. Una sucesión en
-          \(X\) es simplemente una función que va de \(\mathbb{N}\) a \(X\).
-          Por constumbre una sucesión suele denotarse como
-          \((x_n)_{n\in \mathbb{N}}\) ó \((x_n)_{n \geq 1}\), donde para
-          toda \(n\), \(x_n\) es un elemento en \(X\).
-          Con esta notación la función de dónde
-          proviene \((x_n)_{n\in \mathbb{N}}\) es simplemente \(n \mapsto x_n\).
-        </p>
-        <p>
-          Por ejemplo
-          <ol>
-            <li> En \(\mathbb{R}^3\),
-            \[
-            x_n= \left( \cos(n\pi), \frac{1}{n^2}, \sqrt[n]{2} \right), n=1,2 \dots
-            \]
-            </li>
-            <li>
-              En \(\ell_2\),
-              \[
-              x_n= \left( 0, 0, \dots, 0, \underbrace{1}_{\textrm{lugar \(n\)}},
-               0, \dots   \right),
-              n=1,2 \dots
-              \]
-            </li>
-            <li>
-              En \(C([0,1])\),
-              \[
-              f_n(x)=\frac{x^n}{1+x^n}, n=1,2 \dots
-              \]
-            </li>
-          </ol>
-        </p>
-        <p>
-          Intuitivamente, lo más importantde de las sucesiones es que sus
-          elementos están ordenados, es decir, sebemos quién va primero y
-          quién va después: \(x_1\) es el primer elemento, \(x_2\) el segundo
-          y así sucesivamente.
-        </p>
-
-        <p>
-          Ya que lo más importante de la sucesión es que los elementos
-          están ordenados por eso se usa la notación \((x_n)_{n\in \mathbb{N}}\),
-          para recordar una \(n\)-ada de números ordenados,
-          \((x_1,\dots, x_n)\). Para denotar al conjunto formado
-          por los elementos de la sucesión usamos
-          \[
-          \{x_n\}_{n\in \mathbb{N}}=\{ x_1,x_2, \dots, x_n, \dots \}
-          \]
-        </p>
-        <p>
-          Lo más importante de  \(\mathbb{N}\) en la definición de
-          sucesión son sus características de  conjunto totalmente ordenado, así que en principio
-          podemos substituirlo por cualquier otro conjunto con las mismas carácterísticas.
-          Asi podemos considerar que, para cualquier \(a\in \mathbb{Z}\),
-           \((x_n)_{n \geq a}\) como una sucesión.
-        </p>
-
-      </div>
-
-
-
-
-      <div class="definicion-box">
-        <h2 class="number-title" id="Def:SucesionConvergente"> Definición </h2>
-        <p>
-          De manera intuitiva, una sucesión converge
-          si, eventualmente, sus elementos se aproximan a un punto del espacio.
-        </p>
-
-        <p>
-
-          Sea \((X, d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
-          una sucesión en \(X\). Decimos que la sucesión es convergente en \(X\) si
-          existe un \(x\in X\) que satisface:
-        </p>
-        <p>
-          para toda \(\varepsilon >0\) existe \(N\in \mathbb{N}\)
-          tal que para toda \(n \geq N\),
-          \(
-            d(x_n, x) < \varepsilon .
-          \)
-        </p>
-        <p>
-          Por simplicidad, si \((x_n)_{n\in \mathbb{N}}\) converge a
-          \(x\), escribimos \(\lim_{n\to \infty} x_n=x\).
-        </p>
-        <p>
-          Geométricamente la idea es muy parecida al caso real sólo que
-          ahora  \(\varepsilon \) representa el radio de una
-          bola y la métrica \(d\) determina la forma de la bola o
-          vecindad centrada en \(x\).
-
-          <div class=" flexbox">
-              <img src="./Images/FigSucEspMet.png" alt="ConvergenciaSucEspMet"
-              width="50%" height="auto">
-          </div>
-
-
-        </p>
-        <p>
-          Notas:
-          <ol>
-          <li>
-          Usualmente la \(N\) en la definición anterior
-          depende de \(\varepsilon\) y ésta dependencia puede denotarse
-          como \(N(\varepsilon)\).
-          </li>
-          <li>
-            A pesar que en la definición se pide \(d(x_n,x)< \varepsilon \),
-            se puede cambiar a \(d(x_n,x) \leq \varepsilon \), esto debido
-            al cuantificador "para toda \(\varepsilon>0\)". Pues si
-            tenemos que se vale la condición con \(\leq\) simplemente tomamos
-            \(\varepsilon/2\) para obtener: \(d(x_n,x)\leq
-            \varepsilon/2 < \varepsilon\).
-          </li>
-          <li>
-            La definición pueden pensarse de la siguiente forma: a partir de cierto instance
-            de la sucesión
-            (el instance es \(N\)) la distancia entre los elementos de la
-            sucesión y el punto de convergencia se hace tan chiquita como
-            queramos (que tan chiquito lo mide la \(\varepsilon\)).
-          </li>
-          <li>
-            \(\lim_{n\to \infty} x_n=x\) en \(X\) si y sólo si \(\lim_{n\to \infty} d(x_n,x)=0\), en \(\mathbb{R}\).
-          </li>
-        </p>
-      </div>
-
-
-
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
@@ -524,6 +753,86 @@
         </p>
       </div>
 
+
+        <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+              <p>
+                Como en el caso real, toda sucesión convergente en un espacio
+                métrico es es acotada. Sin embargo, varios resultados que se
+                valen en \(\mathbb{R}\) ya no son válidos para cualquier
+                espacio métrico.
+              </p>
+
+              <p>
+                <ol>
+                <li>
+                Sea \((X,d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
+                una sucesión en \(X\). Prueba que si \((x_n)_{n\in \mathbb{N}}\)
+                es convergente en \(X\) entonces el conjunto \(\{x_n\}_{n\in \mathbb{N}}\)
+                está acotado.
+                </li>
+                <li>
+                  <p>Para \(k\in \mathbb{N}\) denota por
+                  \(e_{k}\) a la sucesión de reales tal que
+                  es cero en todos lados excepto en la entrada \(k\), donde vale 1. Nota
+                  que el conjunto \(\{e_{k}\}_{k\in \mathbb{N}}\) es
+                  acotado en \((\ell_\infty, \| \cdot \|_\infty)\) pero prueba que
+                  la sucesión \((e_{k})_{k\in \mathbb{N}}\) no converge en
+                  \((\ell_\infty, \| \cdot \|_\infty)\).
+                </p>
+                <p>
+                  Sugerencia: inicia probando que, para \(x=(x(i))_{i\geq 1} \in \ell_\infty\)
+                  \(|x(i)| \leq \| x-e^{(k)}\|_\infty \), para toda \(i\ne k\).
+                </p>
+                </li>
+                <li>
+                  Generaliza el inciso anterior probando que no existe subsucesión
+                  de \((e^{(k)})_{k\in \mathbb{N}}\) que sea convergente
+                  en \((\ell_\infty, \| \cdot \|_\infty)\). Esto muestra que
+                  un teorema tipo Bolzano-Weierstrass no es válido en
+                  el espacio \((\ell_\infty, \| \cdot \|_\infty)\).
+                </li>
+              </ol>
+              </p>
+
+              <p>
+                Nota: recuerda que un subconjunto \(A\) de un espacio métrico es acotado si
+                existe \(x_0\) en el espacio y \(r>0\) que satisface:
+                \(d(x_0,a) \leq r\), para toda \(a\in A\).
+              </p>
+            </div>
+
+
+
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+
+              <p>
+                Recuerda que por \(\mathbb{R}^{\mathbb{N}}\) denotamos al
+                conjunto de sucesiones de números reales. Dado
+                \(x\in \mathbb{R}^{\mathbb{N}}\) denotamos sus entradas como
+                \[
+                x=(x(1), x(2), \dots, x(n), \dots)
+                \]
+              </p>
+              <p>
+                Dada una sucesión
+                \(x \in \mathbb{R}^{\mathbb{N}}\)
+                denota \(x_{k}\) al truncamiento de \(x\)
+                a altura \(k\), es decir, \(x_{k}=(x(1),\dots, x(k), 0,0,\dots)\).
+              </p>
+              <ol>
+                <li> Si \(x\in \ell_2\) prueba que \((x_{k})_{k\in \mathbb{N}}\)
+                  converge a \(x\) en \(\ell_2\).
+                </li>
+                <li> Si \(x\in \ell_1\) prueba que \((x_{k})_{k\in \mathbb{N}}\)
+                  converge a \(x\) en \(\ell_1\).
+                </li>
+                <li> Da un ejemplo donde se muestre que los incisos anteriores
+                  no se valen cuando \(x\in \ell_\infty\).
+                </li>
+              </ol>
+            </div>
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
@@ -610,59 +919,6 @@
       </div>
 
 
-      <div class="nota-box">
-        <h2 class="number-title"> Nota </h2>
-        <h3> Límites en espacios vectoriales normados </h3>
-        <p>
-          Recordamos que dado un espacio vectorial normado, \((V,\|\cdot\|)\),
-          la norma induce una métrica mediante, \(d(v,w)=\|v-w\|\). En este
-          contexto la definición de que \(\lim_{n\to \infty}v_n=v\) se
-          traduce como:
-         </p>
-         <p>
-           para toda \(\varepsilon > 0\), existe \(N\in\mathbb{N}\)
-           tal que, para toda \(n \geq N\) se cumple,
-           \( \| v_n-v\| < \varepsilon\).
-         </p>
-         <p>
-           Nota que lo anterior se puede escribir como
-           \[
-           \lim_{n\to \infty}\|v_n-v\|=0
-           \]
-           y la ventaja de éste último límite es que es un límite de números
-           reales, de los que se ven en cálculo.
-         </p>
-      </div>
-
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:SumaContinua"> Ejercicio </h2>
-        <p>
-          Sea \((V,\|\cdot\|)\) un espacio vectorial normado,
-          \((v_n)_{n\in \mathbb{N}}\), \((w_n)_{n\in \mathbb{N}}\)
-          dos sucesiones en \(V\) y \((\alpha)_{n\in \mathbb{N}} \) una
-          sucesión de escalares.
-        </p>
-        <p>
-          Supón que \(\lim_{n\to \infty}v_n=v\), \(\lim_{n\to \infty} w_n=w\)
-          y \(\lim_{n\to \infty}\alpha_n = \alpha\).
-          Prueba que:
-          \[
-          \lim_{n\to \infty} (\alpha_n v_n+ w_n )= \alpha v +w
-          \]
-        </p>
-
-        <button class="respButton hvr-grow"> Respuesta </button>
-        <div class="resp-box flexbox">
-            <div class="flexbox">
-              <iframe width="700" height="400" class="video"
-                src="https://www.youtube.com/embed/pzJ-qDrr6Iw" allowfullscreen="true"> 
-              </iframe>
-                
-            </div>
-        </div>
-      </div>
 
 
 
@@ -808,37 +1064,94 @@
 
 
 
-            <div class="ejercicio-box">
-              <h2 class="number-title"> Ejercicio </h2>
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:SumaContinua"> Ejercicio </h2>
+        <p>
+          Sea \((V,\|\cdot\|)\) un espacio vectorial normado,
+          \((v_n)_{n\in \mathbb{N}}\), \((w_n)_{n\in \mathbb{N}}\)
+          dos sucesiones en \(V\) y \((\alpha)_{n\in \mathbb{N}} \) una
+          sucesión de escalares.
+        </p>
+        <p>
+          Supón que \(\lim_{n\to \infty}v_n=v\), \(\lim_{n\to \infty} w_n=w\)
+          y \(\lim_{n\to \infty}\alpha_n = \alpha\).
+          Prueba que:
+          <ol>
+            <li>
+              \[
+          \lim_{n\to \infty} (\alpha_n v_n+ w_n )= \alpha v +w.
+          \]
+            </li>
+            <li>
+              \[
+              \lim_{n\to \infty}\|v_n\|=\|v\|.
+              \]
+            </li>
+          </ol>
+          
+        </p>
 
-              <p>
-                Recuerda que por \(\mathbb{R}^{\mathbb{N}}\) denotamos al
-                conjunto de sucesiones de números reales. Dado
-                \(x\in \mathbb{R}^{\mathbb{N}}\) denotamos sus entradas como
-                \[
-                x=(x(1), x(2), \dots, x(n), \dots)
-                \]
-              </p>
-              <p>
-                Dada una sucesión
-                \(x \in \mathbb{R}^{\mathbb{N}}\)
-                denota \(x_{k}\) al truncamiento de \(x\)
-                a altura \(k\), es decir, \(x_{k}=(x(1),\dots, x(k), 0,0,\dots)\).
-              </p>
-              <ol>
-                <li> Si \(x\in \ell_2\) prueba que \((x_{k})_{k\in \mathbb{N}}\)
-                  converge a \(x\) en \(\ell_2\).
-                </li>
-                <li> Si \(x\in \ell_1\) prueba que \((x_{k})_{k\in \mathbb{N}}\)
-                  converge a \(x\) en \(\ell_1\).
-                </li>
-                <li> Da un ejemplo donde se muestre que los incisos anteriores
-                  no se valen cuando \(x\in \ell_\infty\).
-                </li>
-              </ol>
+        <!-- <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box flexbox">
+            <div class="flexbox">
+              <iframe width="700" height="400" class="video"
+                src="https://www.youtube.com/embed/pzJ-qDrr6Iw" allowfullscreen="true"> 
+              </iframe>
+                
             </div>
+        </div>-->
+      </div>
 
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((V,\|\cdot\|)\) un espacio vectorial normado. Decimos que 
+          \(V\) es una álgebra si admite una función, llamda producto, 
+          \(\cdot: V\times V \to V\), que satisface:
+          <ol>
+            <li>
+              Asociatividad: \(u\cdot(v\cdot w)=(u\cdot v)\cdot w\).
+            </li>
+            <li>
+              Distributividad: \(u\cdot(v+w)=u\cdot v + u\cdot w\), \((v+w)\cdot u=v\cdot u+ w\cdot u\).
+            </li>
+          </ol>
+          <p>
+           Por simplicidad escribimos \(uv\) en lugar de \(u\cdot v\).
+          </p>
+          <p>
+            Decimos que el producto es compatible con la norma si, para todos \(u,v\in V\):
+            \[
+            \|uv\|\leq \|u\| \|v\|
+            \]
+          </p>
+          <p>
+            Prueba que si tenemos dos sucesiones en \(V\), \((u_n)_{n\in \mathbb{N}}\), \((v_n)_{n\in \mathbb{N}}\)
+            tal que \(\lim_{n\to\infty}u_n=u\) y \(\lim_{n\to \infty}v_n=v\) y la norma es compatible 
+            con el producto entonces 
+            \[
+            \lim_{n\to \infty} u_nv_n=uv.
+            \]
+          </p>
+        </p>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \((X,d)\) un espacio métrico y \((x_n)_{n=1}^\infty, (y_n)_{n=1}^\infty\)
+            dos sucesiones en \(X\) con la propiedad de que
+            \[
+            \lim_{n\to \infty} d(x_n,y_n)=0.
+            \]
+            Prueba que sólo pasan dos casos: ambas sucesiones son
+            convergentes o ambas sucesiones son divergentes.
+          </p>
+        </h2>
+      </div>
 
                   
 
@@ -890,120 +1203,6 @@
             Prueba que \(d\), \(\rho\) y \(\sigma\) son métricas equivalentes.
           </p>
 
-        </div>
-
-
-
-
-
-        <div class="definicion-box">
-          <h2 class="number-title"> Definición </h2>
-
-            
-            <p>
-              Si pensamos a la sucesión como una función 
-              \(x: \mathbb{N} \to X\) una subsucesión de x
-              es una función de la forma \(x\circ \varphi \), donde 
-              \(\varphi: \mathbb{N} \to \mathbb{N}\) es una función 
-              estrictamente creciente. 
-              <div class="flexbox">
-                <img src="./Images/Subsusecion.png"
-                alt="ConvergenciaSuc" width="50%" height="auto">
-              </div>  
-            </p>
-            <p>
-              Usando la notación  \((x_n)_{n\in \mathbb{N}}\), una subsucesión de \((x_n)_{n\in \mathbb{N}}\)
-              se puede escribir como  \((x_{\varphi(k)})_{k=1}^\infty\).
-              Por ejemplo
-              \((x_{2n})_{n\in \mathbb{N}}\) y \((x_{2n+1})_{n\in \mathbb{N}}\)
-              son subcesiones de \((x_n)_{n\in \mathbb{N}}\), en la 
-              primera tenemos \(\varphi(n)=2n\) y en la segunda \(\varphi(n)=2n+1\). 
-            </p>
-            <p>
-              Por costumbre
-              una subcesión de \((x_n)_{n\in \mathbb{N}}\) suele denotarse
-              \((x_{n_k})_{k\in \mathbb{N}}\), donde en ésta notación
-              se entiende \(n_k=\varphi(k)\), para alguna función
-              estrictamente creciente \(\varphi\).
-            </p>
-            <p>
-              Observación.
-            </p>
-            <p>
-              Si \((x_{\varphi(k)})_{k=1}\) es una subseción de \((x_n)_{n=1}^\infty\) y 
-              \((x_{\psi(\varphi(s))})_{s=1}^\infty\) es una subsucesión de \((x_{\varphi(k)})_{k=1}^\infty\)
-              entonces \((x_{\psi(\varphi(s))})_{s=1}^\infty\) es una subsucesión de \((x_n)_{n=1}^\infty\).
-              Razón: composición de funciones estrictamente creciente son estrictamente crecientes, 
-              en este caso \(\psi \circ \varphi\) es estrictamente creciente.
-            </p>
-        </div>
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            ¿Cuáles de las siguientes expresiones representan subsucesiones
-            de \((x_n)_{n\in \mathbb{N}}\)?
-          </p>
-          <ol>
-            <li> \((x_{n^2})_{n\in \mathbb{N}}\) . </li>
-            <li> \((x_{n^2-4n})_{n \in \mathbb{N}}\).</li>
-            <li> \((x_{\frac{n^2+1}{n+1}})_{n \geq 2 }\). </li>
-            <li>  \((x_{\frac{n}{n+1}})_{n\in \mathbb{N}}\). </li>
-            <li>   \((x_{n^2-4n})_{n\geq 5} \). </li>
-        </div>
-
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Considera una sucesión \((x_n)_{n\in \mathbb{N}}\). De esta
-            sucesión se van a ir sacando subsuceciones recursivamente.
-          </p>
-          <p>
-            Por \((x_n^{(1)})_{n\in \mathbb{N}}\) vamos a denotar una
-            subsucesión de \((x_n)_{n\in \mathbb{N}}\). Es decir,
-            \(x_n^{(1)}=x_{\varphi_1(n)}\), donde
-            \(\varphi_1:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
-          </p>
-          <p>
-            Por \((x_n^{(2)})_{n\in \mathbb{N}}\) vamos a denotar una
-            subsucesión de \((x_n^{(1)})_{n\in \mathbb{N}}\). Es decir,
-            \(x_n^{(2)}=x_{\varphi_2(n)}^{(1)}\), donde
-            \(\varphi_2:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
-          </p>
-          <p>
-            Si \((x_n^{(m)})_{n\in\mathbb{N} } \) se ha construido,
-            por \((x_n^{(m+1)})_{n\in \mathbb{N}}\) vamos a denotar una
-            subsucesión de \((x_n^{(m)})_{n\in \mathbb{N}}\). Es decir,
-            \(x_n^{(m+1)}=x_{\varphi_{m+1}(n)}^{(m)}\), donde
-            \(\varphi_{m+1}:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
-          </p>
-          <p>
-            Para una visualización podemos escribir las suceciones
-            en una lista
-          </p>
-          <p>
-            \begin{eqnarray*}
-            & x_1^{(1)}, x_2^{(1)}, x_3^{(1)}, \dots \\
-            & x_1^{(2)}, x_2^{(2)}, x_3^{(2)}, \dots \\
-            & x_1^{(3)}, x_2^{(3)}, x_3^{(3)}, \dots \\
-            & \vdots \\
-            & x_1^{(m)}, x_2^{(m)}, x_3^{(m)}, \dots \\
-            & \vdots
-            \end{eqnarray*}
-          </p>
-          <p>
-            Define la sucesión \((y_n)_{n \in \mathbb{N}}\) por
-            \(y_n:=x_n^{(n)}\). Se puede pensar como la sucesión diagonal.
-          </p>
-          <p>
-            Prueba que, para cada \(m\in \mathbb{N}\), \((y_n)_{n \geq m}\)
-            es una subsucesión de \((x_n^{(m)})_{n\in \mathbb{N}}\).
-          </p>
-          <p>
-            Este método se conoce como el método de la diagonal de Cantor.
-          </p>
         </div>
 
 
@@ -1091,184 +1290,90 @@
                </div>
               </div>
 
-      <div class="lema-box">
-        <h2 class="number-title"> Lema </h2>
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
           <p>
-            Sea \((X,d)\) un espacio métrico y
-            \((x_n)_{n\in \mathbb{N}}\) una sucesión en \(X\) y \(x\in X\)
-            tal que \((x_n)_{n\in \mathbb{N}}\) converge a \(x\). Prueba que toda
-            subsucesión de \((x_n)_{n\in \mathbb{N}}\) también converge a \(x\).
+            ¿Cuáles de las siguientes expresiones representan subsucesiones
+            de \((x_n)_{n\in \mathbb{N}}\)?
           </p>
+          <ol>
+            <li> \((x_{n^2})_{n\in \mathbb{N}}\) . </li>
+            <li> \((x_{n^2-4n})_{n \in \mathbb{N}}\).</li>
+            <li> \((x_{\frac{n^2+1}{n+1}})_{n \geq 2 }\). </li>
+            <li>  \((x_{\frac{n}{n+1}})_{n\in \mathbb{N}}\). </li>
+            <li>   \((x_{n^2-4n})_{n\geq 5} \). </li>
+        </div>
 
 
 
-                  <button class="respButton hvr-grow"> Demostración </button>
-                  <div class="resp-box flexbox">
-                      <div class="flexbox">
-                        <iframe width="700" height="400" class="video"
-                          src="https://www.youtube.com/embed/RWp7ynBONOc" allowfullscreen="true"> 
-                        </iframe>
-                          
-                      </div>
-                  </div>
-      </div>
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Considera una sucesión \((x_n)_{n\in \mathbb{N}}\). De esta
+            sucesión se van a ir sacando subsuceciones recursivamente.
+          </p>
+          <p>
+            Por \((x_n^{(1)})_{n\in \mathbb{N}}\) vamos a denotar una
+            subsucesión de \((x_n)_{n\in \mathbb{N}}\). Es decir,
+            \(x_n^{(1)}=x_{\varphi_1(n)}\), donde
+            \(\varphi_1:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
+          </p>
+          <p>
+            Por \((x_n^{(2)})_{n\in \mathbb{N}}\) vamos a denotar una
+            subsucesión de \((x_n^{(1)})_{n\in \mathbb{N}}\). Es decir,
+            \(x_n^{(2)}=x_{\varphi_2(n)}^{(1)}\), donde
+            \(\varphi_2:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
+          </p>
+          <p>
+            Si \((x_n^{(m)})_{n\in\mathbb{N} } \) se ha construido,
+            por \((x_n^{(m+1)})_{n\in \mathbb{N}}\) vamos a denotar una
+            subsucesión de \((x_n^{(m)})_{n\in \mathbb{N}}\). Es decir,
+            \(x_n^{(m+1)}=x_{\varphi_{m+1}(n)}^{(m)}\), donde
+            \(\varphi_{m+1}:\mathbb{N}\to \mathbb{N}\) es estrictamente creciente.
+          </p>
+          <p>
+            Para una visualización podemos escribir las suceciones
+            en una lista
+          </p>
+          <p>
+            \begin{eqnarray*}
+            & x_1^{(1)}, x_2^{(1)}, x_3^{(1)}, \dots \\
+            & x_1^{(2)}, x_2^{(2)}, x_3^{(2)}, \dots \\
+            & x_1^{(3)}, x_2^{(3)}, x_3^{(3)}, \dots \\
+            & \vdots \\
+            & x_1^{(m)}, x_2^{(m)}, x_3^{(m)}, \dots \\
+            & \vdots
+            \end{eqnarray*}
+          </p>
+          <p>
+            Define la sucesión \((y_n)_{n \in \mathbb{N}}\) por
+            \(y_n:=x_n^{(n)}\). Se puede pensar como la sucesión diagonal.
+          </p>
+          <p>
+            Prueba que, para cada \(m\in \mathbb{N}\), \((y_n)_{n \geq m}\)
+            es una subsucesión de \((x_n^{(m)})_{n\in \mathbb{N}}\).
+          </p>
+          <p>
+            Este método se conoce como el método de la diagonal de Cantor.
+          </p>
+        </div>
 
 
 
 
+          
 
-
-
-
-
-
-      <div class="lema-box">
-        <h2 class="number-title"> Lema </h2>
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:CauchyAcotada"> Ejercicio </h2>
         <p>
-          Sea \((X,d)\) un espacio métrico, \((x_n)_{n\in \mathbb{N}}\)
-          una sucesión en \(X\) y \(x\in X\). Prueba que si para toda subsucesión
-          de \((x_n)_{n\in \mathbb{N}}\) le podemos extraer otra subsucesión
-          convergente a \(x\), entonces la sucesión
-          original \((x_n)_{n\in \mathbb{N}}\) converge a \(x\).
+          Sea \((X,d)\) un espacio métrico y
+          \((x_n)_{n\in \mathbb{N}}\) una sucesión de Cauchy.
+          Prueba que \((x_n)_{n\in \mathbb{N}}\) está acotada.
         </p>
-
-            <button class="respButton hvr-grow"> Respuesta </button>
-            <div class="resp-box flexbox">
-                <div class=" flexbox">
-
-                  <iframe width="700" height="400" class="video"
-                    src="https://www.youtube.com/embed/iOj6VDGCqIU" allowfullscreen="true"> 
-                  </iframe>
-                    
-                </div>
-            </div>
       </div>
-
 
 
             <div class="ejercicio-box">
-              <h2 class="number-title"> Ejercicio </h2>
-              <p>
-                Como en el caso real, toda sucesión convergente en un espacio
-                métrico es es acotada. Sin embargo, varios resultados que se
-                valen en \(\mathbb{R}\) ya no son válidos para cualquier
-                espacio métrico.
-              </p>
-
-              <p>
-                <ol>
-                <li>
-                Sea \((X,d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
-                una sucesión en \(X\). Prueba que si \((x_n)_{n\in \mathbb{N}}\)
-                es convergente en \(X\) entonces el conjunto \(\{x_n\}_{n\in \mathbb{N}}\)
-                está acotado.
-                </li>
-                <li>
-                  <p>Para \(k\in \mathbb{N}\) denota por
-                  \(e^{(k)}\) a la sucesión de reales tal que
-                  es cero en todos lados excepto en la entrada \(k\), donde vale 1. Nota
-                  que el conjunto \(\{e^{(k)}\}_{k\in \mathbb{N}}\) es
-                  acotado en \((\ell_\infty, \| \cdot \|_\infty)\) pero prueba que
-                  la sucesión \((e^{(k)})_{k\in \mathbb{N}}\) no converge en
-                  \((\ell_\infty, \| \cdot \|_\infty)\).
-                </p>
-                <p>
-                  Sugerencia: inicia probando que, para \(x=(x(i))_{i\geq 1} \in \ell_\infty\)
-                  \(|x(i)| \leq \| x-e^{(k)}\|_\infty \), para toda \(i\ne k\).
-                </p>
-                </li>
-                <li>
-                  Generaliza el inciso anterior probando que no existe subsucesión
-                  de \((e^{(k)})_{k\in \mathbb{N}}\) que sea convergente
-                  en \((\ell_\infty, \| \cdot \|_\infty)\). Esto muestra que
-                  un teorema tipo Bolzano-Weierstrass no es válido en
-                  el espacio \((\ell_\infty, \| \cdot \|_\infty)\).
-                </li>
-              </ol>
-              </p>
-
-              <p>
-                Nota: recuerda que un subconjunto \(A\) de un espacio métrico es acotado si
-                existe \(x_0\) en el espacio y \(r>0\) que satisface:
-                \(d(x_0,a) \leq r\), para toda \(a\in A\).
-              </p>
-            </div>
-
-            <div class="definicion-box">
-              <h2 class="number-title"> Definición </h2>
-              <h3> Límites inferior y superior </h3>
-              <p>
-                Dada una sucesión acotada de números reales, \((x_n)_{n\in \mathbb{N}}\), 
-                definimos, respectivamente, su límite inferior y superior como 
-                \begin{eqnarray*} 
-                \liminf_{n\to \infty} x_n = \sup_{n\geq 1} \{\inf_{k\geq n}\{ x_k\} \}\\
-                \limsup_{n\to \infty} x_n = \inf_{n\geq 1} \{\sup_{k\geq n}\{ x_k\} \}
-                \end{eqnarray*}
-              </p>
-              <p>
-                Observación:
-                de la definición se sigue directamente que \(\liminf_{n}x_n \leq \limsup_{n}x_n\).
-              </p>
-
-            </div>
-
-            <div class="lema-box">
-              <h2 class="number-title" id="Lema:LimSupLimInf"> Lema </h2>
-              <p>
-                Sea \((x_n)_{n=1}^\infty\) una sucesión acotada de números reales. Prueba que \((x_n)_{n=1}^\infty\)
-                es convergente si y sólo si 
-                \[\liminf_{n\to \infty} x_n = \limsup_{n\to \infty} x_n.\]
-                
-              </p>
-              <p>
-                En cuyo caso se tiene que \(\liminf_{n\to \infty}x_n=\limsup_{n\to \infty}x_n=\lim_{n\to \infty}x_n\).
-              </p>
-
-              <!--<p>
-                Ahora denotamos \(x=\alpha=\beta\) y para terminar probamos que \(\lim_{k\to \infty}x_{n_k}=x\).
-              </p>
-            
-               <p>
-                Ahora por las propiedades fundamentales de ínfimos y supremos para \(\varepsilon >0\) existen \(j_1,j_2\)
-                tales que 
-                \begin{eqnarray*} 
-                x- \varepsilon < \alpha_{j_1}, \\
-                \beta_{j_2} < x+\varepsilon.
-                \end{eqnarray*}
-                Sea \(j_3=\max\{j_1,j_2\}\). Por \eqref{Eqn:Aux2Rcomp} y \eqref{Eqn:Aux3Rcomp} tenemos que 
-                \(\alpha_{j_1}\leq \alpha_{j_3}\) y \(\beta_{j_3}\leq \beta_{j_2}\) y por \eqref{Eqn:Aux1Rcomp}
-                tenemos \(\alpha_{j_3} \leq \beta_{j_3}\). Con toda la información anterior tenemos la siguiente cadena 
-                de desigualdades
-                \begin{eqnarray*} 
-                x -\varepsilon <  \alpha_{j_3}\leq x_{n_k} \leq  \beta_{j_3} <  x +\varepsilon
-                \end{eqnarray*}
-                para todo \(k\geq j_3\), lo cual se puede reescribir como \(|x-x_{n_k}|< \varepsilon\) para todo 
-                \(k \geq j_3\), es decir \(\lim_{k\to \infty}x_{n_k}=x\).
-              </p>-->
-            </div>
-
-      <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
-        <p>
-          Sea \((X,d)\) un espacio métrico. Una sucesión en
-          \(X\), \((x_n)_{n\in \mathbb{N}}\), se llama de Cauchy
-          o Cauchy respecto a \(d\) si  las distancias
-          entre sus elementos tiene a cero, es decir
-          \[
-          \lim_{n,m\to \infty}d(x_n,x_m)=0
-          \]
-        </p>
-        <p>
-          En términos de \(\varepsilon\)'s lo anterior quiere
-          decir que, para toda \(\varepsilon >0\) existe
-          \(N\in \mathbb{N}\) tal que, para \(n,m \geq N\) se cumple
-          \[
-          d(x_n,x_m) < \varepsilon.
-          \]
-        </p>
-      </div>
-
-      <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
           Sea \((X,d)\) un espacio métrico y
@@ -1304,14 +1409,6 @@
       </div>
       </div>
 
-      <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:CauchyAcotada"> Ejercicio </h2>
-        <p>
-          Sea \((X,d)\) un espacio métrico y
-          \((x_n)_{n\in \mathbb{N}}\) una sucesión de Cauchy.
-          Prueba que \((x_n)_{n\in \mathbb{N}}\) está acotada.
-        </p>
-      </div>
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
@@ -1338,31 +1435,7 @@
       </div>
 
 
-      <div class="lema-box">
-        <h2 class="number-title" id="Ejer:SubsucesionConvDeUnaCauchy"> Lema </h2>
-        <p>
-          Sea \((X,d)\) un espacio métrico y \((x_n)_{n\in \mathbb{N}}\)
-          una sucesión de Cauchy en \(X\).
-        </p>
-        <p>
-          Supón que \((x_n)_{n\in \mathbb{N}}\) admite una subsucesión
-          convergente en \(X\). Prueba que la sucesión original,
-          \((x_n)_{n\in \mathbb{N}}\), también es convergente.
-        </p>
-
-        <button class="respButton hvr-grow"> Demostración </button>
-        <div class="resp-box flexbox">
-            <div class="flexbox">
-
-              <iframe width="700" height="400" class="video"
-                    src="https://www.youtube.com/embed/27jPgRSkR-Q" allowfullscreen="true"> 
-                  </iframe>
-                
-            </div>
-        </div>
-
-      </div>
-
+      
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
@@ -1377,12 +1450,11 @@
 
         </div>
 
-      <div class="quiz-box">
-        <h2 id="Quiz:Sec4"> Quiz </h2>
-        <ol>
-          <li>
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+    
             <p>
-            (3 pts) Sean \(\alpha, \beta > 0\). Prueba que
+            Sean \(\alpha, \beta > 0\). Prueba que
             \[
             \lim_{n\to \infty} \sqrt[n]{\alpha^n + \beta^n}=\max\{\alpha, \beta\}.
             \]
@@ -1390,20 +1462,9 @@
             \[
             \max\{\alpha, \beta\} \leq \sqrt[n]{\alpha^n+\beta^n} \leq \sqrt[n]{2}\max\{\alpha, \beta\}.
             \]
-          </p>
-          </li>
-          <li>
-            <p>
-            (2 pts) Sea \((X,d)\) un espacio métrico y \((x_n)_{n=1}^\infty, (y_n)_{n=1}^\infty\)
-            dos sucesiones en \(X\) con la propiedad de que
-            \[
-            \lim_{n\to \infty} d(x_n,y_n)=0
-            \]
-            Prueba que sólo pasan dos casos: ambas sucesiones son
-            convergentes o ambas sucesiones son divergentes.
-          </p>
-          </li>
-        </ol>
+          </p>          
       </div>
+
+      
     </div>
   </body>
