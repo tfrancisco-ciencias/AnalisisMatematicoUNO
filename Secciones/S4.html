@@ -1267,21 +1267,6 @@
         </div>
 
 
-            <div class="quiz-box">
-      <h2> Quiz  </h2>
-            <p>
-              Pidele a Gemini que genere un quiz para repasar el tema de ésta sección. 
-              El default son 10 preguntas de opción múltiple 
-              y ojo que puede tardar 
-              un poco en generar el quiz (fijate en la esquina superior derecha).
-            </p>
-            <p class="flexbox">
-              <a href="https://gemini.google.com/gem/1Ln9p-BzjJSYPgL8VmsdXOOvsQ9tHa6NN?usp=sharing" target="_blank" style="font-size: 30px"> Quiz me! </a>
-            </p>
-      
-    </div>
-
-        
 
         
 
@@ -1302,7 +1287,68 @@
               </p>
           </div>-->
 
+          <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio (Teorema de Bauer-Stoer-Witzgall (1961))</h2>
+            <p>
+              Sea \(\|\cdot\|\) una norma en 
+              \(\mathbb{R}^n\). Para dos vectores \(x, y \in \mathbb{R}^n\), 
+              escribimos \(|x| \le |y|\) si 
+              \(|x_i| \le |y_i|\) para todo \(i = 1, \dots, n\), 
+              donde \(|x| = 
+              (|x_1|, |x_2|, \dots, |x_n|)\).
+            </p>
+            <p>
+              Las siguientes condiciones son equivalentes:
+              <ol>
+                <li>
+                  \(\|\cdot\|\) es una norma absoluta: \(\|x\| = \||x|\|\) para todo \(x \in \mathbb{R}^n\).
+                </li>
+                <li>
+                  \(\|\cdot\|\) es una norma monótona: Si \(|x| \le |y|\), entonces \(\|x\| \le \|y\|\).
+                </li>
+              </ol>
+              
+            </p>
+            <p>
+              Hint: 
+            </p>
+            <p>
+              \(\Rightarrow ]\) Dado \(y \in \mathbb{R}^n\), 
+              considera el hiperrectángulo \(H(y)\) definido por:
+              \[
+              H(y) = \{ z \in \mathbb{R}^n : |z_i| \le |y_i| \text{ para todo } i = 1, \dots, n \}.
+              \]
+              Los vértices de este hiperrectángulo son los \(2^n\) puntos de la forma:
+              \[
+              v = (\varepsilon_1 |y_1|, \varepsilon_2 |y_2|, \dots, \varepsilon_n |y_n|), \quad \text{con } \varepsilon_i \in \{-1, 1\}.
+              \]
+              Sean \(\{v_k\}_{k=1}^{2^n}\) los vértices de \(H(y)\). Si \(|x|\leq |y|\) entonces 
+              escribe a \(x\) como una combinación convexa de los vértices de \(H(y)\).
+            </p>
+            <p>
+              \(\Leftarrow ]\) Toma \(z=|x|\). Nota que \(|z|\leq |x|\) y \(|x|\leq |z|\) y aplica 
+              la monotonía de la norma.
+            </p>
 
+          </div>
+
+
+
+            <div class="quiz-box">
+      <h2> Quiz  </h2>
+            <p>
+              Pidele a Gemini que genere un quiz para repasar el tema de ésta sección. 
+              El default son 10 preguntas de opción múltiple 
+              y ojo que puede tardar 
+              un poco en generar el quiz (fijate en la esquina superior derecha).
+            </p>
+            <p class="flexbox">
+              <a href="https://gemini.google.com/gem/1Ln9p-BzjJSYPgL8VmsdXOOvsQ9tHa6NN?usp=sharing" target="_blank" style="font-size: 30px"> Quiz me! </a>
+            </p>
+      
+    </div>
+
+        
 
 
       <div class="nota-box">
