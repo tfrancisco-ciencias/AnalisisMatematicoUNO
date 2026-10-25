@@ -350,25 +350,6 @@
 
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Sea \((X,d)\) un espacio métrico y \(U\subseteq X\). Las
-          siguientes condiciones son equivalentes.
-        </p>
-        <ol>
-          <li>
-            \(U\) es abierto.
-          </li>
-          <li>
-            Si \((x_n)_{n\in \mathbb{N}} \subset X\) es una
-            sucesión convergente a un punto \(x\in U \),
-            entonces, \(x_n \in U\) para todos los \(x_n\)'s
-            excepto un número finito.
-          </li>
-        </ol>
-
-      </div>
 
       <div class="definicion-box">
         <h2 class="number-title"> Definicion </h2>
@@ -427,56 +408,6 @@
 
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h3>
-          <p>
-            Sea \((X,d)\) un espacio métrico. Prueba que todo
-            subconjunto finito de \(X\) es cerrado.
-          </p>
-
-        </div>
-
-
-
-                <div class="ejercicio-box">
-                  <h2 class="number-title"> Ejercicio </h2>
-                  <p>
-                    Sea \((X,d)\) un espacio métrico, \(F\subseteq X\) un
-                    conjunto cerrado y \(U \subseteq  X\) un conjunto abierto.
-                  </p>
-                  <p>
-                    Prueba que \(F\setminus U\) es cerrado y que
-                    \(U \setminus F \) es abierto.
-                  </p>
-
-                </div>
-
-      <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:TopologiaEspacioProducto"> Ejercicio </h2>
-          <p>
-            En el <a href="./S5.html#Ejer:MetEquivalentes"> Ejercicio 5.15</a>
-            se definió que dos
-            métricas son equivalentes si tienen las mismas
-            sucesiones convergentes.
-          </p>
-          <p>
-            Prueba que dos métricas son equivalentes si y sólo si generan los
-            mismos conjuntos abiertos.
-          </p>
-
-          <button class="respButton hvr-grow"> Respuesta </button>
-          <div class="resp-box flexbox">
-              <div class="flexbox">
-
-              <iframe width="700" height="400" class="video"
-                src="https://www.youtube.com/embed/8CWr_4HvgNE" allowfullscreen="true"> 
-              </iframe>
-                  
-              </div>
-          </div>
-      </div>
-
-
       <div class="definicion-box">
         <h2 class="number-title"> Definición</h2>
         <p>
@@ -486,12 +417,20 @@
           <li>
             Un punto \(x\in X\) se llama punto interior de \(A\) si 
             existe un \(r>0\) tal que \(B_r(x)\subseteq A\). 
+            <p>
+              Por ejemplo, todo punto de una bola abierta \(B_r(x_0)\)
+              es punto interior de \(B_r(x_0)\).
+            </p>
           </li>
           <li>
             Un punto \(x\in X\) se llama punto de acumulación o punto límite 
             de \(A\) si para todo \(n\in \mathbb{N}\) existe un \(a_n\in A\)
             tal que \(0< d(a_n,x) \leq \frac{1}{n}\). Observación: ya que pedimos 
             \(0< d(a_n,x)\) necesariamente se tiene que \(a_n\ne x\).
+            <p>
+              Por ejemplo, \(0\) es el único punto de acumulación del conjunto 
+              \(\{\frac{1}{n} : n \in \mathbb{N}\}\).
+            </p>
           </li>
         </ol>
 
@@ -535,76 +474,30 @@
 
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Considera el espacio métrico \((\mathbb{R},|\cdot|)\).
-          <ol>
-            <li>
-              Prueba que  \(\mathbb{Q}\) no es ni abierto ni cerrado en
-              \(\mathbb{R}\).
-            </li>
-            <li>
-              ¿Existe un conjunto abierto en \(\mathbb{R}\), no vacío, contenido
-              en \(\mathbb{Q}\)?
-            </li>
-            <li>
-              Da un ejemplo de un subconjunto de \(\mathbb{R}\), cerrado
-              y que consiste sólo de números irracionales.
-            </li>
-          </ol>
-        </p>
-
-      </div>
-
-
-
-
-
-
-
-    <div class="ejercicio-box">
-      <h2  class="number-title"> Ejercicio </h2>
-        <p>
-          <ol>
-            <li> Prueba que todo intervalo abierto de \(\mathbb{R}\)
-             es la unión numerable de intervalos cerrados.
-            </li>
-            <li> Prueba que todo intervalo cerrado de \(\mathbb{R}\)
-              es la intersección numerable de intervalos abiertos.
-            </li>
-          </ol>
-        </p>
-    </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Sea \((X,d_X)\), \((Y,d_Y)\) dos espacios métricos y \(A \subseteq X\),
-          \(B\subseteq Y\). Cosdiera el espacio métrico \(X\times Y, d\)
-          con la métrica
-          \[
-          \sigma((x_1,y_1),(x_2,y_2))= \sqrt{d_X(x_1,x_2)^2+d_Y(y_1,y_2)^2}
-          \]
-          Ver <a href="./S4.html#Ejer:MetProdCarte">Ejercicio 4.22</a>.
-        </p>
-          <ol>
-            <li> Si \(A\) es abierto en \(X\) y \(B\) es abierto
-              en \(Y\) prueba que \(A\times B\) es abierto en \(X\times Y\).
-            </li>
-            <li> Si \(A\) es cerrado en \(X\) y \(B\) es cerrado
-              en \(Y\) prueba que \(A\times B\) es cerrado en \(X\times Y\).
-            </li>
-          </ol>
+      <div class="lema-box">
+        <h2 class="number-title" id="Ejer:TopologiaEspacioProducto"> Lema </h2>
           <p>
-            Nota: gracias al <a href="./S5.html#Ejer:MetEquivProdCarte">Ejercicio 5.14</a>
-            y <a href="#Ejer:TopologiaEspacioProducto">Ejercicio 6.11</a>,
-            éste ejercicio sigue siendo válidos si se reemplaza
-            \(\sigma\) por cualquier otra de las métricas del
-            <a href="./S4.html#Ejer:MetProdCarte">Ejercicio 4.22</a>.
-           </p>
-        </div>
+            En el <a href="./S5.html#Ejer:MetEquivalentes"> Ejercicio 5.23</a>
+            se definió que dos
+            métricas son equivalentes si tienen las mismas
+            sucesiones convergentes.
+          </p>
+          <p>
+            Dos métricas son equivalentes si y sólo si generan los
+            mismos conjuntos abiertos.
+          </p>
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box flexbox">
+              <div class="flexbox">
+
+              <iframe width="700" height="400" class="video"
+                src="https://www.youtube.com/embed/8CWr_4HvgNE" allowfullscreen="true"> 
+              </iframe>
+                  
+              </div>
+          </div>
+      </div>
 
 
 
@@ -622,9 +515,9 @@
                 \sigma((x_1,y_1),(x_2,y_2)) &=& \sqrt{d_X(x_1,x_2)^2+d_Y(y_1,y_2)^2}.
                 \end{eqnarray*}
                 son equivalentes
-                (gracias al <a href="./S5.html#Ejer:MetEquivProdCarte">Ejercicio 5.14</a>)
+                (gracias al <a href="./S5.html#Ejer:MetEquivProdCarte">Ejercicio 5.24</a>)
                 van a generar los mismos subconjuntos abiertos en
-                \(X\times Y\), (ver <a href="#Ejer:TopologiaEspacioProducto">Ejercicio 6.11</a>). Por lo tanto
+                \(X\times Y\), (ver <a href="#Ejer:TopologiaEspacioProducto">Lema 6.11</a>). Por lo tanto
                 definimos el producto de los espacios métricos
                 \((X,d_X)\) y \((Y,d_Y)\) como el espacio métrico \(X\times Y\) dotado
                 con cualquiera de las métricas anteriores.
@@ -632,46 +525,6 @@
 
             </div>
 
-
-      <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-            <p>
-            Para  \(k\in \mathbb{N}\) denota \(e^{(k)}\) la sucesión de
-            números reales que es todo cero excepto en el lugar \(k\), donde
-            tiene un 1. Prueba que el conjunto
-            \(\{e^{(k)}\}_{k\in \mathbb{N}}\) es cerrado en
-            \((\ell_p, \|\cdot\|_p)\), para todo \(p\in [1,\infty]\).
-            </p>
-            <p>
-              Sugerencia: primero prueba que \(\{e^{(k)}\}_{k\in \mathbb{N}}\) 
-              no tiene puntos de acumulación y luego usa el <a href="#Teo:CaracCerrados">Teorema 6.14.</a>
-            
-            </p>
-        </div>
-
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Considera el espacio vectorial normado
-            \((\ell_\infty, \|\cdot\|_\infty)\). Por
-            \(c_0\) denotamos al conjunto de sucesiones de números
-            reales que convergen a cero. Ya que toda sucesión convergente
-            es acotada tenemos que \(c_0 \subseteq \ell_\infty\).
-          </p>
-          <p>
-            Prueba que \(c_0\) es cerrado en \(\ell_\infty\).
-          </p>
-
-          <button class="respButton hvr-grow"> Respuesta </button>
-          <div class="resp-box flexbox">
-              <div class=" flexbox">
-                <iframe width="700" height="400" class="video"
-                      src="https://www.youtube.com/embed/Ee6IlXaQXO8" allowfullscreen="true"> 
-                </iframe>
-              </div>
-          </div>
-        </div>
 
 
     <div class="definicion-box">
@@ -756,6 +609,224 @@
         \(\lim_na_n=x\).
       </p>
     </div>
+
+
+    <div class="lema-box">
+      <h2 class="number-title" id="Ejer:DiamCerradura"> Lema  </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico y \(A\subseteq X\).
+        Prueba que \(\operatorname{diam}(A)=\operatorname{diam}(\overline{A})\).
+      </p>
+      <p>
+        Ver <a href="./S4.html#Ejer:Diametro">Ejercicio 4.29</a> para definción
+        de diámetro.
+      </p>
+      <button class="respButton hvr-grow"> Respuesta </button>
+      <div class="resp-box">
+          Recordemos que en la sección anterior demostramos que si
+          \(\lim_{n \to \infty} x_n = x\) y \(\lim_{n \to \infty} y_n = y\) entonces
+          \(d(x,y)= \lim_{n \to \infty} d(x_n,y_n)\), asimismo \(z \in \overline{A}\)
+          si y sólo si existe una sucesión \((z_n)_{n \in \mathbb{N}} \subseteq A\)
+          que converge a \(z\). Sean \(a,b \in \overline{A}\) y \((a_n), (b_n)\)
+          sucesiones en \(A\) tales que \(\lim a_n = a\) y \(\lim b_n = b\). Para
+          cada \(n \in \mathbb{N}\) se tiene que \(d(a_n,b_n) \leq \operatorname{diam}(A)\),
+          por lo que \(d(a,b) = \lim_{n \to \infty} d(a_n,b_n) \leq \operatorname{diam}(A)\).
+
+          En consecuencia \(\operatorname{diam}(\overline{A}) = \sup_{a,b \in \overline A} d(a,b) \leq \operatorname{diam}(A)\)
+          <br>
+          La otra contención es consecuencia de las propiedades del supremo, como
+          \(A \subseteq \overline A\) entonces \(\sup_{a,b \in A}\{d(a,b)\} \leq \sup_{a,b \in \overline A}d(a,b)\)
+          y \(\operatorname{diam}(A) \leq \operatorname{diam}(\overline A)\).
+      </div>
+    </div>
+
+
+    <div class="lema-box">
+      <h2 class="number-title" id="Ejer:DistanciaConjuntoCerradura"> Lema  </h2>
+      <p>
+        Sea \((X,d)\) un espacio métrico y \(A\subseteq X\) un subconjunto
+        no vacío. Dado un punto \(x\in X\) se define la distancia de
+        \(x\) al subconjunto \(A\) como
+        \[
+        d(x,A)=\inf\{d(x,a): a\in A \}.
+        \]
+        <div class="flexbox">
+            <img src="./Images/DefDistConj.png"
+            alt="DistanciaConjunto" width="30%" height="auto">
+        </div>
+      </p>
+      <p>
+        Prueba que \(x\in \overline{A}\) si y sólo si \(d(x,A)=0\).
+      </p>
+      <p>
+        Sugerencia: <a href="#Ejer:CaractCerraduraSuc">Ejercicio 6.23</a>
+      </p>
+    </div>
+
+
+
+
+
+            <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d)\) un espacio métrico y \(U\subseteq X\). Las
+          siguientes condiciones son equivalentes.
+        </p>
+        <ol>
+          <li>
+            \(U\) es abierto.
+          </li>
+          <li>
+            Si \((x_n)_{n\in \mathbb{N}} \subset X\) es una
+            sucesión convergente a un punto \(x\in U \),
+            entonces, \(x_n \in U\) para todos los \(x_n\)'s
+            excepto un número finito.
+          </li>
+        </ol>
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h3>
+          <p>
+            Sea \((X,d)\) un espacio métrico. Prueba que todo
+            subconjunto finito de \(X\) es cerrado.
+          </p>
+
+        </div>
+
+
+
+                <div class="ejercicio-box">
+                  <h2 class="number-title"> Ejercicio </h2>
+                  <p>
+                    Sea \((X,d)\) un espacio métrico, \(F\subseteq X\) un
+                    conjunto cerrado y \(U \subseteq  X\) un conjunto abierto.
+                  </p>
+                  <p>
+                    Prueba que \(F\setminus U\) es cerrado y que
+                    \(U \setminus F \) es abierto.
+                  </p>
+
+                </div>
+
+      
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Considera el espacio métrico \((\mathbb{R},|\cdot|)\).
+          <ol>
+            <li>
+              Prueba que  \(\mathbb{Q}\) no es ni abierto ni cerrado en
+              \(\mathbb{R}\).
+            </li>
+            <li>
+              ¿Existe un conjunto abierto en \(\mathbb{R}\), no vacío, contenido
+              en \(\mathbb{Q}\)?
+            </li>
+            <li>
+              Da un ejemplo de un subconjunto de \(\mathbb{R}\), cerrado
+              y que consiste sólo de números irracionales.
+            </li>
+          </ol>
+        </p>
+
+      </div>
+
+
+
+
+
+
+
+    <div class="ejercicio-box">
+      <h2  class="number-title"> Ejercicio </h2>
+        <p>
+          <ol>
+            <li> Prueba que todo intervalo abierto de \(\mathbb{R}\)
+             es la unión numerable de intervalos cerrados.
+            </li>
+            <li> Prueba que todo intervalo cerrado de \(\mathbb{R}\)
+              es la intersección numerable de intervalos abiertos.
+            </li>
+          </ol>
+        </p>
+    </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \((X,d_X)\), \((Y,d_Y)\) dos espacios métricos y \(A \subseteq X\),
+          \(B\subseteq Y\). Cosdiera el espacio métrico \(X\times Y, d\)
+          con la métrica
+          \[
+          \sigma((x_1,y_1),(x_2,y_2))= \sqrt{d_X(x_1,x_2)^2+d_Y(y_1,y_2)^2}
+          \]
+          Ver <a href="./S4.html#Ejer:MetProdCarte">Ejercicio 4.22</a>.
+        </p>
+          <ol>
+            <li> Si \(A\) es abierto en \(X\) y \(B\) es abierto
+              en \(Y\) prueba que \(A\times B\) es abierto en \(X\times Y\).
+            </li>
+            <li> Si \(A\) es cerrado en \(X\) y \(B\) es cerrado
+              en \(Y\) prueba que \(A\times B\) es cerrado en \(X\times Y\).
+            </li>
+          </ol>
+          <p>
+            Nota: gracias al <a href="./S5.html#Ejer:MetEquivProdCarte">Ejercicio 5.24</a>
+            y <a href="#Ejer:TopologiaEspacioProducto">Lema 6.11</a>,
+            éste ejercicio sigue siendo válidos si se reemplaza
+            \(\sigma\) por cualquier otra de las métricas del
+            <a href="./S4.html#Ejer:MetProdCarte">Ejercicio 4.22</a>.
+           </p>
+        </div>
+
+
+
+      <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+            <p>
+            Para  \(k\in \mathbb{N}\) denota \(e_k\) la sucesión de
+            números reales que es todo cero excepto en el lugar \(k\), donde
+            tiene un 1. Prueba que el conjunto
+            \(\{e_k\}_{k\in \mathbb{N}}\) es cerrado en
+            \((\ell_p, \|\cdot\|_p)\), para todo \(p\in [1,\infty]\).
+            </p>
+            <p>
+              Sugerencia: primero prueba que \(\{e_k\}_{k\in \mathbb{N}}\) 
+              no tiene puntos de acumulación y luego usa el <a href="#Teo:CaracCerrados">Teorema 6.10.</a>
+            
+            </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Considera el espacio vectorial normado
+            \((\ell_\infty, \|\cdot\|_\infty)\). Por
+            \(c_0\) denotamos al conjunto de sucesiones de números
+            reales que convergen a cero. Ya que toda sucesión convergente
+            es acotada tenemos que \(c_0 \subseteq \ell_\infty\).
+          </p>
+          <p>
+            Prueba que \(c_0\) es cerrado en \(\ell_\infty\).
+          </p>
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box flexbox">
+              <div class=" flexbox">
+                <iframe width="700" height="400" class="video"
+                      src="https://www.youtube.com/embed/Ee6IlXaQXO8" allowfullscreen="true"> 
+                </iframe>
+              </div>
+          </div>
+        </div>
+
 
     <div class="ejercicio-box">
       <h2 class="number-title"> Ejercicio </h2>
@@ -919,60 +990,7 @@
     
 
 
-    <div class="lema-box">
-      <h2 class="number-title" id="Ejer:DiamCerradura"> Lema  </h2>
-      <p>
-        Sea \((X,d)\) un espacio métrico y \(A\subseteq X\).
-        Prueba que \(\operatorname{diam}(A)=\operatorname{diam}(\overline{A})\).
-      </p>
-      <p>
-        Ver <a href="./S4.html#Ejer:Diametro">Ejercicio 4.29</a> para definción
-        de diámetro.
-      </p>
-      <button class="respButton hvr-grow"> Respuesta </button>
-      <div class="resp-box">
-          Recordemos que en la sección anterior demostramos que si
-          \(\lim_{n \to \infty} x_n = x\) y \(\lim_{n \to \infty} y_n = y\) entonces
-          \(d(x,y)= \lim_{n \to \infty} d(x_n,y_n)\), asimismo \(z \in \overline{A}\)
-          si y sólo si existe una sucesión \((z_n)_{n \in \mathbb{N}} \subseteq A\)
-          que converge a \(z\). Sean \(a,b \in \overline{A}\) y \((a_n), (b_n)\)
-          sucesiones en \(A\) tales que \(\lim a_n = a\) y \(\lim b_n = b\). Para
-          cada \(n \in \mathbb{N}\) se tiene que \(d(a_n,b_n) \leq \operatorname{diam}(A)\),
-          por lo que \(d(a,b) = \lim_{n \to \infty} d(a_n,b_n) \leq \operatorname{diam}(A)\).
-
-          En consecuencia \(\operatorname{diam}(\overline{A}) = \sup_{a,b \in \overline A} d(a,b) \leq \operatorname{diam}(A)\)
-          <br>
-          La otra contención es consecuencia de las propiedades del supremo, como
-          \(A \subseteq \overline A\) entonces \(\sup_{a,b \in A}\{d(a,b)\} \leq \sup_{a,b \in \overline A}d(a,b)\)
-          y \(\operatorname{diam}(A) \leq \operatorname{diam}(\overline A)\).
-      </div>
-    </div>
-
-
-    <div class="lema-box">
-      <h2 class="number-title" id="Ejer:DistanciaConjuntoCerradura"> Lema  </h2>
-      <p>
-        Sea \((X,d)\) un espacio métrico y \(A\subseteq X\) un subconjunto
-        no vacío. Dado un punto \(x\in X\) se define la distancia de
-        \(x\) al subconjunto \(A\) como
-        \[
-        d(x,A)=\inf\{d(x,a): a\in A \}.
-        \]
-        <div class="flexbox">
-            <img src="./Images/DefDistConj.png"
-            alt="DistanciaConjunto" width="30%" height="auto">
-        </div>
-      </p>
-      <p>
-        Prueba que \(x\in \overline{A}\) si y sólo si \(d(x,A)=0\).
-      </p>
-      <p>
-        Sugerencia: <a href="#Ejer:CaractCerraduraSuc">Ejercicio 6.23</a>
-      </p>
-    </div>
-
-
-
+    
     <div class="ejercicio-box">
       <h2 class="number-title" id="Ejer:EquivDensos"> Ejercicio </h2>
       <p>
@@ -1006,13 +1024,13 @@
       </ol>
     </div>
 
-
-    <div class="quiz-box">
-      <h2 id="Quiz:Sec5"> Quiz </h2>
-      <ol>
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+       <ol>
         <li>
           <p>
-          (2 pts) Sean \(\alpha\) un real fijo y \(y \in \mathbb{R}^n\)
+          Sean \(\alpha\) un real fijo y \(y \in \mathbb{R}^n\)
           un vector fijo. Considera el subconjunto
           \[
           F=\{x\in \mathbb{R}^n: x\cdot y \geq \alpha\}
@@ -1023,7 +1041,7 @@
         </li>
         <li>
           <p>
-            (3 pts) Sea \((V,\|\cdot\|)\) un espacio vectorial normado
+             Sea \((V,\|\cdot\|)\) un espacio vectorial normado
             y \(U\subseteq V\) un subconjunto abierto. Toma un escalar fijo \(\alpha \ne 0\)
              y define
             \[
@@ -1034,6 +1052,12 @@
         </p>
         </li>
       </ol>
+      </p>
+      </div>
+
+    <div class="quiz-box">
+      <h2 id="Quiz:Sec5"> Quiz </h2>
+     
     </div>
 
 
