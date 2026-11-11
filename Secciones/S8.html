@@ -101,7 +101,7 @@
   <p>
     Un espacio métrico \((X,d)\) se llama completo si
     toda sucesión de Cauchy en \(X\) converge a
-    un punto en \(X\).
+    un punto en \(X.\)
   </p>
   <p>
     Por ejemplo, todo espacio métrico discreto es completo,
@@ -280,44 +280,6 @@
 </div>
 
 
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Prueba que \(\mathbb{R}\) con la métrica
-    \(\rho(x,y)=|\arctan(x)-\arctan(y)|\) no es completo.
-  </p>
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-
-  <p>
-    Sean \(X,Y\) dos espacios métricos completos.
-  </p>
-   <p>
-    Prueba que el espacio métrico producto \(X\times Y\) es completo
-    si y sólo si ambos \(X\) e \(Y\) son completos.
-  </p>
-
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <ol>
-  <li>
-    Prueba que \(\mathbb{R}^n\), con la métrica inducida por
-    \(\|\cdot\|_2\), \(\|\cdot\|_1\) ó \(\|\cdot\|_\infty\) es completo.
-
-  </li>
-  <li>
-    Más en general, prueba que para cualquier norma en \(\mathbb{R}^n\),
-    \(\mathbb{R}^n\), \(\| \cdot \|\)  es completo.
-  </li>
-</ol>
-</div>
-
 
 <div class="teorema-box">
   <h2 class="number-title">Teorema  </h2>
@@ -326,32 +288,6 @@
     es completo.
   </p>
 </div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico completo y \(A \subset X\).
-    Considera el subespacio con la métrica inducida \((A,d_A)\).
-
-  </p>
-  <p>
-    Prueba que \((A,d_A)\) es completo si y sólo si
-    \(A\) es un subconjunto cerrado de \(X\).
-  </p>
-
-</div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-
-  <p>
-    Prueba que \((c_0, \|\cdot\|_\infty)\) es completo.
-  </p>
-  <p>
-    Sugerencia: usa el ejercicio anterior.
-  </p>
-</div>
-
 
 
 <div class="definicion-box">
@@ -372,21 +308,33 @@
     \|f\|_\infty:=\sup_{x\in X}\{|f(x)|\}
     \]
     La misma prueba de que \(\|\cdot\|_\infty\) es una
-    norma en \(\ell_\infty\) (<a href="./S4.html#Ejer:ellInftyClasico">Ejercicio 4.9</a>)
+    norma en \(\ell_\infty\) (<a href="./S4.html#Ejer:ellInftyClasico">Ejercicio 4.10</a>)
     se puede extendar para llegar a que
     \((\ell_\infty(X), \|\cdot\|_\infty)\) es un
     espacio vectorial normado. Es más, el caso usual de
     \(\ell_\infty\) se obtiene cuando \(X=\mathbb{N}\).
   </p>
-</div>
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
   <p>
-    Sea \((X,d)\) un espacio métrico. Prueba que
-    \((\ell_\infty(X), \|\cdot \|_\infty)\) es un completo.
+    Esta definición se puede generalizar de la siguiente forma. Sea \((V,\|\cdot\|)\)
+    un espacio vectorial normado y sea \(X\) un conjunto cualquiera. Por \(\ell_\infty(X,V)\) 
+    denotamos al conjunto de todas las funciones \(f:X\to V\) que están acotadas en \(X\). 
+    Es decir \(f\in \ell_\infty(X,V)\) si y sólo si 
+    \[
+     \sup_{x\in X}\{\|f(x)\|\} <\infty  
+    \]
+    Para \(f\in \ell_\infty(X,V)\) definimos
+    \[
+    \|f\|_\infty:=\sup_{x\in X}\{\|f(x)\|\}.
+    \]
+    Entonces también se tine que \((\ell_\infty(X,V), \|\cdot\|_\infty)\) es un
+    espacio vectorial normado. En particular, si \(V=\mathbb{R}\) y \(\|\cdot\|\) es la norma usual,
+    se obtiene la definición de \(\ell_\infty(X)\) y \(\|\cdot\|_\infty\) como un caso particular.
   </p>
 </div>
+
+
+
+
 
 <div class="teorema-box">
   <h2 class="number-title" id="Teo:CerradosAnidados"> Teorema </h2>
@@ -492,7 +440,6 @@
 
 
 
-
 <div class="definicion-box">
   <h2 class="number-title"> Definición  </h2>
   <p>
@@ -538,108 +485,6 @@
   totalmente acotado.
 </p>
 </div>
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico y \( A\subseteq X\) un
-    subconjunto totalmente acotado. Prueba que
-    simpre es posible encontrar una \(\varepsilon\)-red
-    cuyos elementos están todos en \(A\).
-  </p>
-
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title" id="Ejer:CompactoImplicaTA"> Ejercicio </h2>
- <p>
-   Prueba que todo subconjunto compacto es totalmente acotado.
- </p>
-
- <button class="respButton hvr-grow"> Respuesta </button>
- <div class="resp-box">
- <p>
-   Para probar lo anterior sea \( K \subset X\) un
-   conjunto compacto de \((X,d)\) y sea \(\varepsilon >0\). Ya que
-   \(x\in B_\varepsilon(x)\) para toda \(x\in K\) tenemos que
-   \[
-   K \subseteq \cup_{x\in K}B_{\varepsilon}(x).
-   \]
-   Por la compacidad de \(K\) existen \(x_1,\dots, x_n \in K\)
-   tal que
-   \[
-   K \subseteq \cup_{i=1}^n B_\varepsilon(x_i)
-   \]
-   por lo que \(\{x_1,\dots, x_n\}\) es una \(\varepsilon\)-red
-   para \(K\).
- </p>
-</div>
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-    <p>
-      Considera a \(\mathbb{R}^n\) con la métrica usual.
-    </p>
-    <p>
-      Prueba que un subconjunto de \(\mathbb{R}^n\) es
-      totalmente acotado si y sólo si es acotado.
-    </p>
-
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-
-  <ol>
-    <li>
-      Prueba que todo subconjunto totalmente acotado es acotado.
-    </li>
-    <li>
-      En \((\ell_1, \|\cdot\|_1)\) considera la bola cerrada 
-      \[
-      \overline{B}_1(0)=\{x\in \ell_1| \|x\|_1\leq 1 \}
-      \]
-       Prueba
-      que \(\overline{B}_1(0)\) es acotado pero no totalmenete acotado.
-      
-    </li>
-  </ol>
-  <p>
-    Sugerencia: considera los vectores 
-    \(e_n\), \(n\in \mathbb{N}\), donde \(e_n\) es la sucesión que tiene todas las entradas
-  igual a cero, excepto la entrada \(n\) donde tiene un 1. Empieza probando que \(\|e_n-e_m\|_1=2\) si \(n\ne m\).
-  </p>
-  <p>
-      Por lo tanto los conjuntos totalmente acotados contienen
-      propiamente a los conjuntos acotados.
-  </p>
-</div>
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <ol>
-    <li>
-      Prueba que todo subconjunto de un subconjunto totalmente acotado
-      también es totalmente acotado.
-    </li>
-    <li>
-    Prueba que un subconjunto \(A\) es totalmente acotado si y
-    sólo si su cerradura, \(\overline{A}\), es totalmente acotado.
-   </li>
-   
-  </ol>
-</div>
-
-
-
 
 
 <div class="lema-box">
@@ -727,17 +572,17 @@
     Caso 2: \(A\) es infinito.
   </p>
   <p>
-    Se construirá la subsucesión de Cauchy aplicando el <a href="#Lema:GeneTotAcot">Lema 8.19</a>.
+    Se construirá la subsucesión de Cauchy aplicando el <a href="#Lema:GeneTotAcot">Lema 8.9</a>.
   </p>
   <p>
-    Aplicando el <a href="#Lema:GeneTotAcot">Lema 8.19</a> al conjunto \(A\) con \(\varepsilon=1/2\) 
+    Aplicando el <a href="#Lema:GeneTotAcot">Lema 8.9</a> al conjunto \(A\) con \(\varepsilon=1/2\) 
     podemos asegurar que existen subconjuntos \(A_1^{(1)},\dots, A_{m_1}^{(1)} \subseteq A \) 
     con \(\operatorname{diam}(A_i^{(1)}) < 1/2\) y \(A \subseteq \cup_{i=1}^{m_1}A_i^{(1)}\). Ya que 
     \(A\) es infinito al menos uno de los conjuntos \(A_i^{(1)}\) es infinito. Sea \(A_1\) uno de 
     esos conjuntos infinitos.
   </p>
   <p>
-    Ahora aplicamos el <a href="#Lema:GeneTotAcot">Lema 8.19</a> al conjunto \(A_1\) con \(\varepsilon=1/2^2\).
+    Ahora aplicamos el <a href="#Lema:GeneTotAcot">Lema 8.9</a> al conjunto \(A_1\) con \(\varepsilon=1/2^2\).
     Por lo tanto existen subconjuntos \(A_1^{(2)}, \dots, A_{m_2}^{(2)}\subseteq A_1\) con 
     \(\operatorname{diam}(A_i^{(2)})< 1/2^2\) y \(A_1 \subseteq \cup_{i=1}^{m_2}A_i^{(2)}\). Ya que 
     \(A_1\) es infinito al menos uno de los conjuntos \(A_i^{(2)}\) es infinito. Sea \(A_2\) uno de 
@@ -763,8 +608,8 @@
 </div>
 
 
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
+<div class="prop-box">
+  <h2 class="number-title"> Proposición </h2>
   <p>
     Un subconjunto \(A\), de un espacio métrico \((X,d)\),
     es totalmente acotado si y sólo si toda sucesión en \(A\) admite
@@ -776,7 +621,7 @@
     \(\Rightarrow ]\) Supongamos que \(A\) es totalmente acotado. 
     Sea \((x_n)_{n=1}^\infty \) una sucesión de elementos de \(A\). Ya que el conjunto 
     \(\{x_n: n\in \mathbb{N}\}\) también es totalmente acotado 
-    (al ser subconjunto de \(A\)) el <a href="#Lema:CaractSucTotAcot">Lema 8.20-2 </a> 
+    (al ser subconjunto de \(A\)) el <a href="#Lema:CaractSucTotAcot">Lema 8.9-2 </a> 
     asegura que existe una subsucesión de \((x_n)_{n=1}^\infty\) que es de Cauchy.
   </p>
   <p>
@@ -836,7 +681,7 @@
     totalmente acotado. Ya que \(A\) es infinito podemos encontrar 
     \((x_n)_{n=1}^\infty\), una sucesión de elementos de \(A\), tal que 
     \(x_n \ne x_m\) para todos \(n\ne m\). Aplicando el lema 
-    <a href="#Lema:CaractSucTotAcot">Lema 8.20-2</a> podemos asegurar que existe \((x_{n_k})_{k=1}^\infty\), 
+    <a href="#Lema:CaractSucTotAcot">Lema 8.9-2</a> podemos asegurar que existe \((x_{n_k})_{k=1}^\infty\), 
     una subsucesión de Cauchy. Al ser \((X,d)\) completo existe un \(x\in X\) tal que 
     \(\lim_{k\to \infty}x_{n_k}=x\). Finalmente, ya que \(x_k \in A\) y \(x_{n_k}\ne x_{n_j}\), 
     para todos \(j,k\), concluimos que \(x\) es un punto de acumulación de \(A\).
@@ -911,7 +756,7 @@
     Sea \((x_n)_{n=1}^\infty\) una sucesión en \(K\). Debemos de 
     probar que existe una subsucesión convergente a un punto de \(K\). Ya que 
     \(K\) es totalmente acotado, el conjunto \(A=\{x_n\}_{n\in \mathbb{N}} \subset K\) es totalmente acotado.
-    Por el <a href="#Lema:CaractSucTotAcot">Lema 8.20</a> existe \((x_{n_k})_{k=1}^\infty\) una subsucesión de Cauchy.
+    Por el <a href="#Lema:CaractSucTotAcot">Lema 8.9</a> existe \((x_{n_k})_{k=1}^\infty\) una subsucesión de Cauchy.
     Al ser \((X,d)\) completo existe \(x\in X\) tal que \(\lim_{k\to \infty}x_{n_k}=x\). Finalmente como 
     \(K\) es cerrado \(x\in K\).
   </p>
@@ -929,126 +774,16 @@
     ser completo asegura la existencia de soluciones a ecuaciones diferenciales.
     Uno de los teoremas más importantes en espacios métricos completos  y
     que asegura la existencia de soluciones a ecuaciones muy generales
-    es el Teorema del punto fijo de Banach, que se ve más adelante.
+    es el Teorema del punto fijo de Banach, que se verá más adelante.
+  </p>
+  <p>
+    Una objección que se podría hacer es que no todo espacio métrico es completo. 
+    A pesar de que ésto es cierto la buena noticia es que todo 
+    espacio métrico puede verse como un subconjunto denso de un espacio métrico completo. 
+    A este proceso se le llama completación de un espacio métrico.
   </p>
 
 </div>
-
-<div class="definicion-box">
-  <h2 class="number-title"> Definición </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico y  \(f:X\to X\) una función.
-  </p>
-  <p>
-    La función \(f\) se llama una contracción estricta si
-    existe un número positivo \( \alpha \), con \(\alpha < 1\), tal que
-    \[
-    d(f(x),f(y))\leq  \alpha d(x,y)
-    \]
-    para todos \(x,y\in X\).
-  </p>
-
-</div>
-
-
-<div class="teorema-box">
-  <h2 class="number-title"> Teorema </h2>
-  <h3>
-    Teorema del punto fijo de Banach
-  </h3>
-  <p>
-    Sea \((X,d)\) un espacio métrico completo y
-    \(f:X\to X\) una contracción estricta. Entonces
-    \(f\) tiene un único punto fijo.
-  </p>
-  <p>
-    Es más, para cualquier \(x_0\in X\) dado, la sucesión de iteradas
-    \((f^n(x_0))_{n=1}^\infty\) converge al punto fijo de \(f\).
-  </p>
-  <p>
-    Nota: por \(f^n(x_0)\) denotamos la \(n\)-ésima iterada de \(f\) en el punto \(x_0\), por ejemplo
-    \(f^2(x_0)=f(f(x_0)), f^3(x_0)=f(f(f(x_0)))\), etc.
-  </p>
-  <button class="respButton hvr-grow"> Demostración </button>
-              <div class="resp-box">
-  <p>
-    Primeramente vamos a probar que la sucesión de iteradas, \((f^n(x_0)_{n=1}^\infty)\)
-     es de Cauchy.  Para iniciar notamos que aplicando   la 
-     propiedad de contracción estricta \(n\)-veces nos lleva a 
-    \begin{equation}\label{Eqn:Aux1PtoFijo}
-    d(f^{n+p}(x_0),f^{n}(x_0))\leq \alpha^{n}d(f^p(x_0),x_0), 
-    \end{equation}
-    donde \(n,p\in \mathbb{N}\).
-  </p>
-  <p>
-    El siguiente paso es probar, por inducción, la siguiente desigualdad 
-
-    \begin{equation}\label{Eqn:Aux2PuntoFijo}  
-      d(f^p(x_0),x_0) \leq \left(\sum_{j=0}^{p-1}\alpha^j\right)d(f(x_0),x_0).
-    \end{equation}
-
-    El caso \(p=1\) es inmediato. 
-
-    Supongamos que  \eqref{Eqn:Aux2PuntoFijo} es válido para \(p\) y probemos  para 
-    \(p+1\).  Aplicando la desigualdad del triángulo para la primera desigualdad y la 
-    propiedad de contraccíon estrcita para la segunda desigualdad lleamos a: 
-    \begin{eqnarray*} 
-      d(f^{p+1}(x_0),x_0)  & \leq &  d(f^{p+1}(x_0),f(x_0))+ d(f(x_0),x_0)  \\
-      &\leq & \alpha d(f^p(x_0),x_0)+d(f(x_0),x_0)
-    \end{eqnarray*}
-    y añidiendo la hipótesis de inducción obtenemos 
-    \begin{eqnarray*} 
-    d(f^{p+1}(x_0),x_0) &\leq & \alpha \left[ \left( \sum_{j=0}^{p-1}\alpha^j\right) d(f(x_0),x_0) \right] + d(f(x_0),x_0) \\
-    &=& \left( \sum_{j=1}^p \alpha^j \right) d(f(x_0),x_0)+ d(f(x_0),x_0) \\
-    &= & \left( \sum_{j=0}^p\alpha^j \right)d(f(x_0),x_0).
-    \end{eqnarray*} 
-  </p>
-  <p>
-    Juntando \eqref{Eqn:Aux1PtoFijo}, \eqref{Eqn:Aux2PuntoFijo} obtenemos 
-    \begin{eqnarray*}  
-    d(f^{n+p}(x_0),f^n(x_0)) &\leq &  \alpha^n \left( \sum_{j=0}^{p-1}\alpha^j \right)d(f(x_0),x_0)    \\ 
-    &= & \left( \sum_{j=n}^{n+p-1} \alpha^j \right)d(f(x_0),x_0).
-    \end{eqnarray*}
-  </p>
-  <p>
-    Finalmente, para probar que \((f^n(x_0))_{n=1}^\infty\) es de Cauchy notamos que \(\sum_{j=n}^{n+p-1} \alpha^j \)
-    es parte del residuo de la serie geométrica \(\sum_{j=0}^\infty \alpha^j \), la cual es convergente al ser \(\alpha < 1\). Por lo tanto, 
-    dado \(\varepsilon > 0 \) existe una \(N\in \mathbb{N}\) tal que si \(n\geq N\) y \(p\geq 1\),
-    se tiene 
-    \[
-    \sum_{j=n}^{n+p-1} \alpha^j < \frac{\varepsilon}{d(f(x_0),x_0)+1}
-    \]
-    por lo que se tiene \(d(f^{n+p}(x_0), f^n(x_0)) < \varepsilon\).
-  </p>
-    <p>
-      Continuando con la prueba del Teorema del Punto Fijo, al ser \((X,d)\) completo existe un 
-      \(y\in X\) tal que \(\lim_{n\to \infty} f^n(x_0)=y\). Vamos a probar que \(f(y)=y\). 
-    </p>
-    <p>
-      Usando que \(f\) es continua obtenemos que 
-      \[
-      f(\lim_{n\to \infty} f^n(x_0))=\lim_{n\to \infty} f(f^n(x_0)).
-      \]
-      Pero \(f(f^{n}(x_0))=f^{n+1}(x_0)\) y la sucesión \((f^{n+1}(x_0))_{n=1}^\infty\) es una 
-      subsucesión de \((f^{n}(x_0))_{n=1}^\infty\) por lo que \(\lim_{n\to \infty}f^{n+1}(x_0)=y\). 
-      Por lo tanto se concluye que 
-      \[
-      f(y)=f\left(\lim_{n\to \infty}f^n(x_0) \right)=\lim_{n\to \infty} f^{n+1}(x_0)=y.
-      \]
-    </p>
-    <p>
-      Resta probar la unicidad. Supongamos que tenemos otro punto \(z\) con \(f(z)=z\). Aplicando 
-      la propiedad de contracción estricta tenemos 
-      \[
-      d(y,z)=d(f(y),f(z))\leq \alpha d(y,z).
-      \]
-      Si \(y\ne z\) entonces \(d(y,z)> 0\) y podemos cancelar la en la desigualdad anterior 
-      para llegar a \(1 \leq \alpha\), contradiciendo que \(\alpha < 1\).
-    </p>
-  </div>
-
-</div>
-
 
 
 
@@ -1127,11 +862,182 @@
 </div>
 
 
-<div class="quiz-box">
-  <h2> Quiz  </h2>
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Prueba que \(\mathbb{R}\) con la métrica
+    \(\rho(x,y)=|\arctan(x)-\arctan(y)|\) no es completo.
+  </p>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+
+  <p>
+    Sean \(X,Y\) dos espacios métricos completos.
+  </p>
+   <p>
+    Prueba que el espacio métrico producto \(X\times Y\) es completo
+    si y sólo si ambos \(X\) e \(Y\) son completos.
+  </p>
+
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
   <ol>
-      <li>
-        <p>
+  <li>
+    Prueba que \(\mathbb{R}^n\), con la métrica inducida por
+    \(\|\cdot\|_2\), \(\|\cdot\|_1\) ó \(\|\cdot\|_\infty\) es completo.
+
+  </li>
+  <li>
+    Más en general, prueba que para cualquier norma en \(\mathbb{R}^n\),
+    \(\mathbb{R}^n\), \(\| \cdot \|\)  es completo.
+  </li>
+</ol>
+</div>
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:SubespacioCerradoCompleto"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico completo y \(A \subset X\).
+    Considera el subespacio con la métrica inducida \((A,d_A)\).
+
+  </p>
+  <p>
+    Prueba que \((A,d_A)\) es completo si y sólo si
+    \(A\) es un subconjunto cerrado de \(X\).
+  </p>
+
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  
+  <p>
+    Sea \(X\ne \emptyset\) un conjunto arbitrario.
+  </p>
+  <ol>
+  <li>
+     Prueba que
+    \((\ell_\infty(X), \|\cdot \|_\infty)\) es un completo.
+  </li>
+  <li>
+    Más en general, si \((V,\|\cdot\|)\) es un espacio vectorial normado completo, entonces
+    \((\ell_\infty(X,V), \|\cdot \|_\infty)\) es un espacio vectorial normado completo.
+  </li>
+  </ol>
+  
+</div>
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+
+  <p>
+    Prueba que \((c_0, \|\cdot\|_\infty)\) es completo.
+  </p>
+  <p>
+    Sugerencia: ve a \(c_0\) como subconjunto de \(\ell_\infty\) y usa el ejercicio 
+    <a href="#Ejer:SubespacioCerradoCompleto">Ejercicio 8.21</a>.
+  </p>
+</div>
+
+
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico y \( A\subseteq X\) un
+    subconjunto totalmente acotado. Prueba que
+    simpre es posible encontrar una \(\varepsilon\)-red
+    cuyos elementos están todos en \(A\).
+  </p>
+
+</div>
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Considera a \(\mathbb{R}^n\) con la métrica usual.
+    </p>
+    <p>
+      Prueba que un subconjunto de \(\mathbb{R}^n\) es
+      totalmente acotado si y sólo si es acotado.
+    </p>
+
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:CompactoImplicaTA"> Ejercicio </h2>
+ <p>
+   Prueba que todo subconjunto compacto es totalmente acotado.
+ </p>
+
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+
+  <ol>
+    <li>
+      Prueba que todo subconjunto totalmente acotado es acotado.
+    </li>
+    <li>
+      En \((\ell_1, \|\cdot\|_1)\) considera la bola cerrada 
+      \[
+      \overline{B}_1(0)=\{x\in \ell_1| \|x\|_1\leq 1 \}
+      \]
+       Prueba
+      que \(\overline{B}_1(0)\) es acotado pero no totalmenete acotado.
+      
+    </li>
+  </ol>
+  <p>
+    Sugerencia: considera los vectores 
+    \(e_n\), \(n\in \mathbb{N}\), donde \(e_n\) es la sucesión que tiene todas las entradas
+  igual a cero, excepto la entrada \(n\) donde tiene un 1. Empieza probando que \(\|e_n-e_m\|_1=2\) si \(n\ne m\).
+  </p>
+  <p>
+      Por lo tanto los conjuntos totalmente acotados contienen
+      propiamente a los conjuntos acotados.
+  </p>
+</div>
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <ol>
+    <li>
+      Prueba que todo subconjunto de un subconjunto totalmente acotado
+      también es totalmente acotado.
+    </li>
+    <li>
+    Prueba que un subconjunto \(A\) es totalmente acotado si y
+    sólo si su cerradura, \(\overline{A}\), es totalmente acotado.
+   </li>
+   
+  </ol>
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+         <p>
           Sea \((X,d)\) un espacio métrico totalmente acotado. Prueba que
           \(X\) es separable.
         </p>
@@ -1139,15 +1045,24 @@
           Sugerencia: para \(n\in \mathbb{N}\) sea \(D_n\)
           una \(\frac{1}{n}\)-red para \(X\).
         </p>
-      
-      </li>
-      <li>
-        Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos. Sean \(A\subseteq X, B\subseteq Y\)
-        dos subconjuntos totalmente acotados. En el espacio producto \(X\times Y\)
-        considera el subconjunto  \(A\times B\). Prueba que \(A\times B\) es totalmente acotado.
-      </li>
-      
-  </ol>
+
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sean \((X,d_X), (Y,d_Y)\) dos espacios métricos. Sean \(A\subseteq X, B\subseteq Y\)
+    dos subconjuntos totalmente acotados. En el espacio producto \(X\times Y\)
+    considera el subconjunto  \(A\times B\). Prueba que \(A\times B\) es totalmente acotado.
+  </p>
+ </div>   
+
+
+
+
+<div class="quiz-box">
+  <h2> Quiz  </h2>
+ 
   
 </div>
 <!--<div class="teorema-box">
