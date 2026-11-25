@@ -20,7 +20,8 @@
             sen: "\\operatorname{sen}",
             seg: ["\\overrightarrow{#1}", 1],
             cer: "\\operatorname{cer}",
-            inte: "\\operatorname{int}"
+            inte: "\\operatorname{int}",
+            jac: ['\\dfrac{\\partial(#1)}{\\partial(#2)}', 2]
           },
           tags: "ams" /* this part is for numbered equations */
         }
@@ -204,51 +205,7 @@
 
 </div>
 
-<div class="ejercicio-box">
-  <h2 class="number-title" id="Ejer:PropiedadesImagenInversa"> Ejercicio </h2>
-  <p>
-    Ya que la continuidad se puede escribir en términos de imágines inversas
-    es útil tener varias propiedades sobre ésta.
-  </p>
-  <p>
-    Sean \(S,T\) dos conjuntos, \(f:S\to T\) una función y
-    subconjuntos \(A,A' \subseteq S, B,B'\subseteq T\). Prueba
-    las siguientes identidades de conjuntos
-  </p>
-  <ol>
-    <li>
-      \(A \subseteq f^{-1}(f(A))\) y la igualdad se da,
-      para todo subconjunto \(A\) si y sólo si
-      \(f\) es inyectiva.
-    </li>
-    <li>
-      \(f(f^{-1}(B)) \subseteq B\) y la igualdad se da,
-      para todo subconjunto \(B\) si y sólo si \(f\)
-      es suprayectiva.
-    </li>
-    <li>
-      \(f^{-1}(B\cap B')=f^{-1}(B)\cap f^{-1}(B')\).
-    </li>
-    <li>
-      \(f^{-1}(B\cup B')=f^{-1}(B)\cup f^{-1}(B')\).
-    </li>
-    <li>
-      \(f^{-1}(B\setminus B')=f^{-1}(B)\setminus f^{-1}(B')\).
-    </li>
-    <li>
-      \(f(A\cup A')=f(A)\cup f(A')\).
-    </li>
-    <li>
-      \(f(A\cap A') \subseteq f(A)\cap f(A')\). Además da
-      un ejemplo dónde la contención sea propia.
-    </li>
-    <li>
-      Si \(B'\subseteq B\) entonces \(f^{-1}(B')\subseteq f^{-1}(B)\).
-    </li>
-  </ol>
 
-
-</div>
 
 
 <div class="lema-box">
@@ -341,31 +298,6 @@
       condición 2 del lema.
     </p>
   </div>
-</div>
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico y \(f,g:X\to \mathbb{R}\) funciones
-    continuas en \(x_0\in X\). Prueba que las siguientes funciones (dadas por operaciones algebráticas)
-    son continuas en \(x_0\): 
-    <ol> 
-      <li>combinaciones lineales \(\alpha f +g\), donde \(\alpha \in \mathbb{R}\),</li> 
-    <li>la función producto \(fg\), </li> 
-    <li>si \(g(x_0 )\ne 0\), la función cociente \(f/g\).</li>
-    </ol>
-    
-     
-  </p>
-  <p>
-    Sugerencia: usa el <a href="#Lema:ContinuidadSucesiones">Lema 9.4</a>
-  </p>
-  <p>
-    Nota: se puede generalizar este ejercicio cambiando \(\mathbb{R}\)
-    por un espacio vectorial normado.
-  </p>
 </div>
 
 
@@ -606,26 +538,264 @@
 
 
 
+
+
+<div class="definicion-box">
+  <h2 class="number-title"> Definicion </h2>
+  <p>
+    Un homeomorfismo entre dos espacios métricos, \((X,d_X), (Y,d_Y)\),
+    es una función \(f: X\to Y\) que satisface:
+    <ul>
+      <li>
+        \(f\) es inyectiva.
+      </li>
+      <li>
+        \(f\) es suprayectiva.
+      </li>
+      <li>
+        Tanto \(f\) como su inversa, \(f^{-1}\), son funciones continuas.
+      </li>
+    </ul>
+
+  </p>
+  <p>
+    Si existe un homeomorfismo entre los espacios \(X\) y \(Y\) se dicen
+    que son homeomorfos.
+  </p>
+  <p>
+    Ejemplo
+  </p>
+  <ul>
+    <li>
+    Cualquier función \(f:(-1,1)\to \mathbb{R}\)
+    de la forma \(f(x)=\frac{x}{1-x^2}\), es un homeomorfismo entre \((-1,1)\) y \(\mathbb{R}\).
+    </li>
+    
+    <li>
+      Toda isometría \(f:(X,d_X)\to (Y,d_Y)\) suprayectiva es un homemomorfismo. 
+    </li>
+  </ul>
+</div>
+
+
+<div class="prop-box">
+  <h2 class="number-title"> Proposicón </h2>
+  <p>
+    Sea \((X,d_X)\) un espacio métrico compacto.
+  </p>
+  <p>
+      Supón que \(f: (X,d_X) \to (Y,d_Y)\) es una función continua, inyectiva y
+      suprayectiva. Entonces \(f\) es un homeomorfismo.
+  </p>
+  <button class="respButton hvr-grow"> Demostración </button>
+  <div class="resp-box">
+      <p>
+      Nuestras hipótesis incluyen continuidad y biyectividad de la función \(f\),
+      únicamente es necesario demostrar que \(f^{-1}\) también es continua. Por el
+      <a href="./S6.html#Lema:ContinuidadAbiertosCerrados">Lema</a> bastará demostrar
+      que si \(C\subseteq X\) es cerrado, entonces \(((f^{-1})^{-1}(C))=f(C)\) es
+      cerrado. Sea \(C \subseteq X\) un conjunto cerrado, como \(X\) es compacto
+      entonces \(C\) también es compacto. Dado que \(f\) es continua y \(C\) es
+      compacto \(f(C)\subseteq Y\) también es compacto. Para concluir demostraremos
+      que en un espacio métrico los subconjuntos compactos son cerrados.
+      </p>
+      <p>
+      Sea \(K \subseteq X\) compacto y \((x_n)_{n=1}^\infty\) una sucesión en \(K\) que
+      converja a un punto \(x \in X\). Por <a href="#Lema:CompactoImplicaCpS">Lema</a>
+      \((x_n)_{n=1}^\infty\) admite una subsucesión \((x_{n_k})_{k=1}^\infty\) que
+      converge a un punto \(y \in K\). Recordemos que si una sucesión es convergente
+      entonces toda subsucesión converge al mismo punto, por lo que \(x=y\in K\) y
+      \(K\) es cerrado.
+      </p>
+  </div>
+</div>
+
+
+ <div class="definicion-box">
+  <h2 class="number-title"> Definición </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico y  \(f:X\to X\) una función.
+  </p>
+  <p>
+    La función \(f\) se llama una contracción estricta si
+    existe un número positivo \( \alpha \), con \(\alpha < 1\), tal que
+    \[
+    d(f(x),f(y))\leq  \alpha d(x,y)
+    \]
+    para todos \(x,y\in X\).
+  </p>
+
+</div>
+
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <h3>
+    Teorema del punto fijo de Banach
+  </h3>
+  <p>
+    Sea \((X,d)\) un espacio métrico completo y
+    \(f:X\to X\) una contracción estricta. Entonces
+    \(f\) tiene un único punto fijo.
+  </p>
+  <p>
+    Es más, para cualquier \(x_0\in X\) dado, la sucesión de iteradas
+    \((f^n(x_0))_{n=1}^\infty\) converge al punto fijo de \(f\).
+  </p>
+  <p>
+    Nota: por \(f^n(x_0)\) denotamos la \(n\)-ésima iterada de \(f\) en el punto \(x_0\), por ejemplo
+    \(f^2(x_0)=f(f(x_0)), f^3(x_0)=f(f(f(x_0)))\), etc.
+  </p>
+  <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+  <p>
+    Primeramente vamos a probar que la sucesión de iteradas, \((f^n(x_0)_{n=1}^\infty)\)
+     es de Cauchy.  Para iniciar notamos que aplicando   la 
+     propiedad de contracción estricta \(n\)-veces nos lleva a 
+    \begin{equation}\label{Eqn:Aux1PtoFijo}
+    d(f^{n+p}(x_0),f^{n}(x_0))\leq \alpha^{n}d(f^p(x_0),x_0), 
+    \end{equation}
+    donde \(n,p\in \mathbb{N}\).
+  </p>
+  <p>
+    El siguiente paso es probar, por inducción, la siguiente desigualdad 
+
+    \begin{equation}\label{Eqn:Aux2PuntoFijo}  
+      d(f^p(x_0),x_0) \leq \left(\sum_{j=0}^{p-1}\alpha^j\right)d(f(x_0),x_0).
+    \end{equation}
+
+    El caso \(p=1\) es inmediato. 
+
+    Supongamos que  \eqref{Eqn:Aux2PuntoFijo} es válido para \(p\) y probemos  para 
+    \(p+1\).  Aplicando la desigualdad del triángulo para la primera desigualdad y la 
+    propiedad de contraccíon estrcita para la segunda desigualdad lleamos a: 
+    \begin{eqnarray*} 
+      d(f^{p+1}(x_0),x_0)  & \leq &  d(f^{p+1}(x_0),f(x_0))+ d(f(x_0),x_0)  \\
+      &\leq & \alpha d(f^p(x_0),x_0)+d(f(x_0),x_0)
+    \end{eqnarray*}
+    y añidiendo la hipótesis de inducción obtenemos 
+    \begin{eqnarray*} 
+    d(f^{p+1}(x_0),x_0) &\leq & \alpha \left[ \left( \sum_{j=0}^{p-1}\alpha^j\right) d(f(x_0),x_0) \right] + d(f(x_0),x_0) \\
+    &=& \left( \sum_{j=1}^p \alpha^j \right) d(f(x_0),x_0)+ d(f(x_0),x_0) \\
+    &= & \left( \sum_{j=0}^p\alpha^j \right)d(f(x_0),x_0).
+    \end{eqnarray*} 
+  </p>
+  <p>
+    Juntando \eqref{Eqn:Aux1PtoFijo}, \eqref{Eqn:Aux2PuntoFijo} obtenemos 
+    \begin{eqnarray*}  
+    d(f^{n+p}(x_0),f^n(x_0)) &\leq &  \alpha^n \left( \sum_{j=0}^{p-1}\alpha^j \right)d(f(x_0),x_0)    \\ 
+    &= & \left( \sum_{j=n}^{n+p-1} \alpha^j \right)d(f(x_0),x_0).
+    \end{eqnarray*}
+  </p>
+  <p>
+    Finalmente, para probar que \((f^n(x_0))_{n=1}^\infty\) es de Cauchy notamos que \(\sum_{j=n}^{n+p-1} \alpha^j \)
+    es parte del residuo de la serie geométrica \(\sum_{j=0}^\infty \alpha^j \), la cual es convergente al ser \(\alpha < 1\). Por lo tanto, 
+    dado \(\varepsilon > 0 \) existe una \(N\in \mathbb{N}\) tal que si \(n\geq N\) y \(p\geq 1\),
+    se tiene 
+    \[
+    \sum_{j=n}^{n+p-1} \alpha^j < \frac{\varepsilon}{d(f(x_0),x_0)+1}
+    \]
+    por lo que se tiene \(d(f^{n+p}(x_0), f^n(x_0)) < \varepsilon\).
+  </p>
+    <p>
+      Continuando con la prueba del Teorema del Punto Fijo, al ser \((X,d)\) completo existe un 
+      \(y\in X\) tal que \(\lim_{n\to \infty} f^n(x_0)=y\). Vamos a probar que \(f(y)=y\). 
+    </p>
+    <p>
+      Usando que \(f\) es continua obtenemos que 
+      \[
+      f(\lim_{n\to \infty} f^n(x_0))=\lim_{n\to \infty} f(f^n(x_0)).
+      \]
+      Pero \(f(f^{n}(x_0))=f^{n+1}(x_0)\) y la sucesión \((f^{n+1}(x_0))_{n=1}^\infty\) es una 
+      subsucesión de \((f^{n}(x_0))_{n=1}^\infty\) por lo que \(\lim_{n\to \infty}f^{n+1}(x_0)=y\). 
+      Por lo tanto se concluye que 
+      \[
+      f(y)=f\left(\lim_{n\to \infty}f^n(x_0) \right)=\lim_{n\to \infty} f^{n+1}(x_0)=y.
+      \]
+    </p>
+    <p>
+      Resta probar la unicidad. Supongamos que tenemos otro punto \(z\) con \(f(z)=z\). Aplicando 
+      la propiedad de contracción estricta tenemos 
+      \[
+      d(y,z)=d(f(y),f(z))\leq \alpha d(y,z).
+      \]
+      Si \(y\ne z\) entonces \(d(y,z)> 0\) y podemos cancelar la en la desigualdad anterior 
+      para llegar a \(1 \leq \alpha\), contradiciendo que \(\alpha < 1\).
+    </p>
+  </div>
+
+</div>
+
+
+
 <div class="ejercicio-box">
   <h2 class="number-title"> Ejercicio </h2>
   <p>
-    Sea \(f:[a,b]\to \mathbb{R}\) función continua. Entonces
-    la imagen de \(f\) es un intervalo de la forma \([c,d]\),
-    para algunos \(c,d\in \mathbb{R}\).
+    Sea \((X,d)\) un espacio métrico y \(f,g:X\to \mathbb{R}\) funciones
+    continuas en \(x_0\in X\). Prueba que las siguientes funciones (dadas por operaciones algebráticas)
+    son continuas en \(x_0\): 
+    <ol> 
+      <li>combinaciones lineales \(\alpha f +g\), donde \(\alpha \in \mathbb{R}\),</li> 
+    <li>la función producto \(fg\), </li> 
+    <li>si \(g(x_0 )\ne 0\), la función cociente \(f/g\).</li>
+    </ol>
+    
+     
+  </p>
+  <p>
+    Sugerencia: usa el <a href="#Lema:ContinuidadSucesiones">Lema 9.3</a>
+  </p>
+  <p>
+    Nota: se puede generalizar este ejercicio cambiando \(\mathbb{R}\)
+    por un espacio vectorial normado.
   </p>
 </div>
 
 
+
 <div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
+  <h2 class="number-title" id="Ejer:PropiedadesImagenInversa"> Ejercicio </h2>
   <p>
-    Sea \((X,d)\) un espacio métrico y fija un punto \(y\in X\). Define 
-    \(f:X\to \mathbb{R}\) por \(f(x)=d(x,y)\). Prueba que \(f\) es continua 
-    en todo \(X\).
+    Ya que la continuidad se puede escribir en términos de imágines inversas
+    es útil tener varias propiedades sobre ésta.
   </p>
   <p>
-    Sugerencia: <a href="./S4.html#Ejer:LaOtraDesigTri"> Ejercicio 4.17</a>
+    Sean \(S,T\) dos conjuntos, \(f:S\to T\) una función y
+    subconjuntos \(A,A' \subseteq S, B,B'\subseteq T\). Prueba
+    las siguientes identidades de conjuntos
   </p>
+  <ol>
+    <li>
+      \(A \subseteq f^{-1}(f(A))\) y la igualdad se da,
+      para todo subconjunto \(A\) si y sólo si
+      \(f\) es inyectiva.
+    </li>
+    <li>
+      \(f(f^{-1}(B)) \subseteq B\) y la igualdad se da,
+      para todo subconjunto \(B\) si y sólo si \(f\)
+      es suprayectiva.
+    </li>
+    <li>
+      \(f^{-1}(B\cap B')=f^{-1}(B)\cap f^{-1}(B')\).
+    </li>
+    <li>
+      \(f^{-1}(B\cup B')=f^{-1}(B)\cup f^{-1}(B')\).
+    </li>
+    <li>
+      \(f^{-1}(B\setminus B')=f^{-1}(B)\setminus f^{-1}(B')\).
+    </li>
+    <li>
+      \(f(A\cup A')=f(A)\cup f(A')\).
+    </li>
+    <li>
+      \(f(A\cap A') \subseteq f(A)\cap f(A')\). Además da
+      un ejemplo dónde la contención sea propia.
+    </li>
+    <li>
+      Si \(B'\subseteq B\) entonces \(f^{-1}(B')\subseteq f^{-1}(B)\).
+    </li>
+  </ol>
+
 
 </div>
 
@@ -641,6 +811,24 @@
     \(x,y\in K\) tal que \(\operatorname{diam}(K)=d(x,y)\).
   </p>
 </div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \((X,d)\) un espacio métrico y fija un punto \(y\in X\). Define 
+    \(f:X\to \mathbb{R}\) por \(f(x)=d(x,y)\). Prueba que \(f\) es continua 
+    en todo \(X\).
+  </p>
+  <p>
+    Sugerencia: <a href="./S4.html#Ejer:LaOtraDesigTri"> Ejercicio 4.18</a>
+  </p>
+
+</div>
+
+
+
+
 
 
 <div class="ejercicio-box">
@@ -821,7 +1009,7 @@
   </li>
   </ol>
   <p>
-    Sugerencia: usa el <a href="#Lema:ContinuidadAbiertosCerrados"> Lema 9.6</a>.
+    Sugerencia: usa el <a href="#Lema:ContinuidadAbiertosCerrados"> Lema 9.4</a>.
   </p>
 
   <button class="respButton hvr-grow"> Respuesta </button>
@@ -1138,77 +1326,6 @@
 </div>
 
 
-<div class="definicion-box">
-  <h2 class="number-title"> Definicion </h2>
-  <p>
-    Un homeomorfismo entre dos espacios métricos, \((X,d_X), (Y,d_Y)\),
-    es una función \(f: X\to Y\) que satisface:
-    <ul>
-      <li>
-        \(f\) es inyectiva.
-      </li>
-      <li>
-        \(f\) es suprayectiva.
-      </li>
-      <li>
-        Tanto \(f\) como su inversa, \(f^{-1}\), son funciones continuas.
-      </li>
-    </ul>
-
-  </p>
-  <p>
-    Si existe un homeomorfismo entre los espacios \(X\) y \(Y\) se dicen
-    que son homeomorfos.
-  </p>
-  <p>
-    Ejemplo
-  </p>
-  <ul>
-    <li>
-    Cualquier función \(f:(-1,1)\to \mathbb{R}\)
-    de la forma \(f(x)=\frac{x}{1-x^2}\), es un homeomorfismo entre \((-1,1)\) y \(\mathbb{R}\).
-    </li>
-    
-    <li>
-      Toda isometría \(f:(X,d_X)\to (Y,d_Y)\) suprayectiva es un homemomorfismo. 
-    </li>
-  </ul>
-</div>
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    Sea \((X,d_X)\) un espacio métrico compacto.
-  </p>
-  <p>
-      Supón que \(f: (X,d_X) \to (Y,d_Y)\) es una función continua, inyectiva y
-      suprayectiva. Prueba que \(f\) es un homeomorfismo.
-  </p>
-  <button class="respButton hvr-grow"> Demostración </button>
-  <div class="resp-box">
-      <p>
-      Nuestras hipótesis incluyen continuidad y biyectividad de la función \(f\),
-      únicamente es necesario demostrar que \(f^{-1}\) también es continua. Por el
-      <a href="./S6.html#Lema:ContinuidadAbiertosCerrados">Lema</a> bastará demostrar
-      que si \(C\subseteq X\) es cerrado, entonces \(((f^{-1})^{-1}(C))=f(C)\) es
-      cerrado. Sea \(C \subseteq X\) un conjunto cerrado, como \(X\) es compacto
-      entonces \(C\) también es compacto. Dado que \(f\) es continua y \(C\) es
-      compacto \(f(C)\subseteq Y\) también es compacto. Para concluir demostraremos
-      que en un espacio métrico los subconjuntos compactos son cerrados.
-      </p>
-      <p>
-      Sea \(K \subseteq X\) compacto y \((x_n)_{n=1}^\infty\) una sucesión en \(K\) que
-      converja a un punto \(x \in X\). Por <a href="#Lema:CompactoImplicaCpS">Lema</a>
-      \((x_n)_{n=1}^\infty\) admite una subsucesión \((x_{n_k})_{k=1}^\infty\) que
-      converge a un punto \(y \in K\). Recordemos que si una sucesión es convergente
-      entonces toda subsucesión converge al mismo punto, por lo que \(x=y\in K\) y
-      \(K\) es cerrado.
-      </p>
-  </div>
-</div>
-
-
 
 
 <div class="ejercicio-box">
@@ -1324,188 +1441,83 @@
           concluimos que el conjunto es cerrado.
       </div>
     </div>
-    <div class="quiz-box">
-      <h2 id="Quiz:Sec9-1"> Quiz </h2>
-      <ol>
-        <li>
+
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      
           <p>
-          (3 pts) Considera el espacio  \((\ell_2,\|\cdot\|_2)\). Prueba que
+          Considera el espacio  \((\ell_2,\|\cdot\|_2)\). Prueba que
           el conjunto
           \[
           A=\{x\in \ell_2:  \sum_{n=1}^{\infty} \frac{x(n)}{n} >0\}
           \]
           es abierto.
         </p>
-        </li>
-        <li>
+    </div>
+
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
           <p>
-          (2 pts)  Considera el espacio \((C([a,b]), \|\cdot\|_1)\)
-           (<a href="./S3.html#Quiz:Sec3">ver quiz de la sección 3</a>).
-          Fija una función \(h_0\in C([a,b])\).
+          Considera el espacio \((C([a,b]), \|\cdot\|_1)\). Fija una función \(h_0\in C([a,b])\).
           Define la función \(L:C([a,b])\to \mathbb{R}\) por
           \[
           L(f)=\int_a^b f(t)h_0(t)dt.
           \]
           Prueba que \(L\) es Lipschitz continua.
         </p>
-        </li>
-      </ol>
+
     </div>
 
-    <div class="quiz-box">
-      <h2 id="Quiz:Sec9-2"> Quiz </h2>
-      <ol>
-        <li>  
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      
         <p>
-          (3 pts) Sean \((X,d_X)\), \((Y,d_Y)\)  espacios métricos con \(X\) compacto y
+         Sean \((X,d_X)\), \((Y,d_Y)\)  espacios métricos con \(X\) compacto y
           sea \(f:X\to Y\) una función continua. Prueba que \(f\) es cerrada.
         </p>
         <p>
           Nota: una función se llama cerrada si manda cerrados en cerrados. Es
           decir, si \(F \subseteq X\) es cerrado entonces \(f(F)\subseteq Y\) es cerrado.
         </p>
-        </li>
-      </ol>
-
+      
 
     </div>
 
 
-    <div class="definicion-box">
-  <h2 class="number-title"> Definición </h2>
-  <p>
-    Sea \((X,d)\) un espacio métrico y  \(f:X\to X\) una función.
-  </p>
-  <p>
-    La función \(f\) se llama una contracción estricta si
-    existe un número positivo \( \alpha \), con \(\alpha < 1\), tal que
-    \[
-    d(f(x),f(y))\leq  \alpha d(x,y)
-    \]
-    para todos \(x,y\in X\).
-  </p>
-
-</div>
+   
 
 
-<div class="teorema-box">
-  <h2 class="number-title"> Teorema </h2>
-  <h3>
-    Teorema del punto fijo de Banach
-  </h3>
-  <p>
-    Sea \((X,d)\) un espacio métrico completo y
-    \(f:X\to X\) una contracción estricta. Entonces
-    \(f\) tiene un único punto fijo.
-  </p>
-  <p>
-    Es más, para cualquier \(x_0\in X\) dado, la sucesión de iteradas
-    \((f^n(x_0))_{n=1}^\infty\) converge al punto fijo de \(f\).
-  </p>
-  <p>
-    Nota: por \(f^n(x_0)\) denotamos la \(n\)-ésima iterada de \(f\) en el punto \(x_0\), por ejemplo
-    \(f^2(x_0)=f(f(x_0)), f^3(x_0)=f(f(f(x_0)))\), etc.
-  </p>
-  <button class="respButton hvr-grow"> Demostración </button>
-              <div class="resp-box">
-  <p>
-    Primeramente vamos a probar que la sucesión de iteradas, \((f^n(x_0)_{n=1}^\infty)\)
-     es de Cauchy.  Para iniciar notamos que aplicando   la 
-     propiedad de contracción estricta \(n\)-veces nos lleva a 
-    \begin{equation}\label{Eqn:Aux1PtoFijo}
-    d(f^{n+p}(x_0),f^{n}(x_0))\leq \alpha^{n}d(f^p(x_0),x_0), 
-    \end{equation}
-    donde \(n,p\in \mathbb{N}\).
-  </p>
-  <p>
-    El siguiente paso es probar, por inducción, la siguiente desigualdad 
-
-    \begin{equation}\label{Eqn:Aux2PuntoFijo}  
-      d(f^p(x_0),x_0) \leq \left(\sum_{j=0}^{p-1}\alpha^j\right)d(f(x_0),x_0).
-    \end{equation}
-
-    El caso \(p=1\) es inmediato. 
-
-    Supongamos que  \eqref{Eqn:Aux2PuntoFijo} es válido para \(p\) y probemos  para 
-    \(p+1\).  Aplicando la desigualdad del triángulo para la primera desigualdad y la 
-    propiedad de contraccíon estrcita para la segunda desigualdad lleamos a: 
-    \begin{eqnarray*} 
-      d(f^{p+1}(x_0),x_0)  & \leq &  d(f^{p+1}(x_0),f(x_0))+ d(f(x_0),x_0)  \\
-      &\leq & \alpha d(f^p(x_0),x_0)+d(f(x_0),x_0)
-    \end{eqnarray*}
-    y añidiendo la hipótesis de inducción obtenemos 
-    \begin{eqnarray*} 
-    d(f^{p+1}(x_0),x_0) &\leq & \alpha \left[ \left( \sum_{j=0}^{p-1}\alpha^j\right) d(f(x_0),x_0) \right] + d(f(x_0),x_0) \\
-    &=& \left( \sum_{j=1}^p \alpha^j \right) d(f(x_0),x_0)+ d(f(x_0),x_0) \\
-    &= & \left( \sum_{j=0}^p\alpha^j \right)d(f(x_0),x_0).
-    \end{eqnarray*} 
-  </p>
-  <p>
-    Juntando \eqref{Eqn:Aux1PtoFijo}, \eqref{Eqn:Aux2PuntoFijo} obtenemos 
-    \begin{eqnarray*}  
-    d(f^{n+p}(x_0),f^n(x_0)) &\leq &  \alpha^n \left( \sum_{j=0}^{p-1}\alpha^j \right)d(f(x_0),x_0)    \\ 
-    &= & \left( \sum_{j=n}^{n+p-1} \alpha^j \right)d(f(x_0),x_0).
-    \end{eqnarray*}
-  </p>
-  <p>
-    Finalmente, para probar que \((f^n(x_0))_{n=1}^\infty\) es de Cauchy notamos que \(\sum_{j=n}^{n+p-1} \alpha^j \)
-    es parte del residuo de la serie geométrica \(\sum_{j=0}^\infty \alpha^j \), la cual es convergente al ser \(\alpha < 1\). Por lo tanto, 
-    dado \(\varepsilon > 0 \) existe una \(N\in \mathbb{N}\) tal que si \(n\geq N\) y \(p\geq 1\),
-    se tiene 
-    \[
-    \sum_{j=n}^{n+p-1} \alpha^j < \frac{\varepsilon}{d(f(x_0),x_0)+1}
-    \]
-    por lo que se tiene \(d(f^{n+p}(x_0), f^n(x_0)) < \varepsilon\).
-  </p>
-    <p>
-      Continuando con la prueba del Teorema del Punto Fijo, al ser \((X,d)\) completo existe un 
-      \(y\in X\) tal que \(\lim_{n\to \infty} f^n(x_0)=y\). Vamos a probar que \(f(y)=y\). 
-    </p>
-    <p>
-      Usando que \(f\) es continua obtenemos que 
-      \[
-      f(\lim_{n\to \infty} f^n(x_0))=\lim_{n\to \infty} f(f^n(x_0)).
-      \]
-      Pero \(f(f^{n}(x_0))=f^{n+1}(x_0)\) y la sucesión \((f^{n+1}(x_0))_{n=1}^\infty\) es una 
-      subsucesión de \((f^{n}(x_0))_{n=1}^\infty\) por lo que \(\lim_{n\to \infty}f^{n+1}(x_0)=y\). 
-      Por lo tanto se concluye que 
-      \[
-      f(y)=f\left(\lim_{n\to \infty}f^n(x_0) \right)=\lim_{n\to \infty} f^{n+1}(x_0)=y.
-      \]
-    </p>
-    <p>
-      Resta probar la unicidad. Supongamos que tenemos otro punto \(z\) con \(f(z)=z\). Aplicando 
-      la propiedad de contracción estricta tenemos 
-      \[
-      d(y,z)=d(f(y),f(z))\leq \alpha d(y,z).
-      \]
-      Si \(y\ne z\) entonces \(d(y,z)> 0\) y podemos cancelar la en la desigualdad anterior 
-      para llegar a \(1 \leq \alpha\), contradiciendo que \(\alpha < 1\).
-    </p>
-  </div>
-
-</div>
-
-
-
-
-    <div class="quiz-box">
-      <h2 id="Quiz:Sec9-3"> Quiz </h2>
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      Sean \((X,d_X), (Y,d_y)\) espacios métricos. Para los siguientes enunciados,
+      si son ciertos da una demostración y si no, da un contraejemplo.
         <ol>
 
       <li>
-        Prueba o da un contraejemplo: si \((X,d_X), (Y,d_Y)\) son espacios métricos 
-        y \(A\subseteq X\) es totalmente acotado y \(f:X\to Y\) es continua entonces 
+       Si \(A\subseteq X\) es totalmente acotado y \(f:X\to Y\) es continua entonces 
         \(f(A)\) es totalmente acotado.
       </li>    
       <li>
-        Prueba o da un contraejemplo: si \((X,d_X), (Y,d_Y)\) son espacios métricos 
-        con \(X\) completo y \(f:X\to Y\) es una función continua entonces \(f(X)\) es completo. 
+        Si  \(X\) completo y \(f:X\to Y\) es una función continua entonces \(f(X)\) es completo. 
        </li>
     </ol>
     </div>
     
 
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \(f:[a,b]\to \mathbb{R}\) función continua. Entonces
+    la imagen de \(f\) es un intervalo de la forma \([c,d]\),
+    para algunos \(c,d\in \mathbb{R}\).
+  </p>
+</div>
 
 
     </div>
